@@ -1,0 +1,12 @@
+buildscript {
+    apply from: 'deps.gradle'
+}
+
+task print {
+    doLast {
+        println "vers:"
+        vers.each { k, v -> println "\t$k:\t\t$v" }
+        println "deps:"
+        deps.each { k, v -> println "\t$k:\t\t$v" }
+    }
+}
