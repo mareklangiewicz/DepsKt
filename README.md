@@ -1,4 +1,4 @@
-#deps
+# deps.gradle
 
 This repo allows to easily share current versions of well known libraries for Kotlin/Java/Android between projects.
 
