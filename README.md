@@ -5,12 +5,14 @@ This repo allows to easily share current versions of well known libraries for Ko
 Usage:
 - clone this repo (and then pull changes from time to time)
 - make a hard link to `deps.gradle` file in your repo
-    - `ln ~/code/deps/deps.gradle ~/code/yourrepo/`
-    - this way you will always commit copy of `deps.gradle` when it changes
+    - `ln ~/code/deps.gradle/deps.gradle ~/code/yourrepo/`
+    - thanks to hard link you will always commit copy of `deps.gradle` when you pull deps.gradle repo changes
+    - you can check if both `deps.gradle` files point to the same inode using `find`:
+        - `find ~/code -samefile ~/code/deps.gradle/deps.gradle`
 - use `deps.gradle` in your build files to get current versions of common libraries
     - it not only contains versions but all groups and names too, so it can be easily used in other gradle build files
     - to be able to use it everywhere: add `apply from: 'deps.gradle'` in `buildscript` of your main `build.gradle` file
-    - add your project `dependencies` this way: `testImplementation deps.junit`
+    - add your project `dependencies` with syntax like this: `testImplementation deps.junit`
     
     
 Example:
