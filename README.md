@@ -9,6 +9,8 @@ Usage:
     - thanks to hard link you will always commit copy of `deps.gradle` when you pull deps.gradle repo changes
     - you can check if both `deps.gradle` files point to the same inode using `find`:
         - `find ~/code -samefile ~/code/deps.gradle/deps.gradle`
+    - if you are using Intellij Idea or Android Studio, then you should disable "safe write" option in system settings
+        - the "safe write" option destroys hardlinks on every save operation
 - use `deps.gradle` in your build files to get current versions of common libraries
     - it not only contains versions but all groups and names too, so it can be easily used in other gradle build files
     - to be able to use it everywhere: add `apply from: 'deps.gradle'` in `buildscript` of your main `build.gradle` file
