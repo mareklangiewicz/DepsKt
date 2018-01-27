@@ -31,6 +31,7 @@ ext.deps = [
         kotlinStdlib           : dep('org.jetbrains.kotlin', 'kotlin-stdlib-jre7', vers.kotlin),
         androidSupportAppcompat: dep('com.android.support', 'appcompat-v7', vers.androidSupport),
         javaWebsocket          : dep('org.java-websocket', 'Java-WebSocket', vers.javaWebsocket),
+        rxjava                 : dep('io.reactivex.rxjava2', 'rxjava', vers.rxjava),
         rxbindingKotlin        : dep('com.jakewharton.rxbinding2', 'rxbinding-kotlin', vers.rxbinding),
         rxrelay                : dep('com.jakewharton.rxrelay2', 'rxrelay', vers.rxrelay),
         rxlifecycleComponents  : dep('com.trello.rxlifecycle2', 'rxlifecycle-components', vers.rxlifecycle),
