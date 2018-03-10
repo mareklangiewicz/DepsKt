@@ -1,34 +1,26 @@
-# deps.gradle
+# deps.kt
 
 This repo allows to easily share current versions of well known libraries for Kotlin/Java/Android between projects.
 
 Usage:
 - clone this repo (and then pull changes from time to time)
-- make a hard link to `deps.gradle` file in your repo
-    - `ln ~/code/deps.gradle/deps.gradle ~/code/yourrepo/`
-    - thanks to hard link you will always commit copy of `deps.gradle` when you pull deps.gradle repo changes
-    - you can check if both `deps.gradle` files point to the same inode using `find`:
-        - `find ~/code -samefile ~/code/deps.gradle/deps.gradle`
+- make a hard link to `deps.kt` file in your repo
+    - `ln ~/code/deps.kt/buildSrc/src/main/java/deps.kt ~/code/yourrepo/buildSrc/src/main/java/deps.kt`
+    - thanks to hard link you will always commit copy of `deps.kt` when you pull deps.kt repo changes
+    - you can check if both `deps.kt` files point to the same inode using `find`:
+        - `find ~/code -samefile ~/code/deps.kt/buildSrc/src/main/java/deps.kt`
     - if you are using Intellij Idea or Android Studio, then you should disable "safe write" option in system settings
         - the "safe write" option destroys hardlinks on every save operation
-- use `deps.gradle` in your build files to get current versions of common libraries
-    - it not only contains versions but all groups and names too, so it can be easily used in other gradle build files
-    - to be able to use it everywhere: add `apply from: 'deps.gradle'` in `buildscript` of your main `build.gradle` file
-    - add your project `dependencies` with syntax like this: `testImplementation deps.junit`
+- use `deps.kt` in your build files to get current versions of common libraries
+    - it not only contains versions but all groups and names too, so it can be easily used in other build files
+    - add your project `dependencies` with syntax like this: `testImplementation(deps.junit)`
     
     
-Example:
+See the `kotlinsample` directory for kotlin example project
 
-Main `build.gradle` file:
-```groovy
-buildscript {
-    apply from: 'deps.gradle'
-    //...
-}
 
-```
+Gradle(groovy) example:
 
-Subproject `build.gradle` file:
 ```groovy
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
