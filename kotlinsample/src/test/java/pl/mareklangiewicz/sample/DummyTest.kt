@@ -1,4 +1,4 @@
-package pl.mareklangiewicz.uspek
+package pl.mareklangiewicz.sample
 
 import org.junit.Test
 
