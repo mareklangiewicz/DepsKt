@@ -9,9 +9,9 @@ object Vers {
     val kotlinxCoroutines = "0.22"
     val androidGradlePlugin = "3.2.0-alpha02"
     val androidMavenGradlePlugin = "2.0"
-    val androidCompileSdk = "27"
-    val androidMinSdk = "23"
-    val androidTargetSdk = "27"
+    val androidCompileSdk = 27
+    val androidMinSdk = 23
+    val androidTargetSdk = 27
     val androidBuildTools = "27.0.3"
     val androidSupport = "27.0.2"
     val androidSupportConstraint = "1.0.2"
