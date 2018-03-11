@@ -9,7 +9,7 @@ buildscript {
     }
 
     dependencies {
-        classpath(deps.kotlinGradlePlugin)
+        classpath(Deps.kotlinGradlePlugin)
     }
 }
 
@@ -24,9 +24,9 @@ allprojects {
 task("printVersAndDeps") {
     doLast {
         println("vers:")
-        vers::class.memberProperties.forEach { it.print() }
+        Vers::class.memberProperties.forEach { it.print() }
         println("deps:")
-        deps::class.memberProperties.forEach { it.print() }
+        Deps::class.memberProperties.forEach { it.print() }
     }
 }
 

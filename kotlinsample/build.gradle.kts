@@ -4,11 +4,11 @@ plugins {
 }
 
 application {
-    mainClassName = "pl.mareklangiewicz.uspek.MainKt"
+    mainClassName = "pl.mareklangiewicz.sample.MainKt"
 }
 
 dependencies {
-    implementation(deps.kotlinStdlib)
-    testImplementation(deps.junit)
+    implementation(Deps.kotlinStdlib)
+    testImplementation(Deps.junit)
 }
 
