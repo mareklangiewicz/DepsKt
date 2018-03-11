@@ -5,7 +5,10 @@
  */
 
 object Vers {
-    val kotlin = "1.2.21"
+    val kotlinMajor = 1
+    val kotlinMinor = 2
+    val kotlinPatch = 30
+    val kotlin = "$kotlinMajor.$kotlinMinor.$kotlinPatch"
     val kotlinxCoroutines = "0.22"
     val androidGradlePlugin = "3.2.0-alpha02"
     val androidMavenGradlePlugin = "2.0"
