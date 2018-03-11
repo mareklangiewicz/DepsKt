@@ -21,13 +21,13 @@ allprojects {
     }
 }
 
-task("printVersAndDeps") {
+task("logVersAndDeps") {
     doLast {
-        println("vers:")
-        Vers::class.memberProperties.forEach { it.print() }
-        println("deps:")
-        Deps::class.memberProperties.forEach { it.print() }
+        println("vers:"); Vers::class.memberProperties.forEach(::log)
+        println("deps:"); Deps::class.memberProperties.forEach(::log)
     }
 }
 
-inline fun <reified T> KProperty1<T, *>.print() = println("\t$name: ${getter.call(T::class.objectInstance)}")
+inline fun <reified T> log(property: KProperty1<T, *>) = println(
+        "\t${property.name}: ${property.getter.call(T::class.objectInstance)}"
+)
