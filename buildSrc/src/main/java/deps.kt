@@ -19,6 +19,8 @@ object Vers {
     val androidBuildTools = "27.0.3"
     val androidSupport = "27.0.2"
     val androidSupportConstraint = "1.0.2"
+    val androidArchLifecycle = "1.1.0"
+    val androidArchPersistenceRoom = "1.0.0"
     val androidSupportTest = "1.0.1"
     val androidEspresso = "3.0.1"
     val androidCommons = "0.0.21"
@@ -54,6 +56,7 @@ object Deps {
     val androidMavenGradlePlugin = dep("com.github.dcendents", "android-maven-gradle-plugin", Vers.androidMavenGradlePlugin)
     val kotlinStdlib = dep("org.jetbrains.kotlin", "kotlin-stdlib-jre7", Vers.kotlin)
     val kotlinxCoroutinesCore = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-core", Vers.kotlinxCoroutines)
+    val kotlinxCoroutinesAndroid = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-android", Vers.kotlinxCoroutines)
     val androidSupportV4 = dep("com.android.support", "support-v4", Vers.androidSupport)
     val androidSupportV13 = dep("com.android.support", "support-v13", Vers.androidSupport)
     val androidSupportAppcompat = dep("com.android.support", "appcompat-v7", Vers.androidSupport)
@@ -65,6 +68,12 @@ object Deps {
     val androidSupportCustomtabs = dep("com.android.support", "customtabs", Vers.androidSupport)
     val androidSupportPercent = dep("com.android.support", "percent", Vers.androidSupport)
     val androidSupportConstraint = dep("com.android.support.constraint", "constraint-layout", Vers.androidSupportConstraint)
+    val androidArchLifecycleExtensions = dep("android.arch.lifecycle", "extensions", Vers.androidArchLifecycle)
+    val androidArchLifecycleViewModel = dep("android.arch.lifecycle", "viewmodel", Vers.androidArchLifecycle)
+    val androidArchLifecycleLiveData = dep("android.arch.lifecycle", "livedata", Vers.androidArchLifecycle)
+    val androidArchLifecycleCompiler = dep("android.arch.lifecycle", "compiler", Vers.androidArchLifecycle)
+    val androidArchPersistenceRoomRuntime = dep("android.arch.persistence.room", "runtime", Vers.androidArchPersistenceRoom)
+    val androidArchPersistenceRoomCompiler = dep("android.arch.persistence.room", "compiler", Vers.androidArchPersistenceRoom)
     val androidEspresso = dep("com.android.support.test.espresso", "espresso-core", Vers.androidEspresso)
     val rxjava = dep("io.reactivex.rxjava2", "rxjava", Vers.rxjava)
     val rxkotlin = dep("io.reactivex.rxjava2", "rxkotlin", Vers.rxkotlin)
