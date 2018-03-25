@@ -8,41 +8,42 @@
 object Vers {
     val kotlinMajor = 1
     val kotlinMinor = 2
-    val kotlinPatch = 30
-    val kotlin = "$kotlinMajor.$kotlinMinor.$kotlinPatch"
-    val kotlinxCoroutines = "0.22"
-    val androidGradlePlugin = "3.2.0-alpha02"
-    val androidMavenGradlePlugin = "2.0"
-    val androidCompileSdk = 27
+    val kotlinPatch = 31
+    val kotlin = "$kotlinMajor.$kotlinMinor.$kotlinPatch" // https://github.com/JetBrains/kotlin/releases
+    val kotlinxCoroutines = "0.22.5" // https://github.com/Kotlin/kotlinx.coroutines/releases
+    val androidGradlePlugin = "3.2.0-alpha02" // https://google.github.io/android-gradle-dsl/
+    val androidMavenGradlePlugin = "2.0" // https://github.com/dcendents/android-maven-gradle-plugin/releases
+    val androidCompileSdk = 27 // https://developer.android.com/about/dashboards/index.html
     val androidMinSdk = 23
     val androidTargetSdk = 27
-    val androidBuildTools = "27.0.3"
-    val androidSupport = "27.0.2"
-    val androidSupportConstraint = "1.0.2"
-    val androidArchLifecycle = "1.1.0"
+    @Deprecated("Optional with android gradle plugin 3.0.0 or higher")
+    val androidBuildTools = "27.0.3" // https://developer.android.com/studio/releases/build-tools.html
+    val androidSupport = "27.1.0" // https://developer.android.com/topic/libraries/support-library/revisions.html
+    val androidSupportConstraint = "1.0.2" // https://developer.android.com/training/constraint-layout
+    val androidArchLifecycle = "1.1.1" // https://developer.android.com/topic/libraries/architecture/adding-components.html
     val androidArchPersistenceRoom = "1.0.0"
-    val androidSupportTest = "1.0.1"
+    val androidSupportTest = "1.0.1" // https://developer.android.com/topic/libraries/testing-support-library/release-notes.html
     val androidEspresso = "3.0.1"
-    val androidCommons = "0.0.21"
-    val rxjava = "2.1.1"
-    val rxkotlin = "2.1.0"
-    val rxbinding = "2.0.0"
-    val rxrelay = "2.0.0"
-    val rxandroid = "2.0.1"
-    val rxlifecycle = "2.2.1"
-    val retrofit = "2.3.0"
-    val okhttp = "3.9.1"
-    val javaWebsocket = "1.3.4"
-    val playServices = "11.8.0"
-    val picasso = "2.5.2"
-    val materialDialogs = "0.9.6.0"
-    val leakcanary = "1.5.4"
-    val paperwork = "1.2.7"
-    val mockitoKotlin = "2.0.0-alpha02"
-    val mockitoAndroid = "2.10.0"
-    val junit = "4.12"
-    val googleTruth = "0.28"
+    val androidCommons = "0.0.23" // https://github.com/elpassion/android-commons/releases
+    val rxjava = "2.1.12" // https://github.com/ReactiveX/RxJava/releases
+    val rxkotlin = "2.2.0" // https://github.com/ReactiveX/RxKotlin/releases
+    val rxbinding = "2.1.1" // https://github.com/JakeWharton/RxBinding/releases
+    val rxrelay = "2.0.0" // https://github.com/JakeWharton/RxRelay/releases
+    val rxandroid = "2.0.2" // https://github.com/ReactiveX/RxAndroid/releases
+    val rxlifecycle = "2.2.1" // https://github.com/trello/RxLifecycle/releases
+    val retrofit = "2.3.0" // https://github.com/square/retrofit/releases
+    val okhttp = "3.9.1" // https://github.com/square/okhttp/releases
+    val javaWebsocket = "1.3.8" // https://mvnrepository.com/artifact/org.java-websocket/Java-WebSocket
+    val playServices = "12.0.0" // https://developers.google.com/android/guides/releases
+    val picasso = "2.5.2" // https://github.com/square/picasso/releases
+    val materialDialogs = "0.9.6.0" // https://github.com/afollestad/material-dialogs/releases
+    val leakcanary = "1.5.4" // https://github.com/square/leakcanary/releases
+    val paperwork = "1.2.7" // https://github.com/zsoltk/paperwork/releases
+    val mockitoKotlin = "2.0.0-alpha03" // https://github.com/nhaarman/mockito-kotlin/releases
+    val junit = "4.12" // https://github.com/junit-team/junit4/releases
+    val googleTruth = "0.39" // https://github.com/google/truth/releases
     val androidTestRunnerClass = "android.support.test.runner.AndroidJUnitRunner"
+    // https://developer.android.com/reference/android/support/test/runner/AndroidJUnitRunner.html
 }
 
 /**
@@ -75,6 +76,14 @@ object Deps {
     val androidArchPersistenceRoomRuntime = dep("android.arch.persistence.room", "runtime", Vers.androidArchPersistenceRoom)
     val androidArchPersistenceRoomCompiler = dep("android.arch.persistence.room", "compiler", Vers.androidArchPersistenceRoom)
     val androidEspresso = dep("com.android.support.test.espresso", "espresso-core", Vers.androidEspresso)
+    val androidCommonsEspresso = dep("com.github.elpassion.android-commons", "espresso", Vers.androidCommons)
+    val androidCommonsRxJavaTest = dep("com.github.elpassion.android-commons", "rxjava-test", Vers.androidCommons)
+    val androidCommonsSharedPrefs = dep("com.github.elpassion.android-commons", "shared-preferences", Vers.androidCommons)
+    val androidCommonsSharedPrefsMoshi = dep("com.github.elpassion.android-commons", "shared-preferences-moshi-converter-adapter", Vers.androidCommons)
+    val androidCommonsSharedPrefsGson = dep("com.github.elpassion.android-commons", "shared-preferences-gson-converter-adapter", Vers.androidCommons)
+    val androidCommonsView = dep("com.github.elpassion.android-commons", "view", Vers.androidCommons)
+    val androidCommonsPager = dep("com.github.elpassion.android-commons", "pager", Vers.androidCommons)
+    val androidCommonsRecycler = dep("com.github.elpassion.android-commons", "recycler", Vers.androidCommons)
     val rxjava = dep("io.reactivex.rxjava2", "rxjava", Vers.rxjava)
     val rxkotlin = dep("io.reactivex.rxjava2", "rxkotlin", Vers.rxkotlin)
     val rxrelay = dep("com.jakewharton.rxrelay2", "rxrelay", Vers.rxrelay)
