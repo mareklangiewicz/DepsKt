@@ -8,24 +8,24 @@
 object Vers {
     val kotlinMajor = 1
     val kotlinMinor = 2
-    val kotlinPatch = 31
+    val kotlinPatch = 50
     val kotlin = "$kotlinMajor.$kotlinMinor.$kotlinPatch" // https://github.com/JetBrains/kotlin/releases
     val kotlinxCoroutines = "0.22.5" // https://github.com/Kotlin/kotlinx.coroutines/releases
-    val androidGradlePlugin = "3.2.0-alpha02" // https://google.github.io/android-gradle-dsl/
+    val androidGradlePlugin = "3.2.0-alpha18" // https://google.github.io/android-gradle-dsl/
     val androidMavenGradlePlugin = "2.0" // https://github.com/dcendents/android-maven-gradle-plugin/releases
     val androidCompileSdk = 27 // https://developer.android.com/about/dashboards/index.html
     val androidMinSdk = 23
     val androidTargetSdk = 27
     @Deprecated("Optional with android gradle plugin 3.0.0 or higher")
     val androidBuildTools = "27.0.3" // https://developer.android.com/studio/releases/build-tools.html
-    val androidSupport = "27.1.0" // https://developer.android.com/topic/libraries/support-library/revisions.html
+    val androidSupport = "27.1.1" // https://developer.android.com/topic/libraries/support-library/revisions.html
     val androidSupportConstraint = "1.0.2" // https://developer.android.com/training/constraint-layout
     val androidArchLifecycle = "1.1.1" // https://developer.android.com/topic/libraries/architecture/adding-components.html
     val androidArchPersistenceRoom = "1.0.0"
     val androidSupportTest = "1.0.1" // https://developer.android.com/topic/libraries/testing-support-library/release-notes.html
     val androidEspresso = "3.0.1"
     val androidCommons = "0.0.23" // https://github.com/elpassion/android-commons/releases
-    val rxjava = "2.1.12" // https://github.com/ReactiveX/RxJava/releases
+    val rxjava = "2.1.14" // https://github.com/ReactiveX/RxJava/releases
     val rxkotlin = "2.2.0" // https://github.com/ReactiveX/RxKotlin/releases
     val rxbinding = "2.1.1" // https://github.com/JakeWharton/RxBinding/releases
     val rxrelay = "2.0.0" // https://github.com/JakeWharton/RxRelay/releases
@@ -34,7 +34,7 @@ object Vers {
     val retrofit = "2.3.0" // https://github.com/square/retrofit/releases
     val okhttp = "3.9.1" // https://github.com/square/okhttp/releases
     val javaWebsocket = "1.3.8" // https://mvnrepository.com/artifact/org.java-websocket/Java-WebSocket
-    val playServices = "12.0.0" // https://developers.google.com/android/guides/releases
+    val playServices = "15.0.0" // https://developers.google.com/android/guides/releases
     val picasso = "2.5.2" // https://github.com/square/picasso/releases
     val materialDialogs = "0.9.6.0" // https://github.com/afollestad/material-dialogs/releases
     val leakcanary = "1.5.4" // https://github.com/square/leakcanary/releases
@@ -55,7 +55,7 @@ object Deps {
     val kotlinGradlePlugin = dep("org.jetbrains.kotlin", "kotlin-gradle-plugin", Vers.kotlin)
     val androidGradlePlugin = dep("com.android.tools.build", "gradle", Vers.androidGradlePlugin)
     val androidMavenGradlePlugin = dep("com.github.dcendents", "android-maven-gradle-plugin", Vers.androidMavenGradlePlugin)
-    val kotlinStdlib = dep("org.jetbrains.kotlin", "kotlin-stdlib-jre7", Vers.kotlin)
+    val kotlinStdlib = dep("org.jetbrains.kotlin", "kotlin-stdlib-jdk7", Vers.kotlin)
     val kotlinxCoroutinesCore = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-core", Vers.kotlinxCoroutines)
     val kotlinxCoroutinesAndroid = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-android", Vers.kotlinxCoroutines)
     val androidSupportV4 = dep("com.android.support", "support-v4", Vers.androidSupport)
