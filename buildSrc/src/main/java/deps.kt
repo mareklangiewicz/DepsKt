@@ -8,14 +8,14 @@
 object Vers {
     val kotlinMajor = 1
     val kotlinMinor = 2
-    val kotlinPatch = 50
+    val kotlinPatch = 51
     val kotlin = "$kotlinMajor.$kotlinMinor.$kotlinPatch" // https://github.com/JetBrains/kotlin/releases
-    val kotlinxCoroutines = "0.22.5" // https://github.com/Kotlin/kotlinx.coroutines/releases
-    val androidGradlePlugin = "3.2.0-alpha18" // https://google.github.io/android-gradle-dsl/
+    val kotlinxCoroutines = "0.23.4" // https://github.com/Kotlin/kotlinx.coroutines/releases
+    val androidGradlePlugin = "3.2.0-beta03" // https://google.github.io/android-gradle-dsl/
     val androidMavenGradlePlugin = "2.0" // https://github.com/dcendents/android-maven-gradle-plugin/releases
-    val androidCompileSdk = 27 // https://developer.android.com/about/dashboards/index.html
+    val androidCompileSdk = 28 // https://developer.android.com/about/dashboards/index.html
     val androidMinSdk = 23
-    val androidTargetSdk = 27
+    val androidTargetSdk = 28
     @Deprecated("Optional with android gradle plugin 3.0.0 or higher")
     val androidBuildTools = "27.0.3" // https://developer.android.com/studio/releases/build-tools.html
     val androidSupport = "27.1.1" // https://developer.android.com/topic/libraries/support-library/revisions.html
