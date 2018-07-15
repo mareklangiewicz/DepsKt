@@ -44,6 +44,7 @@ object Vers {
     val googleTruth = "0.39" // https://github.com/google/truth/releases
     val androidTestRunnerClass = "android.support.test.runner.AndroidJUnitRunner"
     // https://developer.android.com/reference/android/support/test/runner/AndroidJUnitRunner.html
+    val realm = "5.3.1" // https://realm.io/docs/java/latest/
 }
 
 /**
@@ -56,6 +57,7 @@ object Deps {
     val androidGradlePlugin = dep("com.android.tools.build", "gradle", Vers.androidGradlePlugin)
     val androidMavenGradlePlugin = dep("com.github.dcendents", "android-maven-gradle-plugin", Vers.androidMavenGradlePlugin)
     val kotlinStdlib = dep("org.jetbrains.kotlin", "kotlin-stdlib-jdk7", Vers.kotlin)
+    val kotlinReflect = dep("org.jetbrains.kotlin", "kotlin-reflect", Vers.kotlin)
     val kotlinxCoroutinesCore = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-core", Vers.kotlinxCoroutines)
     val kotlinxCoroutinesAndroid = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-android", Vers.kotlinxCoroutines)
     val androidSupportV4 = dep("com.android.support", "support-v4", Vers.androidSupport)
@@ -86,6 +88,7 @@ object Deps {
     val androidCommonsRecycler = dep("com.github.elpassion.android-commons", "recycler", Vers.androidCommons)
     val rxjava = dep("io.reactivex.rxjava2", "rxjava", Vers.rxjava)
     val rxkotlin = dep("io.reactivex.rxjava2", "rxkotlin", Vers.rxkotlin)
+    val rxandroid = dep("io.reactivex.rxjava2", "rxandroid", Vers.rxandroid)
     val rxrelay = dep("com.jakewharton.rxrelay2", "rxrelay", Vers.rxrelay)
     val rxbindingKotlin = dep("com.jakewharton.rxbinding2", "rxbinding-kotlin", Vers.rxbinding)
     val rxlifecycleComponents = dep("com.trello.rxlifecycle2", "rxlifecycle-components", Vers.rxlifecycle)
@@ -110,6 +113,7 @@ object Deps {
     val mockitoKotlin = dep("com.nhaarman.mockitokotlin2", "mockito-kotlin", Vers.mockitoKotlin)
     val androidTestRunner = dep("com.android.support.test", "runner", Vers.androidSupportTest)
     val androidTestRules = dep("com.android.support.test", "rules", Vers.androidSupportTest)
+    val realmGradlePlugin = dep("io.realm", "realm-gradle-plugin", Vers.realm)
 }
 
 private fun dep(group: String, name: String, version: String) = mapOf(
