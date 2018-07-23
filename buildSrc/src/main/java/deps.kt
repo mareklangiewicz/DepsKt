@@ -11,7 +11,7 @@ object Vers {
     val kotlinPatch = 51
     val kotlin = "$kotlinMajor.$kotlinMinor.$kotlinPatch" // https://github.com/JetBrains/kotlin/releases
     val kotlinxCoroutines = "0.23.4" // https://github.com/Kotlin/kotlinx.coroutines/releases
-    val androidGradlePlugin = "3.2.0-beta03" // https://google.github.io/android-gradle-dsl/
+    val androidGradlePlugin = "3.2.0-beta04" // https://google.github.io/android-gradle-dsl/
     val androidMavenGradlePlugin = "2.0" // https://github.com/dcendents/android-maven-gradle-plugin/releases
     val androidCompileSdk = 28 // https://developer.android.com/about/dashboards/index.html
     val androidMinSdk = 23
@@ -45,6 +45,7 @@ object Vers {
     val androidTestRunnerClass = "android.support.test.runner.AndroidJUnitRunner"
     // https://developer.android.com/reference/android/support/test/runner/AndroidJUnitRunner.html
     val realm = "5.3.1" // https://realm.io/docs/java/latest/
+    val uspek = "25459c8b62"
 }
 
 /**
@@ -109,6 +110,7 @@ object Deps {
     val paperwork = dep("hu.supercluster", "paperwork", Vers.paperwork)
     val paperworkPlugin = dep("hu.supercluster", "paperwork-plugin", Vers.paperwork)
     val junit = dep("junit", "junit", Vers.junit)
+    val uspek = dep("com.github.langara", "USpek", Vers.uspek)
     val googleTruth = dep("com.google.truth", "truth", Vers.googleTruth)
     val mockitoKotlin = dep("com.nhaarman.mockitokotlin2", "mockito-kotlin", Vers.mockitoKotlin)
     val androidTestRunner = dep("com.android.support.test", "runner", Vers.androidSupportTest)
