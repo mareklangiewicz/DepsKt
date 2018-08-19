@@ -25,12 +25,12 @@ object Vers {
     val androidSupportTest = "1.0.1" // https://developer.android.com/topic/libraries/testing-support-library/release-notes.html
     val androidEspresso = "3.0.1"
     val androidCommons = "0.0.23" // https://github.com/elpassion/android-commons/releases
-    val rxjava = "2.1.14" // https://github.com/ReactiveX/RxJava/releases
-    val rxkotlin = "2.2.0" // https://github.com/ReactiveX/RxKotlin/releases
+    val rxjava = "2.2.0" // https://github.com/ReactiveX/RxJava/releases
+    val rxkotlin = "2.3.0" // https://github.com/ReactiveX/RxKotlin/releases
     val rxbinding = "2.1.1" // https://github.com/JakeWharton/RxBinding/releases
     val rxrelay = "2.0.0" // https://github.com/JakeWharton/RxRelay/releases
-    val rxandroid = "2.0.2" // https://github.com/ReactiveX/RxAndroid/releases
-    val rxlifecycle = "2.2.1" // https://github.com/trello/RxLifecycle/releases
+    val rxandroid = "2.1.0" // https://github.com/ReactiveX/RxAndroid/releases
+    val rxlifecycle = "2.2.2" // https://github.com/trello/RxLifecycle/releases
     val retrofit = "2.3.0" // https://github.com/square/retrofit/releases
     val okhttp = "3.9.1" // https://github.com/square/okhttp/releases
     val javaWebsocket = "1.3.8" // https://mvnrepository.com/artifact/org.java-websocket/Java-WebSocket
