@@ -8,7 +8,7 @@
 object Vers {
     val kotlinMajor = 1
     val kotlinMinor = 2
-    val kotlinPatch = 60
+    val kotlinPatch = 61
     val kotlin = "$kotlinMajor.$kotlinMinor.$kotlinPatch" // https://github.com/JetBrains/kotlin/releases
     val kotlinxCoroutines = "0.23.4" // https://github.com/Kotlin/kotlinx.coroutines/releases
     val androidGradlePlugin = "3.2.0-beta05" // https://google.github.io/android-gradle-dsl/
@@ -25,7 +25,7 @@ object Vers {
     val androidSupportTest = "1.0.1" // https://developer.android.com/topic/libraries/testing-support-library/release-notes.html
     val androidEspresso = "3.0.1"
     val androidCommons = "0.0.23" // https://github.com/elpassion/android-commons/releases
-    val rxjava = "2.2.0" // https://github.com/ReactiveX/RxJava/releases
+    val rxjava = "2.2.1" // https://github.com/ReactiveX/RxJava/releases
     val rxkotlin = "2.3.0" // https://github.com/ReactiveX/RxKotlin/releases
     val rxbinding = "2.1.1" // https://github.com/JakeWharton/RxBinding/releases
     val rxrelay = "2.0.0" // https://github.com/JakeWharton/RxRelay/releases
