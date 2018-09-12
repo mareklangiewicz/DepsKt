@@ -11,14 +11,14 @@ object Vers {
     val kotlinPatch = 61
     val kotlin = "$kotlinMajor.$kotlinMinor.$kotlinPatch" // https://github.com/JetBrains/kotlin/releases
     val kotlinxCoroutines = "0.23.4" // https://github.com/Kotlin/kotlinx.coroutines/releases
-    val androidGradlePlugin = "3.2.0-beta05" // https://google.github.io/android-gradle-dsl/
+    val androidGradlePlugin = "3.2.0-rc03" // https://google.github.io/android-gradle-dsl/
     val androidMavenGradlePlugin = "2.0" // https://github.com/dcendents/android-maven-gradle-plugin/releases
     val androidCompileSdk = 28 // https://developer.android.com/about/dashboards/index.html
     val androidMinSdk = 23
     val androidTargetSdk = 28
-    @Deprecated("Optional with android gradle plugin 3.0.0 or higher")
-    val androidBuildTools = "27.0.3" // https://developer.android.com/studio/releases/build-tools.html
-    val androidSupport = "27.1.1" // https://developer.android.com/topic/libraries/support-library/revisions.html
+    @Deprecated("Deprecated with android gradle plugin 3.0.0 or higher")
+    val androidBuildTools = "28.0.2" // https://developer.android.com/studio/releases/build-tools.html
+    val androidSupport = "28.0.0-rc02" // https://developer.android.com/topic/libraries/support-library/revisions.html
     val androidSupportConstraint = "1.0.2" // https://developer.android.com/training/constraint-layout
     val androidArchLifecycle = "1.1.1" // https://developer.android.com/topic/libraries/architecture/adding-components.html
     val androidArchPersistenceRoom = "1.0.0"
