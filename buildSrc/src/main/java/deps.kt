@@ -8,9 +8,9 @@
 object Vers {
     val kotlinMajor = 1
     val kotlinMinor = 2
-    val kotlinPatch = 61
+    val kotlinPatch = 70
     val kotlin = "$kotlinMajor.$kotlinMinor.$kotlinPatch" // https://github.com/JetBrains/kotlin/releases
-    val kotlinxCoroutines = "0.23.4" // https://github.com/Kotlin/kotlinx.coroutines/releases
+    val kotlinxCoroutines = "0.26.1" // https://github.com/Kotlin/kotlinx.coroutines/releases
     val androidGradlePlugin = "3.2.0-rc03" // https://google.github.io/android-gradle-dsl/
     val androidMavenGradlePlugin = "2.0" // https://github.com/dcendents/android-maven-gradle-plugin/releases
     val androidCompileSdk = 28 // https://developer.android.com/about/dashboards/index.html
