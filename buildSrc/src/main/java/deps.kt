@@ -46,6 +46,7 @@ object Vers {
     // https://developer.android.com/reference/android/support/test/runner/AndroidJUnitRunner.html
     val realm = "5.3.1" // https://realm.io/docs/java/latest/
     val uspek = "25459c8b62"
+    val ktor = "0.9.5"
 }
 
 /**
@@ -57,7 +58,10 @@ object Deps {
     val kotlinGradlePlugin = dep("org.jetbrains.kotlin", "kotlin-gradle-plugin", Vers.kotlin)
     val androidGradlePlugin = dep("com.android.tools.build", "gradle", Vers.androidGradlePlugin)
     val androidMavenGradlePlugin = dep("com.github.dcendents", "android-maven-gradle-plugin", Vers.androidMavenGradlePlugin)
-    val kotlinStdlib = dep("org.jetbrains.kotlin", "kotlin-stdlib-jdk7", Vers.kotlin)
+    val kotlinStdlib7 = dep("org.jetbrains.kotlin", "kotlin-stdlib-jdk7", Vers.kotlin)
+    val kotlinStdlib8 = dep("org.jetbrains.kotlin", "kotlin-stdlib-jdk8", Vers.kotlin)
+    @Deprecated("Use specific jdk version", ReplaceWith("kotlinStdlib7"))
+    val kotlinStdlib = kotlinStdlib7
     val kotlinReflect = dep("org.jetbrains.kotlin", "kotlin-reflect", Vers.kotlin)
     val kotlinxCoroutinesCore = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-core", Vers.kotlinxCoroutines)
     val kotlinxCoroutinesAndroid = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-android", Vers.kotlinxCoroutines)
@@ -116,6 +120,7 @@ object Deps {
     val androidTestRunner = dep("com.android.support.test", "runner", Vers.androidSupportTest)
     val androidTestRules = dep("com.android.support.test", "rules", Vers.androidSupportTest)
     val realmGradlePlugin = dep("io.realm", "realm-gradle-plugin", Vers.realm)
+    val ktorServerNetty = dep("io.ktor", "ktor-server-netty", Vers.ktor)
 }
 
 private fun dep(group: String, name: String, version: String) = mapOf(
