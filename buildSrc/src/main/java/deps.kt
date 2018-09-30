@@ -121,6 +121,9 @@ object Deps {
     val androidTestRules = dep("com.android.support.test", "rules", Vers.androidSupportTest)
     val realmGradlePlugin = dep("io.realm", "realm-gradle-plugin", Vers.realm)
     val ktorServerNetty = dep("io.ktor", "ktor-server-netty", Vers.ktor)
+    val ktorAuth = dep("io.ktor", "ktor-auth", Vers.ktor)
+    val ktorClientCore = dep("io.ktor", "ktor-client-core", Vers.ktor)
+    val ktorClientApache = dep("io.ktor", "ktor-client-apache", Vers.ktor)
 }
 
 private fun dep(group: String, name: String, version: String) = mapOf(
