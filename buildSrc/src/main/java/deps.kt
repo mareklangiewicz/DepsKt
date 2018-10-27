@@ -10,25 +10,25 @@ object Vers {
     val kotlinMinor = 2
     val kotlinPatch = 70
     val kotlin = "$kotlinMajor.$kotlinMinor.$kotlinPatch" // https://github.com/JetBrains/kotlin/releases
-    val kotlinxCoroutines = "0.26.1" // https://github.com/Kotlin/kotlinx.coroutines/releases
-    val androidGradlePlugin = "3.2.0-rc03" // https://google.github.io/android-gradle-dsl/
+    val kotlinxCoroutines = "0.30.2" // https://github.com/Kotlin/kotlinx.coroutines/releases
+    val androidGradlePlugin = "3.2.1" // https://google.github.io/android-gradle-dsl/
     val androidMavenGradlePlugin = "2.0" // https://github.com/dcendents/android-maven-gradle-plugin/releases
     val androidCompileSdk = 28 // https://developer.android.com/about/dashboards/index.html
     val androidMinSdk = 23
     val androidTargetSdk = 28
     @Deprecated("Deprecated with android gradle plugin 3.0.0 or higher")
-    val androidBuildTools = "28.0.2" // https://developer.android.com/studio/releases/build-tools.html
-    val androidSupport = "28.0.0-rc02" // https://developer.android.com/topic/libraries/support-library/revisions.html
-    val androidSupportConstraint = "1.0.2" // https://developer.android.com/training/constraint-layout
+    val androidBuildTools = "28.0.3" // https://developer.android.com/studio/releases/build-tools.html
+    val androidSupport = "28.0.0" // https://developer.android.com/topic/libraries/support-library/revisions.html
+    val androidSupportConstraint = "1.1.2" // https://developer.android.com/training/constraint-layout
     val androidArchLifecycle = "1.1.1" // https://developer.android.com/topic/libraries/architecture/adding-components.html
     val androidArchPersistenceRoom = "1.0.0"
-    val androidSupportTest = "1.0.1" // https://developer.android.com/topic/libraries/testing-support-library/release-notes.html
-    val androidEspresso = "3.0.1"
+    val androidSupportTest = "1.1.0" // https://developer.android.com/topic/libraries/testing-support-library/release-notes.html
+    val androidEspresso = "3.1.0"
     val androidCommons = "0.0.23" // https://github.com/elpassion/android-commons/releases
-    val rxjava = "2.2.1" // https://github.com/ReactiveX/RxJava/releases
+    val rxjava = "2.2.3" // https://github.com/ReactiveX/RxJava/releases
     val rxkotlin = "2.3.0" // https://github.com/ReactiveX/RxKotlin/releases
     val rxbinding = "2.1.1" // https://github.com/JakeWharton/RxBinding/releases
-    val rxrelay = "2.0.0" // https://github.com/JakeWharton/RxRelay/releases
+    val rxrelay = "2.1.0" // https://github.com/JakeWharton/RxRelay/releases
     val rxandroid = "2.1.0" // https://github.com/ReactiveX/RxAndroid/releases
     val rxlifecycle = "2.2.2" // https://github.com/trello/RxLifecycle/releases
     val retrofit = "2.3.0" // https://github.com/square/retrofit/releases
@@ -41,10 +41,10 @@ object Vers {
     val paperwork = "1.2.7" // https://github.com/zsoltk/paperwork/releases
     val mockitoKotlin = "2.0.0-alpha03" // https://github.com/nhaarman/mockito-kotlin/releases
     val junit = "4.12" // https://github.com/junit-team/junit4/releases
-    val googleTruth = "0.39" // https://github.com/google/truth/releases
+    val googleTruth = "0.42" // https://github.com/google/truth/releases
     val androidTestRunnerClass = "android.support.test.runner.AndroidJUnitRunner"
     // https://developer.android.com/reference/android/support/test/runner/AndroidJUnitRunner.html
-    val realm = "5.3.1" // https://realm.io/docs/java/latest/
+    val realm = "5.7.0" // https://realm.io/docs/java/latest/
     val uspek = "25459c8b62"
     val ktor = "0.9.5"
 }
