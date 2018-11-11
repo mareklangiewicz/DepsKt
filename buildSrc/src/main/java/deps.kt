@@ -19,6 +19,12 @@ object Vers {
     const val kotlinxCoroutines = "1.0.1"
         // https://github.com/Kotlin/kotlinx.coroutines/releases
 
+     // just a reference - not useful in typical cases
+    const val gradle4 = "4.10.2"
+        // https://gradle.org/releases/
+        // https://services.gradle.org/versions
+        // https://services.gradle.org/versions/current
+
     const val androidGradlePlugin = "3.2.1"
         // https://google.github.io/android-gradle-dsl/
         // https://developer.android.com/studio/releases/gradle-plugin
@@ -35,22 +41,33 @@ object Vers {
     const val androidBuildTools = "28.0.3"
         // https://developer.android.com/studio/releases/build-tools.html
 
+    @Deprecated("Use androidx")
     const val androidSupport = "28.0.0"
         // https://developer.android.com/topic/libraries/support-library/revisions.html
 
-    const val androidSupportConstraint = "1.1.2"
+    const val androidxAppcompat = "1.0.1"
+
+    const val androidxConstraint = "1.1.2"
         // https://developer.android.com/training/constraint-layout
 
-    const val androidArchLifecycle = "2.0.0"
+    const val androidxRecyclerview = "1.0.0"
+    const val androidxCardview = "1.0.0"
+    const val androidMaterial = "1.0.0"
+    const val androidxAnnotation = "1.0.0"
+    const val androidxPreference = "1.0.0"
+    const val androidxBrowser = "1.0.0"
+    const val androidxPercent = "1.0.0"
+
+    const val androidxLifecycle = "2.0.0"
         // https://developer.android.com/topic/libraries/architecture/adding-components.html
 
     const val androidArchPersistenceRoom = "2.1.0-alpha02"
         // https://developer.android.com/topic/libraries/architecture/adding-components#room
 
-    const val androidSupportTest = "1.1.0"
+    const val androidxTest = "1.1.0"
         // https://developer.android.com/topic/libraries/testing-support-library/release-notes.html
 
-    const val androidEspresso = "3.1.0"
+    const val androidxEspresso = "3.1.0"
 
     const val androidCommons = "0.0.23"
         // https://github.com/elpassion/android-commons/releases
@@ -111,7 +128,7 @@ object Vers {
     const val googleTruth = "0.42"
         // https://github.com/google/truth/releases
 
-    const val androidTestRunnerClass = "android.support.test.runner.AndroidJUnitRunner"
+    const val androidTestRunnerClass = "androidx.test.runner.AndroidJUnitRunner"
         // https://developer.android.com/reference/android/support/test/runner/AndroidJUnitRunner.html
 
     const val realm = "5.8.0"
@@ -142,24 +159,32 @@ object Deps {
     val kotlinReflect = dep("org.jetbrains.kotlin", "kotlin-reflect", Vers.kotlin)
     val kotlinxCoroutinesCore = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-core", Vers.kotlinxCoroutines)
     val kotlinxCoroutinesAndroid = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-android", Vers.kotlinxCoroutines)
-    val androidSupportV4 = dep("com.android.support", "support-v4", Vers.androidSupport)
-    val androidSupportV13 = dep("com.android.support", "support-v13", Vers.androidSupport)
-    val androidSupportAppcompat = dep("com.android.support", "appcompat-v7", Vers.androidSupport)
-    val androidSupportRecyclerview = dep("com.android.support", "recyclerview-v7", Vers.androidSupport)
-    val androidSupportCardview = dep("com.android.support", "cardview-v7", Vers.androidSupport)
-    val androidSupportDesign = dep("com.android.support", "design", Vers.androidSupport)
-    val androidSupportAnnotations = dep("com.android.support", "support-annotations", Vers.androidSupport)
-    val androidSupportPreference = dep("com.android.support", "preference-v14", Vers.androidSupport)
-    val androidSupportCustomtabs = dep("com.android.support", "customtabs", Vers.androidSupport)
-    val androidSupportPercent = dep("com.android.support", "percent", Vers.androidSupport)
-    val androidSupportConstraint = dep("com.android.support.constraint", "constraint-layout", Vers.androidSupportConstraint)
-    val androidArchLifecycleExtensions = dep("android.arch.lifecycle", "extensions", Vers.androidArchLifecycle)
-    val androidArchLifecycleViewModel = dep("android.arch.lifecycle", "viewmodel", Vers.androidArchLifecycle)
-    val androidArchLifecycleLiveData = dep("android.arch.lifecycle", "livedata", Vers.androidArchLifecycle)
-    val androidArchLifecycleCompiler = dep("android.arch.lifecycle", "compiler", Vers.androidArchLifecycle)
-    val androidArchPersistenceRoomRuntime = dep("android.arch.persistence.room", "runtime", Vers.androidArchPersistenceRoom)
-    val androidArchPersistenceRoomCompiler = dep("android.arch.persistence.room", "compiler", Vers.androidArchPersistenceRoom)
-    val androidEspresso = dep("com.android.support.test.espresso", "espresso-core", Vers.androidEspresso)
+
+    // just a reference - not useful in typical cases
+    const val gradleBaseUrl = "https://services.gradle.org/distributions"
+    const val gradle4UrlBin = "$gradleBaseUrl/gradle-${Vers.gradle4}-bin.zip"
+    const val gradle4UrlAll = "$gradleBaseUrl/gradle-${Vers.gradle4}-all.zip"
+
+    val androidxAppcompat = dep("androidx.appcompat", "appcompat", Vers.androidxAppcompat)
+    val androidxRecyclerview = dep("androidx.recyclerview", "recyclerview", Vers.androidxRecyclerview)
+    val androidxCardview = dep("androidx.cardview", "cardview", Vers.androidxCardview)
+    val androidMaterial = dep("com.google.android.material", "material", Vers.androidMaterial)
+    val androidxAnnotation = dep("androidx.annotation", "annotation", Vers.androidxAnnotation)
+    val androidxPreference = dep("androidx.preference", "preference", Vers.androidxPreference)
+    val androidxBrowser = dep("androidx.browser", "browser", Vers.androidxBrowser)
+    val androidxPercent = dep("androidx.percentlayout", "percentlayout", Vers.androidxPercent)
+    val androidxConstraint = dep("androidx.constraintlayout", "constraintlayout", Vers.androidxConstraint)
+
+    val androidxLifecycleCommon = dep("androidx.lifecycle", "lifecycle-common", Vers.androidxLifecycle)
+    val androidxLifecycleExtensions = dep("androidx.lifecycle", "lifecycle-extensions", Vers.androidxLifecycle)
+    val androidxLifecycleViewModel = dep("androidx.lifecycle", "lifecycle-viewmodel", Vers.androidxLifecycle)
+    val androidxLifecycleLiveData = dep("androidx.lifecycle", "lifecycle-livedata", Vers.androidxLifecycle)
+    val androidxLifecycleCompiler = dep("androidx.lifecycle", "lifecycle-compiler", Vers.androidxLifecycle)
+
+    val androidxRoomRuntime = dep("androidx.room", "room-runtime", Vers.androidArchPersistenceRoom)
+    val androidxRoomCompiler = dep("androidx.room", "room-compiler", Vers.androidArchPersistenceRoom)
+    val androidxEspresso = dep("androidx.test.espresso", "espresso-core", Vers.androidxEspresso)
+
     val androidCommonsEspresso = dep("com.github.elpassion.android-commons", "espresso", Vers.androidCommons)
     val androidCommonsRxJavaTest = dep("com.github.elpassion.android-commons", "rxjava-test", Vers.androidCommons)
     val androidCommonsSharedPrefs = dep("com.github.elpassion.android-commons", "shared-preferences", Vers.androidCommons)
@@ -168,6 +193,7 @@ object Deps {
     val androidCommonsView = dep("com.github.elpassion.android-commons", "view", Vers.androidCommons)
     val androidCommonsPager = dep("com.github.elpassion.android-commons", "pager", Vers.androidCommons)
     val androidCommonsRecycler = dep("com.github.elpassion.android-commons", "recycler", Vers.androidCommons)
+
     val rxjava = dep("io.reactivex.rxjava2", "rxjava", Vers.rxjava)
     val rxkotlin = dep("io.reactivex.rxjava2", "rxkotlin", Vers.rxkotlin)
     val rxandroid = dep("io.reactivex.rxjava2", "rxandroid", Vers.rxandroid)
@@ -184,8 +210,7 @@ object Deps {
     val playServicesBase = dep("com.google.android.gms", "play-services-base", Vers.playServices)
     val firebaseAppIndexing = dep("com.google.firebase", "firebase-appindexing", Vers.playServices)
     val picasso = dep("com.squareup.picasso", "picasso", Vers.picasso)
-    val materialDialogsCore = dep("com.afollestad.material-dialogs", "core", Vers.materialDialogs)
-    val materialDialogsCommons = dep("com.afollestad.material-dialogs", "commons", Vers.materialDialogs)
+    val materialDialogs = dep("com.afollestad.material-dialogs", "core", Vers.materialDialogs)
     val leakcanary = dep("com.squareup.leakcanary", "leakcanary-android", Vers.leakcanary)
     val leakcanaryNoOp = dep("com.squareup.leakcanary", "leakcanary-android-no-op", Vers.leakcanary)
     val paperwork = dep("hu.supercluster", "paperwork", Vers.paperwork)
@@ -194,8 +219,8 @@ object Deps {
     val uspek = dep("com.github.langara", "USpek", Vers.uspek)
     val googleTruth = dep("com.google.truth", "truth", Vers.googleTruth)
     val mockitoKotlin = dep("com.nhaarman.mockitokotlin2", "mockito-kotlin", Vers.mockitoKotlin)
-    val androidTestRunner = dep("com.android.support.test", "runner", Vers.androidSupportTest)
-    val androidTestRules = dep("com.android.support.test", "rules", Vers.androidSupportTest)
+    val androidTestRunner = dep("androidx.test", "runner", Vers.androidxTest)
+    val androidTestRules = dep("androidx.test", "rules", Vers.androidxTest)
     val realmGradlePlugin = dep("io.realm", "realm-gradle-plugin", Vers.realm)
     val ktorServerNetty = dep("io.ktor", "ktor-server-netty", Vers.ktor)
     val ktorAuth = dep("io.ktor", "ktor-auth", Vers.ktor)
