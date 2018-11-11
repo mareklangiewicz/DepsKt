@@ -1,4 +1,4 @@
-@file:Suppress("unused")
+@file:Suppress("unused", "SpellCheckingInspection", "MemberVisibilityCanBePrivate")
 
 /**
  * Common dependencies versions for java/kotlin/android projects
@@ -6,47 +6,124 @@
  * @see <a href="https://github.com/langara/deps.kt">https://github.com/langara/deps.kt</a>
  */
 object Vers {
-    val kotlinMajor = 1
-    val kotlinMinor = 2
-    val kotlinPatch = 70
-    val kotlin = "$kotlinMajor.$kotlinMinor.$kotlinPatch" // https://github.com/JetBrains/kotlin/releases
-    val kotlinxCoroutines = "0.30.2" // https://github.com/Kotlin/kotlinx.coroutines/releases
-    val androidGradlePlugin = "3.2.1" // https://google.github.io/android-gradle-dsl/
-    val androidMavenGradlePlugin = "2.0" // https://github.com/dcendents/android-maven-gradle-plugin/releases
-    val androidCompileSdk = 28 // https://developer.android.com/about/dashboards/index.html
-    val androidMinSdk = 23
-    val androidTargetSdk = 28
+    const val kotlinMajor = 1
+    const val kotlinMinor = 3
+    const val kotlinPatch = 0
+
+    const val kotlin = "$kotlinMajor.$kotlinMinor.$kotlinPatch"
+        // https://github.com/JetBrains/kotlin/releases
+
+    @Deprecated("Use current Kotlin", ReplaceWith("kotlin"))
+    const val kotlin12 = "1.2.70"
+
+    const val kotlinxCoroutines = "1.0.1"
+        // https://github.com/Kotlin/kotlinx.coroutines/releases
+
+    const val androidGradlePlugin = "3.2.1"
+        // https://google.github.io/android-gradle-dsl/
+        // https://developer.android.com/studio/releases/gradle-plugin
+
+    const val androidMavenGradlePlugin = "2.0" // https://github.com/dcendents/android-maven-gradle-plugin/releases
+
+    const val androidCompileSdk = 28
+    const val androidMinSdk = 23
+    const val androidTargetSdk = 28
+        // https://developer.android.com/about/dashboards/index.html
+        // https://source.android.com/setup/start/build-numbers
+
     @Deprecated("Deprecated with android gradle plugin 3.0.0 or higher")
-    val androidBuildTools = "28.0.3" // https://developer.android.com/studio/releases/build-tools.html
-    val androidSupport = "28.0.0" // https://developer.android.com/topic/libraries/support-library/revisions.html
-    val androidSupportConstraint = "1.1.2" // https://developer.android.com/training/constraint-layout
-    val androidArchLifecycle = "1.1.1" // https://developer.android.com/topic/libraries/architecture/adding-components.html
-    val androidArchPersistenceRoom = "1.0.0"
-    val androidSupportTest = "1.1.0" // https://developer.android.com/topic/libraries/testing-support-library/release-notes.html
-    val androidEspresso = "3.1.0"
-    val androidCommons = "0.0.23" // https://github.com/elpassion/android-commons/releases
-    val rxjava = "2.2.3" // https://github.com/ReactiveX/RxJava/releases
-    val rxkotlin = "2.3.0" // https://github.com/ReactiveX/RxKotlin/releases
-    val rxbinding = "2.1.1" // https://github.com/JakeWharton/RxBinding/releases
-    val rxrelay = "2.1.0" // https://github.com/JakeWharton/RxRelay/releases
-    val rxandroid = "2.1.0" // https://github.com/ReactiveX/RxAndroid/releases
-    val rxlifecycle = "2.2.2" // https://github.com/trello/RxLifecycle/releases
-    val retrofit = "2.3.0" // https://github.com/square/retrofit/releases
-    val okhttp = "3.9.1" // https://github.com/square/okhttp/releases
-    val javaWebsocket = "1.3.8" // https://mvnrepository.com/artifact/org.java-websocket/Java-WebSocket
-    val playServices = "15.0.0" // https://developers.google.com/android/guides/releases
-    val picasso = "2.5.2" // https://github.com/square/picasso/releases
-    val materialDialogs = "0.9.6.0" // https://github.com/afollestad/material-dialogs/releases
-    val leakcanary = "1.5.4" // https://github.com/square/leakcanary/releases
-    val paperwork = "1.2.7" // https://github.com/zsoltk/paperwork/releases
-    val mockitoKotlin = "2.0.0-alpha03" // https://github.com/nhaarman/mockito-kotlin/releases
-    val junit = "4.12" // https://github.com/junit-team/junit4/releases
-    val googleTruth = "0.42" // https://github.com/google/truth/releases
-    val androidTestRunnerClass = "android.support.test.runner.AndroidJUnitRunner"
-    // https://developer.android.com/reference/android/support/test/runner/AndroidJUnitRunner.html
-    val realm = "5.7.0" // https://realm.io/docs/java/latest/
-    val uspek = "25459c8b62"
-    val ktor = "0.9.5"
+    const val androidBuildTools = "28.0.3"
+        // https://developer.android.com/studio/releases/build-tools.html
+
+    const val androidSupport = "28.0.0"
+        // https://developer.android.com/topic/libraries/support-library/revisions.html
+
+    const val androidSupportConstraint = "1.1.2"
+        // https://developer.android.com/training/constraint-layout
+
+    const val androidArchLifecycle = "2.0.0"
+        // https://developer.android.com/topic/libraries/architecture/adding-components.html
+
+    const val androidArchPersistenceRoom = "2.1.0-alpha02"
+        // https://developer.android.com/topic/libraries/architecture/adding-components#room
+
+    const val androidSupportTest = "1.1.0"
+        // https://developer.android.com/topic/libraries/testing-support-library/release-notes.html
+
+    const val androidEspresso = "3.1.0"
+
+    const val androidCommons = "0.0.23"
+        // https://github.com/elpassion/android-commons/releases
+
+    const val rxjava = "2.2.3"
+        // https://github.com/ReactiveX/RxJava/releases
+
+    const val rxkotlin = "2.3.0"
+        // https://github.com/ReactiveX/RxKotlin/releases
+
+    const val rxbinding = "3.0.0-alpha1"
+        // https://github.com/JakeWharton/RxBinding
+        // https://github.com/JakeWharton/RxBinding/releases
+
+    const val rxrelay = "2.1.0"
+        // https://github.com/JakeWharton/RxRelay/releases
+
+    const val rxandroid = "2.1.0"
+        // https://github.com/ReactiveX/RxAndroid/releases
+
+    const val rxlifecycle = "3.0.0"
+        // https://github.com/trello/RxLifecycle/releases
+
+    const val retrofit = "2.4.0"
+        // https://github.com/square/retrofit
+        // https://github.com/square/retrofit/releases
+
+    const val okhttp = "3.11.0"
+        // https://github.com/square/okhttp
+        // https://github.com/square/okhttp/releases
+
+    const val javaWebsocket = "1.3.9"
+        // https://mvnrepository.com/artifact/org.java-websocket/Java-WebSocket
+
+    const val playServices = "15.0.0"
+        // https://developers.google.com/android/guides/releases
+
+    const val picasso = "2.71828"
+    // https://github.com/square/picasso
+    // https://github.com/square/picasso/releases
+
+    const val materialDialogs = "2.0.0-beta5"
+    // https://github.com/afollestad/material-dialogs
+    // https://github.com/afollestad/material-dialogs/releases
+
+    const val leakcanary = "1.6.2"
+        // https://github.com/square/leakcanary/releases
+
+    const val paperwork = "1.2.7"
+        // https://github.com/zsoltk/paperwork/releases
+
+    const val mockitoKotlin = "2.0.0"
+        // https://github.com/nhaarman/mockito-kotlin/releases
+
+    const val junit = "4.12"
+        // https://github.com/junit-team/junit4/releases
+
+    const val googleTruth = "0.42"
+        // https://github.com/google/truth/releases
+
+    const val androidTestRunnerClass = "android.support.test.runner.AndroidJUnitRunner"
+        // https://developer.android.com/reference/android/support/test/runner/AndroidJUnitRunner.html
+
+    const val realm = "5.8.0"
+        // https://realm.io/docs/java/latest/
+
+    const val uspek = "25459c8b62"
+
+    const val ktor = "1.0.0-beta-3"
+        // https://github.com/ktorio/ktor
+        // https://github.com/ktorio/ktor/releases
+        // https://bintray.com/kotlin/ktor/ktor
+
 }
 
 /**
