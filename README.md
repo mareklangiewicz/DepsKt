@@ -24,8 +24,6 @@ apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion Vers.androidCompileSdk
-    buildToolsVersion Vers.androidBuildTools
-
 
     defaultConfig {
         applicationId "pl.elpassion.iot.commander"
@@ -34,8 +32,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
+        testInstrumentationRunner Vers.androidTestRunnerClass
     }
     buildTypes {
         release {

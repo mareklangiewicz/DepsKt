@@ -8,7 +8,7 @@ application {
 }
 
 dependencies {
-    implementation(Deps.kotlinStdlib)
+    implementation(Deps.kotlinStdlib8)
     testImplementation(Deps.junit)
 }
 
