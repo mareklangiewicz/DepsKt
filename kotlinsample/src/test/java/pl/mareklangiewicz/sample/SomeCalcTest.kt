@@ -3,11 +3,11 @@ package pl.mareklangiewicz.sample
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-class MicroCalcTest {
+class SomeCalcTest {
 
     @Test
-    fun testMicroCalc() {
-        val calc = MicroCalc(10)
+    fun testSomeCalc() {
+        val calc = SomeCalc(10)
         calc.add(5)
         assertEquals(15, calc.result)
         calc.add(100)
