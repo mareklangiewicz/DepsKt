@@ -8,7 +8,7 @@
 object Vers {
     const val kotlinMajor = 1
     const val kotlinMinor = 3
-    const val kotlinPatch = 0
+    const val kotlinPatch = 10
 
     const val kotlin = "$kotlinMajor.$kotlinMinor.$kotlinPatch"
         // https://github.com/JetBrains/kotlin/releases
@@ -20,7 +20,7 @@ object Vers {
         // https://github.com/Kotlin/kotlinx.coroutines/releases
 
      // just a reference - not useful in typical cases
-    const val gradle4 = "4.10.2"
+    const val gradle4 = "5.0"
         // https://gradle.org/releases/
         // https://services.gradle.org/versions
         // https://services.gradle.org/versions/current
