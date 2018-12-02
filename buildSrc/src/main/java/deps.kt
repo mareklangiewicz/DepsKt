@@ -20,7 +20,9 @@ object Vers {
         // https://github.com/Kotlin/kotlinx.coroutines/releases
 
      // just a reference - not useful in typical cases
-    const val gradle4 = "5.0"
+    const val gradle4 = "4.10.2"
+    const val gradle5 = "5.0"
+    const val gradle = gradle5
         // https://gradle.org/releases/
         // https://services.gradle.org/versions
         // https://services.gradle.org/versions/current
@@ -162,8 +164,8 @@ object Deps {
 
     // just a reference - not useful in typical cases
     const val gradleBaseUrl = "https://services.gradle.org/distributions"
-    const val gradle4UrlBin = "$gradleBaseUrl/gradle-${Vers.gradle4}-bin.zip"
-    const val gradle4UrlAll = "$gradleBaseUrl/gradle-${Vers.gradle4}-all.zip"
+    const val gradleUrlBin = "$gradleBaseUrl/gradle-${Vers.gradle}-bin.zip"
+    const val gradleUrlAll = "$gradleBaseUrl/gradle-${Vers.gradle}-all.zip"
 
     val androidxAppcompat = dep("androidx.appcompat", "appcompat", Vers.androidxAppcompat)
     val androidxRecyclerview = dep("androidx.recyclerview", "recyclerview", Vers.androidxRecyclerview)
