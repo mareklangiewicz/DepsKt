@@ -1,1 +1,1 @@
-include(":kotlinsample")
+include(":sample")
