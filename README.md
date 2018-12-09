@@ -7,6 +7,8 @@ Usage:
     - `yourproject$ git submodule add git@github.com:langara/deps.kt.git`
 - make a symbolic link to `buildSrc` dir in your parent project
     - `yourproject$ ln -s deps.kt/buildSrc`
+- or (if you are using the `buildSrc` for other purposes) just link the `deps.kt` file
+    - `yourproject/buildSrc/src/main/java$ ln -s ../../../../deps.kt/buildSrc/src/main/java/deps.kt`
 - use `Vers` and `Deps` objects in your build files to get current versions of common libraries
     - it not only contains versions but all groups and names too, so it can be easily used in other build files
     - add your project `dependencies` with syntax like this: `testImplementation(Deps.junit)`
