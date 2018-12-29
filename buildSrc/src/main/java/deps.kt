@@ -8,15 +8,16 @@
 object Vers {
     const val kotlinMajor = 1
     const val kotlinMinor = 3
-    const val kotlinPatch = 10
+    const val kotlinPatch = 11
 
     const val kotlin = "$kotlinMajor.$kotlinMinor.$kotlinPatch"
+        // https://github.com/JetBrains/kotlin/blob/master/ChangeLog.md
         // https://github.com/JetBrains/kotlin/releases
 
     @Deprecated("Use current Kotlin", ReplaceWith("kotlin"))
     const val kotlin12 = "1.2.70"
 
-    const val kotlinxCoroutines = "1.0.1"
+    const val kotlinxCoroutines = "1.1.0"
         // https://github.com/Kotlin/kotlinx.coroutines/releases
 
      // just a reference - not useful in typical cases
@@ -31,7 +32,7 @@ object Vers {
         // https://google.github.io/android-gradle-dsl/
         // https://developer.android.com/studio/releases/gradle-plugin
 
-    const val androidMavenGradlePlugin = "2.0" // https://github.com/dcendents/android-maven-gradle-plugin/releases
+    const val androidMavenGradlePlugin = "2.1" // https://github.com/dcendents/android-maven-gradle-plugin/releases
 
     const val androidCompileSdk = 28
     const val androidMinSdk = 23
@@ -63,24 +64,24 @@ object Vers {
     const val androidxLifecycle = "2.0.0"
         // https://developer.android.com/topic/libraries/architecture/adding-components.html
 
-    const val androidArchPersistenceRoom = "2.1.0-alpha02"
+    const val androidArchPersistenceRoom = "2.1.0-alpha03"
         // https://developer.android.com/topic/libraries/architecture/adding-components#room
 
-    const val androidxTest = "1.1.0"
+    const val androidxTest = "1.1.1"
         // https://developer.android.com/topic/libraries/testing-support-library/release-notes.html
 
-    const val androidxEspresso = "3.1.0"
+    const val androidxEspresso = "3.1.1"
 
-    const val androidCommons = "0.0.23"
+    const val androidCommons = "0.0.24"
         // https://github.com/elpassion/android-commons/releases
 
-    const val rxjava = "2.2.3"
+    const val rxjava = "2.2.4"
         // https://github.com/ReactiveX/RxJava/releases
 
     const val rxkotlin = "2.3.0"
         // https://github.com/ReactiveX/RxKotlin/releases
 
-    const val rxbinding = "3.0.0-alpha1"
+    const val rxbinding = "3.0.0-alpha2"
         // https://github.com/JakeWharton/RxBinding
         // https://github.com/JakeWharton/RxBinding/releases
 
@@ -93,11 +94,11 @@ object Vers {
     const val rxlifecycle = "3.0.0"
         // https://github.com/trello/RxLifecycle/releases
 
-    const val retrofit = "2.4.0"
+    const val retrofit = "2.5.0"
         // https://github.com/square/retrofit
         // https://github.com/square/retrofit/releases
 
-    const val okhttp = "3.11.0"
+    const val okhttp = "3.12.0"
         // https://github.com/square/okhttp
         // https://github.com/square/okhttp/releases
 
@@ -111,7 +112,7 @@ object Vers {
     // https://github.com/square/picasso
     // https://github.com/square/picasso/releases
 
-    const val materialDialogs = "2.0.0-beta5"
+    const val materialDialogs = "2.0.0-rc05"
     // https://github.com/afollestad/material-dialogs
     // https://github.com/afollestad/material-dialogs/releases
 
@@ -138,7 +139,7 @@ object Vers {
 
     const val uspek = "25459c8b62"
 
-    const val ktor = "1.0.0-beta-3"
+    const val ktor = "1.1.1"
         // https://github.com/ktorio/ktor
         // https://github.com/ktorio/ktor/releases
         // https://bintray.com/kotlin/ktor/ktor
