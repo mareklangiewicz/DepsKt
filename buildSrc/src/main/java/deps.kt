@@ -137,7 +137,7 @@ object Vers {
     const val realm = "5.8.0"
         // https://realm.io/docs/java/latest/
 
-    const val uspek = "25459c8b62"
+    const val uspek = "0.0.2"
 
     const val ktor = "1.1.1"
         // https://github.com/ktorio/ktor
