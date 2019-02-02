@@ -8,7 +8,7 @@
 object Vers {
     const val kotlinMajor = 1
     const val kotlinMinor = 3
-    const val kotlinPatch = 11
+    const val kotlinPatch = 20
 
     const val kotlin = "$kotlinMajor.$kotlinMinor.$kotlinPatch"
         // https://github.com/JetBrains/kotlin/blob/master/ChangeLog.md
@@ -17,18 +17,18 @@ object Vers {
     @Deprecated("Use current Kotlin", ReplaceWith("kotlin"))
     const val kotlin12 = "1.2.70"
 
-    const val kotlinxCoroutines = "1.1.0"
+    const val kotlinxCoroutines = "1.1.1"
         // https://github.com/Kotlin/kotlinx.coroutines/releases
 
      // just a reference - not useful in typical cases
-    const val gradle4 = "4.10.2"
-    const val gradle5 = "5.0"
+    const val gradle4 = "4.10.3"
+    const val gradle5 = "5.1.1"
     const val gradle = gradle5
         // https://gradle.org/releases/
         // https://services.gradle.org/versions
         // https://services.gradle.org/versions/current
 
-    const val androidGradlePlugin = "3.2.1"
+    const val androidGradlePlugin = "3.3.0"
         // https://google.github.io/android-gradle-dsl/
         // https://developer.android.com/studio/releases/gradle-plugin
 
@@ -75,7 +75,7 @@ object Vers {
     const val androidCommons = "0.0.24"
         // https://github.com/elpassion/android-commons/releases
 
-    const val rxjava = "2.2.4"
+    const val rxjava = "2.2.6"
         // https://github.com/ReactiveX/RxJava/releases
 
     const val rxkotlin = "2.3.0"
@@ -137,7 +137,17 @@ object Vers {
     const val realm = "5.8.0"
         // https://realm.io/docs/java/latest/
 
+    const val tuplek = "0.0.1"
+        // https://github.com/langara/tuplek/releases
+
+    const val rxmock = "0.0.1"
+        // https://github.com/langara/rxmock/releases
+
+    const val smokk = "0.0.1"
+    // https://github.com/langara/smokk/releases
+
     const val uspek = "0.0.2"
+        // https://github.com/langara/uspek/releases
 
     const val ktor = "1.1.1"
         // https://github.com/ktorio/ktor
@@ -219,6 +229,9 @@ object Deps {
     val paperwork = dep("hu.supercluster", "paperwork", Vers.paperwork)
     val paperworkPlugin = dep("hu.supercluster", "paperwork-plugin", Vers.paperwork)
     val junit = dep("junit", "junit", Vers.junit)
+    val tuplek = dep("com.github.langara", "TupleK", Vers.tuplek)
+    val rxmock = dep("com.github.langara", "RxMock", Vers.rxmock)
+    val smokk = dep("com.github.langara", "SmokK", Vers.smokk)
     val uspek = dep("com.github.langara", "USpek", Vers.uspek)
     val googleTruth = dep("com.google.truth", "truth", Vers.googleTruth)
     val mockitoKotlin = dep("com.nhaarman.mockitokotlin2", "mockito-kotlin", Vers.mockitoKotlin)
