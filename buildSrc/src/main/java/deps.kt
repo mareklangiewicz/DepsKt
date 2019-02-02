@@ -170,8 +170,21 @@ object Deps {
     @Deprecated("Use specific jdk version", ReplaceWith("kotlinStdlib7"))
     val kotlinStdlib = kotlinStdlib7
     val kotlinReflect = dep("org.jetbrains.kotlin", "kotlin-reflect", Vers.kotlin)
+
+    val kotlinxCoroutinesCommon = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-core-common", Vers.kotlinxCoroutines)
     val kotlinxCoroutinesCore = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-core", Vers.kotlinxCoroutines)
+    val kotlinxCoroutinesDebug = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-debug", Vers.kotlinxCoroutines)
+    val kotlinxCoroutinesTest = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-test", Vers.kotlinxCoroutines)
+    val kotlinxCoroutinesReactive = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-reactive", Vers.kotlinxCoroutines)
+    val kotlinxCoroutinesReactor = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-reactor", Vers.kotlinxCoroutines)
+    val kotlinxCoroutinesRx2 = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-rx2", Vers.kotlinxCoroutines)
     val kotlinxCoroutinesAndroid = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-android", Vers.kotlinxCoroutines)
+    val kotlinxCoroutinesJavaFx = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-javafx", Vers.kotlinxCoroutines)
+    val kotlinxCoroutinesSwing = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-swing", Vers.kotlinxCoroutines)
+    val kotlinxCoroutinesJdk8 = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-jdk8", Vers.kotlinxCoroutines)
+    val kotlinxCoroutinesGuava = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-quava", Vers.kotlinxCoroutines)
+    val kotlinxCoroutinesSlf4j = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-slf4j", Vers.kotlinxCoroutines)
+    val kotlinxCoroutinesPlayServices = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-play-services", Vers.kotlinxCoroutines)
 
     // just a reference - not useful in typical cases
     const val gradleBaseUrl = "https://services.gradle.org/distributions"
