@@ -140,10 +140,10 @@ object Vers {
     const val tuplek = "0.0.1"
         // https://github.com/langara/tuplek/releases
 
-    const val rxmock = "0.0.1"
+    const val rxmock = "0.0.2"
         // https://github.com/langara/rxmock/releases
 
-    const val smokk = "0.0.2"
+    const val smokk = "0.0.3"
     // https://github.com/langara/smokk/releases
 
     const val uspek = "0.0.2"
