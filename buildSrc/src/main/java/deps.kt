@@ -8,7 +8,7 @@
 object Vers {
     const val kotlinMajor = 1
     const val kotlinMinor = 3
-    const val kotlinPatch = 20
+    const val kotlinPatch = 21
 
     const val kotlin = "$kotlinMajor.$kotlinMinor.$kotlinPatch"
         // https://github.com/JetBrains/kotlin/blob/master/ChangeLog.md
@@ -22,7 +22,7 @@ object Vers {
 
      // just a reference - not useful in typical cases
     const val gradle4 = "4.10.3"
-    const val gradle5 = "5.1.1"
+    const val gradle5 = "5.2.1"
     const val gradle = gradle5
         // https://gradle.org/releases/
         // https://services.gradle.org/versions
@@ -88,7 +88,7 @@ object Vers {
     const val rxrelay = "2.1.0"
         // https://github.com/JakeWharton/RxRelay/releases
 
-    const val rxandroid = "2.1.0"
+    const val rxandroid = "2.1.1"
         // https://github.com/ReactiveX/RxAndroid/releases
 
     const val rxlifecycle = "3.0.0"
@@ -98,11 +98,11 @@ object Vers {
         // https://github.com/square/retrofit
         // https://github.com/square/retrofit/releases
 
-    const val okhttp = "3.12.0"
+    const val okhttp = "3.13.1"
         // https://github.com/square/okhttp
         // https://github.com/square/okhttp/releases
 
-    const val javaWebsocket = "1.3.9"
+    const val javaWebsocket = "1.4.0"
         // https://mvnrepository.com/artifact/org.java-websocket/Java-WebSocket
 
     const val playServices = "15.0.0"
@@ -122,7 +122,7 @@ object Vers {
     const val paperwork = "1.2.7"
         // https://github.com/zsoltk/paperwork/releases
 
-    const val mockitoKotlin = "2.0.0"
+    const val mockitoKotlin = "2.1.0"
         // https://github.com/nhaarman/mockito-kotlin/releases
 
     const val junit = "4.12"
@@ -143,13 +143,13 @@ object Vers {
     const val rxmock = "0.0.1"
         // https://github.com/langara/rxmock/releases
 
-    const val smokk = "0.0.1"
+    const val smokk = "0.0.2"
     // https://github.com/langara/smokk/releases
 
     const val uspek = "0.0.2"
         // https://github.com/langara/uspek/releases
 
-    const val ktor = "1.1.1"
+    const val ktor = "1.1.3"
         // https://github.com/ktorio/ktor
         // https://github.com/ktorio/ktor/releases
         // https://bintray.com/kotlin/ktor/ktor
