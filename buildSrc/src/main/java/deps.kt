@@ -17,18 +17,18 @@ object Vers {
     @Deprecated("Use current Kotlin", ReplaceWith("kotlin"))
     const val kotlin12 = "1.2.70"
 
-    const val kotlinxCoroutines = "1.2.2"
+    const val kotlinxCoroutines = "1.3.0-RC"
         // https://github.com/Kotlin/kotlinx.coroutines/releases
 
      // just a reference - not useful in typical cases
     const val gradle4 = "4.10.3"
-    const val gradle5 = "5.5"
+    const val gradle5 = "5.5.1"
     const val gradle = gradle5
         // https://gradle.org/releases/
         // https://services.gradle.org/versions
         // https://services.gradle.org/versions/current
 
-    const val androidGradlePlugin = "3.4.1"
+    const val androidGradlePlugin = "3.4.2"
         // https://google.github.io/android-gradle-dsl/
         // https://developer.android.com/studio/releases/gradle-plugin
 
@@ -59,25 +59,23 @@ object Vers {
     const val androidxConstraint = androidxConstraint2
 
     const val androidxRecyclerview = "1.1.0-beta01"
-    const val androidxRecyclerviewSelection = "1.1.0-beta01"
     const val androidxCardview = "1.0.0"
-    const val androidMaterial = "1.1.0-alpha07"
+    const val androidMaterial = "1.1.0-alpha08"
     const val androidxAnnotation = "1.1.0"
     const val androidxPreference = "1.1.0-rc01"
     const val androidxBrowser = "1.0.0"
     const val androidxPercentLayout = "1.0.0"
 
     const val androidxLifecycle = "2.2.0-alpha02"
-        // https://developer.android.com/topic/libraries/architecture/adding-components.html
+        // https://developer.android.com/jetpack/androidx/releases/lifecycle
 
-    const val androidxRoom = "2.1.0"
-        // https://developer.android.com/topic/libraries/architecture/adding-components#room
-    const val androidxRoomCoroutines = "2.1.0"
+    const val androidxRoom = "2.2.0-alpha01"
+        // https://developer.android.com/jetpack/androidx/releases/room
 
     const val androidxTest = "1.2.1-alpha01"
         // https://developer.android.com/topic/libraries/testing-support-library/release-notes.html
 
-    const val androidxEspresso = "3.2.0-alpha04"
+    const val androidxEspresso = "3.3.0-alpha02"
 
     const val androidCommons = "0.0.24"
         // https://github.com/elpassion/android-commons/releases
@@ -85,10 +83,10 @@ object Vers {
     const val rxjava = "2.2.10"
         // https://github.com/ReactiveX/RxJava/releases
 
-    const val rxkotlin = "2.4.0-beta.1"
+    const val rxkotlin = "2.4.0-RC3"
         // https://github.com/ReactiveX/RxKotlin/releases
 
-    const val rxbinding = "3.0.0-alpha2"
+    const val rxbinding = "3.0.0"
         // https://github.com/JakeWharton/RxBinding
         // https://github.com/JakeWharton/RxBinding/releases
 
@@ -105,17 +103,18 @@ object Vers {
         // https://github.com/square/retrofit
         // https://github.com/square/retrofit/releases
 
-    const val okhttp = "4.0.0"
+    const val okhttp = "4.0.1"
         // https://github.com/square/okhttp
         // https://github.com/square/okhttp/releases
 
     const val javaWebsocket = "1.4.0"
         // https://mvnrepository.com/artifact/org.java-websocket/Java-WebSocket
 
-    const val playServices = "17.1.0"
+    const val playServicesBase = "17.0.0"
+        // https://developers.google.com/android/guides/setup
         // https://developers.google.com/android/guides/releases
 
-    const val firebaseAppIndexing = "17.1.0"
+    const val firebaseAppIndexing = "19.0.0"
 
     const val picasso = "2.71828"
     // https://github.com/square/picasso
@@ -137,13 +136,13 @@ object Vers {
     const val junit = "4.12"
         // https://github.com/junit-team/junit4/releases
 
-    const val googleTruth = "0.46"
+    const val googleTruth = "1.0"
         // https://github.com/google/truth/releases
 
     const val androidTestRunnerClass = "androidx.test.runner.AndroidJUnitRunner"
         // https://developer.android.com/reference/android/support/test/runner/AndroidJUnitRunner.html
 
-    const val realm = "5.12.0"
+    const val realm = "5.13.0"
         // https://realm.io/docs/java/latest/
 
     const val tuplek = "0.0.1"
@@ -158,7 +157,7 @@ object Vers {
     const val uspek = "0.0.2"
         // https://github.com/langara/uspek/releases
 
-    const val ktor = "1.2.2"
+    const val ktor = "1.2.3-rc"
         // https://github.com/ktorio/ktor
         // https://github.com/ktorio/ktor/releases
         // https://bintray.com/kotlin/ktor/ktor
@@ -202,7 +201,6 @@ object Deps {
 
     val androidxAppcompat = dep("androidx.appcompat", "appcompat", Vers.androidxAppcompat)
     val androidxRecyclerview = dep("androidx.recyclerview", "recyclerview", Vers.androidxRecyclerview)
-    val androidxRecyclerviewSelection = dep("androidx.recyclerview", "recyclerview", Vers.androidxRecyclerviewSelection)
     val androidxCardview = dep("androidx.cardview", "cardview", Vers.androidxCardview)
     val androidMaterial = dep("com.google.android.material", "material", Vers.androidMaterial)
     val androidxAnnotation = dep("androidx.annotation", "annotation", Vers.androidxAnnotation)
@@ -226,8 +224,16 @@ object Deps {
     val androidxRoomRuntime = dep("androidx.room", "room-runtime", Vers.androidxRoom)
     val androidxRoomCompiler = dep("androidx.room", "room-compiler", Vers.androidxRoom)
     val androidxRoomKtx = dep("androidx.room", "room-ktx", Vers.androidxRoom)
-    val androidxRoomCoroutines = dep("androidx.room", "room-coroutines", Vers.androidxRoomCoroutines)
-    val androidxEspresso = dep("androidx.test.espresso", "espresso-core", Vers.androidxEspresso)
+    val androidxRoomRxJava2 = dep("androidx.room", "room-rxjava2", Vers.androidxRoom)
+    val androidxRoomTesting = dep("androidx.room", "room-testing", Vers.androidxRoom)
+
+    val androidxEspressoAccessibility = dep("androidx.test.espresso", "espresso-accessibility", Vers.androidxEspresso)
+    val androidxEspressoContrib = dep("androidx.test.espresso", "espresso-contrib", Vers.androidxEspresso)
+    val androidxEspressoCore = dep("androidx.test.espresso", "espresso-core", Vers.androidxEspresso)
+    val androidxEspressoIdlingResource = dep("androidx.test.espresso", "espresso-idling-resource", Vers.androidxEspresso)
+    val androidxEspressoIntents = dep("androidx.test.espresso", "espresso-intents", Vers.androidxEspresso)
+    val androidxEspressoRemote = dep("androidx.test.espresso", "espresso-remote", Vers.androidxEspresso)
+    val androidxEspressoWeb = dep("androidx.test.espresso", "espresso-web", Vers.androidxEspresso)
 
     val androidCommonsEspresso = dep("com.github.elpassion.android-commons", "espresso", Vers.androidCommons)
     val androidCommonsRxJavaTest = dep("com.github.elpassion.android-commons", "rxjava-test", Vers.androidCommons)
@@ -259,7 +265,7 @@ object Deps {
     val okhttp = dep("com.squareup.okhttp3", "okhttp", Vers.okhttp)
     val okhttpLogging = dep("com.squareup.okhttp3", "logging-interceptor", Vers.okhttp)
     val javaWebsocket = dep("org.java-websocket", "Java-WebSocket", Vers.javaWebsocket)
-    val playServicesBase = dep("com.google.android.gms", "play-services-base", Vers.playServices)
+    val playServicesBase = dep("com.google.android.gms", "play-services-base", Vers.playServicesBase)
     val firebaseAppIndexing = dep("com.google.firebase", "firebase-appindexing", Vers.firebaseAppIndexing)
     val picasso = dep("com.squareup.picasso", "picasso", Vers.picasso)
     val materialDialogs = dep("com.afollestad.material-dialogs", "core", Vers.materialDialogs)
