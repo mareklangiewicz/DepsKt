@@ -8,7 +8,7 @@
 object Vers {
     const val kotlinMajor = 1
     const val kotlinMinor = 3
-    const val kotlinPatch = 41
+    const val kotlinPatch = 50
 
     const val kotlin = "$kotlinMajor.$kotlinMinor.$kotlinPatch"
         // https://github.com/JetBrains/kotlin/blob/master/ChangeLog.md
