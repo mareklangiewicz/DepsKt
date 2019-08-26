@@ -145,8 +145,11 @@ object Vers {
     const val realm = "5.13.0"
         // https://realm.io/docs/java/latest/
 
-    const val tuplek = "0.0.1"
+    const val tuplek = "0.0.2"
         // https://github.com/langara/tuplek/releases
+
+    const val abcdk = "0.0.2"
+    // https://github.com/langara/abcdk/releases
 
     const val rxmock = "0.0.2"
         // https://github.com/langara/rxmock/releases
@@ -275,6 +278,7 @@ object Deps {
     val paperworkPlugin = dep("hu.supercluster", "paperwork-plugin", Vers.paperwork)
     val junit = dep("junit", "junit", Vers.junit)
     val tuplek = dep("com.github.langara", "TupleK", Vers.tuplek)
+    val abcdk = dep("com.github.langara", "AbcdK", Vers.abcdk)
     val rxmock = dep("com.github.langara", "RxMock", Vers.rxmock)
     val smokk = dep("com.github.langara", "SmokK", Vers.smokk)
     val uspek = dep("com.github.langara", "USpek", Vers.uspek)
