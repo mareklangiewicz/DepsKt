@@ -72,8 +72,10 @@ object Vers {
     const val androidxRoom = "2.2.0-alpha01"
         // https://developer.android.com/jetpack/androidx/releases/room
 
-    const val androidxTest = "1.2.1-alpha01"
-        // https://developer.android.com/topic/libraries/testing-support-library/release-notes.html
+    const val androidxTest = "1.2.1-alpha02"
+    const val androidxTestRunner = "1.3.0-alpha02"
+    const val androidxTestRules = "1.3.0-alpha02"
+        // https://developer.android.com/jetpack/androidx/releases/test
 
     const val androidxEspresso = "3.3.0-alpha02"
 
@@ -124,7 +126,7 @@ object Vers {
     // https://github.com/afollestad/material-dialogs
     // https://github.com/afollestad/material-dialogs/releases
 
-    const val leakcanary = "2.0-alpha-3"
+    const val leakcanary = "2.0-beta-3"
         // https://github.com/square/leakcanary/releases
 
     const val paperwork = "1.2.7"
@@ -273,7 +275,6 @@ object Deps {
     val picasso = dep("com.squareup.picasso", "picasso", Vers.picasso)
     val materialDialogs = dep("com.afollestad.material-dialogs", "core", Vers.materialDialogs)
     val leakcanary = dep("com.squareup.leakcanary", "leakcanary-android", Vers.leakcanary)
-    val leakcanaryNoOp = dep("com.squareup.leakcanary", "leakcanary-android-no-op", Vers.leakcanary)
     val paperwork = dep("hu.supercluster", "paperwork", Vers.paperwork)
     val paperworkPlugin = dep("hu.supercluster", "paperwork-plugin", Vers.paperwork)
     val junit = dep("junit", "junit", Vers.junit)
@@ -284,8 +285,8 @@ object Deps {
     val uspek = dep("com.github.langara", "USpek", Vers.uspek)
     val googleTruth = dep("com.google.truth", "truth", Vers.googleTruth)
     val mockitoKotlin = dep("com.nhaarman.mockitokotlin2", "mockito-kotlin", Vers.mockitoKotlin)
-    val androidTestRunner = dep("androidx.test", "runner", Vers.androidxTest)
-    val androidTestRules = dep("androidx.test", "rules", Vers.androidxTest)
+    val androidTestRunner = dep("androidx.test", "runner", Vers.androidxTestRunner)
+    val androidTestRules = dep("androidx.test", "rules", Vers.androidxTestRules)
     val realmGradlePlugin = dep("io.realm", "realm-gradle-plugin", Vers.realm)
     val ktorServerNetty = dep("io.ktor", "ktor-server-netty", Vers.ktor)
     val ktorAuth = dep("io.ktor", "ktor-auth", Vers.ktor)
