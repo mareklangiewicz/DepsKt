@@ -60,7 +60,7 @@ object Vers {
 
     const val androidxRecyclerview = "1.1.0-beta01"
     const val androidxCardview = "1.0.0"
-    const val androidMaterial = "1.1.0-alpha08"
+    const val androidMaterial = "1.1.0-alpha09"
     const val androidxAnnotation = "1.1.0"
     const val androidxPreference = "1.1.0-rc01"
     const val androidxBrowser = "1.0.0"
