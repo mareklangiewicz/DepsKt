@@ -17,18 +17,18 @@ object Vers {
     @Deprecated("Use current Kotlin", ReplaceWith("kotlin"))
     const val kotlin12 = "1.2.70"
 
-    const val kotlinxCoroutines = "1.3.0-RC"
+    const val kotlinxCoroutines = "1.3.1"
         // https://github.com/Kotlin/kotlinx.coroutines/releases
 
      // just a reference - not useful in typical cases
     const val gradle4 = "4.10.3"
-    const val gradle5 = "5.5.1"
+    const val gradle5 = "5.6.2"
     const val gradle = gradle5
         // https://gradle.org/releases/
         // https://services.gradle.org/versions
         // https://services.gradle.org/versions/current
 
-    const val androidGradlePlugin = "3.4.2"
+    const val androidGradlePlugin = "3.5.0"
         // https://google.github.io/android-gradle-dsl/
         // https://developer.android.com/studio/releases/gradle-plugin
 
@@ -51,25 +51,27 @@ object Vers {
     // https://developer.android.com/jetpack/androidx/versions
     // https://dl.google.com/dl/android/maven2/index.html
 
-    const val androidxAppcompat = "1.1.0-rc01"
+    const val androidxCore = "1.2.0-alpha04"
+
+    const val androidxAppcompat = "1.1.0"
 
     const val androidxConstraint1 = "1.1.3"
         // https://developer.android.com/training/constraint-layout
-    const val androidxConstraint2 = "2.0.0-beta1"
+    const val androidxConstraint2 = "2.0.0-beta2"
     const val androidxConstraint = androidxConstraint2
 
-    const val androidxRecyclerview = "1.1.0-beta01"
+    const val androidxRecyclerview = "1.1.0-beta04"
     const val androidxCardview = "1.0.0"
-    const val androidMaterial = "1.1.0-alpha09"
+    const val androidMaterial = "1.1.0-alpha10"
     const val androidxAnnotation = "1.1.0"
-    const val androidxPreference = "1.1.0-rc01"
-    const val androidxBrowser = "1.0.0"
+    const val androidxPreference = "1.1.0"
+    const val androidxBrowser = "1.2.0-alpha08"
     const val androidxPercentLayout = "1.0.0"
 
-    const val androidxLifecycle = "2.2.0-alpha02"
+    const val androidxLifecycle = "2.2.0-alpha05"
         // https://developer.android.com/jetpack/androidx/releases/lifecycle
 
-    const val androidxRoom = "2.2.0-alpha01"
+    const val androidxRoom = "2.2.0-rc01"
         // https://developer.android.com/jetpack/androidx/releases/room
 
     const val androidxTest = "1.2.1-alpha02"
@@ -82,17 +84,20 @@ object Vers {
     const val androidCommons = "0.0.24"
         // https://github.com/elpassion/android-commons/releases
 
-    const val rxjava = "2.2.10"
+    const val rxjava2 = "2.2.12"
+    const val rxjava3 = "3.0.0-RC03"
+
+    const val rxjava = rxjava2
         // https://github.com/ReactiveX/RxJava/releases
 
-    const val rxkotlin = "2.4.0-RC3"
+    const val rxkotlin = "2.4.0"
         // https://github.com/ReactiveX/RxKotlin/releases
 
     const val rxbinding = "3.0.0"
         // https://github.com/JakeWharton/RxBinding
         // https://github.com/JakeWharton/RxBinding/releases
 
-    const val rxrelay = "2.1.0"
+    const val rxrelay = "2.1.1"
         // https://github.com/JakeWharton/RxRelay/releases
 
     const val rxandroid = "2.1.1"
@@ -101,18 +106,18 @@ object Vers {
     const val rxlifecycle = "3.0.0"
         // https://github.com/trello/RxLifecycle/releases
 
-    const val retrofit = "2.6.0"
+    const val retrofit = "2.6.1"
         // https://github.com/square/retrofit
         // https://github.com/square/retrofit/releases
 
-    const val okhttp = "4.0.1"
+    const val okhttp = "4.2.0"
         // https://github.com/square/okhttp
         // https://github.com/square/okhttp/releases
 
     const val javaWebsocket = "1.4.0"
         // https://mvnrepository.com/artifact/org.java-websocket/Java-WebSocket
 
-    const val playServicesBase = "17.0.0"
+    const val playServicesBase = "17.1.0"
         // https://developers.google.com/android/guides/setup
         // https://developers.google.com/android/guides/releases
 
@@ -122,7 +127,7 @@ object Vers {
     // https://github.com/square/picasso
     // https://github.com/square/picasso/releases
 
-    const val materialDialogs = "3.1.0"
+    const val materialDialogs = "3.1.1"
     // https://github.com/afollestad/material-dialogs
     // https://github.com/afollestad/material-dialogs/releases
 
@@ -132,7 +137,7 @@ object Vers {
     const val paperwork = "1.2.7"
         // https://github.com/zsoltk/paperwork/releases
 
-    const val mockitoKotlin = "2.1.0"
+    const val mockitoKotlin = "2.2.0"
         // https://github.com/nhaarman/mockito-kotlin/releases
 
     const val junit = "4.12"
@@ -144,7 +149,7 @@ object Vers {
     const val androidTestRunnerClass = "androidx.test.runner.AndroidJUnitRunner"
         // https://developer.android.com/reference/android/support/test/runner/AndroidJUnitRunner.html
 
-    const val realm = "5.13.0"
+    const val realm = "5.15.1"
         // https://realm.io/docs/java/latest/
 
     const val tuplek = "0.0.2"
@@ -162,7 +167,7 @@ object Vers {
     const val uspek = "0.0.2"
         // https://github.com/langara/uspek/releases
 
-    const val ktor = "1.2.3-rc"
+    const val ktor = "1.3.0-beta-1"
         // https://github.com/ktorio/ktor
         // https://github.com/ktorio/ktor/releases
         // https://bintray.com/kotlin/ktor/ktor
@@ -204,6 +209,8 @@ object Deps {
     const val gradleUrlBin = "$gradleBaseUrl/gradle-${Vers.gradle}-bin.zip"
     const val gradleUrlAll = "$gradleBaseUrl/gradle-${Vers.gradle}-all.zip"
 
+    val androidxCore = dep("androidx.core", "core", Vers.androidxCore)
+    val androidxCoreKtx = dep("androidx.core", "core-ktx", Vers.androidxCore)
     val androidxAppcompat = dep("androidx.appcompat", "appcompat", Vers.androidxAppcompat)
     val androidxRecyclerview = dep("androidx.recyclerview", "recyclerview", Vers.androidxRecyclerview)
     val androidxCardview = dep("androidx.cardview", "cardview", Vers.androidxCardview)
@@ -221,10 +228,13 @@ object Deps {
     val androidxConstraintSolver = androidxConstraint1Solver
 
     val androidxLifecycleCommon = dep("androidx.lifecycle", "lifecycle-common", Vers.androidxLifecycle)
-    val androidxLifecycleExtensions = androidxLifecycleCommon + ("name" to "lifecycle-extensions")
-    val androidxLifecycleViewModel = androidxLifecycleCommon + ("name" to "lifecycle-viewmodel")
-    val androidxLifecycleLiveData = androidxLifecycleCommon + ("name" to "lifecycle-livedata")
     val androidxLifecycleCompiler = androidxLifecycleCommon + ("name" to "lifecycle-compiler")
+    val androidxLifecycleExtensions = androidxLifecycleCommon + ("name" to "lifecycle-extensions")
+    val androidxLifecycleLiveData = androidxLifecycleCommon + ("name" to "lifecycle-livedata")
+    val androidxLifecycleLiveDataCore = androidxLifecycleCommon + ("name" to "lifecycle-livedata-core")
+    val androidxLifecycleLiveDataCoreKtx = androidxLifecycleCommon + ("name" to "lifecycle-livedata-core-ktx")
+    val androidxLifecycleViewModel = androidxLifecycleCommon + ("name" to "lifecycle-viewmodel")
+    val androidxLifecycleViewModelKtx = androidxLifecycleCommon + ("name" to "lifecycle-viewmodel-ktx")
 
     val androidxRoomRuntime = dep("androidx.room", "room-runtime", Vers.androidxRoom)
     val androidxRoomCompiler = dep("androidx.room", "room-compiler", Vers.androidxRoom)
