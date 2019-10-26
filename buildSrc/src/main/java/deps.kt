@@ -17,18 +17,18 @@ object Vers {
     @Deprecated("Use current Kotlin", ReplaceWith("kotlin"))
     const val kotlin12 = "1.2.70"
 
-    const val kotlinxCoroutines = "1.3.1"
+    const val kotlinxCoroutines = "1.3.2"
         // https://github.com/Kotlin/kotlinx.coroutines/releases
 
      // just a reference - not useful in typical cases
     const val gradle4 = "4.10.3"
-    const val gradle5 = "5.6.2"
+    const val gradle5 = "5.6.3"
     const val gradle = gradle5
         // https://gradle.org/releases/
         // https://services.gradle.org/versions
         // https://services.gradle.org/versions/current
 
-    const val androidGradlePlugin = "3.5.0"
+    const val androidGradlePlugin = "3.5.1"
         // https://google.github.io/android-gradle-dsl/
         // https://developer.android.com/studio/releases/gradle-plugin
 
@@ -51,27 +51,27 @@ object Vers {
     // https://developer.android.com/jetpack/androidx/versions
     // https://dl.google.com/dl/android/maven2/index.html
 
-    const val androidxCore = "1.2.0-alpha04"
+    const val androidxCore = "1.2.0-beta01"
 
     const val androidxAppcompat = "1.1.0"
 
     const val androidxConstraint1 = "1.1.3"
         // https://developer.android.com/training/constraint-layout
-    const val androidxConstraint2 = "2.0.0-beta2"
+    const val androidxConstraint2 = "2.0.0-beta3"
     const val androidxConstraint = androidxConstraint2
 
-    const val androidxRecyclerview = "1.1.0-beta04"
+    const val androidxRecyclerview = "1.1.0-rc01"
     const val androidxCardview = "1.0.0"
-    const val androidMaterial = "1.1.0-alpha10"
+    const val androidMaterial = "1.2.0-alpha01"
     const val androidxAnnotation = "1.1.0"
     const val androidxPreference = "1.1.0"
-    const val androidxBrowser = "1.2.0-alpha08"
+    const val androidxBrowser = "1.2.0-alpha09"
     const val androidxPercentLayout = "1.0.0"
 
-    const val androidxLifecycle = "2.2.0-alpha05"
+    const val androidxLifecycle = "2.2.0-rc01"
         // https://developer.android.com/jetpack/androidx/releases/lifecycle
 
-    const val androidxRoom = "2.2.0-rc01"
+    const val androidxRoom = "2.2.1"
         // https://developer.android.com/jetpack/androidx/releases/room
 
     const val androidxTest = "1.2.1-alpha02"
@@ -84,8 +84,8 @@ object Vers {
     const val androidCommons = "0.0.24"
         // https://github.com/elpassion/android-commons/releases
 
-    const val rxjava2 = "2.2.12"
-    const val rxjava3 = "3.0.0-RC03"
+    const val rxjava2 = "2.2.13"
+    const val rxjava3 = "3.0.0-RC4"
 
     const val rxjava = rxjava2
         // https://github.com/ReactiveX/RxJava/releases
@@ -103,14 +103,14 @@ object Vers {
     const val rxandroid = "2.1.1"
         // https://github.com/ReactiveX/RxAndroid/releases
 
-    const val rxlifecycle = "3.0.0"
+    const val rxlifecycle = "3.1.0"
         // https://github.com/trello/RxLifecycle/releases
 
-    const val retrofit = "2.6.1"
+    const val retrofit = "2.6.2"
         // https://github.com/square/retrofit
         // https://github.com/square/retrofit/releases
 
-    const val okhttp = "4.2.0"
+    const val okhttp = "4.2.1"
         // https://github.com/square/okhttp
         // https://github.com/square/okhttp/releases
 
@@ -149,7 +149,7 @@ object Vers {
     const val androidTestRunnerClass = "androidx.test.runner.AndroidJUnitRunner"
         // https://developer.android.com/reference/android/support/test/runner/AndroidJUnitRunner.html
 
-    const val realm = "5.15.1"
+    const val realm = "6.0.0"
         // https://realm.io/docs/java/latest/
 
     const val tuplek = "0.0.2"
