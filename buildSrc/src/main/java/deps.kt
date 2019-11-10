@@ -22,21 +22,22 @@ object Vers {
 
      // just a reference - not useful in typical cases
     const val gradle4 = "4.10.3"
-    const val gradle5 = "5.6.3"
-    const val gradle = gradle5
+    const val gradle5 = "5.6.4"
+    const val gradle6 = "6.0"
+    const val gradle = gradle6
         // https://gradle.org/releases/
         // https://services.gradle.org/versions
         // https://services.gradle.org/versions/current
 
-    const val androidGradlePlugin = "3.5.1"
+    const val androidGradlePlugin = "3.5.2"
         // https://google.github.io/android-gradle-dsl/
         // https://developer.android.com/studio/releases/gradle-plugin
 
     const val androidMavenGradlePlugin = "2.1" // https://github.com/dcendents/android-maven-gradle-plugin/releases
 
-    const val androidCompileSdk = 28
+    const val androidCompileSdk = 29
     const val androidMinSdk = 23
-    const val androidTargetSdk = 28
+    const val androidTargetSdk = 29
         // https://developer.android.com/about/dashboards/index.html
         // https://source.android.com/setup/start/build-numbers
 
@@ -51,7 +52,7 @@ object Vers {
     // https://developer.android.com/jetpack/androidx/versions
     // https://dl.google.com/dl/android/maven2/index.html
 
-    const val androidxCore = "1.2.0-beta01"
+    const val androidxCore = "1.2.0-beta02"
 
     const val androidxAppcompat = "1.1.0"
 
