@@ -173,6 +173,9 @@ object Vers {
         // https://github.com/ktorio/ktor/releases
         // https://bintray.com/kotlin/ktor/ktor
 
+    const val splitties = "3.0.0-alpha06"
+        // https://github.com/LouisCAD/Splitties/releases
+        // https://github.com/LouisCAD/Splitties
 }
 
 /**
@@ -303,6 +306,7 @@ object Deps {
     val ktorAuth = dep("io.ktor", "ktor-auth", Vers.ktor)
     val ktorClientCore = dep("io.ktor", "ktor-client-core", Vers.ktor)
     val ktorClientApache = dep("io.ktor", "ktor-client-apache", Vers.ktor)
+    val splitties = dep("com.louiscad.splitties", "splitties-fun-pack-android-material-components-with-views-dsl", Vers.splitties)
 }
 
 private fun dep(group: String, name: String, version: String) = mapOf(
