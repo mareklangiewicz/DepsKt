@@ -68,6 +68,8 @@ object Vers {
     const val androidxPreference = "1.1.0"
     const val androidxBrowser = "1.2.0-alpha09"
     const val androidxPercentLayout = "1.0.0"
+    const val androidxFlexboxLayout = "1.1.1"
+        // https://github.com/google/flexbox-layout/releases
 
     const val androidxLifecycle = "2.2.0-rc01"
         // https://developer.android.com/jetpack/androidx/releases/lifecycle
@@ -224,6 +226,7 @@ object Deps {
     val androidxPreferenceKtx = androidxPreference + ("name" to "preference-ktx")
     val androidxBrowser = dep("androidx.browser", "browser", Vers.androidxBrowser)
     val androidxPercentLayout = dep("androidx.percentlayout", "percentlayout", Vers.androidxPercentLayout)
+    val androidxFlexboxLayout = dep("com.google.android", "flexbox", Vers.androidxFlexboxLayout)
     val androidxConstraint1 = dep("androidx.constraintlayout", "constraintlayout", Vers.androidxConstraint1)
     val androidxConstraint2 = androidxConstraint1 + ("version" to Vers.androidxConstraint2)
     val androidxConstraint = androidxConstraint1
