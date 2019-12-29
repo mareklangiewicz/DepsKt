@@ -8,7 +8,7 @@
 object Vers {
     const val kotlinMajor = 1
     const val kotlinMinor = 3
-    const val kotlinPatch = 50
+    const val kotlinPatch = 61
 
     const val kotlin = "$kotlinMajor.$kotlinMinor.$kotlinPatch"
         // https://github.com/JetBrains/kotlin/blob/master/ChangeLog.md
@@ -17,7 +17,7 @@ object Vers {
     @Deprecated("Use current Kotlin", ReplaceWith("kotlin"))
     const val kotlin12 = "1.2.70"
 
-    const val kotlinxCoroutines = "1.3.2"
+    const val kotlinxCoroutines = "1.3.3"
         // https://github.com/Kotlin/kotlinx.coroutines/releases
 
      // just a reference - not useful in typical cases
@@ -30,8 +30,8 @@ object Vers {
         // https://services.gradle.org/versions/current
 
     const val androidGradlePlugin = "3.5.2"
-        // https://google.github.io/android-gradle-dsl/
-        // https://developer.android.com/studio/releases/gradle-plugin
+    // https://developer.android.com/studio/releases/gradle-plugin
+    // https://google.github.io/android-gradle-dsl/
 
     const val androidMavenGradlePlugin = "2.1" // https://github.com/dcendents/android-maven-gradle-plugin/releases
 
@@ -87,8 +87,8 @@ object Vers {
     const val androidCommons = "0.0.24"
         // https://github.com/elpassion/android-commons/releases
 
-    const val rxjava2 = "2.2.13"
-    const val rxjava3 = "3.0.0-RC4"
+    const val rxjava2 = "2.2.16"
+    const val rxjava3 = "3.0.0-RC6"
 
     const val rxjava = rxjava2
         // https://github.com/ReactiveX/RxJava/releases
@@ -96,9 +96,10 @@ object Vers {
     const val rxkotlin = "2.4.0"
         // https://github.com/ReactiveX/RxKotlin/releases
 
-    const val rxbinding = "3.0.0"
+    const val rxbinding = "3.1.0"
         // https://github.com/JakeWharton/RxBinding
         // https://github.com/JakeWharton/RxBinding/releases
+        // https://github.com/JakeWharton/RxBinding/blob/master/CHANGELOG.md
 
     const val rxrelay = "2.1.1"
         // https://github.com/JakeWharton/RxRelay/releases
