@@ -58,7 +58,7 @@ object Vers {
 
     const val androidxConstraint1 = "1.1.3"
         // https://developer.android.com/training/constraint-layout
-    const val androidxConstraint2 = "2.0.0-beta3"
+    const val androidxConstraint2 = "2.0.0-beta4"
     const val androidxConstraint = androidxConstraint2
 
     const val androidxRecyclerview = "1.1.0-rc01"
@@ -68,13 +68,13 @@ object Vers {
     const val androidxPreference = "1.1.0"
     const val androidxBrowser = "1.2.0-alpha09"
     const val androidxPercentLayout = "1.0.0"
-    const val androidxFlexboxLayout = "1.1.1"
+    const val androidxFlexboxLayout = "2.0.0"
         // https://github.com/google/flexbox-layout/releases
 
-    const val androidxLifecycle = "2.2.0-rc01"
+    const val androidxLifecycle = "2.2.0-rc03"
         // https://developer.android.com/jetpack/androidx/releases/lifecycle
 
-    const val androidxRoom = "2.2.1"
+    const val androidxRoom = "2.2.3"
         // https://developer.android.com/jetpack/androidx/releases/room
 
     const val androidxTest = "1.2.1-alpha02"
@@ -88,7 +88,7 @@ object Vers {
         // https://github.com/elpassion/android-commons/releases
 
     const val rxjava2 = "2.2.16"
-    const val rxjava3 = "3.0.0-RC6"
+    const val rxjava3 = "3.0.0-RC7"
 
     const val rxjava = rxjava2
         // https://github.com/ReactiveX/RxJava/releases
@@ -110,11 +110,11 @@ object Vers {
     const val rxlifecycle = "3.1.0"
         // https://github.com/trello/RxLifecycle/releases
 
-    const val retrofit = "2.6.2"
+    const val retrofit = "2.7.1"
         // https://github.com/square/retrofit
         // https://github.com/square/retrofit/releases
 
-    const val okhttp = "4.2.1"
+    const val okhttp = "4.3.0"
         // https://github.com/square/okhttp
         // https://github.com/square/okhttp/releases
 
@@ -135,7 +135,7 @@ object Vers {
     // https://github.com/afollestad/material-dialogs
     // https://github.com/afollestad/material-dialogs/releases
 
-    const val leakcanary = "2.0-beta-3"
+    const val leakcanary = "2.1"
         // https://github.com/square/leakcanary/releases
 
     const val paperwork = "1.2.7"
@@ -144,7 +144,7 @@ object Vers {
     const val mockitoKotlin = "2.2.0"
         // https://github.com/nhaarman/mockito-kotlin/releases
 
-    const val junit = "4.12"
+    const val junit = "4.13"
         // https://github.com/junit-team/junit4/releases
 
     const val googleTruth = "1.0"
@@ -153,7 +153,7 @@ object Vers {
     const val androidTestRunnerClass = "androidx.test.runner.AndroidJUnitRunner"
         // https://developer.android.com/reference/android/support/test/runner/AndroidJUnitRunner.html
 
-    const val realm = "6.0.0"
+    const val realm = "6.0.2"
         // https://realm.io/docs/java/latest/
 
     const val tuplek = "0.0.2"
@@ -165,13 +165,13 @@ object Vers {
     const val rxmock = "0.0.2"
         // https://github.com/langara/rxmock/releases
 
-    const val smokk = "0.0.3"
+    const val smokk = "0.0.4"
     // https://github.com/langara/smokk/releases
 
     const val uspek = "0.0.2"
         // https://github.com/langara/uspek/releases
 
-    const val ktor = "1.3.0-beta-1"
+    const val ktor = "1.3.0-rc2"
         // https://github.com/ktorio/ktor
         // https://github.com/ktorio/ktor/releases
         // https://bintray.com/kotlin/ktor/ktor
