@@ -171,7 +171,7 @@ object Vers {
     const val smokk = "0.0.4"
     // https://github.com/langara/smokk/releases
 
-    const val uspek = "0.0.4"
+    const val uspek = "0.0.5"
         // https://github.com/langara/uspek/releases
 
     const val ktor = "1.3.0-rc2"
