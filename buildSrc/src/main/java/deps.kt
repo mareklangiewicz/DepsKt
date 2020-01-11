@@ -144,8 +144,11 @@ object Vers {
     const val mockitoKotlin = "2.2.0"
         // https://github.com/nhaarman/mockito-kotlin/releases
 
-    const val junit = "4.13"
+    const val junit4 = "4.13"
         // https://github.com/junit-team/junit4/releases
+
+    const val junit5 = "5.5.2"
+    // https://github.com/junit-team/junit5/releases
 
     const val googleTruth = "1.0"
         // https://github.com/google/truth/releases
@@ -168,7 +171,7 @@ object Vers {
     const val smokk = "0.0.4"
     // https://github.com/langara/smokk/releases
 
-    const val uspek = "0.0.2"
+    const val uspek = "0.0.4"
         // https://github.com/langara/uspek/releases
 
     const val ktor = "1.3.0-rc2"
@@ -295,7 +298,9 @@ object Deps {
     val leakcanary = dep("com.squareup.leakcanary", "leakcanary-android", Vers.leakcanary)
     val paperwork = dep("hu.supercluster", "paperwork", Vers.paperwork)
     val paperworkPlugin = dep("hu.supercluster", "paperwork-plugin", Vers.paperwork)
-    val junit = dep("junit", "junit", Vers.junit)
+    val junit4 = dep("junit", "junit", Vers.junit4)
+    val junit5 = dep("org.junit.jupiter", "junit-jupiter-api", Vers.junit5)
+    val junit5engine = dep("org.junit.jupiter", "junit-jupiter-engine", Vers.junit5)
     val tuplek = dep("com.github.langara", "TupleK", Vers.tuplek)
     val abcdk = dep("com.github.langara", "AbcdK", Vers.abcdk)
     val rxmock = dep("com.github.langara", "RxMock", Vers.rxmock)
