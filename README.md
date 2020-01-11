@@ -11,7 +11,7 @@ Usage:
     - `yourproject/buildSrc/src/main/java$ ln -s ../../../../deps.kt/buildSrc/src/main/java/deps.kt`
 - use `Vers` and `Deps` objects in your build files to get current versions of common libraries
     - it not only contains versions but all groups and names too, so it can be easily used in other build files
-    - add your project `dependencies` with syntax like this: `testImplementation(Deps.junit)`
+    - add your project `dependencies` with syntax like this: `testImplementation(Deps.junit5)`
     
     
 See the `kotlinsample` directory for kotlin sample project. If you are using traditional gradle (groovy) build

@@ -9,6 +9,6 @@ application {
 
 dependencies {
     implementation(Deps.kotlinStdlib8)
-    testImplementation(Deps.junit)
+    testImplementation(Deps.junit5)
 }
 
