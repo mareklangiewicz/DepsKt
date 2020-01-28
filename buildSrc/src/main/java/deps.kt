@@ -177,6 +177,9 @@ object Vers {
     const val sandboxui = "0.0.5"
     // https://github.com/langara/sandboxui/releases
 
+    const val recyclerui = "0.0.2"
+    // https://github.com/langara/recyclerui/releases
+
     const val ktor = "1.3.0"
         // https://github.com/ktorio/ktor
         // https://github.com/ktorio/ktor/releases
@@ -310,6 +313,7 @@ object Deps {
     val smokk = dep("com.github.langara", "SmokK", Vers.smokk)
     val uspek = dep("com.github.langara", "USpek", Vers.uspek)
     val sandboxui = dep("com.github.langara", "SandboxUi", Vers.sandboxui)
+    val recyclerui = dep("com.github.langara", "RecyclerUi", Vers.recyclerui)
     val googleTruth = dep("com.google.truth", "truth", Vers.googleTruth)
     val mockitoKotlin = dep("com.nhaarman.mockitokotlin2", "mockito-kotlin", Vers.mockitoKotlin)
     val androidTestRunner = dep("androidx.test", "runner", Vers.androidxTestRunner)
