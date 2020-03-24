@@ -29,7 +29,7 @@ object Vers {
         // https://services.gradle.org/versions
         // https://services.gradle.org/versions/current
 
-    const val androidGradlePlugin = "4.1.0-alpha02"
+    const val androidGradlePlugin = "4.1.0-alpha03"
     // https://developer.android.com/studio/releases/gradle-plugin
     // https://google.github.io/android-gradle-dsl/
 
@@ -171,7 +171,7 @@ object Vers {
     const val smokk = "0.0.4"
     // https://github.com/langara/smokk/releases
 
-    const val uspek = "0.0.5"
+    const val uspek = "0.0.6"
         // https://github.com/langara/uspek/releases
 
     const val sandboxui = "0.0.5"
