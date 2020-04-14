@@ -8,7 +8,7 @@
 object Vers {
     const val kotlinMajor = 1
     const val kotlinMinor = 3
-    const val kotlinPatch = 61
+    const val kotlinPatch = 72
 
     const val kotlin = "$kotlinMajor.$kotlinMinor.$kotlinPatch"
         // https://github.com/JetBrains/kotlin/blob/master/ChangeLog.md
@@ -17,19 +17,19 @@ object Vers {
     @Deprecated("Use current Kotlin", ReplaceWith("kotlin"))
     const val kotlin12 = "1.2.70"
 
-    const val kotlinxCoroutines = "1.3.3"
+    const val kotlinxCoroutines = "1.3.5"
         // https://github.com/Kotlin/kotlinx.coroutines/releases
 
      // just a reference - not useful in typical cases
     const val gradle4 = "4.10.3"
     const val gradle5 = "5.6.4"
-    const val gradle6 = "6.2.2"
+    const val gradle6 = "6.3"
     const val gradle = gradle6
         // https://gradle.org/releases/
         // https://services.gradle.org/versions
         // https://services.gradle.org/versions/current
 
-    const val androidGradlePlugin = "4.1.0-alpha03"
+    const val androidGradlePlugin = "4.1.0-alpha05"
     // https://developer.android.com/studio/releases/gradle-plugin
     // https://google.github.io/android-gradle-dsl/
 
@@ -88,9 +88,7 @@ object Vers {
         // https://github.com/elpassion/android-commons/releases
 
     const val rxjava2 = "2.2.16"
-    const val rxjava3 = "3.0.0-RC7"
-
-    const val rxjava = rxjava2
+    const val rxjava3 = "3.0.2"
         // https://github.com/ReactiveX/RxJava/releases
 
     const val rxkotlin = "2.4.0"
@@ -148,7 +146,7 @@ object Vers {
         // https://github.com/junit-team/junit4/releases
 
     const val junit5 = "5.5.2"
-    // https://github.com/junit-team/junit5/releases
+        // https://github.com/junit-team/junit5/releases
 
     const val googleTruth = "1.0"
         // https://github.com/google/truth/releases
@@ -163,24 +161,24 @@ object Vers {
         // https://github.com/langara/tuplek/releases
 
     const val abcdk = "0.0.2"
-    // https://github.com/langara/abcdk/releases
+        // https://github.com/langara/abcdk/releases
 
     const val rxmock = "0.0.2"
         // https://github.com/langara/rxmock/releases
 
     const val smokk = "0.0.4"
-    // https://github.com/langara/smokk/releases
+        // https://github.com/langara/smokk/releases
 
     const val uspek = "0.0.6"
         // https://github.com/langara/uspek/releases
 
     const val sandboxui = "0.0.5"
-    // https://github.com/langara/sandboxui/releases
+        // https://github.com/langara/sandboxui/releases
 
     const val recyclerui = "0.0.2"
-    // https://github.com/langara/recyclerui/releases
+        // https://github.com/langara/recyclerui/releases
 
-    const val ktor = "1.3.0"
+    const val ktor = "1.3.2"
         // https://github.com/ktorio/ktor
         // https://github.com/ktorio/ktor/releases
         // https://bintray.com/kotlin/ktor/ktor
@@ -276,7 +274,8 @@ object Deps {
     val androidCommonsPager = dep("com.github.elpassion.android-commons", "pager", Vers.androidCommons)
     val androidCommonsRecycler = dep("com.github.elpassion.android-commons", "recycler", Vers.androidCommons)
 
-    val rxjava = dep("io.reactivex.rxjava2", "rxjava", Vers.rxjava)
+    val rxjava2 = dep("io.reactivex.rxjava2", "rxjava", Vers.rxjava2)
+    val rxjava3 = dep("io.reactivex.rxjava3", "rxjava", Vers.rxjava3)
     val rxkotlin = dep("io.reactivex.rxjava2", "rxkotlin", Vers.rxkotlin)
     val rxandroid = dep("io.reactivex.rxjava2", "rxandroid", Vers.rxandroid)
     val rxrelay = dep("com.jakewharton.rxrelay2", "rxrelay", Vers.rxrelay)
