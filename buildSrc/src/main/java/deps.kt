@@ -29,14 +29,14 @@ object Vers {
         // https://services.gradle.org/versions
         // https://services.gradle.org/versions/current
 
-    const val androidGradlePlugin = "4.1.0-alpha06"
+    const val androidGradlePlugin = "4.1.0-alpha07"
     // https://developer.android.com/studio/releases/gradle-plugin
     // https://google.github.io/android-gradle-dsl/
 
     const val androidMavenGradlePlugin = "2.1" // https://github.com/dcendents/android-maven-gradle-plugin/releases
 
     const val androidCompileSdk = 29
-    const val androidMinSdk = 23
+    const val androidMinSdk = 26
     const val androidTargetSdk = 29
         // https://developer.android.com/about/dashboards/index.html
         // https://source.android.com/setup/start/build-numbers
@@ -66,7 +66,7 @@ object Vers {
     const val androidMaterial = "1.2.0-alpha01"
     const val androidxAnnotation = "1.1.0"
     const val androidxPreference = "1.1.0"
-    const val androidxBrowser = "1.2.0-alpha09"
+    const val androidxBrowser = "1.3.0-alpha01"
     const val androidxPercentLayout = "1.0.0"
     const val androidxFlexboxLayout = "2.0.0"
         // https://github.com/google/flexbox-layout/releases
