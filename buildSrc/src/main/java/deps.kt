@@ -345,4 +345,3 @@ private fun dep(group: String, name: String, version: String) = mapOf(
         "name" to name,
         "version" to version
 )
-
