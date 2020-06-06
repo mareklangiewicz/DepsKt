@@ -23,13 +23,13 @@ object Vers {
      // just a reference - not useful in typical cases
     const val gradle4 = "4.10.3"
     const val gradle5 = "5.6.4"
-    const val gradle6 = "6.4.1"
+    const val gradle6 = "6.5"
     const val gradle = gradle6
         // https://gradle.org/releases/
         // https://services.gradle.org/versions
         // https://services.gradle.org/versions/current
 
-    const val androidGradlePlugin = "4.1.0-alpha08"
+    const val androidGradlePlugin = "4.1.0-alpha10"
     // https://developer.android.com/studio/releases/gradle-plugin
     // https://google.github.io/android-gradle-dsl/
 
@@ -42,7 +42,7 @@ object Vers {
         // https://source.android.com/setup/start/build-numbers
 
     @Deprecated("Deprecated with android gradle plugin 3.0.0 or higher")
-    const val androidBuildTools = "29.0.0"
+    const val androidBuildTools = "29.0.2"
         // https://developer.android.com/studio/releases/build-tools.html
 
     @Deprecated("Use androidx")
@@ -154,7 +154,7 @@ object Vers {
     const val androidTestRunnerClass = "androidx.test.runner.AndroidJUnitRunner"
         // https://developer.android.com/reference/android/support/test/runner/AndroidJUnitRunner.html
 
-    const val realm = "6.0.2"
+    const val realm = "7.0.0"
         // https://realm.io/docs/java/latest/
 
     const val tuplek = "0.0.2"
@@ -169,7 +169,7 @@ object Vers {
     const val smokk = "0.0.4"
         // https://github.com/langara/smokk/releases
 
-    const val uspek = "0.0.6"
+    const val uspek = "0.0.7"
         // https://github.com/langara/uspek/releases
 
     const val sandboxui = "0.0.5"
