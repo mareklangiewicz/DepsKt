@@ -119,11 +119,19 @@ object Vers {
     const val javaWebsocket = "1.4.0"
         // https://mvnrepository.com/artifact/org.java-websocket/Java-WebSocket
 
-    const val playServicesBase = "17.1.0"
+    const val googleServicesPlugin = "4.3.3"
+        // https://developers.google.com/android/guides/google-services-plugin
+
+    const val googlePlayServicesBase = "17.3.0"
         // https://developers.google.com/android/guides/setup
         // https://developers.google.com/android/guides/releases
 
-    const val firebaseAppIndexing = "19.0.0"
+    const val firebaseCrashlyticsPlugin = "2.1.1"
+        // https://firebase.google.com/docs/crashlytics/get-started?platform=android
+
+    const val firebaseAnalytics = "17.4.3"
+    const val firebaseCrashlytics = "17.0.1"
+    const val firebaseAppIndexing = "19.1.0"
 
     const val picasso = "2.71828"
     // https://github.com/square/picasso
@@ -296,7 +304,11 @@ object Deps {
     val okhttp = dep("com.squareup.okhttp3", "okhttp", Vers.okhttp)
     val okhttpLogging = dep("com.squareup.okhttp3", "logging-interceptor", Vers.okhttp)
     val javaWebsocket = dep("org.java-websocket", "Java-WebSocket", Vers.javaWebsocket)
-    val playServicesBase = dep("com.google.android.gms", "play-services-base", Vers.playServicesBase)
+    val googleServicesPlugin = dep("com.google.gms", "google-services", Vers.googleServicesPlugin)
+    val googlePlayServicesBase = dep("com.google.android.gms", "play-services-base", Vers.googlePlayServicesBase)
+    val firebaseCrashlyticsPlugin = dep("com.google.firebase", "firebase-crashlytics-gradle", Vers.firebaseCrashlyticsPlugin)
+    val firebaseAnalytics = dep("com.google.firebase", "firebase-analytics", Vers.firebaseAnalytics)
+    val firebaseCrashlytics = dep("com.google.firebase", "firebase-crashlytics", Vers.firebaseCrashlytics)
     val firebaseAppIndexing = dep("com.google.firebase", "firebase-appindexing", Vers.firebaseAppIndexing)
     val picasso = dep("com.squareup.picasso", "picasso", Vers.picasso)
     val materialDialogs = dep("com.afollestad.material-dialogs", "core", Vers.materialDialogs)
