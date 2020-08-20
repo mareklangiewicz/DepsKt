@@ -7,29 +7,32 @@
  */
 object Vers {
     const val kotlinMajor = 1
-    const val kotlinMinor = 3
-    const val kotlinPatch = 72
+    const val kotlinMinor = 4
+    const val kotlinPatch = 0
 
     const val kotlin = "$kotlinMajor.$kotlinMinor.$kotlinPatch"
         // https://github.com/JetBrains/kotlin/blob/master/ChangeLog.md
         // https://github.com/JetBrains/kotlin/releases
 
     @Deprecated("Use current Kotlin", ReplaceWith("kotlin"))
+    const val kotlin13 = "1.3.72"
+
+    @Deprecated("Use current Kotlin", ReplaceWith("kotlin"))
     const val kotlin12 = "1.2.70"
 
-    const val kotlinxCoroutines = "1.3.7"
+    const val kotlinxCoroutines = "1.3.9"
         // https://github.com/Kotlin/kotlinx.coroutines/releases
 
      // just a reference - not useful in typical cases
     const val gradle4 = "4.10.3"
     const val gradle5 = "5.6.4"
-    const val gradle6 = "6.5"
+    const val gradle6 = "6.6"
     const val gradle = gradle6
         // https://gradle.org/releases/
         // https://services.gradle.org/versions
         // https://services.gradle.org/versions/current
 
-    const val androidGradlePlugin = "4.1.0-alpha10"
+    const val androidGradlePlugin = "4.2.0-alpha07"
     // https://developer.android.com/studio/releases/gradle-plugin
     // https://google.github.io/android-gradle-dsl/
 
@@ -88,35 +91,35 @@ object Vers {
         // https://github.com/elpassion/android-commons/releases
 
     const val rxjava2 = "2.2.16"
-    const val rxjava3 = "3.0.2"
+    const val rxjava3 = "3.0.6"
         // https://github.com/ReactiveX/RxJava/releases
 
-    const val rxkotlin = "2.4.0"
+    const val rxkotlin = "3.0.0"
         // https://github.com/ReactiveX/RxKotlin/releases
 
-    const val rxbinding = "3.1.0"
+    const val rxbinding = "4.0.0"
         // https://github.com/JakeWharton/RxBinding
         // https://github.com/JakeWharton/RxBinding/releases
         // https://github.com/JakeWharton/RxBinding/blob/master/CHANGELOG.md
 
-    const val rxrelay = "2.1.1"
+    const val rxrelay = "3.0.0"
         // https://github.com/JakeWharton/RxRelay/releases
 
-    const val rxandroid = "2.1.1"
+    const val rxandroid = "3.0.0"
         // https://github.com/ReactiveX/RxAndroid/releases
 
-    const val rxlifecycle = "3.1.0"
+    const val rxlifecycle = "4.0.0"
         // https://github.com/trello/RxLifecycle/releases
 
-    const val retrofit = "2.7.1"
+    const val retrofit = "2.9.0"
         // https://github.com/square/retrofit
         // https://github.com/square/retrofit/releases
 
-    const val okhttp = "4.3.0"
+    const val okhttp = "4.8.1"
         // https://github.com/square/okhttp
         // https://github.com/square/okhttp/releases
 
-    const val javaWebsocket = "1.4.0"
+    const val javaWebsocket = "1.5.1"
         // https://mvnrepository.com/artifact/org.java-websocket/Java-WebSocket
 
     const val googleServicesPlugin = "4.3.3"
@@ -141,7 +144,7 @@ object Vers {
     // https://github.com/afollestad/material-dialogs
     // https://github.com/afollestad/material-dialogs/releases
 
-    const val leakcanary = "2.1"
+    const val leakcanary = "2.4"
         // https://github.com/square/leakcanary/releases
 
     const val paperwork = "1.2.7"
@@ -153,10 +156,10 @@ object Vers {
     const val junit4 = "4.13"
         // https://github.com/junit-team/junit4/releases
 
-    const val junit5 = "5.5.2"
+    const val junit5 = "5.6.2"
         // https://github.com/junit-team/junit5/releases
 
-    const val googleTruth = "1.0"
+    const val googleTruth = "1.0.1"
         // https://github.com/google/truth/releases
 
     const val androidTestRunnerClass = "androidx.test.runner.AndroidJUnitRunner"
