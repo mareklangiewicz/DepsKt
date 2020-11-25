@@ -8,7 +8,7 @@
 object Vers {
     const val kotlinMajor = 1
     const val kotlinMinor = 4
-    const val kotlinPatch = 0
+    const val kotlinPatch = 20
 
     const val kotlin = "$kotlinMajor.$kotlinMinor.$kotlinPatch"
         // https://github.com/JetBrains/kotlin/blob/master/ChangeLog.md
@@ -26,21 +26,21 @@ object Vers {
      // just a reference - not useful in typical cases
     const val gradle4 = "4.10.3"
     const val gradle5 = "5.6.4"
-    const val gradle6 = "6.6"
+    const val gradle6 = "6.7.1"
     const val gradle = gradle6
         // https://gradle.org/releases/
         // https://services.gradle.org/versions
         // https://services.gradle.org/versions/current
 
-    const val androidGradlePlugin = "4.2.0-alpha07"
+    const val androidGradlePlugin = "4.2.0-alpha16"
     // https://developer.android.com/studio/releases/gradle-plugin
     // https://google.github.io/android-gradle-dsl/
 
     const val androidMavenGradlePlugin = "2.1" // https://github.com/dcendents/android-maven-gradle-plugin/releases
 
-    const val androidCompileSdk = 29
+    const val androidCompileSdk = 30
     const val androidMinSdk = 26
-    const val androidTargetSdk = 29
+    const val androidTargetSdk = 30
         // https://developer.android.com/about/dashboards/index.html
         // https://source.android.com/setup/start/build-numbers
 
