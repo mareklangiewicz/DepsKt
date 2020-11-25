@@ -20,7 +20,7 @@ object Vers {
     @Deprecated("Use current Kotlin", ReplaceWith("kotlin"))
     const val kotlin12 = "1.2.70"
 
-    const val kotlinxCoroutines = "1.3.9"
+    const val kotlinxCoroutines = "1.4.1"
         // https://github.com/Kotlin/kotlinx.coroutines/releases
 
      // just a reference - not useful in typical cases
