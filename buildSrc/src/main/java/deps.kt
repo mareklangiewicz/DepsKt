@@ -197,6 +197,10 @@ object Vers {
         // https://github.com/ktorio/ktor/releases
         // https://bintray.com/kotlin/ktor/ktor
 
+    const val rsocket = "0.11.5"
+        // https://github.com/rsocket/rsocket-kotlin
+        // https://github.com/rsocket/rsocket-kotlin/releases
+
     const val splitties = "3.0.0-beta01"
         // https://github.com/LouisCAD/Splitties/releases
         // https://github.com/LouisCAD/Splitties
@@ -341,6 +345,10 @@ object Deps {
     val ktorAuth = dep("io.ktor", "ktor-auth", Vers.ktor)
     val ktorClientCore = dep("io.ktor", "ktor-client-core", Vers.ktor)
     val ktorClientApache = dep("io.ktor", "ktor-client-apache", Vers.ktor)
+    val rsocketCore = dep("io.rsocket.kotlin", "rsocket-core", Vers.rsocket)
+    val rsocketKtor = dep("io.rsocket.kotlin", "rsocket-transport-ktor", Vers.rsocket)
+    val rsocketKtorClient = dep("io.rsocket.kotlin", "rsocket-transport-ktor-client", Vers.rsocket)
+    val rsocketKtorServer = dep("io.rsocket.kotlin", "rsocket-transport-ktor-server", Vers.rsocket)
     val splitties = dep("com.louiscad.splitties", "splitties-fun-pack-android-material-components-with-views-dsl", Vers.splitties)
 }
 
