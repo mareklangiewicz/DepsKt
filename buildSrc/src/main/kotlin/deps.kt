@@ -55,13 +55,13 @@ object Vers {
     // https://developer.android.com/jetpack/androidx/versions
     // https://dl.google.com/dl/android/maven2/index.html
 
-    const val androidxCore = "1.2.0-beta02"
+    const val androidxCore = "1.3.2"
 
-    const val androidxAppcompat = "1.1.0"
+    const val androidxAppcompat = "1.2.0"
 
     const val androidxConstraint1 = "1.1.3"
         // https://developer.android.com/training/constraint-layout
-    const val androidxConstraint2 = "2.0.0-beta4"
+    const val androidxConstraint2 = "2.0.4"
     const val androidxConstraint = androidxConstraint2
 
     const val androidxRecyclerview = "1.1.0-rc01"
@@ -217,9 +217,10 @@ object Deps {
     val androidMavenGradlePlugin = dep("com.github.dcendents", "android-maven-gradle-plugin", Vers.androidMavenGradlePlugin)
     val kotlinStdlib7 = dep("org.jetbrains.kotlin", "kotlin-stdlib-jdk7", Vers.kotlin)
     val kotlinStdlib8 = dep("org.jetbrains.kotlin", "kotlin-stdlib-jdk8", Vers.kotlin)
-    @Deprecated("Use specific jdk version", ReplaceWith("kotlinStdlib7"))
-    val kotlinStdlib = kotlinStdlib7
     val kotlinReflect = dep("org.jetbrains.kotlin", "kotlin-reflect", Vers.kotlin)
+    val kotlinTestCommon = dep("org.jetbrains.kotlin", "kotlin-test-common", Vers.kotlin)
+    val kotlinTestAnnotationsCommon = dep("org.jetbrains.kotlin", "kotlin-test-annotations-common", Vers.kotlin)
+    val kotlinTestJUnit = dep("org.jetbrains.kotlin", "kotlin-test-junit", Vers.kotlin)
 
     val kotlinxCoroutinesCommon = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-core-common", Vers.kotlinxCoroutines)
     val kotlinxCoroutinesCore = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-core", Vers.kotlinxCoroutines)
@@ -313,7 +314,7 @@ object Deps {
     val retrofitRxjava = dep("com.squareup.retrofit2", "adapter-rxjava2", Vers.retrofit)
     val okhttp = dep("com.squareup.okhttp3", "okhttp", Vers.okhttp)
     val okhttpLogging = dep("com.squareup.okhttp3", "logging-interceptor", Vers.okhttp)
-    val javaWebsocket = dep("org.java-websocket", "Java-WebSocket", Vers.javaWebsocket)
+    val javaWebsocket = dep("org.java-websocket", "java-websocket", Vers.javaWebsocket)
     val googleServicesPlugin = dep("com.google.gms", "google-services", Vers.googleServicesPlugin)
     val googlePlayServicesBase = dep("com.google.android.gms", "play-services-base", Vers.googlePlayServicesBase)
     val firebaseCrashlyticsPlugin = dep("com.google.firebase", "firebase-crashlytics-gradle", Vers.firebaseCrashlyticsPlugin)
@@ -328,22 +329,25 @@ object Deps {
     val junit4 = dep("junit", "junit", Vers.junit4)
     val junit5 = dep("org.junit.jupiter", "junit-jupiter-api", Vers.junit5)
     val junit5engine = dep("org.junit.jupiter", "junit-jupiter-engine", Vers.junit5)
-    val tuplek = dep("com.github.langara", "TupleK", Vers.tuplek)
-    val abcdk = dep("com.github.langara", "AbcdK", Vers.abcdk)
-    val rxmock = dep("com.github.langara", "RxMock", Vers.rxmock)
-    val smokk = dep("com.github.langara", "SmokK", Vers.smokk)
-    val uspek = dep("com.github.langara", "USpek", Vers.uspek)
-    val upue = dep("com.github.langara", "UPue", Vers.upue)
-    val sandboxui = dep("com.github.langara", "SandboxUi", Vers.sandboxui)
-    val recyclerui = dep("com.github.langara", "RecyclerUi", Vers.recyclerui)
+    val tuplek = dep("com.github.langara", "tuplek", Vers.tuplek)
+    val abcdk = dep("com.github.langara", "abcdk", Vers.abcdk)
+    val rxmock = dep("com.github.langara", "rxmock", Vers.rxmock)
+    val smokk = dep("com.github.langara", "smokk", Vers.smokk)
+    val uspek = dep("com.github.langara.uspek", "uspek", Vers.uspek)
+    val upue = dep("com.github.langara.upue", "upue", Vers.upue)
+    val sandboxui = dep("com.github.langara", "sandboxui", Vers.sandboxui)
+    val recyclerui = dep("com.github.langara", "recyclerui", Vers.recyclerui)
     val googleTruth = dep("com.google.truth", "truth", Vers.googleTruth)
     val mockitoKotlin = dep("com.nhaarman.mockitokotlin2", "mockito-kotlin", Vers.mockitoKotlin)
     val androidTestRunner = dep("androidx.test", "runner", Vers.androidxTestRunner)
     val androidTestRules = dep("androidx.test", "rules", Vers.androidxTestRules)
     val realmGradlePlugin = dep("io.realm", "realm-gradle-plugin", Vers.realm)
+    val ktorServerCore = dep("io.ktor", "ktor-server-core", Vers.ktor)
+    val ktorServerCio = dep("io.ktor", "ktor-server-cio", Vers.ktor)
     val ktorServerNetty = dep("io.ktor", "ktor-server-netty", Vers.ktor)
     val ktorAuth = dep("io.ktor", "ktor-auth", Vers.ktor)
     val ktorClientCore = dep("io.ktor", "ktor-client-core", Vers.ktor)
+    val ktorClientCio = dep("io.ktor", "ktor-client-cio", Vers.ktor)
     val ktorClientApache = dep("io.ktor", "ktor-client-apache", Vers.ktor)
     val rsocketCore = dep("io.rsocket.kotlin", "rsocket-core", Vers.rsocket)
     val rsocketKtor = dep("io.rsocket.kotlin", "rsocket-transport-ktor", Vers.rsocket)
