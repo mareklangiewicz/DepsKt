@@ -20,7 +20,7 @@ object Vers {
     @Deprecated("Use current Kotlin", ReplaceWith("kotlin"))
     const val kotlin12 = "1.2.70"
 
-    const val kotlinxCoroutines = "1.4.1"
+    const val kotlinxCoroutines = "1.4.2"
         // https://github.com/Kotlin/kotlinx.coroutines/releases
 
      // just a reference - not useful in typical cases
@@ -91,10 +91,10 @@ object Vers {
         // https://github.com/elpassion/android-commons/releases
 
     const val rxjava2 = "2.2.16"
-    const val rxjava3 = "3.0.6"
+    const val rxjava3 = "3.0.7"
         // https://github.com/ReactiveX/RxJava/releases
 
-    const val rxkotlin = "3.0.0"
+    const val rxkotlin = "3.0.1"
         // https://github.com/ReactiveX/RxKotlin/releases
 
     const val rxbinding = "4.0.0"
@@ -108,21 +108,21 @@ object Vers {
     const val rxandroid = "3.0.0"
         // https://github.com/ReactiveX/RxAndroid/releases
 
-    const val rxlifecycle = "4.0.0"
+    const val rxlifecycle = "4.0.2"
         // https://github.com/trello/RxLifecycle/releases
 
     const val retrofit = "2.9.0"
         // https://github.com/square/retrofit
         // https://github.com/square/retrofit/releases
 
-    const val okhttp = "4.8.1"
+    const val okhttp = "4.9.0"
         // https://github.com/square/okhttp
         // https://github.com/square/okhttp/releases
 
     const val javaWebsocket = "1.5.1"
         // https://mvnrepository.com/artifact/org.java-websocket/Java-WebSocket
 
-    const val googleServicesPlugin = "4.3.3"
+    const val googleServicesPlugin = "4.3.4"
         // https://developers.google.com/android/guides/google-services-plugin
 
     const val googlePlayServicesBase = "17.3.0"
@@ -144,7 +144,7 @@ object Vers {
     // https://github.com/afollestad/material-dialogs
     // https://github.com/afollestad/material-dialogs/releases
 
-    const val leakcanary = "2.4"
+    const val leakcanary = "2.5"
         // https://github.com/square/leakcanary/releases
 
     const val paperwork = "1.2.7"
@@ -153,19 +153,19 @@ object Vers {
     const val mockitoKotlin = "2.2.0"
         // https://github.com/nhaarman/mockito-kotlin/releases
 
-    const val junit4 = "4.13"
+    const val junit4 = "4.13.1"
         // https://github.com/junit-team/junit4/releases
 
-    const val junit5 = "5.6.2"
+    const val junit5 = "5.6.3"
         // https://github.com/junit-team/junit5/releases
 
-    const val googleTruth = "1.0.1"
+    const val googleTruth = "1.1"
         // https://github.com/google/truth/releases
 
     const val androidTestRunnerClass = "androidx.test.runner.AndroidJUnitRunner"
         // https://developer.android.com/reference/android/support/test/runner/AndroidJUnitRunner.html
 
-    const val realm = "7.0.0"
+    const val realm = "10.0.1"
         // https://realm.io/docs/java/latest/
 
     const val tuplek = "0.0.2"
@@ -180,8 +180,11 @@ object Vers {
     const val smokk = "0.0.4"
         // https://github.com/langara/smokk/releases
 
-    const val uspek = "0.0.9"
+    const val uspek = "0.0.11"
         // https://github.com/langara/uspek/releases
+
+    const val upue = "0.0.03"
+    // https://github.com/langara/upue/releases
 
     const val sandboxui = "0.0.5"
         // https://github.com/langara/sandboxui/releases
@@ -189,12 +192,12 @@ object Vers {
     const val recyclerui = "0.0.2"
         // https://github.com/langara/recyclerui/releases
 
-    const val ktor = "1.3.2"
+    const val ktor = "1.4.2"
         // https://github.com/ktorio/ktor
         // https://github.com/ktorio/ktor/releases
         // https://bintray.com/kotlin/ktor/ktor
 
-    const val splitties = "3.0.0-alpha06"
+    const val splitties = "3.0.0-beta01"
         // https://github.com/LouisCAD/Splitties/releases
         // https://github.com/LouisCAD/Splitties
 }
@@ -326,6 +329,7 @@ object Deps {
     val rxmock = dep("com.github.langara", "RxMock", Vers.rxmock)
     val smokk = dep("com.github.langara", "SmokK", Vers.smokk)
     val uspek = dep("com.github.langara", "USpek", Vers.uspek)
+    val upue = dep("com.github.langara", "UPue", Vers.upue)
     val sandboxui = dep("com.github.langara", "SandboxUi", Vers.sandboxui)
     val recyclerui = dep("com.github.langara", "RecyclerUi", Vers.recyclerui)
     val googleTruth = dep("com.google.truth", "truth", Vers.googleTruth)
