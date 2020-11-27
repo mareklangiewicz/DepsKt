@@ -221,6 +221,7 @@ object Deps {
     val kotlinTestCommon = dep("org.jetbrains.kotlin", "kotlin-test-common", Vers.kotlin)
     val kotlinTestAnnotationsCommon = dep("org.jetbrains.kotlin", "kotlin-test-annotations-common", Vers.kotlin)
     val kotlinTestJUnit = dep("org.jetbrains.kotlin", "kotlin-test-junit", Vers.kotlin)
+    val kotlinTestJs = dep("org.jetbrains.kotlin", "kotlin-test-js", Vers.kotlin)
 
     val kotlinxCoroutinesCommon = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-core-common", Vers.kotlinxCoroutines)
     val kotlinxCoroutinesCore = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-core", Vers.kotlinxCoroutines)
