@@ -8,7 +8,7 @@
 object Vers {
     const val kotlinMajor = 1
     const val kotlinMinor = 4
-    const val kotlinPatch = 20
+    const val kotlinPatch = 21
 
     const val kotlin = "$kotlinMajor.$kotlinMinor.$kotlinPatch"
         // https://github.com/JetBrains/kotlin/blob/master/ChangeLog.md
@@ -31,6 +31,12 @@ object Vers {
         // https://gradle.org/releases/
         // https://services.gradle.org/versions
         // https://services.gradle.org/versions/current
+
+    const val composeDesktop = "0.3.0-build134"
+        // https://github.com/JetBrains/compose-jb/tags
+
+    const val composeAndroid = "1.0.0-alpha08"
+        // https://developer.android.com/jetpack/androidx/releases/compose
 
     const val androidGradlePlugin = "4.2.0-alpha16"
     // https://developer.android.com/studio/releases/gradle-plugin
@@ -192,12 +198,12 @@ object Vers {
     const val recyclerui = "0.0.2"
         // https://github.com/langara/recyclerui/releases
 
-    const val ktor = "1.4.2"
+    const val ktor = "1.4.3"
         // https://github.com/ktorio/ktor
         // https://github.com/ktorio/ktor/releases
         // https://bintray.com/kotlin/ktor/ktor
 
-    const val rsocket = "0.11.5"
+    const val rsocket = "0.12.0"
         // https://github.com/rsocket/rsocket-kotlin
         // https://github.com/rsocket/rsocket-kotlin/releases
 
