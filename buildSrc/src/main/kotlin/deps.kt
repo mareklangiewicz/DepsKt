@@ -135,7 +135,10 @@ object Vers {
         // https://developers.google.com/android/guides/setup
         // https://developers.google.com/android/guides/releases
 
-    const val firebaseCrashlyticsPlugin = "2.1.1"
+    const val firebaseGitlive = "1.0.0"
+        // https://github.com/GitLiveApp/firebase-kotlin-sdk
+
+    const val firebaseCrashlyticsPlugin = "2.4.1"
         // https://firebase.google.com/docs/crashlytics/get-started?platform=android
 
     const val firebaseAnalytics = "17.4.3"
@@ -344,6 +347,12 @@ object Deps {
     val javaWebsocket = dep("org.java-websocket", "java-websocket", Vers.javaWebsocket)
     val googleServicesPlugin = dep("com.google.gms", "google-services", Vers.googleServicesPlugin)
     val googlePlayServicesBase = dep("com.google.android.gms", "play-services-base", Vers.googlePlayServicesBase)
+    val firebaseGitliveAuth = dep("dev.gitlive", "firebase-auth", Vers.firebaseGitlive)
+    val firebaseGitliveDB = dep("dev.gitlive", "firebase-database", Vers.firebaseGitlive)
+    val firebaseGitliveFirestore = dep("dev.gitlive", "firebase-firestore", Vers.firebaseGitlive)
+    val firebaseGitliveFunctions = dep("dev.gitlive", "firebase-functions", Vers.firebaseGitlive)
+    val firebaseGitliveMessaging = dep("dev.gitlive", "firebase-messaging", Vers.firebaseGitlive)
+    val firebaseGitliveStorage = dep("dev.gitlive", "firebase-storage", Vers.firebaseGitlive)
     val firebaseCrashlyticsPlugin = dep("com.google.firebase", "firebase-crashlytics-gradle", Vers.firebaseCrashlyticsPlugin)
     val firebaseAnalytics = dep("com.google.firebase", "firebase-analytics", Vers.firebaseAnalytics)
     val firebaseCrashlytics = dep("com.google.firebase", "firebase-crashlytics", Vers.firebaseCrashlytics)
