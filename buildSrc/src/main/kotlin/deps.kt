@@ -145,6 +145,11 @@ object Vers {
     const val firebaseCrashlytics = "17.0.1"
     const val firebaseAppIndexing = "19.1.0"
 
+    const val firebaseUiAuth = "7.1.1"
+        // https://github.com/firebase/FirebaseUI-Android
+        // https://github.com/firebase/FirebaseUI-Android/releases
+        // https://firebase.google.com/docs/auth/android/firebaseui
+
     const val picasso = "2.71828"
     // https://github.com/square/picasso
     // https://github.com/square/picasso/releases
@@ -357,6 +362,7 @@ object Deps {
     val firebaseAnalytics = dep("com.google.firebase", "firebase-analytics", Vers.firebaseAnalytics)
     val firebaseCrashlytics = dep("com.google.firebase", "firebase-crashlytics", Vers.firebaseCrashlytics)
     val firebaseAppIndexing = dep("com.google.firebase", "firebase-appindexing", Vers.firebaseAppIndexing)
+    val firebaseUiAuth = dep("com.firebaseui", "firebase-ui-auth", Vers.firebaseUiAuth)
     val picasso = dep("com.squareup.picasso", "picasso", Vers.picasso)
     val materialDialogs = dep("com.afollestad.material-dialogs", "core", Vers.materialDialogs)
     val leakcanary = dep("com.squareup.leakcanary", "leakcanary-android", Vers.leakcanary)
