@@ -32,10 +32,10 @@ object Vers {
         // https://services.gradle.org/versions
         // https://services.gradle.org/versions/current
 
-    const val composeDesktop = "0.3.0-build134"
+    const val composeDesktop = "0.3.0-build135"
         // https://github.com/JetBrains/compose-jb/tags
 
-    const val composeAndroid = "1.0.0-alpha08"
+    const val composeAndroid = "1.0.0-alpha09"
         // https://developer.android.com/jetpack/androidx/releases/compose
 
     const val androidGradlePlugin = "4.2.0-alpha16"
