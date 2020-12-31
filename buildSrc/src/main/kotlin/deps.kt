@@ -32,7 +32,7 @@ object Vers {
         // https://services.gradle.org/versions
         // https://services.gradle.org/versions/current
 
-    const val composeDesktop = "0.3.0-build135"
+    const val composeDesktop = "0.3.0-build138"
         // https://github.com/JetBrains/compose-jb/tags
 
     const val composeAndroid = "1.0.0-alpha09"
@@ -97,7 +97,7 @@ object Vers {
         // https://github.com/elpassion/android-commons/releases
 
     const val rxjava2 = "2.2.16"
-    const val rxjava3 = "3.0.7"
+    const val rxjava3 = "3.0.9"
         // https://github.com/ReactiveX/RxJava/releases
 
     const val rxkotlin = "3.0.1"
@@ -135,7 +135,7 @@ object Vers {
         // https://developers.google.com/android/guides/setup
         // https://developers.google.com/android/guides/releases
 
-    const val firebaseGitlive = "1.0.0"
+    const val firebaseGitlive = "1.1.0"
         // https://github.com/GitLiveApp/firebase-kotlin-sdk
 
     const val firebaseCrashlyticsPlugin = "2.4.1"
@@ -206,7 +206,7 @@ object Vers {
     const val recyclerui = "0.0.2"
         // https://github.com/langara/recyclerui/releases
 
-    const val ktor = "1.4.3"
+    const val ktor = "1.5.0"
         // https://github.com/ktorio/ktor
         // https://github.com/ktorio/ktor/releases
         // https://bintray.com/kotlin/ktor/ktor
