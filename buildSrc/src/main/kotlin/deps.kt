@@ -32,7 +32,7 @@ object Vers {
         // https://services.gradle.org/versions
         // https://services.gradle.org/versions/current
 
-    const val composeDesktop = "0.3.0-build138"
+    const val composeDesktop = "0.3.0-build139"
         // https://github.com/JetBrains/compose-jb/tags
 
     const val composeAndroid = "1.0.0-alpha09"
