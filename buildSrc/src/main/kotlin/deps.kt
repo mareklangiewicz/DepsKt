@@ -26,7 +26,7 @@ object Vers {
      // just a reference - not useful in typical cases
     const val gradle4 = "4.10.3"
     const val gradle5 = "5.6.4"
-    const val gradle6 = "6.7.1"
+    const val gradle6 = "6.8"
     const val gradle = gradle6
         // https://gradle.org/releases/
         // https://services.gradle.org/versions
@@ -35,7 +35,7 @@ object Vers {
     const val composeDesktop = "0.3.0-build140"
         // https://github.com/JetBrains/compose-jb/tags
 
-    const val composeAndroid = "1.0.0-alpha09"
+    const val composeAndroid = "1.0.0-alpha10"
         // https://developer.android.com/jetpack/androidx/releases/compose
 
     const val androidGradlePlugin = "4.2.0-alpha16"
@@ -135,7 +135,7 @@ object Vers {
         // https://developers.google.com/android/guides/setup
         // https://developers.google.com/android/guides/releases
 
-    const val firebaseGitlive = "1.1.0"
+    const val firebaseGitlive = "1.2.0"
         // https://github.com/GitLiveApp/firebase-kotlin-sdk
 
     const val firebaseCrashlyticsPlugin = "2.4.1"
