@@ -199,7 +199,11 @@ object Vers {
     const val recyclerui = "0.0.2"
         // https://github.com/langara/recyclerui/releases
 
-    const val ktor = "1.5.1"
+    const val ktorEap = "1.6.0-eap-3"
+    const val ktorStable = "1.5.1"
+    const val ktorForRsocket = "1.4.3" // TODO: remove when rsocket start working with new ktor
+    const val ktor = ktorForRsocket
+        // https://maven.pkg.jetbrains.space/public/p/ktor/eap/io/ktor/ktor/
         // https://github.com/ktorio/ktor
         // https://github.com/ktorio/ktor/releases
         // https://bintray.com/kotlin/ktor/ktor
