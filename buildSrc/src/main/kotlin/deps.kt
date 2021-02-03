@@ -9,33 +9,26 @@ object Vers {
     const val kotlinMajor = 1
     const val kotlinMinor = 4
     const val kotlinPatch = 21
+    const val kotlinSuffix = "2"
 
-    const val kotlin = "$kotlinMajor.$kotlinMinor.$kotlinPatch"
+    const val kotlin = "$kotlinMajor.$kotlinMinor.$kotlinPatch-$kotlinSuffix"
         // https://github.com/JetBrains/kotlin/blob/master/ChangeLog.md
         // https://github.com/JetBrains/kotlin/releases
-
-    @Deprecated("Use current Kotlin", ReplaceWith("kotlin"))
-    const val kotlin13 = "1.3.72"
-
-    @Deprecated("Use current Kotlin", ReplaceWith("kotlin"))
-    const val kotlin12 = "1.2.70"
 
     const val kotlinxCoroutines = "1.4.2"
         // https://github.com/Kotlin/kotlinx.coroutines/releases
 
      // just a reference - not useful in typical cases
-    const val gradle4 = "4.10.3"
     const val gradle5 = "5.6.4"
-    const val gradle6 = "6.8"
+    const val gradle6 = "6.8.1"
     const val gradle = gradle6
         // https://gradle.org/releases/
         // https://services.gradle.org/versions
         // https://services.gradle.org/versions/current
 
-    const val composeDesktop = "0.3.0-build140"
-        // https://github.com/JetBrains/compose-jb/tags
+    const val composeDesktop = "0.3.0-build148"
 
-    const val composeAndroid = "1.0.0-alpha10"
+    const val composeAndroid = "1.0.0-alpha11"
         // https://developer.android.com/jetpack/androidx/releases/compose
 
     const val androidGradlePlugin = "4.2.0-alpha16"
@@ -77,18 +70,18 @@ object Vers {
     const val androidxPreference = "1.1.0"
     const val androidxBrowser = "1.3.0-alpha01"
     const val androidxPercentLayout = "1.0.0"
-    const val androidxFlexboxLayout = "2.0.0"
+    const val androidxFlexboxLayout = "2.0.1"
         // https://github.com/google/flexbox-layout/releases
 
-    const val androidxLifecycle = "2.2.0-rc03"
+    const val androidxLifecycle = "2.3.0-rc01"
         // https://developer.android.com/jetpack/androidx/releases/lifecycle
 
-    const val androidxRoom = "2.2.3"
+    const val androidxRoom = "2.3.0-beta01"
         // https://developer.android.com/jetpack/androidx/releases/room
 
-    const val androidxTest = "1.2.1-alpha02"
-    const val androidxTestRunner = "1.3.0-alpha02"
-    const val androidxTestRules = "1.3.0-alpha02"
+    const val androidxTest = "1.3.1-alpha03"
+    const val androidxTestRunner = "1.3.1-alpha03"
+    const val androidxTestRules = "1.3.1-alpha03"
         // https://developer.android.com/jetpack/androidx/releases/test
 
     const val androidxEspresso = "3.3.0-alpha02"
@@ -97,7 +90,7 @@ object Vers {
         // https://github.com/elpassion/android-commons/releases
 
     const val rxjava2 = "2.2.16"
-    const val rxjava3 = "3.0.9"
+    const val rxjava3 = "3.0.10"
         // https://github.com/ReactiveX/RxJava/releases
 
     const val rxkotlin = "3.0.1"
@@ -128,10 +121,10 @@ object Vers {
     const val javaWebsocket = "1.5.1"
         // https://mvnrepository.com/artifact/org.java-websocket/Java-WebSocket
 
-    const val googleServicesPlugin = "4.3.4"
+    const val googleServicesPlugin = "4.3.5"
         // https://developers.google.com/android/guides/google-services-plugin
 
-    const val googlePlayServicesBase = "17.3.0"
+    const val googlePlayServicesBase = "17.6.0"
         // https://developers.google.com/android/guides/setup
         // https://developers.google.com/android/guides/releases
 
@@ -150,15 +143,15 @@ object Vers {
         // https://github.com/firebase/FirebaseUI-Android/releases
         // https://firebase.google.com/docs/auth/android/firebaseui
 
-    const val picasso = "2.71828"
+    const val picasso = "2.8"
     // https://github.com/square/picasso
     // https://github.com/square/picasso/releases
 
-    const val materialDialogs = "3.1.1"
+    const val materialDialogs = "3.3.0"
     // https://github.com/afollestad/material-dialogs
     // https://github.com/afollestad/material-dialogs/releases
 
-    const val leakcanary = "2.5"
+    const val leakcanary = "2.6"
         // https://github.com/square/leakcanary/releases
 
     const val paperwork = "1.2.7"
@@ -173,7 +166,7 @@ object Vers {
     const val junit5 = "5.6.3"
         // https://github.com/junit-team/junit5/releases
 
-    const val googleTruth = "1.1"
+    const val googleTruth = "1.1.2"
         // https://github.com/google/truth/releases
 
     const val androidTestRunnerClass = "androidx.test.runner.AndroidJUnitRunner"
@@ -206,7 +199,7 @@ object Vers {
     const val recyclerui = "0.0.2"
         // https://github.com/langara/recyclerui/releases
 
-    const val ktor = "1.5.0"
+    const val ktor = "1.5.1"
         // https://github.com/ktorio/ktor
         // https://github.com/ktorio/ktor/releases
         // https://bintray.com/kotlin/ktor/ktor
@@ -403,3 +396,9 @@ private fun dep(group: String, name: String, version: String) = mapOf(
         "name" to name,
         "version" to version
 )
+
+object Repos {
+    const val ktorEap = "https://maven.pkg.jetbrains.space/public/p/ktor/eap"
+    const val composeDesktopDev = "https://maven.pkg.jetbrains.space/public/p/compose/dev"
+    const val jitpack = "https://jitpack.io"
+}
