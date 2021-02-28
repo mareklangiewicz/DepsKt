@@ -8,7 +8,7 @@
 object Vers {
     const val kotlinMajor = 1
     const val kotlinMinor = 4
-    const val kotlinPatch = 30
+    const val kotlinPatch = 30 // 31 doesn't work with compose for desktop yet TODO: check again
     const val kotlinSuffix = "" // with hyphen (like "-2")
 
     const val kotlin = "$kotlinMajor.$kotlinMinor.$kotlinPatch$kotlinSuffix"
@@ -20,15 +20,15 @@ object Vers {
 
      // just a reference - not useful in typical cases
     const val gradle5 = "5.6.4"
-    const val gradle6 = "6.8.2"
+    const val gradle6 = "6.8.3"
     const val gradle = gradle6
         // https://gradle.org/releases/
         // https://services.gradle.org/versions
         // https://services.gradle.org/versions/current
 
-    const val composeDesktop = "0.3.0-build154"
+    const val composeDesktop = "0.3.1"
 
-    const val composeAndroid = "1.0.0-alpha12"
+    const val composeAndroid = "1.0.0-beta01"
         // https://developer.android.com/jetpack/androidx/releases/compose
 
     const val androidGradlePlugin = "4.2.0-alpha16"
