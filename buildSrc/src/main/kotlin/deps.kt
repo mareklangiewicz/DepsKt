@@ -31,7 +31,7 @@ object Vers {
     const val composeAndroid = "1.0.0-beta01"
         // https://developer.android.com/jetpack/androidx/releases/compose
 
-    const val androidGradlePlugin = "4.2.0-alpha16"
+    const val androidGradlePlugin = "7.0.0-alpha08"
     // https://developer.android.com/studio/releases/gradle-plugin
     // https://google.github.io/android-gradle-dsl/
 
