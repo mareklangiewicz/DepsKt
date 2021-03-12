@@ -4,7 +4,6 @@ import kotlin.reflect.full.declaredMemberProperties
 buildscript {
     repositories {
         google()
-        jcenter()
         mavenCentral()
     }
 
@@ -16,7 +15,6 @@ buildscript {
 allprojects {
     repositories {
         google()
-        jcenter()
         mavenCentral()
     }
 }
