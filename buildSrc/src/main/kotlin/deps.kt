@@ -29,7 +29,7 @@ object Vers {
     const val composeDesktop = "0.3.2"
         // https://github.com/JetBrains/compose-jb
 
-    const val composeAndroid = "1.0.0-beta01"
+    const val composeAndroid = "1.0.0-beta02"
         // https://developer.android.com/jetpack/androidx/releases/compose
 
     const val androidGradlePlugin = "7.0.0-alpha08"
