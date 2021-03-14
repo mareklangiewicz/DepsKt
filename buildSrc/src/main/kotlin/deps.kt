@@ -57,7 +57,7 @@ object Vers {
 
     const val androidxCore = "1.3.2"
 
-    const val androidxAppcompat = "1.2.0"
+    const val androidxAppcompat = "1.3.0-beta01"
 
     const val androidxConstraint1 = "1.1.3"
         // https://developer.android.com/training/constraint-layout
