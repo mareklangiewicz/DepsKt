@@ -385,7 +385,7 @@ object Deps {
     val smokk = dep("com.github.langara", "smokk", Vers.smokk)
     val uspek = dep("com.github.langara.uspek", "uspek", Vers.uspek)
     val upue = dep("com.github.langara.upue", "upue", Vers.upue)
-    val dbusKotlin = dep("com.github.langara.dbus-kotlin", "dbus-kotlin", Vers.dbusKotlin)
+    val dbusKotlin = dep("com.github.langara", "dbus-kotlin", Vers.dbusKotlin)
     val sandboxui = dep("com.github.langara", "sandboxui", Vers.sandboxui)
     val recyclerui = dep("com.github.langara", "recyclerui", Vers.recyclerui)
     val googleTruth = dep("com.google.truth", "truth", Vers.googleTruth)
