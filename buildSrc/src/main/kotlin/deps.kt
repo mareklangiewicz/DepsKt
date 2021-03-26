@@ -15,7 +15,7 @@ object Vers {
         // https://github.com/JetBrains/kotlin/blob/master/ChangeLog.md
         // https://github.com/JetBrains/kotlin/releases
 
-    const val kotlinxCoroutines = "1.4.2"
+    const val kotlinxCoroutines = "1.4.3"
         // https://github.com/Kotlin/kotlinx.coroutines/releases
 
      // just a reference - not useful in typical cases
@@ -27,13 +27,13 @@ object Vers {
         // https://services.gradle.org/versions/current
 
 //    const val composeDesktop = "0.3.2"
-    const val composeDesktop = "0.4.0-build175"
+    const val composeDesktop = "0.4.0-build177"
         // https://github.com/JetBrains/compose-jb
 
-    const val composeAndroid = "1.0.0-beta02"
+    const val composeAndroid = "1.0.0-beta03"
         // https://developer.android.com/jetpack/androidx/releases/compose
 
-    const val androidGradlePlugin = "7.0.0-alpha08"
+    const val androidGradlePlugin = "7.0.0-alpha12"
     // https://developer.android.com/studio/releases/gradle-plugin
     // https://google.github.io/android-gradle-dsl/
 
@@ -122,6 +122,9 @@ object Vers {
 
     const val dbusJava = "3.3.0"
         // https://github.com/hypfvieh/dbus-java
+
+    const val dbusKotlin = "0.0.02"
+    // https://github.com/langara/dbus-kotlin
 
     const val javaWebsocket = "1.5.1"
         // https://mvnrepository.com/artifact/org.java-websocket/Java-WebSocket
@@ -382,6 +385,7 @@ object Deps {
     val smokk = dep("com.github.langara", "smokk", Vers.smokk)
     val uspek = dep("com.github.langara.uspek", "uspek", Vers.uspek)
     val upue = dep("com.github.langara.upue", "upue", Vers.upue)
+    val dbusKotlin = dep("com.github.langara.dbus-kotlin", "dbus-kotlin", Vers.dbusKotlin)
     val sandboxui = dep("com.github.langara", "sandboxui", Vers.sandboxui)
     val recyclerui = dep("com.github.langara", "recyclerui", Vers.recyclerui)
     val googleTruth = dep("com.google.truth", "truth", Vers.googleTruth)
