@@ -120,6 +120,9 @@ object Vers {
         // https://github.com/square/okhttp
         // https://github.com/square/okhttp/releases
 
+    const val dbusJava = "3.3.0"
+        // https://github.com/hypfvieh/dbus-java
+
     const val javaWebsocket = "1.5.1"
         // https://mvnrepository.com/artifact/org.java-websocket/Java-WebSocket
 
@@ -348,6 +351,9 @@ object Deps {
     val retrofitRxjava = dep("com.squareup.retrofit2", "adapter-rxjava2", Vers.retrofit)
     val okhttp = dep("com.squareup.okhttp3", "okhttp", Vers.okhttp)
     val okhttpLogging = dep("com.squareup.okhttp3", "logging-interceptor", Vers.okhttp)
+    val dbusJava = dep("com.github.hypfvieh", "dbus-java", Vers.dbusJava)
+    val dbusJavaOsgi = dep("com.github.hypfvieh", "dbus-java-osgi", Vers.dbusJava)
+    val dbusJavaUtils = dep("com.github.hypfvieh", "dbus-java-utils", Vers.dbusJava)
     val javaWebsocket = dep("org.java-websocket", "java-websocket", Vers.javaWebsocket)
     val googleServicesPlugin = dep("com.google.gms", "google-services", Vers.googleServicesPlugin)
     val googlePlayServicesBase = dep("com.google.android.gms", "play-services-base", Vers.googlePlayServicesBase)
