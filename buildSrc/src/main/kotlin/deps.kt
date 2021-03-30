@@ -129,6 +129,8 @@ object Vers {
     const val javaWebsocket = "1.5.1"
         // https://mvnrepository.com/artifact/org.java-websocket/Java-WebSocket
 
+    const val log4j2 = "2.14.1"
+
     const val googleServicesPlugin = "4.3.5"
         // https://developers.google.com/android/guides/google-services-plugin
 
@@ -358,6 +360,8 @@ object Deps {
     val dbusJavaOsgi = dep("com.github.hypfvieh", "dbus-java-osgi", Vers.dbusJava)
     val dbusJavaUtils = dep("com.github.hypfvieh", "dbus-java-utils", Vers.dbusJava)
     val javaWebsocket = dep("org.java-websocket", "java-websocket", Vers.javaWebsocket)
+    val log4j2api = dep("org.apache.logging.log4j", "log4j-api", Vers.log4j2)
+    val log4j2core = dep("org.apache.logging.log4j", "log4j-core", Vers.log4j2)
     val googleServicesPlugin = dep("com.google.gms", "google-services", Vers.googleServicesPlugin)
     val googlePlayServicesBase = dep("com.google.android.gms", "play-services-base", Vers.googlePlayServicesBase)
     val firebaseGitliveAuth = dep("dev.gitlive", "firebase-auth", Vers.firebaseGitlive)
