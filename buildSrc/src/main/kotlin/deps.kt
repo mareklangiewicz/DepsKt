@@ -129,7 +129,12 @@ object Vers {
     const val javaWebsocket = "1.5.1"
         // https://mvnrepository.com/artifact/org.java-websocket/Java-WebSocket
 
+//    const val slf4jSimple = "1.7.30"
+    const val slf4jSimple = "2.0.0-alpha1"
+        // https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
+
     const val log4j2 = "2.14.1"
+        // http://logging.apache.org/log4j/2.x/maven-artifacts.html
 
     const val googleServicesPlugin = "4.3.5"
         // https://developers.google.com/android/guides/google-services-plugin
@@ -360,6 +365,7 @@ object Deps {
     val dbusJavaOsgi = dep("com.github.hypfvieh", "dbus-java-osgi", Vers.dbusJava)
     val dbusJavaUtils = dep("com.github.hypfvieh", "dbus-java-utils", Vers.dbusJava)
     val javaWebsocket = dep("org.java-websocket", "java-websocket", Vers.javaWebsocket)
+    val slf4jSimple = dep("org.slf4j", "slf4j-simple", Vers.slf4jSimple)
     val log4j2api = dep("org.apache.logging.log4j", "log4j-api", Vers.log4j2)
     val log4j2core = dep("org.apache.logging.log4j", "log4j-core", Vers.log4j2)
     val googleServicesPlugin = dep("com.google.gms", "google-services", Vers.googleServicesPlugin)
