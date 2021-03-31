@@ -27,7 +27,7 @@ object Vers {
         // https://services.gradle.org/versions/current
 
 //    const val composeDesktop = "0.3.2"
-    const val composeDesktop = "0.4.0-build177"
+    const val composeDesktop = "0.4.0-build178"
         // https://github.com/JetBrains/compose-jb
 
     const val composeAndroid = "1.0.0-beta03"
