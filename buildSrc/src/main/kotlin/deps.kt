@@ -9,6 +9,7 @@ object Vers {
     const val kotlinMajor = 1
     const val kotlinMinor = 4
     const val kotlinPatch = 31
+//    const val kotlinPatch = 32 // compose compiler (1.0.0-alpha13) complains it wants kotlin .31..
     const val kotlinSuffix = "" // with hyphen (like "-2")
 
     const val kotlin = "$kotlinMajor.$kotlinMinor.$kotlinPatch$kotlinSuffix"
@@ -33,7 +34,7 @@ object Vers {
     const val composeAndroid = "1.0.0-beta03"
         // https://developer.android.com/jetpack/androidx/releases/compose
 
-    const val androidGradlePlugin = "7.0.0-alpha12"
+    const val androidGradlePlugin = "7.0.0-alpha13"
     // https://developer.android.com/studio/releases/gradle-plugin
     // https://google.github.io/android-gradle-dsl/
 
