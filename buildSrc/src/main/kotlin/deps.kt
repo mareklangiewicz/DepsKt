@@ -149,12 +149,10 @@ object Vers {
     const val firebaseGitlive = "1.2.0"
         // https://github.com/GitLiveApp/firebase-kotlin-sdk
 
-    const val firebaseCrashlyticsPlugin = "2.4.1"
+    const val firebaseCrashlyticsPlugin = "2.5.2"
         // https://firebase.google.com/docs/crashlytics/get-started?platform=android
 
-    const val firebaseAnalytics = "17.4.3"
-    const val firebaseCrashlytics = "17.0.1"
-    const val firebaseAppIndexing = "19.1.0"
+    const val firebaseBom = "26.8.0"
 
     const val firebaseUiAuth = "7.1.1"
         // https://github.com/firebase/FirebaseUI-Android
@@ -380,9 +378,10 @@ object Deps {
     val firebaseGitliveMessaging = dep("dev.gitlive", "firebase-messaging", Vers.firebaseGitlive)
     val firebaseGitliveStorage = dep("dev.gitlive", "firebase-storage", Vers.firebaseGitlive)
     val firebaseCrashlyticsPlugin = dep("com.google.firebase", "firebase-crashlytics-gradle", Vers.firebaseCrashlyticsPlugin)
-    val firebaseAnalytics = dep("com.google.firebase", "firebase-analytics", Vers.firebaseAnalytics)
-    val firebaseCrashlytics = dep("com.google.firebase", "firebase-crashlytics", Vers.firebaseCrashlytics)
-    val firebaseAppIndexing = dep("com.google.firebase", "firebase-appindexing", Vers.firebaseAppIndexing)
+    val firebaseBom = dep("com.google.firebase", "firebase-bom", Vers.firebaseBom)
+    val firebaseAnalytics = dep("com.google.firebase", "firebase-analytics")
+    val firebaseCrashlytics = dep("com.google.firebase", "firebase-crashlytics")
+    val firebaseAppIndexing = dep("com.google.firebase", "firebase-appindexing")
     val firebaseUiAuth = dep("com.firebaseui", "firebase-ui-auth", Vers.firebaseUiAuth)
     val picasso = dep("com.squareup.picasso", "picasso", Vers.picasso)
     val materialDialogs = dep("com.afollestad.material-dialogs", "core", Vers.materialDialogs)
@@ -420,7 +419,7 @@ object Deps {
     val splitties = dep("com.louiscad.splitties", "splitties-fun-pack-android-material-components-with-views-dsl", Vers.splitties)
 }
 
-private fun dep(group: String, name: String, version: String) = mapOf(
+private fun dep(group: String, name: String, version: String? = null) = mapOf(
         "group" to group,
         "name" to name,
         "version" to version
