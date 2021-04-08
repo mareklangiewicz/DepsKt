@@ -152,7 +152,11 @@ object Vers {
     const val firebaseCrashlyticsPlugin = "2.5.2"
         // https://firebase.google.com/docs/crashlytics/get-started?platform=android
 
+    const val firebaseAdmin = "7.1.1"
+        // https://firebase.google.com/docs/admin/setup
+
     const val firebaseBom = "26.8.0"
+        // https://firebase.google.com/docs/android/setup#add-sdks
 
     const val firebaseUiAuth = "7.1.1"
         // https://github.com/firebase/FirebaseUI-Android
@@ -378,6 +382,7 @@ object Deps {
     val firebaseGitliveMessaging = dep("dev.gitlive", "firebase-messaging", Vers.firebaseGitlive)
     val firebaseGitliveStorage = dep("dev.gitlive", "firebase-storage", Vers.firebaseGitlive)
     val firebaseCrashlyticsPlugin = dep("com.google.firebase", "firebase-crashlytics-gradle", Vers.firebaseCrashlyticsPlugin)
+    val firebaseAdmin = dep("com.google.firebase", "firebase-admin", Vers.firebaseAdmin)
     val firebaseBom = dep("com.google.firebase", "firebase-bom", Vers.firebaseBom)
     val firebaseAnalytics = dep("com.google.firebase", "firebase-analytics")
     val firebaseCrashlytics = dep("com.google.firebase", "firebase-crashlytics")
