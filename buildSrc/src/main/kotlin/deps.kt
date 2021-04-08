@@ -8,11 +8,12 @@
 object Vers {
     const val kotlinMajor = 1
     const val kotlinMinor = 4
-    const val kotlinPatch = 31
-//    const val kotlinPatch = 32 // compose compiler (1.0.0-alpha13) complains it wants kotlin .31..
+//    const val kotlinPatch = 31
+    const val kotlinPatch = 32 // compose compiler (1.0.0-alpha13) complains it wants kotlin .31..
     const val kotlinSuffix = "" // with hyphen (like "-2")
 
     const val kotlin = "$kotlinMajor.$kotlinMinor.$kotlinPatch$kotlinSuffix"
+        // https://kotlinlang.org/docs/releases.html#release-details
         // https://github.com/JetBrains/kotlin/blob/master/ChangeLog.md
         // https://github.com/JetBrains/kotlin/releases
 
