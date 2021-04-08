@@ -22,19 +22,20 @@ object Vers {
      // just a reference - not useful in typical cases
     const val gradle5 = "5.6.4"
     const val gradle6 = "6.8.3"
-    const val gradle = gradle6
+    const val gradle7 = "7.0-rc-2"
+    const val gradle = gradle7
         // https://gradle.org/releases/
         // https://services.gradle.org/versions
         // https://services.gradle.org/versions/current
 
 //    const val composeDesktop = "0.3.2"
-    const val composeDesktop = "0.4.0-build178"
+    const val composeDesktop = "0.4.0-build180"
         // https://github.com/JetBrains/compose-jb
 
-    const val composeAndroid = "1.0.0-beta03"
+    const val composeAndroid = "1.0.0-beta04"
         // https://developer.android.com/jetpack/androidx/releases/compose
 
-    const val androidGradlePlugin = "7.0.0-alpha13"
+    const val androidGradlePlugin = "7.0.0-alpha14"
     // https://developer.android.com/studio/releases/gradle-plugin
     // https://google.github.io/android-gradle-dsl/
 
