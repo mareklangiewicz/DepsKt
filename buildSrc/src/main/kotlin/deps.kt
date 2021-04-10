@@ -17,6 +17,9 @@ object Vers {
         // https://github.com/JetBrains/kotlin/blob/master/ChangeLog.md
         // https://github.com/JetBrains/kotlin/releases
 
+    const val kotlinxDateTime = "0.1.1"
+        // https://github.com/Kotlin/kotlinx-datetime
+
     const val kotlinxCoroutines = "1.4.3"
         // https://github.com/Kotlin/kotlinx.coroutines/releases
 
@@ -273,6 +276,8 @@ object Deps {
     val composeAndroidUiPlatform = dep("androidx.compose.ui", "ui-platform", Vers.composeAndroid)
     val composeAndroidUiTest = dep("androidx.compose.ui", "ui-test", Vers.composeAndroid)
     val composeAndroidUiTooling = dep("androidx.compose.ui", "ui-tooling", Vers.composeAndroid)
+
+    val kotlinxDateTime = dep("org.jetbrains.kotlinx", "kotlinx-datetime", Vers.kotlinxDateTime)
 
     val kotlinxCoroutinesCommon = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-core-common", Vers.kotlinxCoroutines)
     val kotlinxCoroutinesCore = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-core", Vers.kotlinxCoroutines)
