@@ -8,8 +8,7 @@
 object Vers {
     const val kotlinMajor = 1
     const val kotlinMinor = 4
-//    const val kotlinPatch = 31
-    const val kotlinPatch = 32 // compose compiler (1.0.0-alpha13) complains it wants kotlin .31..
+    const val kotlinPatch = 32
     const val kotlinSuffix = "" // with hyphen (like "-2")
 
     const val kotlin = "$kotlinMajor.$kotlinMinor.$kotlinPatch$kotlinSuffix"
@@ -26,7 +25,7 @@ object Vers {
      // just a reference - not useful in typical cases
     const val gradle5 = "5.6.4"
     const val gradle6 = "6.8.3"
-    const val gradle7 = "7.0-rc-2"
+    const val gradle7 = "7.0"
     const val gradle = gradle7
         // https://gradle.org/releases/
         // https://services.gradle.org/versions
