@@ -4,7 +4,7 @@ plugins {
 }
 
 application {
-    mainClassName = "pl.mareklangiewicz.sample.MainKt"
+    mainClass.set("pl.mareklangiewicz.sample.MainKt")
 }
 
 dependencies {
