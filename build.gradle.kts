@@ -11,7 +11,7 @@ gradlePlugin {
     plugins {
         create("depsPlugin") {
             id = "pl.mareklangiewicz.deps"
-            implementationClass = "pl.mareklangiewicz.deps.DepsPlugin"
+            implementationClass = "DepsPlugin"
         }
     }
 }

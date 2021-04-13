@@ -1,7 +1,5 @@
 @file:Suppress("unused", "SpellCheckingInspection", "MemberVisibilityCanBePrivate")
 
-package pl.mareklangiewicz.deps
-
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
