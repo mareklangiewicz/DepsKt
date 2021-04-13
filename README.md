@@ -19,4 +19,4 @@ TODO: links to updated samples
 
 #### Notes
 - It's a statically checked Kotlin code, so we should have full IDE support
-- If you don't want to use it all, you can still just bookmark one file [github:deps.kt](https://github.com/langara/deps.kt/blob/master/src/main/kotlin/deps.kt) to quickly check current versions of popular libraries
+- If you don't want to use it all, you can still just bookmark one file [github:Vers.kt](https://github.com/langara/deps.kt/blob/master/src/main/kotlin/Vers.kt) to quickly check current versions of popular libraries
