@@ -1,1 +1,1 @@
-include(":sample")
+rootProject.name="deps"

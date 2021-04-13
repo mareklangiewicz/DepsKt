@@ -1,33 +1,21 @@
-import kotlin.reflect.KProperty1
-import kotlin.reflect.full.declaredMemberProperties
+plugins {
+    `java-gradle-plugin`
+    `kotlin-dsl`
+    `maven-publish`
+}
 
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-    }
+group = "pl.mareklangiewicz.deps"
+version = "0.2.2"
 
-    dependencies {
-        classpath(Deps.kotlinGradlePlugin)
+gradlePlugin {
+    plugins {
+        create("depsPlugin") {
+            id = "pl.mareklangiewicz.deps"
+            implementationClass = "pl.mareklangiewicz.deps.DepsPlugin"
+        }
     }
 }
 
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
+repositories {
+    gradlePluginPortal() // so that external plugins can be resolved in dependencies section
 }
-
-task("logVersAndDeps") {
-    doLast {
-        println("vers:"); Vers::class.declaredMemberProperties.forEach { Vers.log(it) }
-        println("deps:"); Deps::class.declaredMemberProperties.forEach { Deps.log(it) }
-    }
-}
-
-inline fun <reified T> T.log(property: KProperty1<T, *>) = println( "\t${property.name}: ${tryGet(property)}")
-
-inline fun <reified T> T.tryGet(prop: KProperty1<T, *>) =
-        try { prop.getter.call() }
-        catch (e: Exception) { prop.getter.call(this) }
