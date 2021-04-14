@@ -13,6 +13,10 @@ gradlePlugin {
             id = "pl.mareklangiewicz.deps"
             implementationClass = "DepsPlugin"
         }
+        create("depsSettingsPlugin") {
+            id = "pl.mareklangiewicz.deps.settings"
+            implementationClass = "DepsSettingsPlugin"
+        }
     }
 }
 
