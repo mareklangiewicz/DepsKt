@@ -30,7 +30,7 @@ object Vers {
         // https://services.gradle.org/versions/current
 
 //    const val composeDesktop = "0.3.2"
-    const val composeDesktop = "0.4.0-build180"
+    const val composeDesktop = "0.4.0-build183"
         // https://github.com/JetBrains/compose-jb
 
     const val composeAndroid = "1.0.0-beta04"
@@ -155,7 +155,8 @@ object Vers {
     const val firebaseAdmin = "7.1.1"
         // https://firebase.google.com/docs/admin/setup
 
-    const val firebaseBom = "26.8.0"
+    const val firebaseAndroidBoM = "27.0.0"
+        // https://firebase.google.com/support/release-notes/android
         // https://firebase.google.com/docs/android/setup#add-sdks
 
     const val firebaseUiAuth = "7.1.1"
@@ -235,4 +236,8 @@ object Vers {
     const val splitties = "3.0.0-beta01"
         // https://github.com/LouisCAD/Splitties/releases
         // https://github.com/LouisCAD/Splitties
+
+    const val docoptJava = "0.6.0.20150202"
+        // https://mvnrepository.com/artifact/com.offbytwo/docopt
+        // https://github.com/docopt/docopt.java
 }
