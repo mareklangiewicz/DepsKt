@@ -164,6 +164,12 @@ object Vers {
         // https://github.com/firebase/FirebaseUI-Android/releases
         // https://firebase.google.com/docs/auth/android/firebaseui
 
+    const val googleCloudBoM = "20.1.0"
+        // https://github.com/GoogleCloudPlatform/cloud-opensource-java/wiki/The-Google-Cloud-Platform-Libraries-BOM
+
+    const val googleAuth = "0.25.3"
+        // https://github.com/googleapis/google-auth-library-java
+
     const val picasso = "2.8"
     // https://github.com/square/picasso
     // https://github.com/square/picasso/releases

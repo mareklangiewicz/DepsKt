@@ -138,8 +138,10 @@ object Deps {
     val slf4jSimple = dep("org.slf4j", "slf4j-simple", Vers.slf4jSimple)
     val log4j2api = dep("org.apache.logging.log4j", "log4j-api", Vers.log4j2)
     val log4j2core = dep("org.apache.logging.log4j", "log4j-core", Vers.log4j2)
+
     val googleServicesPlugin = dep("com.google.gms", "google-services", Vers.googleServicesPlugin)
     val googlePlayServicesBase = dep("com.google.android.gms", "play-services-base", Vers.googlePlayServicesBase)
+
     val firebaseGitliveAuth = dep("dev.gitlive", "firebase-auth", Vers.firebaseGitlive)
     val firebaseGitliveDB = dep("dev.gitlive", "firebase-database", Vers.firebaseGitlive)
     val firebaseGitliveFirestore = dep("dev.gitlive", "firebase-firestore", Vers.firebaseGitlive)
@@ -147,7 +149,9 @@ object Deps {
     val firebaseGitliveMessaging = dep("dev.gitlive", "firebase-messaging", Vers.firebaseGitlive)
     val firebaseGitliveStorage = dep("dev.gitlive", "firebase-storage", Vers.firebaseGitlive)
     val firebaseCrashlyticsPlugin = dep("com.google.firebase", "firebase-crashlytics-gradle", Vers.firebaseCrashlyticsPlugin)
+
     val firebaseAdmin = dep("com.google.firebase", "firebase-admin", Vers.firebaseAdmin)
+
     val firebaseAndroidBoM = dep("com.google.firebase", "firebase-bom", Vers.firebaseAndroidBoM)
     val firebaseAnalyticsKtx = dep("com.google.firebase", "firebase-analytics-ktx")
     val firebaseCrashlyticsKtx = dep("com.google.firebase", "firebase-crashlytics-ktx")
@@ -162,7 +166,24 @@ object Deps {
     val firebaseRealtimeDbKtx = dep("com.google.firebase", "firebase-database-ktx")
     val firebaseRemoteConfigKtx = dep("com.google.firebase", "firebase-config-ktx")
     val firebaseDynamicLinksKtx = dep("com.google.firebase", "firebase-dynamic-links-ktx")
+
     val firebaseUiAuth = dep("com.firebaseui", "firebase-ui-auth", Vers.firebaseUiAuth)
+
+    val googleCloudBoM = dep("com.google.cloud", "libraries-bom", Vers.googleCloudBoM)
+        // FIXME: some extension functions for BoM deps, so its easier to add it to multiplatform projects than:
+        // implementation(project.dependencies.platform(Deps.googleCloudBoM))
+        // and to make it impossible to mistakenly add it as normal dependency like:
+        // implementation(Deps.googleCloudBoM)
+
+    val googleCloudStorage = dep("com.google.cloud", "google-cloud-storage")
+    val googleCloudFirestore = dep("com.google.cloud", "google-cloud-firestore")
+
+    val googleAuthCredentials = dep("com.google.auth", "google-auth-library-credentials", Vers.googleAuth)
+    val googleAuthOAuth2Http = dep("com.google.auth", "google-auth-library-oauth2-http", Vers.googleAuth)
+    val googleAuthAppEngine = dep("com.google.auth", "google-auth-library-appengine", Vers.googleAuth)
+
+    val googleGuava = dep("com.google.guava", "guava") // ver from googleCloudBoM
+
     val picasso = dep("com.squareup.picasso", "picasso", Vers.picasso)
     val materialDialogs = dep("com.afollestad.material-dialogs", "core", Vers.materialDialogs)
     val leakcanary = dep("com.squareup.leakcanary", "leakcanary-android", Vers.leakcanary)
