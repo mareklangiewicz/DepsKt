@@ -29,17 +29,19 @@ object Vers {
         // https://services.gradle.org/versions
         // https://services.gradle.org/versions/current
 
-//    const val composeDesktop = "0.3.2"
-    const val composeDesktop = "0.4.0-build183"
+    const val composeDesktopVerMain = "0.3.2"
+    const val composeDesktopVerEdge = "0.4.0-build184"
+    const val composeDesktop = composeDesktopVerEdge
         // https://github.com/JetBrains/compose-jb
 
-    const val composeAndroid = "1.0.0-beta04"
+    const val composeAndroid = "1.0.0-beta05"
         // https://developer.android.com/jetpack/androidx/releases/compose
 
     const val androidGradlePlugin = "7.0.0-alpha14"
     // https://developer.android.com/studio/releases/gradle-plugin
     // https://google.github.io/android-gradle-dsl/
 
+    @Deprecated("Use https://developer.android.com/studio/build/maven-publish-plugin")
     const val androidMavenGradlePlugin = "2.1" // https://github.com/dcendents/android-maven-gradle-plugin/releases
 
     const val androidCompileSdk = 30
@@ -59,43 +61,43 @@ object Vers {
     // https://developer.android.com/jetpack/androidx/versions
     // https://dl.google.com/dl/android/maven2/index.html
 
-    const val androidxCore = "1.3.2"
+    const val androidxCore = "1.6.0-alpha02"
 
-    const val androidxAppcompat = "1.3.0-beta01"
+    const val androidxAppcompat = "1.3.0-rc01"
 
     const val androidxConstraint1 = "1.1.3"
         // https://developer.android.com/training/constraint-layout
-    const val androidxConstraint2 = "2.0.4"
+    const val androidxConstraint2 = "2.1.0-beta01"
     const val androidxConstraint = androidxConstraint2
 
-    const val androidxRecyclerview = "1.1.0-rc01"
+    const val androidxRecyclerview = "1.2.0"
     const val androidxCardview = "1.0.0"
     const val androidMaterial = "1.2.0-alpha01"
-    const val androidxAnnotation = "1.1.0"
-    const val androidxPreference = "1.1.0"
-    const val androidxBrowser = "1.3.0-alpha01"
+    const val androidxAnnotation = "1.3.0-alpha01"
+    const val androidxPreference = "1.1.1"
+    const val androidxBrowser = "1.3.0"
     const val androidxPercentLayout = "1.0.0"
     const val androidxFlexboxLayout = "2.0.1"
         // https://github.com/google/flexbox-layout/releases
 
-    const val androidxLifecycle = "2.3.0-rc01"
+    const val androidxLifecycle = "2.4.0-alpha01"
         // https://developer.android.com/jetpack/androidx/releases/lifecycle
 
-    const val androidxRoom = "2.3.0-beta01"
+    const val androidxRoom = "2.4.0-alpha01"
         // https://developer.android.com/jetpack/androidx/releases/room
 
-    const val androidxTest = "1.3.1-alpha03"
-    const val androidxTestRunner = "1.3.1-alpha03"
-    const val androidxTestRules = "1.3.1-alpha03"
+    const val androidxTest = "1.4.0-alpha05"
+    const val androidxTestRunner = androidxTest
+    const val androidxTestRules = androidxTest
         // https://developer.android.com/jetpack/androidx/releases/test
 
-    const val androidxEspresso = "3.3.0-alpha02"
+    const val androidxEspresso = "3.4.0-alpha05"
 
     const val androidCommons = "0.0.24"
         // https://github.com/elpassion/android-commons/releases
 
     const val rxjava2 = "2.2.16"
-    const val rxjava3 = "3.0.10"
+    const val rxjava3 = "3.0.12"
         // https://github.com/ReactiveX/RxJava/releases
 
     const val rxkotlin = "3.0.1"
@@ -119,7 +121,7 @@ object Vers {
         // https://github.com/square/retrofit
         // https://github.com/square/retrofit/releases
 
-    const val okhttp = "4.9.0"
+    const val okhttp = "4.9.1"
         // https://github.com/square/okhttp
         // https://github.com/square/okhttp/releases
 
@@ -129,7 +131,7 @@ object Vers {
     const val dbusKotlin = "0.0.05"
     // https://github.com/langara/dbus-kotlin
 
-    const val javaWebsocket = "1.5.1"
+    const val javaWebsocket = "1.5.2"
         // https://mvnrepository.com/artifact/org.java-websocket/Java-WebSocket
 
 //    const val slf4jSimple = "1.7.30"
@@ -155,7 +157,7 @@ object Vers {
     const val firebaseAdmin = "7.1.1"
         // https://firebase.google.com/docs/admin/setup
 
-    const val firebaseAndroidBoM = "27.0.0"
+    const val firebaseAndroidBoM = "27.1.0"
         // https://firebase.google.com/support/release-notes/android
         // https://firebase.google.com/docs/android/setup#add-sdks
 
@@ -167,7 +169,7 @@ object Vers {
     const val googleCloudBoM = "20.1.0"
         // https://github.com/GoogleCloudPlatform/cloud-opensource-java/wiki/The-Google-Cloud-Platform-Libraries-BOM
 
-    const val googleAuth = "0.25.3"
+    const val googleAuth = "0.25.5"
         // https://github.com/googleapis/google-auth-library-java
 
     const val picasso = "2.8"
@@ -178,19 +180,19 @@ object Vers {
     // https://github.com/afollestad/material-dialogs
     // https://github.com/afollestad/material-dialogs/releases
 
-    const val leakcanary = "2.6"
+    const val leakcanary = "2.7"
         // https://github.com/square/leakcanary/releases
 
     const val paperwork = "1.2.7"
         // https://github.com/zsoltk/paperwork/releases
 
-    const val mockitoKotlin = "2.2.0"
+    const val mockitoKotlin = "3.1.0"
         // https://github.com/nhaarman/mockito-kotlin/releases
 
-    const val junit4 = "4.13.1"
+    const val junit4 = "4.13.2"
         // https://github.com/junit-team/junit4/releases
 
-    const val junit5 = "5.6.3"
+    const val junit5 = "5.7.1"
         // https://github.com/junit-team/junit5/releases
 
     const val googleTruth = "1.1.2"
@@ -199,8 +201,8 @@ object Vers {
     const val androidTestRunnerClass = "androidx.test.runner.AndroidJUnitRunner"
         // https://developer.android.com/reference/android/support/test/runner/AndroidJUnitRunner.html
 
-    const val realm = "10.0.1"
-        // https://realm.io/docs/java/latest/
+    const val realm = "10.4.0"
+        // https://docs.mongodb.com/realm/sdk/android/install/
 
     const val tuplek = "0.0.2"
         // https://github.com/langara/tuplek/releases
@@ -227,7 +229,7 @@ object Vers {
         // https://github.com/langara/recyclerui/releases
 
     const val ktorEap = "1.6.0-eap-3"
-    const val ktorStable = "1.5.1"
+    const val ktorStable = "1.5.3"
     const val ktorForRsocket = "1.4.3" // TODO: remove when rsocket start working with new ktor
     const val ktor = ktorForRsocket
         // https://maven.pkg.jetbrains.space/public/p/ktor/eap/io/ktor/ktor/

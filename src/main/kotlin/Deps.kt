@@ -8,7 +8,10 @@
 object Deps {
     val kotlinGradlePlugin = dep("org.jetbrains.kotlin", "kotlin-gradle-plugin", Vers.kotlin)
     val androidGradlePlugin = dep("com.android.tools.build", "gradle", Vers.androidGradlePlugin)
+
+    @Deprecated("Use https://developer.android.com/studio/build/maven-publish-plugin")
     val androidMavenGradlePlugin = dep("com.github.dcendents", "android-maven-gradle-plugin", Vers.androidMavenGradlePlugin)
+
     val kotlinStdlib7 = dep("org.jetbrains.kotlin", "kotlin-stdlib-jdk7", Vers.kotlin)
     val kotlinStdlib8 = dep("org.jetbrains.kotlin", "kotlin-stdlib-jdk8", Vers.kotlin)
     val kotlinReflect = dep("org.jetbrains.kotlin", "kotlin-reflect", Vers.kotlin)
@@ -220,10 +223,7 @@ object Deps {
     val splitties = dep("com.louiscad.splitties", "splitties-fun-pack-android-material-components-with-views-dsl", Vers.splitties)
     val docoptJava = dep("com.offbytwo", "docopt", Vers.docoptJava)
 
-    private fun dep(group: String, name: String, version: String? = null) = mapOf(
-        "group" to group,
-        "name" to name,
-        "version" to version
-    )
+    private fun dep(group: String, name: String, version: String? = null): String =
+        if (version === null) "$group:$name" else "$group:$name:$version"
 }
 
