@@ -10,7 +10,7 @@ repositories {
 }
 
 group = "pl.mareklangiewicz.deps"
-version = "0.2.3"
+version = "0.2.4"
 
 gradlePlugin {
     plugins {
