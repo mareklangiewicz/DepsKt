@@ -7,5 +7,5 @@ class DepsSettingsPlugin: Plugin<Settings> {
 }
 
 class DepsPlugin: Plugin<Project> {
-    override fun apply(target: Project) = println("DepsSettingsPlugin.apply(project ${target.name})")
+    override fun apply(target: Project) = println("DepsPlugin.apply(project ${target.name})")
 }

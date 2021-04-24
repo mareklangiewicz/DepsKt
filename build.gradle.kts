@@ -1,4 +1,5 @@
 plugins {
+    kotlin("jvm") version "1.4.32"
     id("java-gradle-plugin")
     id("maven-publish")
     id("com.gradle.plugin-publish") version "0.14.0"
@@ -9,8 +10,8 @@ repositories {
     mavenCentral()
 }
 
-group = "com.github.langara"
-version = "0.2.07"
+group = "pl.mareklangiewicz.deps"
+version = "0.2.08"
 
 gradlePlugin {
     plugins {
