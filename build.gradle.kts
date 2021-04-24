@@ -1,9 +1,8 @@
 plugins {
+    id("java-gradle-plugin")
+    id("maven-publish")
     id("com.gradle.plugin-publish") version "0.14.0"
-        // https://plugins.gradle.org/docs/publish-plugin
-    `java-gradle-plugin`
-    `kotlin-dsl`
-    `maven-publish`
+    // https://plugins.gradle.org/docs/publish-plugin
 }
 
 repositories {
@@ -11,7 +10,7 @@ repositories {
 }
 
 group = "com.github.langara"
-version = "0.2.06"
+version = "0.2.07"
 
 gradlePlugin {
     plugins {
