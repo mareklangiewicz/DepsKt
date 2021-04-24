@@ -27,10 +27,12 @@ gradlePlugin {
 
 pluginBundle {
     // These settings are set for the whole plugin bundle
+    website = "https://github.com/langara/deps.kt"
     vcsUrl = "https://github.com/langara/deps.kt"
 
     // tags and description can be set for the whole bundle here, but can also
     // be set / overridden in the config for specific plugins
+    tags = listOf("bom", "dependencies")
     description = "Updated dependencies for typical java/kotlin/android projects (with IDE support)."
 
     // The plugins block can contain multiple plugin entries.
