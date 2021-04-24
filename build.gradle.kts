@@ -10,8 +10,8 @@ repositories {
     mavenCentral()
 }
 
-group = "pl.mareklangiewicz.deps"
-version = "0.2.5"
+group = "com.github.langara"
+version = "0.2.06"
 
 gradlePlugin {
     plugins {
@@ -30,39 +30,19 @@ pluginBundle {
     // These settings are set for the whole plugin bundle
     website = "https://github.com/langara/deps.kt"
     vcsUrl = "https://github.com/langara/deps.kt"
-
-    // tags and description can be set for the whole bundle here, but can also
-    // be set / overridden in the config for specific plugins
     tags = listOf("bom", "dependencies")
     description = "Updated dependencies for typical java/kotlin/android projects (with IDE support)."
 
-    // The plugins block can contain multiple plugin entries.
-    //
-    // The name for each plugin block below (greetingsPlugin, goodbyePlugin)
-    // does not affect the plugin configuration, but they need to be unique
-    // for each plugin.
-
-    // Plugin config blocks can set the id, displayName, version, description
-    // and tags for each plugin.
-
-    // id and displayName are mandatory.
-    // If no version is set, the project version will be used.
-    // If no tags or description are set, the tags or description from the
-    // pluginBundle block will be used, but they must be set in one of the
-    // two places.
-
     (plugins) {
 
-        // first plugin
         "depsPlugin" {
             // id is captured from java-gradle-plugin configuration
             displayName = "Deps.kt plugin"
         }
 
-        // another plugin
         "depsSettingsPlugin" {
             // id is captured from java-gradle-plugin configuration
-            displayName = "Depps.kt settings plugin"
+            displayName = "Deps.kt settings plugin"
         }
     }
 }
