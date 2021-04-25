@@ -207,7 +207,7 @@ object Vers {
     const val tuplek = "0.0.2"
         // https://github.com/langara/tuplek/releases
 
-    const val abcdk = "0.0.2"
+    const val abcdk = "0.0.04"
         // https://github.com/langara/abcdk/releases
 
     const val rxmock = "0.0.2"
