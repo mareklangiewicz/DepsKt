@@ -1,4 +1,4 @@
-@file:Suppress("unused", "SpellCheckingInspection", "MemberVisibilityCanBePrivate")
+@file:Suppress("unused", "DEPRECATION", "SpellCheckingInspection", "MemberVisibilityCanBePrivate")
 
 /**
  * Common dependencies for java/kotlin/android projects
