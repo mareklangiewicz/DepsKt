@@ -128,7 +128,7 @@ object Vers {
     const val dbusJava = "3.3.0"
         // https://github.com/hypfvieh/dbus-java
 
-    const val dbusKotlin = "0.0.07"
+    const val dbusKotlin = "0.0.08"
     // https://github.com/langara/dbus-kotlin
 
     const val javaWebsocket = "1.5.2"
