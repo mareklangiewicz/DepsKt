@@ -76,6 +76,8 @@ object Vers {
     const val androidxAnnotation = "1.3.0-alpha01"
     const val androidxPreference = "1.1.1"
     const val androidxBrowser = "1.3.0"
+    const val androidxBrowserHelper = "2.2.0"
+        // https://github.com/GoogleChrome/android-browser-helper
     const val androidxPercentLayout = "1.0.0"
     const val androidxFlexboxLayout = "2.0.1"
         // https://github.com/google/flexbox-layout/releases

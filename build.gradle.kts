@@ -33,6 +33,12 @@ pluginBundle {
     tags = listOf("bom", "dependencies")
     description = "Updated dependencies for typical java/kotlin/android projects (with IDE support)."
 
+    mavenCoordinates {
+        groupId = project.group.toString()
+        artifactId = project.name
+        version = project.version.toString()
+    }
+
     (plugins) {
 
         "depsPlugin" {
