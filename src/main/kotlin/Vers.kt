@@ -17,7 +17,7 @@ object Vers {
     const val kotlinxDateTime = "0.1.1"
         // https://github.com/Kotlin/kotlinx-datetime
 
-    const val kotlinxCoroutines = "1.4.3"
+    const val kotlinxCoroutines = "1.5.0-RC"
         // https://github.com/Kotlin/kotlinx.coroutines/releases
 
      // just a reference - not useful in typical cases
@@ -30,14 +30,14 @@ object Vers {
         // https://services.gradle.org/versions/current
 
     const val composeDesktopVerMain = "0.3.2"
-    const val composeDesktopVerEdge = "0.4.0-build185"
+    const val composeDesktopVerEdge = "0.4.0-build188"
     const val composeDesktop = composeDesktopVerEdge
         // https://github.com/JetBrains/compose-jb
 
-    const val composeAndroid = "1.0.0-beta05"
+    const val composeAndroid = "1.0.0-beta06"
         // https://developer.android.com/jetpack/androidx/releases/compose
 
-    const val androidGradlePlugin = "7.0.0-alpha14"
+    const val androidGradlePlugin = "7.0.0-alpha15"
     // https://developer.android.com/studio/releases/gradle-plugin
     // https://google.github.io/android-gradle-dsl/
 
@@ -123,9 +123,13 @@ object Vers {
         // https://github.com/square/retrofit
         // https://github.com/square/retrofit/releases
 
-    const val okhttp = "4.9.1"
+    const val okhttp = "5.0.0-alpha.2"
         // https://github.com/square/okhttp
         // https://github.com/square/okhttp/releases
+
+    const val okio = "3.0.0-alpha.5"
+        // https://square.github.io/okio/changelog/
+        // https://square.github.io/okio/#releases
 
     const val dbusJava = "3.3.0"
         // https://github.com/hypfvieh/dbus-java

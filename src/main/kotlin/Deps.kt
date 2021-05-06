@@ -135,6 +135,7 @@ object Deps {
     val retrofitRxjava = dep("com.squareup.retrofit2", "adapter-rxjava2", Vers.retrofit)
     val okhttp = dep("com.squareup.okhttp3", "okhttp", Vers.okhttp)
     val okhttpLogging = dep("com.squareup.okhttp3", "logging-interceptor", Vers.okhttp)
+    val okio = dep("com.squareup.okio", "okio", Vers.okio)
     val dbusJava = dep("com.github.hypfvieh", "dbus-java", Vers.dbusJava)
     val dbusJavaOsgi = dep("com.github.hypfvieh", "dbus-java-osgi", Vers.dbusJava)
     val dbusJavaUtils = dep("com.github.hypfvieh", "dbus-java-utils", Vers.dbusJava)
