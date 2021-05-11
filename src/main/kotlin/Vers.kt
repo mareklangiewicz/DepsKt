@@ -210,7 +210,7 @@ object Vers {
     const val realm = "10.4.0"
         // https://docs.mongodb.com/realm/sdk/android/install/
 
-    const val tuplek = "0.0.03"
+    const val tuplek = "0.0.04"
         // https://github.com/langara/tuplek/releases
 
     const val abcdk = "0.0.04"
