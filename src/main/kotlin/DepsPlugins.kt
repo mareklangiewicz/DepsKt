@@ -9,3 +9,14 @@ class DepsSettingsPlugin: Plugin<Settings> {
 class DepsPlugin: Plugin<Project> {
     override fun apply(target: Project) = println("DepsPlugin.apply(project ${target.name})")
 }
+
+// https://publicobject.com/2021/03/11/includebuild/
+
+fun Settings.includeAndSubstituteBuild(rootProject: Any, substituteModule: String, withProject: String) {
+    includeBuild(rootProject) {
+        it.dependencySubstitution {
+            it.substitute(it.module(substituteModule))
+                .with(it.project(withProject))
+        }
+    }
+}
