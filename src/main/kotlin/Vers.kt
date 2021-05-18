@@ -14,6 +14,8 @@ object Vers {
         // https://github.com/JetBrains/kotlin/blob/master/ChangeLog.md
         // https://github.com/JetBrains/kotlin/releases
 
+    const val kotlin14 = "1.4.32"
+
     const val kotlinxDateTime = "0.2.0"
         // https://github.com/Kotlin/kotlinx-datetime
 
@@ -30,10 +32,11 @@ object Vers {
         // https://services.gradle.org/versions/current
 
     const val composeDesktopVerMain = "0.3.2"
-    const val composeDesktopVerEdge = "0.4.0-build190"
-    const val composeDesktopVerWeb = "0.0.0-web-dev-11"
+    const val composeDesktopVerEdge = "0.4.0-build198"
+    const val composeDesktopVerWeb = "0.0.0-web-dev-12"
     const val composeDesktop = composeDesktopVerEdge
         // https://github.com/JetBrains/compose-jb
+    const val composeDesktopWithWeb = composeDesktopVerWeb
 
     const val composeAndroid = "1.0.0-beta06"
         // https://developer.android.com/jetpack/androidx/releases/compose

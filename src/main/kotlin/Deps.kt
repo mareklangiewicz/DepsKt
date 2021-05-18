@@ -7,6 +7,7 @@
  */
 object Deps {
     val kotlinGradlePlugin = dep("org.jetbrains.kotlin", "kotlin-gradle-plugin", Vers.kotlin)
+    val kotlin14GradlePlugin = dep("org.jetbrains.kotlin", "kotlin-gradle-plugin", Vers.kotlin14)
     val androidGradlePlugin = dep("com.android.tools.build", "gradle", Vers.androidGradlePlugin)
 
     @Deprecated("Use https://developer.android.com/studio/build/maven-publish-plugin")
@@ -21,6 +22,7 @@ object Deps {
     val kotlinTestJs = dep("org.jetbrains.kotlin", "kotlin-test-js", Vers.kotlin)
 
     val composeDesktopGradlePlugin = dep("org.jetbrains.compose", "compose-gradle-plugin", Vers.composeDesktop)
+    val composeDesktopWithWebGradlePlugin = dep("org.jetbrains.compose", "compose-gradle-plugin", Vers.composeDesktopWithWeb)
     val composeAndroidAnimation = dep("androidx.compose.animation", "animation", Vers.composeAndroid)
     val composeAndroidAnimationCore = dep("androidx.compose.animation", "animation-core", Vers.composeAndroid)
     val composeAndroidCompiler = dep("androidx.compose.compiler", "compiler", Vers.composeAndroid)
