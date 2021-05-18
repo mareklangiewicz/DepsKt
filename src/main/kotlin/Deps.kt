@@ -202,7 +202,7 @@ object Deps {
     val abcdk = dep("com.github.langara", "abcdk", Vers.abcdk)
     val rxmock = dep("com.github.langara", "rxmock", Vers.rxmock)
     val smokk = dep("com.github.langara", "smokk", Vers.smokk)
-    val uspek = dep("com.github.langara", "uspek", Vers.uspek)
+    val uspek = dep("com.github.langara.USpek", "uspek", Vers.uspek)
     val upue = dep("com.github.langara", "upue", Vers.upue)
     val dbusKotlin = dep("com.github.langara", "dbus-kotlin", Vers.dbusKotlin)
     val sandboxui = dep("com.github.langara", "sandboxui", Vers.sandboxui)
