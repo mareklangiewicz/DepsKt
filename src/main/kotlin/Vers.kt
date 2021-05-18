@@ -5,8 +5,8 @@
  */
 object Vers {
     const val kotlinMajor = 1
-    const val kotlinMinor = 4
-    const val kotlinPatch = 32
+    const val kotlinMinor = 5
+    const val kotlinPatch = 0
     const val kotlinSuffix = "" // with hyphen (like "-2")
 
     const val kotlin = "$kotlinMajor.$kotlinMinor.$kotlinPatch$kotlinSuffix"
@@ -14,16 +14,16 @@ object Vers {
         // https://github.com/JetBrains/kotlin/blob/master/ChangeLog.md
         // https://github.com/JetBrains/kotlin/releases
 
-    const val kotlinxDateTime = "0.1.1"
+    const val kotlinxDateTime = "0.2.0"
         // https://github.com/Kotlin/kotlinx-datetime
 
-    const val kotlinxCoroutines = "1.5.0-RC"
+    const val kotlinxCoroutines = "1.5.0"
         // https://github.com/Kotlin/kotlinx.coroutines/releases
 
      // just a reference - not useful in typical cases
     const val gradle5 = "5.6.4"
     const val gradle6 = "6.8.3"
-    const val gradle7 = "7.0.1"
+    const val gradle7 = "7.0.2"
     const val gradle = gradle7
         // https://gradle.org/releases/
         // https://services.gradle.org/versions
@@ -52,7 +52,7 @@ object Vers {
         // https://source.android.com/setup/start/build-numbers
 
     @Deprecated("Deprecated with android gradle plugin 3.0.0 or higher")
-    const val androidBuildTools = "29.0.2"
+    const val androidBuildTools = "30.0.2"
         // https://developer.android.com/studio/releases/build-tools.html
 
     @Deprecated("Use androidx")
@@ -86,10 +86,10 @@ object Vers {
     const val androidxLifecycle = "2.4.0-alpha01"
         // https://developer.android.com/jetpack/androidx/releases/lifecycle
 
-    const val androidxRoom = "2.4.0-alpha01"
+    const val androidxRoom = "2.4.0-alpha02"
         // https://developer.android.com/jetpack/androidx/releases/room
 
-    const val androidxTest = "1.4.0-alpha05"
+    const val androidxTest = "1.4.0-beta01"
     const val androidxTestRunner = androidxTest
     const val androidxTestRules = androidxTest
         // https://developer.android.com/jetpack/androidx/releases/test
@@ -148,23 +148,23 @@ object Vers {
     const val log4j2 = "2.14.1"
         // http://logging.apache.org/log4j/2.x/maven-artifacts.html
 
-    const val googleServicesPlugin = "4.3.5"
+    const val googleServicesPlugin = "4.3.8"
         // https://developers.google.com/android/guides/google-services-plugin
 
     const val googlePlayServicesBase = "17.6.0"
         // https://developers.google.com/android/guides/setup
         // https://developers.google.com/android/guides/releases
 
-    const val firebaseGitlive = "1.2.0"
+    const val firebaseGitlive = "1.3.0"
         // https://github.com/GitLiveApp/firebase-kotlin-sdk
 
-    const val firebaseCrashlyticsPlugin = "2.5.2"
+    const val firebaseCrashlyticsPlugin = "2.6.1"
         // https://firebase.google.com/docs/crashlytics/get-started?platform=android
 
-    const val firebaseAdmin = "7.1.1"
+    const val firebaseAdmin = "7.3.0"
         // https://firebase.google.com/docs/admin/setup
 
-    const val firebaseAndroidBoM = "27.1.0"
+    const val firebaseAndroidBoM = "28.0.1"
         // https://firebase.google.com/support/release-notes/android
         // https://firebase.google.com/docs/android/setup#add-sdks
 
@@ -173,7 +173,7 @@ object Vers {
         // https://github.com/firebase/FirebaseUI-Android/releases
         // https://firebase.google.com/docs/auth/android/firebaseui
 
-    const val googleCloudBoM = "20.1.0"
+    const val googleCloudBoM = "20.4.0"
         // https://github.com/GoogleCloudPlatform/cloud-opensource-java/wiki/The-Google-Cloud-Platform-Libraries-BOM
 
     const val googleAuth = "0.25.5"
@@ -193,13 +193,13 @@ object Vers {
     const val paperwork = "1.2.7"
         // https://github.com/zsoltk/paperwork/releases
 
-    const val mockitoKotlin = "3.1.0"
+    const val mockitoKotlin = "3.2.0"
         // https://github.com/nhaarman/mockito-kotlin/releases
 
     const val junit4 = "4.13.2"
         // https://github.com/junit-team/junit4/releases
 
-    const val junit5 = "5.7.1"
+    const val junit5 = "5.7.2"
         // https://github.com/junit-team/junit5/releases
 
     const val googleTruth = "1.1.2"
