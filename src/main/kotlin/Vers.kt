@@ -257,4 +257,20 @@ object Vers {
     const val docoptJava = "0.6.0.20150202"
         // https://mvnrepository.com/artifact/com.offbytwo/docopt
         // https://github.com/docopt/docopt.java
+
+    const val npmReact = "17.0.2"
+        // https://reactjs.org/versions
+
+    const val npmStyled = "5.3.0"
+
+    // https://maven.pkg.jetbrains.space/kotlin/p/kotlin/kotlin-js-wrappers/org/jetbrains/
+    // https://maven.pkg.jetbrains.space/kotlin/p/kotlin/kotlin-js-wrappers/org/jetbrains/kotlin-react/
+    // https://maven.pkg.jetbrains.space/kotlin/p/kotlin/kotlin-js-wrappers/org/jetbrains/kotlin-react/maven-metadata.xml
+    const val kotlinJsWrappersReact = "$npmReact-pre.156-kotlin-$kotlin"
+
+    // https://maven.pkg.jetbrains.space/kotlin/p/kotlin/kotlin-js-wrappers/org/jetbrains/kotlin-react-dom/maven-metadata.xml
+    const val kotlinJsWrappersReactDom = kotlinJsWrappersReact
+
+    // https://maven.pkg.jetbrains.space/kotlin/p/kotlin/kotlin-js-wrappers/org/jetbrains/kotlin-styled/maven-metadata.xml
+    const val kotlinJsWrappersStyled = "$npmStyled-pre.156-kotlin-$kotlin"
 }
