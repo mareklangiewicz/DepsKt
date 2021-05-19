@@ -38,7 +38,7 @@ object Vers {
         // https://github.com/JetBrains/compose-jb
     const val composeDesktopWithWeb = composeDesktopVerWeb
 
-    const val composeAndroid = "1.0.0-beta06"
+    const val composeAndroid = "1.0.0-beta07"
         // https://developer.android.com/jetpack/androidx/releases/compose
 
     const val androidGradlePlugin = "7.0.0-alpha14"
@@ -238,10 +238,9 @@ object Vers {
     const val recyclerui = "0.0.2"
         // https://github.com/langara/recyclerui/releases
 
-    const val ktorEap = "1.6.0-eap-3"
-    const val ktorStable = "1.5.3"
+    const val ktorStable = "1.5.4"
     const val ktorForRsocket = "1.4.3" // TODO: remove when rsocket start working with new ktor
-    const val ktor = ktorForRsocket
+    const val ktor = ktorStable
         // https://maven.pkg.jetbrains.space/public/p/ktor/eap/io/ktor/ktor/
         // https://github.com/ktorio/ktor
         // https://github.com/ktorio/ktor/releases
