@@ -23,6 +23,7 @@ object Deps {
 
     val composeDesktopGradlePlugin = dep("org.jetbrains.compose", "compose-gradle-plugin", Vers.composeDesktop)
     val composeDesktopWithWebGradlePlugin = dep("org.jetbrains.compose", "compose-gradle-plugin", Vers.composeDesktopWithWeb)
+    val composeDesktopWithWebSnapshotGradlePlugin = dep("org.jetbrains.compose", "compose-gradle-plugin", Vers.composeDesktopWithWebSnapshot)
     val composeAndroidAnimation = dep("androidx.compose.animation", "animation", Vers.composeAndroid)
     val composeAndroidAnimationCore = dep("androidx.compose.animation", "animation-core", Vers.composeAndroid)
     val composeAndroidCompiler = dep("androidx.compose.compiler", "compiler", Vers.composeAndroid)
