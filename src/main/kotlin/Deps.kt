@@ -68,6 +68,8 @@ object Deps {
 
     val androidxCore = dep("androidx.core", "core", Vers.androidxCore)
     val androidxCoreKtx = dep("androidx.core", "core-ktx", Vers.androidxCore)
+    val androidxActivityKtx = dep("androidx.activity", "activity-ktx", Vers.androidxActivity)
+    val androidxActivityCompose = dep("androidx.activity", "activity-compose", Vers.androidxActivity)
     val androidxAppcompat = dep("androidx.appcompat", "appcompat", Vers.androidxAppcompat)
     val androidxRecyclerview = dep("androidx.recyclerview", "recyclerview", Vers.androidxRecyclerview)
     val androidxCardview = dep("androidx.cardview", "cardview", Vers.androidxCardview)

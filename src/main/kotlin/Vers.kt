@@ -71,7 +71,9 @@ object Vers {
     // https://developer.android.com/jetpack/androidx/versions
     // https://dl.google.com/dl/android/maven2/index.html
 
-    const val androidxCore = "1.6.0-alpha02"
+    const val androidxCore = "1.6.0-beta01"
+
+    const val androidxActivity = "1.3.0-alpha08"
 
     const val androidxAppcompat = "1.3.0-rc01"
 
@@ -244,7 +246,7 @@ object Vers {
     const val recyclerui = "0.0.2"
         // https://github.com/langara/recyclerui/releases
 
-    const val ktorStable = "1.5.4"
+    const val ktorStable = "1.6.0"
     const val ktorForRsocket = "1.4.3" // TODO: remove when rsocket start working with new ktor
     const val ktor = ktorStable
         // https://maven.pkg.jetbrains.space/public/p/ktor/eap/io/ktor/ktor/
