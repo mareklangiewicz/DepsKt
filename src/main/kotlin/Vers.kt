@@ -16,7 +16,7 @@ object Vers {
 
     const val kotlin14 = "1.4.32"
 
-    const val kotlinxDateTime = "0.2.0"
+    const val kotlinxDateTime = "0.2.1"
         // https://github.com/Kotlin/kotlinx-datetime
 
     const val kotlinxCoroutines = "1.5.0"
@@ -31,11 +31,11 @@ object Vers {
         // https://services.gradle.org/versions
         // https://services.gradle.org/versions/current
 
-    const val composeDesktopVerMain = "0.3.2"
+    const val composeDesktopVerMain = "0.4.0"
     const val composeDesktopVerEdge = "0.4.0-build211"
     const val composeDesktopVerWeb = "0.0.0-web-dev-13"
     const val composeDesktopVerWebSnapshot = "0.0.12-SNAPSHOT"
-    const val composeDesktop = composeDesktopVerEdge
+    const val composeDesktop = composeDesktopVerMain
     const val composeDesktopWithWeb = composeDesktopVerWeb
     const val composeDesktopWithWebSnapshot = composeDesktopVerWebSnapshot
 
