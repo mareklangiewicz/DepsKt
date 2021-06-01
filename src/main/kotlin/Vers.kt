@@ -33,7 +33,7 @@ object Vers {
 
     const val composeDesktopVerMain = "0.4.0"
     const val composeDesktopVerEdge = "0.4.0-build211"
-    const val composeDesktopVerWeb = "0.0.0-web-dev-13"
+    const val composeDesktopVerWeb = "0.0.0-web-dev-14"
     const val composeDesktopVerWebSnapshot = "0.0.12-SNAPSHOT"
     const val composeDesktop = composeDesktopVerMain
     const val composeDesktopWithWeb = composeDesktopVerWeb
@@ -47,7 +47,8 @@ object Vers {
     const val composeAndroid = "1.0.0-beta07"
         // https://developer.android.com/jetpack/androidx/releases/compose
 
-    const val androidGradlePlugin = "7.0.0-alpha14"
+    const val androidGradlePlugin = "7.1.0-alpha01"
+    // https://maven.google.com/web/index.html#com.android.tools.build:gradle
     // https://developer.android.com/studio/releases/gradle-plugin
     // https://google.github.io/android-gradle-dsl/
 
