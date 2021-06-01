@@ -111,7 +111,7 @@ object Vers {
         // https://github.com/elpassion/android-commons/releases
 
     const val rxjava2 = "2.2.16"
-    const val rxjava3 = "3.0.12"
+    const val rxjava3 = "3.0.13"
         // https://github.com/ReactiveX/RxJava/releases
 
     const val rxkotlin = "3.0.1"
