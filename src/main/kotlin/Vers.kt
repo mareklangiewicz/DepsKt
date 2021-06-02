@@ -33,7 +33,7 @@ object Vers {
 
     const val composeDesktopVerMain = "0.4.0"
     const val composeDesktopVerEdge = "0.4.0-build211"
-    const val composeDesktopVerWeb = "0.0.0-web-dev-14"
+    const val composeDesktopVerWeb = "0.0.0-web-dev-14.1"
     const val composeDesktopVerWebSnapshot = "0.0.12-SNAPSHOT"
     const val composeDesktop = composeDesktopVerMain
     const val composeDesktopWithWeb = composeDesktopVerWeb
@@ -140,7 +140,7 @@ object Vers {
         // https://github.com/square/okhttp
         // https://github.com/square/okhttp/releases
 
-    const val okio = "3.0.0-alpha.5"
+    const val okio = "3.0.0-alpha.6"
         // https://square.github.io/okio/changelog/
         // https://square.github.io/okio/#releases
 
