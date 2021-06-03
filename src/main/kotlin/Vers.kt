@@ -44,7 +44,7 @@ object Vers {
     // https://github.com/JetBrains/compose-jb/blob/master/web/CHANGELOG.md
 
 
-    const val composeAndroid = "1.0.0-beta07"
+    const val composeAndroid = "1.0.0-beta08"
         // https://developer.android.com/jetpack/androidx/releases/compose
 
     const val androidGradlePlugin = "7.1.0-alpha01"
