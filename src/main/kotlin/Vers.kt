@@ -72,11 +72,11 @@ object Vers {
     // https://developer.android.com/jetpack/androidx/versions
     // https://dl.google.com/dl/android/maven2/index.html
 
-    const val androidxCore = "1.6.0-beta01"
+    const val androidxCore = "1.6.0-beta02"
 
-    const val androidxActivity = "1.3.0-alpha08"
+    const val androidxActivity = "1.3.0-beta01"
 
-    const val androidxAppcompat = "1.3.0-rc01"
+    const val androidxAppcompat = "1.4.0-alpha02"
 
     const val androidxConstraint1 = "1.1.3"
         // https://developer.android.com/training/constraint-layout
