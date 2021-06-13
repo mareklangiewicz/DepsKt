@@ -8,10 +8,24 @@ plugins {
 
 repositories {
     mavenCentral()
+    maven("https://jitpack.io") // TODO: try to use Repos.jitpack (see comment in settings.gradle.kts)
+}
+
+dependencies {
+    testImplementation("com.github.langara.USpek:uspekx:0.0.17") // TODO: try to use Deps.uspek (see comment in settings)
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.2") // TODO: try to use Deps.uspek (see comment in settings)
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.7.2") // TODO: try to use Deps.uspek (see comment in settings)
+    // TODO: check separation between api and engine - so I can do similar in ULog (with separate bridges to CLog etc)
+}
+
+
+tasks.test {
+    useJUnitPlatform()
 }
 
 group = "pl.mareklangiewicz.deps"
-version = "0.2.08"
+version = "0.2.09"
+
 
 gradlePlugin {
     plugins {
