@@ -32,12 +32,8 @@ object Vers {
         // https://services.gradle.org/versions/current
 
     const val composeDesktopVerMain = "0.4.0"
-    const val composeDesktopVerEdge = "0.4.0-build211"
-    const val composeDesktopVerWeb = "0.0.0-web-dev-14.1"
-    const val composeDesktopVerWebSnapshot = "0.0.12-SNAPSHOT"
-    const val composeDesktop = composeDesktopVerMain
-    const val composeDesktopWithWeb = composeDesktopVerWeb
-    const val composeDesktopWithWebSnapshot = composeDesktopVerWebSnapshot
+    const val composeDesktopVerEdge = "0.5.0-build224"
+    const val composeDesktop = composeDesktopVerEdge
 
     // https://github.com/JetBrains/compose-jb
     // https://github.com/JetBrains/compose-jb/blob/master/CHANGELOG.md
