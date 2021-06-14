@@ -12,12 +12,19 @@ repositories {
 }
 
 dependencies {
+    api("com.squareup.okio:okio:3.0.0-alpha.6")
+
     testImplementation("com.github.langara.USpek:uspekx:0.0.17") // TODO: try to use Deps.uspek (see comment in settings)
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.2") // TODO: try to use Deps.uspek (see comment in settings)
     testImplementation("org.junit.jupiter:junit-jupiter-engine:5.7.2") // TODO: try to use Deps.uspek (see comment in settings)
     // TODO: check separation between api and engine - so I can do similar in ULog (with separate bridges to CLog etc)
 }
 
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+    kotlinOptions {
+        freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlin.RequiresOptIn"
+    }
+}
 
 tasks.test {
     useJUnitPlatform()

@@ -1,3 +1,5 @@
+import okio.ExperimentalFileSystem
+import okio.Path.Companion.toPath
 import org.junit.jupiter.api.TestFactory
 import pl.mareklangiewicz.uspek.eq
 import pl.mareklangiewicz.uspek.o
@@ -26,11 +28,12 @@ class UreTests {
         println("ure:\n$simpleEmailURE")
         println("ureIR:\n$ureIR")
         println("regex:\n$regex")
-        "assert IR as expected" o { ureIR eq "^(?<user>[\\w-\\.]+)@(?<domain>([\\w-]+\\.)+[\\w-]{2,4})\$" }
+        "assert IR as expected" o { ureIR eq "^(?<user>[\\w-\\.]+)@(?<domain>(?:[\\w-]+\\.)+[\\w-]{2,4})\$" }
         testWithEmail(regex, "marek.langiewicz@gmail.com", "marek.langiewicz", "gmail.com")
         testWithEmail(regex, "langara@wp.pl", "langara", "wp.pl")
         testWithEmail(regex, "a.b.c@d.e.f.hhh", "a.b.c", "d.e.f.hhh")
         testWithIncorrectEmail(regex, "a.b.cd.e.f.hhh")
+        testWithIncorrectEmail(regex, "a@b@c")
     }
 
     private fun testWithEmail(regex: Regex, email: String, expectedUser: String, expectedDomain: String) {
@@ -49,6 +52,17 @@ class UreTests {
         "for incorrect email: $email" o {
             "it does not match" o { regex.matches(email) eq false }
             "match result is null" o { regex.matchEntire(email) eq null }
+        }
+    }
+
+    @OptIn(ExperimentalFileSystem::class)
+    @TestFactory
+    fun testExperimentWithFiles() = uspekTestFactory {
+        val dir = "/home/marek/code/kotlin/uspek-painters/lib/src/commonMain/kotlin"
+        "On dir: $dir" o {
+            "experiment with files inside" o {
+                experimentWithFiles(dir.toPath())
+            }
         }
     }
 }

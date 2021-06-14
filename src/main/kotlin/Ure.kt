@@ -1,3 +1,12 @@
+@file:OptIn(ExperimentalFileSystem::class)
+
+import okio.ExperimentalFileSystem
+import okio.FileSystem
+import okio.IOException
+import okio.Path
+import okio.buffer
+import kotlin.text.RegexOption.MULTILINE
+
 /**
  * Multiplatform Kotlin Frontend / DSL for regular expressions. Actual regular expressions are used like IR
  * (intermediate representation) just to compile it to standard kotlin.text.Regex,
@@ -39,7 +48,8 @@ sealed class Ure {
 }
 
 infix fun Ure.or(that: Ure) = UreUnion(this, that)
-infix fun Ure.and(that: Ure) = UreProduct(mutableListOf(this, that))
+infix fun Ure.then(that: Ure) = UreProduct(mutableListOf(this, that))
+    // Do not rename "then" to "and". The "and" is more like special lookahead/lookbehind group
 
 data class UreProduct(val product: MutableList<Ure> = mutableListOf()): Ure() {
     constructor(init: UreProduct.() -> Unit) : this() { init() }
@@ -64,12 +74,17 @@ data class UreUnion(val first: Ure, val second: Ure): Ure() {
     override fun toClosedIR() = group(this).toIR()
 }
 
-data class UreGroup(val content: Ure, val name: String? = null, val capture: Boolean = true): Ure() {
-    init { capture || name == null || error("Named group has to be capturing") }
+data class UreGroup(val content: Ure, val name: String? = null, val capture: Boolean = false): Ure() {
+
+    init { require(name == null || capture) { "Named group has to be capturing" } }
+        // Important check because named groups are always also captured with number and user should be aware.
+
     override fun toIR(): UreIR {
         val contentIR = content.toIR()
         val typeIR = if (!capture) "?:" else if (name != null) "?<$name>" else ""
         return "($typeIR$contentIR)"
+            // looks like all possible typeIR prefixes can not be confused with first contentIR characters.
+            // (meaning: RE designers thought about it, so I don't have to be extra careful here)
     }
     override fun toClosedIR() = toIR()
 }
@@ -119,7 +134,7 @@ data class UreQuantifier(
 }
 
 data class UreChar(val ir: UreIR) : Ure() {
-    // TODO_later: separate sealed class for specials etc.. We should never ask user to manually provide UreIR
+    // TODO_later: separate sealed class for specials etc. We should never ask user to manually provide UreIR
 
     override fun toIR(): UreIR = ir
     override fun toClosedIR(): UreIR = group(this).toIR()
@@ -140,6 +155,14 @@ data class UreCharRange(val from: UreIR, val to: UreIR) : Ure() {
     override fun toClosedIR(): UreIR = toIR()
 }
 
+data class UreRawIR(val ir: UreIR) : Ure() {
+    // TODO_later: this is a dirty way to inject whole strings fast. TODO_later: think what would be better.
+    // maybe still ask user for string, but validate and transform to actual UreProduct of UreChar's
+
+    override fun toIR(): UreIR = ir
+    override fun toClosedIR(): UreIR = group(this).toIR()
+}
+
 data class UreQuote(val string: String): Ure() {
     override fun toIR() = "\\Q$string\\E"
     override fun toClosedIR(): UreIR = toIR()
@@ -150,6 +173,7 @@ data class UreQuote(val string: String): Ure() {
 //  especially indexed access operators and invoke operators..
 
 fun ch(ir: UreIR) = UreChar(ir)
+fun ir(ir: UreIR) = UreRawIR(ir)
 
 val backslash = ch("\\\\")
 
@@ -196,8 +220,8 @@ fun oneCharOf(vararg chars: UreIR) = UreCharSet(chars.toSet()) // TODO_later: Us
 fun oneCharNotOf(vararg chars: UreIR) = UreCharSet(chars.toSet(), positive = false) // TODO_later: jw
 fun oneCharOfRange(from: UreIR, to: UreIR) = UreCharRange(from, to)
 
-fun group(content: Ure, name: String? = null, capture: Boolean = true) = UreGroup(content, name, capture)
-fun group(name: String? = null, capture: Boolean = true, init: UreProduct.() -> Unit) =
+fun group(content: Ure, name: String? = null, capture: Boolean = name != null) = UreGroup(content, name, capture)
+fun group(name: String? = null, capture: Boolean = name != null, init: UreProduct.() -> Unit) =
     group(UreProduct(init), name, capture)
 
 fun quantify(
@@ -218,6 +242,81 @@ fun ref(nr: Int? = null, name: String? = null) = UreGroupRef(nr, name)
 
 fun quote(string: String) = UreQuote(string)
 
+
+fun experimentWithFiles(path: Path) {
+    val fs = FileSystem.SYSTEM
+    val files = fs.findAllFiles(path).mapNotNull {
+        it.takeIf { it.name.endsWith(".kt") }
+    }
+    files.forEach(fs::messWithKotlinFile)
+}
+
+private val ureExpectFun = ure {
+    val keyword = ure {
+        1 of wordBoundary
+        1..MAX of posixLower
+        1 of wordBoundary
+    }
+    1 of BOL
+    0..1 of { 1 of ir("@Composable"); 1..MAX of space }
+    0..MAX of { 1 of keyword; 1..MAX of space }
+    1 of ir("expect fun")
+    1..MAX of space
+    1..MAX of word // funname
+    1 of group("parameters") { // (..,..,..)
+        1 of ch("\\(")
+        0..MAX of any
+        1 of ch("\\)")
+    }
+    val typedef = ure {
+        1 of word
+        0..1 of {
+            0..1 of space
+            ch("\\<")
+            1..MAX of any
+            ch("\\>")
+        }
+    }
+    0..1 of { // :Type<..>
+        0..1 of space
+        1 of ch(":")
+        0..MAX of space
+        1 of typedef
+    }
+    0..MAX of space
+    1 of EOL
+}
+
+private val ureNonCommentedOutExpectFun = ure {
+    //TODO
+
+}
+
+fun FileSystem.messWithKotlinFile(file: Path) {
+    println("\n\n\n$file\n\n")
+    val content = source(file).buffer().use { it.readUtf8() }
+    val matches = ureExpectFun
+        .compile(MULTILINE).findAll(content)
+    for (match in matches) {
+        println("\n-----")
+        println(match.value)
+        println("\n-----\n\n")
+    }
+}
+
+
+
+
+@Throws(IOException::class)
+fun FileSystem.findAllFiles(path: Path, maxDepth: Int = Int.MAX_VALUE): Sequence<Path> {
+    require(maxDepth >= 0)
+    val md = metadata(path)
+    return when {
+        md.isRegularFile -> sequenceOf(path)
+        maxDepth < 1 || !md.isDirectory -> emptySequence()
+        else -> list(path).asSequence().flatMap { findAllFiles(it, maxDepth - 1) }
+    }
+}
 
 
 
