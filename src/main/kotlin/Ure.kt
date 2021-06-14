@@ -56,7 +56,7 @@ data class UreProduct(val product: MutableList<Ure> = mutableListOf()): Ure() {
     override fun toIR() = product.joinToString(separator = "") { it.toIR() }
     override fun toClosedIR() = when (product.size) {
         1 -> product[0].toClosedIR()
-        else -> group(this).toIR()
+        else -> ncapt(this).toIR()
     }
     class UreX(val times: IntRange, val reluctant: Boolean, val possessive: Boolean)
     fun x(times: IntRange, reluctant: Boolean = false, possessive: Boolean = false) = UreX(times, reluctant, possessive)
@@ -71,23 +71,33 @@ data class UreProduct(val product: MutableList<Ure> = mutableListOf()): Ure() {
 
 data class UreUnion(val first: Ure, val second: Ure): Ure() {
     override fun toIR() = first.toClosedIR() + "|" + second.toClosedIR()
-    override fun toClosedIR() = group(this).toIR()
+    override fun toClosedIR() = ncapt(this).toIR()
 }
 
-data class UreGroup(val content: Ure, val name: String? = null, val capture: Boolean = false): Ure() {
+abstract class UreGroup: Ure() {
+    abstract val content: Ure
+    private val contentIR get() = content.toIR()
+    protected abstract val typeIR: String
 
-    init { require(name == null || capture) { "Named group has to be capturing" } }
-        // Important check because named groups are always also captured with number and user should be aware.
+    override fun toIR(): UreIR = "($typeIR$contentIR)"
+        // looks like all possible typeIR prefixes can not be confused with first contentIR characters.
+        // (meaning: RE designers thought about it, so I don't have to be extra careful here)
 
-    override fun toIR(): UreIR {
-        val contentIR = content.toIR()
-        val typeIR = if (!capture) "?:" else if (name != null) "?<$name>" else ""
-        return "($typeIR$contentIR)"
-            // looks like all possible typeIR prefixes can not be confused with first contentIR characters.
-            // (meaning: RE designers thought about it, so I don't have to be extra careful here)
-    }
-    override fun toClosedIR() = toIR()
+    override fun toClosedIR() = toIR() // group is always "closed" - has parentheses outside
 }
+
+data class UreNamedGroup(override val content: Ure, val name: String): UreGroup() {
+    override val typeIR get() = "?<$name>"
+}
+
+data class UreNonCaptGroup(override val content: Ure): UreGroup() {
+    override val typeIR get() = "?:"
+}
+
+data class UreCaptGroup(override val content: Ure): UreGroup() {
+    override val typeIR get() = ""
+}
+
 
 // TODO_later: other "Special constructs" like lookaheads, lookbehinds, groups changing flags, etc
 
@@ -130,14 +140,14 @@ data class UreQuantifier(
         }
         return content.toClosedIR() + timesIR + suffixIR
     }
-    override fun toClosedIR(): UreIR = group(this).toIR()
+    override fun toClosedIR(): UreIR = ncapt(this).toIR()
 }
 
 data class UreChar(val ir: UreIR) : Ure() {
     // TODO_later: separate sealed class for specials etc. We should never ask user to manually provide UreIR
 
     override fun toIR(): UreIR = ir
-    override fun toClosedIR(): UreIR = group(this).toIR()
+    override fun toClosedIR(): UreIR = ncapt(this).toIR()
     // Maybe grouping here is not strictly needed, but I'll leave it for now
     // TODO_someday: analyze carefully and maybe drop grouping if not needed.
 }
@@ -160,7 +170,7 @@ data class UreRawIR(val ir: UreIR) : Ure() {
     // maybe still ask user for string, but validate and transform to actual UreProduct of UreChar's
 
     override fun toIR(): UreIR = ir
-    override fun toClosedIR(): UreIR = group(this).toIR()
+    override fun toClosedIR(): UreIR = ncapt(this).toIR()
 }
 
 data class UreQuote(val string: String): Ure() {
@@ -220,9 +230,13 @@ fun oneCharOf(vararg chars: UreIR) = UreCharSet(chars.toSet()) // TODO_later: Us
 fun oneCharNotOf(vararg chars: UreIR) = UreCharSet(chars.toSet(), positive = false) // TODO_later: jw
 fun oneCharOfRange(from: UreIR, to: UreIR) = UreCharRange(from, to)
 
-fun group(content: Ure, name: String? = null, capture: Boolean = name != null) = UreGroup(content, name, capture)
-fun group(name: String? = null, capture: Boolean = name != null, init: UreProduct.() -> Unit) =
-    group(UreProduct(init), name, capture)
+fun named(name: String, content: Ure) = UreNamedGroup(content, name)
+fun named(name: String, init: UreProduct.() -> Unit) = named(name,UreProduct(init))
+fun capt(content: Ure) = UreCaptGroup(content)
+fun capt(init: UreProduct.() -> Unit) = capt(UreProduct(init))
+fun ncapt(content: Ure) = UreNonCaptGroup(content)
+fun ncapt(init: UreProduct.() -> Unit) = ncapt(UreProduct(init))
+
 
 fun quantify(
     content: Ure,
@@ -263,7 +277,7 @@ private val ureExpectFun = ure {
     1 of ir("expect fun")
     1..MAX of space
     1..MAX of word // funname
-    1 of group("parameters") { // (..,..,..)
+    1 of named("parameters") { // (..,..,..)
         1 of ch("\\(")
         0..MAX of any
         1 of ch("\\)")
