@@ -25,14 +25,14 @@ object Vers {
      // just a reference - not useful in typical cases
     const val gradle5 = "5.6.4"
     const val gradle6 = "6.8.3"
-    const val gradle7 = "7.0.2"
+    const val gradle7 = "7.1"
     const val gradle = gradle7
         // https://gradle.org/releases/
         // https://services.gradle.org/versions
         // https://services.gradle.org/versions/current
 
     const val composeDesktopVerMain = "0.4.0"
-    const val composeDesktopVerEdge = "0.5.0-build224"
+    const val composeDesktopVerEdge = "0.5.0-build225"
     const val composeDesktop = composeDesktopVerEdge
 
     // https://github.com/JetBrains/compose-jb
