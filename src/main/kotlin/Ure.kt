@@ -309,14 +309,19 @@ fun ref(nr: Int? = null, name: String? = null) = UreGroupRef(nr, name)
 
 fun quote(string: String) = UreQuote(string)
 
-
-fun commentOutMultiplatformFunInFileTree(path: Path) {
+private fun forAllKtFiles(path: Path, action: FileSystem.(Path) -> Unit) {
     val fs = FileSystem.SYSTEM
     val files = fs.findAllFiles(path).mapNotNull {
         it.takeIf { it.name.endsWith(".kt") }
     }
-    files.forEach(fs::commentOutMultiplatformFunInFile)
+    files.forEach { fs.action(it) }
 }
+
+fun commentOutMultiplatformFunInFileTree(path: Path) =
+    forAllKtFiles(path) { commentOutMultiplatformFunInFile(it) }
+
+fun undoCommentOutMultiplatformFunInFileTree(path: Path) =
+    forAllKtFiles(path) { undoCommentOutMultiplatformFunInFile(it) }
 
 private val ureExpectFun = ure {
     val keyword = ure {
@@ -367,8 +372,22 @@ private fun ureNotCommentedOutArea(area: Ure, maxSpacesBehind: Int = 100) = ure 
     }
 }
 
+private fun ureCommentedOutArea(area: Ure) = ure {
+    1 of {
+        1 of BOL
+        1 of ir("/\\*")
+        0..MAX of space
+    }
+    1 of area
+    1 of {
+        0..MAX of space
+        1 of ir("\\*/")
+        1 of EOL
+    }
+}
+
 fun FileSystem.commentOutMultiplatformFunInFile(file: Path) {
-    println("\n$file") // FIXME:remove/ulog
+    println("\ncommenting: $file") // FIXME:remove/ulog
 
     val input = source(file).buffer().use { it.readUtf8() }
 
@@ -383,6 +402,23 @@ fun FileSystem.commentOutMultiplatformFunInFile(file: Path) {
     sink(file).buffer().use { it.writeUtf8(output2) }
 }
 
+fun FileSystem.undoCommentOutMultiplatformFunInFile(file: Path) {
+    println("\nundo comments: $file") // FIXME:remove/ulog
+
+    val input = source(file).buffer().use { it.readUtf8() }
+
+    val myFun = named("myFun") { 1 of ureExpectFun }
+
+    val output1 = ureCommentedOutArea(myFun)
+        .compile(MULTILINE)
+        .replace(input) { it.groups["myFun"]!!.value }
+
+    val output2 = ir("/\\*actual\\*/ fun")
+        .compile()
+        .replace(output1) { "actual fun" }
+
+    sink(file).buffer().use { it.writeUtf8(output2) }
+}
 
 
 

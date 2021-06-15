@@ -65,4 +65,15 @@ class UreTests {
             }
         }
     }
+
+    @OptIn(ExperimentalFileSystem::class)
+    @TestFactory
+    fun testUndoCommentOutMultiplatformStuff() = uspekTestFactory {
+        val dir = "/home/marek/code/kotlin/uspek-painters/lib/src"
+        "On dir: $dir" o {
+            "undo comment out multiplatform stuff inside" o {
+                undoCommentOutMultiplatformFunInFileTree(dir.toPath())
+            }
+        }
+    }
 }
