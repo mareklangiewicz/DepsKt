@@ -5,7 +5,13 @@ import okio.FileSystem
 import okio.IOException
 import okio.Path
 import okio.buffer
+import kotlin.text.RegexOption.CANON_EQ
+import kotlin.text.RegexOption.COMMENTS
+import kotlin.text.RegexOption.DOT_MATCHES_ALL
+import kotlin.text.RegexOption.IGNORE_CASE
+import kotlin.text.RegexOption.LITERAL
 import kotlin.text.RegexOption.MULTILINE
+import kotlin.text.RegexOption.UNIX_LINES
 
 /**
  * Multiplatform Kotlin Frontend / DSL for regular expressions. Actual regular expressions are used like IR
@@ -98,8 +104,47 @@ data class UreCaptGroup(override val content: Ure): UreGroup() {
     override val typeIR get() = ""
 }
 
+// TODO: test it!
+data class UreChangeOptionsGroup(
+    override val content: Ure,
+    val enable: Set<RegexOption> = emptySet(),
+    val disable: Set<RegexOption> = emptySet()
+): UreGroup() {
+    init {
+        require((enable intersect disable).isEmpty()) { "Can not enable and disable the same option at the same time" }
+        require(enable.isNotEmpty() || disable.isNotEmpty()) { "No options provided" }
+    }
+    override val typeIR get() = "?${enable.ir}-${disable.ir}:" // TODO_later: check if either set can be empty
 
-// TODO_later: other "Special constructs" like lookaheads, lookbehinds, groups changing flags, etc
+    // TODO_later: review flags we support - but probably want to be multiplatform??
+    private val RegexOption.code get() = when (this) {
+        IGNORE_CASE -> "i"
+        MULTILINE -> "m"
+        LITERAL -> TODO()
+        UNIX_LINES -> "d"
+        COMMENTS -> "x" // but not really supported... maybe in UreRawIR, but I wouldn't use it
+        DOT_MATCHES_ALL -> "s" // s means - treat all as a single line (so dot matches terminators too)
+        CANON_EQ -> TODO()
+        // TODO_someday "u" is not supported (unicode case)
+    }
+
+    private val Set<RegexOption>.ir get() = joinToString("") { it.code }
+}
+// TODO_someday: there are also similar "groups" without content (see Pattern.java), add support for it (content nullable?)
+
+
+data class UreLookGroup(override val content: Ure, val ahead: Boolean = true, val positive: Boolean = true): UreGroup() {
+    override val typeIR get() = when (ahead to positive) {
+        true to true -> "?="
+        true to false -> "?!"
+        false to true -> "?<="
+        false to false -> "?<!"
+        else -> error("Impossible case")
+    }
+}
+
+
+// TODO_someday: "independent" non-capturing group - what is that? (see Pattern.java)
 
 data class UreGroupRef(val nr: Int? = null, val name: String? = null): Ure() {
     init {
@@ -236,6 +281,14 @@ fun capt(content: Ure) = UreCaptGroup(content)
 fun capt(init: UreProduct.() -> Unit) = capt(UreProduct(init))
 fun ncapt(content: Ure) = UreNonCaptGroup(content)
 fun ncapt(init: UreProduct.() -> Unit) = ncapt(UreProduct(init))
+fun options(enable: Set<RegexOption> = emptySet(), disable: Set<RegexOption> = emptySet(), content: Ure) =
+    UreChangeOptionsGroup(content, enable, disable)
+fun options(enable: Set<RegexOption> = emptySet(), disable: Set<RegexOption> = emptySet(), init: UreProduct.() -> Unit) =
+    options(enable, disable, UreProduct(init))
+fun lookAhead(positive: Boolean = true, content: Ure) = UreLookGroup(content, true, positive)
+fun lookAhead(positive: Boolean = true, init: UreProduct.() -> Unit) = lookAhead(positive, UreProduct(init))
+fun lookBehind(positive: Boolean = true, content: Ure) = UreLookGroup(content, false, positive)
+fun lookBehind(positive: Boolean = true, init: UreProduct.() -> Unit) = lookBehind(positive, UreProduct(init))
 
 
 fun quantify(
@@ -257,12 +310,12 @@ fun ref(nr: Int? = null, name: String? = null) = UreGroupRef(nr, name)
 fun quote(string: String) = UreQuote(string)
 
 
-fun experimentWithFiles(path: Path) {
+fun commentOutMultiplatformFunInFileTree(path: Path) {
     val fs = FileSystem.SYSTEM
     val files = fs.findAllFiles(path).mapNotNull {
         it.takeIf { it.name.endsWith(".kt") }
     }
-    files.forEach(fs::messWithKotlinFile)
+    files.forEach(fs::commentOutMultiplatformFunInFile)
 }
 
 private val ureExpectFun = ure {
@@ -277,7 +330,7 @@ private val ureExpectFun = ure {
     1 of ir("expect fun")
     1..MAX of space
     1..MAX of word // funname
-    1 of named("parameters") { // (..,..,..)
+    1 of { // (..,..,..)
         1 of ch("\\(")
         0..MAX of any
         1 of ch("\\)")
@@ -300,22 +353,34 @@ private val ureExpectFun = ure {
     0..MAX of space
     1 of EOL
 }
-
-private val ureNonCommentedOutExpectFun = ure {
-    //TODO
-
+private fun ureNotCommentedOutArea(area: Ure, maxSpacesBehind: Int = 100) = ure {
+    1 of lookBehind(positive = false) {
+        1 of BOL
+        1 of ir("/\\*")
+        0..maxSpacesBehind of space // Can not use MAX - java look-behind implementation complains (throws)
+    }
+    1 of area
+    1 of lookAhead(positive = false) {
+        0..MAX of space
+        1 of ir("\\*/")
+        1 of EOL
+    }
 }
 
-fun FileSystem.messWithKotlinFile(file: Path) {
-    println("\n\n\n$file\n\n")
-    val content = source(file).buffer().use { it.readUtf8() }
-    val matches = ureExpectFun
-        .compile(MULTILINE).findAll(content)
-    for (match in matches) {
-        println("\n-----")
-        println(match.value)
-        println("\n-----\n\n")
-    }
+fun FileSystem.commentOutMultiplatformFunInFile(file: Path) {
+    println("\n$file") // FIXME:remove/ulog
+
+    val input = source(file).buffer().use { it.readUtf8() }
+
+    val output1 = ureNotCommentedOutArea(ureExpectFun)
+        .compile(MULTILINE)
+        .replace(input) { "/*\n${it.value}\n*/" }
+
+    val output2 = ir("actual fun")
+        .compile()
+        .replace(output1) { "/*actual*/ fun" }
+
+    sink(file).buffer().use { it.writeUtf8(output2) }
 }
 
 

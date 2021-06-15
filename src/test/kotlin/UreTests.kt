@@ -57,11 +57,11 @@ class UreTests {
 
     @OptIn(ExperimentalFileSystem::class)
     @TestFactory
-    fun testExperimentWithFiles() = uspekTestFactory {
-        val dir = "/home/marek/code/kotlin/uspek-painters/lib/src/commonMain/kotlin"
+    fun testCommentOutMultiplatformStuff() = uspekTestFactory {
+        val dir = "/home/marek/code/kotlin/uspek-painters/lib/src"
         "On dir: $dir" o {
-            "experiment with files inside" o {
-                experimentWithFiles(dir.toPath())
+            "comment out multiplatform stuff inside" o {
+                commentOutMultiplatformFunInFileTree(dir.toPath())
             }
         }
     }
