@@ -432,17 +432,3 @@ fun FileSystem.findAllFiles(path: Path, maxDepth: Int = Int.MAX_VALUE): Sequence
         else -> list(path).asSequence().flatMap { findAllFiles(it, maxDepth - 1) }
     }
 }
-
-
-
-fun commentOutActualKeywordInAllFun(input: String): String {
-//    regex()
-//        .startOfLine()
-//        .then("actual")
-//        .space()
-//        .then("fun")
-//        .build()
-//
-    TODO()
-}
-
