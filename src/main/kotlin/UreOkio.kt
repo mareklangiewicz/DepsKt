@@ -88,6 +88,7 @@ fun FileSystem.processFile(inputPath: Path, outputPath: Path? = null, process: (
         return
     }
 
+    createDirectories(outputPath.parent!!)
     sink(outputPath).buffer().use { it.writeUtf8(output) }
 }
 
