@@ -264,7 +264,7 @@ val wordBoundary = ch("\\b")
 val nonWordBoundary = ch("\\B")
 
 fun control(x: String) = ch("\\c$x") // FIXME_later: what exactly is this?? (see std Pattern.java)
-fun oneCharOf(vararg chars: UreIR) = UreCharSet(chars.toSet()) // TODO_later: Use UreChar
+fun oneCharOf(vararg chars: UreIR) = UreCharSet(chars.toSet()) // TODO_later: Use UreChar as vararg type
 fun oneCharNotOf(vararg chars: UreIR) = UreCharSet(chars.toSet(), positive = false) // TODO_later: jw
 fun oneCharOfRange(from: UreIR, to: UreIR) = UreCharRange(from, to)
 
@@ -278,10 +278,10 @@ fun options(enable: Set<RegexOption> = emptySet(), disable: Set<RegexOption> = e
     UreChangeOptionsGroup(content, enable, disable)
 fun options(enable: Set<RegexOption> = emptySet(), disable: Set<RegexOption> = emptySet(), init: UreProduct.() -> Unit) =
     options(enable, disable, UreProduct(init))
-fun lookAhead(positive: Boolean = true, content: Ure) = UreLookGroup(content, true, positive)
-fun lookAhead(positive: Boolean = true, init: UreProduct.() -> Unit) = lookAhead(positive, UreProduct(init))
-fun lookBehind(positive: Boolean = true, content: Ure) = UreLookGroup(content, false, positive)
-fun lookBehind(positive: Boolean = true, init: UreProduct.() -> Unit) = lookBehind(positive, UreProduct(init))
+fun lookAhead(content: Ure, positive: Boolean = true) = UreLookGroup(content, true, positive)
+fun lookAhead(positive: Boolean = true, init: UreProduct.() -> Unit) = lookAhead(UreProduct(init), positive)
+fun lookBehind(content: Ure, positive: Boolean = true) = UreLookGroup(content, false, positive)
+fun lookBehind(positive: Boolean = true, init: UreProduct.() -> Unit) = lookBehind(UreProduct(init), positive)
 
 
 fun quantify(
