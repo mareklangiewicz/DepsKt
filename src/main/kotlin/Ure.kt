@@ -14,6 +14,7 @@ import kotlin.text.RegexOption.UNIX_LINES
  * Reference links to RE engines/backends docs, etc:
  * https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/
  * https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html
+ * https://docs.oracle.com/javase/tutorial/essential/regex/quant.html
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp
  * https://www.w3schools.com/jsref/jsref_obj_regexp.asp
  * https://regexr.com/
@@ -25,8 +26,20 @@ import kotlin.text.RegexOption.UNIX_LINES
 typealias UreIR = String
 // TODO_later: change to value class (when we have new kotlin in gradle scripts)
 
-fun ure(init: UreProduct.() -> Unit) = UreProduct(init)
+fun ure(vararg opts: RegexOption, init: UreProduct.() -> Unit) = ure(enable = opts.toSet(), disable = emptySet(), init)
 
+fun ure(enable: Set<RegexOption> = emptySet(), disable: Set<RegexOption> = emptySet(), init: UreProduct.() -> Unit) =
+    if (enable.isEmpty() && disable.isEmpty()) UreProduct(init)
+    else ureWithOptions(UreProduct(init), enable, disable)
+
+fun ureWithOptions(content: Ure, enable: Set<RegexOption> = emptySet(), disable: Set<RegexOption> = emptySet()) =
+    UreChangeOptionsGroup(content, enable, disable)
+
+fun ure(name: String, vararg opts: RegexOption, init: UreProduct.() -> Unit) =
+    if (opts.isEmpty()) ureWithName(name,UreProduct(init))
+    else ureWithName(name, ureWithOptions(UreProduct(init), opts.toSet()))
+
+fun ureWithName(name: String, content: Ure) = UreNamedGroup(content, name)
 
 sealed class Ure {
 
@@ -268,16 +281,10 @@ fun oneCharOf(vararg chars: UreIR) = UreCharSet(chars.toSet()) // TODO_later: Us
 fun oneCharNotOf(vararg chars: UreIR) = UreCharSet(chars.toSet(), positive = false) // TODO_later: jw
 fun oneCharOfRange(from: UreIR, to: UreIR) = UreCharRange(from, to)
 
-fun named(name: String, content: Ure) = UreNamedGroup(content, name)
-fun named(name: String, init: UreProduct.() -> Unit) = named(name,UreProduct(init))
 fun capt(content: Ure) = UreCaptGroup(content)
 fun capt(init: UreProduct.() -> Unit) = capt(UreProduct(init))
 fun ncapt(content: Ure) = UreNonCaptGroup(content)
 fun ncapt(init: UreProduct.() -> Unit) = ncapt(UreProduct(init))
-fun options(enable: Set<RegexOption> = emptySet(), disable: Set<RegexOption> = emptySet(), content: Ure) =
-    UreChangeOptionsGroup(content, enable, disable)
-fun options(enable: Set<RegexOption> = emptySet(), disable: Set<RegexOption> = emptySet(), init: UreProduct.() -> Unit) =
-    options(enable, disable, UreProduct(init))
 fun lookAhead(content: Ure, positive: Boolean = true) = UreLookGroup(content, true, positive)
 fun lookAhead(positive: Boolean = true, init: UreProduct.() -> Unit) = lookAhead(UreProduct(init), positive)
 fun lookBehind(content: Ure, positive: Boolean = true) = UreLookGroup(content, false, positive)

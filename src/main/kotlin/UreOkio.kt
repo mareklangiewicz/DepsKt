@@ -110,7 +110,7 @@ fun FileSystem.undoCommentOutMultiplatformFunInFile(file: Path) {
 
     processFile(file, file) { input ->
 
-        val myFun = named("myFun") { 1 of ureExpectFun }
+        val myFun = ure("myFun") { 1 of ureExpectFun }
 
         val output1 = ureCommentedOutArea(myFun)
             .compile(MULTILINE)

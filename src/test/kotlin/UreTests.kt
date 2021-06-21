@@ -10,11 +10,11 @@ class UreTests {
     fun ureTestFactory() = uspekTestFactory {
         val simpleEmailURE = ure {
             1 of BOL
-            1 of named("user") {
+            1 of ure("user") {
                 1..MAX of oneCharOf("\\w", "-", "\\.")
             }
             1 of ch("@")
-            1 of named("domain") {
+            1 of ure("domain") {
                 1..MAX of {
                     1..MAX of oneCharOf("\\w", "-")
                     1 of ch("\\.")
