@@ -44,12 +44,16 @@ fun undoCommentOutMultiplatformFunInFileTree(path: Path) =
  * nothing is written to file system if it's null;
  * @param process file content transformation; if it returns null - output file is not even touched
  */
-fun processAllKtFiles(inputRootDir: Path, outputRootDir: Path? = null, process: (String) -> String?) {
+fun processAllKtFiles(
+    inputRootDir: Path,
+    outputRootDir: Path? = null,
+    process: (input: Path, output: Path?, content: String) -> String?
+) {
     require(inputRootDir.isAbsolute)
     require(outputRootDir?.isAbsolute ?: true)
     forAllKtFiles(inputRootDir) { inputPath ->
         val outputPath = if (outputRootDir == null) null else outputRootDir / inputPath.asRelativeTo(inputRootDir)
-        processFile(inputPath, outputPath, process)
+        processFile(inputPath, outputPath) { process(inputPath, outputPath, it) }
     }
 }
 
