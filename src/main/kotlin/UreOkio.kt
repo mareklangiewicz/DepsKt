@@ -11,15 +11,6 @@ import kotlin.io.println
 import kotlin.io.use
 import kotlin.text.RegexOption.MULTILINE
 
-fun forAllKtFiles(path: Path, action: FileSystem.(Path) -> Unit) {
-    val fs = FileSystem.SYSTEM
-    val files = fs.findAllFiles(path).mapNotNull {
-        it.takeIf { it.name.endsWith(".kt") }
-    }
-    files.forEach { fs.action(it) }
-}
-
-
 @Throws(IOException::class)
 fun FileSystem.findAllFiles(path: Path, maxDepth: Int = Int.MAX_VALUE): Sequence<Path> {
     require(maxDepth >= 0)
@@ -31,11 +22,17 @@ fun FileSystem.findAllFiles(path: Path, maxDepth: Int = Int.MAX_VALUE): Sequence
     }
 }
 
-fun commentOutMultiplatformFunInFileTree(path: Path) =
-    forAllKtFiles(path) { commentOutMultiplatformFunInFile(it) }
 
-fun undoCommentOutMultiplatformFunInFileTree(path: Path) =
-    forAllKtFiles(path) { undoCommentOutMultiplatformFunInFile(it) }
+fun FileSystem.forEachKtFile(root: Path, action: FileSystem.(Path) -> Unit) {
+    val files = findAllFiles(root).filter { it.name.endsWith(".kt") }
+    files.forEach { action(it) }
+}
+
+fun FileSystem.commentOutMultiplatformFunInEachKtFile(root: Path) =
+    forEachKtFile(root) { commentOutMultiplatformFunInFile(it) }
+
+fun FileSystem.undoCommentOutMultiplatformFunInFileTree(root: Path) =
+    forEachKtFile(root) { undoCommentOutMultiplatformFunInFile(it) }
 
 
 /**
@@ -44,14 +41,14 @@ fun undoCommentOutMultiplatformFunInFileTree(path: Path) =
  * nothing is written to file system if it's null;
  * @param process file content transformation; if it returns null - output file is not even touched
  */
-fun processAllKtFiles(
+fun FileSystem.processEachKtFile(
     inputRootDir: Path,
     outputRootDir: Path? = null,
     process: (input: Path, output: Path?, content: String) -> String?
 ) {
     require(inputRootDir.isAbsolute)
     require(outputRootDir?.isAbsolute ?: true)
-    forAllKtFiles(inputRootDir) { inputPath ->
+    forEachKtFile(inputRootDir) { inputPath ->
         val outputPath = if (outputRootDir == null) null else outputRootDir / inputPath.asRelativeTo(inputRootDir)
         processFile(inputPath, outputPath) { process(inputPath, outputPath, it) }
     }

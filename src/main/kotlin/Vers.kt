@@ -25,14 +25,14 @@ object Vers {
      // just a reference - not useful in typical cases
     const val gradle5 = "5.6.4"
     const val gradle6 = "6.8.3"
-    const val gradle7 = "7.1"
+    const val gradle7 = "7.1.1"
     const val gradle = gradle7
         // https://gradle.org/releases/
         // https://services.gradle.org/versions
         // https://services.gradle.org/versions/current
 
     const val composeDesktopVerMain = "0.4.0"
-    const val composeDesktopVerEdge = "0.5.0-build227"
+    const val composeDesktopVerEdge = "0.5.0-build229"
     const val composeDesktop = composeDesktopVerEdge
 
     // https://github.com/JetBrains/compose-jb
@@ -40,7 +40,7 @@ object Vers {
     // https://github.com/JetBrains/compose-jb/blob/master/web/CHANGELOG.md
 
 
-    const val composeAndroid = "1.0.0-beta09"
+    const val composeAndroid = "1.0.0-rc01"
         // https://developer.android.com/jetpack/androidx/releases/compose
 
     const val androidGradlePlugin = "7.1.0-alpha02"
@@ -243,7 +243,7 @@ object Vers {
     const val recyclerui = "0.0.2"
         // https://github.com/langara/recyclerui/releases
 
-    const val ktorStable = "1.6.0"
+    const val ktorStable = "1.6.1"
     const val ktorForRsocket = "1.4.3" // TODO: remove when rsocket start working with new ktor
     const val ktor = ktorStable
         // https://maven.pkg.jetbrains.space/public/p/ktor/eap/io/ktor/ktor/
