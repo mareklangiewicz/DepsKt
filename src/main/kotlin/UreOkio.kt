@@ -31,7 +31,7 @@ fun FileSystem.forEachKtFile(root: Path, action: FileSystem.(Path) -> Unit) {
 fun FileSystem.commentOutMultiplatformFunInEachKtFile(root: Path) =
     forEachKtFile(root) { commentOutMultiplatformFunInFile(it) }
 
-fun FileSystem.undoCommentOutMultiplatformFunInFileTree(root: Path) =
+fun FileSystem.undoCommentOutMultiplatformFunInEachKtFile(root: Path) =
     forEachKtFile(root) { undoCommentOutMultiplatformFunInFile(it) }
 
 
