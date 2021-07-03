@@ -23,16 +23,14 @@ fun FileSystem.findAllFiles(path: Path, maxDepth: Int = Int.MAX_VALUE): Sequence
 }
 
 
-fun FileSystem.forEachKtFile(root: Path, action: FileSystem.(Path) -> Unit) {
-    val files = findAllFiles(root).filter { it.name.endsWith(".kt") }
-    files.forEach { action(it) }
-}
+fun FileSystem.findAllKtFiles(root: Path, maxDepth: Int = Int.MAX_VALUE) =
+    findAllFiles(root, maxDepth).filter { it.name.endsWith(".kt") }
 
 fun FileSystem.commentOutMultiplatformFunInEachKtFile(root: Path) =
-    forEachKtFile(root) { commentOutMultiplatformFunInFile(it) }
+    findAllKtFiles(root).forEach { commentOutMultiplatformFunInFile(it) }
 
 fun FileSystem.undoCommentOutMultiplatformFunInEachKtFile(root: Path) =
-    forEachKtFile(root) { undoCommentOutMultiplatformFunInFile(it) }
+    findAllKtFiles(root).forEach { undoCommentOutMultiplatformFunInFile(it) }
 
 
 /**
@@ -48,9 +46,9 @@ fun FileSystem.processEachKtFile(
 ) {
     require(inputRootDir.isAbsolute)
     require(outputRootDir?.isAbsolute ?: true)
-    forEachKtFile(inputRootDir) { inputPath ->
+    findAllKtFiles(inputRootDir).forEach { inputPath ->
         val outputPath = if (outputRootDir == null) null else outputRootDir / inputPath.asRelativeTo(inputRootDir)
-        processFile(inputPath, outputPath) { process(inputPath, outputPath, it) }
+        processFile(inputPath, outputPath) { content -> process(inputPath, outputPath, content) }
     }
 }
 
