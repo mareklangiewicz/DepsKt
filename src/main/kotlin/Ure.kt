@@ -308,3 +308,6 @@ fun quantify(
 fun ref(nr: Int? = null, name: String? = null) = UreGroupRef(nr, name)
 
 fun quote(string: String) = UreQuote(string)
+
+
+operator fun MatchResult.get(name: String) = groups[name]!!.value
