@@ -32,7 +32,7 @@ object Vers {
         // https://services.gradle.org/versions/current
 
     const val composeDesktopVerMain = "0.4.0"
-    const val composeDesktopVerEdge = "0.5.0-build235"
+    const val composeDesktopVerEdge = "0.5.0-build245"
     const val composeDesktop = composeDesktopVerEdge
 
     // https://github.com/JetBrains/compose-jb
@@ -40,7 +40,7 @@ object Vers {
     // https://github.com/JetBrains/compose-jb/blob/master/web/CHANGELOG.md
 
 
-    const val composeAndroid = "1.0.0-rc01"
+    const val composeAndroid = "1.0.0-rc02"
         // https://developer.android.com/jetpack/androidx/releases/compose
 
     const val androidGradlePlugin = "7.1.0-alpha03"
