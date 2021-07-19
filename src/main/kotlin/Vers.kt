@@ -150,7 +150,7 @@ object Vers {
         // https://mvnrepository.com/artifact/org.java-websocket/Java-WebSocket
 
 //    const val slf4jSimple = "1.7.30"
-    const val slf4jSimple = "2.0.0-alpha1"
+    const val slf4jSimple = "2.0.0-alpha2"
         // https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
 
     const val log4j2 = "2.14.1"
@@ -163,28 +163,28 @@ object Vers {
         // https://developers.google.com/android/guides/setup
         // https://developers.google.com/android/guides/releases
 
-    const val firebaseGitlive = "1.3.1"
+    const val firebaseGitlive = "1.4.1"
         // https://github.com/GitLiveApp/firebase-kotlin-sdk
 
-    const val firebaseCrashlyticsPlugin = "2.6.1"
+    const val firebaseCrashlyticsPlugin = "2.7.1"
         // https://firebase.google.com/docs/crashlytics/get-started?platform=android
 
-    const val firebaseAdmin = "7.3.0"
+    const val firebaseAdmin = "8.0.0"
         // https://firebase.google.com/docs/admin/setup
 
-    const val firebaseAndroidBoM = "28.0.1"
+    const val firebaseAndroidBoM = "28.2.1"
         // https://firebase.google.com/support/release-notes/android
         // https://firebase.google.com/docs/android/setup#add-sdks
 
-    const val firebaseUiAuth = "7.1.1"
+    const val firebaseUiAuth = "7.2.0"
         // https://github.com/firebase/FirebaseUI-Android
         // https://github.com/firebase/FirebaseUI-Android/releases
         // https://firebase.google.com/docs/auth/android/firebaseui
 
-    const val googleCloudBoM = "20.5.0"
+    const val googleCloudBoM = "20.8.0"
         // https://github.com/GoogleCloudPlatform/cloud-opensource-java/wiki/The-Google-Cloud-Platform-Libraries-BOM
 
-    const val googleAuth = "0.26.0"
+    const val googleAuth = "0.27.0"
         // https://github.com/googleapis/google-auth-library-java
 
     const val picasso = "2.8"
