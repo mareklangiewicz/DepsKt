@@ -6,7 +6,7 @@
 object Vers {
     const val kotlinMajor = 1
     const val kotlinMinor = 5
-    const val kotlinPatch = 10
+    const val kotlinPatch = 21
     const val kotlinSuffix = "" // with hyphen (like "-2")
 
     const val kotlin = "$kotlinMajor.$kotlinMinor.$kotlinPatch$kotlinSuffix"
@@ -19,7 +19,7 @@ object Vers {
     const val kotlinxDateTime = "0.2.1"
     // https://github.com/Kotlin/kotlinx-datetime
 
-    const val kotlinxCoroutines = "1.5.0"
+    const val kotlinxCoroutines = "1.5.1"
     // https://github.com/Kotlin/kotlinx.coroutines/releases
 
     // just a reference - not useful in typical cases
@@ -32,10 +32,11 @@ object Vers {
     // https://services.gradle.org/versions/current
 
     const val composeDesktopVerMain = "0.4.0"
-    const val composeDesktopVerEdge = "0.5.0-build245"
+    const val composeDesktopVerEdge = "0.5.0-build262"
     const val composeDesktop = composeDesktopVerEdge
 
     // https://github.com/JetBrains/compose-jb
+    // https://github.com/JetBrains/compose-jb/releases
     // https://github.com/JetBrains/compose-jb/blob/master/CHANGELOG.md
     // https://github.com/JetBrains/compose-jb/blob/master/web/CHANGELOG.md
 
@@ -138,7 +139,7 @@ object Vers {
     // https://github.com/square/okhttp
     // https://github.com/square/okhttp/releases
 
-    const val okio = "3.0.0-alpha.6"
+    const val okio = "3.0.0-alpha.8"
     // https://square.github.io/okio/changelog/
     // https://square.github.io/okio/#releases
 
