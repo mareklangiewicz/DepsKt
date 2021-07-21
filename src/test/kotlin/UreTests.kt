@@ -1,6 +1,7 @@
 import okio.ExperimentalFileSystem
 import okio.FileSystem.Companion.SYSTEM
 import okio.Path.Companion.toPath
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.TestFactory
 import pl.mareklangiewicz.uspek.eq
 import pl.mareklangiewicz.uspek.o
@@ -58,6 +59,7 @@ class UreTests {
 
     @OptIn(ExperimentalFileSystem::class)
     @TestFactory
+    @Disabled("Has side effects in other project.")
     fun testCommentOutMultiplatformStuff() = uspekTestFactory {
         val dir = "/home/marek/code/kotlin/uspek-painters/lib/src"
         "On dir: $dir" o {
@@ -69,6 +71,7 @@ class UreTests {
 
     @OptIn(ExperimentalFileSystem::class)
     @TestFactory
+    @Disabled("Has side effects in other project.")
     fun testUndoCommentOutMultiplatformStuff() = uspekTestFactory {
         val dir = "/home/marek/code/kotlin/uspek-painters/lib/src"
         "On dir: $dir" o {
