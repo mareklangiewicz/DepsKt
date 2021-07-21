@@ -100,7 +100,10 @@ fun FileSystem.commentOutMultiplatformFunInFile(file: Path) {
             .compile(MULTILINE)
             .replace(input) { "/*\n${it.value}\n*/" }
 
-        ir("actual fun").compile().replace(output1) { "/*actual*/ fun" }
+        val output2 = ir("actual fun").compile().replace(output1) { "/*actual*/ fun" }
+
+        ir("actual suspend fun").compile().replace(output2) { "/*actual*/ suspend fun" }
+        // FIXME: merge this two replaces to one using better URE
     }
 }
 
@@ -115,8 +118,8 @@ fun FileSystem.undoCommentOutMultiplatformFunInFile(file: Path) {
             .compile(MULTILINE)
             .replace(input) { it.groups["myFun"]!!.value }
 
-        ir("/\\*actual\\*/ fun")
+        ir("/\\*actual\\*/")
             .compile()
-            .replace(output1) { "actual fun" }
+            .replace(output1) { "actual" }
     }
 }

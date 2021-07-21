@@ -1,4 +1,5 @@
 import okio.ExperimentalFileSystem
+import okio.FileSystem.Companion.SYSTEM
 import okio.Path.Companion.toPath
 import org.junit.jupiter.api.TestFactory
 import pl.mareklangiewicz.uspek.eq
@@ -61,7 +62,7 @@ class UreTests {
         val dir = "/home/marek/code/kotlin/uspek-painters/lib/src"
         "On dir: $dir" o {
             "comment out multiplatform stuff inside" o {
-                commentOutMultiplatformFunInFileTree(dir.toPath())
+                SYSTEM.commentOutMultiplatformFunInEachKtFile(dir.toPath())
             }
         }
     }
@@ -72,7 +73,7 @@ class UreTests {
         val dir = "/home/marek/code/kotlin/uspek-painters/lib/src"
         "On dir: $dir" o {
             "undo comment out multiplatform stuff inside" o {
-                undoCommentOutMultiplatformFunInFileTree(dir.toPath())
+                SYSTEM.undoCommentOutMultiplatformFunInEachKtFile(dir.toPath())
             }
         }
     }

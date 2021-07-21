@@ -8,7 +8,9 @@ val ureExpectFun = ure {
     1 of BOL
     0..1 of { 1 of ir("@Composable"); 1..MAX of space }
     0..MAX of { 1 of keyword; 1..MAX of space }
-    1 of ir("expect fun")
+    1 of ir("expect ")
+    0..1 of ir("suspend ")
+    1 of ir("fun")
     1..MAX of space
     1..MAX of word // funname
     1 of { // (..,..,..)
