@@ -1,5 +1,6 @@
 *.iml
 .gradle
+my.gradle.log
 /local.properties
 .idea
 .DS_Store

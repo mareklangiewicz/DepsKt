@@ -32,7 +32,7 @@ object Vers {
     // https://services.gradle.org/versions/current
 
     const val composeDesktopVerMain = "0.4.0"
-    const val composeDesktopVerEdge = "0.5.0-build262"
+    const val composeDesktopVerEdge = "0.5.0-build270"
     const val composeDesktop = composeDesktopVerEdge
 
     // https://github.com/JetBrains/compose-jb
@@ -87,25 +87,25 @@ object Vers {
     const val androidxAnnotation = "1.3.0-alpha01"
     const val androidxPreference = "1.1.1"
     const val androidxBrowser = "1.3.0"
-    const val androidxBrowserHelper = "2.2.0"
-
+    const val androidxBrowserHelper = "2.2.2"
     // https://github.com/GoogleChrome/android-browser-helper
+
     const val androidxPercentLayout = "1.0.0"
-    const val androidxFlexboxLayout = "2.0.1"
+    const val androidxFlexboxLayout = "3.0.0"
     // https://github.com/google/flexbox-layout/releases
 
-    const val androidxLifecycle = "2.4.0-alpha01"
+    const val androidxLifecycle = "2.4.0-alpha02"
     // https://developer.android.com/jetpack/androidx/releases/lifecycle
 
-    const val androidxRoom = "2.4.0-alpha02"
+    const val androidxRoom = "2.4.0-alpha04"
     // https://developer.android.com/jetpack/androidx/releases/room
 
-    const val androidxTest = "1.4.0-beta01"
+    const val androidxTest = "1.4.0"
     const val androidxTestRunner = androidxTest
     const val androidxTestRules = androidxTest
     // https://developer.android.com/jetpack/androidx/releases/test
 
-    const val androidxEspresso = "3.4.0-alpha05"
+    const val androidxEspresso = "3.4.0"
 
     const val androidCommons = "0.0.24"
     // https://github.com/elpassion/android-commons/releases
@@ -122,7 +122,7 @@ object Vers {
     // https://github.com/JakeWharton/RxBinding/releases
     // https://github.com/JakeWharton/RxBinding/blob/master/CHANGELOG.md
 
-    const val rxrelay = "3.0.0"
+    const val rxrelay = "3.0.1"
     // https://github.com/JakeWharton/RxRelay/releases
 
     const val rxandroid = "3.0.0"
@@ -175,7 +175,7 @@ object Vers {
     const val firebaseAdmin = "8.0.0"
     // https://firebase.google.com/docs/admin/setup
 
-    const val firebaseAndroidBoM = "28.2.1"
+    const val firebaseAndroidBoM = "28.3.0"
     // https://firebase.google.com/support/release-notes/android
     // https://firebase.google.com/docs/android/setup#add-sdks
 
@@ -184,7 +184,7 @@ object Vers {
     // https://github.com/firebase/FirebaseUI-Android/releases
     // https://firebase.google.com/docs/auth/android/firebaseui
 
-    const val googleCloudBoM = "20.8.0"
+    const val googleCloudBoM = "20.9.0"
     // https://github.com/GoogleCloudPlatform/cloud-opensource-java/wiki/The-Google-Cloud-Platform-Libraries-BOM
 
     const val googleAuth = "0.27.0"
@@ -213,13 +213,13 @@ object Vers {
     const val junit5 = "5.7.2"
     // https://github.com/junit-team/junit5/releases
 
-    const val googleTruth = "1.1.2"
+    const val googleTruth = "1.1.3"
     // https://github.com/google/truth/releases
 
     const val androidTestRunnerClass = "androidx.test.runner.AndroidJUnitRunner"
     // https://developer.android.com/reference/android/support/test/runner/AndroidJUnitRunner.html
 
-    const val realm = "10.4.0"
+    const val realm = "10.6.1"
     // https://docs.mongodb.com/realm/sdk/android/install/
 
     const val tuplek = "0.0.04"
