@@ -237,7 +237,7 @@ object Vers {
     const val uspek = "0.0.17"
     // https://github.com/langara/uspek/releases
 
-    const val upue = "0.0.07"
+    const val upue = "0.0.08"
     // https://github.com/langara/upue/releases
 
     const val sandboxui = "0.0.5"
