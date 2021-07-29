@@ -250,7 +250,6 @@ object Vers {
     // https://maven.pkg.jetbrains.space/public/p/ktor/eap/io/ktor/ktor/
     // https://github.com/ktorio/ktor
     // https://github.com/ktorio/ktor/releases
-    // https://bintray.com/kotlin/ktor/ktor
 
     const val rsocket = "0.13.1"
     // https://github.com/rsocket/rsocket-kotlin

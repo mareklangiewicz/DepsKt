@@ -127,6 +127,7 @@ fun Gradle.logSomeEventsToFile(
     system: FileSystem = FileSystem.SYSTEM,
     filter: (GradleEvt) -> Boolean = { true }
 ) {
+    println("Logging some GradleEvts to file: $file")
     val sink = system.sink(file).buffer()
     lateinit var listener: GradleListener
     listener = GradleListener {
