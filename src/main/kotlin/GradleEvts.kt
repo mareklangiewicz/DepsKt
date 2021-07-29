@@ -127,13 +127,21 @@ fun Gradle.logSomeEventsToFile(
     system: FileSystem = FileSystem.SYSTEM,
     filter: (GradleEvt) -> Boolean = { true }
 ) {
-    println("logSomeEventsTofile: Warning: We never close the file and never remove the gradle listener.")
     val sink = system.sink(file).buffer()
-    val listener = GradleListener {
+    lateinit var listener: GradleListener
+    listener = GradleListener {
         if (filter(it)) {
             val now = Date()
             sink.writeUtf8("[$now] $it\n")
             sink.flush()
+        }
+        if (it is BuildFinished) {
+            removeListener(listener)
+            sink.close()
+            val proj = it.result.gradle?.rootProject?.name
+            val act = it.result.action
+            val fail = it.result.failure
+            println("Build finished. (root: $proj; act: $act; fail?: $fail)")
         }
     }
     addListener(listener)
