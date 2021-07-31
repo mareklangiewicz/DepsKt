@@ -32,7 +32,7 @@ object Vers {
     // https://services.gradle.org/versions/current
 
     const val composeDesktopVerMain = "0.4.0"
-    const val composeDesktopVerEdge = "0.5.0-build270"
+    const val composeDesktopVerEdge = "1.0.0-alpha1-rc1"
     const val composeDesktop = composeDesktopVerEdge
 
     // https://github.com/JetBrains/compose-jb
