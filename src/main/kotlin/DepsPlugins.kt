@@ -16,7 +16,7 @@ fun Settings.includeAndSubstituteBuild(rootProject: Any, substituteModule: Strin
     includeBuild(rootProject) {
         it.dependencySubstitution {
             it.substitute(it.module(substituteModule))
-                .with(it.project(withProject))
+                .using(it.project(withProject))
         }
     }
 }
