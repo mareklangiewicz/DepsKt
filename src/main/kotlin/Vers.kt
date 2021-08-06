@@ -139,7 +139,7 @@ object Vers {
     // https://github.com/square/okhttp
     // https://github.com/square/okhttp/releases
 
-    const val okio = "3.0.0-alpha.8"
+    const val okio = "3.0.0-alpha.9"
     // https://square.github.io/okio/changelog/
     // https://square.github.io/okio/#releases
 
