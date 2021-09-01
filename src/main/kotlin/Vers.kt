@@ -6,7 +6,7 @@
 object Vers {
     const val kotlinMajor = 1
     const val kotlinMinor = 5
-    const val kotlinPatch = 21
+    const val kotlinPatch = 30
     const val kotlinSuffix = "" // with hyphen (like "-2")
 
     const val kotlin = "$kotlinMajor.$kotlinMinor.$kotlinPatch$kotlinSuffix"
@@ -32,16 +32,15 @@ object Vers {
     // https://services.gradle.org/versions/current
 
     const val composeDesktopVerMain = "1.0.0-alpha3"
-    const val composeDesktopVerEdge = "1.0.0-alpha4-build321"
+    const val composeDesktopVerEdge = "1.0.0-alpha4-build331"
     const val composeDesktop = composeDesktopVerEdge
 
     // https://github.com/JetBrains/compose-jb
     // https://github.com/JetBrains/compose-jb/releases
     // https://github.com/JetBrains/compose-jb/blob/master/CHANGELOG.md
-    // https://github.com/JetBrains/compose-jb/blob/master/web/CHANGELOG.md
 
 
-    const val composeAndroid = "1.1.0-alpha01"
+    const val composeAndroid = "1.1.0-alpha02"
     // https://developer.android.com/jetpack/androidx/releases/compose
 
     const val androidGradlePlugin = "7.1.0-alpha08"
