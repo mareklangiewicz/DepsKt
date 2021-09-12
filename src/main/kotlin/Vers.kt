@@ -254,7 +254,7 @@ object Vers {
     // https://github.com/rsocket/rsocket-kotlin
     // https://github.com/rsocket/rsocket-kotlin/releases
 
-    const val splitties = "3.0.0-beta03"
+    const val splitties = "3.0.0"
     // https://github.com/LouisCAD/Splitties/releases
     // https://github.com/LouisCAD/Splitties
 
