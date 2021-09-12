@@ -140,6 +140,7 @@ object Deps {
     val okhttp = dep("com.squareup.okhttp3", "okhttp", Vers.okhttp)
     val okhttpLogging = dep("com.squareup.okhttp3", "logging-interceptor", Vers.okhttp)
     val okio = dep("com.squareup.okio", "okio", Vers.okio)
+    @Deprecated("Use okio without multiplatform suffix", ReplaceWith("Deps.okio"))
     val okioMultiplatform = dep("com.squareup.okio", "okio-multiplatform", Vers.okio)
     val okioNodeFileSystem = dep("com.squareup.okio", "okio-nodefakefilesystem-js", Vers.okio)
     val okioFakeFileSystem = dep("com.squareup.okio", "okio-fakefilesystem", Vers.okio)

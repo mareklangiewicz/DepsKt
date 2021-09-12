@@ -19,7 +19,7 @@ object Vers {
     const val kotlinxDateTime = "0.2.1"
     // https://github.com/Kotlin/kotlinx-datetime
 
-    const val kotlinxCoroutines = "1.5.1"
+    const val kotlinxCoroutines = "1.5.2"
     // https://github.com/Kotlin/kotlinx.coroutines/releases
 
     // just a reference - not useful in typical cases
@@ -32,7 +32,7 @@ object Vers {
     // https://services.gradle.org/versions/current
 
     const val composeDesktopVerMain = "1.0.0-alpha3"
-    const val composeDesktopVerEdge = "1.0.0-alpha4-build331"
+    const val composeDesktopVerEdge = "1.0.0-alpha4-build344"
     const val composeDesktop = composeDesktopVerEdge
 
     // https://github.com/JetBrains/compose-jb
@@ -40,10 +40,10 @@ object Vers {
     // https://github.com/JetBrains/compose-jb/blob/master/CHANGELOG.md
 
 
-    const val composeAndroid = "1.1.0-alpha02"
+    const val composeAndroid = "1.1.0-alpha03"
     // https://developer.android.com/jetpack/androidx/releases/compose
 
-    const val androidGradlePlugin = "7.1.0-alpha08"
+    const val androidGradlePlugin = "7.1.0-alpha11"
     // https://maven.google.com/web/index.html#com.android.tools.build:gradle
     // https://developer.android.com/studio/releases/gradle-plugin
     // https://google.github.io/android-gradle-dsl/
@@ -77,7 +77,7 @@ object Vers {
     const val androidxConstraint1 = "1.1.3"
 
     // https://developer.android.com/training/constraint-layout
-    const val androidxConstraint2 = "2.1.0-beta01"
+    const val androidxConstraint2 = "2.1.0"
     const val androidxConstraint = androidxConstraint2
 
     const val androidxRecyclerview = "1.2.0"
@@ -93,7 +93,7 @@ object Vers {
     const val androidxFlexboxLayout = "3.0.0"
     // https://github.com/google/flexbox-layout/releases
 
-    const val androidxLifecycle = "2.4.0-alpha02"
+    const val androidxLifecycle = "2.4.0-alpha03"
     // https://developer.android.com/jetpack/androidx/releases/lifecycle
 
     const val androidxRoom = "2.4.0-alpha04"
@@ -110,7 +110,7 @@ object Vers {
     // https://github.com/elpassion/android-commons/releases
 
     const val rxjava2 = "2.2.16"
-    const val rxjava3 = "3.0.13"
+    const val rxjava3 = "3.1.1"
     // https://github.com/ReactiveX/RxJava/releases
 
     const val rxkotlin = "3.0.1"
@@ -138,7 +138,7 @@ object Vers {
     // https://github.com/square/okhttp
     // https://github.com/square/okhttp/releases
 
-    const val okio = "3.0.0-alpha.9"
+    const val okio = "3.0.0-alpha.10"
     // https://square.github.io/okio/changelog/
     // https://square.github.io/okio/#releases
 
@@ -158,35 +158,35 @@ object Vers {
     const val log4j2 = "2.14.1"
     // http://logging.apache.org/log4j/2.x/maven-artifacts.html
 
-    const val googleServicesPlugin = "4.3.8"
+    const val googleServicesPlugin = "4.3.10"
     // https://developers.google.com/android/guides/google-services-plugin
 
     const val googlePlayServicesBase = "17.6.0"
     // https://developers.google.com/android/guides/setup
     // https://developers.google.com/android/guides/releases
 
-    const val firebaseGitlive = "1.4.1"
+    const val firebaseGitlive = "1.4.2"
     // https://github.com/GitLiveApp/firebase-kotlin-sdk
 
     const val firebaseCrashlyticsPlugin = "2.7.1"
     // https://firebase.google.com/docs/crashlytics/get-started?platform=android
 
-    const val firebaseAdmin = "8.0.0"
+    const val firebaseAdmin = "8.0.1"
     // https://firebase.google.com/docs/admin/setup
 
-    const val firebaseAndroidBoM = "28.3.0"
+    const val firebaseAndroidBoM = "28.4.0"
     // https://firebase.google.com/support/release-notes/android
     // https://firebase.google.com/docs/android/setup#add-sdks
 
-    const val firebaseUiAuth = "7.2.0"
+    const val firebaseUiAuth = "8.0.0"
     // https://github.com/firebase/FirebaseUI-Android
     // https://github.com/firebase/FirebaseUI-Android/releases
     // https://firebase.google.com/docs/auth/android/firebaseui
 
-    const val googleCloudBoM = "20.9.0"
+    const val googleCloudBoM = "23.0.0"
     // https://github.com/GoogleCloudPlatform/cloud-opensource-java/wiki/The-Google-Cloud-Platform-Libraries-BOM
 
-    const val googleAuth = "0.27.0"
+    const val googleAuth = "1.1.0"
     // https://github.com/googleapis/google-auth-library-java
 
     const val picasso = "2.8"
@@ -218,7 +218,7 @@ object Vers {
     const val androidTestRunnerClass = "androidx.test.runner.AndroidJUnitRunner"
     // https://developer.android.com/reference/android/support/test/runner/AndroidJUnitRunner.html
 
-    const val realm = "10.6.1"
+    const val realm = "10.8.0"
     // https://docs.mongodb.com/realm/sdk/android/install/
 
     const val tuplek = "0.0.04"
@@ -245,7 +245,7 @@ object Vers {
     const val recyclerui = "0.0.2"
     // https://github.com/langara/recyclerui/releases
 
-    const val ktor = "1.6.1"
+    const val ktor = "1.6.3"
     // https://maven.pkg.jetbrains.space/public/p/ktor/eap/io/ktor/ktor/
     // https://github.com/ktorio/ktor
     // https://github.com/ktorio/ktor/releases
