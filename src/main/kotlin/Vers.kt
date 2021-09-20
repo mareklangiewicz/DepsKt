@@ -32,7 +32,7 @@ object Vers {
     // https://services.gradle.org/versions/current
 
     const val composeDesktopVerMain = "1.0.0-alpha3"
-    const val composeDesktopVerEdge = "1.0.0-alpha4-build344"
+    const val composeDesktopVerEdge = "1.0.0-alpha4-build348"
     const val composeDesktop = composeDesktopVerEdge
 
     // https://github.com/JetBrains/compose-jb
@@ -40,10 +40,10 @@ object Vers {
     // https://github.com/JetBrains/compose-jb/blob/master/CHANGELOG.md
 
 
-    const val composeAndroid = "1.1.0-alpha03"
+    const val composeAndroid = "1.1.0-alpha04"
     // https://developer.android.com/jetpack/androidx/releases/compose
 
-    const val androidGradlePlugin = "7.1.0-alpha11"
+    const val androidGradlePlugin = "7.1.0-alpha12"
     // https://maven.google.com/web/index.html#com.android.tools.build:gradle
     // https://developer.android.com/studio/releases/gradle-plugin
     // https://google.github.io/android-gradle-dsl/
@@ -93,7 +93,7 @@ object Vers {
     const val androidxFlexboxLayout = "3.0.0"
     // https://github.com/google/flexbox-layout/releases
 
-    const val androidxLifecycle = "2.4.0-alpha03"
+    const val androidxLifecycle = "2.4.0-beta01"
     // https://developer.android.com/jetpack/androidx/releases/lifecycle
 
     const val androidxRoom = "2.4.0-alpha04"
@@ -174,7 +174,7 @@ object Vers {
     const val firebaseAdmin = "8.0.1"
     // https://firebase.google.com/docs/admin/setup
 
-    const val firebaseAndroidBoM = "28.4.0"
+    const val firebaseAndroidBoM = "28.4.1"
     // https://firebase.google.com/support/release-notes/android
     // https://firebase.google.com/docs/android/setup#add-sdks
 
