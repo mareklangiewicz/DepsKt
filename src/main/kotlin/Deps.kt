@@ -205,6 +205,7 @@ object Deps {
     val junit4 = dep("junit", "junit", Vers.junit4)
     val junit5 = dep("org.junit.jupiter", "junit-jupiter-api", Vers.junit5)
     val junit5engine = dep("org.junit.jupiter", "junit-jupiter-engine", Vers.junit5)
+
     val tuplek = dep("com.github.langara.tuplek", "tuplek", Vers.tuplek)
     val abcdk = dep("com.github.langara.abcdk", "abcdk", Vers.abcdk)
     val rxmock = dep("com.github.langara", "rxmock", Vers.rxmock)
@@ -212,9 +213,11 @@ object Deps {
     val uspek = dep("com.github.langara.USpek", "uspek", Vers.uspek)
     val uspekx = dep("com.github.langara.USpek", "uspekx", Vers.uspek)
     val upue = dep("com.github.langara.upue", "upue", Vers.upue)
+    val kommandLine = dep("com.github.langara.kommandline", "kommandline", Vers.kommandLine)
     val dbusKotlin = dep("com.github.langara", "dbus-kotlin", Vers.dbusKotlin)
     val sandboxui = dep("com.github.langara", "sandboxui", Vers.sandboxui)
     val recyclerui = dep("com.github.langara", "recyclerui", Vers.recyclerui)
+
     val googleTruth = dep("com.google.truth", "truth", Vers.googleTruth)
     val mockitoKotlin = dep("com.nhaarman.mockitokotlin2", "mockito-kotlin", Vers.mockitoKotlin)
     val androidTestRunner = dep("androidx.test", "runner", Vers.androidxTestRunner)

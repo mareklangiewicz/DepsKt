@@ -239,6 +239,9 @@ object Vers {
     const val upue = "0.0.08"
     // https://github.com/langara/upue/releases
 
+    const val kommandLine = "0.0.02"
+    // https://github.com/langara/kommandline/releases
+
     const val sandboxui = "0.0.5"
     // https://github.com/langara/sandboxui/releases
 
