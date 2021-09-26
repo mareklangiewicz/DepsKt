@@ -15,6 +15,7 @@ object Deps {
 
     val kotlinStdlib7 = dep("org.jetbrains.kotlin", "kotlin-stdlib-jdk7", Vers.kotlin)
     val kotlinStdlib8 = dep("org.jetbrains.kotlin", "kotlin-stdlib-jdk8", Vers.kotlin)
+    val kotlinScriptRuntime = dep("org.jetbrains.kotlin", "kotlin-script-runtime", Vers.kotlin)
     val kotlinReflect = dep("org.jetbrains.kotlin", "kotlin-reflect", Vers.kotlin)
     val kotlinTestCommon = dep("org.jetbrains.kotlin", "kotlin-test-common", Vers.kotlin)
     val kotlinTestAnnotationsCommon = dep("org.jetbrains.kotlin", "kotlin-test-annotations-common", Vers.kotlin)
