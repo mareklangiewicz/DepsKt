@@ -213,7 +213,7 @@ object Deps {
     val uspek = dep("com.github.langara.USpek", "uspek", Vers.uspek)
     val uspekx = dep("com.github.langara.USpek", "uspekx", Vers.uspek)
     val upue = dep("com.github.langara.upue", "upue", Vers.upue)
-    val kommandLine = dep("com.github.langara.kommandline", "kommandline", Vers.kommandLine)
+    val kommandLine = dep("com.github.langara.KommandLine", "kommandline", Vers.kommandLine)
     val dbusKotlin = dep("com.github.langara", "dbus-kotlin", Vers.dbusKotlin)
     val sandboxui = dep("com.github.langara", "sandboxui", Vers.sandboxui)
     val recyclerui = dep("com.github.langara", "recyclerui", Vers.recyclerui)
