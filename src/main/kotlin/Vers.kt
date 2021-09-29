@@ -6,7 +6,7 @@
 object Vers {
     const val kotlinMajor = 1
     const val kotlinMinor = 5
-    const val kotlinPatch = 30
+    const val kotlinPatch = 31
     const val kotlinSuffix = "" // with hyphen (like "-2")
 
     const val kotlin = "$kotlinMajor.$kotlinMinor.$kotlinPatch$kotlinSuffix"
@@ -32,7 +32,7 @@ object Vers {
     // https://services.gradle.org/versions/current
 
     const val composeDesktopVerMain = "1.0.0-alpha3"
-    const val composeDesktopVerEdge = "1.0.0-alpha4-build348"
+    const val composeDesktopVerEdge = "1.0.0-alpha4-build362"
     const val composeDesktop = composeDesktopVerEdge
 
     // https://github.com/JetBrains/compose-jb
