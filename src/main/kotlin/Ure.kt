@@ -252,6 +252,8 @@ val digit = ch("\\d")
 val nonDigit = ch("\\D")
 val space = ch("\\s")
 val nonSpace = ch("\\S")
+
+/** [a-zA-Z_0-9] */
 val word = ch("\\w")
 val nonWord = ch("\\W")
 
