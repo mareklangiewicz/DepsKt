@@ -16,7 +16,7 @@ object Vers {
 
     const val kotlin14 = "1.4.32"
 
-    const val kotlinxDateTime = "0.2.1"
+    const val kotlinxDateTime = "0.3.0"
     // https://github.com/Kotlin/kotlinx-datetime
 
     const val kotlinxCoroutines = "1.5.2"
@@ -32,7 +32,7 @@ object Vers {
     // https://services.gradle.org/versions/current
 
     const val composeDesktopVerMain = "1.0.0-alpha3"
-    const val composeDesktopVerEdge = "1.0.0-alpha4-build362"
+    const val composeDesktopVerEdge = "1.0.0-alpha4-build366"
     const val composeDesktop = composeDesktopVerEdge
 
     // https://github.com/JetBrains/compose-jb
@@ -40,9 +40,11 @@ object Vers {
     // https://github.com/JetBrains/compose-jb/blob/master/CHANGELOG.md
 
 
-    const val composeAndroid = "1.1.0-alpha04"
+    const val composeAndroid = "1.1.0-alpha05"
     // https://developer.android.com/jetpack/androidx/releases/compose
 
+    // FIXME_later: Check again. I get some error with alpha13:
+    // Cannot convert string value 'UNIFIED_TEST_PLATFORM' to an enum value of type 'com.android.builder.model.AndroidGradlePluginProjectFlags$BooleanFlag'    const val androidGradlePlugin = "7.1.0-alpha12"
     const val androidGradlePlugin = "7.1.0-alpha12"
     // https://maven.google.com/web/index.html#com.android.tools.build:gradle
     // https://developer.android.com/studio/releases/gradle-plugin
@@ -51,9 +53,9 @@ object Vers {
     @Deprecated("Use https://developer.android.com/studio/build/maven-publish-plugin")
     const val androidMavenGradlePlugin = "2.1" // https://github.com/dcendents/android-maven-gradle-plugin/releases
 
-    const val androidCompileSdk = 30
+    const val androidCompileSdk = 31
     const val androidMinSdk = 26
-    const val androidTargetSdk = 30
+    const val androidTargetSdk = 31
     // https://developer.android.com/about/dashboards/index.html
     // https://source.android.com/setup/start/build-numbers
 
@@ -93,10 +95,10 @@ object Vers {
     const val androidxFlexboxLayout = "3.0.0"
     // https://github.com/google/flexbox-layout/releases
 
-    const val androidxLifecycle = "2.4.0-beta01"
+    const val androidxLifecycle = "2.4.0-rc01"
     // https://developer.android.com/jetpack/androidx/releases/lifecycle
 
-    const val androidxRoom = "2.4.0-alpha04"
+    const val androidxRoom = "2.4.0-alpha05"
     // https://developer.android.com/jetpack/androidx/releases/room
 
     const val androidxTest = "1.4.0"
@@ -152,7 +154,7 @@ object Vers {
     // https://mvnrepository.com/artifact/org.java-websocket/Java-WebSocket
 
     //    const val slf4jSimple = "1.7.30"
-    const val slf4jSimple = "2.0.0-alpha2"
+    const val slf4jSimple = "2.0.0-alpha5"
     // https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
 
     const val log4j2 = "2.14.1"
@@ -171,7 +173,7 @@ object Vers {
     const val firebaseCrashlyticsPlugin = "2.7.1"
     // https://firebase.google.com/docs/crashlytics/get-started?platform=android
 
-    const val firebaseAdmin = "8.0.1"
+    const val firebaseAdmin = "8.1.0"
     // https://firebase.google.com/docs/admin/setup
 
     const val firebaseAndroidBoM = "28.4.1"
