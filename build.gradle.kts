@@ -1,8 +1,8 @@
 plugins {
-    kotlin("jvm") version "1.5.21"
+    kotlin("jvm") version "1.5.31"
     id("java-gradle-plugin")
     id("maven-publish")
-    id("com.gradle.plugin-publish") version "0.15.0"
+    id("com.gradle.plugin-publish") version "0.16.0"
     // https://plugins.gradle.org/docs/publish-plugin
 }
 
@@ -12,7 +12,7 @@ repositories {
 }
 
 dependencies {
-    api("com.squareup.okio:okio:3.0.0-alpha.8")
+    api("com.squareup.okio:okio:3.0.0-alpha.10")
 
     testImplementation("com.github.langara.USpek:uspekx:0.0.17") // TODO: try to use Deps.uspek (see comment in settings)
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.2") // TODO: try to use Deps.uspek (see comment in settings)
@@ -31,7 +31,7 @@ tasks.test {
 }
 
 group = "pl.mareklangiewicz.deps"
-version = "0.2.10"
+version = "0.2.11"
 
 
 gradlePlugin {
