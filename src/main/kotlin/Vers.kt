@@ -211,7 +211,7 @@ object Vers {
     const val junit4 = "4.13.2"
     // https://github.com/junit-team/junit4/releases
 
-    const val junit5 = "5.7.2"
+    const val junit5 = "5.8.1"
     // https://github.com/junit-team/junit5/releases
 
     const val googleTruth = "1.1.3"
