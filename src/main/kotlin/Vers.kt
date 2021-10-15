@@ -32,7 +32,7 @@ object Vers {
     // https://services.gradle.org/versions/current
 
     const val composeDesktopVerMain = "1.0.0-alpha3"
-    const val composeDesktopVerEdge = "1.0.0-alpha4-build385"
+    const val composeDesktopVerEdge = "1.0.0-alpha4-build398"
     const val composeDesktop = composeDesktopVerEdge
 
     // https://github.com/JetBrains/compose-jb
@@ -40,12 +40,14 @@ object Vers {
     // https://github.com/JetBrains/compose-jb/blob/master/CHANGELOG.md
 
 
-    const val composeAndroid = "1.1.0-alpha05"
+    const val composeAndroid = "1.1.0-alpha06"
     // https://developer.android.com/jetpack/androidx/releases/compose
 
-    // FIXME_later: Check again. I get some error with alpha13:
-    // Cannot convert string value 'UNIFIED_TEST_PLATFORM' to an enum value of type 'com.android.builder.model.AndroidGradlePluginProjectFlags$BooleanFlag'    const val androidGradlePlugin = "7.1.0-alpha12"
+    // FIXME_later: Check again. I get some gragle sync error with alpha13: (and on 7.2.0-alpha01) (probably Intellij andro plugin has to be updated)
+    // Cannot convert string value 'UNIFIED_TEST_PLATFORM' to an enum value of type 'com.android.builder.model.AndroidGradlePluginProjectFlags$BooleanFlag'
     const val androidGradlePlugin = "7.1.0-alpha12"
+//    const val androidGradlePlugin = "7.1.0-alpha13"
+//    const val androidGradlePlugin = "7.2.0-alpha01"
     // https://maven.google.com/web/index.html#com.android.tools.build:gradle
     // https://developer.android.com/studio/releases/gradle-plugin
     // https://google.github.io/android-gradle-dsl/
