@@ -39,11 +39,11 @@ gradlePlugin {
     plugins {
         create("depsPlugin") {
             id = "pl.mareklangiewicz.deps"
-            implementationClass = "DepsPlugin"
+            implementationClass = "pl.mareklangiewicz.deps.DepsPlugin"
         }
         create("depsSettingsPlugin") {
             id = "pl.mareklangiewicz.deps.settings"
-            implementationClass = "DepsSettingsPlugin"
+            implementationClass = "pl.mareklangiewicz.deps.DepsSettingsPlugin"
         }
     }
 }
