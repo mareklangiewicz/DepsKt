@@ -1,3 +1,4 @@
+package pl.mareklangiewicz.deps
 
 val ureExpectFun = ure {
     val keyword = ure {

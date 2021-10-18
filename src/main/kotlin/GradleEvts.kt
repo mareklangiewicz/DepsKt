@@ -1,25 +1,7 @@
 @file:OptIn(ExperimentalFileSystem::class)
 
-import GradleEvt.BuildEvt.BeforeSettings
-import GradleEvt.BuildEvt.BuildFinished
-import GradleEvt.BuildEvt.ProjectsEvaluated
-import GradleEvt.BuildEvt.ProjectsLoaded
-import GradleEvt.BuildEvt.SettingsEvaluated
-import GradleEvt.DependencyResolutionEvt.AfterResolve
-import GradleEvt.DependencyResolutionEvt.BeforeResolve
-import GradleEvt.ProjectEvaluationEvt.AfterEvaluate
-import GradleEvt.ProjectEvaluationEvt.BeforeEvaluate
-import GradleEvt.StdOutEvt.OnOutput
-import GradleEvt.TaskActionEvt.AfterActions
-import GradleEvt.TaskActionEvt.BeforeActions
-import GradleEvt.TaskExecutionEvt.AfterExecute
-import GradleEvt.TaskExecutionEvt.BeforeExecute
-import GradleEvt.TaskExecutionGraphEvt.GraphPopulated
-import GradleEvt.TestEvt.AfterSuite
-import GradleEvt.TestEvt.AfterTest
-import GradleEvt.TestEvt.BeforeSuite
-import GradleEvt.TestEvt.BeforeTest
-import GradleEvt.TestOutEvt.OnTestOutput
+package pl.mareklangiewicz.deps
+
 import okio.ExperimentalFileSystem
 import okio.FileSystem
 import okio.Path
@@ -45,6 +27,15 @@ import org.gradle.api.tasks.testing.TestListener
 import org.gradle.api.tasks.testing.TestOutputEvent
 import org.gradle.api.tasks.testing.TestOutputListener
 import org.gradle.api.tasks.testing.TestResult
+import pl.mareklangiewicz.deps.GradleEvt.BuildEvt.*
+import pl.mareklangiewicz.deps.GradleEvt.DependencyResolutionEvt.*
+import pl.mareklangiewicz.deps.GradleEvt.ProjectEvaluationEvt.*
+import pl.mareklangiewicz.deps.GradleEvt.StdOutEvt.*
+import pl.mareklangiewicz.deps.GradleEvt.TaskActionEvt.*
+import pl.mareklangiewicz.deps.GradleEvt.TaskExecutionEvt.*
+import pl.mareklangiewicz.deps.GradleEvt.TaskExecutionGraphEvt.*
+import pl.mareklangiewicz.deps.GradleEvt.TestEvt.*
+import pl.mareklangiewicz.deps.GradleEvt.TestOutEvt.*
 import java.util.Date
 
 sealed class GradleEvt {

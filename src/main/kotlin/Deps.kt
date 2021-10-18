@@ -1,5 +1,7 @@
 @file:Suppress("unused", "DEPRECATION", "SpellCheckingInspection", "MemberVisibilityCanBePrivate")
 
+package pl.mareklangiewicz.deps
+
 /**
  * Common dependencies for java/kotlin/android projects
  *

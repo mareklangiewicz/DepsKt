@@ -1,3 +1,5 @@
+package pl.mareklangiewicz.deps
+
 import kotlin.text.RegexOption.CANON_EQ
 import kotlin.text.RegexOption.COMMENTS
 import kotlin.text.RegexOption.DOT_MATCHES_ALL
