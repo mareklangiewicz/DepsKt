@@ -1,5 +1,3 @@
-package pl.mareklangiewicz.deps
-
 /**
  * Common dependencies versions for java/kotlin/android projects
  *
