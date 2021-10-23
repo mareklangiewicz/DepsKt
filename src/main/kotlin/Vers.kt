@@ -97,7 +97,8 @@ object Vers {
     const val androidxFlexboxLayout = "3.0.0"
     // https://github.com/google/flexbox-layout/releases
 
-    const val androidxLifecycle = "2.4.0-rc01"
+    const val androidxLifecycle = "2.3.1"
+//    const val androidxLifecycle = "2.4.0-rc01"
     // https://developer.android.com/jetpack/androidx/releases/lifecycle
 
     const val androidxRoom = "2.4.0-beta01"
@@ -106,8 +107,8 @@ object Vers {
     const val androidxTest = "1.4.0"
     const val androidxTestRunner = androidxTest
     const val androidxTestRules = androidxTest
-    const val androidxTestExtTruth = androidxTest
-    const val androidxTestExtJUnit = "1.1.3"
+    const val androidxTestExtTruth = "1.5.0-alpha03"
+    const val androidxTestExtJUnit = "1.1.4-alpha03"
     // https://developer.android.com/jetpack/androidx/releases/test
 
     const val androidxEspresso = "3.4.0"
