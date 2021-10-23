@@ -72,24 +72,24 @@ object Vers {
     // https://developer.android.com/jetpack/androidx/versions
     // https://dl.google.com/dl/android/maven2/index.html
 
-    const val androidxCore = "1.6.0-beta02"
+    const val androidxCore = "1.7.0-rc01"
 
-    const val androidxActivity = "1.3.0-beta01"
+    const val androidxActivity = "1.4.0-rc01"
 
-    const val androidxAppcompat = "1.4.0-alpha02"
+    const val androidxAppcompat = "1.4.0-beta01"
 
     const val androidxConstraint1 = "1.1.3"
 
     // https://developer.android.com/training/constraint-layout
-    const val androidxConstraint2 = "2.1.0"
+    const val androidxConstraint2 = "2.1.1"
     const val androidxConstraint = androidxConstraint2
 
-    const val androidxRecyclerview = "1.2.0"
+    const val androidxRecyclerview = "1.3.0-alpha01"
     const val androidxCardview = "1.0.0"
-    const val androidMaterial = "1.2.0-alpha01"
-    const val androidxAnnotation = "1.3.0-alpha01"
+    const val androidMaterial = "1.5.0-alpha04"
+    const val androidxAnnotation = "1.3.0-beta01"
     const val androidxPreference = "1.1.1"
-    const val androidxBrowser = "1.3.0"
+    const val androidxBrowser = "1.4.0-rc01"
     const val androidxBrowserHelper = "2.2.2"
     // https://github.com/GoogleChrome/android-browser-helper
 
@@ -100,12 +100,14 @@ object Vers {
     const val androidxLifecycle = "2.4.0-rc01"
     // https://developer.android.com/jetpack/androidx/releases/lifecycle
 
-    const val androidxRoom = "2.4.0-alpha05"
+    const val androidxRoom = "2.4.0-beta01"
     // https://developer.android.com/jetpack/androidx/releases/room
 
     const val androidxTest = "1.4.0"
     const val androidxTestRunner = androidxTest
     const val androidxTestRules = androidxTest
+    const val androidxTestExtTruth = androidxTest
+    const val androidxTestExtJUnit = "1.1.3"
     // https://developer.android.com/jetpack/androidx/releases/test
 
     const val androidxEspresso = "3.4.0"
