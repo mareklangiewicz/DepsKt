@@ -224,7 +224,22 @@ object Deps {
     val recyclerui = dep("com.github.langara", "recyclerui", Vers.recyclerui)
 
     val googleTruth = dep("com.google.truth", "truth", Vers.googleTruth)
-    val mockitoKotlin = dep("com.nhaarman.mockitokotlin2", "mockito-kotlin", Vers.mockitoKotlin)
+
+    val mockitoCore2 = dep("org.mockito", "mockito-core", Vers.mockitoCore2)
+    val mockitoCore3 = dep("org.mockito", "mockito-core", Vers.mockitoCore3)
+    val mockitoCore4 = dep("org.mockito", "mockito-core", Vers.mockitoCore4)
+    val mockitoCore = mockitoCore4
+
+    val mockitoKotlin2 = dep("org.mockito.kotlin", "mockito-kotlin", Vers.mockitoKotlin2)
+    val mockitoKotlin3 = dep("org.mockito.kotlin", "mockito-kotlin", Vers.mockitoKotlin3)
+    val mockitoKotlin4 = dep("org.mockito.kotlin", "mockito-kotlin", Vers.mockitoKotlin4)
+    val mockitoKotlin = mockitoKotlin4
+
+    val mockitoAndroid2 = dep("org.mockito", "mockito-android", Vers.mockitoAndroid2)
+    val mockitoAndroid3 = dep("org.mockito", "mockito-android", Vers.mockitoAndroid3)
+    val mockitoAndroid4 = dep("org.mockito", "mockito-android", Vers.mockitoAndroid4)
+    val mockitoAndroid = mockitoAndroid4
+
     val androidxTestRunner = dep("androidx.test", "runner", Vers.androidxTestRunner)
     val androidxTestRules = dep("androidx.test", "rules", Vers.androidxTestRules)
     val androidxTestExtTruth = dep("androidx.test.ext", "truth", Vers.androidxTestExtTruth)

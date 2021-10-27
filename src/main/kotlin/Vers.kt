@@ -47,7 +47,7 @@ object Vers {
     // Cannot convert string value 'UNIFIED_TEST_PLATFORM' to an enum value of type 'com.android.builder.model.AndroidGradlePluginProjectFlags$BooleanFlag'
 //    const val androidGradlePlugin = "7.1.0-alpha12"
 //    const val androidGradlePlugin = "7.1.0-alpha13"
-    const val androidGradlePlugin = "7.2.0-alpha02"
+    const val androidGradlePlugin = "7.2.0-alpha03"
     // https://maven.google.com/web/index.html#com.android.tools.build:gradle
     // https://developer.android.com/studio/releases/gradle-plugin
     // https://google.github.io/android-gradle-dsl/
@@ -210,8 +210,24 @@ object Vers {
     const val paperwork = "1.2.7"
     // https://github.com/zsoltk/paperwork/releases
 
-    const val mockitoKotlin = "3.2.0"
+    const val mockitoCore2 = "2.28.2"
+    const val mockitoCore3 = "3.12.4"
+    const val mockitoCore4 = "4.0.0"
+    const val mockitoCore = mockitoCore4
+    // https://github.com/mockito/mockito/releases
+    // https://search.maven.org/artifact/org.mockito/mockito-core
+
+    const val mockitoKotlin2 = "2.2.11"
+    const val mockitoKotlin3 = "3.2.0"
+    const val mockitoKotlin4 = "4.0.0"
+    const val mockitoKotlin = mockitoKotlin4
     // https://github.com/nhaarman/mockito-kotlin/releases
+
+    const val mockitoAndroid2 = "2.28.2"
+    const val mockitoAndroid3 = "3.12.4"
+    const val mockitoAndroid4 = "4.0.0"
+    const val mockitoAndroid = mockitoAndroid4
+    // https://search.maven.org/artifact/org.mockito/mockito-android
 
     const val junit4 = "4.13.2"
     // https://github.com/junit-team/junit4/releases
