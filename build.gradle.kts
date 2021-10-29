@@ -12,7 +12,7 @@ repositories {
 }
 
 dependencies {
-    api("com.squareup.okio:okio:3.0.0-alpha.10")
+    api("com.squareup.okio:okio:3.0.0")
 
     testImplementation("com.github.langara.USpek:uspekx:0.0.17") // TODO: try to use Deps.uspek (see comment in settings)
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1") // TODO: try to use Deps.uspek (see comment in settings)

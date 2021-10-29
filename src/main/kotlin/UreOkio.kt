@@ -1,8 +1,5 @@
-@file:OptIn(ExperimentalFileSystem::class)
-
 package pl.mareklangiewicz.deps
 
-import okio.ExperimentalFileSystem
 import okio.FileSystem
 import okio.IOException
 import okio.Path

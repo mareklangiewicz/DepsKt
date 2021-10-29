@@ -1,6 +1,5 @@
 package pl.mareklangiewicz.deps
 
-import okio.ExperimentalFileSystem
 import okio.FileSystem.Companion.SYSTEM
 import okio.Path.Companion.toPath
 import org.junit.jupiter.api.Disabled
@@ -59,7 +58,6 @@ class UreTests {
         }
     }
 
-    @OptIn(ExperimentalFileSystem::class)
     @TestFactory
     @Disabled("Has side effects in other project.")
     fun testCommentOutMultiplatformStuff() = uspekTestFactory {
@@ -71,7 +69,6 @@ class UreTests {
         }
     }
 
-    @OptIn(ExperimentalFileSystem::class)
     @TestFactory
     @Disabled("Has side effects in other project.")
     fun testUndoCommentOutMultiplatformStuff() = uspekTestFactory {
