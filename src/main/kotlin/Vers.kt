@@ -16,7 +16,7 @@ object Vers {
 
     const val kotlin14 = "1.4.32"
 
-    const val kotlinxDateTime = "0.3.0"
+    const val kotlinxDateTime = "0.3.1"
     // https://github.com/Kotlin/kotlinx-datetime
 
     const val kotlinxCoroutines = "1.5.2"
