@@ -271,7 +271,7 @@ object Vers {
     const val recyclerui = "0.0.2"
     // https://github.com/langara/recyclerui/releases
 
-    const val ktor = "1.6.3"
+    const val ktor = "1.6.5"
     // https://maven.pkg.jetbrains.space/public/p/ktor/eap/io/ktor/ktor/
     // https://github.com/ktorio/ktor
     // https://github.com/ktorio/ktor/releases
