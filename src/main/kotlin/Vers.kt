@@ -5,16 +5,17 @@
  */
 object Vers {
     const val kotlinMajor = 1
-    const val kotlinMinor = 5
-    const val kotlinPatch = 31
+    const val kotlinMinor = 6
+    const val kotlinPatch = 0
     const val kotlinSuffix = "" // with hyphen (like "-2")
 
-    const val kotlin = "$kotlinMajor.$kotlinMinor.$kotlinPatch$kotlinSuffix"
+    const val kotlin14 = "1.4.32"
+    const val kotlin15 = "1.5.31"
+    const val kotlin16 = "$kotlinMajor.$kotlinMinor.$kotlinPatch$kotlinSuffix"
+    const val kotlin = kotlin15 // waiting for compose to switch to 1.6
     // https://kotlinlang.org/docs/releases.html#release-details
     // https://github.com/JetBrains/kotlin/blob/master/ChangeLog.md
     // https://github.com/JetBrains/kotlin/releases
-
-    const val kotlin14 = "1.4.32"
 
     const val kotlinxDateTime = "0.3.1"
     // https://github.com/Kotlin/kotlinx-datetime
@@ -22,10 +23,22 @@ object Vers {
     const val kotlinxCoroutines = "1.5.2"
     // https://github.com/Kotlin/kotlinx.coroutines/releases
 
+    const val kotlinxSerialization = "1.3.1"
+    // https://github.com/Kotlin/kotlinx.serialization/releases
+
+    const val kotlinxAtomicFu = "0.17.0"
+    // https://github.com/Kotlin/kotlinx.atomicfu/releases
+
+    const val kotlinxHtml = "0.7.2"
+    // https://github.com/Kotlin/kotlinx.html/releases
+
+    const val kotlinxNodeJs = "0.0.7"
+    // https://github.com/Kotlin/kotlinx-nodejs
+
     // just a reference - not useful in typical cases
     const val gradle5 = "5.6.4"
     const val gradle6 = "6.8.3"
-    const val gradle7 = "7.3-rc-3"
+    const val gradle7 = "7.3"
     const val gradle = gradle7
     // https://gradle.org/releases/
     // https://services.gradle.org/versions
@@ -47,7 +60,7 @@ object Vers {
     // Cannot convert string value 'UNIFIED_TEST_PLATFORM' to an enum value of type 'com.android.builder.model.AndroidGradlePluginProjectFlags$BooleanFlag'
 //    const val androidGradlePlugin = "7.1.0-alpha12"
 //    const val androidGradlePlugin = "7.1.0-alpha13"
-    const val androidGradlePlugin = "7.2.0-alpha04"
+    const val androidGradlePlugin = "7.2.0-alpha05"
     // https://maven.google.com/web/index.html#com.android.tools.build:gradle
     // https://developer.android.com/studio/releases/gradle-plugin
     // https://google.github.io/android-gradle-dsl/
