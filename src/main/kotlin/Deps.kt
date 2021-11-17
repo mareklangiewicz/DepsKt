@@ -8,6 +8,7 @@
 object Deps {
     val kotlinGradlePlugin = dep("org.jetbrains.kotlin", "kotlin-gradle-plugin", Vers.kotlin)
     val kotlin14GradlePlugin = dep("org.jetbrains.kotlin", "kotlin-gradle-plugin", Vers.kotlin14)
+    val kotlin15GradlePlugin = dep("org.jetbrains.kotlin", "kotlin-gradle-plugin", Vers.kotlin15)
     val androidGradlePlugin = dep("com.android.tools.build", "gradle", Vers.androidGradlePlugin)
 
     @Deprecated("Use https://developer.android.com/studio/build/maven-publish-plugin")
@@ -45,6 +46,18 @@ object Deps {
     val composeAndroidUiTooling = dep("androidx.compose.ui", "ui-tooling", Vers.composeAndroid)
 
     val kotlinxDateTime = dep("org.jetbrains.kotlinx", "kotlinx-datetime", Vers.kotlinxDateTime)
+
+    val kotlinxSerializationCore = dep("org.jetbrains.kotlinx", "kotlinx-serialization-core", Vers.kotlinxSerialization)
+    val kotlinxSerializationJson = dep("org.jetbrains.kotlinx", "kotlinx-serialization-json", Vers.kotlinxSerialization)
+
+    val kotlinxAtomicFuCommon = dep("org.jetbrains.kotlinx", "atomicfu-common", Vers.kotlinxAtomicFu)
+    val kotlinxAtomicFuGradlePlugin = dep("org.jetbrains.kotlinx", "atomicfu-gradle-plugin", Vers.kotlinxAtomicFu)
+
+    val kotlinxHtml = dep("org.jetbrains.kotlinx", "kotlinx-html", Vers.kotlinxHtml)
+    val kotlinxHtmlJvm = dep("org.jetbrains.kotlinx", "kotlinx-html-jvm", Vers.kotlinxHtml)
+    val kotlinxHtmlJs = dep("org.jetbrains.kotlinx", "kotlinx-html-js", Vers.kotlinxHtml)
+
+    val kotlinxNodeJs = dep("org.jetbrains.kotlinx", "kotlinx-nodejs", Vers.kotlinxNodeJs)
 
     val kotlinxCoroutinesCommon = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-core-common", Vers.kotlinxCoroutines)
     val kotlinxCoroutinesCore = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-core", Vers.kotlinxCoroutines)
