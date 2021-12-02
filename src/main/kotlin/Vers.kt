@@ -44,8 +44,8 @@ object Vers {
     // https://services.gradle.org/versions
     // https://services.gradle.org/versions/current
 
-    const val composeDesktopVerMain = "1.0.0-rc3"
-    const val composeDesktopVerEdge = "1.0.0-rc3"
+    const val composeDesktopVerMain = "1.0.0"
+    const val composeDesktopVerEdge = "1.0.0"
     const val composeDesktop = composeDesktopVerEdge
 
     // https://github.com/JetBrains/compose-jb
@@ -53,7 +53,7 @@ object Vers {
     // https://github.com/JetBrains/compose-jb/blob/master/CHANGELOG.md
 
 
-    const val composeAndroid = "1.1.0-beta03"
+    const val composeAndroid = "1.1.0-beta04"
     // https://developer.android.com/jetpack/androidx/releases/compose
 
     // FIXME_later: Check again. I get some gragle sync error with alpha13: (and on 7.2.0-alpha01) (probably Intellij andro plugin has to be updated)
