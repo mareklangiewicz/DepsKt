@@ -32,7 +32,7 @@ tasks.test {
 }
 
 group = "pl.mareklangiewicz.deps"
-version = "0.2.11"
+version = "0.2.12"
 
 
 gradlePlugin {
