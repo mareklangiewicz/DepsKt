@@ -38,7 +38,7 @@ object Vers {
     // just a reference - not useful in typical cases
     const val gradle5 = "5.6.4"
     const val gradle6 = "6.8.3"
-    const val gradle7 = "7.3"
+    const val gradle7 = "7.3.1"
     const val gradle = gradle7
     // https://gradle.org/releases/
     // https://services.gradle.org/versions

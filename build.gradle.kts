@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.5.31"
+    kotlin("jvm") version "1.6.0"
     id("java-gradle-plugin")
     id("maven-publish")
     id("com.gradle.plugin-publish") version "0.16.0"
@@ -23,7 +23,7 @@ dependencies {
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
     kotlinOptions {
         freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlin.RequiresOptIn"
-        jvmTarget = "16"
+        jvmTarget = "17"
     }
 }
 
@@ -32,7 +32,7 @@ tasks.test {
 }
 
 group = "pl.mareklangiewicz.deps"
-version = "0.2.12"
+version = "0.2.13"
 
 
 gradlePlugin {
