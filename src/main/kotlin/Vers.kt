@@ -45,7 +45,7 @@ object Vers {
     // https://services.gradle.org/versions/current
 
     const val composeDesktopVerMain = "1.0.0"
-    const val composeDesktopVerEdge = "1.0.0"
+    const val composeDesktopVerEdge = "1.0.1-rc1"
     const val composeDesktop = composeDesktopVerEdge
 
     // https://github.com/JetBrains/compose-jb
@@ -110,11 +110,10 @@ object Vers {
     const val androidxFlexboxLayout = "3.0.0"
     // https://github.com/google/flexbox-layout/releases
 
-    const val androidxLifecycle = "2.3.1"
-//    const val androidxLifecycle = "2.4.0-rc01"
+    const val androidxLifecycle = "2.4.0"
     // https://developer.android.com/jetpack/androidx/releases/lifecycle
 
-    const val androidxRoom = "2.4.0-beta01"
+    const val androidxRoom = "2.4.0-rc01"
     // https://developer.android.com/jetpack/androidx/releases/room
 
     const val androidxTest = "1.4.0"
@@ -130,7 +129,7 @@ object Vers {
     // https://github.com/elpassion/android-commons/releases
 
     const val rxjava2 = "2.2.16"
-    const val rxjava3 = "3.1.1"
+    const val rxjava3 = "3.1.3"
     // https://github.com/ReactiveX/RxJava/releases
 
     const val rxkotlin = "3.0.1"
@@ -162,7 +161,7 @@ object Vers {
     // https://square.github.io/okio/changelog/
     // https://square.github.io/okio/#releases
 
-    const val dbusJava = "3.3.0"
+    const val dbusJava = "3.3.1"
     // https://github.com/hypfvieh/dbus-java
 
     const val dbusKotlin = "0.0.08"
@@ -175,26 +174,26 @@ object Vers {
     const val slf4jSimple = "2.0.0-alpha5"
     // https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
 
-    const val log4j2 = "2.14.1"
+    const val log4j2 = "2.16.0"
     // http://logging.apache.org/log4j/2.x/maven-artifacts.html
 
     const val googleServicesPlugin = "4.3.10"
     // https://developers.google.com/android/guides/google-services-plugin
 
-    const val googlePlayServicesBase = "17.6.0"
+    const val googlePlayServicesBase = "18.0.0"
     // https://developers.google.com/android/guides/setup
     // https://developers.google.com/android/guides/releases
 
-    const val firebaseGitlive = "1.4.2"
+    const val firebaseGitlive = "1.4.3"
     // https://github.com/GitLiveApp/firebase-kotlin-sdk
 
-    const val firebaseCrashlyticsPlugin = "2.7.1"
+    const val firebaseCrashlyticsPlugin = "2.8.1"
     // https://firebase.google.com/docs/crashlytics/get-started?platform=android
 
     const val firebaseAdmin = "8.1.0"
     // https://firebase.google.com/docs/admin/setup
 
-    const val firebaseAndroidBoM = "28.4.1"
+    const val firebaseAndroidBoM = "29.0.2"
     // https://firebase.google.com/support/release-notes/android
     // https://firebase.google.com/docs/android/setup#add-sdks
 
@@ -203,10 +202,10 @@ object Vers {
     // https://github.com/firebase/FirebaseUI-Android/releases
     // https://firebase.google.com/docs/auth/android/firebaseui
 
-    const val googleCloudBoM = "23.0.0"
+    const val googleCloudBoM = "24.0.0"
     // https://github.com/GoogleCloudPlatform/cloud-opensource-java/wiki/The-Google-Cloud-Platform-Libraries-BOM
 
-    const val googleAuth = "1.1.0"
+    const val googleAuth = "1.3.0"
     // https://github.com/googleapis/google-auth-library-java
 
     const val picasso = "2.8"
@@ -225,7 +224,7 @@ object Vers {
 
     const val mockitoCore2 = "2.28.2"
     const val mockitoCore3 = "3.12.4"
-    const val mockitoCore4 = "4.0.0"
+    const val mockitoCore4 = "4.1.0"
     const val mockitoCore = mockitoCore4
     // https://github.com/mockito/mockito/releases
     // https://search.maven.org/artifact/org.mockito/mockito-core
@@ -238,14 +237,14 @@ object Vers {
 
     const val mockitoAndroid2 = "2.28.2"
     const val mockitoAndroid3 = "3.12.4"
-    const val mockitoAndroid4 = "4.0.0"
+    const val mockitoAndroid4 = "4.1.0"
     const val mockitoAndroid = mockitoAndroid4
     // https://search.maven.org/artifact/org.mockito/mockito-android
 
     const val junit4 = "4.13.2"
     // https://github.com/junit-team/junit4/releases
 
-    const val junit5 = "5.8.1"
+    const val junit5 = "5.8.2"
     // https://github.com/junit-team/junit5/releases
 
     const val googleTruth = "1.1.3"
@@ -254,7 +253,7 @@ object Vers {
     const val androidTestRunnerClass = "androidx.test.runner.AndroidJUnitRunner"
     // https://developer.android.com/reference/android/support/test/runner/AndroidJUnitRunner.html
 
-    const val realm = "10.8.0"
+    const val realm = "10.9.0"
     // https://docs.mongodb.com/realm/sdk/android/install/
 
     const val tuplek = "0.0.04"
@@ -284,7 +283,7 @@ object Vers {
     const val recyclerui = "0.0.2"
     // https://github.com/langara/recyclerui/releases
 
-    const val ktor = "1.6.5"
+    const val ktor = "1.6.7"
     // https://maven.pkg.jetbrains.space/public/p/ktor/eap/io/ktor/ktor/
     // https://github.com/ktorio/ktor
     // https://github.com/ktorio/ktor/releases
