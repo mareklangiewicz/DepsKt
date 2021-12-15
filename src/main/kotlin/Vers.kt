@@ -6,13 +6,13 @@
 object Vers {
     const val kotlinMajor = 1
     const val kotlinMinor = 6
-    const val kotlinPatch = 0
-    const val kotlinSuffix = "" // with hyphen (like "-2")
+    const val kotlinPatch = 10
+    const val kotlinSuffix = "-RC" // with hyphen (like "-2")
 
     const val kotlin14 = "1.4.32"
     const val kotlin15 = "1.5.31"
     const val kotlin16 = "$kotlinMajor.$kotlinMinor.$kotlinPatch$kotlinSuffix"
-    const val kotlin = kotlin15 // waiting for compose to switch to 1.6
+    const val kotlin = kotlin16 // waiting for compose to switch to 1.6
     // https://kotlinlang.org/docs/releases.html#release-details
     // https://github.com/JetBrains/kotlin/blob/master/ChangeLog.md
     // https://github.com/JetBrains/kotlin/releases
