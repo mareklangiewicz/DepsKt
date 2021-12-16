@@ -7,7 +7,7 @@ object Vers {
     const val kotlinMajor = 1
     const val kotlinMinor = 6
     const val kotlinPatch = 10
-    const val kotlinSuffix = "-RC" // with hyphen (like "-2")
+    const val kotlinSuffix = "" // with hyphen (like "-2")
 
     const val kotlin14 = "1.4.32"
     const val kotlin15 = "1.5.31"
@@ -20,7 +20,7 @@ object Vers {
     const val kotlinxDateTime = "0.3.1"
     // https://github.com/Kotlin/kotlinx-datetime
 
-    const val kotlinxCoroutines = "1.5.2"
+    const val kotlinxCoroutines = "1.6.0-RC2"
     // https://github.com/Kotlin/kotlinx.coroutines/releases
 
     const val kotlinxSerialization = "1.3.1"
@@ -38,14 +38,14 @@ object Vers {
     // just a reference - not useful in typical cases
     const val gradle5 = "5.6.4"
     const val gradle6 = "6.8.3"
-    const val gradle7 = "7.3.1"
+    const val gradle7 = "7.3.2"
     const val gradle = gradle7
     // https://gradle.org/releases/
     // https://services.gradle.org/versions
     // https://services.gradle.org/versions/current
 
     const val composeDesktopVerMain = "1.0.0"
-    const val composeDesktopVerEdge = "1.0.1-rc1"
+    const val composeDesktopVerEdge = "1.0.1-rc2"
     const val composeDesktop = composeDesktopVerEdge
 
     // https://github.com/JetBrains/compose-jb
@@ -53,14 +53,14 @@ object Vers {
     // https://github.com/JetBrains/compose-jb/blob/master/CHANGELOG.md
 
 
-    const val composeAndroid = "1.1.0-beta04"
+    const val composeAndroid = "1.1.0-rc01"
     // https://developer.android.com/jetpack/androidx/releases/compose
 
     // FIXME_later: Check again. I get some gragle sync error with alpha13: (and on 7.2.0-alpha01) (probably Intellij andro plugin has to be updated)
     // Cannot convert string value 'UNIFIED_TEST_PLATFORM' to an enum value of type 'com.android.builder.model.AndroidGradlePluginProjectFlags$BooleanFlag'
 //    const val androidGradlePlugin = "7.1.0-alpha12"
 //    const val androidGradlePlugin = "7.1.0-alpha13"
-    const val androidGradlePlugin = "7.2.0-alpha05"
+    const val androidGradlePlugin = "7.2.0-alpha06"
     // https://maven.google.com/web/index.html#com.android.tools.build:gradle
     // https://developer.android.com/studio/releases/gradle-plugin
     // https://google.github.io/android-gradle-dsl/
