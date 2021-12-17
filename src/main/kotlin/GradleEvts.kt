@@ -130,7 +130,7 @@ fun Gradle.logSomeEventsToFile(
             //val proj = it.result.gradle?.rootProject?.name // This is problematic: https://github.com/gradle/gradle/issues/16532
             val act = it.result.action
             val fail = it.result.failure
-            println("Logging some GradleEvents to $file finished. (act: $act; fail?: $fail)")
+            println("Logging some GradleEvts to $file finished. (act: $act; fail?: $fail)")
         }
     }
     addListener(listener)

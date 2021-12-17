@@ -116,7 +116,7 @@ object Vers {
     const val androidxRoom = "2.4.0-rc01"
     // https://developer.android.com/jetpack/androidx/releases/room
 
-    const val androidxTest = "1.4.0"
+    const val androidxTest = "1.4.1-alpha03"
     const val androidxTestRunner = androidxTest
     const val androidxTestRules = androidxTest
     const val androidxTestExtTruth = "1.5.0-alpha03"
