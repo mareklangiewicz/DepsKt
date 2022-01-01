@@ -90,28 +90,28 @@ object Deps {
     val androidMaterial = dep("com.google.android.material", "material", Vers.androidMaterial)
     val androidxAnnotation = dep("androidx.annotation", "annotation", Vers.androidxAnnotation)
     val androidxPreference = dep("androidx.preference", "preference", Vers.androidxPreference)
-    val androidxPreferenceKtx = androidxPreference + ("name" to "preference-ktx")
+    val androidxPreferenceKtx = androidxPreference withName "preference-ktx"
     val androidxBrowser = dep("androidx.browser", "browser", Vers.androidxBrowser)
     val androidxBrowserHelper = dep("com.google.androidbrowserhelper", "androidbrowserhelper", Vers.androidxBrowserHelper)
     val androidxPercentLayout = dep("androidx.percentlayout", "percentlayout", Vers.androidxPercentLayout)
     val androidxFlexboxLayout = dep("com.google.android", "flexbox", Vers.androidxFlexboxLayout)
     val androidxConstraint1 = dep("androidx.constraintlayout", "constraintlayout", Vers.androidxConstraint1)
-    val androidxConstraint2 = androidxConstraint1 + ("version" to Vers.androidxConstraint2)
+    val androidxConstraint2 = androidxConstraint1 ver Vers.androidxConstraint2
     val androidxConstraint = androidxConstraint1
-    val androidxConstraint1Solver = androidxConstraint1 + ("name" to "constraintlayout-solver")
-    val androidxConstraint2Solver = androidxConstraint1Solver + ("version" to Vers.androidxConstraint2)
+    val androidxConstraint1Solver = androidxConstraint1  withName "constraintlayout-solver"
+    val androidxConstraint2Solver = androidxConstraint1Solver ver Vers.androidxConstraint2
     val androidxConstraintSolver = androidxConstraint1Solver
 
     val androidxLifecycleCommon = dep("androidx.lifecycle", "lifecycle-common", Vers.androidxLifecycle)
-    val androidxLifecycleCompiler = androidxLifecycleCommon + ("name" to "lifecycle-compiler")
-    val androidxLifecycleExtensions = androidxLifecycleCommon + ("name" to "lifecycle-extensions")
-    val androidxLifecycleRuntime = androidxLifecycleCommon + ("name" to "lifecycle-runtime")
-    val androidxLifecycleRuntimeKtx = androidxLifecycleCommon + ("name" to "lifecycle-runtime-ktx")
-    val androidxLifecycleLiveData = androidxLifecycleCommon + ("name" to "lifecycle-livedata")
-    val androidxLifecycleLiveDataCore = androidxLifecycleCommon + ("name" to "lifecycle-livedata-core")
-    val androidxLifecycleLiveDataCoreKtx = androidxLifecycleCommon + ("name" to "lifecycle-livedata-core-ktx")
-    val androidxLifecycleViewModel = androidxLifecycleCommon + ("name" to "lifecycle-viewmodel")
-    val androidxLifecycleViewModelKtx = androidxLifecycleCommon + ("name" to "lifecycle-viewmodel-ktx")
+    val androidxLifecycleCompiler = androidxLifecycleCommon  withName "lifecycle-compiler"
+    val androidxLifecycleExtensions = androidxLifecycleCommon  withName "lifecycle-extensions"
+    val androidxLifecycleRuntime = androidxLifecycleCommon  withName "lifecycle-runtime"
+    val androidxLifecycleRuntimeKtx = androidxLifecycleCommon  withName "lifecycle-runtime-ktx"
+    val androidxLifecycleLiveData = androidxLifecycleCommon  withName "lifecycle-livedata"
+    val androidxLifecycleLiveDataCore = androidxLifecycleCommon  withName "lifecycle-livedata-core"
+    val androidxLifecycleLiveDataCoreKtx = androidxLifecycleCommon  withName "lifecycle-livedata-core-ktx"
+    val androidxLifecycleViewModel = androidxLifecycleCommon  withName "lifecycle-viewmodel"
+    val androidxLifecycleViewModelKtx = androidxLifecycleCommon  withName "lifecycle-viewmodel-ktx"
 
     val androidxRoomRuntime = dep("androidx.room", "room-runtime", Vers.androidxRoom)
     val androidxRoomCompiler = dep("androidx.room", "room-compiler", Vers.androidxRoom)
@@ -142,14 +142,14 @@ object Deps {
     val rxandroid = dep("io.reactivex.rxjava3", "rxandroid", Vers.rxandroid)
     val rxrelay = dep("com.jakewharton.rxrelay3", "rxrelay", Vers.rxrelay)
     val rxbinding = dep("com.jakewharton.rxbinding4", "rxbinding", Vers.rxbinding)
-    val rxbindingCore = rxbinding + ("name" to "rxbinding-core")
-    val rxbindingAppCompat = rxbinding + ("name" to "rxbinding-appcompat")
-    val rxbindingDrawerLayout = rxbinding + ("name" to "rxbinding-drawerlayout")
-    val rxbindingLeanback = rxbinding + ("name" to "rxbinding-leanback")
-    val rxbindingRecyclerView = rxbinding + ("name" to "rxbinding-recyclerview")
-    val rxbindingSlidingPaneLayout = rxbinding + ("name" to "rxbinding-slidingpanelayout")
-    val rxbindingSwipeRefreshLayout = rxbinding + ("name" to "rxbinding-swiperefreshlayout")
-    val rxbindingViewPager = rxbinding + ("name" to "rxbinding-viewpager")
+    val rxbindingCore = rxbinding  withName "rxbinding-core"
+    val rxbindingAppCompat = rxbinding  withName "rxbinding-appcompat"
+    val rxbindingDrawerLayout = rxbinding  withName "rxbinding-drawerlayout"
+    val rxbindingLeanback = rxbinding  withName "rxbinding-leanback"
+    val rxbindingRecyclerView = rxbinding  withName "rxbinding-recyclerview"
+    val rxbindingSlidingPaneLayout = rxbinding  withName "rxbinding-slidingpanelayout"
+    val rxbindingSwipeRefreshLayout = rxbinding  withName "rxbinding-swiperefreshlayout"
+    val rxbindingViewPager = rxbinding  withName "rxbinding-viewpager"
     val rxlifecycleComponents = dep("com.trello.rxlifecycle2", "rxlifecycle-components", Vers.rxlifecycle)
     val rxlifecycleKotlin = dep("com.trello.rxlifecycle2", "rxlifecycle-kotlin", Vers.rxlifecycle)
     val retrofit = dep("com.squareup.retrofit2", "retrofit", Vers.retrofit)
@@ -279,5 +279,12 @@ object Deps {
 
     private fun dep(group: String, name: String, version: String? = null): String =
         if (version === null) "$group:$name" else "$group:$name:$version"
+    
+    private infix fun String.withName(name: String) = split(":")
+        .mapIndexed { i: Int, s: String -> if (i == 1) name else s }
+        .joinToString(":")
+    
+    private infix fun String.ver(v: String) = (split(":").take(2) + v)
+        .joinToString(":")
 }
 
