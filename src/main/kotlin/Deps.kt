@@ -6,74 +6,76 @@
  * @see <a href="https://github.com/langara/deps.kt">https://github.com/langara/deps.kt</a>
  */
 object Deps {
-    val kotlinGradlePlugin = dep("org.jetbrains.kotlin", "kotlin-gradle-plugin", Vers.kotlin)
-    val kotlin14GradlePlugin = dep("org.jetbrains.kotlin", "kotlin-gradle-plugin", Vers.kotlin14)
-    val kotlin15GradlePlugin = dep("org.jetbrains.kotlin", "kotlin-gradle-plugin", Vers.kotlin15)
+    private val kotlin = dep("org.jetbrains.kotlin", "", Vers.kotlin)
+    val kotlinGradlePlugin = kotlin withName "kotlin-gradle-plugin"
+    val kotlin14GradlePlugin = kotlinGradlePlugin ver Vers.kotlin14
+    val kotlin15GradlePlugin = kotlinGradlePlugin ver Vers.kotlin15
     val androidGradlePlugin = dep("com.android.tools.build", "gradle", Vers.androidGradlePlugin)
 
     @Deprecated("Use https://developer.android.com/studio/build/maven-publish-plugin")
     val androidMavenGradlePlugin = dep("com.github.dcendents", "android-maven-gradle-plugin", Vers.androidMavenGradlePlugin)
 
-    val kotlinStdlib7 = dep("org.jetbrains.kotlin", "kotlin-stdlib-jdk7", Vers.kotlin)
-    val kotlinStdlib8 = dep("org.jetbrains.kotlin", "kotlin-stdlib-jdk8", Vers.kotlin)
-    val kotlinScriptRuntime = dep("org.jetbrains.kotlin", "kotlin-script-runtime", Vers.kotlin)
-    val kotlinReflect = dep("org.jetbrains.kotlin", "kotlin-reflect", Vers.kotlin)
-    val kotlinTestCommon = dep("org.jetbrains.kotlin", "kotlin-test-common", Vers.kotlin)
-    val kotlinTestAnnotationsCommon = dep("org.jetbrains.kotlin", "kotlin-test-annotations-common", Vers.kotlin)
-    val kotlinTestJUnit = dep("org.jetbrains.kotlin", "kotlin-test-junit", Vers.kotlin)
-    val kotlinTestJs = dep("org.jetbrains.kotlin", "kotlin-test-js", Vers.kotlin)
+    val kotlinStdlib7 = kotlin withName "kotlin-stdlib-jdk7"
+    val kotlinStdlib8 = kotlin withName "kotlin-stdlib-jdk8"
+    val kotlinScriptRuntime = kotlin withName "kotlin-script-runtime"
+    val kotlinReflect = kotlin withName "kotlin-reflect"
+    val kotlinTestCommon = kotlin withName "kotlin-test-common"
+    val kotlinTestAnnotationsCommon = kotlin withName "kotlin-test-annotations-common"
+    val kotlinTestJUnit = kotlin withName "kotlin-test-junit"
+    val kotlinTestJs = kotlin withName "kotlin-test-js"
 
     val composeDesktopGradlePlugin = dep("org.jetbrains.compose", "compose-gradle-plugin", Vers.composeDesktop)
     val composeAndroidAnimation = dep("androidx.compose.animation", "animation", Vers.composeAndroid)
-    val composeAndroidAnimationCore = dep("androidx.compose.animation", "animation-core", Vers.composeAndroid)
+    val composeAndroidAnimationCore = composeAndroidAnimation withName "animation-core"
     val composeAndroidCompiler = dep("androidx.compose.compiler", "compiler", Vers.composeAndroid)
     val composeAndroidFoundation = dep("androidx.compose.foundation", "foundation", Vers.composeAndroid)
-    val composeAndroidFoundationLayout = dep("androidx.compose.foundation", "foundation-layout", Vers.composeAndroid)
-    val composeAndroidFoundationShape = dep("androidx.compose.foundation", "foundation-shape", Vers.composeAndroid)
-    val composeAndroidFoundationText = dep("androidx.compose.foundation", "foundation-text", Vers.composeAndroid)
+    val composeAndroidFoundationLayout = composeAndroidFoundation withName "foundation-layout"
+    val composeAndroidFoundationShape = composeAndroidFoundation withName "foundation-shape"
+    val composeAndroidFoundationText = composeAndroidFoundation withName "foundation-text"
     val composeAndroidMaterial = dep("androidx.compose.material", "material", Vers.composeAndroid)
-    val composeAndroidMaterialIcons = dep("androidx.compose.material", "material-icons", Vers.composeAndroid)
+    val composeAndroidMaterialIcons = composeAndroidMaterial withName "material-icons"
     val composeAndroidRuntime = dep("androidx.compose.runtime", "runtime", Vers.composeAndroid)
-    val composeAndroidRuntimeDispatch = dep("androidx.compose.runtime", "runtime-dispatch", Vers.composeAndroid)
-    val composeAndroidRuntimeFrames = dep("androidx.compose.runtime", "runtime-frames", Vers.composeAndroid)
+    val composeAndroidRuntimeDispatch = composeAndroidRuntime withName "runtime-dispatch"
+    val composeAndroidRuntimeFrames = composeAndroidRuntime withName "runtime-frames"
     val composeAndroidUi = dep("androidx.compose.ui", "ui", Vers.composeAndroid)
-    val composeAndroidUiGeometry = dep("androidx.compose.ui", "ui-geometry", Vers.composeAndroid)
-    val composeAndroidUiGraphics = dep("androidx.compose.ui", "ui-graphics", Vers.composeAndroid)
-    val composeAndroidUiPlatform = dep("androidx.compose.ui", "ui-platform", Vers.composeAndroid)
-    val composeAndroidUiTest = dep("androidx.compose.ui", "ui-test", Vers.composeAndroid)
-    val composeAndroidUiTestJUnit4 = dep("androidx.compose.ui", "ui-test-junit4", Vers.composeAndroid)
-    val composeAndroidUiTestManifest = dep("androidx.compose.ui", "ui-test-manifest", Vers.composeAndroid)
-    val composeAndroidUiTooling = dep("androidx.compose.ui", "ui-tooling", Vers.composeAndroid)
+    val composeAndroidUiGeometry = composeAndroidUi withName "ui-geometry"
+    val composeAndroidUiGraphics = composeAndroidUi withName "ui-graphics"
+    val composeAndroidUiPlatform = composeAndroidUi withName "ui-platform"
+    val composeAndroidUiTest = composeAndroidUi withName "ui-test"
+    val composeAndroidUiTestJUnit4 = composeAndroidUi withName "ui-test-junit4"
+    val composeAndroidUiTestManifest = composeAndroidUi withName "ui-test-manifest"
+    val composeAndroidUiTooling = composeAndroidUi withName "ui-tooling"
 
     val kotlinxDateTime = dep("org.jetbrains.kotlinx", "kotlinx-datetime", Vers.kotlinxDateTime)
 
     val kotlinxSerializationCore = dep("org.jetbrains.kotlinx", "kotlinx-serialization-core", Vers.kotlinxSerialization)
-    val kotlinxSerializationJson = dep("org.jetbrains.kotlinx", "kotlinx-serialization-json", Vers.kotlinxSerialization)
+    val kotlinxSerializationJson = kotlinxSerializationCore withName "kotlinx-serialization-json"
 
     val kotlinxAtomicFuCommon = dep("org.jetbrains.kotlinx", "atomicfu-common", Vers.kotlinxAtomicFu)
-    val kotlinxAtomicFuGradlePlugin = dep("org.jetbrains.kotlinx", "atomicfu-gradle-plugin", Vers.kotlinxAtomicFu)
+    val kotlinxAtomicFuGradlePlugin = kotlinxAtomicFuCommon withName "atomicfu-gradle-plugin"
 
     val kotlinxHtml = dep("org.jetbrains.kotlinx", "kotlinx-html", Vers.kotlinxHtml)
-    val kotlinxHtmlJvm = dep("org.jetbrains.kotlinx", "kotlinx-html-jvm", Vers.kotlinxHtml)
-    val kotlinxHtmlJs = dep("org.jetbrains.kotlinx", "kotlinx-html-js", Vers.kotlinxHtml)
+    val kotlinxHtmlJvm = kotlinxHtml withName "kotlinx-html-jvm"
+    val kotlinxHtmlJs = kotlinxHtml withName "kotlinx-html-js"
 
     val kotlinxNodeJs = dep("org.jetbrains.kotlinx", "kotlinx-nodejs", Vers.kotlinxNodeJs)
 
-    val kotlinxCoroutinesCommon = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-core-common", Vers.kotlinxCoroutines)
-    val kotlinxCoroutinesCore = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-core", Vers.kotlinxCoroutines)
-    val kotlinxCoroutinesDebug = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-debug", Vers.kotlinxCoroutines)
-    val kotlinxCoroutinesTest = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-test", Vers.kotlinxCoroutines)
-    val kotlinxCoroutinesReactive = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-reactive", Vers.kotlinxCoroutines)
-    val kotlinxCoroutinesReactor = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-reactor", Vers.kotlinxCoroutines)
-    val kotlinxCoroutinesRx2 = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-rx2", Vers.kotlinxCoroutines)
-    val kotlinxCoroutinesRx3 = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-rx3", Vers.kotlinxCoroutines)
-    val kotlinxCoroutinesAndroid = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-android", Vers.kotlinxCoroutines)
-    val kotlinxCoroutinesJavaFx = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-javafx", Vers.kotlinxCoroutines)
-    val kotlinxCoroutinesSwing = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-swing", Vers.kotlinxCoroutines)
-    val kotlinxCoroutinesJdk8 = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-jdk8", Vers.kotlinxCoroutines)
-    val kotlinxCoroutinesGuava = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-quava", Vers.kotlinxCoroutines)
-    val kotlinxCoroutinesSlf4j = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-slf4j", Vers.kotlinxCoroutines)
-    val kotlinxCoroutinesPlayServices = dep("org.jetbrains.kotlinx", "kotlinx-coroutines-play-services", Vers.kotlinxCoroutines)
+    private val kotlinxCoroutines = dep("org.jetbrains.kotlinx", "", Vers.kotlinxCoroutines)
+    val kotlinxCoroutinesCommon = kotlinxCoroutines withName "kotlinx-coroutines-core-common"
+    val kotlinxCoroutinesCore = kotlinxCoroutines withName "kotlinx-coroutines-core"
+    val kotlinxCoroutinesDebug = kotlinxCoroutines withName "kotlinx-coroutines-debug"
+    val kotlinxCoroutinesTest = kotlinxCoroutines withName "kotlinx-coroutines-test"
+    val kotlinxCoroutinesReactive = kotlinxCoroutines withName "kotlinx-coroutines-reactive"
+    val kotlinxCoroutinesReactor = kotlinxCoroutines withName "kotlinx-coroutines-reactor"
+    val kotlinxCoroutinesRx2 = kotlinxCoroutines withName "kotlinx-coroutines-rx2"
+    val kotlinxCoroutinesRx3 = kotlinxCoroutines withName "kotlinx-coroutines-rx3"
+    val kotlinxCoroutinesAndroid = kotlinxCoroutines withName "kotlinx-coroutines-android"
+    val kotlinxCoroutinesJavaFx = kotlinxCoroutines withName "kotlinx-coroutines-javafx"
+    val kotlinxCoroutinesSwing = kotlinxCoroutines withName "kotlinx-coroutines-swing"
+    val kotlinxCoroutinesJdk8 = kotlinxCoroutines withName "kotlinx-coroutines-jdk8"
+    val kotlinxCoroutinesGuava = kotlinxCoroutines withName "kotlinx-coroutines-quava"
+    val kotlinxCoroutinesSlf4j = kotlinxCoroutines withName "kotlinx-coroutines-slf4j"
+    val kotlinxCoroutinesPlayServices = kotlinxCoroutines withName "kotlinx-coroutines-play-services"
 
     // just a reference - not useful in typical cases
     const val gradleBaseUrl = "https://services.gradle.org/distributions"
@@ -266,10 +268,11 @@ object Deps {
     val ktorClientCore = dep("io.ktor", "ktor-client-core", Vers.ktor)
     val ktorClientCio = dep("io.ktor", "ktor-client-cio", Vers.ktor)
     val ktorClientApache = dep("io.ktor", "ktor-client-apache", Vers.ktor)
-    val rsocketCore = dep("io.rsocket.kotlin", "rsocket-core", Vers.rsocket)
-    val rsocketKtor = dep("io.rsocket.kotlin", "rsocket-transport-ktor", Vers.rsocket)
-    val rsocketKtorClient = dep("io.rsocket.kotlin", "rsocket-transport-ktor-client", Vers.rsocket)
-    val rsocketKtorServer = dep("io.rsocket.kotlin", "rsocket-transport-ktor-server", Vers.rsocket)
+    private val rsocket = dep("io.rsocket.kotlin", "", Vers.rsocket)
+    val rsocketCore = rsocket withName "rsocket-core"
+    val rsocketKtor = rsocket withName "rsocket-transport-ktor"
+    val rsocketKtorClient = rsocket withName "rsocket-transport-ktor-client"
+    val rsocketKtorServer = rsocket withName "rsocket-transport-ktor-server"
     val splitties = dep("com.louiscad.splitties", "splitties-fun-pack-android-material-components-with-views-dsl", Vers.splitties)
     val docoptJava = dep("com.offbytwo", "docopt", Vers.docoptJava)
 
@@ -279,11 +282,11 @@ object Deps {
 
     private fun dep(group: String, name: String, version: String? = null): String =
         if (version === null) "$group:$name" else "$group:$name:$version"
-    
+
     private infix fun String.withName(name: String) = split(":")
         .mapIndexed { i: Int, s: String -> if (i == 1) name else s }
         .joinToString(":")
-    
+
     private infix fun String.ver(v: String) = (split(":").take(2) + v)
         .joinToString(":")
 }
