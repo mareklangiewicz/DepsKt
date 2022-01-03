@@ -32,6 +32,7 @@ object Deps {
     val composeAndroidFoundationLayout = composeAndroidFoundation withName "foundation-layout"
     val composeAndroidFoundationShape = composeAndroidFoundation withName "foundation-shape"
     val composeAndroidFoundationText = composeAndroidFoundation withName "foundation-text"
+    val composeAndroidMaterial3 = dep("androidx.compose.material3", "material3", Vers.composeAndroidMaterial3)
     val composeAndroidMaterial = dep("androidx.compose.material", "material", Vers.composeAndroid)
     val composeAndroidMaterialIcons = composeAndroidMaterial withName "material-icons"
     val composeAndroidRuntime = dep("androidx.compose.runtime", "runtime", Vers.composeAndroid)

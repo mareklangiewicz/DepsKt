@@ -54,6 +54,7 @@ object Vers {
 
 
     const val composeAndroid = "1.1.0-rc01"
+    const val composeAndroidMaterial3 = "1.0.0-alpha02"
     // https://developer.android.com/jetpack/androidx/releases/compose
 
     // FIXME_later: Check again. I get some gragle sync error with alpha13: (and on 7.2.0-alpha01) (probably Intellij andro plugin has to be updated)
