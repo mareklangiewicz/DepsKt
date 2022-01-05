@@ -21,15 +21,14 @@ fun FileSystem.findAllFiles(path: Path, maxDepth: Int = Int.MAX_VALUE): Sequence
     }
 }
 
+fun Sequence<Path>.filterExt(ext: String) = filter { it.name.endsWith(".$ext") }
 
-fun FileSystem.findAllKtFiles(root: Path, maxDepth: Int = Int.MAX_VALUE) =
-    findAllFiles(root, maxDepth).filter { it.name.endsWith(".kt") }
 
 fun FileSystem.commentOutMultiplatformFunInEachKtFile(root: Path) =
-    findAllKtFiles(root).forEach { commentOutMultiplatformFunInFile(it) }
+    findAllFiles(root).filterExt("kt").forEach { commentOutMultiplatformFunInFile(it) }
 
 fun FileSystem.undoCommentOutMultiplatformFunInEachKtFile(root: Path) =
-    findAllKtFiles(root).forEach { undoCommentOutMultiplatformFunInFile(it) }
+    findAllFiles(root).filterExt("kt").forEach { undoCommentOutMultiplatformFunInFile(it) }
 
 
 /**
@@ -38,14 +37,14 @@ fun FileSystem.undoCommentOutMultiplatformFunInEachKtFile(root: Path) =
  * nothing is written to file system if it's null;
  * @param process file content transformation; if it returns null - output file is not even touched
  */
-fun FileSystem.processEachKtFile(
+fun FileSystem.processEachFile(
     inputRootDir: Path,
     outputRootDir: Path? = null,
     process: (input: Path, output: Path?, content: String) -> String?
 ) {
     require(inputRootDir.isAbsolute)
     require(outputRootDir?.isAbsolute ?: true)
-    findAllKtFiles(inputRootDir).forEach { inputPath ->
+    findAllFiles(inputRootDir).forEach { inputPath ->
         val outputPath = if (outputRootDir == null) null else outputRootDir / inputPath.asRelativeTo(inputRootDir)
         processFile(inputPath, outputPath) { content -> process(inputPath, outputPath, content) }
     }
