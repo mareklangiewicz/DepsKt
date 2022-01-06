@@ -248,6 +248,7 @@ val ff = ch("\\f")
 val alert = ch("\\a")
 val esc = ch("\\e")
 
+val dot = ch("\\.")
 val any = ch(".")
 
 val digit = ch("\\d")
