@@ -27,7 +27,7 @@ object Deps {
     val composeDesktopGradlePlugin = dep("org.jetbrains.compose", "compose-gradle-plugin", Vers.composeDesktop)
     val composeAndroidAnimation = dep("androidx.compose.animation", "animation", Vers.composeAndroid)
     val composeAndroidAnimationCore = composeAndroidAnimation withName "animation-core"
-    val composeAndroidCompiler = dep("androidx.compose.compiler", "compiler", Vers.composeAndroid)
+    val composeAndroidCompiler = dep("androidx.compose.compiler", "compiler", Vers.composeAndroidCompiler)
     val composeAndroidFoundation = dep("androidx.compose.foundation", "foundation", Vers.composeAndroid)
     val composeAndroidFoundationLayout = composeAndroidFoundation withName "foundation-layout"
     val composeAndroidFoundationShape = composeAndroidFoundation withName "foundation-shape"

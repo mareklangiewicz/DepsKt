@@ -54,6 +54,7 @@ object Vers {
 
 
     const val composeAndroid = "1.1.0-rc01"
+    const val composeAndroidCompiler = "1.1.0-rc02"
     const val composeAndroidMaterial3 = "1.0.0-alpha02"
     // https://developer.android.com/jetpack/androidx/releases/compose
 
