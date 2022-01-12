@@ -17,7 +17,7 @@ object Vers {
     // https://github.com/JetBrains/kotlin/blob/master/ChangeLog.md
     // https://github.com/JetBrains/kotlin/releases
 
-    const val kotlinxDateTime = "0.3.1"
+    const val kotlinxDateTime = "0.3.2"
     // https://github.com/Kotlin/kotlinx-datetime
 
     const val kotlinxCoroutines = "1.6.0"
@@ -38,7 +38,7 @@ object Vers {
     // just a reference - not useful in typical cases
     const val gradle5 = "5.6.4"
     const val gradle6 = "6.8.3"
-    const val gradle7 = "7.3.2"
+    const val gradle7 = "7.3.3"
     const val gradle = gradle7
     // https://gradle.org/releases/
     // https://services.gradle.org/versions
@@ -53,16 +53,16 @@ object Vers {
     // https://github.com/JetBrains/compose-jb/blob/master/CHANGELOG.md
 
 
-    const val composeAndroid = "1.1.0-rc01"
-    const val composeAndroidCompiler = "1.1.0-rc02"
-    const val composeAndroidMaterial3 = "1.0.0-alpha02"
+    const val composeAndroid = "1.2.0-alpha01"
+    const val composeAndroidCompiler = composeAndroid
+    const val composeAndroidMaterial3 = "1.0.0-alpha03"
     // https://developer.android.com/jetpack/androidx/releases/compose
 
     // FIXME_later: Check again. I get some gragle sync error with alpha13: (and on 7.2.0-alpha01) (probably Intellij andro plugin has to be updated)
     // Cannot convert string value 'UNIFIED_TEST_PLATFORM' to an enum value of type 'com.android.builder.model.AndroidGradlePluginProjectFlags$BooleanFlag'
 //    const val androidGradlePlugin = "7.1.0-alpha12"
 //    const val androidGradlePlugin = "7.1.0-alpha13"
-    const val androidGradlePlugin = "7.2.0-alpha06"
+    const val androidGradlePlugin = "7.2.0-alpha07"
     // https://maven.google.com/web/index.html#com.android.tools.build:gradle
     // https://developer.android.com/studio/releases/gradle-plugin
     // https://google.github.io/android-gradle-dsl/
