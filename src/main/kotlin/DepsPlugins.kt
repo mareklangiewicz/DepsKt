@@ -16,9 +16,9 @@ class DepsPlugin: Plugin<Project> {
 
 fun Settings.includeAndSubstituteBuild(rootProject: Any, substituteModule: String, withProject: String) {
     includeBuild(rootProject) {
-        it.dependencySubstitution {
-            it.substitute(it.module(substituteModule))
-                .using(it.project(withProject))
+        dependencySubstitution {
+            substitute(module(substituteModule))
+                .using(project(withProject))
         }
     }
 }
