@@ -31,8 +31,9 @@ fun RepositoryHandler.defaultRepositories(
     if (withJitpack) maven(Repos.jitpack)
 }
 
-//fun Project.configureKotlinCompileTasks() {
-//    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+// FIXME_later: terrible issues with adding dependencies for this..
+//fun TaskCollection<Task>.configureKotlinCompileTasks() {
+//    withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
 //        kotlinOptions {
 //            jvmTarget = defaultJvmVersion
 //            freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlin.RequiresOptIn"
