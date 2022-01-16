@@ -3,7 +3,6 @@
 import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.dsl.CommonExtension
 import com.android.build.api.dsl.LibraryExtension
-import org.gradle.api.JavaVersion
 import org.gradle.api.artifacts.dsl.RepositoryHandler
 import org.gradle.kotlin.dsl.*
 
@@ -34,7 +33,7 @@ fun RepositoryHandler.defaultRepositories(
 //fun Project.configureKotlinCompileTasks() {
 //    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
 //        kotlinOptions {
-//            jvmTarget = "16"
+//            jvmTarget = defaultJvmVersion
 //            freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlin.RequiresOptIn"
 //        }
 //    }
@@ -44,11 +43,11 @@ fun ApplicationExtension.defaultAndroid(
     appId: String,
     appVerCode: Int = 1,
     appVerName: String = defaultVerName(patch = appVerCode),
-    javaVersion: JavaVersion = JavaVersion.VERSION_16,
+    jvmVersion: String = defaultJvmVersion,
     withCompose: Boolean = false,
 ) {
     compileSdk = Vers.androidCompileSdk
-    defaultCompileOptions(javaVersion)
+    defaultCompileOptions(jvmVersion)
     defaultDefaultConfig(appId, appVerCode, appVerName)
     defaultBuildTypes()
     if (withCompose) defaultComposeStuff()
@@ -56,11 +55,11 @@ fun ApplicationExtension.defaultAndroid(
 }
 
 fun LibraryExtension.defaultAndroid(
-    javaVersion: JavaVersion = JavaVersion.VERSION_16,
+    jvmVersion: String = defaultJvmVersion,
     withCompose: Boolean = false,
 ) {
     compileSdk = Vers.androidCompileSdk
-    defaultCompileOptions(javaVersion)
+    defaultCompileOptions(jvmVersion)
     defaultDefaultConfig()
     defaultBuildTypes()
     if (withCompose) defaultComposeStuff()
@@ -90,11 +89,13 @@ fun LibraryExtension.defaultDefaultConfig() = defaultConfig {
 }
 
 fun CommonExtension<*,*,*,*>.defaultCompileOptions(
-    javaVersion: JavaVersion = JavaVersion.VERSION_16
+    jvmVersion: String = defaultJvmVersion
 ) = compileOptions {
-    sourceCompatibility = javaVersion
-    targetCompatibility = javaVersion
+    sourceCompatibility(jvmVersion)
+    targetCompatibility(jvmVersion)
 }
+
+val defaultJvmVersion = "11" // I get warnings when set to 16 (with android compose app)
 
 fun ApplicationExtension.defaultBuildTypes() = buildTypes { release { isMinifyEnabled = false } }
 fun LibraryExtension.defaultBuildTypes() = buildTypes { release { isMinifyEnabled = false } }
