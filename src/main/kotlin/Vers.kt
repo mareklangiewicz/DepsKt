@@ -72,7 +72,7 @@ object Vers {
 
     const val androidCompileSdk = 31
     const val androidMinSdk = 26
-    const val androidTargetSdk = 31
+    const val androidTargetSdk = androidCompileSdk
     // https://developer.android.com/about/dashboards/index.html
     // https://source.android.com/setup/start/build-numbers
 
