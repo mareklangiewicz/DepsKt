@@ -1,5 +1,7 @@
 @file:Suppress("unused", "DEPRECATION", "SpellCheckingInspection", "MemberVisibilityCanBePrivate")
 
+import org.gradle.api.artifacts.dsl.DependencyHandler
+
 /**
  * Common dependencies for java/kotlin/android projects
  *
@@ -292,5 +294,9 @@ object Deps {
 
     private infix fun String.ver(v: String) = (split(":").take(2) + v)
         .joinToString(":")
+
+    fun DependencyHandler.addAll(configuration: String, vararg deps: String) {
+        for (dep in deps) add(configuration, dep)
+    }
 }
 

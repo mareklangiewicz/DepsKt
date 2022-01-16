@@ -3,6 +3,7 @@
 import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.dsl.CommonExtension
 import com.android.build.api.dsl.LibraryExtension
+import org.gradle.api.artifacts.dsl.DependencyHandler
 import org.gradle.api.artifacts.dsl.RepositoryHandler
 import org.gradle.kotlin.dsl.*
 
@@ -115,4 +116,48 @@ fun CommonExtension<*,*,*,*>.defaultPackagingOptions() = packagingOptions {
     resources.excludes.add("META-INF/licenses/**")
     resources.excludes.add("META-INF/AL2.0")
     resources.excludes.add("META-INF/LGPL2.1")
+}
+
+fun DependencyHandler.defaultAndroidDeps(
+    configuration: String = "implementation",
+    withCompose: Boolean = false,
+) = Deps.run {
+    addAll(configuration,
+        androidxCoreKtx,
+        androidxAppcompat,
+        androidMaterial,
+        androidxLifecycleCompiler,
+        androidxLifecycleRuntimeKtx,
+    )
+    if (withCompose) addAll(configuration,
+        composeAndroidUi,
+        composeAndroidUiTooling,
+        composeAndroidMaterial3,
+        composeAndroidMaterial,
+        androidxActivityCompose,
+    )
+}
+
+fun DependencyHandler.defaultAndroidTestDeps(
+    configuration: String = "testImplementation",
+    withCompose: Boolean = false,
+) = Deps.run {
+    addAll(configuration,
+//        uspekx,
+        junit4,
+        androidxEspressoCore,
+        googleTruth,
+        androidxTestRules,
+        androidxTestRunner,
+        androidxTestExtTruth,
+        androidxTestExtJUnit,
+        "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0",
+//        mockitoKotlin2,
+         mockitoAndroid
+    )
+    if (withCompose) addAll(configuration,
+        composeAndroidUiTest,
+        composeAndroidUiTestJUnit4,
+        composeAndroidUiTestManifest,
+    )
 }
