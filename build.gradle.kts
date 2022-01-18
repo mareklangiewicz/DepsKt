@@ -14,7 +14,6 @@ repositories {
 
 dependencies {
     api("com.squareup.okio:okio:3.0.0")
-    api("com.android.tools.build:gradle-api:7.2.0-alpha07")
 //    gradleApi()
 
     testImplementation("com.github.langara.USpek:uspekx:0.0.17") // TODO: try to use Deps.uspek (see comment in settings)

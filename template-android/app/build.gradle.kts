@@ -1,0 +1,164 @@
+import com.android.build.api.dsl.ApplicationExtension
+import com.android.build.api.dsl.CommonExtension
+import com.android.build.api.dsl.LibraryExtension
+import org.gradle.api.artifacts.dsl.DependencyHandler
+import org.gradle.api.artifacts.dsl.RepositoryHandler
+import org.gradle.kotlin.dsl.*
+
+plugins {
+    id("com.android.application") version Vers.androidGradlePlugin
+    kotlin("android") version Vers.kotlin
+}
+
+buildscript {
+    defaultAndroBuildScript()
+}
+
+repositories { defaultRepositories() }
+
+android { defaultAndroid("pl.mareklangiewicz.templateandroid", withCompose = true) }
+
+dependencies {
+    implementation(project(":lib"))
+    defaultAndroidDeps(withCompose = true)
+    defaultAndroidTestDeps(withCompose = true)
+}
+
+group = "pl.mareklangiewicz.templateandroid"
+version = "0.0.01"
+
+tasks.configureKotlinCompileTasks()
+
+
+
+
+
+// region Android Build Template
+
+fun TaskCollection<Task>.configureKotlinCompileTasks() {
+    withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+        kotlinOptions {
+            jvmTarget = Vers.defaultJvm
+            freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlin.RequiresOptIn"
+        }
+    }
+}
+
+fun ApplicationExtension.defaultAndroid(
+    appId: String,
+    appVerCode: Int = 1,
+    appVerName: String = defaultVerName(patch = appVerCode),
+    jvmVersion: String = Vers.defaultJvm,
+    withCompose: Boolean = false,
+) {
+    compileSdk = Vers.androidCompileSdk
+    defaultCompileOptions(jvmVersion)
+    defaultDefaultConfig(appId, appVerCode, appVerName)
+    defaultBuildTypes()
+    if (withCompose) defaultComposeStuff()
+    defaultPackagingOptions()
+}
+
+fun LibraryExtension.defaultAndroid(
+    jvmVersion: String = Vers.defaultJvm,
+    withCompose: Boolean = false,
+) {
+    compileSdk = Vers.androidCompileSdk
+    defaultCompileOptions(jvmVersion)
+    defaultDefaultConfig()
+    defaultBuildTypes()
+    if (withCompose) defaultComposeStuff()
+    defaultPackagingOptions()
+}
+
+fun ApplicationExtension.defaultDefaultConfig(
+    appId: String,
+    appVerCode: Int = 1,
+    appVerName: String = defaultVerName(patch = appVerCode)
+) = defaultConfig {
+    applicationId = appId
+    minSdk = Vers.androidMinSdk
+    targetSdk = Vers.androidTargetSdk
+    versionCode = appVerCode
+    versionName = appVerName
+    testInstrumentationRunner = Vers.androidTestRunnerClass
+}
+
+fun LibraryExtension.defaultDefaultConfig() = defaultConfig {
+    minSdk = Vers.androidMinSdk
+    targetSdk = Vers.androidTargetSdk
+    testInstrumentationRunner = Vers.androidTestRunnerClass
+}
+
+fun CommonExtension<*,*,*,*>.defaultCompileOptions(
+    jvmVersion: String = Vers.defaultJvm
+) = compileOptions {
+    sourceCompatibility(jvmVersion)
+    targetCompatibility(jvmVersion)
+}
+
+fun ApplicationExtension.defaultBuildTypes() = buildTypes { release { isMinifyEnabled = false } }
+fun LibraryExtension.defaultBuildTypes() = buildTypes { release { isMinifyEnabled = false } }
+
+fun CommonExtension<*,*,*,*>.defaultComposeStuff() {
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = Vers.composeAndroidCompiler
+    }
+}
+
+fun CommonExtension<*,*,*,*>.defaultPackagingOptions() = packagingOptions {
+    resources.excludes.add("**/*.md")
+    resources.excludes.add("**/attach_hotspot_windows.dll")
+    resources.excludes.add("META-INF/licenses/**")
+    resources.excludes.add("META-INF/AL2.0")
+    resources.excludes.add("META-INF/LGPL2.1")
+}
+
+fun DependencyHandler.defaultAndroidDeps(
+    configuration: String = "implementation",
+    withCompose: Boolean = false,
+) = Deps.run {
+    addAll(configuration,
+        androidxCoreKtx,
+        androidxAppcompat,
+        androidMaterial,
+        androidxLifecycleCompiler,
+        androidxLifecycleRuntimeKtx,
+    )
+    if (withCompose) addAll(configuration,
+        composeAndroidUi,
+        composeAndroidUiTooling,
+        composeAndroidMaterial3,
+        composeAndroidMaterial,
+        androidxActivityCompose,
+    )
+}
+
+fun DependencyHandler.defaultAndroidTestDeps(
+    configuration: String = "testImplementation",
+    withCompose: Boolean = false,
+) = Deps.run {
+    addAll(configuration,
+//        uspekx,
+        junit4,
+        androidxEspressoCore,
+        googleTruth,
+        androidxTestRules,
+        androidxTestRunner,
+        androidxTestExtTruth,
+        androidxTestExtJUnit,
+        "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0",
+//        mockitoKotlin2,
+        mockitoAndroid
+    )
+    if (withCompose) addAll(configuration,
+        composeAndroidUiTest,
+        composeAndroidUiTestJUnit4,
+        composeAndroidUiTestManifest,
+    )
+}
+
+// endregion Android Build Template

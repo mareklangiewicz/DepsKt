@@ -17,6 +17,8 @@ object Vers {
     // https://github.com/JetBrains/kotlin/blob/master/ChangeLog.md
     // https://github.com/JetBrains/kotlin/releases
 
+    const val defaultJvm = "11" // I had terrible issues with "16" (andro compose project)
+
     const val kotlinxDateTime = "0.3.2"
     // https://github.com/Kotlin/kotlinx-datetime
 
