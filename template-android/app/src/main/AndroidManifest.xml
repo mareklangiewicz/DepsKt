@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="pl.mareklangiewicz.template.android">
+    package="pl.mareklangiewicz.template.android.app">
 
     <application
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TemplateAndroid">
         <activity
-            android:name=".MainActivity"
+            android:name="pl.mareklangiewicz.template.android.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.TemplateAndroid">
             <intent-filter>

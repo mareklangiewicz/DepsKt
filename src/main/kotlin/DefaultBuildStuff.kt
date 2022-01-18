@@ -38,3 +38,57 @@ fun DependencyHandler.defaultAndroBuildScriptDeps(
 fun defaultVerName(major: Int = 0, minor: Int = 0, patch: Int = 1, patchLen: Int = 2) =
     "$major.$minor." + patch.toString().padStart(patchLen, '0')
 
+
+
+fun DependencyHandler.defaultAndroidDeps(
+    configuration: String = "implementation",
+    withCompose: Boolean = false,
+) = Deps.run {
+    addAll(configuration,
+        androidxCoreKtx,
+        androidxAppcompat,
+        androidMaterial,
+        androidxLifecycleCompiler,
+        androidxLifecycleRuntimeKtx,
+    )
+    if (withCompose) addAll(configuration,
+        composeAndroidUi,
+        composeAndroidUiTooling,
+        composeAndroidMaterial3,
+        composeAndroidMaterial,
+        androidxActivityCompose,
+    )
+}
+
+fun DependencyHandler.defaultAndroidTestDeps(
+    configuration: String = "testImplementation",
+    withCompose: Boolean = false,
+) = Deps.run {
+    addAll(configuration,
+//        uspekx,
+        junit4,
+        androidxEspressoCore,
+        googleTruth,
+        androidxTestRules,
+        androidxTestRunner,
+        androidxTestExtTruth,
+        androidxTestExtJUnit,
+        "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0",
+//        mockitoKotlin2,
+        mockitoAndroid
+    )
+    if (withCompose) addAll(configuration,
+        composeAndroidUiTest,
+        composeAndroidUiTestJUnit4,
+        composeAndroidUiTestManifest,
+    )
+}
+
+fun MutableSet<String>.defaultAndroidExcludedResources() = addAll(listOf(
+    "**/*.md",
+    "**/attach_hotspot_windows.dll",
+    "META-INF/licenses/**",
+    "META-INF/AL2.0",
+    "META-INF/LGPL2.1",
+))
+
