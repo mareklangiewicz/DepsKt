@@ -1,27 +1,20 @@
 import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.dsl.CommonExtension
 import com.android.build.api.dsl.LibraryExtension
-import org.gradle.api.artifacts.dsl.DependencyHandler
-import org.gradle.api.artifacts.dsl.RepositoryHandler
-import org.gradle.kotlin.dsl.*
 
 plugins {
     id("com.android.application") version Vers.androidGradlePlugin
     kotlin("android") version Vers.kotlin
 }
 
-buildscript {
-    defaultAndroBuildScript()
-}
+repositories { defaultRepos() }
 
-repositories { defaultRepositories() }
-
-android { defaultAndroid("pl.mareklangiewicz.templateandroid", withCompose = true) }
+android { defaultAndro("pl.mareklangiewicz.templateandroid", withCompose = true) }
 
 dependencies {
     implementation(project(":lib"))
-    defaultAndroidDeps(withCompose = true)
-    defaultAndroidTestDeps(withCompose = true)
+    defaultAndroDeps(withCompose = true)
+    defaultAndroTestDeps(withCompose = true)
 }
 
 group = "pl.mareklangiewicz.templateandroid"
@@ -44,7 +37,7 @@ fun TaskCollection<Task>.configureKotlinCompileTasks() {
     }
 }
 
-fun ApplicationExtension.defaultAndroid(
+fun ApplicationExtension.defaultAndro(
     appId: String,
     appVerCode: Int = 1,
     appVerName: String = defaultVerName(patch = appVerCode),
@@ -59,7 +52,7 @@ fun ApplicationExtension.defaultAndroid(
     defaultPackagingOptions()
 }
 
-fun LibraryExtension.defaultAndroid(
+fun LibraryExtension.defaultAndro(
     jvmVersion: String = Vers.defaultJvm,
     withCompose: Boolean = false,
 ) {
@@ -110,6 +103,6 @@ fun CommonExtension<*,*,*,*>.defaultComposeStuff() {
 }
 
 fun CommonExtension<*,*,*,*>.defaultPackagingOptions() = packagingOptions {
-    resources.excludes.defaultAndroidExcludedResources()
+    resources.excludes.defaultAndroExcludedResources()
 }
 // endregion Android Build Template

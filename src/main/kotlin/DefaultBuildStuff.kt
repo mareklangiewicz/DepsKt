@@ -4,7 +4,7 @@ import org.gradle.kotlin.dsl.ScriptHandlerScope
 import org.gradle.kotlin.dsl.maven
 import org.gradle.kotlin.dsl.repositories
 
-fun RepositoryHandler.defaultRepositories(
+fun RepositoryHandler.defaultRepos(
     withGradle: Boolean = false,
     withGoogle: Boolean = true,
     withMavenCentral: Boolean = true,
@@ -18,10 +18,10 @@ fun RepositoryHandler.defaultRepositories(
     if (withJitpack) maven(Repos.jitpack)
 }
 
-
+/** usually not needed - see template-android */
 fun ScriptHandlerScope.defaultAndroBuildScript() {
     repositories {
-        defaultRepositories(withGradle = true)
+        defaultRepos(withGradle = true)
     }
     dependencies {
         defaultAndroBuildScriptDeps()
@@ -29,6 +29,7 @@ fun ScriptHandlerScope.defaultAndroBuildScript() {
 }
 
 
+/** usually not needed - see template-android */
 fun DependencyHandler.defaultAndroBuildScriptDeps(
 ) {
     add("classpath", Deps.kotlinGradlePlugin)
@@ -40,7 +41,7 @@ fun defaultVerName(major: Int = 0, minor: Int = 0, patch: Int = 1, patchLen: Int
 
 
 
-fun DependencyHandler.defaultAndroidDeps(
+fun DependencyHandler.defaultAndroDeps(
     configuration: String = "implementation",
     withCompose: Boolean = false,
 ) = Deps.run {
@@ -60,7 +61,7 @@ fun DependencyHandler.defaultAndroidDeps(
     )
 }
 
-fun DependencyHandler.defaultAndroidTestDeps(
+fun DependencyHandler.defaultAndroTestDeps(
     configuration: String = "testImplementation",
     withCompose: Boolean = false,
 ) = Deps.run {
@@ -84,7 +85,7 @@ fun DependencyHandler.defaultAndroidTestDeps(
     )
 }
 
-fun MutableSet<String>.defaultAndroidExcludedResources() = addAll(listOf(
+fun MutableSet<String>.defaultAndroExcludedResources() = addAll(listOf(
     "**/*.md",
     "**/attach_hotspot_windows.dll",
     "META-INF/licenses/**",
