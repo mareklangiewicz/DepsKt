@@ -64,17 +64,17 @@ fun ureSimpleCommentLine(ureContent: Ure) = ure {
     1 of ureBlankRestOfLine()
 }
 
-fun ureRegion(content: Ure, name: String? = null) = ure {
-    1 of ureSimpleCommentLine(ureKeyAndOptValue("region", name))
+fun ureRegion(content: Ure, regionName: Ure? = null) = ure {
+    1 of ureSimpleCommentLine(ureKeywordAndOptArg(ir("region"), regionName))
     1 of content
-    1 of ureSimpleCommentLine(ureKeyAndOptValue("endregion", name))
+    1 of ureSimpleCommentLine(ureKeywordAndOptArg(ir("endregion"), regionName))
 }
 
-private fun ureKeyAndOptValue(key: String, value: String? = null, separator: String = " ") = ure {
-    1 of ir(key)
-    value?.let {
-        1 of ir(separator)
-        1 of ir(it)
+private fun ureKeywordAndOptArg(keyword: Ure, arg: Ure? = null, separator: Ure = space) = ure {
+    1 of keyword
+    arg?.let {
+        1 of separator
+        1 of it
     }
 }
 
