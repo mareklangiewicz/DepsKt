@@ -1,4 +1,4 @@
-package pl.mareklangiewicz.deps
+package pl.mareklangiewicz.ure
 
 val ureExpectFun = ure {
     val keyword = ure {
@@ -63,6 +63,40 @@ fun ureCommentedOutArea(area: Ure) = ure {
         0..MAX of space
         1 of ir("\\*/")
         1 of EOL
+    }
+}
+
+fun ureBlankStartOfLine() = ure {
+    1 of BOL
+    0..MAX of space
+}
+
+fun ureBlankRestOfLine(withLF: Boolean = true, withCR: Boolean = false) = ure {
+    0..MAX of space
+    1 of EOL
+    if (withCR) 1 of cr
+    if (withLF) 1 of lf
+}
+
+fun ureSimpleCommentLine(ureContent: Ure) = ure {
+    1 of ureBlankStartOfLine()
+    1 of ir("//")
+    0..MAX of space
+    1 of ureContent
+    1 of ureBlankRestOfLine()
+}
+
+fun ureRegion(content: Ure, name: String? = null) = ure {
+    1 of ureSimpleCommentLine(ureKeyAndOptValue("region", name))
+    1 of content
+    1 of ureSimpleCommentLine(ureKeyAndOptValue("endregion", name))
+}
+
+private fun ureKeyAndOptValue(key: String, value: String? = null, separator: String = " ") = ure {
+    1 of ir(key)
+    value?.let {
+        1 of ir(separator)
+        1 of ir(it)
     }
 }
 

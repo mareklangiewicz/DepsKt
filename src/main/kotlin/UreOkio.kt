@@ -8,7 +8,7 @@ import okio.buffer
 import org.gradle.api.Project
 import kotlin.io.println
 import kotlin.io.use
-import kotlin.text.RegexOption.MULTILINE
+import pl.mareklangiewicz.ure.*
 
 @Throws(IOException::class)
 fun FileSystem.findAllFiles(path: Path, maxDepth: Int = Int.MAX_VALUE): Sequence<Path> {
@@ -94,8 +94,7 @@ fun FileSystem.commentOutMultiplatformFunInFile(file: Path) {
 
     processFile(file, file) { input ->
 
-        val output1 = ureNotCommentedOutArea(ureExpectFun)
-            .compile(MULTILINE)
+        val output1 = ureNotCommentedOutArea(ureExpectFun).compile()
             .replace(input) { "/*\n${it.value}\n*/" }
 
         val output2 = ir("actual fun").compile().replace(output1) { "/*actual*/ fun" }
@@ -112,12 +111,8 @@ fun FileSystem.undoCommentOutMultiplatformFunInFile(file: Path) {
 
         val myFun = ure("myFun") { 1 of ureExpectFun }
 
-        val output1 = ureCommentedOutArea(myFun)
-            .compile(MULTILINE)
-            .replace(input) { it.groups["myFun"]!!.value }
+        val output1 = ureCommentedOutArea(myFun).compile().replace(input) { it["myFun"] }
 
-        ir("/\\*actual\\*/")
-            .compile()
-            .replace(output1) { "actual" }
+        ir("/\\*actual\\*/").compile().replace(output1) { "actual" }
     }
 }

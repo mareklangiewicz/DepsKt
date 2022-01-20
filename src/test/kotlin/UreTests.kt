@@ -1,4 +1,4 @@
-package pl.mareklangiewicz.deps
+package pl.mareklangiewicz.ure
 
 import okio.FileSystem.Companion.SYSTEM
 import okio.Path.Companion.toPath
@@ -7,6 +7,7 @@ import org.junit.jupiter.api.TestFactory
 import pl.mareklangiewicz.uspek.eq
 import pl.mareklangiewicz.uspek.o
 import pl.mareklangiewicz.uspek.uspekTestFactory
+import pl.mareklangiewicz.deps.*
 
 class UreTests {
     @TestFactory

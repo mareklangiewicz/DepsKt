@@ -1,5 +1,7 @@
-package pl.mareklangiewicz.deps
+package pl.mareklangiewicz.ure
 
+import org.intellij.lang.annotations.Language
+import kotlin.reflect.KProperty
 import kotlin.text.RegexOption.CANON_EQ
 import kotlin.text.RegexOption.COMMENTS
 import kotlin.text.RegexOption.DOT_MATCHES_ALL
@@ -50,14 +52,19 @@ sealed class Ure {
     /**
      * Optionally wraps in non-capturing group before generating IR, so it's safe to use with quantifiers, unions, etc
      * Wrapping is done only when needed. For example concatenation(product) with more than one element is wrapped.
-     * TODO: think more (and test!) cases when product list is empty! (and we apply some quantifiers etc)
-     * UPDATE: I guess it's enough to obey invariant that ClosedIR can never be empty.
+     * (UreProduct with 0 elements also is wrapped - so f. e. external UreQuantifier only catches empty product)
      */
     abstract fun toClosedIR(): UreIR
 
-    fun compile(vararg options: RegexOption) = Regex(toIR(), options.toSet())
+    /** It sets MULTILINE by default */
+    fun compile(vararg options: RegexOption) = compileMultiLine(*options)
 
-    // TODO_later: experiment with dropping U (Micro) prefix in classes nested in URegEx when I have some examples working.
+    fun compileMultiLine(vararg options: RegexOption) = Regex(toIR(), setOf(MULTILINE) + options)
+
+    fun compileSingleLine(vararg options: RegexOption) = Regex(toIR(), options.toSet())
+        .also { check(MULTILINE !in options) }
+
+    // TODO_later: experiment with dropping U (Micro) prefix in classes nested in Ure when I have some examples working.
     // I'm leaving it for now to have more unique names and less clashes, but design is not final.
 }
 
@@ -70,7 +77,10 @@ data class UreProduct(val product: MutableList<Ure> = mutableListOf()): Ure() {
     override fun toIR() = product.joinToString(separator = "") { it.toIR() }
     override fun toClosedIR() = when (product.size) {
         1 -> product[0].toClosedIR()
-        else -> ncapt(this).toIR()
+        else -> ncapt(this).toIR() // in 0 case we also want ncapt!
+            // To avoid issues when outside operator captures something else instead of empty product.
+            // I decided NOT to throw IllegalStateError in 0 case so we can always monitor IR in half-baked UREs.
+            // (like when creating UREs with some compose UI)
     }
     class UreX(val times: IntRange, val reluctant: Boolean, val possessive: Boolean)
     fun x(times: IntRange, reluctant: Boolean = false, possessive: Boolean = false) = UreX(times, reluctant, possessive)
@@ -166,6 +176,11 @@ data class UreGroupRef(val nr: Int? = null, val name: String? = null): Ure() {
 
 const val MAX = Int.MAX_VALUE
 
+/**
+ * By default it's "greedy" - tries to match as many "times" as possible. But backs off one by one if it would fail.
+ * @param reluctant - Tries to eat as little "times" as possible. Opposite to default "greedy" behavior.
+ * @param possessive - It's like more greedy than default greedy. Never backs off - fails instead.
+ */
 data class UreQuantifier(
     val content: Ure,
     val times: IntRange,
@@ -203,9 +218,10 @@ data class UreChar(val ir: UreIR) : Ure() {
     override fun toClosedIR(): UreIR = ncapt(this).toIR()
     // Maybe grouping here is not strictly needed, but I'll leave it for now
     // TODO_someday: analyze carefully and maybe drop grouping if not needed.
+    // I guess it would require conditional grouping depending on actual IR content.
 }
 
-// TODO_later: can I do something like: chars: Set<UChar> ??
+// TODO_later: can I do something like: chars: Set<UreChar> ??
 data class UreCharSet(val chars: Set<UreIR>, val positive: Boolean = true) : Ure() {
     override fun toIR(): UreIR = chars.joinToString("", if (positive) "[" else "[^", "]")
     override fun toClosedIR(): UreIR = toIR()
@@ -213,8 +229,9 @@ data class UreCharSet(val chars: Set<UreIR>, val positive: Boolean = true) : Ure
 
 // TODO_later: more complicated combinations of char classes
 // TODO_later: analyze if some special kotlin progression/range would fit here better
-data class UreCharRange(val from: UreIR, val to: UreIR) : Ure() {
-    override fun toIR(): UreIR = "[$from-$to]"
+data class UreCharRange(val from: UreIR, val to: UreIR, val positive: Boolean = true) : Ure() {
+    private val neg = if (positive) "" else "^"
+    override fun toIR(): UreIR = "[$neg$from-$to]"
     override fun toClosedIR(): UreIR = toIR()
 }
 
@@ -230,8 +247,36 @@ data class UreQuote(val string: String): Ure() {
     override fun toIR() = "\\Q$string\\E"
     override fun toClosedIR(): UreIR = toIR()
 }
-// TODO: implement operator a.not() (!) with big pattern matching and negating more obvious stuff like
-//  !nonDigit == digit; !digit == nonDigit; !word == nonWord; !UCharSet(.., true) == UCharSet(.., false), etc
+
+operator fun Ure.not(): Ure = when (this) {
+    is UreChar -> when (this) {
+        word -> nonWord
+        nonWord -> word
+        digit -> nonDigit
+        nonDigit -> digit
+        space -> nonSpace
+        nonSpace -> space
+        wordBoundary -> nonWordBoundary
+        nonWordBoundary -> wordBoundary
+        else -> oneCharNotOf(ir)
+        // TODO: check if particular ir is appropriate for such wrapping
+        // TODO_later: other special cases?
+    }
+    is UreCharRange -> UreCharRange(from, to, !positive)
+    is UreCharSet -> UreCharSet(chars, !positive)
+    is UreGroup -> when (this) {
+        is UreLookGroup -> UreLookGroup(content, ahead, !positive)
+        else -> error("Unsupported UreGroup for negation: ${this::class.simpleName}")
+    }
+    is UreGroupRef -> error("UreGroupRef can not be negated")
+    is UreProduct -> error("UreProduct can not be negated")
+    is UreQuantifier -> error("UreQuantifier can not be negated")
+    is UreQuote -> error("UreQuote can not be negated")
+    is UreRawIR -> error("UreRawIR can not be negated")
+    is UreUnion -> error("UreUnion can not be negated")
+    else -> error("Unexpected Ure type: ${this::class.simpleName}") // had to add it because IDE complains
+        // TODO_later: Try to remove "else" when gradle updates its kotlin version
+}
 // TODO_later: experiment more with different operators overloading (after impl some working examples)
 //  especially indexed access operators and invoke operators..
 
@@ -285,6 +330,7 @@ fun control(x: String) = ch("\\c$x") // FIXME_later: what exactly is this?? (see
 fun oneCharOf(vararg chars: UreIR) = UreCharSet(chars.toSet()) // TODO_later: Use UreChar as vararg type
 fun oneCharNotOf(vararg chars: UreIR) = UreCharSet(chars.toSet(), positive = false) // TODO_later: jw
 fun oneCharOfRange(from: UreIR, to: UreIR) = UreCharRange(from, to)
+fun oneCharNotOfRange(from: UreIR, to: UreIR) = UreCharRange(from, to, positive = false)
 
 fun capt(content: Ure) = UreCaptGroup(content)
 fun capt(init: UreProduct.() -> Unit) = capt(UreProduct(init))
@@ -296,6 +342,11 @@ fun lookBehind(content: Ure, positive: Boolean = true) = UreLookGroup(content, f
 fun lookBehind(positive: Boolean = true, init: UreProduct.() -> Unit) = lookBehind(UreProduct(init), positive)
 
 
+/**
+ * By default it's "greedy" - tries to match as many "times" as possible. But backs off one by one if it would fail.
+ * @param reluctant - Tries to eat as little "times" as possible. Opposite to default "greedy" behavior.
+ * @param possessive - It's like more greedy than default greedy. Never backs off - fails instead.
+ */
 fun quantify(
     content: Ure,
     times: IntRange,
@@ -303,6 +354,11 @@ fun quantify(
     possessive: Boolean = false,
 ) = if (times == 1..1) content else UreQuantifier(content, times, reluctant, possessive)
 
+/**
+ * By default it's "greedy" - tries to match as many "times" as possible. But backs off one by one if it would fail.
+ * @param reluctant - Tries to eat as little "times" as possible. Opposite to default "greedy" behavior.
+ * @param possessive - It's like more greedy than default greedy. Never backs off - fails instead.
+ */
 fun quantify(
     times: IntRange,
     reluctant: Boolean = false,
@@ -316,3 +372,5 @@ fun quote(string: String) = UreQuote(string)
 
 
 operator fun MatchResult.get(name: String) = groups[name]!!.value
+
+operator fun MatchResult.getValue(thisObj: Any?, property: KProperty<*>) = get(property.name)
