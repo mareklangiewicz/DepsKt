@@ -32,18 +32,28 @@ typealias UreIR = String
 
 fun ure(vararg opts: RegexOption, init: UreProduct.() -> Unit) = ure(enable = opts.toSet(), disable = emptySet(), init)
 
+// TODO_later: maybe remove options here? and always use Ure.withOptions? (check in practice first)
 fun ure(enable: Set<RegexOption> = emptySet(), disable: Set<RegexOption> = emptySet(), init: UreProduct.() -> Unit) =
     if (enable.isEmpty() && disable.isEmpty()) UreProduct(init)
-    else ureWithOptions(UreProduct(init), enable, disable)
+    else UreProduct(init).withOptions(enable, disable)
 
+@Deprecated("Use Ure.withOptions")
 fun ureWithOptions(content: Ure, enable: Set<RegexOption> = emptySet(), disable: Set<RegexOption> = emptySet()) =
     UreChangeOptionsGroup(content, enable, disable)
 
+// TODO_later: maybe remove name and opts here? and always use Ure.with...? (check in practice first)
 fun ure(name: String, vararg opts: RegexOption, init: UreProduct.() -> Unit) =
-    if (opts.isEmpty()) ureWithName(name,UreProduct(init))
-    else ureWithName(name, ureWithOptions(UreProduct(init), opts.toSet()))
+    if (opts.isEmpty()) UreProduct(init).withName(name)
+    else UreProduct(init).withOptionsEnabled(*opts).withName(name)
 
+@Deprecated("Use Ure.withName")
 fun ureWithName(name: String, content: Ure) = UreNamedGroup(content, name)
+
+fun Ure.withName(name: String?) = if (name == null) this else UreNamedGroup(this, name)
+fun Ure.withOptions(enable: Set<RegexOption> = emptySet(), disable: Set<RegexOption> = emptySet()) =
+    UreChangeOptionsGroup(this, enable, disable)
+fun Ure.withOptionsEnabled(vararg options: RegexOption) = withOptions(enable = options.toSet())
+fun Ure.withOptionsDisabled(vararg options: RegexOption) = withOptions(disable = options.toSet())
 
 sealed class Ure {
 
@@ -56,7 +66,13 @@ sealed class Ure {
      */
     abstract fun toClosedIR(): UreIR
 
-    /** It sets MULTILINE by default */
+    /**
+     * It sets MULTILINE by default.
+     * Also I decided NOT to use DO_MATCHES_ALL by default. Lets keep "any" as single line matcher.
+     * Lets use explicit ureAnyLine and/or ureWhateva utils instead of changing "any" meaning freely.
+     * Lets assume in all normal val/fun ureSth.. that DOT_MATCHES_ALL is disabled
+     * (so we don't enable/disable it all the time "just to make sure")
+     */
     fun compile(vararg options: RegexOption) = compileMultiLine(*options)
 
     fun compileMultiLine(vararg options: RegexOption) = Regex(toIR(), setOf(MULTILINE) + options)
