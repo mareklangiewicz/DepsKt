@@ -315,6 +315,7 @@ val any = ch(".")
 val digit = ch("\\d")
 val nonDigit = ch("\\D")
 val space = ch("\\s")
+val spaceInLine = ch(" ") or tab
 val nonSpace = ch("\\S")
 
 /** [a-zA-Z_0-9] */

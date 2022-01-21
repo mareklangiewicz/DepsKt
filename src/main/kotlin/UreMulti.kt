@@ -1,5 +1,6 @@
 package pl.mareklangiewicz.ure
 
+// TODO: refactor - also check where should I change space to spaceInLine
 val ureExpectFun = ure {
     val keyword = ure {
         1 of wordBoundary

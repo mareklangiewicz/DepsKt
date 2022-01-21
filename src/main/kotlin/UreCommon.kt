@@ -46,11 +46,11 @@ fun ureCommentedOutArea(area: Ure) = ure {
 
 fun ureBlankStartOfLine() = ure {
     1 of BOL
-    0..MAX of space
+    0..MAX of spaceInLine
 }
 
 fun ureBlankRestOfLine(withOptCR: Boolean = true, withOptLF: Boolean = true) = ure {
-    0..MAX of space
+    0..MAX of spaceInLine
     1 of EOL
     if (withOptCR) 0..1 of cr
     if (withOptLF) 0..1 of lf
@@ -59,7 +59,7 @@ fun ureBlankRestOfLine(withOptCR: Boolean = true, withOptLF: Boolean = true) = u
 fun ureSimpleCommentLine(ureContent: Ure) = ure {
     1 of ureBlankStartOfLine()
     1 of ir("//")
-    0..MAX of space
+    0..MAX of spaceInLine
     1 of ureContent
     1 of ureBlankRestOfLine()
 }
@@ -70,7 +70,11 @@ fun ureRegion(content: Ure, regionName: Ure? = null) = ure {
     1 of ureSimpleCommentLine(ureKeywordAndOptArg(ir("endregion"), regionName))
 }
 
-private fun ureKeywordAndOptArg(keyword: Ure, arg: Ure? = null, separator: Ure = space) = ure {
+private fun ureKeywordAndOptArg(
+    keyword: Ure,
+    arg: Ure? = null,
+    separator: Ure = ure { 1..MAX of spaceInLine },
+) = ure {
     1 of keyword
     arg?.let {
         1 of separator

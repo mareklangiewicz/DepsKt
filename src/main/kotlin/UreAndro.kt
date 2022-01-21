@@ -19,7 +19,7 @@ private val ureWithABT = ure {
 private fun injectAndroBuildTemplate(inputResPath: Path, outputPath: Path) {
     val inputMR = RESOURCES.sourceMatchUre(inputResPath, ureWithABT) ?: error("No match $inputResPath")
     val abt by inputMR
-    SYSTEM.processFile(outputPath) { output ->
+    SYSTEM.processFile(outputPath, outputPath) { output ->
         val outputMR = ureWithABT.compile().matchEntire(output) ?: error("No match $outputPath")
         val before by outputMR
         val after by outputMR
@@ -33,7 +33,9 @@ fun injectAndroLibBuildTemplate(outputPath: Path) = injectAndroBuildTemplate(lib
 fun checkAndroBuildTemplates() {
     val appMR = RESOURCES.sourceMatchUre(appABTResPath, ureWithABT) ?: error("No match $appABTResPath")
     val libMR = RESOURCES.sourceMatchUre(libABTResPath, ureWithABT) ?: error("No match $libABTResPath")
-    check(appMR["abt"] == libMR["abt"]) { "Templates in app and lib have to be the same!" }
+    val appABT = appMR["abt"]
+    val libABT = libMR["abt"]
+    check(appABT == libABT) { "Templates in app and lib have to be the same! ${appABT.length} ${libABT.length}" }
 }
 
 // TODO NOW: scan imports and add imports from template-android/lib/build.gradle.kts if needed
