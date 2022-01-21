@@ -63,6 +63,10 @@ fun Path.asRelativeTo(dir: Path): Path {
 
 val Project.rootOkioPath get(): Path = rootDir.toString().toPath()
 
+
+fun FileSystem.sourceMatchUre(file: Path, ure: Ure): MatchResult? = source(file).buffer()
+    .use { it.readUtf8() }.let { ure.compile().matchEntire(it) }
+
 /**
  * @param inputPath path of input file
  * @param outputPath path of output file - can be the same as inputPath;

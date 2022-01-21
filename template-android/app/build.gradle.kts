@@ -105,4 +105,5 @@ fun CommonExtension<*,*,*,*>.defaultComposeStuff() {
 fun CommonExtension<*,*,*,*>.defaultPackagingOptions() = packagingOptions {
     resources.excludes.defaultAndroExcludedResources()
 }
+
 // endregion Android Build Template
