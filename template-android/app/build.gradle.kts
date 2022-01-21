@@ -26,7 +26,7 @@ tasks.configureKotlinCompileTasks()
 
 
 
-// region Android Build Template
+// region Andro Build Template
 
 fun TaskCollection<Task>.configureKotlinCompileTasks() {
     withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
@@ -106,4 +106,4 @@ fun CommonExtension<*,*,*,*>.defaultPackagingOptions() = packagingOptions {
     resources.excludes.defaultAndroExcludedResources()
 }
 
-// endregion Android Build Template
+// endregion Andro Build Template

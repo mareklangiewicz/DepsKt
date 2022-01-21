@@ -49,11 +49,11 @@ fun ureBlankStartOfLine() = ure {
     0..MAX of space
 }
 
-fun ureBlankRestOfLine(withLF: Boolean = true, withCR: Boolean = false) = ure {
+fun ureBlankRestOfLine(withOptCR: Boolean = true, withOptLF: Boolean = true) = ure {
     0..MAX of space
     1 of EOL
-    if (withCR) 1 of cr
-    if (withLF) 1 of lf
+    if (withOptCR) 0..1 of cr
+    if (withOptLF) 0..1 of lf
 }
 
 fun ureSimpleCommentLine(ureContent: Ure) = ure {
