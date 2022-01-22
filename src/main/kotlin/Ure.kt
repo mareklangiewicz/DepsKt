@@ -290,8 +290,9 @@ operator fun Ure.not(): Ure = when (this) {
     is UreQuote -> error("UreQuote can not be negated")
     is UreRawIR -> error("UreRawIR can not be negated")
     is UreUnion -> error("UreUnion can not be negated")
-    else -> error("Unexpected Ure type: ${this::class.simpleName}") // had to add it because IDE complains
-        // TODO_later: Try to remove "else" when gradle updates its kotlin version
+    else -> error("Unexpected Ure type: ${this::class.simpleName}")
+        // had to add "else" branch because Android Studio 2021.2.1 canary 7 complains..
+        // TODO_later: Remove "else" when newer AS stops complaining
 }
 // TODO_later: experiment more with different operators overloading (after impl some working examples)
 //  especially indexed access operators and invoke operators..

@@ -1,23 +1,12 @@
 import okio.Path.Companion.toPath
 import pl.mareklangiewicz.deps.*
 
-tasks.register("doCheckAndroAppBuildTemplates") {
-    group = "inject"
-    doLast {
-        checkAndroBuildTemplates()
-    }
-}
+fun injectAndroAppBuildTemplate() = injectAndroAppBuildTemplate("app/build.gradle.kts".toPath())
+fun injectAndroLibBuildTemplate() = injectAndroLibBuildTemplate("lib/build.gradle.kts".toPath())
 
-tasks.register("doInjectAndroAppBuildTemplate") {
-    group = "inject"
-    doLast {
-        injectAndroAppBuildTemplate("app/build.gradle.kts".toPath())
-    }
-}
+tasks.registerAllThatGroupFun("inject",
+    ::checkAndroBuildTemplates,
+    ::injectAndroAppBuildTemplate,
+    ::injectAndroLibBuildTemplate,
+)
 
-tasks.register("doInjectAndroLibBuildTemplate") {
-    group = "inject"
-    doLast {
-        injectAndroLibBuildTemplate("lib/build.gradle.kts".toPath())
-    }
-}

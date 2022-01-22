@@ -1,8 +1,20 @@
 import org.gradle.api.artifacts.dsl.DependencyHandler
 import org.gradle.api.artifacts.dsl.RepositoryHandler
+import org.gradle.api.tasks.TaskContainer
 import org.gradle.kotlin.dsl.ScriptHandlerScope
 import org.gradle.kotlin.dsl.maven
 import org.gradle.kotlin.dsl.repositories
+import kotlin.reflect.KCallable
+
+
+fun TaskContainer.registerAllThatGroupFun(group: String, vararg afun: KCallable<Unit>) {
+    val pairs: List<Pair<String, () -> Unit>> = afun.map { it.name to { it.call() } }
+    registerAllThatGroupFun(group, *pairs.toTypedArray())
+}
+
+fun TaskContainer.registerAllThatGroupFun(group: String, vararg afun: Pair<String, () -> Unit>) {
+    for ((name, code) in afun) register(name) { this.group = group; doLast { code() } }
+}
 
 fun RepositoryHandler.defaultRepos(
     withGradle: Boolean = false,
