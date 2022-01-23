@@ -323,6 +323,11 @@ val nonSpace = ch("\\S")
 val word = ch("\\w")
 val nonWord = ch("\\W")
 
+val az = oneCharOfRange("a", "z")
+val AZ = oneCharOfRange("A", "Z")
+val azAZ = az or AZ
+
+
 val posixLower = ch("\\p{Lower}")
 val posixUpper = ch("\\p{Upper}")
 val posixAlpha = ch("\\p{Alpha}")

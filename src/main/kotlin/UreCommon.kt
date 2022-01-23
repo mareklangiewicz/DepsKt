@@ -2,6 +2,19 @@ package pl.mareklangiewicz.ure
 
 import kotlin.text.RegexOption.*
 
+val ureIdent = ure {
+    1 of azAZ
+    0..MAX of word
+}
+
+val ureIdentWithOptQualif = ure {
+    0..MAX of ure {
+        1 of ureIdent
+        1 of dot
+    }
+    1 of ureIdent
+}
+
 fun ureWhateva(reluctant: Boolean = true, inLine: Boolean = false) =
     ure { x(0..MAX, reluctant = reluctant) of any }.run {
         if (inLine) withOptionsDisabled(DOT_MATCHES_ALL)
