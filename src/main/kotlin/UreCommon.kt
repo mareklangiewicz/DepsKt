@@ -31,7 +31,7 @@ fun ureAnyLine(withOptCR: Boolean = true, withOptLF: Boolean = true) =
 
 fun Ure.withOptSpacesAround() = ure {
     0..MAX of spaceInLine
-    1 of this
+    1 of this@withOptSpacesAround
     0..MAX of spaceInLine
 }
 
