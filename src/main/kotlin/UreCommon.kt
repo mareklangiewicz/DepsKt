@@ -7,12 +7,23 @@ val ureIdent = ure {
     0..MAX of word
 }
 
-val ureIdentWithOptQualif = ure {
-    0..MAX of ure {
-        1 of ureIdent
-        1 of dot
+val ureIdentWithOptQualif = ureChain(ureIdent, dot)
+
+fun ureChain(
+    element: Ure,
+    separator: Ure = spaceInLine,
+    times: IntRange = 1..MAX,
+    reluctant: Boolean = false,
+    possessive: Boolean = false,
+): Ure = when (times.first) {
+    0 -> ure { 0..1 of ureChain(element, separator, 1..times.last, reluctant, possessive) }
+    else -> ure {
+        1 of element
+        x(0 until times.last, reluctant, possessive) of ure {
+            1 of separator
+            1 of element
+        }
     }
-    1 of ureIdent
 }
 
 fun ureWhateva(reluctant: Boolean = true, inLine: Boolean = false) =
