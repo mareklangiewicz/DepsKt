@@ -35,14 +35,12 @@ fun Ure.withOptSpacesAround() = ure {
     0..MAX of spaceInLine
 }
 
-fun ureCommentLine(content: Ure = ureWhateva(inLine = true), traditional: Boolean = false) = ure {
-    val something = ure {
+fun ureCommentLine(content: Ure = ureWhateva(inLine = true), traditional: Boolean = false) =
+    ureLineWithContent(ure {
         1 of if (traditional) ir("/\\*") else ir("//")
         1 of content.withOptSpacesAround()
         if (traditional) 1 of ir("\\*/")
-    }
-    1 of ureLineWithContent(something)
-}
+    })
 
 fun ureRegion(content: Ure, regionName: Ure? = null) = ure {
     1 of ureCommentLine(ureKeywordAndOptArg(ir("region"), regionName))
@@ -63,13 +61,10 @@ fun ureKeywordAndOptArg(
 }
 
 
-private val ureCommentedOutAreaStartLine = ureLineWithContent(ir("/\\*"))
-private val ureCommentedOutAreaEndLine = ureLineWithContent(ir("\\*/"))
-
 fun ureCommentedOutArea(area: Ure = ureWhateva()) = ure {
-    1 of ureCommentedOutAreaStartLine
+    1 of ureLineWithContent(ir("/\\*"))
     1 of area
-    1 of ureCommentedOutAreaEndLine
+    1 of ureLineWithContent(ir("\\*/"))
 }
 
 fun ureNotCommentedOutArea(area: Ure = ureWhateva(reluctant = false), maxSpacesBehind: Int = 100) = ure {

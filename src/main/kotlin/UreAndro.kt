@@ -23,7 +23,9 @@ private fun injectAndroBuildTemplate(inputResPath: Path, outputPath: Path) {
         val outputMR = ureWithABT.compile().matchEntire(output) ?: error("No match $outputPath")
         val before by outputMR
         val after by outputMR
-        before + abt + after
+        val newOutput = before + abt + after
+        println("Inject template from:$inputResPath to:$outputPath (len ${output.length}->${newOutput.length}).")
+        newOutput
     }
 }
 
