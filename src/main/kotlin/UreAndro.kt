@@ -30,12 +30,19 @@ private fun injectAndroBuildTemplate(inputResPath: Path, outputPath: Path) {
 fun injectAndroAppBuildTemplate(outputPath: Path) = injectAndroBuildTemplate(appABTResPath, outputPath)
 fun injectAndroLibBuildTemplate(outputPath: Path) = injectAndroBuildTemplate(libABTResPath, outputPath)
 
-fun checkAndroBuildTemplates() {
+fun checkAndroBuildTemplates(vararg buildFiles: Path) {
     val appMR = RESOURCES.sourceMatchUre(appABTResPath, ureWithABT) ?: error("No match $appABTResPath")
     val libMR = RESOURCES.sourceMatchUre(libABTResPath, ureWithABT) ?: error("No match $libABTResPath")
     val appABT = appMR["abt"]
     val libABT = libMR["abt"]
     check(appABT == libABT) { "Templates in app and lib have to be the same! ${appABT.length} ${libABT.length}" }
+    println("OK. Templates in template-android are the same.")
+    for (file in buildFiles) {
+        val abt by SYSTEM.sourceMatchUre(file, ureWithABT) ?: error("No match $file")
+        check(abt == appABT) { "Template in $file was modified." }
+        println("OK. Template in $file is correct.")
+    }
+    println("OK. Checked. All templates look good.")
 }
 
 // TODO NOW: scan imports and add imports from template-android/lib/build.gradle.kts if needed
