@@ -7,8 +7,6 @@ val ureIdent = ure {
     0..MAX of word
 }
 
-val ureIdentWithOptQualif = ureChain(ureIdent, dot)
-
 fun ureChain(
     element: Ure,
     separator: Ure = spaceInLine,
