@@ -9,7 +9,7 @@ fun ureKtKeywordLine(keyword: String, withNamePrefix: String = keyword) =
     ureLineWithContent(
         ureKeywordAndOptArg(
             keyword = ir(keyword),
-            arg = ureChain(ureIdent, dot).withName(withNamePrefix + "Name")
+            arg = ureChain(ureIdent(), dot).withName(withNamePrefix + "Name")
         )
     ).withName(withNamePrefix + "Line")
 

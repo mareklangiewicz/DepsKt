@@ -2,8 +2,8 @@ package pl.mareklangiewicz.ure
 
 import kotlin.text.RegexOption.*
 
-val ureIdent = ure {
-    1 of azAZ
+fun ureIdent(first: Ure = azAZ) = ure {
+    1 of first
     0..MAX of word
 }
 
