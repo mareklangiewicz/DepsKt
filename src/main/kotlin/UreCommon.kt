@@ -58,12 +58,18 @@ fun Ure.withOptSpacesAround() = ure {
     0..MAX of spaceInLine
 }
 
+fun ureComment(content: Ure = ureWhateva(inLine = true), traditional: Boolean = false) = ure {
+    1 of if (traditional) ir("/\\*") else ir("//")
+    1 of content.withOptSpacesAround()
+    if (traditional) 1 of ir("\\*/")
+}
+
 fun ureCommentLine(content: Ure = ureWhateva(inLine = true), traditional: Boolean = false) =
-    ureLineWithContent(ure {
-        1 of if (traditional) ir("/\\*") else ir("//")
-        1 of content.withOptSpacesAround()
-        if (traditional) 1 of ir("\\*/")
-    })
+    ureLineWithContent(ureComment(content, traditional))
+
+fun ureLineEndingWithComment(comment: String) =
+    ureLineWithContent(ureWhateva(inLine = true) then ureComment(ir(comment)))
+
 
 fun ureRegion(content: Ure, regionName: Ure? = null) = ure {
     1 of ureCommentLine(ureKeywordAndOptArg(ir("region"), regionName))
