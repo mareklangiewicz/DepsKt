@@ -17,7 +17,8 @@ fun ureChain(
     0 -> ure { 0..1 of ureChain(element, separator, 1..times.last, reluctant, possessive) }
     else -> ure {
         1 of element
-        x(0 until times.last, reluctant, possessive) of ure {
+        val last = if (times.last == MAX) MAX else times.last - 1
+        x(0..last, reluctant, possessive) of ure {
             1 of separator
             1 of element
         }

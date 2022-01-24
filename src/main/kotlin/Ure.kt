@@ -1,6 +1,5 @@
 package pl.mareklangiewicz.ure
 
-import org.intellij.lang.annotations.Language
 import kotlin.reflect.KProperty
 import kotlin.text.RegexOption.CANON_EQ
 import kotlin.text.RegexOption.COMMENTS
@@ -90,7 +89,11 @@ infix fun Ure.then(that: Ure) = UreProduct(mutableListOf(this, that))
 
 data class UreProduct(val product: MutableList<Ure> = mutableListOf()): Ure() {
     constructor(init: UreProduct.() -> Unit) : this() { init() }
-    override fun toIR() = product.joinToString(separator = "") { it.toIR() }
+    override fun toIR(): UreIR = when (product.size) {
+        0 -> ""
+        1 -> product[0].toIR()
+        else -> product.joinToString(separator = "") { if (it is UreProduct) it.toIR() else it.toClosedIR() }
+    }
     override fun toClosedIR() = when (product.size) {
         1 -> product[0].toClosedIR()
         else -> ncapt(this).toIR() // in 0 case we also want ncapt!
@@ -224,17 +227,22 @@ data class UreQuantifier(
         }
         return content.toClosedIR() + timesIR + suffixIR
     }
-    override fun toClosedIR(): UreIR = ncapt(this).toIR()
+    //    override fun toClosedIR(): UreIR = ncapt(this).toIR()
+    override fun toClosedIR() = toIR()
+        // TODO_later: I think it's correct, but should be analyzed more carefully (and write tests!).
 }
 
 data class UreChar(val ir: UreIR) : Ure() {
     // TODO_later: separate sealed class for specials etc. We should never ask user to manually provide UreIR
 
     override fun toIR(): UreIR = ir
-    override fun toClosedIR(): UreIR = ncapt(this).toIR()
-    // Maybe grouping here is not strictly needed, but I'll leave it for now
-    // TODO_someday: analyze carefully and maybe drop grouping if not needed.
-    // I guess it would require conditional grouping depending on actual IR content.
+    override fun toClosedIR(): UreIR = if (isClosed) ir else ncapt(this).toIR()
+    private val isClosed = when {
+        ir.length == 1 -> true
+        ir.length == 2 && ir[0] == '\\' -> true
+        else -> false
+    }
+    // TODO_someday: analyze more carefully and drop grouping when actually not needed.
 }
 
 // TODO_later: can I do something like: chars: Set<UreChar> ??
