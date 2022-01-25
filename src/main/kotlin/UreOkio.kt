@@ -98,7 +98,7 @@ fun FileSystem.commentOutMultiplatformFunInFile(file: Path) {
 
     processFile(file, file) { input ->
 
-        val output1 = ureNotCommentedOutArea(ureExpectFun).compile()
+        val output1 = ureExpectFun.notCommentedOut().compile()
             .replace(input) { "/*\n${it.value}\n*/" }
 
         val output2 = ir("actual fun").compile().replace(output1) { "/*actual*/ fun" }
@@ -115,7 +115,7 @@ fun FileSystem.undoCommentOutMultiplatformFunInFile(file: Path) {
 
         val myFun = ure("myFun") { 1 of ureExpectFun }
 
-        val output1 = ureCommentedOutArea(myFun).compile().replace(input) { it["myFun"] }
+        val output1 = myFun.commentedOut().compile().replace(input) { it["myFun"] }
 
         ir("/\\*actual\\*/").compile().replace(output1) { "actual" }
     }

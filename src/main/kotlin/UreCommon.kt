@@ -52,29 +52,49 @@ fun ureLineWithContent(content: Ure, withOptCR: Boolean = true, withOptLF: Boole
 fun ureAnyLine(withOptCR: Boolean = true, withOptLF: Boolean = true) =
     ureLineWithContent(ureWhateva(inLine = true), withOptCR, withOptLF)
 
-fun Ure.withOptSpacesAround() = ure {
-    0..MAX of spaceInLine
+fun Ure.withOptSpacesAround(inLine: Boolean = false) = ure {
+    val s = if (inLine) spaceInLine else space
+    0..MAX of s
     1 of this@withOptSpacesAround
-    0..MAX of spaceInLine
+    0..MAX of s
 }
 
-fun ureComment(content: Ure = ureWhateva(inLine = true), traditional: Boolean = false) = ure {
-    1 of if (traditional) ir("/\\*") else ir("//")
-    1 of content.withOptSpacesAround()
+fun Ure.commentedOut(inLine: Boolean = false, traditional: Boolean = true, kdoc: Boolean = false) = ure {
+    require(inLine || traditional) { "Non traditional comments are only single line" }
+    require(!kdoc || traditional) { "Non traditional comments can't be used as kdoc" }
+    1 of when {
+        kdoc -> ir("/\\**")
+        traditional -> ir("/\\*")
+        else -> ir("//")
+    }
+    1 of this@commentedOut.withOptSpacesAround(inLine)
     if (traditional) 1 of ir("\\*/")
 }
 
-fun ureCommentLine(content: Ure = ureWhateva(inLine = true), traditional: Boolean = false) =
-    ureLineWithContent(ureComment(content, traditional))
+fun Ure.notCommentedOut(traditional: Boolean = true, maxSpacesBehind: Int = 100) = ure {
+    1 of lookBehind(positive = false) {
+        1 of if (traditional) ir("/\\*") else ir("//")
+        0..maxSpacesBehind of if (traditional) space else spaceInLine
+        // Can not use MAX - java look-behind implementation complains (throws)
+    }
+    1 of this@notCommentedOut
+    if (traditional) 1 of lookAhead(positive = false) {
+        0..MAX of space
+        1 of ir("\\*/")
+    }
+}
 
-fun ureLineEndingWithComment(comment: String) =
-    ureLineWithContent(ureWhateva(inLine = true) then ureComment(ir(comment)))
+fun ureCommentLine(content: Ure = ureWhateva(inLine = true), traditional: Boolean = true, kdoc: Boolean = false) =
+    ureLineWithContent(content.commentedOut(inLine = true, traditional, kdoc))
+
+fun ureLineWithEndingComment(comment: Ure) =
+    ureLineWithContent(ureWhateva(inLine = true) then comment.commentedOut(inLine = true, traditional = false))
 
 
 fun ureRegion(content: Ure, regionName: Ure? = null) = ure {
-    1 of ureCommentLine(ureKeywordAndOptArg(ir("region"), regionName))
+    1 of ureCommentLine(ureKeywordAndOptArg(ir("region"), regionName), traditional = false)
     1 of content
-    1 of ureCommentLine(ureKeywordAndOptArg(ir("endregion"), regionName))
+    1 of ureCommentLine(ureKeywordAndOptArg(ir("endregion"), regionName), traditional = false)
 }
 
 fun ureKeywordAndOptArg(
@@ -86,25 +106,6 @@ fun ureKeywordAndOptArg(
     arg?.let {
         1 of separator
         1 of it
-    }
-}
-
-
-fun ureCommentedOutArea(area: Ure = ureWhateva()) = ure {
-    1 of ureLineWithContent(ir("/\\*"))
-    1 of area
-    1 of ureLineWithContent(ir("\\*/"))
-}
-
-fun ureNotCommentedOutArea(area: Ure = ureWhateva(reluctant = false), maxSpacesBehind: Int = 100) = ure {
-    1 of lookBehind(positive = false) {
-        1 of ir("/\\*")
-        0..maxSpacesBehind of space // Can not use MAX - java look-behind implementation complains (throws)
-    }
-    1 of area
-    1 of lookAhead(positive = false) {
-        0..MAX of space
-        1 of ir("\\*/")
     }
 }
 
