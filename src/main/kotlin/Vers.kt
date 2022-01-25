@@ -117,6 +117,11 @@ object Vers {
     const val androidxLifecycle = "2.4.0"
     // https://developer.android.com/jetpack/androidx/releases/lifecycle
 
+    const val androidxCamera = "1.1.0-alpha12"
+    const val androidxCameraExtensions = "1.1.0-alpha32"
+    const val androidxCameraView = "1.1.0-alpha32"
+    // https://developer.android.com/jetpack/androidx/releases/camera
+
     const val androidxRoom = "2.4.0-rc01"
     // https://developer.android.com/jetpack/androidx/releases/room
 

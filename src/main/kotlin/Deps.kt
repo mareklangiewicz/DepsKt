@@ -118,6 +118,14 @@ object Deps {
     val androidxLifecycleViewModel = androidxLifecycleCommon  withName "lifecycle-viewmodel"
     val androidxLifecycleViewModelKtx = androidxLifecycleCommon  withName "lifecycle-viewmodel-ktx"
 
+    private val androidxCamera = dep("androidx.camera", "", Vers.androidxCamera)
+    val androidxCameraCore = androidxCamera withName "camera-core"
+    val androidxCameraCamera2 = androidxCamera withName "camera-camera2"
+    val androidxCameraLifecycle = androidxCamera withName "camera-lifecycle"
+    val androidxCameraVideo = androidxCamera withName "camera-video"
+    val androidxCameraExtensions = androidxCamera withName "camera-extensions" ver Vers.androidxCameraExtensions
+    val androidxCameraView = androidxCamera withName "camera-view" ver Vers.androidxCameraView
+
     val androidxRoomRuntime = dep("androidx.room", "room-runtime", Vers.androidxRoom)
     val androidxRoomCompiler = dep("androidx.room", "room-compiler", Vers.androidxRoom)
     val androidxRoomKtx = dep("androidx.room", "room-ktx", Vers.androidxRoom)
