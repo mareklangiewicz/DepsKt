@@ -60,6 +60,12 @@ object Vers {
     const val composeAndroidMaterial3 = "1.0.0-alpha03"
     // https://developer.android.com/jetpack/androidx/releases/compose
 
+    const val googleAccompanist = "0.24.0-alpha"
+    const val googleAccompanistImage = "0.15.0"
+    const val googleAccompanistPicasso = "0.6.2"
+    // https://search.maven.org/search?q=g:com.google.accompanist
+    // https://google.github.io/accompanist/
+
     // FIXME_later: Check again. I get some gragle sync error with alpha13: (and on 7.2.0-alpha01) (probably Intellij andro plugin has to be updated)
     // Cannot convert string value 'UNIFIED_TEST_PLATFORM' to an enum value of type 'com.android.builder.model.AndroidGradlePluginProjectFlags$BooleanFlag'
 //    const val androidGradlePlugin = "7.1.0-alpha12"
@@ -118,8 +124,8 @@ object Vers {
     // https://developer.android.com/jetpack/androidx/releases/lifecycle
 
     const val androidxCamera = "1.1.0-alpha12"
-    const val androidxCameraExtensions = "1.1.0-alpha32"
-    const val androidxCameraView = "1.1.0-alpha32"
+    const val androidxCameraExtensions = "1.0.0-alpha32"
+    const val androidxCameraView = "1.0.0-alpha32"
     // https://developer.android.com/jetpack/androidx/releases/camera
 
     const val androidxRoom = "2.4.0-rc01"
@@ -216,6 +222,13 @@ object Vers {
 
     const val googleAuth = "1.3.0"
     // https://github.com/googleapis/google-auth-library-java
+
+    const val googleGuavaJre = "31.0.1-jre"
+    const val googleGuavaAndroid = "31.0.1-android"
+    // https://github.com/google/guava
+
+    const val googleGuavaMissingMetadataPlugin = "0.5"
+    // https://github.com/jjohannes/missing-metadata-guava
 
     const val picasso = "2.8"
     // https://github.com/square/picasso

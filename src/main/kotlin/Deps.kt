@@ -49,6 +49,26 @@ object Deps {
     val composeAndroidUiTestManifest = composeAndroidUi withName "ui-test-manifest"
     val composeAndroidUiTooling = composeAndroidUi withName "ui-tooling"
 
+    private val googleAccompanist = dep("com.google.accompanist", "", Vers.googleAccompanist)
+    val googleAccompanistSytemUiController = googleAccompanist withName "accompanist-systemuicontroller"
+    val googleAccompanistSwipeRefresh = googleAccompanist withName "accompanist-swiperefresh"
+    val googleAccompanistPlaceholder = googleAccompanist withName "accompanist-placeholder"
+    val googleAccompanistPlaceholderMaterial = googleAccompanist withName "accompanist-placeholder-material"
+    val googleAccompanistPermissions = googleAccompanist withName "accompanist-permissions"
+    val googleAccompanistPageIndicators = googleAccompanist withName "accompanist-page-indicators"
+    val googleAccompanistPager = googleAccompanist withName "accompanist-pager"
+    val googleAccompanistNavigationMaterial = googleAccompanist withName "accompanist-navigation-material"
+    val googleAccompanistNavigationAnimation = googleAccompanist withName "accompanist-navigation-animation"
+    val googleAccompanistInsets = googleAccompanist withName "accompanist-insets"
+    val googleAccompanistInsetsUi = googleAccompanist withName "accompanist-insets-ui"
+    val googleAccompanistFlowLayout = googleAccompanist withName "accompanist-flowlayout"
+    val googleAccompanistDrawablePainter = googleAccompanist withName "accompanist-drawablepainter"
+    val googleAccompanistAppCompatTheme = googleAccompanist withName "accompanist-appcompat-theme"
+    val googleAccompanistImageLoadingCore = googleAccompanist withName "accompanist-imageloading-core" ver Vers.googleAccompanistImage
+    val googleAccompanistGlide = googleAccompanist withName "accompanist-glide" ver Vers.googleAccompanistImage
+    val googleAccompanistCoil = googleAccompanist withName "accompanist-coil" ver Vers.googleAccompanistImage
+    val googleAccompanistPicasso = googleAccompanist withName "accompanist-picasso" ver Vers.googleAccompanistPicasso
+
     val kotlinxDateTime = dep("org.jetbrains.kotlinx", "kotlinx-datetime", Vers.kotlinxDateTime)
 
     val kotlinxSerializationCore = dep("org.jetbrains.kotlinx", "kotlinx-serialization-core", Vers.kotlinxSerialization)
@@ -226,6 +246,10 @@ object Deps {
     val googleAuthAppEngine = dep("com.google.auth", "google-auth-library-appengine", Vers.googleAuth)
 
     val googleGuava = dep("com.google.guava", "guava") // ver from googleCloudBoM
+    val googleGuavaJre = googleGuava ver Vers.googleGuavaJre
+    val googleGuavaAndroid = googleGuava ver Vers.googleGuavaAndroid
+
+    val googleGuavaMissingMetadataPlugin = dep("de.jjohannes.gradle", "missing-metadata-guava", Vers.googleGuavaMissingMetadataPlugin)
 
     val picasso = dep("com.squareup.picasso", "picasso", Vers.picasso)
     val materialDialogs = dep("com.afollestad.material-dialogs", "core", Vers.materialDialogs)
