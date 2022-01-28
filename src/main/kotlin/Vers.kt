@@ -48,6 +48,7 @@ object Vers {
 
     const val composeDesktopVerMain = "1.0.1"
     const val composeDesktopVerEdge = "1.1.0-alpha1-dev550"
+    const val composeDesktopVerExperiment = "0.0.0-master-dev570"
     const val composeDesktop = composeDesktopVerEdge
 
     // https://github.com/JetBrains/compose-jb
