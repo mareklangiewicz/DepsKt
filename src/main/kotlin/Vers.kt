@@ -71,7 +71,7 @@ object Vers {
     // Cannot convert string value 'UNIFIED_TEST_PLATFORM' to an enum value of type 'com.android.builder.model.AndroidGradlePluginProjectFlags$BooleanFlag'
 //    const val androidGradlePlugin = "7.1.0-alpha12"
 //    const val androidGradlePlugin = "7.1.0-alpha13"
-    const val androidGradlePlugin = "7.2.0-alpha07"
+    const val androidGradlePlugin = "7.3.0-alpha01"
     // https://maven.google.com/web/index.html#com.android.tools.build:gradle
     // https://developer.android.com/studio/releases/gradle-plugin
     // https://google.github.io/android-gradle-dsl/
