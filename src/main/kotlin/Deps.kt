@@ -267,6 +267,7 @@ object Deps {
     val uspek = dep("com.github.langara.USpek", "uspek", Vers.uspek)
     val uspekx = dep("com.github.langara.USpek", "uspekx", Vers.uspek)
     val upue = dep("com.github.langara.upue", "upue", Vers.upue)
+    val upueTest = dep("com.github.langara.upue", "upue-test", Vers.upue)
     val kommandLine = dep("com.github.langara.KommandLine", "kommandline", Vers.kommandLine)
     val dbusKotlin = dep("com.github.langara", "dbus-kotlin", Vers.dbusKotlin)
     val sandboxui = dep("com.github.langara", "sandboxui", Vers.sandboxui)
@@ -330,5 +331,7 @@ object Deps {
     fun DependencyHandler.addAll(configuration: String, vararg deps: String) {
         for (dep in deps) add(configuration, dep)
     }
+
+    val String.group get() = split(":").first()
 }
 
