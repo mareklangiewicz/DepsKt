@@ -12,7 +12,7 @@ object Vers {
     const val kotlin14 = "1.4.32"
     const val kotlin15 = "1.5.31"
     const val kotlin16 = "$kotlinMajor.$kotlinMinor.$kotlinPatch$kotlinSuffix"
-    const val kotlin = kotlin16 // waiting for compose to switch to 1.6
+    const val kotlin = kotlin16
     // https://kotlinlang.org/docs/releases.html#release-details
     // https://github.com/JetBrains/kotlin/blob/master/ChangeLog.md
     // https://github.com/JetBrains/kotlin/releases
@@ -40,15 +40,16 @@ object Vers {
     // just a reference - not useful in typical cases
     const val gradle5 = "5.6.4"
     const val gradle6 = "6.8.3"
-    const val gradle7 = "7.3.3"
+    const val gradle7 = "7.4-rc-2"
     const val gradle = gradle7
     // https://gradle.org/releases/
     // https://services.gradle.org/versions
     // https://services.gradle.org/versions/current
+    // https://services.gradle.org/versions/release-candidate
 
     const val composeDesktopVerMain = "1.0.1"
-    const val composeDesktopVerEdge = "1.1.0-alpha1-dev550"
-    const val composeDesktopVerExperiment = "0.0.0-master-dev570"
+    const val composeDesktopVerEdge = "1.2.0-alpha01-dev602"
+//    const val composeDesktopVerExperiment = "0.0.0-master-dev570"
     const val composeDesktop = composeDesktopVerEdge
 
     // https://github.com/JetBrains/compose-jb
@@ -291,7 +292,7 @@ object Vers {
     const val smokk = "0.0.4"
     // https://github.com/langara/smokk/releases
 
-    const val uspek = "0.0.17"
+    const val uspek = "0.0.18"
     // https://github.com/langara/uspek/releases
 
     const val upue = "0.0.09"
@@ -326,16 +327,19 @@ object Vers {
     const val npmReact = "17.0.2"
     // https://reactjs.org/versions
 
-    const val npmStyled = "5.3.0"
+    const val npmStyled = "5.3.3"
 
-    // https://maven.pkg.jetbrains.space/kotlin/p/kotlin/kotlin-js-wrappers/org/jetbrains/
-    // https://maven.pkg.jetbrains.space/kotlin/p/kotlin/kotlin-js-wrappers/org/jetbrains/kotlin-react/
-    // https://maven.pkg.jetbrains.space/kotlin/p/kotlin/kotlin-js-wrappers/org/jetbrains/kotlin-react/maven-metadata.xml
-    const val kotlinJsWrappersReact = "$npmReact-pre.156-kotlin-$kotlin"
+    // https://github.com/JetBrains/kotlin-wrappers
 
-    // https://maven.pkg.jetbrains.space/kotlin/p/kotlin/kotlin-js-wrappers/org/jetbrains/kotlin-react-dom/maven-metadata.xml
+    // https://github.com/JetBrains/kotlin-wrappers/blob/master/kotlin-react/README.md
+    // https://mvnrepository.com/artifact/org.jetbrains.kotlin-wrappers/kotlin-react
+    const val kotlinJsWrappersReact = "$npmReact-pre.293-kotlin-$kotlin"
+
+    // https://github.com/JetBrains/kotlin-wrappers/blob/master/kotlin-react-dom/README.md
+    // https://mvnrepository.com/artifact/org.jetbrains.kotlin-wrappers/kotlin-react-dom
     const val kotlinJsWrappersReactDom = kotlinJsWrappersReact
 
-    // https://maven.pkg.jetbrains.space/kotlin/p/kotlin/kotlin-js-wrappers/org/jetbrains/kotlin-styled/maven-metadata.xml
-    const val kotlinJsWrappersStyled = "$npmStyled-pre.156-kotlin-$kotlin"
+    // https://github.com/JetBrains/kotlin-wrappers/blob/master/kotlin-styled/README.md
+    // https://mvnrepository.com/artifact/org.jetbrains.kotlin-wrappers/kotlin-styled
+    const val kotlinJsWrappersStyled = "$npmStyled-pre.293-kotlin-$kotlin"
 }

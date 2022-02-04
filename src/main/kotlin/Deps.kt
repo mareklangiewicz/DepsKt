@@ -314,9 +314,9 @@ object Deps {
     val splitties = dep("com.louiscad.splitties", "splitties-fun-pack-android-material-components-with-views-dsl", Vers.splitties)
     val docoptJava = dep("com.offbytwo", "docopt", Vers.docoptJava)
 
-    val kotlinJsWrappersReact = dep("org.jetbrains", "kotlin-react", Vers.kotlinJsWrappersReact)
-    val kotlinJsWrappersReactDom = dep("org.jetbrains", "kotlin-react-dom", Vers.kotlinJsWrappersReactDom)
-    val kotlinJsWrappersStyled = dep("org.jetbrains", "kotlin-styled", Vers.kotlinJsWrappersStyled)
+    val kotlinJsWrappersReact = dep("org.jetbrains.kotlin-wrappers", "kotlin-react", Vers.kotlinJsWrappersReact)
+    val kotlinJsWrappersReactDom = dep("org.jetbrains.kotlin-wrappers", "kotlin-react-dom", Vers.kotlinJsWrappersReactDom)
+    val kotlinJsWrappersStyled = dep("org.jetbrains.kotlin-wrappers", "kotlin-styled", Vers.kotlinJsWrappersStyled)
 
     private fun dep(group: String, name: String, version: String? = null): String =
         if (version === null) "$group:$name" else "$group:$name:$version"
