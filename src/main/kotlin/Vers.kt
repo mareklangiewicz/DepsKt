@@ -292,7 +292,7 @@ object Vers {
     const val smokk = "0.0.4"
     // https://github.com/langara/smokk/releases
 
-    const val uspek = "0.0.18"
+    const val uspek = "0.0.19"
     // https://github.com/langara/uspek/releases
 
     const val upue = "0.0.09"
@@ -330,16 +330,21 @@ object Vers {
     const val npmStyled = "5.3.3"
 
     // https://github.com/JetBrains/kotlin-wrappers
+    // https://mvnrepository.com/artifact/org.jetbrains.kotlin-wrappers/kotlin-wrappers-bom
+    const val kotlinJsWrappersBoM = "0.0.1-pre.293-kotlin-$kotlin"
 
     // https://github.com/JetBrains/kotlin-wrappers/blob/master/kotlin-react/README.md
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin-wrappers/kotlin-react
+    @Deprecated("Use BoM")
     const val kotlinJsWrappersReact = "$npmReact-pre.293-kotlin-$kotlin"
 
     // https://github.com/JetBrains/kotlin-wrappers/blob/master/kotlin-react-dom/README.md
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin-wrappers/kotlin-react-dom
+    @Deprecated("Use BoM")
     const val kotlinJsWrappersReactDom = kotlinJsWrappersReact
 
     // https://github.com/JetBrains/kotlin-wrappers/blob/master/kotlin-styled/README.md
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin-wrappers/kotlin-styled
+    @Deprecated("Use BoM")
     const val kotlinJsWrappersStyled = "$npmStyled-pre.293-kotlin-$kotlin"
 }

@@ -260,18 +260,24 @@ object Deps {
     val junit5 = dep("org.junit.jupiter", "junit-jupiter-api", Vers.junit5)
     val junit5engine = dep("org.junit.jupiter", "junit-jupiter-engine", Vers.junit5)
 
-    val tuplek = dep("com.github.langara.tuplek", "tuplek", Vers.tuplek)
-    val abcdk = dep("com.github.langara.abcdk", "abcdk", Vers.abcdk)
-    val rxmock = dep("com.github.langara", "rxmock", Vers.rxmock)
-    val smokk = dep("com.github.langara", "smokk", Vers.smokk)
-    val uspek = dep("com.github.langara.USpek", "uspek", Vers.uspek)
-    val uspekx = dep("com.github.langara.USpek", "uspekx", Vers.uspek)
-    val upue = dep("com.github.langara.upue", "upue", Vers.upue)
-    val upueTest = dep("com.github.langara.upue", "upue-test", Vers.upue)
-    val kommandLine = dep("com.github.langara.KommandLine", "kommandline", Vers.kommandLine)
-    val dbusKotlin = dep("com.github.langara", "dbus-kotlin", Vers.dbusKotlin)
-    val sandboxui = dep("com.github.langara", "sandboxui", Vers.sandboxui)
-    val recyclerui = dep("com.github.langara", "recyclerui", Vers.recyclerui)
+    private const val githubLangara = "com.github.langara"
+    val tuplek = dep("$githubLangara.tuplek", "tuplek", Vers.tuplek)
+    val abcdk = dep("$githubLangara.abcdk", "abcdk", Vers.abcdk)
+    val rxmock = dep(githubLangara, "rxmock", Vers.rxmock)
+    val smokk = dep(githubLangara, "smokk", Vers.smokk)
+
+    private const val uspekGroup = "com.github.langara.USpek"
+    val uspek = dep(uspekGroup, "uspek", Vers.uspek)
+    val uspekx = dep(uspekGroup, "uspekx", Vers.uspek)
+
+    private const val upueGroup = "$githubLangara.upue"
+    val upue = dep(upueGroup, "upue", Vers.upue)
+    val upueTest = dep(upueGroup, "upue-test", Vers.upue)
+
+    val kommandLine = dep("$githubLangara.KommandLine", "kommandline", Vers.kommandLine)
+    val dbusKotlin = dep(githubLangara, "dbus-kotlin", Vers.dbusKotlin)
+    val sandboxui = dep(githubLangara, "sandboxui", Vers.sandboxui)
+    val recyclerui = dep(githubLangara, "recyclerui", Vers.recyclerui)
 
     val googleTruth = dep("com.google.truth", "truth", Vers.googleTruth)
 
@@ -314,9 +320,11 @@ object Deps {
     val splitties = dep("com.louiscad.splitties", "splitties-fun-pack-android-material-components-with-views-dsl", Vers.splitties)
     val docoptJava = dep("com.offbytwo", "docopt", Vers.docoptJava)
 
-    val kotlinJsWrappersReact = dep("org.jetbrains.kotlin-wrappers", "kotlin-react", Vers.kotlinJsWrappersReact)
-    val kotlinJsWrappersReactDom = dep("org.jetbrains.kotlin-wrappers", "kotlin-react-dom", Vers.kotlinJsWrappersReactDom)
-    val kotlinJsWrappersStyled = dep("org.jetbrains.kotlin-wrappers", "kotlin-styled", Vers.kotlinJsWrappersStyled)
+    private const val kotlinJsWrappersGroup = "org.jetbrains.kotlin-wrappers"
+    val kotlinJsWrappersBoM = dep(kotlinJsWrappersGroup, "kotlin-wrappers-bom", Vers.kotlinJsWrappersBoM)
+    val kotlinJsWrappersReact = dep(kotlinJsWrappersGroup, "kotlin-react")
+    val kotlinJsWrappersReactDom = dep(kotlinJsWrappersGroup, "kotlin-react-dom")
+    val kotlinJsWrappersStyled = dep(kotlinJsWrappersGroup, "kotlin-styled")
 
     private fun dep(group: String, name: String, version: String? = null): String =
         if (version === null) "$group:$name" else "$group:$name:$version"
