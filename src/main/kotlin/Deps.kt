@@ -266,7 +266,7 @@ object Deps {
     val rxmock = dep(githubLangara, "rxmock", Vers.rxmock)
     val smokk = dep(githubLangara, "smokk", Vers.smokk)
 
-    private const val uspekGroup = "com.github.langara.USpek"
+    private const val uspekGroup = "$githubLangara.USpek"
     val uspek = dep(uspekGroup, "uspek", Vers.uspek)
     val uspekx = dep(uspekGroup, "uspekx", Vers.uspek)
 
