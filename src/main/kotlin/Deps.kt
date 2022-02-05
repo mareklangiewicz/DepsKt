@@ -260,24 +260,24 @@ object Deps {
     val junit5 = dep("org.junit.jupiter", "junit-jupiter-api", Vers.junit5)
     val junit5engine = dep("org.junit.jupiter", "junit-jupiter-engine", Vers.junit5)
 
-    private const val githubLangara = "com.github.langara"
-    val tuplek = dep("$githubLangara.tuplek", "tuplek", Vers.tuplek)
-    val abcdk = dep("$githubLangara.abcdk", "abcdk", Vers.abcdk)
-    val rxmock = dep(githubLangara, "rxmock", Vers.rxmock)
-    val smokk = dep(githubLangara, "smokk", Vers.smokk)
+    private const val marekGroup = "pl.mareklangiewicz"
+    val tuplek = dep("$marekGroup.tuplek", "tuplek", Vers.tuplek)
+    val abcdk = dep("$marekGroup.abcdk", "abcdk", Vers.abcdk)
+    val rxmock = dep(marekGroup, "rxmock", Vers.rxmock)
+    val smokk = dep(marekGroup, "smokk", Vers.smokk)
 
-    private const val uspekGroup = "$githubLangara.USpek"
+    private const val uspekGroup = "$marekGroup.USpek"
     val uspek = dep(uspekGroup, "uspek", Vers.uspek)
     val uspekx = dep(uspekGroup, "uspekx", Vers.uspek)
 
-    private const val upueGroup = "$githubLangara.upue"
+    private const val upueGroup = "$marekGroup.upue"
     val upue = dep(upueGroup, "upue", Vers.upue)
     val upueTest = dep(upueGroup, "upue-test", Vers.upue)
 
-    val kommandLine = dep("$githubLangara.KommandLine", "kommandline", Vers.kommandLine)
-    val dbusKotlin = dep(githubLangara, "dbus-kotlin", Vers.dbusKotlin)
-    val sandboxui = dep(githubLangara, "sandboxui", Vers.sandboxui)
-    val recyclerui = dep(githubLangara, "recyclerui", Vers.recyclerui)
+    val kommandLine = dep("$marekGroup.KommandLine", "kommandline", Vers.kommandLine)
+    val dbusKotlin = dep(marekGroup, "dbus-kotlin", Vers.dbusKotlin)
+    val sandboxui = dep(marekGroup, "sandboxui", Vers.sandboxui)
+    val recyclerui = dep(marekGroup, "recyclerui", Vers.recyclerui)
 
     val googleTruth = dep("com.google.truth", "truth", Vers.googleTruth)
 

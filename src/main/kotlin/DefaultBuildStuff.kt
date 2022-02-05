@@ -18,16 +18,18 @@ fun TaskContainer.registerAllThatGroupFun(group: String, vararg afun: Pair<Strin
 }
 
 fun RepositoryHandler.defaultRepos(
+    withMavenLocal: Boolean = false,
+    withMavenCentral: Boolean = true,
     withGradle: Boolean = false,
     withGoogle: Boolean = true,
-    withMavenCentral: Boolean = true,
     withKotlinX: Boolean = true,
     withJitpack: Boolean = true,
 ) {
+    if (withMavenLocal) mavenLocal()
+    if (withMavenCentral) mavenCentral()
     if (withGradle) gradlePluginPortal()
     if (withGoogle) google()
-    if (withMavenCentral) mavenCentral()
-    if (withKotlinX) maven(url = "https://kotlin.bintray.com/kotlinx")
+    if (withKotlinX) maven(Repos.kotlinx)
     if (withJitpack) maven(Repos.jitpack)
 }
 
