@@ -263,8 +263,8 @@ object Deps {
     private const val marekGroup = "pl.mareklangiewicz"
     val tuplek = dep("$marekGroup.tuplek", "tuplek", Vers.tuplek)
     val abcdk = dep("$marekGroup.abcdk", "abcdk", Vers.abcdk)
-    val rxmock = dep(marekGroup, "rxmock", Vers.rxmock)
-    val smokk = dep(marekGroup, "smokk", Vers.smokk)
+    val rxmock = dep("$marekGroup.rxmock", "rxmock", Vers.rxmock)
+    val smokk = dep("$marekGroup.smokk", "smokk", Vers.smokk)
 
     private const val uspekGroup = "$marekGroup.USpek"
     val uspek = dep(uspekGroup, "uspek", Vers.uspek)
@@ -275,9 +275,9 @@ object Deps {
     val upueTest = dep(upueGroup, "upue-test", Vers.upue)
 
     val kommandLine = dep("$marekGroup.KommandLine", "kommandline", Vers.kommandLine)
-    val dbusKotlin = dep(marekGroup, "dbus-kotlin", Vers.dbusKotlin)
-    val sandboxui = dep(marekGroup, "sandboxui", Vers.sandboxui)
-    val recyclerui = dep(marekGroup, "recyclerui", Vers.recyclerui)
+    val dbusKotlin = dep("$marekGroup.dbus-kotlin", "dbus-kotlin", Vers.dbusKotlin)
+    val sandboxui = dep("$marekGroup.SandboxUi", "sandboxui", Vers.sandboxui)
+    val recyclerui = dep("$marekGroup.RecyclerUi", "recyclerui", Vers.recyclerui)
 
     val googleTruth = dep("com.google.truth", "truth", Vers.googleTruth)
 

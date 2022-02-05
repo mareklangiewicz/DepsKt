@@ -2,7 +2,7 @@ plugins {
     `kotlin-dsl`
     id("java-gradle-plugin")
     id("maven-publish")
-    id("com.gradle.plugin-publish") version "0.19.0"
+    id("com.gradle.plugin-publish") version "0.20.0"
     // https://plugins.gradle.org/docs/publish-plugin
 }
 
@@ -16,6 +16,7 @@ dependencies {
     api("com.squareup.okio:okio:3.0.0")
 //    gradleApi()
 
+    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10")
     testImplementation("com.github.langara.USpek:uspekx:0.0.17") // TODO: try to use Deps.uspek (see comment in settings)
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2") // TODO: try to use Deps.uspek (see comment in settings)
     testImplementation("org.junit.jupiter:junit-jupiter-engine:5.8.2") // TODO: try to use Deps.uspek (see comment in settings)

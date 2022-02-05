@@ -5,6 +5,7 @@ import org.gradle.api.tasks.TaskContainer
 import org.gradle.kotlin.dsl.ScriptHandlerScope
 import org.gradle.kotlin.dsl.maven
 import org.gradle.kotlin.dsl.repositories
+import org.jetbrains.kotlin.gradle.dsl.*
 import kotlin.reflect.KCallable
 
 
@@ -114,3 +115,18 @@ fun MutableSet<String>.defaultAndroExcludedResources() = addAll(listOf(
     "META-INF/LGPL2.1",
 ))
 
+
+fun KotlinMultiplatformExtension.jsDefault(testWithChrome: Boolean = true, testHeadless: Boolean = true) {
+    js(IR) {
+        browser {
+            testTask {
+                useKarma {
+                    when (testWithChrome to testHeadless) {
+                        true to true -> useChromeHeadless()
+                        true to false -> useChrome()
+                    }
+                }
+            }
+        }
+    }
+}
