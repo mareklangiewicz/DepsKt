@@ -116,9 +116,14 @@ fun MutableSet<String>.defaultAndroExcludedResources() = addAll(listOf(
 ))
 
 
-fun KotlinMultiplatformExtension.jsDefault(testWithChrome: Boolean = true, testHeadless: Boolean = true) {
+fun KotlinMultiplatformExtension.jsDefault(
+    withBrowser: Boolean = true,
+    withNode: Boolean = false,
+    testWithChrome: Boolean = true,
+    testHeadless: Boolean = true,
+) {
     js(IR) {
-        browser {
+        if (withBrowser) browser {
             testTask {
                 useKarma {
                     when (testWithChrome to testHeadless) {
@@ -128,5 +133,6 @@ fun KotlinMultiplatformExtension.jsDefault(testWithChrome: Boolean = true, testH
                 }
             }
         }
+        if (withNode) nodejs()
     }
 }
