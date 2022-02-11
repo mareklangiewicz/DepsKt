@@ -260,25 +260,6 @@ object Deps {
     val junit5 = dep("org.junit.jupiter", "junit-jupiter-api", Vers.junit5)
     val junit5engine = dep("org.junit.jupiter", "junit-jupiter-engine", Vers.junit5)
 
-    private const val marekGroup = "pl.mareklangiewicz"
-    val tuplek = dep("$marekGroup.tuplek", "tuplek", Vers.tuplek)
-    val abcdk = dep("$marekGroup.abcdk", "abcdk", Vers.abcdk)
-    val rxmock = dep("$marekGroup.rxmock", "rxmock", Vers.rxmock)
-    val smokk = dep("$marekGroup.smokk", "smokk", Vers.smokk)
-
-    private const val uspekGroup = "$marekGroup.USpek"
-    val uspek = dep(uspekGroup, "uspek", Vers.uspek)
-    val uspekx = dep(uspekGroup, "uspekx", Vers.uspek)
-
-    private const val upueGroup = "$marekGroup.upue"
-    val upue = dep(upueGroup, "upue", Vers.upue)
-    val upueTest = dep(upueGroup, "upue-test", Vers.upue)
-
-    val kommandLine = dep("$marekGroup.KommandLine", "kommandline", Vers.kommandLine)
-    val dbusKotlin = dep("$marekGroup.dbus-kotlin", "dbus-kotlin", Vers.dbusKotlin)
-    val sandboxui = dep("$marekGroup.SandboxUi", "sandboxui", Vers.sandboxui)
-    val recyclerui = dep("$marekGroup.RecyclerUi", "recyclerui", Vers.recyclerui)
-
     val googleTruth = dep("com.google.truth", "truth", Vers.googleTruth)
 
     val mockitoCore2 = dep("org.mockito", "mockito-core", Vers.mockitoCore2)
@@ -325,6 +306,29 @@ object Deps {
     val kotlinJsWrappersReact = dep(kotlinJsWrappersGroup, "kotlin-react")
     val kotlinJsWrappersReactDom = dep(kotlinJsWrappersGroup, "kotlin-react-dom")
     val kotlinJsWrappersStyled = dep(kotlinJsWrappersGroup, "kotlin-styled")
+
+
+
+    const val marekGroup = "pl.mareklangiewicz"
+
+    val tuplek = dep(marekGroup, "tuplek", Vers.tuplek)
+    val abcdk = dep(marekGroup, "abcdk", Vers.abcdk)
+    val rxmock = dep(marekGroup, "rxmock", Vers.rxmock)
+    val smokk = dep(marekGroup, "smokk", Vers.smokk)
+
+    val uspek = dep(marekGroup, "uspek", Vers.uspek)
+    val uspekx = dep(marekGroup, "uspekx", Vers.uspek)
+
+    val upue = dep(marekGroup, "upue", Vers.upue)
+    val upueTest = dep(marekGroup, "upue-test", Vers.upue)
+
+    val kommandLine = dep(marekGroup, "kommandline", Vers.kommandLine)
+    val dbusKotlin = dep(marekGroup, "dbus-kotlin", Vers.dbusKotlin)
+    val sandboxui = dep(marekGroup, "sandboxui", Vers.sandboxui)
+    val recyclerui = dep(marekGroup, "recyclerui", Vers.recyclerui)
+
+
+
 
     private fun dep(group: String, name: String, version: String? = null): String =
         if (version === null) "$group:$name" else "$group:$name:$version"

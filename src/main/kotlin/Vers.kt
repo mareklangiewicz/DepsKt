@@ -280,33 +280,6 @@ object Vers {
     const val realm = "10.9.0"
     // https://docs.mongodb.com/realm/sdk/android/install/
 
-    const val tuplek = "0.0.04"
-    // https://github.com/langara/tuplek/releases
-
-    const val abcdk = "0.0.05"
-    // https://github.com/langara/abcdk/releases
-
-    const val rxmock = "0.0.2"
-    // https://github.com/langara/rxmock/releases
-
-    const val smokk = "0.0.4"
-    // https://github.com/langara/smokk/releases
-
-    const val uspek = "0.0.19"
-    // https://github.com/langara/uspek/releases
-
-    const val upue = "0.0.09"
-    // https://github.com/langara/upue/releases
-
-    const val kommandLine = "0.0.05"
-    // https://github.com/langara/kommandline/releases
-
-    const val sandboxui = "0.0.5"
-    // https://github.com/langara/sandboxui/releases
-
-    const val recyclerui = "0.0.2"
-    // https://github.com/langara/recyclerui/releases
-
     const val ktor = "1.6.7"
     // https://maven.pkg.jetbrains.space/public/p/ktor/eap/io/ktor/ktor/
     // https://github.com/ktorio/ktor
@@ -347,4 +320,33 @@ object Vers {
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin-wrappers/kotlin-styled
     @Deprecated("Use BoM")
     const val kotlinJsWrappersStyled = "$npmStyled-pre.293-kotlin-$kotlin"
+
+
+
+    const val tuplek = "0.0.04"
+    // https://github.com/langara/tuplek/releases
+
+    const val abcdk = "0.0.05"
+    // https://github.com/langara/abcdk/releases
+
+    const val rxmock = "0.0.2"
+    // https://github.com/langara/rxmock/releases
+
+    const val smokk = "0.0.4"
+    // https://github.com/langara/smokk/releases
+
+    const val uspek = "0.0.19"
+    // https://github.com/langara/uspek/releases
+
+    const val upue = "0.0.09"
+    // https://github.com/langara/upue/releases
+
+    const val kommandLine = "0.0.05"
+    // https://github.com/langara/kommandline/releases
+
+    const val sandboxui = "0.0.5"
+    // https://github.com/langara/sandboxui/releases
+
+    const val recyclerui = "0.0.2"
+    // https://github.com/langara/recyclerui/releases
 }
