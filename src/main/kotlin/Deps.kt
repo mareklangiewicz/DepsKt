@@ -16,6 +16,7 @@ object Deps {
 
     @Deprecated("Use https://developer.android.com/studio/build/maven-publish-plugin")
     val androidMavenGradlePlugin = dep("com.github.dcendents", "android-maven-gradle-plugin", Vers.androidMavenGradlePlugin)
+    val nexusPublishGradlePlugin = dep("io.github.gradle-nexus", "publish-plugin", Vers.nexusPublishGradlePlugin)
 
     val kotlinStdlib7 = kotlin withName "kotlin-stdlib-jdk7"
     val kotlinStdlib8 = kotlin withName "kotlin-stdlib-jdk8"
@@ -345,5 +346,6 @@ object Deps {
     }
 
     val String.group get() = split(":").first()
+    val String.artifact get() = split(":")[1]
 }
 

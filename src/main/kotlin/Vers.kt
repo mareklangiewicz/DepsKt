@@ -79,6 +79,7 @@ object Vers {
 
     @Deprecated("Use https://developer.android.com/studio/build/maven-publish-plugin")
     const val androidMavenGradlePlugin = "2.1" // https://github.com/dcendents/android-maven-gradle-plugin/releases
+    const val nexusPublishGradlePlugin = "1.1.0" // https://github.com/gradle-nexus/publish-plugin/
 
     const val androidCompileSdk = 31
     const val androidMinSdk = 26

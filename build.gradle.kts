@@ -9,6 +9,7 @@ plugins {
 repositories {
     google()
     mavenCentral()
+    gradlePluginPortal()
     maven("https://jitpack.io") // TODO: try to use Repos.jitpack (see comment in settings.gradle.kts)
 }
 
