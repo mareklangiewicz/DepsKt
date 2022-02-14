@@ -2,9 +2,7 @@ import org.gradle.api.*
 import org.gradle.api.artifacts.dsl.DependencyHandler
 import org.gradle.api.artifacts.dsl.RepositoryHandler
 import org.gradle.api.tasks.TaskContainer
-import org.gradle.kotlin.dsl.ScriptHandlerScope
-import org.gradle.kotlin.dsl.maven
-import org.gradle.kotlin.dsl.repositories
+import org.gradle.kotlin.dsl.*
 import org.jetbrains.kotlin.gradle.dsl.*
 import kotlin.reflect.KCallable
 
@@ -17,6 +15,9 @@ fun TaskContainer.registerAllThatGroupFun(group: String, vararg afun: KCallable<
 fun TaskContainer.registerAllThatGroupFun(group: String, vararg afun: Pair<String, () -> Unit>) {
     for ((name, code) in afun) register(name) { this.group = group; doLast { code() } }
 }
+
+fun Project.rootExt(name: String) = rootProject.extra[name]!!.toString()
+fun Project.rootExtOrNull(name: String) = rootProject.extra[name]?.toString()
 
 fun RepositoryHandler.defaultRepos(
     withMavenLocal: Boolean = false,
