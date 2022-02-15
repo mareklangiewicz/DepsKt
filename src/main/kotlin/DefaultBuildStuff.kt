@@ -1,8 +1,10 @@
 import org.gradle.api.*
 import org.gradle.api.artifacts.dsl.DependencyHandler
 import org.gradle.api.artifacts.dsl.RepositoryHandler
+import org.gradle.api.publish.PublishingExtension
 import org.gradle.api.tasks.TaskContainer
 import org.gradle.kotlin.dsl.*
+import org.gradle.plugins.signing.*
 import org.jetbrains.kotlin.gradle.dsl.*
 import kotlin.reflect.KCallable
 
@@ -137,3 +139,15 @@ fun KotlinMultiplatformExtension.jsDefault(
         if (withNode) nodejs()
     }
 }
+
+fun Project.defaultSigning() {
+    extensions.configure(SigningExtension::class) {
+        useInMemoryPgpKeys(
+            rootExt("signing.keyId"),
+            rootExt("signing.key"),
+            rootExt("signing.password")
+        )
+        sign(extensions.getByType(PublishingExtension::class).publications)
+    }
+}
+

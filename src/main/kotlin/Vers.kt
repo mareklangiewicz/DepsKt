@@ -81,6 +81,8 @@ object Vers {
     const val androidMavenGradlePlugin = "2.1" // https://github.com/dcendents/android-maven-gradle-plugin/releases
     const val nexusPublishGradlePlugin = "1.1.0" // https://github.com/gradle-nexus/publish-plugin/
 
+    const val dokkaGradlePlugin = kotlin // will it be synced with kotlin version in the future?
+
     const val androidCompileSdk = 31
     const val androidMinSdk = 26
     const val androidTargetSdk = androidCompileSdk
