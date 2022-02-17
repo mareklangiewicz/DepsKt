@@ -1,12 +1,11 @@
 import org.gradle.api.*
-import org.gradle.api.artifacts.dsl.DependencyHandler
-import org.gradle.api.artifacts.dsl.RepositoryHandler
-import org.gradle.api.publish.PublishingExtension
-import org.gradle.api.tasks.TaskContainer
+import org.gradle.api.artifacts.dsl.*
+import org.gradle.api.publish.*
+import org.gradle.api.tasks.*
 import org.gradle.kotlin.dsl.*
 import org.gradle.plugins.signing.*
 import org.jetbrains.kotlin.gradle.dsl.*
-import kotlin.reflect.KCallable
+import kotlin.reflect.*
 
 
 fun TaskContainer.registerAllThatGroupFun(group: String, vararg afun: KCallable<Unit>) {
