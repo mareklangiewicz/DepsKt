@@ -140,13 +140,13 @@ fun KotlinMultiplatformExtension.jsDefault(
 }
 
 fun Project.defaultSigning() {
-    extensions.configure(SigningExtension::class) {
+    extensions.configure<SigningExtension> {
         useInMemoryPgpKeys(
             rootExt("signing.keyId"),
             rootExt("signing.key"),
             rootExt("signing.password")
         )
-        sign(extensions.getByType(PublishingExtension::class).publications)
+        sign(extensions.getByType<PublishingExtension>().publications)
     }
 }
 
