@@ -1,4 +1,4 @@
-package pl.mareklangiewicz.deps
+package pl.mareklangiewicz.ure
 
 import okio.FileSystem.Companion.RESOURCES
 import okio.FileSystem.Companion.SYSTEM

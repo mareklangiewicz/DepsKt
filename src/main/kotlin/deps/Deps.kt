@@ -1,5 +1,7 @@
 @file:Suppress("unused", "DEPRECATION", "SpellCheckingInspection", "MemberVisibilityCanBePrivate")
 
+// package has to be default - to be available even in buildscript blocks
+
 import org.gradle.api.artifacts.dsl.DependencyHandler
 
 /**

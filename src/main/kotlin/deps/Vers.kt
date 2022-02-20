@@ -1,3 +1,5 @@
+// package has to be default - to be available even in buildscript blocks
+
 /**
  * Common dependencies versions for java/kotlin/android projects
  *
@@ -316,6 +318,7 @@ object Vers {
 
     // https://github.com/JetBrains/kotlin-wrappers/blob/master/kotlin-react-dom/README.md
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin-wrappers/kotlin-react-dom
+    @Suppress("DEPRECATION")
     @Deprecated("Use BoM")
     const val kotlinJsWrappersReactDom = kotlinJsWrappersReact
 

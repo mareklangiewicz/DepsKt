@@ -1,4 +1,4 @@
-package pl.mareklangiewicz.deps
+package pl.mareklangiewicz.evts
 
 import okio.FileSystem
 import okio.Path
@@ -24,15 +24,15 @@ import org.gradle.api.tasks.testing.TestListener
 import org.gradle.api.tasks.testing.TestOutputEvent
 import org.gradle.api.tasks.testing.TestOutputListener
 import org.gradle.api.tasks.testing.TestResult
-import pl.mareklangiewicz.deps.GradleEvt.BuildEvt.*
-import pl.mareklangiewicz.deps.GradleEvt.DependencyResolutionEvt.*
-import pl.mareklangiewicz.deps.GradleEvt.ProjectEvaluationEvt.*
-import pl.mareklangiewicz.deps.GradleEvt.StdOutEvt.*
-import pl.mareklangiewicz.deps.GradleEvt.TaskActionEvt.*
-import pl.mareklangiewicz.deps.GradleEvt.TaskExecutionEvt.*
-import pl.mareklangiewicz.deps.GradleEvt.TaskExecutionGraphEvt.*
-import pl.mareklangiewicz.deps.GradleEvt.TestEvt.*
-import pl.mareklangiewicz.deps.GradleEvt.TestOutEvt.*
+import pl.mareklangiewicz.evts.GradleEvt.BuildEvt.*
+import pl.mareklangiewicz.evts.GradleEvt.DependencyResolutionEvt.*
+import pl.mareklangiewicz.evts.GradleEvt.ProjectEvaluationEvt.*
+import pl.mareklangiewicz.evts.GradleEvt.StdOutEvt.*
+import pl.mareklangiewicz.evts.GradleEvt.TaskActionEvt.*
+import pl.mareklangiewicz.evts.GradleEvt.TaskExecutionEvt.*
+import pl.mareklangiewicz.evts.GradleEvt.TaskExecutionGraphEvt.*
+import pl.mareklangiewicz.evts.GradleEvt.TestEvt.*
+import pl.mareklangiewicz.evts.GradleEvt.TestOutEvt.*
 import java.util.Date
 
 sealed class GradleEvt {
