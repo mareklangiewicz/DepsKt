@@ -1,16 +1,15 @@
 package pl.mareklangiewicz.sourcefun
 
-import okio.*
 import okio.FileSystem.Companion.RESOURCES
 import okio.Path.Companion.toPath
+import org.gradle.kotlin.dsl.*
 import org.gradle.testfixtures.*
 import org.gradle.testkit.runner.*
 import org.gradle.testkit.runner.TaskOutcome.*
+import org.junit.jupiter.api.*
+import pl.mareklangiewicz.deps.*
 import pl.mareklangiewicz.uspek.*
 import java.io.*
-import org.gradle.kotlin.dsl.apply
-import org.junit.jupiter.api.TestFactory
-import pl.mareklangiewicz.deps.*
 
 class SourceFunTests {
 
@@ -58,12 +57,15 @@ private fun withTempDir(tempDirPrefix: String = "uspek", code: (tempDir: File) -
 
 private fun onSingleHelloWorld(tempDir: File, settingsFile: File, buildFile: File) {
     "On single hello world project" o {
-        settingsFile.writeText("""
+        settingsFile.writeText(
+            """
             rootProject.name = "hello-world"
-        """.trimIndent())
+        """.trimIndent()
+        )
 
         "On build file with example tasks" o {
-            buildFile.writeText("""
+            buildFile.writeText(
+                """
                 tasks.register("helloWorld") {
                     doLast {
                         println("Hello world!")
@@ -76,7 +78,8 @@ private fun onSingleHelloWorld(tempDir: File, settingsFile: File, buildFile: Fil
                         throw RuntimeException("helloFail exception")
                     }
                 }
-            """.trimIndent())
+            """.trimIndent()
+            )
 
             "On gradle runner with temp dir" o {
                 val runner = GradleRunner.create().withProjectDir(tempDir)
@@ -122,9 +125,7 @@ private fun onSourceFunPlugin(tempDir: File, settingsFile: File, buildFile: File
             buildFile.writeText(RESOURCES.readUtf8(projectResPath / "build.gradle.kts"))
 
             "On gradle runner with temp dir" o {
-                val runner = GradleRunner.create()
-                    .withPluginClasspath()
-                    .withProjectDir(tempDir)
+                val runner = GradleRunner.create().withPluginClasspath().withProjectDir(tempDir)
 
                 "On task funTask1" o {
                     runner.withArguments("funTask1")
