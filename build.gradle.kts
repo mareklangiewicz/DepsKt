@@ -49,6 +49,10 @@ gradlePlugin {
             id = "pl.mareklangiewicz.deps.settings"
             implementationClass = "pl.mareklangiewicz.deps.DepsSettingsPlugin"
         }
+        create("sourceFunPlugin") {
+            id = "pl.mareklangiewicz.sourcefun"
+            implementationClass = "pl.mareklangiewicz.sourcefun.SourceFunPlugin"
+        }
     }
 }
 
@@ -66,15 +70,8 @@ pluginBundle {
     }
 
     (plugins) {
-
-        "depsPlugin" {
-            // id is captured from java-gradle-plugin configuration
-            displayName = "Deps.kt plugin"
-        }
-
-        "depsSettingsPlugin" {
-            // id is captured from java-gradle-plugin configuration
-            displayName = "Deps.kt settings plugin"
-        }
+        "depsPlugin" { displayName = "Deps.kt plugin" } // id is captured from java-gradle-plugin configuration
+        "depsSettingsPlugin" { displayName = "Deps.kt settings plugin" }
+        "sourceFunPlugin" { displayName = "SourceFun plugin" }
     }
 }
