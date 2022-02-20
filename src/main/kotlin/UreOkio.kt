@@ -64,8 +64,12 @@ fun Path.asRelativeTo(dir: Path): Path {
 val Project.rootOkioPath get(): Path = rootDir.toString().toPath()
 
 
-fun FileSystem.sourceMatchUre(file: Path, ure: Ure): MatchResult? = source(file).buffer()
-    .use { it.readUtf8() }.let { ure.compile().matchEntire(it) }
+fun FileSystem.readAndMatchUre(file: Path, vararg opts: RegexOption, init: UreProduct.() -> Unit): MatchResult? =
+    readAndMatchUre(file, ure(*opts) { init() })
+
+fun FileSystem.readAndMatchUre(file: Path, ure: Ure): MatchResult? = readUtf8(file).let { ure.compile().matchEntire(it) }
+
+fun FileSystem.readUtf8(file: Path): String = read(file) { readUtf8() }
 
 /**
  * @param inputPath path of input file

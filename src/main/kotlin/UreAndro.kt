@@ -17,7 +17,7 @@ private val ureWithABT = ure {
 
 
 private fun injectAndroBuildTemplate(inputResPath: Path, outputPath: Path) {
-    val inputMR = RESOURCES.sourceMatchUre(inputResPath, ureWithABT) ?: error("No match $inputResPath")
+    val inputMR = RESOURCES.readAndMatchUre(inputResPath, ureWithABT) ?: error("No match $inputResPath")
     val abt by inputMR
     SYSTEM.processFile(outputPath, outputPath) { output ->
         val outputMR = ureWithABT.compile().matchEntire(output) ?: error("No match $outputPath")
@@ -33,14 +33,14 @@ fun injectAndroAppBuildTemplate(outputPath: Path) = injectAndroBuildTemplate(app
 fun injectAndroLibBuildTemplate(outputPath: Path) = injectAndroBuildTemplate(libABTResPath, outputPath)
 
 fun checkAndroBuildTemplates(vararg buildFiles: Path) {
-    val appMR = RESOURCES.sourceMatchUre(appABTResPath, ureWithABT) ?: error("No match $appABTResPath")
-    val libMR = RESOURCES.sourceMatchUre(libABTResPath, ureWithABT) ?: error("No match $libABTResPath")
+    val appMR = RESOURCES.readAndMatchUre(appABTResPath, ureWithABT) ?: error("No match $appABTResPath")
+    val libMR = RESOURCES.readAndMatchUre(libABTResPath, ureWithABT) ?: error("No match $libABTResPath")
     val appABT = appMR["abt"]
     val libABT = libMR["abt"]
     check(appABT == libABT) { "Templates in app and lib have to be the same! ${appABT.length} ${libABT.length}" }
     println("OK. Templates in template-android are the same.")
     for (file in buildFiles) {
-        val abt by SYSTEM.sourceMatchUre(file, ureWithABT) ?: error("No match $file")
+        val abt by SYSTEM.readAndMatchUre(file, ureWithABT) ?: error("No match $file")
         check(abt == appABT) { "Template in $file was modified." }
         println("OK. Template in $file is correct.")
     }

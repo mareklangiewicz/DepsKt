@@ -1,5 +1,8 @@
 package pl.mareklangiewicz.sourcefun
 
+import okio.*
+import okio.FileSystem.Companion.RESOURCES
+import okio.Path.Companion.toPath
 import org.gradle.testfixtures.*
 import org.gradle.testkit.runner.*
 import org.gradle.testkit.runner.TaskOutcome.*
@@ -7,11 +10,12 @@ import pl.mareklangiewicz.uspek.*
 import java.io.*
 import org.gradle.kotlin.dsl.apply
 import org.junit.jupiter.api.TestFactory
+import pl.mareklangiewicz.deps.*
 
 class SourceFunTests {
 
     @TestFactory
-    fun sourceFunUSpek() = uspekTestFactory {
+    fun sourceFunTests() = uspekTestFactory {
 
         "Example test with ProjectBuilder" o {
             val project = ProjectBuilder.builder().build()!!
@@ -108,41 +112,14 @@ private fun onSingleHelloWorld(tempDir: File, settingsFile: File, buildFile: Fil
     }
 }
 
+private val projectResPath = "sample-sourcefun".toPath()
+
 private fun onSourceFunPlugin(tempDir: File, settingsFile: File, buildFile: File) {
     "On single project with SourceFunPlugin" o {
-        settingsFile.writeText("""
-            rootProject.name = "project-with-sourcefun"
-        """.trimIndent())
+        settingsFile.writeText(RESOURCES.readUtf8(projectResPath / "settings.gradle.kts"))
 
         "On build file with explicit SourceFunTasks" o {
-            buildFile.writeText("""
-                import pl.mareklangiewicz.sourcefun.*
-                
-                plugins {
-                    id("pl.mareklangiewicz.sourcefun")
-                }
-                
-                sourceFun {
-                    def("funTask1", "fun1Src", "funTempOut") { null }
-                    def("funTask2", "fun2Src", "funTempOut") { null }
-                }
-                
-                tasks.register<SourceFunTask>("funTask3") {
-                    source("fun3Src")
-                    outputDir.set(file("funTempOut"))
-                    visitFile { inFile, outFile -> println(inFile.absolutePath); println(outFile.absolutePath) }
-                }
-                
-                tasks.register<SourceRegexTask>("regexExperiment") {
-                    source("regexTempSrc")
-                    outputDir.set(file("regexTempOut"))
-                    match.set(".*")
-                    replace.set("XXX")
-                    doLast {
-                        println("fjkdslj")
-                    }
-                }
-            """.trimIndent())
+            buildFile.writeText(RESOURCES.readUtf8(projectResPath / "build.gradle.kts"))
 
             "On gradle runner with temp dir" o {
                 val runner = GradleRunner.create()
