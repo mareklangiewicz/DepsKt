@@ -1,8 +1,12 @@
+package pl.mareklangiewicz.utils
+
 import okio.Path.Companion.toOkioPath
 import org.gradle.api.*
 import org.gradle.api.initialization.*
 import org.gradle.api.provider.*
+import org.gradle.api.tasks.*
 import org.gradle.kotlin.dsl.*
+import kotlin.reflect.*
 
 
 // Overloads for setting properties in more typesafe and explicit ways (and fewer parentheses)
@@ -20,3 +24,25 @@ fun Project.rootExtOrNull(name: String) = rootProject.extra[name]?.toString()
 
 val Project.rootOkioPath get() = rootProject.rootDir.toOkioPath()
 val Settings.rootOkioPath get() = rootProject.projectDir.toOkioPath()
+
+
+// https://publicobject.com/2021/03/11/includebuild/
+
+fun Settings.includeAndSubstituteBuild(rootProject: Any, substituteModule: String, withProject: String) {
+    includeBuild(rootProject) {
+        dependencySubstitution {
+            substitute(module(substituteModule))
+                .using(project(withProject))
+        }
+    }
+}
+
+fun TaskContainer.registerAllThatGroupFun(group: String, vararg afun: KCallable<Unit>) {
+    val pairs: List<Pair<String, () -> Unit>> = afun.map { it.name to { it.call() } }
+    registerAllThatGroupFun(group, *pairs.toTypedArray())
+}
+
+fun TaskContainer.registerAllThatGroupFun(group: String, vararg afun: Pair<String, () -> Unit>) {
+    for ((name, code) in afun) register(name) { this.group = group; doLast { code() } }
+}
+

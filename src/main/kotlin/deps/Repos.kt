@@ -1,4 +1,4 @@
-// package has to be default - to be available even in buildscript blocks
+package pl.mareklangiewicz.deps
 
 object Repos {
     const val ossSonatypeSnapshots = "https://oss.sonatype.org/content/repositories/snapshots"

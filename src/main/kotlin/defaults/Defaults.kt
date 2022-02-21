@@ -1,37 +1,13 @@
 package pl.mareklangiewicz.defaults
 
+import pl.mareklangiewicz.deps.*
 import org.gradle.api.*
 import org.gradle.api.artifacts.dsl.*
-import org.gradle.api.initialization.*
 import org.gradle.api.publish.*
-import org.gradle.api.tasks.*
 import org.gradle.kotlin.dsl.*
 import org.gradle.plugins.signing.*
-import org.jetbrains.kotlin.gradle.dsl.*
-import pl.mareklangiewicz.deps.*
-import rootExt
-import kotlin.reflect.*
+import pl.mareklangiewicz.utils.*
 
-
-// https://publicobject.com/2021/03/11/includebuild/
-
-fun Settings.includeAndSubstituteBuild(rootProject: Any, substituteModule: String, withProject: String) {
-    includeBuild(rootProject) {
-        dependencySubstitution {
-            substitute(module(substituteModule))
-                .using(project(withProject))
-        }
-    }
-}
-
-fun TaskContainer.registerAllThatGroupFun(group: String, vararg afun: KCallable<Unit>) {
-    val pairs: List<Pair<String, () -> Unit>> = afun.map { it.name to { it.call() } }
-    registerAllThatGroupFun(group, *pairs.toTypedArray())
-}
-
-fun TaskContainer.registerAllThatGroupFun(group: String, vararg afun: Pair<String, () -> Unit>) {
-    for ((name, code) in afun) register(name) { this.group = group; doLast { code() } }
-}
 
 fun RepositoryHandler.defaultRepos(
     withMavenLocal: Boolean = false,
@@ -131,27 +107,6 @@ fun MutableSet<String>.defaultAndroExcludedResources() = addAll(listOf(
 ))
 
 
-fun KotlinMultiplatformExtension.jsDefault(
-    withBrowser: Boolean = true,
-    withNode: Boolean = false,
-    testWithChrome: Boolean = true,
-    testHeadless: Boolean = true,
-) {
-    js(IR) {
-        if (withBrowser) browser {
-            testTask {
-                useKarma {
-                    when (testWithChrome to testHeadless) {
-                        true to true -> useChromeHeadless()
-                        true to false -> useChrome()
-                    }
-                }
-            }
-        }
-        if (withNode) nodejs()
-    }
-}
-
 fun Project.defaultSigning() {
     extensions.configure<SigningExtension> {
         useInMemoryPgpKeys(
@@ -162,4 +117,3 @@ fun Project.defaultSigning() {
         sign(extensions.getByType<PublishingExtension>().publications)
     }
 }
-
