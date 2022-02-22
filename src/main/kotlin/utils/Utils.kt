@@ -1,5 +1,6 @@
 package pl.mareklangiewicz.utils
 
+import okio.*
 import okio.Path.Companion.toOkioPath
 import org.gradle.api.*
 import org.gradle.api.initialization.*
@@ -22,8 +23,10 @@ infix fun <T> Property<in T>.put(value: T) = set(value)
 fun Project.rootExt(name: String) = rootProject.extra[name]!!.toString()
 fun Project.rootExtOrNull(name: String) = rootProject.extra[name]?.toString()
 
-val Project.rootOkioPath get() = rootProject.rootDir.toOkioPath()
-val Settings.rootOkioPath get() = rootProject.projectDir.toOkioPath()
+val Project.rootProjectPath get() = rootProject.rootDir.toOkioPath()
+val Settings.rootProjectPath get() = rootProject.projectDir.toOkioPath()
+
+fun SourceTask.addSource(path: Path) = source(path.toFile())
 
 
 // https://publicobject.com/2021/03/11/includebuild/

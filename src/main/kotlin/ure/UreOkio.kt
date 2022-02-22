@@ -61,15 +61,14 @@ fun Path.asRelativeTo(dir: Path): Path {
     }
 }
 
-val Project.rootOkioPath get(): Path = rootDir.toString().toPath()
-
-
 fun FileSystem.readAndMatchUre(file: Path, vararg opts: RegexOption, init: UreProduct.() -> Unit): MatchResult? =
     readAndMatchUre(file, ure(*opts) { init() })
 
 fun FileSystem.readAndMatchUre(file: Path, ure: Ure): MatchResult? = readUtf8(file).let { ure.compile().matchEntire(it) }
 
 fun FileSystem.readUtf8(file: Path): String = read(file) { readUtf8() }
+
+fun FileSystem.writeUtf8(file: Path, content: String) = write(file) { writeUtf8(content) }
 
 /**
  * @param inputPath path of input file
@@ -79,7 +78,7 @@ fun FileSystem.readUtf8(file: Path): String = read(file) { readUtf8() }
  */
 fun FileSystem.processFile(inputPath: Path, outputPath: Path? = null, process: (String) -> String?) {
 
-    val input = source(inputPath).buffer().use { it.readUtf8() }
+    val input = readUtf8(inputPath)
 
     val output = process(input)
 
@@ -94,7 +93,7 @@ fun FileSystem.processFile(inputPath: Path, outputPath: Path? = null, process: (
     }
 
     createDirectories(outputPath.parent!!)
-    sink(outputPath).buffer().use { it.writeUtf8(output) }
+    writeUtf8(outputPath, output)
 }
 
 fun FileSystem.commentOutMultiplatformFunInFile(file: Path) {
