@@ -9,22 +9,23 @@ import org.gradle.api.provider.*
 import org.gradle.api.tasks.*
 import org.gradle.kotlin.dsl.*
 import pl.mareklangiewicz.ure.*
-import pl.mareklangiewicz.utils.*
-import java.io.*
 
 internal data class SourceFunDefinition(
     val taskName: String,
     val sourcePath: Path,
     val outputPath: Path,
-    val transform: (String) -> String?
+    val taskGroup: String? = null,
+    val transform: Path.(String) -> String?
 )
 
 open class SourceFunExtension {
 
     internal val definitions = mutableListOf<SourceFunDefinition>()
 
-    fun def(taskName: String, sourcePath: Path, outputPath: Path, transform: (String) -> String?) {
-        definitions.add(SourceFunDefinition(taskName, sourcePath, outputPath, transform))
+    var grp: String? = null // very hacky - TODO_later: experiment and probably refactor
+
+    fun def(taskName: String, sourcePath: Path, outputPath: Path, transform: Path.(String) -> String?) {
+        definitions.add(SourceFunDefinition(taskName, sourcePath, outputPath, grp, transform))
     }
 }
 
@@ -37,7 +38,8 @@ class SourceFunPlugin : Plugin<Project> {
             for (def in extension.definitions) project.tasks.register<SourceFunTask>(def.taskName) {
                 addSource(def.sourcePath)
                 setOutput(def.outputPath)
-                transform(def.transform)
+                setTransformFun(def.transform)
+                def.taskGroup?.let { group = it }
             }
         }
     }
@@ -58,25 +60,25 @@ abstract class SourceFunTask : SourceTask() {
         source.visit(visitProperty.get())
     }
 
-    fun visit(action: FileVisitDetails.() -> Unit) {
-        visitProperty.set { action() }
+    fun setVisitFun(action: FileVisitDetails.() -> Unit) {
+        visitProperty.set(action)
         visitProperty.finalizeValue()
     }
 
-    fun visitPath(action: (inPath: Path, outPath: Path) -> Unit) = visit {
+    fun setVisitPathFun(action: (inPath: Path, outPath: Path) -> Unit) = setVisitFun {
         val dir = outputDir.get()
         val inFile = file
         val relPath = path
         logger.quiet("SourceFunTask: processing $relPath")
         val outFile = dir.file(relPath).asFile
-        if (isDirectory) outFile.mkdirs() else action(inFile.toOkioPath(), outFile.toOkioPath())
+        if (!isDirectory) action(inFile.toOkioPath(), outFile.toOkioPath())
     }
 
-    fun transformPath(transform: (Path) -> String?) = visitPath { inPath, outPath ->
-        transform(inPath)?.let { SYSTEM.writeUtf8(outPath, it) }
+    fun setTransformPathFun(transform: (Path) -> String?) = setVisitPathFun { inPath, outPath ->
+        transform(inPath)?.let { SYSTEM.writeUtf8(outPath, it, createParentDir = true) }
     }
 
-    fun transform(transform: (String) -> String?) = transformPath { transform(SYSTEM.readUtf8(it)) }
+    fun setTransformFun(transform: Path.(String) -> String?) = setTransformPathFun { it.transform(SYSTEM.readUtf8(it)) }
 }
 
 abstract class SourceRegexTask : SourceFunTask() {
@@ -84,5 +86,7 @@ abstract class SourceRegexTask : SourceFunTask() {
     abstract val match: Property<String>
     @get:Input
     abstract val replace: Property<String>
-    init { transform { it.replace(Regex(match.get()), replace.get()) } }
+    init { setTransformFun { it.replace(Regex(match.get()), replace.get()) } }
 }
+
+fun SourceTask.addSource(path: Path) = source(path.toFile())

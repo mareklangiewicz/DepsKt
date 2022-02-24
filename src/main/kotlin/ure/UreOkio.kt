@@ -1,14 +1,8 @@
 package pl.mareklangiewicz.ure
 
-import okio.FileSystem
-import okio.IOException
-import okio.Path
+import okio.*
 import okio.Path.Companion.toPath
-import okio.buffer
-import org.gradle.api.Project
 import kotlin.io.println
-import kotlin.io.use
-import pl.mareklangiewicz.ure.*
 
 @Throws(IOException::class)
 fun FileSystem.findAllFiles(path: Path, maxDepth: Int = Int.MAX_VALUE): Sequence<Path> {
@@ -68,7 +62,10 @@ fun FileSystem.readAndMatchUre(file: Path, ure: Ure): MatchResult? = readUtf8(fi
 
 fun FileSystem.readUtf8(file: Path): String = read(file) { readUtf8() }
 
-fun FileSystem.writeUtf8(file: Path, content: String) = write(file) { writeUtf8(content) }
+fun FileSystem.writeUtf8(file: Path, content: String, createParentDir: Boolean = false) {
+    if (createParentDir) createDirectories(file.parent!!)
+    write(file) { writeUtf8(content) }
+}
 
 /**
  * @param inputPath path of input file

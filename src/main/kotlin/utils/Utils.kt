@@ -26,11 +26,8 @@ fun Project.rootExtOrNull(name: String) = rootProject.extra[name]?.toString()
 val Project.rootProjectPath get() = rootProject.rootDir.toOkioPath()
 val Settings.rootProjectPath get() = rootProject.projectDir.toOkioPath()
 
-fun SourceTask.addSource(path: Path) = source(path.toFile())
-
 
 // https://publicobject.com/2021/03/11/includebuild/
-
 fun Settings.includeAndSubstituteBuild(rootProject: Any, substituteModule: String, withProject: String) {
     includeBuild(rootProject) {
         dependencySubstitution {
