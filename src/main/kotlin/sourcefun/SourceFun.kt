@@ -98,19 +98,19 @@ fun SourceTask.addSource(path: Path) = source(path.toFile())
 @UntrackedTask(because = "Git version and build time is external state and can't be tracked.")
 abstract class VersionDetailsTask: DefaultTask() {
 
-    @get:OutputFile
-    abstract val gitVersionOutputFile: RegularFileProperty
-
-    @get:OutputFile
-    abstract val buildTimeOutputFile: RegularFileProperty
+    @get:OutputDirectory
+    abstract val generatedAssetsDir: DirectoryProperty
 
     @TaskAction
     fun execute(){
         val process = ProcessBuilder("git", "rev-parse",  "HEAD").start()
         val error = process.errorStream.bufferedReader().use { it.readText() }
         check(error.isBlank()) { "GitVersionTask error: $error" }
-        val gitVersion = process.inputStream.bufferedReader().use { it.readText() }
-        gitVersionOutputFile.get().asFile.writeText(gitVersion)
-        buildTimeOutputFile.get().asFile.writeText(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME))
+        val commit = process.inputStream.bufferedReader().use { it.readText() }
+        val time = LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME)
+        generatedAssetsDir.get().run {
+            file("version-details/commit").asFile.writeText(commit)
+            file("version-details/buildtime").asFile.writeText(time)
+        }
     }
 }
