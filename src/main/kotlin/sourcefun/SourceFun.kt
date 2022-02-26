@@ -9,6 +9,8 @@ import org.gradle.api.provider.*
 import org.gradle.api.tasks.*
 import org.gradle.kotlin.dsl.*
 import pl.mareklangiewicz.ure.*
+import java.time.*
+import java.time.format.*
 
 internal data class SourceFunDefinition(
     val taskName: String,
@@ -90,3 +92,25 @@ abstract class SourceRegexTask : SourceFunTask() {
 }
 
 fun SourceTask.addSource(path: Path) = source(path.toFile())
+
+
+@Suppress("UnstableApiUsage")
+@UntrackedTask(because = "Git version and build time is external state and can't be tracked.")
+abstract class VersionDetailsTask: DefaultTask() {
+
+    @get:OutputFile
+    abstract val gitVersionOutputFile: RegularFileProperty
+
+    @get:OutputFile
+    abstract val buildTimeOutputFile: RegularFileProperty
+
+    @TaskAction
+    fun execute(){
+        val process = ProcessBuilder("git", "rev-parse",  "HEAD").start()
+        val error = process.errorStream.bufferedReader().use { it.readText() }
+        check(error.isBlank()) { "GitVersionTask error: $error" }
+        val gitVersion = process.inputStream.bufferedReader().use { it.readText() }
+        gitVersionOutputFile.get().asFile.writeText(gitVersion)
+        buildTimeOutputFile.get().asFile.writeText(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME))
+    }
+}
