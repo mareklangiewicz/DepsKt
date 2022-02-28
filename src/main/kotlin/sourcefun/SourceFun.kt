@@ -50,29 +50,30 @@ class SourceFunPlugin : Plugin<Project> {
 abstract class SourceFunTask : SourceTask() {
 
     @get:OutputDirectory
-    protected abstract val outputDir: DirectoryProperty
+    protected abstract val outputDirProperty: DirectoryProperty
 
     @get:Internal
-    protected abstract val visitProperty: Property<Action<FileVisitDetails>>
+    protected abstract val taskActionProperty: Property<(source: FileTree, output: Directory) -> Unit>
 
-    fun setOutput(path: Path) = outputDir.set(path.toFile())
+    fun setOutput(path: Path) = outputDirProperty.set(path.toFile())
 
     @TaskAction
-    fun execute() {
-        source.visit(visitProperty.get())
+    fun taskAction() = taskActionProperty.get()(source, outputDirProperty.get())
+
+    fun setTaskAction(action: (source: FileTree, output: Directory) -> Unit) {
+        taskActionProperty.set(action)
+        taskActionProperty.finalizeValue()
     }
 
-    fun setVisitFun(action: FileVisitDetails.() -> Unit) {
-        visitProperty.set(action)
-        visitProperty.finalizeValue()
+    fun setVisitFun(action: FileVisitDetails.(output: Directory) -> Unit) {
+        setTaskAction { source, output -> source.visit { action(output) } }
     }
 
-    fun setVisitPathFun(action: (inPath: Path, outPath: Path) -> Unit) = setVisitFun {
-        val dir = outputDir.get()
+    fun setVisitPathFun(action: (inPath: Path, outPath: Path) -> Unit) = setVisitFun { output ->
         val inFile = file
         val relPath = path
         logger.quiet("SourceFunTask: processing $relPath")
-        val outFile = dir.file(relPath).asFile
+        val outFile = output.file(relPath).asFile
         if (!isDirectory) action(inFile.toOkioPath(), outFile.toOkioPath())
     }
 
