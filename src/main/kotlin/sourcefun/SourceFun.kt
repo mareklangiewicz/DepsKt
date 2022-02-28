@@ -60,21 +60,19 @@ abstract class SourceFunTask : SourceTask() {
     @TaskAction
     fun taskAction() = taskActionProperty.get()(source, outputDirProperty.get())
 
-    fun setTaskAction(action: (source: FileTree, output: Directory) -> Unit) {
+    fun setTaskAction(action: (srcTree: FileTree, outDir: Directory) -> Unit) {
         taskActionProperty.set(action)
         taskActionProperty.finalizeValue()
     }
 
-    fun setVisitFun(action: FileVisitDetails.(output: Directory) -> Unit) {
-        setTaskAction { source, output -> source.visit { action(output) } }
+    fun setVisitFun(action: FileVisitDetails.(outDir: Directory) -> Unit) {
+        setTaskAction { srcTree, outDir -> srcTree.visit { action(outDir) } }
     }
 
-    fun setVisitPathFun(action: (inPath: Path, outPath: Path) -> Unit) = setVisitFun { output ->
-        val inFile = file
-        val relPath = path
-        logger.quiet("SourceFunTask: processing $relPath")
-        val outFile = output.file(relPath).asFile
-        if (!isDirectory) action(inFile.toOkioPath(), outFile.toOkioPath())
+    fun setVisitPathFun(action: (inPath: Path, outPath: Path) -> Unit) = setVisitFun { outDir ->
+        if (isDirectory) return@setVisitFun
+        logger.quiet("SourceFunTask: processing $path")
+        action(file.toOkioPath(), outDir.file(path).asFile.toOkioPath())
     }
 
     fun setTransformPathFun(transform: (Path) -> String?) = setVisitPathFun { inPath, outPath ->
