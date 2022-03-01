@@ -37,10 +37,10 @@ open class SourceFunExtension {
 
     internal val definitions = mutableListOf<SourceFunDefinition>()
 
-    var grp: String? = null // very hacky - TODO_later: experiment and probably refactor
+    var grp: String? = null
 
+    @Deprecated("Use val taskName by reg { ... }", replaceWith = ReplaceWith("val taskName by reg { ... }"))
     fun def(taskName: String, sourcePath: Path, outputPath: Path, transform: Path.(String) -> String?) {
-        // TODO: maybe just use reg and register immediately?? or maybe drop def fun entirely?
         definitions.add(SourceFunDefinition(taskName, sourcePath, outputPath, grp, transform))
     }
 
