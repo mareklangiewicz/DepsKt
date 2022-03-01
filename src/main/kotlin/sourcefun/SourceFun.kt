@@ -59,13 +59,13 @@ abstract class SourceFunTask : SourceTask() {
 
     fun setOutput(path: Path) = outputDirProperty.set(path.toFile())
 
-    @TaskAction
-    fun taskAction() = taskActionProperty.get()(source, outputDirProperty.get())
-
     fun setTaskAction(action: (srcTree: FileTree, outDir: Directory) -> Unit) {
         taskActionProperty.set(action)
         taskActionProperty.finalizeValue()
     }
+
+    @TaskAction
+    fun taskAction() = taskActionProperty.get()(source, outputDirProperty.get())
 }
 
 fun SourceFunTask.setVisitFun(action: FileVisitDetails.(outDir: Directory) -> Unit) {
