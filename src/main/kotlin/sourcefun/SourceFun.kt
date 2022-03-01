@@ -85,6 +85,17 @@ abstract class SourceFunTask : SourceTask() {
     fun taskAction() = taskActionProperty.get()(source, outputDirProperty.get())
 }
 
+fun SourceTask.addSource(path: Path) { source(path.toFile()) }
+
+var SourceFunTask.src: Path
+    get() = error("src is write only")
+    set(value) = setSource(value.toFile())
+
+var SourceFunTask.out: Path
+    get() = error("out is write only")
+    set(value) = setOutput(value)
+
+
 fun SourceFunTask.setVisitFun(action: FileVisitDetails.(outDir: Directory) -> Unit) {
     setTaskAction { srcTree, outDir -> srcTree.visit { action(outDir) } }
 }
@@ -112,9 +123,6 @@ abstract class SourceRegexTask : SourceFunTask() {
     abstract val replace: Property<String>
     init { setTransformFun { it.replace(Regex(match.get()), replace.get()) } }
 }
-
-fun SourceTask.addSource(path: Path) { source(path.toFile()) }
-
 
 @Suppress("UnstableApiUsage")
 @UntrackedTask(because = "Git version and build time is external state and can't be tracked.")
