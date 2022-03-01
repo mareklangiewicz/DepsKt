@@ -66,22 +66,26 @@ abstract class SourceFunTask : SourceTask() {
         taskActionProperty.set(action)
         taskActionProperty.finalizeValue()
     }
+}
 
-    fun setVisitFun(action: FileVisitDetails.(outDir: Directory) -> Unit) {
-        setTaskAction { srcTree, outDir -> srcTree.visit { action(outDir) } }
-    }
+fun SourceFunTask.setVisitFun(action: FileVisitDetails.(outDir: Directory) -> Unit) {
+    setTaskAction { srcTree, outDir -> srcTree.visit { action(outDir) } }
+}
 
-    fun setVisitPathFun(action: (inPath: Path, outPath: Path) -> Unit) = setVisitFun { outDir ->
+fun SourceFunTask.setVisitPathFun(action: (inPath: Path, outPath: Path) -> Unit) {
+    setVisitFun { outDir ->
         if (isDirectory) return@setVisitFun
         logger.quiet("SourceFunTask: processing $path")
         action(file.toOkioPath(), outDir.file(path).asFile.toOkioPath())
     }
+}
 
-    fun setTransformPathFun(transform: (Path) -> String?) = setVisitPathFun { inPath, outPath ->
-        transform(inPath)?.let { SYSTEM.writeUtf8(outPath, it, createParentDir = true) }
-    }
+fun SourceFunTask.setTransformPathFun(transform: (Path) -> String?) = setVisitPathFun { inPath, outPath ->
+    transform(inPath)?.let { SYSTEM.writeUtf8(outPath, it, createParentDir = true) }
+}
 
-    fun setTransformFun(transform: Path.(String) -> String?) = setTransformPathFun { it.transform(SYSTEM.readUtf8(it)) }
+fun SourceFunTask.setTransformFun(transform: Path.(String) -> String?) {
+    setTransformPathFun { it.transform(SYSTEM.readUtf8(it)) }
 }
 
 abstract class SourceRegexTask : SourceFunTask() {
