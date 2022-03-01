@@ -13,6 +13,8 @@ import org.gradle.kotlin.dsl.*
 import pl.mareklangiewicz.ure.*
 import java.time.*
 import java.time.format.*
+import kotlin.properties.*
+import kotlin.reflect.*
 
 internal data class SourceFunDefinition(
     val taskName: String,
@@ -22,6 +24,15 @@ internal data class SourceFunDefinition(
     val transform: Path.(String) -> String?
 )
 
+class SourceFunRegistering(val project: Project, val configuration: SourceFunTask.() -> Unit) {
+
+    operator fun provideDelegate(thisObj: SourceFunExtension?, property: KProperty<*>):
+            ReadOnlyProperty<SourceFunExtension?, TaskProvider<SourceFunTask>> {
+        val taskProvider = project.tasks.register(property.name, configuration)
+        return ReadOnlyProperty { _, _ -> taskProvider }
+    }
+}
+
 open class SourceFunExtension {
 
     internal val definitions = mutableListOf<SourceFunDefinition>()
@@ -29,7 +40,13 @@ open class SourceFunExtension {
     var grp: String? = null // very hacky - TODO_later: experiment and probably refactor
 
     fun def(taskName: String, sourcePath: Path, outputPath: Path, transform: Path.(String) -> String?) {
+        // TODO: maybe just use reg and register immediately?? or maybe drop def fun entirely?
         definitions.add(SourceFunDefinition(taskName, sourcePath, outputPath, grp, transform))
+    }
+
+    fun Project.reg(group: String? = grp, configuration: SourceFunTask.() -> Unit) = SourceFunRegistering(project) {
+        group?.let { this.group = it }
+        configuration()
     }
 }
 
