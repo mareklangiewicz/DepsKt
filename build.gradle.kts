@@ -15,7 +15,7 @@ repositories {
 
 dependencies {
     api("com.squareup.okio:okio:3.0.0")
-//    gradleApi()
+//    implementation(gradleApi())
 
 //    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10")
     testImplementation("com.github.langara.USpek:uspekx:0.0.17") // TODO: try to use Deps.uspek (see comment in settings)

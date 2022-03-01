@@ -1,3 +1,5 @@
+@file:Suppress("MemberVisibilityCanBePrivate", "PackageDirectoryMismatch")
+
 package pl.mareklangiewicz.sourcefun
 
 import okio.*
@@ -90,7 +92,7 @@ abstract class SourceRegexTask : SourceFunTask() {
     init { setTransformFun { it.replace(Regex(match.get()), replace.get()) } }
 }
 
-fun SourceTask.addSource(path: Path) = source(path.toFile())
+fun SourceTask.addSource(path: Path) { source(path.toFile()) }
 
 
 @Suppress("UnstableApiUsage")
