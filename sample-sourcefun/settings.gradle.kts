@@ -10,3 +10,4 @@ plugins {
     id("pl.mareklangiewicz.deps.settings")
 }
 
+include(":sample-lib")
