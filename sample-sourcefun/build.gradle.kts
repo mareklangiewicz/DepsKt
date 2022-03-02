@@ -1,28 +1,37 @@
 import pl.mareklangiewicz.sourcefun.*
-import okio.Path.Companion.toPath
 import pl.mareklangiewicz.utils.*
 
 plugins {
     id("pl.mareklangiewicz.sourcefun")
 }
 
+val extensionsPath get() = rootProjectPath / "sample-lib/src/main/kotlin/extensions"
+val reportsPath get() = buildPath / "awesome-reports"
+
 sourceFun {
-//    def("funTask1", "fun1Src", "funTempOut") { null }
-//    def("funTask2", "fun2Src", "funTempOut") { null }
+    grp = "awesome"
+    val processExtensions1 by reg {
+        src = extensionsPath / "SpecialExtensions.kt"
+        out = extensionsPath
+        setTransformFun { content ->
+            println(this)
+            null
+        }
+    }
 }
 
-tasks.register<SourceFunTask>("funTask3") {
-    src = rootProjectPath / ""
-//    out = layout.buildDirectory.asFile.toOkioPath() / "someotherdir"
+
+tasks.register<SourceFunTask>("reportStuff1") {
+    group = "awesome"
+    src = extensionsPath
+    out = reportsPath
     setVisitPathFun { inPath, outPath -> println(inPath); println(outPath) }
 }
 
-tasks.register<SourceRegexTask>("funRegexTask") {
-    src = "regexTempSrc".toPath()
-    "regexTempOut".toPath()
-    match.set(".*")
+tasks.register<SourceRegexTask>("reportStuff2") {
+    group = "awesome"
+    src = extensionsPath
+    out = reportsPath
+    match.set("Ar*ay")
     replace.set("XXX")
-    doLast {
-        println("fjkdslj")
-    }
 }

@@ -7,6 +7,7 @@ import org.gradle.api.initialization.*
 import org.gradle.api.provider.*
 import org.gradle.api.tasks.*
 import org.gradle.kotlin.dsl.*
+import kotlin.properties.*
 import kotlin.reflect.*
 
 
@@ -20,11 +21,23 @@ infix fun <T> Property<in T>.provides(from: Provider<out T>) = set(from)
 // and the property is actually a kind of container we can "put" stuff into.
 infix fun <T> Property<in T>.put(value: T) = set(value)
 
+fun <T, R> Provider<T>.providing(compute: (T) -> R) =
+    ReadOnlyProperty<Any?, R> { _, _ -> compute(get()) }
+
+// yes, this name is stupid :)
+fun <T> Property<T>.properting() = object : ReadWriteProperty<Any?, T> {
+    override fun getValue(thisRef: Any?, property: KProperty<*>): T = get()
+    override fun setValue(thisRef: Any?, property: KProperty<*>, value: T) = set(value)
+}
+
 fun Project.rootExt(name: String) = rootProject.extra[name]!!.toString()
 fun Project.rootExtOrNull(name: String) = rootProject.extra[name]?.toString()
 
-val Project.rootProjectPath get() = rootProject.rootDir.toOkioPath()
+val Project.projectPath get() = rootDir.toOkioPath()
+val Project.rootProjectPath get() = rootProject.projectPath
 val Settings.rootProjectPath get() = rootProject.projectDir.toOkioPath()
+
+val Project.buildPath: Path get() = layout.buildDirectory.get().asFile.toOkioPath()
 
 
 // https://publicobject.com/2021/03/11/includebuild/
