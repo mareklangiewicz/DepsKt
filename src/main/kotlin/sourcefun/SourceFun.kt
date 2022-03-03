@@ -103,8 +103,11 @@ fun SourceFunTask.setVisitFun(action: FileVisitDetails.(outDir: Directory) -> Un
 fun SourceFunTask.setVisitPathFun(action: (inPath: Path, outPath: Path) -> Unit) {
     setVisitFun { outDir ->
         if (isDirectory) return@setVisitFun
-        logger.quiet("SourceFunTask: processing $path")
-        action(file.toOkioPath(), outDir.file(path).asFile.toOkioPath())
+        val inPath = file.toOkioPath()
+        val outPath = outDir.file(path).asFile.toOkioPath()
+        logger.info("src: $inPath") // printing absolute path is good because it's then clickable in the IDE
+        logger.info("out: $outPath")
+        action(inPath, outPath)
     }
 }
 

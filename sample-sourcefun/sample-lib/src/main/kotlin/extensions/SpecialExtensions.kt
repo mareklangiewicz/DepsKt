@@ -12,7 +12,7 @@ fun ByteArray.asMicroMutableList() = object : MicroMutableList<Byte> {
     override val size: Int get() = this@asMicroMutableList.size
     override fun iterator() = this@asMicroMutableList.iterator()
     override fun contains(item: Any?) = item is Byte && item in this@asMicroMutableList
-    // current standard Array.contains impl is same as MicroList.contains, but better to always use original impl.
+        // current standard Array.contains impl is same as MicroList.contains, but better to always use original impl.
 }
 
 // endregion Byte Special Extensions
