@@ -17,6 +17,10 @@ sourceFun {
         out = extensionsPath
         setTransformFun { transformSpecialExtensionsContent(it) }
     }
+    def("processExtensions2deprecated", extensionsPath, extensionsPath) {
+        if (name != "SpecialExtensions.kt") return@def null
+        transformSpecialExtensionsContent(it)
+    }
 }
 
 tasks.register<SourceFunTask>("reportStuff1") {
