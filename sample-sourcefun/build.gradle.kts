@@ -52,13 +52,12 @@ fun transformSpecialExtensionsContent(content: String): String {
     val matchResult = ureSpecialExtensionsKt.compile().matchEntire(content)!!
     val before by matchResult
     val template by matchResult
-    val types = listOf("Short", "Int", "Long", "Float", "Double", "Boolean", "Char") // except Byte
-    val generated = types.map { template.replace("Byte", it) }
+    val generated = listOf("Short", "Int", "Long", "Float", "Double", "Boolean", "Char")
         .joinToString(
             separator = "",
             prefix = "// region $regionGeneratedName\n",
             postfix = "// endregion $regionGeneratedName",
-        )
+        ) { template.replace("Byte", it) }
     return before + generated
 }
 
