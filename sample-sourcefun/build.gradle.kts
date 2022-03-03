@@ -22,8 +22,8 @@ sourceFun {
             val types = listOf("Short", "Int", "Long", "Float", "Double", "Boolean", "Char") // except Byte
             val generated = types.map { template.replace("Byte", it) }
                 .joinToString(
-                    separator = "\n",
-                    prefix = "// region $regionGeneratedName",
+                    separator = "",
+                    prefix = "// region $regionGeneratedName\n",
                     postfix = "// endregion $regionGeneratedName",
                 )
             before + generated
