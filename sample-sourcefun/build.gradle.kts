@@ -12,25 +12,12 @@ val reportsPath get() = buildPath / "awesome-reports"
 sourceFun {
     grp = "awesome"
     val processExtensions1 by reg {
-        doNotTrackState("debugging")
+        // doNotTrackState("debugging")
         src = extensionsPath / "SpecialExtensions.kt"
         out = extensionsPath
-        setTransformFun { content ->
-            val matchResult = ureSpecialExtensionsKt.compile().matchEntire(content)!!
-            val before by matchResult
-            val template by matchResult
-            val types = listOf("Short", "Int", "Long", "Float", "Double", "Boolean", "Char") // except Byte
-            val generated = types.map { template.replace("Byte", it) }
-                .joinToString(
-                    separator = "",
-                    prefix = "// region $regionGeneratedName\n",
-                    postfix = "// endregion $regionGeneratedName",
-                )
-            before + generated
-        }
+        setTransformFun { transformSpecialExtensionsContent(it) }
     }
 }
-
 
 tasks.register<SourceFunTask>("reportStuff1") {
     group = "awesome"
@@ -47,16 +34,31 @@ tasks.register<SourceRegexTask>("reportStuff2") {
     replace.set("XXX")
 }
 
-val regionByteName = "Byte Special Extensions"
-val regionGeneratedName = "Generated Special Extensions"
-val ureSpecialExtensionsKt = ure {
-    val ureRegionByte = ureRegion(ureWhateva().withName("template"), ir(regionByteName))
-    val ureRegionGenerated = ureRegion(ureWhateva(), ir(regionGeneratedName))
-    val ureBeforeGenerated = ure {
-        1 of ureWhateva()
-        1 of ureRegionByte
-        1 of ureWhateva()
+
+fun transformSpecialExtensionsContent(content: String): String {
+    val regionByteName = "Byte Special Extensions"
+    val regionGeneratedName = "Generated Special Extensions"
+    val ureSpecialExtensionsKt = ure {
+        val ureRegionByte = ureRegion(ureWhateva().withName("template"), ir(regionByteName))
+        val ureRegionGenerated = ureRegion(ureWhateva(), ir(regionGeneratedName))
+        val ureBeforeGenerated = ure {
+            1 of ureWhateva()
+            1 of ureRegionByte
+            1 of ureWhateva()
+        }
+        1 of ureBeforeGenerated.withName("before")
+        1 of ureRegionGenerated // no need for name because we will replace it
     }
-    1 of ureBeforeGenerated.withName("before")
-    1 of ureRegionGenerated // no need for name because we will replace it
+    val matchResult = ureSpecialExtensionsKt.compile().matchEntire(content)!!
+    val before by matchResult
+    val template by matchResult
+    val types = listOf("Short", "Int", "Long", "Float", "Double", "Boolean", "Char") // except Byte
+    val generated = types.map { template.replace("Byte", it) }
+        .joinToString(
+            separator = "",
+            prefix = "// region $regionGeneratedName\n",
+            postfix = "// endregion $regionGeneratedName",
+        )
+    return before + generated
 }
+
