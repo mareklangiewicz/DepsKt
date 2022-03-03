@@ -49,8 +49,8 @@ object Vers {
     // https://services.gradle.org/versions/current
     // https://services.gradle.org/versions/release-candidate
 
-    const val composeDesktopVerMain = "1.0.1"
-    const val composeDesktopVerEdge = "1.2.0-alpha01-dev602"
+    const val composeDesktopVerMain = "1.1.0"
+    const val composeDesktopVerEdge = "1.2.0-alpha01-dev620"
 //    const val composeDesktopVerExperiment = "0.0.0-master-dev570"
     const val composeDesktop = composeDesktopVerEdge
 
