@@ -1,6 +1,7 @@
 package pl.mareklangiewicz.sourcefun
 
-import okio.FileSystem.Companion.RESOURCES
+import okio.*
+import okio.FileSystem.Companion.SYSTEM
 import okio.Path.Companion.toPath
 import org.gradle.kotlin.dsl.*
 import org.gradle.testfixtures.*
@@ -23,10 +24,11 @@ class SourceFunTests {
             project.plugins.any { it is SourceFunPlugin } eq true
         }
 
+        onSampleSourceFunProject()
+
         "On create temp project dir" o {
             withTempBuildEnvironment { tempDir, settingsFile, buildFile ->
                 onSingleHelloWorld(tempDir, settingsFile, buildFile)
-                onSourceFunPlugin(tempDir, settingsFile, buildFile)
             }
         }
     }
@@ -83,6 +85,7 @@ private fun onSingleHelloWorld(tempDir: File, settingsFile: File, buildFile: Fil
 
             "On gradle runner with temp dir" o {
                 val runner = GradleRunner.create().withProjectDir(tempDir)
+                    //.withPluginClasspath() // it's automatically added by java-gradle-plugin
 
                 "On task helloWorld" o {
                     runner.withArguments("helloWorld")
@@ -115,28 +118,50 @@ private fun onSingleHelloWorld(tempDir: File, settingsFile: File, buildFile: Fil
     }
 }
 
-private val projectResPath = "sample-sourcefun".toPath()
+private val sampleSourceFunProjectPath = "/home/marek/code/kotlin/deps.kt/sample-sourcefun".toPath()
 
-private fun onSourceFunPlugin(tempDir: File, settingsFile: File, buildFile: File) {
-    "On single project with SourceFunPlugin" o {
-        settingsFile.writeText(RESOURCES.readUtf8(projectResPath / "settings.gradle.kts"))
+private fun onSampleSourceFunProject() {
+    "On sample-sourcefun project" o {
 
-        "On build file with explicit SourceFunTasks" o {
-            buildFile.writeText(RESOURCES.readUtf8(projectResPath / "build.gradle.kts"))
+        val runner = GradleRunner.create().withProjectPath(sampleSourceFunProjectPath)
+            //.withPluginClasspath() // it's automatically added by java-gradle-plugin
 
-            "On gradle runner with temp dir" o {
-                val runner = GradleRunner.create().withPluginClasspath().withProjectDir(tempDir)
+        "On clean" o {
+            runner.withArguments("clean")
 
-                "On task funTask1" o {
-                    runner.withArguments("funTask1")
+            runner.build()
+                // FIXME: this does not delete build dir. TODO_maybe: delete build dir and .gradle dir
+                // (but with some double check so we don't delete recursively other dir! don't assume any working dir!)
 
-                    "On gradle build" o {
-                        val result = runner.build()
+            "On task reportStuff1" o {
+                runner.withArguments("reportStuff1")
+                val result = runner.build()
 
-                        "task funTask1 ends with NO_SOURCE" o { result.task(":funTask1")?.outcome eq NO_SOURCE }
+                "task reportStuff1 ends with SUCCESS" o { result.task(":reportStuff1")?.outcome eq SUCCESS }
+            }
+
+            "On task reportStuff2" o {
+                runner.withArguments("reportStuff2")
+                val result = runner.build()
+
+                "task reportStuff2 ends with SUCCESS" o { result.task(":reportStuff2")?.outcome eq SUCCESS }
+
+                "On generated reports" o {
+                    val reportsPaths = SYSTEM.list(sampleSourceFunProjectPath / "build/awesome-reports")
+                    val reportsNames = reportsPaths.map { it.name }
+
+                    "generated two files" o { reportsNames eq listOf("GenericExtensions.kt", "SpecialExtensions.kt") }
+
+                    for (reportPath in reportsPaths) "On report file ${reportPath.name}" o {
+                        val content = SYSTEM.readUtf8(reportPath)
+
+                        "no Array word in it" o { Regex("Array").containsMatchIn(content) eq false }
+                        "some XXX words instead" o { check(Regex("XXX").findAll(content).count() > 2) }
                     }
                 }
             }
         }
     }
 }
+
+private fun GradleRunner.withProjectPath(path: Path) = withProjectDir(path.toFile())

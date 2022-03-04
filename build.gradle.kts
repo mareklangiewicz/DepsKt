@@ -10,15 +10,16 @@ repositories {
     google()
     mavenCentral()
     gradlePluginPortal()
-    maven("https://jitpack.io") // TODO: try to use Repos.jitpack (see comment in settings.gradle.kts)
 }
 
 dependencies {
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.6.10")
     api("com.squareup.okio:okio:3.0.0")
 //    implementation(gradleApi())
 
 //    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10")
-    testImplementation("com.github.langara.USpek:uspekx:0.0.17") // TODO: try to use Deps.uspek (see comment in settings)
+    // testApi(gradleTestKit()) // this is automatically added by java-gradle-plugin
+    testImplementation("pl.mareklangiewicz:uspekx:0.0.21") // TODO: try to use Deps.uspek (see comment in settings)
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2") // TODO: try to use Deps.uspek (see comment in settings)
     testImplementation("org.junit.jupiter:junit-jupiter-engine:5.8.2") // TODO: try to use Deps.uspek (see comment in settings)
     // TODO: check separation between api and engine - so I can do similar in ULog (with separate bridges to CLog etc)
@@ -31,12 +32,12 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach 
     }
 }
 
-tasks.test {
+tasks.withType<Test>().configureEach {
     useJUnitPlatform()
 }
 
 group = "pl.mareklangiewicz.deps"
-version = "0.2.15"
+version = "0.2.16"
 
 
 gradlePlugin {
