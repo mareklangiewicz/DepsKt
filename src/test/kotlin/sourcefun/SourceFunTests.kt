@@ -148,6 +148,15 @@ private fun onSampleSourceFunProject() {
                 // FIXME: this does not delete build dir. TODO_maybe: delete build dir and .gradle dir
                 // (but with some double check so we don't delete recursively other dir! don't assume any working dir!)
 
+            "On task processExtensions1" o {
+                runner.withArguments("processExtensions1")
+                val result = runner.build()
+
+                "task processExtensions1 ends with SUCCESS" o { result.task(":processExtensions1")?.outcome eq SUCCESS }
+
+                // TODO_later: mess with generated source code and check if processExtensions1 fixes it.
+            }
+
             "On task reportStuff1" o {
                 runner.withArguments("reportStuff1")
                 val result = runner.build()
