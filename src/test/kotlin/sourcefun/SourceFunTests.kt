@@ -126,6 +126,21 @@ private fun onSampleSourceFunProject() {
         val runner = GradleRunner.create().withProjectPath(sampleSourceFunProjectPath)
             //.withPluginClasspath() // it's automatically added by java-gradle-plugin
 
+        "On gradle tasks command" o {
+            runner.withArguments("tasks")
+            val result = runner.build()
+
+            "All awesome tasks printed" o {
+                val lines = result.output.lines()
+                val idx = lines.indexOf("Awesome tasks")
+                check (idx > 0)
+                lines[idx+2] eq "processExtensions1"
+                lines[idx+3] eq "processExtensions2deprecated"
+                lines[idx+4] eq "reportStuff1"
+                lines[idx+5] eq "reportStuff2"
+            }
+        }
+
         "On clean" o {
             runner.withArguments("clean")
 
