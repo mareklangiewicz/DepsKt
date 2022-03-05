@@ -121,12 +121,9 @@ private fun onSampleSourceFunProject() {
             }
         }
 
-        "On clean" o {
-            runner.withArguments("clean")
-
-            runner.build()
-                // FIXME: this does not delete build dir. TODO_maybe: delete build dir and .gradle dir
-                // (but with some double check so we don't delete recursively other dir! don't assume any working dir!)
+        "On clean gradle cache and build dir programmatically" o {
+            SYSTEM.deleteRecursively(sampleSourceFunProjectPath / ".gradle")
+            SYSTEM.deleteRecursively(sampleSourceFunProjectPath / "build")
 
             "On task processExtensions1" o {
                 runner.withArguments("processExtensions1")
