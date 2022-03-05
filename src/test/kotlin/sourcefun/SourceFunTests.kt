@@ -17,58 +17,35 @@ class SourceFunTests {
 
     @TestFactory
     fun sourceFunTests() = uspekTestFactory {
-
-        "Example test with ProjectBuilder" o {
-            val project = ProjectBuilder.builder().build()!!
-            project.pluginManager.apply(SourceFunPlugin::class)
-            // TODO_maybe: how to configure my plugin in such test? (so I can assert it creates appropriate tasks)
-            project.plugins.any { it is SourceFunPlugin } eq true
-        }
-
+        onExampleWithProjectBuilder()
+        onSingleHelloWorldProject()
         onSampleSourceFunProject()
-
-        "On create temp project dir" o {
-            withTempBuildEnvironment { tempDir, settingsFile, buildFile ->
-                onSingleHelloWorld(tempDir, settingsFile, buildFile)
-            }
-        }
     }
 }
 
-private fun withTempBuildEnvironment(code: (tempDir: File, settingsFile: File, buildFile: File) -> Unit) {
-    withTempDir { tempDir ->
-        val settingsFile = File(tempDir, "settings.gradle.kts")
-        settingsFile.createNewFile() || error("Can not create file: $settingsFile")
-        val buildFile = File(tempDir, "build.gradle.kts")
-        buildFile.createNewFile() || error("Can not create file: $buildFile")
-        code(tempDir, settingsFile, buildFile)
+private fun onExampleWithProjectBuilder() {
+    "On example with ProjectBuilder" o {
+        val project = ProjectBuilder.builder().build()!!
+        project.pluginManager.apply(SourceFunPlugin::class)
+        // TODO_maybe: how to configure my plugin in such test? (so I can assert it creates appropriate tasks)
+        project.plugins.any { it is SourceFunPlugin } eq true
     }
 }
 
-private fun withTempDir(tempDirPrefix: String = "uspek", code: (tempDir: File) -> Unit) {
-    lateinit var tempDir: File
-    try {
-        tempDir = File.createTempFile(tempDirPrefix, null).apply {
-            delete() || error("Can not delete temp file: $this")
-            mkdir() || error("Can not create dir: $this")
-        }
-        code(tempDir)
-    } finally {
-        tempDir.deleteRecursively() || error("Can not delete recursively dir: $tempDir")
-    }
+private fun FileSystem.withTempBuildEnvironment(
+    settingsKtsContent: String,
+    buildKtsContent: String,
+    code: (tempDir: Path) -> Unit) = withTempDir { tempDir ->
+    writeUtf8(tempDir / "settings.gradle.kts", settingsKtsContent)
+    writeUtf8(tempDir / "build.gradle.kts", buildKtsContent)
+    code(tempDir)
 }
 
-private fun onSingleHelloWorld(tempDir: File, settingsFile: File, buildFile: File) {
+private fun onSingleHelloWorldProject() {
     "On single hello world project" o {
-        settingsFile.writeText(
+        val settingsKtsContent = """rootProject.name = "hello-world""""
+        val buildKtsContent =
             """
-            rootProject.name = "hello-world"
-        """.trimIndent()
-        )
-
-        "On build file with example tasks" o {
-            buildFile.writeText(
-                """
                 tasks.register("helloWorld") {
                     doLast {
                         println("Hello world!")
@@ -82,10 +59,12 @@ private fun onSingleHelloWorld(tempDir: File, settingsFile: File, buildFile: Fil
                     }
                 }
             """.trimIndent()
-            )
 
-            "On gradle runner with temp dir" o {
-                val runner = GradleRunner.create().withProjectDir(tempDir)
+
+        SYSTEM.withTempBuildEnvironment(settingsKtsContent, buildKtsContent) { tempDir ->
+            "On gradle runner within temp environment" o {
+
+                val runner = GradleRunner.create().withProjectPath(tempDir)
                     //.withPluginClasspath() // it's automatically added by java-gradle-plugin
 
                 "On task helloWorld" o {

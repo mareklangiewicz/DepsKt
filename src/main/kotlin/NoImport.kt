@@ -1,6 +1,6 @@
 
 // package has to be default - to be available even in buildscript blocks
 
-val Deps = pl.mareklangiewicz.deps.Deps
-val Repos = pl.mareklangiewicz.deps.Repos
-val Vers = pl.mareklangiewicz.deps.Vers
+val deps = pl.mareklangiewicz.deps.Deps
+val repos = pl.mareklangiewicz.deps.Repos
+val vers = pl.mareklangiewicz.deps.Vers

@@ -37,7 +37,7 @@ tasks.withType<Test>().configureEach {
 }
 
 group = "pl.mareklangiewicz.deps"
-version = "0.2.16"
+version = "0.2.17"
 
 
 gradlePlugin {

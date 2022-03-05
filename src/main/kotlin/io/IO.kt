@@ -1,7 +1,10 @@
 package pl.mareklangiewicz.io
 
 import okio.*
+import okio.IOException
+import okio.Path.Companion.toOkioPath
 import okio.Path.Companion.toPath
+import java.io.*
 
 @Throws(IOException::class)
 fun FileSystem.findAllFiles(path: Path, maxDepth: Int = Int.MAX_VALUE): Sequence<Path> {
@@ -77,4 +80,18 @@ fun FileSystem.processFile(inputPath: Path, outputPath: Path? = null, process: (
 
     createDirectories(outputPath.parent!!)
     writeUtf8(outputPath, output)
+}
+
+fun FileSystem.withTempDir(tempDirPrefix: String = "uspek", code: FileSystem.(tempDir: Path) -> Unit) {
+    lateinit var tempDir: Path
+    try {
+        // FIXME: do it Okio way (FileSystem.SYSTEM_TEMPORARY_DIRECTORY)
+        tempDir = File.createTempFile(tempDirPrefix, null).apply {
+            delete() || error("Can not delete temp file: $this")
+            mkdir() || error("Can not create dir: $this")
+        }.toOkioPath()
+        code(tempDir)
+    } finally {
+        deleteRecursively(tempDir)
+    }
 }
