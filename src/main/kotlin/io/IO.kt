@@ -1,10 +1,12 @@
 package pl.mareklangiewicz.io
 
 import okio.*
+import okio.FileSystem.Companion.SYSTEM
+import okio.FileSystem.Companion.SYSTEM_TEMPORARY_DIRECTORY
 import okio.IOException
-import okio.Path.Companion.toOkioPath
 import okio.Path.Companion.toPath
-import java.io.*
+import kotlin.math.*
+import kotlin.random.*
 
 @Throws(IOException::class)
 fun FileSystem.findAllFiles(path: Path, maxDepth: Int = Int.MAX_VALUE): Sequence<Path> {
@@ -82,16 +84,26 @@ fun FileSystem.processFile(inputPath: Path, outputPath: Path? = null, process: (
     writeUtf8(outputPath, output)
 }
 
-fun FileSystem.withTempDir(tempDirPrefix: String = "uspek", code: FileSystem.(tempDir: Path) -> Unit) {
-    lateinit var tempDir: Path
-    try {
-        // FIXME: do it Okio way (FileSystem.SYSTEM_TEMPORARY_DIRECTORY)
-        tempDir = File.createTempFile(tempDirPrefix, null).apply {
-            delete() || error("Can not delete temp file: $this")
-            mkdir() || error("Can not create dir: $this")
-        }.toOkioPath()
-        code(tempDir)
-    } finally {
-        deleteRecursively(tempDir)
-    }
+fun FileSystem.withTempDir(tempDirPrefix: String, code: FileSystem.(tempDir: Path) -> Unit) {
+    val tempDir = createTempDir(tempDirPrefix)
+    try { code(tempDir) }
+    finally { deleteRecursively(tempDir) }
 }
+
+fun FileSystem.createTempDir(tempDirPrefix: String): Path {
+    require(this === SYSTEM) { "SYSTEM_TEMPORARY_DIRECTORY is available only on FileSystem.SYSTEM" }
+    return createUniqueDir(SYSTEM_TEMPORARY_DIRECTORY, tempDirPrefix)
+}
+
+fun FileSystem.createUniqueDir(parentDir: Path, namePrefix: String = "", nameSuffix: String = "") =
+    (parentDir / Random.name(namePrefix, nameSuffix)).also { createDirectory(it, mustCreate = true) }
+
+fun FileSystem.openTempFile(parentDir: Path, namePrefix: String = "", nameSuffix: String = ""): FileHandle {
+    require(this === SYSTEM) { "SYSTEM_TEMPORARY_DIRECTORY is available only on FileSystem.SYSTEM" }
+    return openUniqueFile(SYSTEM_TEMPORARY_DIRECTORY, namePrefix, nameSuffix)
+}
+
+fun FileSystem.openUniqueFile(parentDir: Path, namePrefix: String = "", nameSuffix: String = "") =
+    openReadWrite(parentDir / Random.name(namePrefix, nameSuffix), mustCreate = true)
+
+private fun Random.name(prefix: String = "", suffix: String = "") = "$prefix${nextLong().absoluteValue}$suffix"

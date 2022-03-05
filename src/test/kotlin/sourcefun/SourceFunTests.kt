@@ -9,9 +9,7 @@ import org.gradle.testkit.runner.*
 import org.gradle.testkit.runner.TaskOutcome.*
 import org.junit.jupiter.api.*
 import pl.mareklangiewicz.io.*
-import pl.mareklangiewicz.ure.*
 import pl.mareklangiewicz.uspek.*
-import java.io.*
 
 class SourceFunTests {
 
@@ -32,14 +30,13 @@ private fun onExampleWithProjectBuilder() {
     }
 }
 
-private fun FileSystem.withTempBuildEnvironment(
-    settingsKtsContent: String,
-    buildKtsContent: String,
-    code: (tempDir: Path) -> Unit) = withTempDir { tempDir ->
-    writeUtf8(tempDir / "settings.gradle.kts", settingsKtsContent)
-    writeUtf8(tempDir / "build.gradle.kts", buildKtsContent)
-    code(tempDir)
-}
+@Suppress("SameParameterValue")
+private fun withTempProject(settingsKtsContent: String, buildKtsContent: String, code: (tempDir: Path) -> Unit) =
+    SYSTEM.withTempDir("sourceFunTest") { tempDir ->
+        writeUtf8(tempDir / "settings.gradle.kts", settingsKtsContent)
+        writeUtf8(tempDir / "build.gradle.kts", buildKtsContent)
+        code(tempDir)
+    }
 
 private fun onSingleHelloWorldProject() {
     "On single hello world project" o {
@@ -61,7 +58,7 @@ private fun onSingleHelloWorldProject() {
             """.trimIndent()
 
 
-        SYSTEM.withTempBuildEnvironment(settingsKtsContent, buildKtsContent) { tempDir ->
+        withTempProject(settingsKtsContent, buildKtsContent) { tempDir ->
             "On gradle runner within temp environment" o {
 
                 val runner = GradleRunner.create().withProjectPath(tempDir)
