@@ -49,9 +49,8 @@ object Vers {
     // https://services.gradle.org/versions/current
     // https://services.gradle.org/versions/release-candidate
 
-    const val composeDesktopVerMain = "1.1.0"
+    const val composeDesktopVerMain = "1.1.1"
     const val composeDesktopVerEdge = "1.2.0-alpha01-dev620"
-//    const val composeDesktopVerExperiment = "0.0.0-master-dev570"
     const val composeDesktop = composeDesktopVerEdge
 
     // https://github.com/JetBrains/compose-jb
@@ -59,18 +58,18 @@ object Vers {
     // https://github.com/JetBrains/compose-jb/blob/master/CHANGELOG.md
 
 
-    const val composeAndroid = "1.2.0-alpha03"
+    const val composeAndroid = "1.2.0-alpha05"
     const val composeAndroidCompiler = composeAndroid
-    const val composeAndroidMaterial3 = "1.0.0-alpha05"
+    const val composeAndroidMaterial3 = "1.0.0-alpha07"
     // https://developer.android.com/jetpack/androidx/releases/compose
 
-    const val googleAccompanist = "0.24.2-alpha"
+    const val googleAccompanist = "0.24.4-alpha"
     const val googleAccompanistImage = "0.15.0"
     const val googleAccompanistPicasso = "0.6.2"
     // https://search.maven.org/search?q=g:com.google.accompanist
     // https://google.github.io/accompanist/
 
-    const val androidGradlePlugin = "7.3.0-alpha04"
+    const val androidGradlePlugin = "7.3.0-alpha07"
     // https://maven.google.com/web/index.html#com.android.tools.build:gradle
     // https://developer.android.com/studio/releases/gradle-plugin
     // https://google.github.io/android-gradle-dsl/
