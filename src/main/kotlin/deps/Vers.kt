@@ -1,4 +1,9 @@
+@file:Suppress("PackageDirectoryMismatch", "unused", "MemberVisibilityCanBePrivate")
+
 package pl.mareklangiewicz.deps
+
+internal fun v(major: Int, minor: Int, patch: Int, suffix: String = "", patchLength: Int = 2) =
+    "$major.$minor.${patch.toString().padStart(patchLength, '0')}$suffix"
 
 /**
  * Common dependencies versions for java/kotlin/android projects
@@ -6,15 +11,10 @@ package pl.mareklangiewicz.deps
  * @see <a href="https://github.com/langara/deps.kt">https://github.com/langara/deps.kt</a>
  */
 object Vers {
-    const val kotlinMajor = 1
-    const val kotlinMinor = 6
-    const val kotlinPatch = 10
-    const val kotlinSuffix = "" // with hyphen (like "-2")
-
-    const val kotlin14 = "1.4.32"
-    const val kotlin15 = "1.5.31"
-    const val kotlin16 = "$kotlinMajor.$kotlinMinor.$kotlinPatch$kotlinSuffix"
-    const val kotlin = kotlin16
+    val kotlin14 = v(1, 4, 32)
+    val kotlin15 = v(1, 5, 31)
+    val kotlin16 = v(1, 6, 10)
+    val kotlin = kotlin16
     // https://kotlinlang.org/docs/releases.html#release-details
     // https://github.com/JetBrains/kotlin/blob/master/ChangeLog.md
     // https://github.com/JetBrains/kotlin/releases
@@ -78,7 +78,7 @@ object Vers {
     const val androidMavenGradlePlugin = "2.1" // https://github.com/dcendents/android-maven-gradle-plugin/releases
     const val nexusPublishGradlePlugin = "1.1.0" // https://github.com/gradle-nexus/publish-plugin/
 
-    const val dokkaGradlePlugin = kotlin // will it be synced with kotlin version in the future?
+    val dokkaGradlePlugin = kotlin // will it be synced with kotlin version in the future?
 
     const val androidCompileSdk = 31
     const val androidMinSdk = 26
@@ -304,23 +304,23 @@ object Vers {
 
     // https://github.com/JetBrains/kotlin-wrappers
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin-wrappers/kotlin-wrappers-bom
-    const val kotlinJsWrappersBoM = "0.0.1-pre.293-kotlin-$kotlin"
+    val kotlinJsWrappersBoM = "0.0.1-pre.293-kotlin-$kotlin"
 
     // https://github.com/JetBrains/kotlin-wrappers/blob/master/kotlin-react/README.md
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin-wrappers/kotlin-react
     @Deprecated("Use BoM")
-    const val kotlinJsWrappersReact = "$npmReact-pre.293-kotlin-$kotlin"
+    val kotlinJsWrappersReact = "$npmReact-pre.293-kotlin-$kotlin"
 
     // https://github.com/JetBrains/kotlin-wrappers/blob/master/kotlin-react-dom/README.md
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin-wrappers/kotlin-react-dom
     @Suppress("DEPRECATION")
     @Deprecated("Use BoM")
-    const val kotlinJsWrappersReactDom = kotlinJsWrappersReact
+    val kotlinJsWrappersReactDom = kotlinJsWrappersReact
 
     // https://github.com/JetBrains/kotlin-wrappers/blob/master/kotlin-styled/README.md
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin-wrappers/kotlin-styled
     @Deprecated("Use BoM")
-    const val kotlinJsWrappersStyled = "$npmStyled-pre.293-kotlin-$kotlin"
+    val kotlinJsWrappersStyled = "$npmStyled-pre.293-kotlin-$kotlin"
 
 
 
@@ -335,9 +335,6 @@ object Vers {
 
     const val smokk = "0.0.4"
     // https://github.com/langara/smokk/releases
-
-    const val uspek = "0.0.21"
-    // https://github.com/langara/uspek/releases
 
     const val upue = "0.0.09"
     // https://github.com/langara/upue/releases

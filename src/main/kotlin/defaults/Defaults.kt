@@ -1,12 +1,18 @@
+@file:Suppress("unused", "PackageDirectoryMismatch")
+
 package pl.mareklangiewicz.defaults
 
 import pl.mareklangiewicz.deps.*
 import org.gradle.api.*
 import org.gradle.api.artifacts.dsl.*
 import org.gradle.api.publish.*
+import org.gradle.api.publish.maven.*
+import org.gradle.api.tasks.*
+import org.gradle.api.tasks.bundling.*
 import org.gradle.kotlin.dsl.*
 import org.gradle.plugins.signing.*
 import pl.mareklangiewicz.utils.*
+import java.io.*
 
 
 fun RepositoryHandler.defaultRepos(
@@ -25,10 +31,17 @@ fun RepositoryHandler.defaultRepos(
     if (withJitpack) maven(Repos.jitpack)
 }
 
+@Deprecated("Use defaultGroupAndVerAndDescription", replaceWith = ReplaceWith("defaultGroupAndVerAndDescription(libs.name)"))
 fun Project.defaultGroupAndVer(dep: String) {
     val (g, _, v) = dep.split(":")
     group = g
     version = v
+}
+
+fun Project.defaultGroupAndVerAndDescription(lib: LibDetails) {
+    group = lib.group
+    version = lib.version
+    description = lib.description
 }
 
 /** usually not needed - see template-android */
@@ -115,5 +128,55 @@ fun Project.defaultSigning() {
             rootExt("signing.password")
         )
         sign(extensions.getByType<PublishingExtension>().publications)
+    }
+}
+
+fun Project.defaultPublishing(lib: LibDetails, readmeFile: File = File(rootDir, "README.md")) {
+
+    val readmeJavadocJar by tasks.registering(Jar::class) {
+        from(readmeFile) // TODO_maybe: use dokka to create real docs? (but it's not even java..)
+        archiveClassifier put "javadoc"
+    }
+
+    extensions.configure<PublishingExtension> {
+        publications.withType<MavenPublication> { defaultPublication(lib, readmeJavadocJar) }
+    }
+}
+
+private fun MavenPublication.defaultPublication(lib: LibDetails, javaDocProvider: TaskProvider<Jar>) {
+
+    artifact(javaDocProvider)
+    // Adding javadoc artifact generates warnings like:
+    // Execution optimizations have been disabled for task ':uspek:signJvmPublication'
+    // It looks like a bug in kotlin multiplatform plugin:
+    // https://youtrack.jetbrains.com/issue/KT-46466
+    // FIXME_someday: Watch the issue.
+    // If it's a bug in kotlin multiplatform then remove this comment when it's fixed.
+    // Some related bug reports:
+    // https://youtrack.jetbrains.com/issue/KT-47936
+    // https://github.com/gradle/gradle/issues/17043
+
+    // Provide artifacts information requited by Maven Central
+    pom {
+        name put lib.name
+        description put lib.description
+        url put lib.githubUrl
+
+        licenses {
+            license {
+                name put lib.licenceName
+                url put lib.licenceUrl
+            }
+        }
+        developers {
+            developer {
+                id put lib.authorId
+                name put lib.authorName
+                email put lib.authorEmail
+            }
+        }
+        scm {
+            url put lib.githubUrl
+        }
     }
 }

@@ -1,7 +1,8 @@
-@file:Suppress("unused", "DEPRECATION", "SpellCheckingInspection", "MemberVisibilityCanBePrivate")
+@file:Suppress("unused", "DEPRECATION", "SpellCheckingInspection", "MemberVisibilityCanBePrivate", "PackageDirectoryMismatch")
 
 package pl.mareklangiewicz.deps
 
+import libs
 import org.gradle.api.artifacts.dsl.DependencyHandler
 
 /**
@@ -319,8 +320,8 @@ object Deps {
     val rxmock = dep(marekGroup, "rxmock", Vers.rxmock)
     val smokk = dep(marekGroup, "smokk", Vers.smokk)
 
-    val uspek = dep(marekGroup, "uspek", Vers.uspek)
-    val uspekx = dep(marekGroup, "uspekx", Vers.uspek)
+    val uspek = libs.uspek.dep("uspek")
+    val uspekx = libs.uspek.dep("uspekx")
 
     val upue = dep(marekGroup, "upue", Vers.upue)
     val upueTest = dep(marekGroup, "upue-test", Vers.upue)
