@@ -4,6 +4,7 @@ import okio.*
 import okio.Path.Companion.toOkioPath
 import org.gradle.api.*
 import org.gradle.api.initialization.*
+import org.gradle.api.plugins.*
 import org.gradle.api.provider.*
 import org.gradle.api.tasks.*
 import org.gradle.kotlin.dsl.*
@@ -59,3 +60,16 @@ fun TaskContainer.registerAllThatGroupFun(group: String, vararg afun: Pair<Strin
     for ((name, code) in afun) register(name) { this.group = group; doLast { code() } }
 }
 
+/**
+ * Copy a bunch of environment variables to project extra properties
+ * @param envKeyMatchPrefix All variables with this prefix will be copied.
+ * @param envKeyReplace Default implementation drops prefix and changes all "_" to ".".
+ */
+fun ExtraPropertiesExtension.addAllFromSystemEnvs(
+    envKeyMatchPrefix: String,
+    envKeyReplace: (envKey: String) -> String = { it.removePrefix(envKeyMatchPrefix).replace('_', '.') }
+) {
+    val envs = System.getenv()
+    val keys = envs.keys.filter { it.startsWith(envKeyMatchPrefix) }
+    for (key in keys) this[envKeyReplace(key)] = envs[key]
+}
