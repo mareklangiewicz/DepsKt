@@ -22,7 +22,7 @@ dependencies {
     testImplementation("pl.mareklangiewicz:uspekx:0.0.21") // TODO: try to use deps.uspek (see comment in settings)
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2") // TODO: try to use deps.uspek (see comment in settings)
     testImplementation("org.junit.jupiter:junit-jupiter-engine:5.8.2") // TODO: try to use deps.uspek (see comment in settings)
-    // TODO: check separation between api and engine - so I can do similar in ULog (with separate bridges to CLog etc)
+    // TODO: check separation between api and engine - so I can do similar in ULog (with separate bridges to CLog etc.)
 }
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
