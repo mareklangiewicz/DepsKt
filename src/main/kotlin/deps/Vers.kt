@@ -342,10 +342,7 @@ object Vers {
     // https://github.com/langara/smokk/releases
 
     val uspek = libs.USpek.version
-
-    const val upue = "0.0.09"
-    // https://github.com/langara/upue/releases
-
+    val upue = libs.UPue.version
     val kommandLine = libs.KommandLine.version
 
     const val sandboxui = "0.0.5"

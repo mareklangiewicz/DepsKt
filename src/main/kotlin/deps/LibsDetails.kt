@@ -17,6 +17,13 @@ object LibsDetails {
         description = "Kotlin DSL for popular CLI commands.",
         githubUrl = "https://github.com/langara/KommandLine",
     )
+
+    val UPue = lib(
+        name = "UPue",
+        version = v(0, 0, 9),
+        description = "Micro Multiplatform Reactive Library.",
+        githubUrl = "https://github.com/langara/UPue",
+    )
 }
 
 data class LibDetails(

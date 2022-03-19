@@ -238,9 +238,9 @@ object Deps {
 
     val googleCloudBoM = dep("com.google.cloud", "libraries-bom", Vers.googleCloudBoM)
         // FIXME: some extension functions for BoM deps, so its easier to add it to multiplatform projects than:
-        // implementation(project.dependencies.platform(Deps.googleCloudBoM))
+        // implementation(project.dependencies.platform(deps.googleCloudBoM))
         // and to make it impossible to mistakenly add it as normal dependency like:
-        // implementation(Deps.googleCloudBoM)
+        // implementation(deps.googleCloudBoM)
 
     val googleCloudStorage = dep("com.google.cloud", "google-cloud-storage")
     val googleCloudFirestore = dep("com.google.cloud", "google-cloud-firestore")
@@ -323,9 +323,8 @@ object Deps {
     val uspek = libs.USpek.dep("uspek")
     val uspekx = libs.USpek.dep("uspekx")
 
-    val upue = dep(marekGroup, "upue", Vers.upue)
-    val upueTest = dep(marekGroup, "upue-test", Vers.upue)
-
+    val upue = libs.UPue.dep()
+    val upueTest = libs.UPue.dep("upue-test")
     val kommandLine = libs.KommandLine.dep()
     val dbusKotlin = dep(marekGroup, "dbus-kotlin", Vers.dbusKotlin)
     val sandboxui = dep(marekGroup, "sandboxui", Vers.sandboxui)

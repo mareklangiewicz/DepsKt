@@ -13,6 +13,8 @@ import org.gradle.kotlin.dsl.*
 import org.gradle.plugins.signing.*
 import pl.mareklangiewicz.utils.*
 import java.io.*
+import deps
+import repos
 
 
 fun RepositoryHandler.defaultRepos(
@@ -27,8 +29,8 @@ fun RepositoryHandler.defaultRepos(
     if (withMavenCentral) mavenCentral()
     if (withGradle) gradlePluginPortal()
     if (withGoogle) google()
-    if (withKotlinX) maven(Repos.kotlinx)
-    if (withJitpack) maven(Repos.jitpack)
+    if (withKotlinX) maven(repos.kotlinx)
+    if (withJitpack) maven(repos.jitpack)
 }
 
 @Deprecated("Use defaultGroupAndVerAndDescription", replaceWith = ReplaceWith("defaultGroupAndVerAndDescription(libs.name)"))
@@ -58,8 +60,8 @@ fun ScriptHandlerScope.defaultAndroBuildScript() {
 /** usually not needed - see template-android */
 fun DependencyHandler.defaultAndroBuildScriptDeps(
 ) {
-    add("classpath", Deps.kotlinGradlePlugin)
-    add("classpath", Deps.androidGradlePlugin)
+    add("classpath", deps.kotlinGradlePlugin)
+    add("classpath", deps.androidGradlePlugin)
 }
 
 fun defaultVerName(major: Int = 0, minor: Int = 0, patch: Int = 1, patchLen: Int = 2) =
@@ -70,7 +72,7 @@ fun defaultVerName(major: Int = 0, minor: Int = 0, patch: Int = 1, patchLen: Int
 fun DependencyHandler.defaultAndroDeps(
     configuration: String = "implementation",
     withCompose: Boolean = false,
-) = Deps.run {
+) = deps.run {
     addAll(configuration,
         androidxCoreKtx,
         androidxAppcompat,
@@ -90,7 +92,7 @@ fun DependencyHandler.defaultAndroDeps(
 fun DependencyHandler.defaultAndroTestDeps(
     configuration: String = "testImplementation",
     withCompose: Boolean = false,
-) = Deps.run {
+) = deps.run {
     addAll(configuration,
 //        uspekx,
         junit4,

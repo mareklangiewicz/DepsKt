@@ -4,8 +4,8 @@ import com.android.build.api.dsl.LibraryExtension
 import pl.mareklangiewicz.defaults.*
 
 plugins {
-    id("com.android.library") version Vers.androidGradlePlugin
-    kotlin("android") version Vers.kotlin
+    id("com.android.library") version vers.androidGradlePlugin
+    kotlin("android") version vers.kotlin
 }
 
 repositories { defaultRepos() }
@@ -25,7 +25,7 @@ tasks.configureKotlinCompileTasks()
 fun TaskCollection<Task>.configureKotlinCompileTasks() {
     withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
         kotlinOptions {
-            jvmTarget = Vers.defaultJvm
+            jvmTarget = vers.defaultJvm
             freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlin.RequiresOptIn"
         }
     }
@@ -35,10 +35,10 @@ fun ApplicationExtension.defaultAndro(
     appId: String,
     appVerCode: Int = 1,
     appVerName: String = defaultVerName(patch = appVerCode),
-    jvmVersion: String = Vers.defaultJvm,
+    jvmVersion: String = vers.defaultJvm,
     withCompose: Boolean = false,
 ) {
-    compileSdk = Vers.androidCompileSdk
+    compileSdk = vers.androidCompileSdk
     defaultCompileOptions(jvmVersion)
     defaultDefaultConfig(appId, appVerCode, appVerName)
     defaultBuildTypes()
@@ -47,10 +47,10 @@ fun ApplicationExtension.defaultAndro(
 }
 
 fun LibraryExtension.defaultAndro(
-    jvmVersion: String = Vers.defaultJvm,
+    jvmVersion: String = vers.defaultJvm,
     withCompose: Boolean = false,
 ) {
-    compileSdk = Vers.androidCompileSdk
+    compileSdk = vers.androidCompileSdk
     defaultCompileOptions(jvmVersion)
     defaultDefaultConfig()
     defaultBuildTypes()
@@ -64,21 +64,21 @@ fun ApplicationExtension.defaultDefaultConfig(
     appVerName: String = defaultVerName(patch = appVerCode)
 ) = defaultConfig {
     applicationId = appId
-    minSdk = Vers.androidMinSdk
-    targetSdk = Vers.androidTargetSdk
+    minSdk = vers.androidMinSdk
+    targetSdk = vers.androidTargetSdk
     versionCode = appVerCode
     versionName = appVerName
-    testInstrumentationRunner = Vers.androidTestRunnerClass
+    testInstrumentationRunner = vers.androidTestRunnerClass
 }
 
 fun LibraryExtension.defaultDefaultConfig() = defaultConfig {
-    minSdk = Vers.androidMinSdk
-    targetSdk = Vers.androidTargetSdk
-    testInstrumentationRunner = Vers.androidTestRunnerClass
+    minSdk = vers.androidMinSdk
+    targetSdk = vers.androidTargetSdk
+    testInstrumentationRunner = vers.androidTestRunnerClass
 }
 
 fun CommonExtension<*,*,*,*>.defaultCompileOptions(
-    jvmVersion: String = Vers.defaultJvm
+    jvmVersion: String = vers.defaultJvm
 ) = compileOptions {
     sourceCompatibility(jvmVersion)
     targetCompatibility(jvmVersion)
@@ -92,7 +92,7 @@ fun CommonExtension<*,*,*,*>.defaultComposeStuff() {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = Vers.composeAndroidCompiler
+        kotlinCompilerExtensionVersion = vers.composeAndroidCompiler
     }
 }
 
