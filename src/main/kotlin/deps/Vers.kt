@@ -340,6 +340,7 @@ object Vers {
     val uspek = libs.USpek.version
     val upue = libs.UPue.version
     val kommandLine = libs.KommandLine.version
+    val templateMPP = libs.TemplateMPP.version
 
     const val sandboxui = "0.0.5"
     // https://github.com/langara/sandboxui/releases

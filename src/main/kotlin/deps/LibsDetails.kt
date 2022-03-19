@@ -38,6 +38,13 @@ object LibsDetails {
         description = "Tiny tuples lib for Kotlin with cool infix syntax.",
         githubUrl = "https://github.com/langara/TupleK",
     )
+
+    val TemplateMPP = lib(
+        name = "TemplateMPP",
+        version = v(0, 0, 1),
+        description = "Template for multi platform projects.",
+        githubUrl = "https://github.com/langara/deps.kt/template-mpp",
+    )
 }
 
 data class LibDetails(

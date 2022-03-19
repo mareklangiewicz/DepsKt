@@ -331,6 +331,7 @@ object Deps {
     val dbusKotlin = dep(marekGroup, "dbus-kotlin", vers.dbusKotlin)
     val sandboxui = dep(marekGroup, "sandboxui", vers.sandboxui)
     val recyclerui = dep(marekGroup, "recyclerui", vers.recyclerui)
+    val templateMPP = libs.TemplateMPP.dep()
 
 
 
