@@ -24,6 +24,13 @@ object LibsDetails {
         description = "Micro Multiplatform Reactive Library.",
         githubUrl = "https://github.com/langara/UPue",
     )
+
+    val AbcdK = lib(
+        name = "AbcdK",
+        version = v(0, 0, 6),
+        description = "Tiny unions lib for Kotlin.",
+        githubUrl = "https://github.com/langara/AbcdK",
+    )
 }
 
 data class LibDetails(
@@ -54,4 +61,3 @@ private fun lib(
     licenceName: String = "Apache-2.0",
     licenceUrl: String = "https://opensource.org/licenses/Apache-2.0",
 ) = LibDetails(name, group, version, description, authorId, authorName, authorEmail, githubUrl, licenceName, licenceUrl)
-

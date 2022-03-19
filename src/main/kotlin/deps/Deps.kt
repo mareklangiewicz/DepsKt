@@ -318,13 +318,13 @@ object Deps {
     const val marekGroup = "pl.mareklangiewicz"
 
     val tuplek = dep(marekGroup, "tuplek", vers.tuplek)
-    val abcdk = dep(marekGroup, "abcdk", vers.abcdk)
     val rxmock = dep(marekGroup, "rxmock", vers.rxmock)
     val smokk = dep(marekGroup, "smokk", vers.smokk)
 
     val uspek = libs.USpek.dep("uspek")
     val uspekx = libs.USpek.dep("uspekx")
 
+    val abcdk = libs.AbcdK.dep()
     val upue = libs.UPue.dep()
     val upueTest = libs.UPue.dep("upue-test")
     val kommandLine = libs.KommandLine.dep()

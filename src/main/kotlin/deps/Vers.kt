@@ -332,15 +332,13 @@ object Vers {
     const val tuplek = "0.0.04"
     // https://github.com/langara/tuplek/releases
 
-    const val abcdk = "0.0.05"
-    // https://github.com/langara/abcdk/releases
-
     const val rxmock = "0.0.2"
     // https://github.com/langara/rxmock/releases
 
     const val smokk = "0.0.4"
     // https://github.com/langara/smokk/releases
 
+    val abcdk = libs.AbcdK.version
     val uspek = libs.USpek.version
     val upue = libs.UPue.version
     val kommandLine = libs.KommandLine.version
