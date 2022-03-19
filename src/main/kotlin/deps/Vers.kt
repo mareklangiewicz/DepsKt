@@ -329,9 +329,6 @@ object Vers {
     // https://github.com/langara/deps.kt/blob/master/src/main/kotlin/deps/LibsDetails.kt
     // https://repo1.maven.org/maven2/pl/mareklangiewicz/
 
-    const val tuplek = "0.0.04"
-    // https://github.com/langara/tuplek/releases
-
     const val rxmock = "0.0.2"
     // https://github.com/langara/rxmock/releases
 
@@ -339,6 +336,7 @@ object Vers {
     // https://github.com/langara/smokk/releases
 
     val abcdk = libs.AbcdK.version
+    val tuplek = libs.TupleK.version
     val uspek = libs.USpek.version
     val upue = libs.UPue.version
     val kommandLine = libs.KommandLine.version

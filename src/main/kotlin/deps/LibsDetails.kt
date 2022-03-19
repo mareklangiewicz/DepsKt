@@ -31,6 +31,13 @@ object LibsDetails {
         description = "Tiny unions lib for Kotlin.",
         githubUrl = "https://github.com/langara/AbcdK",
     )
+
+    val TupleK = lib(
+        name = "TupleK",
+        version = v(0, 0, 5),
+        description = "Tiny tuples lib for Kotlin with cool infix syntax.",
+        githubUrl = "https://github.com/langara/TupleK",
+    )
 }
 
 data class LibDetails(
