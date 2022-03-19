@@ -32,7 +32,7 @@ data class LibDetails(
     val licenceUrl: String,
 ) {
     fun dep(moduleName: String = name.toLowerCase(), moduleGroup: String = group, moduleVersion: String = version) =
-        "$moduleName:$moduleGroup:$moduleVersion"
+        "$moduleGroup:$moduleName:$moduleVersion"
 }
 
 private fun lib(
