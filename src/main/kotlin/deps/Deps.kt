@@ -320,13 +320,13 @@ object Deps {
     val rxmock = dep(marekGroup, "rxmock", Vers.rxmock)
     val smokk = dep(marekGroup, "smokk", Vers.smokk)
 
-    val uspek = libs.uspek.dep("uspek")
-    val uspekx = libs.uspek.dep("uspekx")
+    val uspek = libs.USpek.dep("uspek")
+    val uspekx = libs.USpek.dep("uspekx")
 
     val upue = dep(marekGroup, "upue", Vers.upue)
     val upueTest = dep(marekGroup, "upue-test", Vers.upue)
 
-    val kommandLine = dep(marekGroup, "kommandline", Vers.kommandLine)
+    val kommandLine = libs.KommandLine.dep()
     val dbusKotlin = dep(marekGroup, "dbus-kotlin", Vers.dbusKotlin)
     val sandboxui = dep(marekGroup, "sandboxui", Vers.sandboxui)
     val recyclerui = dep(marekGroup, "recyclerui", Vers.recyclerui)

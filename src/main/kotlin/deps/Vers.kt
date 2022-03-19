@@ -2,6 +2,8 @@
 
 package pl.mareklangiewicz.deps
 
+import libs
+
 internal fun v(major: Int, minor: Int, patch: Int, suffix: String = "", patchLength: Int = 2) =
     "$major.$minor.${patch.toString().padStart(patchLength, '0')}$suffix"
 
@@ -323,6 +325,9 @@ object Vers {
     val kotlinJsWrappersStyled = "$npmStyled-pre.293-kotlin-$kotlin"
 
 
+    // My libs - see details in LibsDetails.kt:
+    // https://github.com/langara/deps.kt/blob/master/src/main/kotlin/deps/LibsDetails.kt
+    // https://repo1.maven.org/maven2/pl/mareklangiewicz/
 
     const val tuplek = "0.0.04"
     // https://github.com/langara/tuplek/releases
@@ -336,11 +341,12 @@ object Vers {
     const val smokk = "0.0.4"
     // https://github.com/langara/smokk/releases
 
+    val uspek = libs.USpek.version
+
     const val upue = "0.0.09"
     // https://github.com/langara/upue/releases
 
-    const val kommandLine = "0.0.06"
-    // https://github.com/langara/kommandline/releases
+    val kommandLine = libs.KommandLine.version
 
     const val sandboxui = "0.0.5"
     // https://github.com/langara/sandboxui/releases
