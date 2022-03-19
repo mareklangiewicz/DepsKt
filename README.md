@@ -29,4 +29,3 @@ Usage:
   so the code is available in all build files.
 - The sourcefun plugin is an experiment to allow easy code generation. Example:
     - https://github.com/langara/deps.kt/blob/master/sample-sourcefun/build.gradle.kts
-

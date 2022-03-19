@@ -2,8 +2,10 @@
 
 package pl.mareklangiewicz.deps
 
-import libs
 import org.gradle.api.artifacts.dsl.DependencyHandler
+
+val libs = LibsDetails // instead of import - to avoid circular init problem
+val vers = Vers // instead of import - to avoid circular init problem
 
 /**
  * Common dependencies for java/kotlin/android projects
@@ -11,15 +13,15 @@ import org.gradle.api.artifacts.dsl.DependencyHandler
  * @see <a href="https://github.com/langara/deps.kt">https://github.com/langara/deps.kt</a>
  */
 object Deps {
-    private val kotlin = dep("org.jetbrains.kotlin", "", Vers.kotlin)
+    private val kotlin = dep("org.jetbrains.kotlin", "", vers.kotlin)
     val kotlinGradlePlugin = kotlin withName "kotlin-gradle-plugin"
-    val kotlin14GradlePlugin = kotlinGradlePlugin ver Vers.kotlin14
-    val kotlin15GradlePlugin = kotlinGradlePlugin ver Vers.kotlin15
-    val androidGradlePlugin = dep("com.android.tools.build", "gradle", Vers.androidGradlePlugin)
+    val kotlin14GradlePlugin = kotlinGradlePlugin ver vers.kotlin14
+    val kotlin15GradlePlugin = kotlinGradlePlugin ver vers.kotlin15
+    val androidGradlePlugin = dep("com.android.tools.build", "gradle", vers.androidGradlePlugin)
 
     @Deprecated("Use https://developer.android.com/studio/build/maven-publish-plugin")
-    val androidMavenGradlePlugin = dep("com.github.dcendents", "android-maven-gradle-plugin", Vers.androidMavenGradlePlugin)
-    val nexusPublishGradlePlugin = dep("io.github.gradle-nexus", "publish-plugin", Vers.nexusPublishGradlePlugin)
+    val androidMavenGradlePlugin = dep("com.github.dcendents", "android-maven-gradle-plugin", vers.androidMavenGradlePlugin)
+    val nexusPublishGradlePlugin = dep("io.github.gradle-nexus", "publish-plugin", vers.nexusPublishGradlePlugin)
 
     val kotlinStdlib7 = kotlin withName "kotlin-stdlib-jdk7"
     val kotlinStdlib8 = kotlin withName "kotlin-stdlib-jdk8"
@@ -30,21 +32,21 @@ object Deps {
     val kotlinTestJUnit = kotlin withName "kotlin-test-junit"
     val kotlinTestJs = kotlin withName "kotlin-test-js"
 
-    val composeDesktopGradlePlugin = dep("org.jetbrains.compose", "compose-gradle-plugin", Vers.composeDesktop)
-    val composeAndroidAnimation = dep("androidx.compose.animation", "animation", Vers.composeAndroid)
+    val composeDesktopGradlePlugin = dep("org.jetbrains.compose", "compose-gradle-plugin", vers.composeDesktop)
+    val composeAndroidAnimation = dep("androidx.compose.animation", "animation", vers.composeAndroid)
     val composeAndroidAnimationCore = composeAndroidAnimation withName "animation-core"
-    val composeAndroidCompiler = dep("androidx.compose.compiler", "compiler", Vers.composeAndroidCompiler)
-    val composeAndroidFoundation = dep("androidx.compose.foundation", "foundation", Vers.composeAndroid)
+    val composeAndroidCompiler = dep("androidx.compose.compiler", "compiler", vers.composeAndroidCompiler)
+    val composeAndroidFoundation = dep("androidx.compose.foundation", "foundation", vers.composeAndroid)
     val composeAndroidFoundationLayout = composeAndroidFoundation withName "foundation-layout"
     val composeAndroidFoundationShape = composeAndroidFoundation withName "foundation-shape"
     val composeAndroidFoundationText = composeAndroidFoundation withName "foundation-text"
-    val composeAndroidMaterial3 = dep("androidx.compose.material3", "material3", Vers.composeAndroidMaterial3)
-    val composeAndroidMaterial = dep("androidx.compose.material", "material", Vers.composeAndroid)
+    val composeAndroidMaterial3 = dep("androidx.compose.material3", "material3", vers.composeAndroidMaterial3)
+    val composeAndroidMaterial = dep("androidx.compose.material", "material", vers.composeAndroid)
     val composeAndroidMaterialIcons = composeAndroidMaterial withName "material-icons"
-    val composeAndroidRuntime = dep("androidx.compose.runtime", "runtime", Vers.composeAndroid)
+    val composeAndroidRuntime = dep("androidx.compose.runtime", "runtime", vers.composeAndroid)
     val composeAndroidRuntimeDispatch = composeAndroidRuntime withName "runtime-dispatch"
     val composeAndroidRuntimeFrames = composeAndroidRuntime withName "runtime-frames"
-    val composeAndroidUi = dep("androidx.compose.ui", "ui", Vers.composeAndroid)
+    val composeAndroidUi = dep("androidx.compose.ui", "ui", vers.composeAndroid)
     val composeAndroidUiGeometry = composeAndroidUi withName "ui-geometry"
     val composeAndroidUiGraphics = composeAndroidUi withName "ui-graphics"
     val composeAndroidUiPlatform = composeAndroidUi withName "ui-platform"
@@ -53,7 +55,7 @@ object Deps {
     val composeAndroidUiTestManifest = composeAndroidUi withName "ui-test-manifest"
     val composeAndroidUiTooling = composeAndroidUi withName "ui-tooling"
 
-    private val googleAccompanist = dep("com.google.accompanist", "", Vers.googleAccompanist)
+    private val googleAccompanist = dep("com.google.accompanist", "", vers.googleAccompanist)
     val googleAccompanistSytemUiController = googleAccompanist withName "accompanist-systemuicontroller"
     val googleAccompanistSwipeRefresh = googleAccompanist withName "accompanist-swiperefresh"
     val googleAccompanistPlaceholder = googleAccompanist withName "accompanist-placeholder"
@@ -68,26 +70,26 @@ object Deps {
     val googleAccompanistFlowLayout = googleAccompanist withName "accompanist-flowlayout"
     val googleAccompanistDrawablePainter = googleAccompanist withName "accompanist-drawablepainter"
     val googleAccompanistAppCompatTheme = googleAccompanist withName "accompanist-appcompat-theme"
-    val googleAccompanistImageLoadingCore = googleAccompanist withName "accompanist-imageloading-core" ver Vers.googleAccompanistImage
-    val googleAccompanistGlide = googleAccompanist withName "accompanist-glide" ver Vers.googleAccompanistImage
-    val googleAccompanistCoil = googleAccompanist withName "accompanist-coil" ver Vers.googleAccompanistImage
-    val googleAccompanistPicasso = googleAccompanist withName "accompanist-picasso" ver Vers.googleAccompanistPicasso
+    val googleAccompanistImageLoadingCore = googleAccompanist withName "accompanist-imageloading-core" ver vers.googleAccompanistImage
+    val googleAccompanistGlide = googleAccompanist withName "accompanist-glide" ver vers.googleAccompanistImage
+    val googleAccompanistCoil = googleAccompanist withName "accompanist-coil" ver vers.googleAccompanistImage
+    val googleAccompanistPicasso = googleAccompanist withName "accompanist-picasso" ver vers.googleAccompanistPicasso
 
-    val kotlinxDateTime = dep("org.jetbrains.kotlinx", "kotlinx-datetime", Vers.kotlinxDateTime)
+    val kotlinxDateTime = dep("org.jetbrains.kotlinx", "kotlinx-datetime", vers.kotlinxDateTime)
 
-    val kotlinxSerializationCore = dep("org.jetbrains.kotlinx", "kotlinx-serialization-core", Vers.kotlinxSerialization)
+    val kotlinxSerializationCore = dep("org.jetbrains.kotlinx", "kotlinx-serialization-core", vers.kotlinxSerialization)
     val kotlinxSerializationJson = kotlinxSerializationCore withName "kotlinx-serialization-json"
 
-    val kotlinxAtomicFuCommon = dep("org.jetbrains.kotlinx", "atomicfu-common", Vers.kotlinxAtomicFu)
+    val kotlinxAtomicFuCommon = dep("org.jetbrains.kotlinx", "atomicfu-common", vers.kotlinxAtomicFu)
     val kotlinxAtomicFuGradlePlugin = kotlinxAtomicFuCommon withName "atomicfu-gradle-plugin"
 
-    val kotlinxHtml = dep("org.jetbrains.kotlinx", "kotlinx-html", Vers.kotlinxHtml)
+    val kotlinxHtml = dep("org.jetbrains.kotlinx", "kotlinx-html", vers.kotlinxHtml)
     val kotlinxHtmlJvm = kotlinxHtml withName "kotlinx-html-jvm"
     val kotlinxHtmlJs = kotlinxHtml withName "kotlinx-html-js"
 
-    val kotlinxNodeJs = dep("org.jetbrains.kotlinx", "kotlinx-nodejs", Vers.kotlinxNodeJs)
+    val kotlinxNodeJs = dep("org.jetbrains.kotlinx", "kotlinx-nodejs", vers.kotlinxNodeJs)
 
-    private val kotlinxCoroutines = dep("org.jetbrains.kotlinx", "", Vers.kotlinxCoroutines)
+    private val kotlinxCoroutines = dep("org.jetbrains.kotlinx", "", vers.kotlinxCoroutines)
     val kotlinxCoroutinesCommon = kotlinxCoroutines withName "kotlinx-coroutines-core-common"
     val kotlinxCoroutinesCore = kotlinxCoroutines withName "kotlinx-coroutines-core"
     val kotlinxCoroutinesDebug = kotlinxCoroutines withName "kotlinx-coroutines-debug"
@@ -106,32 +108,32 @@ object Deps {
 
     // just a reference - not useful in typical cases
     const val gradleBaseUrl = "https://services.gradle.org/distributions"
-    const val gradleUrlBin = "$gradleBaseUrl/gradle-${Vers.gradle}-bin.zip"
-    const val gradleUrlAll = "$gradleBaseUrl/gradle-${Vers.gradle}-all.zip"
+    const val gradleUrlBin = "$gradleBaseUrl/gradle-${vers.gradle}-bin.zip"
+    const val gradleUrlAll = "$gradleBaseUrl/gradle-${vers.gradle}-all.zip"
 
-    val androidxCore = dep("androidx.core", "core", Vers.androidxCore)
-    val androidxCoreKtx = dep("androidx.core", "core-ktx", Vers.androidxCore)
-    val androidxActivityKtx = dep("androidx.activity", "activity-ktx", Vers.androidxActivity)
-    val androidxActivityCompose = dep("androidx.activity", "activity-compose", Vers.androidxActivity)
-    val androidxAppcompat = dep("androidx.appcompat", "appcompat", Vers.androidxAppcompat)
-    val androidxRecyclerview = dep("androidx.recyclerview", "recyclerview", Vers.androidxRecyclerview)
-    val androidxCardview = dep("androidx.cardview", "cardview", Vers.androidxCardview)
-    val androidMaterial = dep("com.google.android.material", "material", Vers.androidMaterial)
-    val androidxAnnotation = dep("androidx.annotation", "annotation", Vers.androidxAnnotation)
-    val androidxPreference = dep("androidx.preference", "preference", Vers.androidxPreference)
+    val androidxCore = dep("androidx.core", "core", vers.androidxCore)
+    val androidxCoreKtx = dep("androidx.core", "core-ktx", vers.androidxCore)
+    val androidxActivityKtx = dep("androidx.activity", "activity-ktx", vers.androidxActivity)
+    val androidxActivityCompose = dep("androidx.activity", "activity-compose", vers.androidxActivity)
+    val androidxAppcompat = dep("androidx.appcompat", "appcompat", vers.androidxAppcompat)
+    val androidxRecyclerview = dep("androidx.recyclerview", "recyclerview", vers.androidxRecyclerview)
+    val androidxCardview = dep("androidx.cardview", "cardview", vers.androidxCardview)
+    val androidMaterial = dep("com.google.android.material", "material", vers.androidMaterial)
+    val androidxAnnotation = dep("androidx.annotation", "annotation", vers.androidxAnnotation)
+    val androidxPreference = dep("androidx.preference", "preference", vers.androidxPreference)
     val androidxPreferenceKtx = androidxPreference withName "preference-ktx"
-    val androidxBrowser = dep("androidx.browser", "browser", Vers.androidxBrowser)
-    val androidxBrowserHelper = dep("com.google.androidbrowserhelper", "androidbrowserhelper", Vers.androidxBrowserHelper)
-    val androidxPercentLayout = dep("androidx.percentlayout", "percentlayout", Vers.androidxPercentLayout)
-    val androidxFlexboxLayout = dep("com.google.android", "flexbox", Vers.androidxFlexboxLayout)
-    val androidxConstraint1 = dep("androidx.constraintlayout", "constraintlayout", Vers.androidxConstraint1)
-    val androidxConstraint2 = androidxConstraint1 ver Vers.androidxConstraint2
+    val androidxBrowser = dep("androidx.browser", "browser", vers.androidxBrowser)
+    val androidxBrowserHelper = dep("com.google.androidbrowserhelper", "androidbrowserhelper", vers.androidxBrowserHelper)
+    val androidxPercentLayout = dep("androidx.percentlayout", "percentlayout", vers.androidxPercentLayout)
+    val androidxFlexboxLayout = dep("com.google.android", "flexbox", vers.androidxFlexboxLayout)
+    val androidxConstraint1 = dep("androidx.constraintlayout", "constraintlayout", vers.androidxConstraint1)
+    val androidxConstraint2 = androidxConstraint1 ver vers.androidxConstraint2
     val androidxConstraint = androidxConstraint1
     val androidxConstraint1Solver = androidxConstraint1  withName "constraintlayout-solver"
-    val androidxConstraint2Solver = androidxConstraint1Solver ver Vers.androidxConstraint2
+    val androidxConstraint2Solver = androidxConstraint1Solver ver vers.androidxConstraint2
     val androidxConstraintSolver = androidxConstraint1Solver
 
-    val androidxLifecycleCommon = dep("androidx.lifecycle", "lifecycle-common", Vers.androidxLifecycle)
+    val androidxLifecycleCommon = dep("androidx.lifecycle", "lifecycle-common", vers.androidxLifecycle)
     val androidxLifecycleCompiler = androidxLifecycleCommon  withName "lifecycle-compiler"
     val androidxLifecycleExtensions = androidxLifecycleCommon  withName "lifecycle-extensions"
     val androidxLifecycleRuntime = androidxLifecycleCommon  withName "lifecycle-runtime"
@@ -142,43 +144,43 @@ object Deps {
     val androidxLifecycleViewModel = androidxLifecycleCommon  withName "lifecycle-viewmodel"
     val androidxLifecycleViewModelKtx = androidxLifecycleCommon  withName "lifecycle-viewmodel-ktx"
 
-    private val androidxCamera = dep("androidx.camera", "", Vers.androidxCamera)
+    private val androidxCamera = dep("androidx.camera", "", vers.androidxCamera)
     val androidxCameraCore = androidxCamera withName "camera-core"
     val androidxCameraCamera2 = androidxCamera withName "camera-camera2"
     val androidxCameraLifecycle = androidxCamera withName "camera-lifecycle"
     val androidxCameraVideo = androidxCamera withName "camera-video"
-    val androidxCameraExtensions = androidxCamera withName "camera-extensions" ver Vers.androidxCameraExtensions
-    val androidxCameraView = androidxCamera withName "camera-view" ver Vers.androidxCameraView
+    val androidxCameraExtensions = androidxCamera withName "camera-extensions" ver vers.androidxCameraExtensions
+    val androidxCameraView = androidxCamera withName "camera-view" ver vers.androidxCameraView
 
-    val androidxRoomRuntime = dep("androidx.room", "room-runtime", Vers.androidxRoom)
-    val androidxRoomCompiler = dep("androidx.room", "room-compiler", Vers.androidxRoom)
-    val androidxRoomKtx = dep("androidx.room", "room-ktx", Vers.androidxRoom)
-    val androidxRoomRxJava2 = dep("androidx.room", "room-rxjava2", Vers.androidxRoom)
-    val androidxRoomTesting = dep("androidx.room", "room-testing", Vers.androidxRoom)
+    val androidxRoomRuntime = dep("androidx.room", "room-runtime", vers.androidxRoom)
+    val androidxRoomCompiler = dep("androidx.room", "room-compiler", vers.androidxRoom)
+    val androidxRoomKtx = dep("androidx.room", "room-ktx", vers.androidxRoom)
+    val androidxRoomRxJava2 = dep("androidx.room", "room-rxjava2", vers.androidxRoom)
+    val androidxRoomTesting = dep("androidx.room", "room-testing", vers.androidxRoom)
 
-    val androidxEspressoAccessibility = dep("androidx.test.espresso", "espresso-accessibility", Vers.androidxEspresso)
-    val androidxEspressoContrib = dep("androidx.test.espresso", "espresso-contrib", Vers.androidxEspresso)
-    val androidxEspressoCore = dep("androidx.test.espresso", "espresso-core", Vers.androidxEspresso)
-    val androidxEspressoIdlingResource = dep("androidx.test.espresso", "espresso-idling-resource", Vers.androidxEspresso)
-    val androidxEspressoIntents = dep("androidx.test.espresso", "espresso-intents", Vers.androidxEspresso)
-    val androidxEspressoRemote = dep("androidx.test.espresso", "espresso-remote", Vers.androidxEspresso)
-    val androidxEspressoWeb = dep("androidx.test.espresso", "espresso-web", Vers.androidxEspresso)
+    val androidxEspressoAccessibility = dep("androidx.test.espresso", "espresso-accessibility", vers.androidxEspresso)
+    val androidxEspressoContrib = dep("androidx.test.espresso", "espresso-contrib", vers.androidxEspresso)
+    val androidxEspressoCore = dep("androidx.test.espresso", "espresso-core", vers.androidxEspresso)
+    val androidxEspressoIdlingResource = dep("androidx.test.espresso", "espresso-idling-resource", vers.androidxEspresso)
+    val androidxEspressoIntents = dep("androidx.test.espresso", "espresso-intents", vers.androidxEspresso)
+    val androidxEspressoRemote = dep("androidx.test.espresso", "espresso-remote", vers.androidxEspresso)
+    val androidxEspressoWeb = dep("androidx.test.espresso", "espresso-web", vers.androidxEspresso)
 
-    val androidCommonsEspresso = dep("com.github.elpassion.android-commons", "espresso", Vers.androidCommons)
-    val androidCommonsRxJavaTest = dep("com.github.elpassion.android-commons", "rxjava-test", Vers.androidCommons)
-    val androidCommonsSharedPrefs = dep("com.github.elpassion.android-commons", "shared-preferences", Vers.androidCommons)
-    val androidCommonsSharedPrefsMoshi = dep("com.github.elpassion.android-commons", "shared-preferences-moshi-converter-adapter", Vers.androidCommons)
-    val androidCommonsSharedPrefsGson = dep("com.github.elpassion.android-commons", "shared-preferences-gson-converter-adapter", Vers.androidCommons)
-    val androidCommonsView = dep("com.github.elpassion.android-commons", "view", Vers.androidCommons)
-    val androidCommonsPager = dep("com.github.elpassion.android-commons", "pager", Vers.androidCommons)
-    val androidCommonsRecycler = dep("com.github.elpassion.android-commons", "recycler", Vers.androidCommons)
+    val androidCommonsEspresso = dep("com.github.elpassion.android-commons", "espresso", vers.androidCommons)
+    val androidCommonsRxJavaTest = dep("com.github.elpassion.android-commons", "rxjava-test", vers.androidCommons)
+    val androidCommonsSharedPrefs = dep("com.github.elpassion.android-commons", "shared-preferences", vers.androidCommons)
+    val androidCommonsSharedPrefsMoshi = dep("com.github.elpassion.android-commons", "shared-preferences-moshi-converter-adapter", vers.androidCommons)
+    val androidCommonsSharedPrefsGson = dep("com.github.elpassion.android-commons", "shared-preferences-gson-converter-adapter", vers.androidCommons)
+    val androidCommonsView = dep("com.github.elpassion.android-commons", "view", vers.androidCommons)
+    val androidCommonsPager = dep("com.github.elpassion.android-commons", "pager", vers.androidCommons)
+    val androidCommonsRecycler = dep("com.github.elpassion.android-commons", "recycler", vers.androidCommons)
 
-    val rxjava2 = dep("io.reactivex.rxjava2", "rxjava", Vers.rxjava2)
-    val rxjava3 = dep("io.reactivex.rxjava3", "rxjava", Vers.rxjava3)
-    val rxkotlin = dep("io.reactivex.rxjava3", "rxkotlin", Vers.rxkotlin)
-    val rxandroid = dep("io.reactivex.rxjava3", "rxandroid", Vers.rxandroid)
-    val rxrelay = dep("com.jakewharton.rxrelay3", "rxrelay", Vers.rxrelay)
-    val rxbinding = dep("com.jakewharton.rxbinding4", "rxbinding", Vers.rxbinding)
+    val rxjava2 = dep("io.reactivex.rxjava2", "rxjava", vers.rxjava2)
+    val rxjava3 = dep("io.reactivex.rxjava3", "rxjava", vers.rxjava3)
+    val rxkotlin = dep("io.reactivex.rxjava3", "rxkotlin", vers.rxkotlin)
+    val rxandroid = dep("io.reactivex.rxjava3", "rxandroid", vers.rxandroid)
+    val rxrelay = dep("com.jakewharton.rxrelay3", "rxrelay", vers.rxrelay)
+    val rxbinding = dep("com.jakewharton.rxbinding4", "rxbinding", vers.rxbinding)
     val rxbindingCore = rxbinding  withName "rxbinding-core"
     val rxbindingAppCompat = rxbinding  withName "rxbinding-appcompat"
     val rxbindingDrawerLayout = rxbinding  withName "rxbinding-drawerlayout"
@@ -187,39 +189,39 @@ object Deps {
     val rxbindingSlidingPaneLayout = rxbinding  withName "rxbinding-slidingpanelayout"
     val rxbindingSwipeRefreshLayout = rxbinding  withName "rxbinding-swiperefreshlayout"
     val rxbindingViewPager = rxbinding  withName "rxbinding-viewpager"
-    val rxlifecycleComponents = dep("com.trello.rxlifecycle2", "rxlifecycle-components", Vers.rxlifecycle)
-    val rxlifecycleKotlin = dep("com.trello.rxlifecycle2", "rxlifecycle-kotlin", Vers.rxlifecycle)
-    val retrofit = dep("com.squareup.retrofit2", "retrofit", Vers.retrofit)
-    val retrofitMoshi = dep("com.squareup.retrofit2", "converter-moshi", Vers.retrofit)
-    val retrofitRxjava = dep("com.squareup.retrofit2", "adapter-rxjava2", Vers.retrofit)
-    val okhttp = dep("com.squareup.okhttp3", "okhttp", Vers.okhttp)
-    val okhttpLogging = dep("com.squareup.okhttp3", "logging-interceptor", Vers.okhttp)
-    val okioBoM = dep("com.squareup.okio", "okio-bom", Vers.okio)
-    val okio = dep("com.squareup.okio", "okio", Vers.okio)
-    val okioNodeFileSystem = dep("com.squareup.okio", "okio-nodefakefilesystem-js", Vers.okio)
-    val okioFakeFileSystem = dep("com.squareup.okio", "okio-fakefilesystem", Vers.okio)
-    val dbusJava = dep("com.github.hypfvieh", "dbus-java", Vers.dbusJava)
-    val dbusJavaOsgi = dep("com.github.hypfvieh", "dbus-java-osgi", Vers.dbusJava)
-    val dbusJavaUtils = dep("com.github.hypfvieh", "dbus-java-utils", Vers.dbusJava)
-    val javaWebsocket = dep("org.java-websocket", "java-websocket", Vers.javaWebsocket)
-    val slf4jSimple = dep("org.slf4j", "slf4j-simple", Vers.slf4jSimple)
-    val log4j2api = dep("org.apache.logging.log4j", "log4j-api", Vers.log4j2)
-    val log4j2core = dep("org.apache.logging.log4j", "log4j-core", Vers.log4j2)
+    val rxlifecycleComponents = dep("com.trello.rxlifecycle2", "rxlifecycle-components", vers.rxlifecycle)
+    val rxlifecycleKotlin = dep("com.trello.rxlifecycle2", "rxlifecycle-kotlin", vers.rxlifecycle)
+    val retrofit = dep("com.squareup.retrofit2", "retrofit", vers.retrofit)
+    val retrofitMoshi = dep("com.squareup.retrofit2", "converter-moshi", vers.retrofit)
+    val retrofitRxjava = dep("com.squareup.retrofit2", "adapter-rxjava2", vers.retrofit)
+    val okhttp = dep("com.squareup.okhttp3", "okhttp", vers.okhttp)
+    val okhttpLogging = dep("com.squareup.okhttp3", "logging-interceptor", vers.okhttp)
+    val okioBoM = dep("com.squareup.okio", "okio-bom", vers.okio)
+    val okio = dep("com.squareup.okio", "okio", vers.okio)
+    val okioNodeFileSystem = dep("com.squareup.okio", "okio-nodefakefilesystem-js", vers.okio)
+    val okioFakeFileSystem = dep("com.squareup.okio", "okio-fakefilesystem", vers.okio)
+    val dbusJava = dep("com.github.hypfvieh", "dbus-java", vers.dbusJava)
+    val dbusJavaOsgi = dep("com.github.hypfvieh", "dbus-java-osgi", vers.dbusJava)
+    val dbusJavaUtils = dep("com.github.hypfvieh", "dbus-java-utils", vers.dbusJava)
+    val javaWebsocket = dep("org.java-websocket", "java-websocket", vers.javaWebsocket)
+    val slf4jSimple = dep("org.slf4j", "slf4j-simple", vers.slf4jSimple)
+    val log4j2api = dep("org.apache.logging.log4j", "log4j-api", vers.log4j2)
+    val log4j2core = dep("org.apache.logging.log4j", "log4j-core", vers.log4j2)
 
-    val googleServicesPlugin = dep("com.google.gms", "google-services", Vers.googleServicesPlugin)
-    val googlePlayServicesBase = dep("com.google.android.gms", "play-services-base", Vers.googlePlayServicesBase)
+    val googleServicesPlugin = dep("com.google.gms", "google-services", vers.googleServicesPlugin)
+    val googlePlayServicesBase = dep("com.google.android.gms", "play-services-base", vers.googlePlayServicesBase)
 
-    val firebaseGitliveAuth = dep("dev.gitlive", "firebase-auth", Vers.firebaseGitlive)
-    val firebaseGitliveDB = dep("dev.gitlive", "firebase-database", Vers.firebaseGitlive)
-    val firebaseGitliveFirestore = dep("dev.gitlive", "firebase-firestore", Vers.firebaseGitlive)
-    val firebaseGitliveFunctions = dep("dev.gitlive", "firebase-functions", Vers.firebaseGitlive)
-    val firebaseGitliveMessaging = dep("dev.gitlive", "firebase-messaging", Vers.firebaseGitlive)
-    val firebaseGitliveStorage = dep("dev.gitlive", "firebase-storage", Vers.firebaseGitlive)
-    val firebaseCrashlyticsPlugin = dep("com.google.firebase", "firebase-crashlytics-gradle", Vers.firebaseCrashlyticsPlugin)
+    val firebaseGitliveAuth = dep("dev.gitlive", "firebase-auth", vers.firebaseGitlive)
+    val firebaseGitliveDB = dep("dev.gitlive", "firebase-database", vers.firebaseGitlive)
+    val firebaseGitliveFirestore = dep("dev.gitlive", "firebase-firestore", vers.firebaseGitlive)
+    val firebaseGitliveFunctions = dep("dev.gitlive", "firebase-functions", vers.firebaseGitlive)
+    val firebaseGitliveMessaging = dep("dev.gitlive", "firebase-messaging", vers.firebaseGitlive)
+    val firebaseGitliveStorage = dep("dev.gitlive", "firebase-storage", vers.firebaseGitlive)
+    val firebaseCrashlyticsPlugin = dep("com.google.firebase", "firebase-crashlytics-gradle", vers.firebaseCrashlyticsPlugin)
 
-    val firebaseAdmin = dep("com.google.firebase", "firebase-admin", Vers.firebaseAdmin)
+    val firebaseAdmin = dep("com.google.firebase", "firebase-admin", vers.firebaseAdmin)
 
-    val firebaseAndroidBoM = dep("com.google.firebase", "firebase-bom", Vers.firebaseAndroidBoM)
+    val firebaseAndroidBoM = dep("com.google.firebase", "firebase-bom", vers.firebaseAndroidBoM)
     val firebaseAnalyticsKtx = dep("com.google.firebase", "firebase-analytics-ktx")
     val firebaseCrashlyticsKtx = dep("com.google.firebase", "firebase-crashlytics-ktx")
     val firebaseAppIndexingKtx = dep("com.google.firebase", "firebase-appindexing-ktx")
@@ -234,9 +236,9 @@ object Deps {
     val firebaseRemoteConfigKtx = dep("com.google.firebase", "firebase-config-ktx")
     val firebaseDynamicLinksKtx = dep("com.google.firebase", "firebase-dynamic-links-ktx")
 
-    val firebaseUiAuth = dep("com.firebaseui", "firebase-ui-auth", Vers.firebaseUiAuth)
+    val firebaseUiAuth = dep("com.firebaseui", "firebase-ui-auth", vers.firebaseUiAuth)
 
-    val googleCloudBoM = dep("com.google.cloud", "libraries-bom", Vers.googleCloudBoM)
+    val googleCloudBoM = dep("com.google.cloud", "libraries-bom", vers.googleCloudBoM)
         // FIXME: some extension functions for BoM deps, so its easier to add it to multiplatform projects than:
         // implementation(project.dependencies.platform(deps.googleCloudBoM))
         // and to make it impossible to mistakenly add it as normal dependency like:
@@ -245,49 +247,49 @@ object Deps {
     val googleCloudStorage = dep("com.google.cloud", "google-cloud-storage")
     val googleCloudFirestore = dep("com.google.cloud", "google-cloud-firestore")
 
-    val googleAuthCredentials = dep("com.google.auth", "google-auth-library-credentials", Vers.googleAuth)
-    val googleAuthOAuth2Http = dep("com.google.auth", "google-auth-library-oauth2-http", Vers.googleAuth)
-    val googleAuthAppEngine = dep("com.google.auth", "google-auth-library-appengine", Vers.googleAuth)
+    val googleAuthCredentials = dep("com.google.auth", "google-auth-library-credentials", vers.googleAuth)
+    val googleAuthOAuth2Http = dep("com.google.auth", "google-auth-library-oauth2-http", vers.googleAuth)
+    val googleAuthAppEngine = dep("com.google.auth", "google-auth-library-appengine", vers.googleAuth)
 
     val googleGuava = dep("com.google.guava", "guava") // ver from googleCloudBoM
-    val googleGuavaJre = googleGuava ver Vers.googleGuavaJre
-    val googleGuavaAndroid = googleGuava ver Vers.googleGuavaAndroid
+    val googleGuavaJre = googleGuava ver vers.googleGuavaJre
+    val googleGuavaAndroid = googleGuava ver vers.googleGuavaAndroid
 
-    val googleGuavaMissingMetadataPlugin = dep("de.jjohannes.gradle", "missing-metadata-guava", Vers.googleGuavaMissingMetadataPlugin)
+    val googleGuavaMissingMetadataPlugin = dep("de.jjohannes.gradle", "missing-metadata-guava", vers.googleGuavaMissingMetadataPlugin)
 
-    val picasso = dep("com.squareup.picasso", "picasso", Vers.picasso)
-    val materialDialogs = dep("com.afollestad.material-dialogs", "core", Vers.materialDialogs)
-    val leakcanary = dep("com.squareup.leakcanary", "leakcanary-android", Vers.leakcanary)
-    val paperwork = dep("hu.supercluster", "paperwork", Vers.paperwork)
-    val paperworkPlugin = dep("hu.supercluster", "paperwork-plugin", Vers.paperwork)
-    val junit4 = dep("junit", "junit", Vers.junit4)
-    val junit5 = dep("org.junit.jupiter", "junit-jupiter-api", Vers.junit5)
-    val junit5engine = dep("org.junit.jupiter", "junit-jupiter-engine", Vers.junit5)
+    val picasso = dep("com.squareup.picasso", "picasso", vers.picasso)
+    val materialDialogs = dep("com.afollestad.material-dialogs", "core", vers.materialDialogs)
+    val leakcanary = dep("com.squareup.leakcanary", "leakcanary-android", vers.leakcanary)
+    val paperwork = dep("hu.supercluster", "paperwork", vers.paperwork)
+    val paperworkPlugin = dep("hu.supercluster", "paperwork-plugin", vers.paperwork)
+    val junit4 = dep("junit", "junit", vers.junit4)
+    val junit5 = dep("org.junit.jupiter", "junit-jupiter-api", vers.junit5)
+    val junit5engine = dep("org.junit.jupiter", "junit-jupiter-engine", vers.junit5)
 
-    val googleTruth = dep("com.google.truth", "truth", Vers.googleTruth)
+    val googleTruth = dep("com.google.truth", "truth", vers.googleTruth)
 
-    val mockitoCore2 = dep("org.mockito", "mockito-core", Vers.mockitoCore2)
-    val mockitoCore3 = dep("org.mockito", "mockito-core", Vers.mockitoCore3)
-    val mockitoCore4 = dep("org.mockito", "mockito-core", Vers.mockitoCore4)
+    val mockitoCore2 = dep("org.mockito", "mockito-core", vers.mockitoCore2)
+    val mockitoCore3 = dep("org.mockito", "mockito-core", vers.mockitoCore3)
+    val mockitoCore4 = dep("org.mockito", "mockito-core", vers.mockitoCore4)
     val mockitoCore = mockitoCore4
 
-    val mockitoKotlin2 = dep("org.mockito.kotlin", "mockito-kotlin", Vers.mockitoKotlin2)
-    val mockitoKotlin3 = dep("org.mockito.kotlin", "mockito-kotlin", Vers.mockitoKotlin3)
-    val mockitoKotlin4 = dep("org.mockito.kotlin", "mockito-kotlin", Vers.mockitoKotlin4)
+    val mockitoKotlin2 = dep("org.mockito.kotlin", "mockito-kotlin", vers.mockitoKotlin2)
+    val mockitoKotlin3 = dep("org.mockito.kotlin", "mockito-kotlin", vers.mockitoKotlin3)
+    val mockitoKotlin4 = dep("org.mockito.kotlin", "mockito-kotlin", vers.mockitoKotlin4)
     val mockitoKotlin = mockitoKotlin4
 
-    val mockitoAndroid2 = dep("org.mockito", "mockito-android", Vers.mockitoAndroid2)
-    val mockitoAndroid3 = dep("org.mockito", "mockito-android", Vers.mockitoAndroid3)
-    val mockitoAndroid4 = dep("org.mockito", "mockito-android", Vers.mockitoAndroid4)
+    val mockitoAndroid2 = dep("org.mockito", "mockito-android", vers.mockitoAndroid2)
+    val mockitoAndroid3 = dep("org.mockito", "mockito-android", vers.mockitoAndroid3)
+    val mockitoAndroid4 = dep("org.mockito", "mockito-android", vers.mockitoAndroid4)
     val mockitoAndroid = mockitoAndroid4
 
-    val androidxTestRunner = dep("androidx.test", "runner", Vers.androidxTestRunner)
-    val androidxTestRules = dep("androidx.test", "rules", Vers.androidxTestRules)
-    val androidxTestExtTruth = dep("androidx.test.ext", "truth", Vers.androidxTestExtTruth)
-    val androidxTestExtJUnit = dep("androidx.test.ext", "junit", Vers.androidxTestExtJUnit)
-    val androidxTestExtJUnitKtx = dep("androidx.test.ext", "junit-ktx", Vers.androidxTestExtJUnit)
-    val realmGradlePlugin = dep("io.realm", "realm-gradle-plugin", Vers.realm)
-    private val ktor = dep("io.ktor", "", Vers.ktor)
+    val androidxTestRunner = dep("androidx.test", "runner", vers.androidxTestRunner)
+    val androidxTestRules = dep("androidx.test", "rules", vers.androidxTestRules)
+    val androidxTestExtTruth = dep("androidx.test.ext", "truth", vers.androidxTestExtTruth)
+    val androidxTestExtJUnit = dep("androidx.test.ext", "junit", vers.androidxTestExtJUnit)
+    val androidxTestExtJUnitKtx = dep("androidx.test.ext", "junit-ktx", vers.androidxTestExtJUnit)
+    val realmGradlePlugin = dep("io.realm", "realm-gradle-plugin", vers.realm)
+    private val ktor = dep("io.ktor", "", vers.ktor)
     val ktorServerCore = ktor withName "ktor-server-core"
     val ktorServerCio = ktor withName "ktor-server-cio"
     val ktorServerNetty = ktor withName "ktor-server-netty"
@@ -297,16 +299,16 @@ object Deps {
     val ktorClientJs = ktor withName "ktor-client-js"
     val ktorClientCio = ktor withName "ktor-client-cio"
     val ktorClientApache = ktor withName "ktor-client-apache"
-    private val rsocket = dep("io.rsocket.kotlin", "", Vers.rsocket)
+    private val rsocket = dep("io.rsocket.kotlin", "", vers.rsocket)
     val rsocketCore = rsocket withName "rsocket-core"
     val rsocketKtor = rsocket withName "rsocket-transport-ktor"
     val rsocketKtorClient = rsocket withName "rsocket-transport-ktor-client"
     val rsocketKtorServer = rsocket withName "rsocket-transport-ktor-server"
-    val splitties = dep("com.louiscad.splitties", "splitties-fun-pack-android-material-components-with-views-dsl", Vers.splitties)
-    val docoptJava = dep("com.offbytwo", "docopt", Vers.docoptJava)
+    val splitties = dep("com.louiscad.splitties", "splitties-fun-pack-android-material-components-with-views-dsl", vers.splitties)
+    val docoptJava = dep("com.offbytwo", "docopt", vers.docoptJava)
 
     private const val kotlinJsWrappersGroup = "org.jetbrains.kotlin-wrappers"
-    val kotlinJsWrappersBoM = dep(kotlinJsWrappersGroup, "kotlin-wrappers-bom", Vers.kotlinJsWrappersBoM)
+    val kotlinJsWrappersBoM = dep(kotlinJsWrappersGroup, "kotlin-wrappers-bom", vers.kotlinJsWrappersBoM)
     val kotlinJsWrappersReact = dep(kotlinJsWrappersGroup, "kotlin-react")
     val kotlinJsWrappersReactDom = dep(kotlinJsWrappersGroup, "kotlin-react-dom")
     val kotlinJsWrappersStyled = dep(kotlinJsWrappersGroup, "kotlin-styled")
@@ -315,10 +317,10 @@ object Deps {
 
     const val marekGroup = "pl.mareklangiewicz"
 
-    val tuplek = dep(marekGroup, "tuplek", Vers.tuplek)
-    val abcdk = dep(marekGroup, "abcdk", Vers.abcdk)
-    val rxmock = dep(marekGroup, "rxmock", Vers.rxmock)
-    val smokk = dep(marekGroup, "smokk", Vers.smokk)
+    val tuplek = dep(marekGroup, "tuplek", vers.tuplek)
+    val abcdk = dep(marekGroup, "abcdk", vers.abcdk)
+    val rxmock = dep(marekGroup, "rxmock", vers.rxmock)
+    val smokk = dep(marekGroup, "smokk", vers.smokk)
 
     val uspek = libs.USpek.dep("uspek")
     val uspekx = libs.USpek.dep("uspekx")
@@ -326,9 +328,9 @@ object Deps {
     val upue = libs.UPue.dep()
     val upueTest = libs.UPue.dep("upue-test")
     val kommandLine = libs.KommandLine.dep()
-    val dbusKotlin = dep(marekGroup, "dbus-kotlin", Vers.dbusKotlin)
-    val sandboxui = dep(marekGroup, "sandboxui", Vers.sandboxui)
-    val recyclerui = dep(marekGroup, "recyclerui", Vers.recyclerui)
+    val dbusKotlin = dep(marekGroup, "dbus-kotlin", vers.dbusKotlin)
+    val sandboxui = dep(marekGroup, "sandboxui", vers.sandboxui)
+    val recyclerui = dep(marekGroup, "recyclerui", vers.recyclerui)
 
 
 
@@ -350,4 +352,3 @@ object Deps {
     val String.group get() = split(":").first()
     val String.artifact get() = split(":")[1]
 }
-

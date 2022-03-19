@@ -85,7 +85,7 @@ fun LibraryExtension.defaultDefaultConfig() = defaultConfig {
 }
 
 fun CommonExtension<*,*,*,*>.defaultCompileOptions(
-    jvmVersion: String = Vers.defaultJvm
+    jvmVersion: String = vers.defaultJvm
 ) = compileOptions {
     sourceCompatibility(jvmVersion)
     targetCompatibility(jvmVersion)
@@ -99,7 +99,7 @@ fun CommonExtension<*,*,*,*>.defaultComposeStuff() {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = Vers.composeAndroidCompiler
+        kotlinCompilerExtensionVersion = vers.composeAndroidCompiler
     }
 }
 
