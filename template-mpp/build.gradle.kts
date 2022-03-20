@@ -19,6 +19,8 @@ defaultSonatypeOssStuffFromSystemEnvs()
  * * MYKOTLIBS_ossrhUsername
  * * MYKOTLIBS_ossrhPassword
  * * MYKOTLIBS_sonatypeStagingProfileId
+ * * First three of these used in fun pl.mareklangiewicz.defaults.defaultSigning
+ * * See template-mpp/lib/build.gradle.kts
  */
 fun Project.defaultSonatypeOssStuffFromSystemEnvs(envKeyMatchPrefix: String = "MYKOTLIBS_") {
     ext.addAllFromSystemEnvs(envKeyMatchPrefix)

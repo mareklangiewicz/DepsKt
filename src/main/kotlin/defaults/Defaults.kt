@@ -62,15 +62,14 @@ fun TaskCollection<Task>.defaultTestsOptions(
 }
 
 
-fun Project.defaultSigning() {
-    extensions.configure<SigningExtension> {
-        useInMemoryPgpKeys(
-            rootExt("signing.keyId"),
-            rootExt("signing.key"),
-            rootExt("signing.password")
-        )
-        sign(extensions.getByType<PublishingExtension>().publications)
-    }
+/** see also: template-mpp: fun Project.defaultSonatypeOssStuffFromSystemEnvs */
+fun Project.defaultSigning(
+    keyId: String = rootExt("signing.keyId"),
+    key: String = rootExt("signing.key"),
+    password: String = rootExt("signing.password"),
+) = extensions.configure<SigningExtension> {
+    useInMemoryPgpKeys(keyId, key, password)
+    sign(extensions.getByType<PublishingExtension>().publications)
 }
 
 fun Project.defaultPublishing(lib: LibDetails, readmeFile: File = File(rootDir, "README.md")) {
