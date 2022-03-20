@@ -13,7 +13,7 @@ plugins {
     id("pl.mareklangiewicz.deps.settings")
 }
 
-rootProject.name = "template-android"
-include(":app")
-include(":lib")
+rootProject.name = "template-andro"
+include(":template-andro-app")
+include(":template-andro-lib")
 

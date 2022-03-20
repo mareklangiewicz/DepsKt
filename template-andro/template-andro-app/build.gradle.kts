@@ -13,7 +13,7 @@ repositories { defaultRepos() }
 android { defaultAndro("pl.mareklangiewicz.templateandroid", withCompose = true) }
 
 dependencies {
-    implementation(project(":lib"))
+    implementation(project(":template-andro-lib"))
     defaultAndroDeps(withCompose = true)
     defaultAndroTestDeps(withCompose = true)
 }
