@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 import okio.Path.Companion.toOkioPath
 import pl.mareklangiewicz.evts.*
 
@@ -7,7 +9,7 @@ pluginManagement { includeBuild("..") } // deps.kt
 
 plugins { id("pl.mareklangiewicz.deps.settings") }
 
-rootProject.name = "TemplateMPP"
+rootProject.name = "template-mpp"
 
 include(":lib")
 //include(":deskapp")
