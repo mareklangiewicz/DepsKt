@@ -9,16 +9,16 @@ defaultGroupAndVerAndDescription(libs.TemplateMPP)
 
 defaultSonatypeOssStuffFromSystemEnvs()
 
-// region Kotlin Root Build Template
+// region Root Build Template
 
 /**
  * System.getenv() should contain six env variables with given prefix, like:
- * MYKOTLIBS_signing_keyId
- * MYKOTLIBS_signing_password
- * MYKOTLIBS_signing_key
- * MYKOTLIBS_ossrhUsername
- * MYKOTLIBS_ossrhPassword
- * MYKOTLIBS_sonatypeStagingProfileId
+ * * MYKOTLIBS_signing_keyId
+ * * MYKOTLIBS_signing_password
+ * * MYKOTLIBS_signing_key
+ * * MYKOTLIBS_ossrhUsername
+ * * MYKOTLIBS_ossrhPassword
+ * * MYKOTLIBS_sonatypeStagingProfileId
  */
 fun Project.defaultSonatypeOssStuffFromSystemEnvs(envKeyMatchPrefix: String = "MYKOTLIBS_") {
     ext.addAllFromSystemEnvs(envKeyMatchPrefix)
@@ -41,4 +41,4 @@ fun Project.defaultSonatypeOssNexusPublishing(
     }
 }
 
-// endregion Kotlin Root Build Template
+// endregion Root Build Template

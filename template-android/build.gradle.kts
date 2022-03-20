@@ -12,3 +12,4 @@ tasks.registerAllThatGroupFun("inject",
     ::injectAndroLibBuildTemplate,
 )
 
+// TODO NOW: template and publishing stuff like in template-mpp/build.gradle.kts

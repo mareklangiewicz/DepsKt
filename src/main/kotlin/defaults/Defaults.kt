@@ -13,7 +13,7 @@ import org.gradle.kotlin.dsl.*
 import org.gradle.plugins.signing.*
 import pl.mareklangiewicz.utils.*
 import java.io.*
-import deps
+import org.gradle.api.tasks.testing.*
 import repos
 
 fun v(major: Int = 0, minor: Int = 0, patch: Int = 1, patchLength: Int = 2, suffix: String = "") =
@@ -49,77 +49,17 @@ fun Project.defaultGroupAndVerAndDescription(lib: LibDetails) {
     description = lib.description
 }
 
-/** usually not needed - see template-android */
-fun ScriptHandlerScope.defaultAndroBuildScript() {
-    repositories {
-        defaultRepos(withGradle = true)
+fun TaskCollection<Task>.defaultTestsOptions(
+    printStandardStreams: Boolean = true,
+    printStackTraces: Boolean = true,
+    onJvmUseJUnitPlatform: Boolean = true,
+) = withType<AbstractTestTask>().configureEach {
+    testLogging {
+        showStandardStreams = printStandardStreams
+        showStackTraces = printStackTraces
     }
-    dependencies {
-        defaultAndroBuildScriptDeps()
-    }
+    if (onJvmUseJUnitPlatform) (this as? Test)?.useJUnitPlatform()
 }
-
-
-/** usually not needed - see template-android */
-fun DependencyHandler.defaultAndroBuildScriptDeps(
-) {
-    add("classpath", deps.kotlinGradlePlugin)
-    add("classpath", deps.androidGradlePlugin)
-}
-
-
-
-fun DependencyHandler.defaultAndroDeps(
-    configuration: String = "implementation",
-    withCompose: Boolean = false,
-) = deps.run {
-    addAll(configuration,
-        androidxCoreKtx,
-        androidxAppcompat,
-        androidMaterial,
-        androidxLifecycleCompiler,
-        androidxLifecycleRuntimeKtx,
-    )
-    if (withCompose) addAll(configuration,
-        composeAndroidUi,
-        composeAndroidUiTooling,
-        composeAndroidMaterial3,
-        composeAndroidMaterial,
-        androidxActivityCompose,
-    )
-}
-
-fun DependencyHandler.defaultAndroTestDeps(
-    configuration: String = "testImplementation",
-    withCompose: Boolean = false,
-) = deps.run {
-    addAll(configuration,
-//        uspekx,
-        junit4,
-        androidxEspressoCore,
-        googleTruth,
-        androidxTestRules,
-        androidxTestRunner,
-        androidxTestExtTruth,
-        androidxTestExtJUnit,
-        "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0",
-//        mockitoKotlin2,
-        mockitoAndroid
-    )
-    if (withCompose) addAll(configuration,
-        composeAndroidUiTest,
-        composeAndroidUiTestJUnit4,
-        composeAndroidUiTestManifest,
-    )
-}
-
-fun MutableSet<String>.defaultAndroExcludedResources() = addAll(listOf(
-    "**/*.md",
-    "**/attach_hotspot_windows.dll",
-    "META-INF/licenses/**",
-    "META-INF/AL2.0",
-    "META-INF/LGPL2.1",
-))
 
 
 fun Project.defaultSigning() {

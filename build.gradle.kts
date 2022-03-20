@@ -25,19 +25,12 @@ dependencies {
     // TODO: check separation between api and engine - so I can do similar in ULog (with separate bridges to CLog etc.)
 }
 
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
-    kotlinOptions {
-        freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlin.RequiresOptIn"
-        jvmTarget = "17"
-    }
-}
+tasks.defaultKotlinCompileOptions("17")
 
-tasks.withType<Test>().configureEach {
-    useJUnitPlatform()
-}
+tasks.defaultTestsOptions()
 
 group = "pl.mareklangiewicz.deps"
-version = "0.2.17"
+version = "0.2.18"
 
 
 gradlePlugin {
@@ -76,3 +69,35 @@ pluginBundle {
         "sourceFunPlugin" { displayName = "SourceFun plugin" }
     }
 }
+
+// region Kotlin Module Build Template
+
+fun TaskCollection<Task>.defaultKotlinCompileOptions(
+    jvmTargetVer: String,
+    requiresOptIn: Boolean = true
+) = withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+    kotlinOptions {
+        jvmTarget = jvmTargetVer
+        if (requiresOptIn) freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlin.RequiresOptIn"
+    }
+}
+
+// endregion Kotlin Module Build Template
+
+// region Copy&Paste Code for deps building special case
+
+// note: Can not import pl.mareklangiewicz.defaults.* here
+
+fun TaskCollection<Task>.defaultTestsOptions(
+    printStandardStreams: Boolean = true,
+    printStackTraces: Boolean = true,
+    onJvmUseJUnitPlatform: Boolean = true,
+) = withType<AbstractTestTask>().configureEach {
+    testLogging {
+        showStandardStreams = printStandardStreams
+        showStackTraces = printStackTraces
+    }
+    if (onJvmUseJUnitPlatform) (this as? Test)?.useJUnitPlatform()
+}
+
+// endregion Copy&Paste Code for deps building special case

@@ -1,5 +1,4 @@
 import org.jetbrains.kotlin.gradle.dsl.*
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import pl.mareklangiewicz.defaults.*
 
 plugins {
@@ -23,32 +22,32 @@ kotlin {
                 implementation(deps.uspekx)
             }
         }
-        val jvmMain by getting
-        val jvmTest by getting {
-            dependencies {
-                implementation(kotlin("test-junit"))
-                implementation(deps.junit5engine)
-            }
-        }
     }
 }
 
-tasks.withType<KotlinCompile>().configureEach {
-    kotlinOptions { jvmTarget = vers.defaultJvm }
-}
+tasks.defaultKotlinCompileOptions()
 
-tasks.withType<AbstractTestTask> {
-    testLogging {
-        showStandardStreams = true
-        showStackTraces = true
-    }
-}
+tasks.defaultTestsOptions()
 
 defaultPublishing(libs.TemplateMPP)
 
 defaultSigning()
 
-// region Kotlin Multi Template
+// region Kotlin Module Build Template
+
+fun TaskCollection<Task>.defaultKotlinCompileOptions(
+    jvmTargetVer: String = vers.defaultJvm,
+    requiresOptIn: Boolean = true
+) = withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+    kotlinOptions {
+        jvmTarget = jvmTargetVer
+        if (requiresOptIn) freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlin.RequiresOptIn"
+    }
+}
+
+// endregion Kotlin Module Build Template
+
+// region MPP Module Build Template
 
 fun KotlinMultiplatformExtension.jsDefault(
     withBrowser: Boolean = true,
@@ -71,4 +70,4 @@ fun KotlinMultiplatformExtension.jsDefault(
     }
 }
 
-// endregion Kotlin Multi Template
+// endregion MPP Module Build Template

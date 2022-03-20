@@ -21,22 +21,26 @@ dependencies {
 group = "pl.mareklangiewicz.templateandroid"
 version = "0.0.01"
 
-tasks.configureKotlinCompileTasks()
+tasks.defaultKotlinCompileOptions()
 
 
 
 
+// region Kotlin Module Build Template
 
-// region Andro Build Template
-
-fun TaskCollection<Task>.configureKotlinCompileTasks() {
-    withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
-        kotlinOptions {
-            jvmTarget = vers.defaultJvm
-            freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlin.RequiresOptIn"
-        }
+fun TaskCollection<Task>.defaultKotlinCompileOptions(
+    jvmTargetVer: String = vers.defaultJvm,
+    requiresOptIn: Boolean = true
+) = withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+    kotlinOptions {
+        jvmTarget = jvmTargetVer
+        if (requiresOptIn) freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlin.RequiresOptIn"
     }
 }
+
+// endregion Kotlin Module Build Template
+
+// region Andro Build Template
 
 fun ApplicationExtension.defaultAndro(
     appId: String,
