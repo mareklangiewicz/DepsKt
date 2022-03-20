@@ -11,20 +11,7 @@ repositories { defaultRepos() }
 
 defaultGroupAndVerAndDescription(libs.TemplateMPP)
 
-kotlin {
-    jvm()
-    jsDefault()
-    linuxX64()
-    sourceSets {
-        val commonMain by getting
-        val commonTest by getting {
-            dependencies {
-                implementation(kotlin("test"))
-                implementation(deps.uspekx)
-            }
-        }
-    }
-}
+kotlin { allDefault(withNativeLinux64 = true) }
 
 tasks.defaultKotlinCompileOptions()
 
@@ -49,6 +36,27 @@ fun TaskCollection<Task>.defaultKotlinCompileOptions(
 // endregion Kotlin Module Build Template
 
 // region MPP Module Build Template
+
+/** Only for very standard small libs. In most cases it's better to not use this function. */
+fun KotlinMultiplatformExtension.allDefault(
+    withJvm: Boolean = true,
+    withJs: Boolean = true,
+    withNativeLinux64: Boolean = false,
+) {
+    if (withJvm) jvm()
+    if (withJs) jsDefault()
+    if (withNativeLinux64) linuxX64()
+    sourceSets {
+        val commonMain by getting
+        val commonTest by getting {
+            dependencies {
+                implementation(kotlin("test"))
+                implementation(deps.uspekx)
+            }
+        }
+    }
+}
+
 
 fun KotlinMultiplatformExtension.jsDefault(
     withBrowser: Boolean = true,

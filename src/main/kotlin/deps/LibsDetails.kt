@@ -43,7 +43,7 @@ object LibsDetails {
 
     val TemplateMPP = lib(
         name = "TemplateMPP",
-        version = v(0, 0, 1),
+        version = v(0, 0, 2),
         description = "Template for multi platform projects.",
         githubUrl = "https://github.com/langara/deps.kt/template-mpp",
     )
