@@ -16,6 +16,9 @@ import java.io.*
 import deps
 import repos
 
+fun v(major: Int = 0, minor: Int = 0, patch: Int = 1, patchLength: Int = 2, suffix: String = "") =
+    "$major.$minor.${patch.toString().padStart(patchLength, '0')}$suffix"
+
 
 fun RepositoryHandler.defaultRepos(
     withMavenLocal: Boolean = false,
@@ -63,9 +66,6 @@ fun DependencyHandler.defaultAndroBuildScriptDeps(
     add("classpath", deps.kotlinGradlePlugin)
     add("classpath", deps.androidGradlePlugin)
 }
-
-fun defaultVerName(major: Int = 0, minor: Int = 0, patch: Int = 1, patchLen: Int = 2) =
-    "$major.$minor." + patch.toString().padStart(patchLen, '0')
 
 
 

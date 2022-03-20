@@ -2,6 +2,8 @@
 
 package pl.mareklangiewicz.deps
 
+import pl.mareklangiewicz.defaults.v
+
 object LibsDetails {
 
     val USpek = lib(

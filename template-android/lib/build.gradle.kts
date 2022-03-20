@@ -22,11 +22,14 @@ tasks.configureKotlinCompileTasks()
 
 // region Andro Build Template
 
-fun TaskCollection<Task>.configureKotlinCompileTasks() {
+fun TaskCollection<Task>.configureKotlinCompileTasks(
+    jvmTargetVer: String = vers.defaultJvm,
+    requiresOptIn: Boolean = true
+) {
     withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
         kotlinOptions {
-            jvmTarget = vers.defaultJvm
-            freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlin.RequiresOptIn"
+            jvmTarget = jvmTargetVer
+            if (requiresOptIn) freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlin.RequiresOptIn"
         }
     }
 }
@@ -34,7 +37,7 @@ fun TaskCollection<Task>.configureKotlinCompileTasks() {
 fun ApplicationExtension.defaultAndro(
     appId: String,
     appVerCode: Int = 1,
-    appVerName: String = defaultVerName(patch = appVerCode),
+    appVerName: String = v(patch = appVerCode),
     jvmVersion: String = vers.defaultJvm,
     withCompose: Boolean = false,
 ) {
@@ -61,7 +64,7 @@ fun LibraryExtension.defaultAndro(
 fun ApplicationExtension.defaultDefaultConfig(
     appId: String,
     appVerCode: Int = 1,
-    appVerName: String = defaultVerName(patch = appVerCode)
+    appVerName: String = v(patch = appVerCode)
 ) = defaultConfig {
     applicationId = appId
     minSdk = vers.androidMinSdk

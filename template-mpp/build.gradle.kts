@@ -1,22 +1,44 @@
 import pl.mareklangiewicz.defaults.*
 import pl.mareklangiewicz.utils.*
 
-plugins {
-    id("io.github.gradle-nexus.publish-plugin") version vers.nexusPublishGradlePlugin
-}
+plugins { id("io.github.gradle-nexus.publish-plugin") version vers.nexusPublishGradlePlugin }
+
+// TODO NOW: injecting and checking like in template-android
 
 defaultGroupAndVerAndDescription(libs.TemplateMPP)
 
-ext.addAllFromSystemEnvs("MYKOTLIBS_")
+defaultSonatypeOssStuffFromSystemEnvs()
 
-nexusPublishing {
+// region Kotlin Root Build Template
+
+/**
+ * System.getenv() should contain six env variables with given prefix, like:
+ * MYKOTLIBS_signing_keyId
+ * MYKOTLIBS_signing_password
+ * MYKOTLIBS_signing_key
+ * MYKOTLIBS_ossrhUsername
+ * MYKOTLIBS_ossrhPassword
+ * MYKOTLIBS_sonatypeStagingProfileId
+ */
+fun Project.defaultSonatypeOssStuffFromSystemEnvs(envKeyMatchPrefix: String = "MYKOTLIBS_") {
+    ext.addAllFromSystemEnvs(envKeyMatchPrefix)
+    defaultSonatypeOssNexusPublishing()
+}
+
+fun Project.defaultSonatypeOssNexusPublishing(
+    sonatypeStagingProfileId: String = rootExt("sonatypeStagingProfileId"),
+    ossrhUsername: String = rootExt("ossrhUsername"),
+    ossrhPassword: String = rootExt("ossrhPassword"),
+) = nexusPublishing {
     repositories {
         sonatype {  //only for users registered in Sonatype after 24 Feb 2021
-            stagingProfileId put rootExt("sonatypeStagingProfileId")
-            username put rootExt("ossrhUsername")
-            password put rootExt("ossrhPassword")
+            stagingProfileId put sonatypeStagingProfileId
+            username put ossrhUsername
+            password put ossrhPassword
             nexusUrl put uri(repos.sonatypeOssNexus)
             snapshotRepositoryUrl put uri(repos.sonatypeOssSnapshots)
         }
     }
 }
+
+// endregion Kotlin Root Build Template

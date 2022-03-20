@@ -3,9 +3,7 @@
 package pl.mareklangiewicz.deps
 
 import libs
-
-internal fun v(major: Int, minor: Int, patch: Int, suffix: String = "", patchLength: Int = 2) =
-    "$major.$minor.${patch.toString().padStart(patchLength, '0')}$suffix"
+import pl.mareklangiewicz.defaults.v
 
 /**
  * Common dependencies versions for java/kotlin/android projects

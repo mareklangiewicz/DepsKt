@@ -41,7 +41,7 @@ fun TaskCollection<Task>.configureKotlinCompileTasks() {
 fun ApplicationExtension.defaultAndro(
     appId: String,
     appVerCode: Int = 1,
-    appVerName: String = defaultVerName(patch = appVerCode),
+    appVerName: String = v(patch = appVerCode),
     jvmVersion: String = vers.defaultJvm,
     withCompose: Boolean = false,
 ) {
@@ -68,7 +68,7 @@ fun LibraryExtension.defaultAndro(
 fun ApplicationExtension.defaultDefaultConfig(
     appId: String,
     appVerCode: Int = 1,
-    appVerName: String = defaultVerName(patch = appVerCode)
+    appVerName: String = v(patch = appVerCode)
 ) = defaultConfig {
     applicationId = appId
     minSdk = vers.androidMinSdk
