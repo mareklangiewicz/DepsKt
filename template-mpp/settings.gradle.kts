@@ -12,5 +12,6 @@ plugins { id("pl.mareklangiewicz.deps.settings") }
 rootProject.name = "template-mpp"
 
 include(":template-mpp-lib")
-//include(":deskapp") TODO
-//include(":webapp") TODO
+//include(":template-mpp-app-jvm") TODO
+//include(":template-mpp-app-web") TODO
+//include(":template-mpp-app-native") TODO

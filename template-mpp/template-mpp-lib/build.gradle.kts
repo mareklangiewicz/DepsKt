@@ -14,6 +14,7 @@ defaultGroupAndVerAndDescription(libs.TemplateMPP)
 kotlin {
     jvm()
     jsDefault()
+    linuxX64()
     sourceSets {
         val commonMain by getting
         val commonTest by getting {
