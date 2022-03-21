@@ -7,8 +7,8 @@ import okio.Path.Companion.toPath
 import pl.mareklangiewicz.ure.*
 import pl.mareklangiewicz.io.*
 
-private val appABTResPath = "andro-app-build-template".toPath()
-private val libABTResPath = "andro-lib-build-template".toPath()
+private val appABTResPath = "template-andro-app-build".toPath()
+private val libABTResPath = "template-andro-lib-build".toPath()
 
 private val ureWithABT = ure {
     1 of ureWhateva().withName("before")
