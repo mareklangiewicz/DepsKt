@@ -22,14 +22,14 @@ fun injectAndroAppBuildTemplate(outputPath: Path) = injectBuildRegion(androRegio
 fun checkAndroBuildTemplates(vararg buildFiles: Path) {
     val libMR = RESOURCES.readAndMatchUre(androLibResPath, ureWithRegion(androRegionLabel)) ?: error("No match $androLibResPath")
     val appMR = RESOURCES.readAndMatchUre(androAppResPath, ureWithRegion(androRegionLabel)) ?: error("No match $androAppResPath")
-    val appABT = appMR["region"]
-    val libABT = libMR["region"]
-    check(appABT == libABT) { "Templates in app and lib have to be the same! ${appABT.length} ${libABT.length}" }
+    val regionInLib = libMR["region"]
+    val regionInApp = appMR["region"]
+    check(regionInLib == regionInApp) { "Templates in andro lib and andro app have to be the same! ${regionInLib.length} ${regionInApp.length}" }
     println("OK. Templates in template-andro are the same.")
     for (file in buildFiles) {
-        val abt by SYSTEM.readAndMatchUre(file, ureWithRegion(androRegionLabel)) ?: error("No match $file")
-        check(abt == appABT) { "Template in $file was modified." }
-        println("OK. Template in $file is correct.")
+        val region by SYSTEM.readAndMatchUre(file, ureWithRegion(androRegionLabel)) ?: error("No match $file")
+        check(region == regionInLib) { "Template: [$androRegionLabel] in $file was modified." }
+        println("OK. Template: [$androRegionLabel] in $file is correct.")
     }
     println("OK. Checked. All templates look good.")
 }
