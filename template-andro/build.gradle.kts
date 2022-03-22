@@ -2,9 +2,12 @@ import okio.Path.Companion.toPath
 import pl.mareklangiewicz.utils.*
 import pl.mareklangiewicz.ure.*
 
-fun injectAndroAppBuildTemplate() = injectAndroAppBuildTemplate("template-andro-app/build.gradle.kts".toPath())
 fun injectAndroLibBuildTemplate() = injectAndroLibBuildTemplate("template-andro-lib/build.gradle.kts".toPath())
-fun checkAndroBuildTemplates() = pl.mareklangiewicz.ure.checkAndroBuildTemplates() // issues with vararg
+fun injectAndroAppBuildTemplate() = injectAndroAppBuildTemplate("template-andro-app/build.gradle.kts".toPath())
+fun checkAndroBuildTemplates() = checkAndroBuildTemplates(
+    "template-andro-lib/build.gradle.kts".toPath(),
+    "template-andro-app/build.gradle.kts".toPath(),
+)
 
 tasks.registerAllThatGroupFun("inject",
     ::checkAndroBuildTemplates,
