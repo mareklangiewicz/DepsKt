@@ -67,7 +67,7 @@ fun checkMppModuleBuildTemplates(vararg buildFiles: Path) {
     println("OK. Checked. All templates look good.")
 }
 
-fun checkAndroBuildTemplates(vararg buildFiles: Path) {
+fun checkAndroModuleBuildTemplates(vararg buildFiles: Path) {
     val libMR = RESOURCES.readAndMatchUre(androLibResPath, ureWithRegion(androModuleRegionLabel)) ?: error("No match $androLibResPath")
     val appMR = RESOURCES.readAndMatchUre(androAppResPath, ureWithRegion(androModuleRegionLabel)) ?: error("No match $androAppResPath")
     val regionInLib = libMR["region"]
