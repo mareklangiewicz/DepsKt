@@ -141,9 +141,10 @@ abstract class VersionDetailsTask: DefaultTask() {
         check(error.isBlank()) { "GitVersionTask error: $error" }
         val commit = process.inputStream.bufferedReader().use { it.readText() }
         val time = LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME)
-        generatedAssetsDir.get().run {
-            file("version-details/commit").asFile.writeText(commit)
-            file("version-details/buildtime").asFile.writeText(time)
+        generatedAssetsDir.dir("version-details").get().run {
+            project.mkdir(this)
+            file("commit").asFile.writeText(commit)
+            file("buildtime").asFile.writeText(time)
         }
     }
 }
