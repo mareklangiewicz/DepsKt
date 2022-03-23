@@ -30,7 +30,7 @@ fun checkSomeBuildTemplates(regionLabel: String, srcResPath: Path, vararg buildF
     println("Checking [$regionLabel] template...")
     checkAllBuildRegionsSync() // to be sure source of truth is clean
     val region by RESOURCES.readAndMatchUre(srcResPath, ureWithRegion(regionLabel)) ?: error("No match $srcResPath")
-    for (path in buildFiles) SYSTEM.checkBuildRegion(regionLabel, region, path)
+    for (path in buildFiles) SYSTEM.checkBuildRegion(regionLabel, region, path, verbose = true)
     println("OK. Checked [$regionLabel]. All look good.")
 }
 
@@ -54,13 +54,12 @@ private fun FileSystem.checkBuildRegionsSync(regionLabel: String, inputPath: Pat
     for (path in outputPaths) checkBuildRegion(regionLabel, region, path)
 }
 
-private fun FileSystem.checkBuildRegion(regionLabel: String, regionExpected: String, outputPath: Path) {
+private fun FileSystem.checkBuildRegion(regionLabel: String, regionExpected: String, outputPath: Path, verbose: Boolean = false) {
     val ureWithBuildRegion = ureWithRegion(regionLabel)
     require(ureWithBuildRegion.compile().matches(regionExpected)) { "regionExpected doesn't match ureWithBuildRegion(regionLabel)" }
     val region by readAndMatchUre(outputPath, ureWithBuildRegion) ?: error("No match $outputPath")
-    val outputFullPath = canonicalize(outputPath)
-    check(region == regionExpected) { "Region: [$regionLabel] in File: $outputFullPath was modified." }
-    println("OK. Region: [$regionLabel] in File: $outputFullPath is correct.")
+    check(region == regionExpected) { "ERROR Region: [$regionLabel] in File: $outputPath was modified.".also { println(it) } }
+    if (verbose) println("OK [$regionLabel] in $outputPath")
 }
 
 private fun injectBuildRegion(regionLabel: String, inputResPath: Path, outputPath: Path) {
