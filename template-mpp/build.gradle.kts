@@ -1,4 +1,6 @@
+import okio.Path.Companion.toPath
 import pl.mareklangiewicz.defaults.*
+import pl.mareklangiewicz.ure.*
 import pl.mareklangiewicz.utils.*
 
 plugins { id("io.github.gradle-nexus.publish-plugin") version vers.nexusPublishGradlePlugin }
@@ -8,6 +10,23 @@ plugins { id("io.github.gradle-nexus.publish-plugin") version vers.nexusPublishG
 defaultGroupAndVerAndDescription(libs.TemplateMPP)
 
 defaultSonatypeOssStuffFromSystemEnvs()
+
+fun injectMppTemplates() {
+    injectRootBuildTemplate("build.gradle.kts".toPath())
+    injectKotlinModuleBuildTemplate("template-mpp-lib/build.gradle.kts".toPath())
+    injectMppModuleBuildTemplate("template-mpp-lib/build.gradle.kts".toPath())
+}
+
+fun checkMppTemplates() {
+    checkRootBuildTemplate("build.gradle.kts".toPath())
+    checkKotlinModuleBuildTemplates("template-mpp-lib/build.gradle.kts".toPath())
+    checkMppModuleBuildTemplates("template-mpp-lib/build.gradle.kts".toPath())
+}
+
+tasks.registerAllThatGroupFun("inject",
+    ::checkMppTemplates,
+    ::injectMppTemplates,
+)
 
 // region Root Build Template
 

@@ -40,7 +40,7 @@ fun TaskCollection<Task>.defaultKotlinCompileOptions(
 
 // endregion Kotlin Module Build Template
 
-// region Andro Build Template
+// region Andro Module Build Template
 
 fun ApplicationExtension.defaultAndro(
     appId: String,
@@ -111,4 +111,4 @@ fun CommonExtension<*,*,*,*>.defaultPackagingOptions() = packagingOptions {
     resources.excludes.defaultAndroExcludedResources()
 }
 
-// endregion Andro Build Template
+// endregion Andro Module Build Template
