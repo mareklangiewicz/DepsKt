@@ -16,10 +16,10 @@ private val kotlinModuleRegionLabel = "Kotlin Module Build Template"
 private val mppModuleRegionLabel = "MPP Module Build Template"
 private val androModuleRegionLabel = "Andro Module Build Template"
 
-fun injectRootBuildTemplate(outputPath: Path) = injectBuildRegion(rootRegionLabel, rootResPath, outputPath)
-fun injectKotlinModuleBuildTemplate(outputPath: Path) = injectBuildRegion(kotlinModuleRegionLabel, mppLibResPath, outputPath)
-fun injectMppModuleBuildTemplate(outputPath: Path) = injectBuildRegion(mppModuleRegionLabel, mppLibResPath, outputPath)
-fun injectAndroModuleBuildTemplate(outputPath: Path) = injectBuildRegion(androModuleRegionLabel, androLibResPath, outputPath)
+fun injectRootBuildTemplate(vararg outputPaths: Path) = injectBuildRegionToAll(rootRegionLabel, rootResPath, *outputPaths)
+fun injectKotlinModuleBuildTemplate(vararg outputPaths: Path) = injectBuildRegionToAll(kotlinModuleRegionLabel, mppLibResPath, *outputPaths)
+fun injectMppModuleBuildTemplate(vararg outputPaths: Path) = injectBuildRegionToAll(mppModuleRegionLabel, mppLibResPath, *outputPaths)
+fun injectAndroModuleBuildTemplate(vararg outputPaths: Path) = injectBuildRegionToAll(androModuleRegionLabel, androLibResPath, *outputPaths)
 
 fun checkRootBuildTemplate(buildFile: Path) = checkSomeBuildTemplates(rootRegionLabel, rootResPath, buildFile)
 fun checkKotlinModuleBuildTemplates(vararg buildFiles: Path) = checkSomeBuildTemplates(kotlinModuleRegionLabel, mppLibResPath, *buildFiles)
@@ -27,11 +27,11 @@ fun checkMppModuleBuildTemplates(vararg buildFiles: Path) = checkSomeBuildTempla
 fun checkAndroModuleBuildTemplates(vararg buildFiles: Path) = checkSomeBuildTemplates(androModuleRegionLabel, androLibResPath, *buildFiles)
 
 fun checkSomeBuildTemplates(regionLabel: String, srcResPath: Path, vararg buildFiles: Path) {
-    println("Checking [$regionLabel] template...")
+    println("BEGIN: Check [$regionLabel]:")
     checkAllBuildRegionsSync() // to be sure source of truth is clean
     val region by RESOURCES.readAndMatchUre(srcResPath, ureWithRegion(regionLabel)) ?: error("No match $srcResPath")
     for (path in buildFiles) SYSTEM.checkBuildRegion(regionLabel, region, path, verbose = true)
-    println("OK. Checked [$regionLabel]. All look good.")
+    println("END: Check [$regionLabel].")
 }
 
 private fun ureWithRegion(regionLabel: String) = ure {
@@ -62,6 +62,10 @@ private fun FileSystem.checkBuildRegion(regionLabel: String, regionExpected: Str
     if (verbose) println("OK [$regionLabel] in $outputPath")
 }
 
+private fun injectBuildRegionToAll(regionLabel: String, inputResPath: Path, vararg outputPaths: Path) {
+    for (path in outputPaths) injectBuildRegion(regionLabel, inputResPath, path)
+}
+
 private fun injectBuildRegion(regionLabel: String, inputResPath: Path, outputPath: Path) {
     val ureWithBuildRegion = ureWithRegion(regionLabel)
     val inputMR = RESOURCES.readAndMatchUre(inputResPath, ureWithBuildRegion) ?: error("No match $inputResPath")
@@ -71,7 +75,8 @@ private fun injectBuildRegion(regionLabel: String, inputResPath: Path, outputPat
         val before by outputMR
         val after by outputMR
         val newOutput = before + region + after
-        println("Inject template from:$inputResPath to:$outputPath (len ${output.length}->${newOutput.length}).")
+        val summary = if (newOutput == output) "No changes." else "Changes detected (len ${output.length}->${newOutput.length})"
+        println("Inject [$regionLabel] to $outputPath - $summary")
         newOutput
     }
 }
