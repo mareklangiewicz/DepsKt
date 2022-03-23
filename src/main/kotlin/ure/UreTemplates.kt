@@ -1,8 +1,8 @@
 package pl.mareklangiewicz.ure
 
+import okio.*
 import okio.FileSystem.Companion.RESOURCES
 import okio.FileSystem.Companion.SYSTEM
-import okio.Path
 import okio.Path.Companion.toPath
 import pl.mareklangiewicz.io.*
 
@@ -21,65 +21,17 @@ fun injectKotlinModuleBuildTemplate(outputPath: Path) = injectBuildRegion(kotlin
 fun injectMppModuleBuildTemplate(outputPath: Path) = injectBuildRegion(mppModuleRegionLabel, mppLibResPath, outputPath)
 fun injectAndroModuleBuildTemplate(outputPath: Path) = injectBuildRegion(androModuleRegionLabel, androLibResPath, outputPath)
 
-fun checkRootBuildTemplate(buildFile: Path) {
-    val rootMR = RESOURCES.readAndMatchUre(rootResPath, ureWithRegion(rootRegionLabel)) ?: error("No match $rootResPath")
-    val regionInRoot = rootMR["region"]
-    val region by SYSTEM.readAndMatchUre(buildFile, ureWithRegion(rootRegionLabel)) ?: error("No match $buildFile")
-    check(region == regionInRoot) { "Template: [$rootRegionLabel] in $buildFile was modified." }
-    println("OK. Template: [$rootRegionLabel] in $buildFile is correct.")
-}
+fun checkRootBuildTemplate(buildFile: Path) = checkSomeBuildTemplates(rootRegionLabel, rootResPath, buildFile)
+fun checkKotlinModuleBuildTemplates(vararg buildFiles: Path) = checkSomeBuildTemplates(kotlinModuleRegionLabel, mppLibResPath, *buildFiles)
+fun checkMppModuleBuildTemplates(vararg buildFiles: Path) = checkSomeBuildTemplates(mppModuleRegionLabel, mppLibResPath, *buildFiles)
+fun checkAndroModuleBuildTemplates(vararg buildFiles: Path) = checkSomeBuildTemplates(androModuleRegionLabel, androLibResPath, *buildFiles)
 
-fun checkKotlinModuleBuildTemplates(vararg buildFiles: Path) {
-
-    // first check if all our template files are consistent:
-    val mppLibMR = RESOURCES.readAndMatchUre(mppLibResPath, ureWithRegion(kotlinModuleRegionLabel)) ?: error("No match $mppLibResPath")
-    val androLibMR = RESOURCES.readAndMatchUre(androLibResPath, ureWithRegion(kotlinModuleRegionLabel)) ?: error("No match $androLibResPath")
-    val androAppMR = RESOURCES.readAndMatchUre(androAppResPath, ureWithRegion(kotlinModuleRegionLabel)) ?: error("No match $androAppResPath")
-    val regionInMppLib = mppLibMR["region"]
-    val regionInAndroLib = androLibMR["region"]
-    val regionInAndroApp = androAppMR["region"]
-    check(regionInMppLib == regionInAndroLib) { "Templates in mpp lib and andro lib have to be the same! ${regionInMppLib.length} ${regionInAndroLib.length}" }
-    check(regionInAndroLib == regionInAndroApp) { "Templates in andro lib and andro app have to be the same! ${regionInAndroLib.length} ${regionInAndroApp.length}" }
-    println("OK. Templates in template-mpp and template-andro are the same.")
-
-    // now check templates in given files
-    for (file in buildFiles) {
-        val region by SYSTEM.readAndMatchUre(file, ureWithRegion(kotlinModuleRegionLabel)) ?: error("No match $file")
-        check(region == regionInMppLib) { "Template: [$kotlinModuleRegionLabel] in $file was modified." }
-        println("OK. Template: [$kotlinModuleRegionLabel] in $file is correct.")
-    }
-    println("OK. Checked. All templates look good.")
-}
-
-fun checkMppModuleBuildTemplates(vararg buildFiles: Path) {
-
-    // first check if all our template files are consistent:
-    val mppLibMR = RESOURCES.readAndMatchUre(mppLibResPath, ureWithRegion(mppModuleRegionLabel)) ?: error("No match $mppLibResPath")
-    // TODO: check with mppAppResPath - when I add app mpp module
-    val regionInMppLib = mppLibMR["region"]
-
-    // now check templates in given files
-    for (file in buildFiles) {
-        val region by SYSTEM.readAndMatchUre(file, ureWithRegion(mppModuleRegionLabel)) ?: error("No match $file")
-        check(region == regionInMppLib) { "Template: [$mppModuleRegionLabel] in $file was modified." }
-        println("OK. Template: [$mppModuleRegionLabel] in $file is correct.")
-    }
-    println("OK. Checked. All templates look good.")
-}
-
-fun checkAndroModuleBuildTemplates(vararg buildFiles: Path) {
-    val libMR = RESOURCES.readAndMatchUre(androLibResPath, ureWithRegion(androModuleRegionLabel)) ?: error("No match $androLibResPath")
-    val appMR = RESOURCES.readAndMatchUre(androAppResPath, ureWithRegion(androModuleRegionLabel)) ?: error("No match $androAppResPath")
-    val regionInLib = libMR["region"]
-    val regionInApp = appMR["region"]
-    check(regionInLib == regionInApp) { "Templates in andro lib and andro app have to be the same! ${regionInLib.length} ${regionInApp.length}" }
-    println("OK. Templates in template-andro are the same.")
-    for (file in buildFiles) {
-        val region by SYSTEM.readAndMatchUre(file, ureWithRegion(androModuleRegionLabel)) ?: error("No match $file")
-        check(region == regionInLib) { "Template: [$androModuleRegionLabel] in $file was modified." }
-        println("OK. Template: [$androModuleRegionLabel] in $file is correct.")
-    }
-    println("OK. Checked. All templates look good.")
+fun checkSomeBuildTemplates(regionLabel: String, srcResPath: Path, vararg buildFiles: Path) {
+    println("Checking [$regionLabel] template...")
+    checkAllBuildRegionsSync() // to be sure source of truth is clean
+    val region by RESOURCES.readAndMatchUre(srcResPath, ureWithRegion(regionLabel)) ?: error("No match $srcResPath")
+    for (path in buildFiles) SYSTEM.checkBuildRegion(regionLabel, region, path)
+    println("OK. Checked [$regionLabel]. All look good.")
 }
 
 private fun ureWithRegion(regionLabel: String) = ure {
@@ -88,6 +40,28 @@ private fun ureWithRegion(regionLabel: String) = ure {
     1 of ureWhateva(reluctant = false).withName("after")
 }
 
+// This actually is self check for deps.kt so it should be in some unit test for deps.kt
+// But let's run it every time when checking client regions just to be sure the "source of truth" is consistent.
+private fun checkAllBuildRegionsSync() = RESOURCES.run {
+    checkBuildRegionsSync(rootRegionLabel, rootResPath, rootResPath, ) // TODO_later: add other root files to check sync
+    checkBuildRegionsSync(kotlinModuleRegionLabel, mppLibResPath, mppLibResPath, androLibResPath, androAppResPath) // TODO_later: add other mpp modules to check sync
+    checkBuildRegionsSync(mppModuleRegionLabel, mppLibResPath, mppLibResPath) // TODO_later: add other mpp modules to check sync
+    checkBuildRegionsSync(androModuleRegionLabel, androLibResPath, androLibResPath, androAppResPath)
+}
+private fun FileSystem.checkBuildRegionsSync(regionLabel: String, inputPath: Path, vararg outputPaths: Path) {
+    val mr = readAndMatchUre(inputPath, ureWithRegion(regionLabel)) ?: error("No region [$regionLabel] in ${canonicalize(inputPath)}")
+    val region by mr
+    for (path in outputPaths) checkBuildRegion(regionLabel, region, path)
+}
+
+private fun FileSystem.checkBuildRegion(regionLabel: String, regionExpected: String, outputPath: Path) {
+    val ureWithBuildRegion = ureWithRegion(regionLabel)
+    require(ureWithBuildRegion.compile().matches(regionExpected)) { "regionExpected doesn't match ureWithBuildRegion(regionLabel)" }
+    val region by readAndMatchUre(outputPath, ureWithBuildRegion) ?: error("No match $outputPath")
+    val outputFullPath = canonicalize(outputPath)
+    check(region == regionExpected) { "Region: [$regionLabel] in File: $outputFullPath was modified." }
+    println("OK. Region: [$regionLabel] in File: $outputFullPath is correct.")
+}
 
 private fun injectBuildRegion(regionLabel: String, inputResPath: Path, outputPath: Path) {
     val ureWithBuildRegion = ureWithRegion(regionLabel)
