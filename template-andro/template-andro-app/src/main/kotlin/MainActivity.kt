@@ -1,4 +1,4 @@
-package pl.mareklangiewicz.template.android
+package pl.mareklangiewicz.templateandro
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -14,13 +14,14 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import pl.mareklangiewicz.template.android.theme.TemplateAndroidTheme
+import pl.mareklangiewicz.templateandro.theme.TemplateAndroTheme
+import pl.mareklangiewicz.templateandrolib.RotatedBox
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            TemplateAndroidTheme {
+            TemplateAndroTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background) {
@@ -47,7 +48,7 @@ fun HelloStuff(name: String) {
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    TemplateAndroidTheme {
+    TemplateAndroTheme {
         HelloStuff("Android")
     }
 }

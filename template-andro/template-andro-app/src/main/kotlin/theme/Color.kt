@@ -1,4 +1,4 @@
-package pl.mareklangiewicz.template.android.theme
+package pl.mareklangiewicz.templateandro.theme
 
 import androidx.compose.ui.graphics.Color
 
