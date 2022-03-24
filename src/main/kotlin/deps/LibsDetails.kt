@@ -47,6 +47,13 @@ object LibsDetails {
         description = "Template for multi platform projects.",
         githubUrl = "https://github.com/langara/deps.kt/template-mpp",
     )
+
+    val TemplateAndro = lib(
+        name = "TemplateAndro",
+        version = v(0, 0, 1),
+        description = "Template for android projects.",
+        githubUrl = "https://github.com/langara/deps.kt/template-andro",
+    )
 }
 
 data class LibDetails(

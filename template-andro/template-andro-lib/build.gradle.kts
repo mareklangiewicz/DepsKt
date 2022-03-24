@@ -6,11 +6,13 @@ import pl.mareklangiewicz.defaults.*
 plugins {
     id("com.android.library") version vers.androidGradlePlugin
     kotlin("android") version vers.kotlin
+    id("maven-publish")
+    id("signing")
 }
 
 repositories { defaultRepos() }
 
-android { defaultAndro(withCompose = true) }
+android { defaultAndro("pl.mareklangiewicz.templateandrolib", withCompose = true) }
 
 dependencies {
     defaultAndroDeps(withCompose = true)
@@ -18,6 +20,12 @@ dependencies {
 }
 
 tasks.defaultKotlinCompileOptions()
+
+defaultGroupAndVerAndDescription(libs.TemplateAndro)
+
+defaultPublishing(libs.TemplateAndro)
+
+defaultSigning()
 
 // region Kotlin Module Build Template
 
@@ -37,26 +45,34 @@ fun TaskCollection<Task>.defaultKotlinCompileOptions(
 
 fun ApplicationExtension.defaultAndro(
     appId: String,
+    appNamespace: String = appId,
     appVerCode: Int = 1,
     appVerName: String = v(patch = appVerCode),
     jvmVersion: String = vers.defaultJvm,
+    sdkCompile: Int = vers.androidSdkCompile,
+    sdkTarget: Int = vers.androidSdkTarget,
+    sdkMin: Int = vers.androidSdkMin,
     withCompose: Boolean = false,
 ) {
-    compileSdk = vers.androidCompileSdk
+    compileSdk = sdkCompile
     defaultCompileOptions(jvmVersion)
-    defaultDefaultConfig(appId, appVerCode, appVerName)
+    defaultDefaultConfig(appId, appNamespace, appVerCode, appVerName, sdkTarget, sdkMin)
     defaultBuildTypes()
     if (withCompose) defaultComposeStuff()
     defaultPackagingOptions()
 }
 
 fun LibraryExtension.defaultAndro(
+    libNamespace: String,
     jvmVersion: String = vers.defaultJvm,
+    sdkCompile: Int = vers.androidSdkCompile,
+    sdkTarget: Int = vers.androidSdkTarget,
+    sdkMin: Int = vers.androidSdkMin,
     withCompose: Boolean = false,
 ) {
-    compileSdk = vers.androidCompileSdk
+    compileSdk = sdkCompile
     defaultCompileOptions(jvmVersion)
-    defaultDefaultConfig()
+    defaultDefaultConfig(libNamespace, sdkTarget, sdkMin)
     defaultBuildTypes()
     if (withCompose) defaultComposeStuff()
     defaultPackagingOptions()
@@ -64,20 +80,29 @@ fun LibraryExtension.defaultAndro(
 
 fun ApplicationExtension.defaultDefaultConfig(
     appId: String,
+    appNamespace: String = appId,
     appVerCode: Int = 1,
-    appVerName: String = v(patch = appVerCode)
+    appVerName: String = v(patch = appVerCode),
+    sdkTarget: Int = vers.androidSdkTarget,
+    sdkMin: Int = vers.androidSdkMin,
 ) = defaultConfig {
     applicationId = appId
-    minSdk = vers.androidMinSdk
-    targetSdk = vers.androidTargetSdk
+    namespace = appNamespace
+    targetSdk = sdkTarget
+    minSdk = sdkMin
     versionCode = appVerCode
     versionName = appVerName
     testInstrumentationRunner = vers.androidTestRunnerClass
 }
 
-fun LibraryExtension.defaultDefaultConfig() = defaultConfig {
-    minSdk = vers.androidMinSdk
-    targetSdk = vers.androidTargetSdk
+fun LibraryExtension.defaultDefaultConfig(
+    libNamespace: String,
+    sdkTarget: Int = vers.androidSdkTarget,
+    sdkMin: Int = vers.androidSdkMin,
+) = defaultConfig {
+    namespace = libNamespace
+    targetSdk = sdkTarget
+    minSdk = sdkMin
     testInstrumentationRunner = vers.androidTestRunnerClass
 }
 

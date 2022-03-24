@@ -10,7 +10,7 @@ plugins {
 
 repositories { defaultRepos() }
 
-android { defaultAndro("pl.mareklangiewicz.templateandroid", withCompose = true) }
+android { defaultAndro("pl.mareklangiewicz.templateandro", withCompose = true) }
 
 dependencies {
     implementation(project(":template-andro-lib"))
@@ -18,8 +18,7 @@ dependencies {
     defaultAndroTestDeps(withCompose = true)
 }
 
-group = "pl.mareklangiewicz.templateandroid"
-version = "0.0.01"
+defaultGroupAndVerAndDescription(libs.TemplateAndro)
 
 tasks.defaultKotlinCompileOptions()
 
@@ -44,26 +43,34 @@ fun TaskCollection<Task>.defaultKotlinCompileOptions(
 
 fun ApplicationExtension.defaultAndro(
     appId: String,
+    appNamespace: String = appId,
     appVerCode: Int = 1,
     appVerName: String = v(patch = appVerCode),
     jvmVersion: String = vers.defaultJvm,
+    sdkCompile: Int = vers.androidSdkCompile,
+    sdkTarget: Int = vers.androidSdkTarget,
+    sdkMin: Int = vers.androidSdkMin,
     withCompose: Boolean = false,
 ) {
-    compileSdk = vers.androidCompileSdk
+    compileSdk = sdkCompile
     defaultCompileOptions(jvmVersion)
-    defaultDefaultConfig(appId, appVerCode, appVerName)
+    defaultDefaultConfig(appId, appNamespace, appVerCode, appVerName, sdkTarget, sdkMin)
     defaultBuildTypes()
     if (withCompose) defaultComposeStuff()
     defaultPackagingOptions()
 }
 
 fun LibraryExtension.defaultAndro(
+    libNamespace: String,
     jvmVersion: String = vers.defaultJvm,
+    sdkCompile: Int = vers.androidSdkCompile,
+    sdkTarget: Int = vers.androidSdkTarget,
+    sdkMin: Int = vers.androidSdkMin,
     withCompose: Boolean = false,
 ) {
-    compileSdk = vers.androidCompileSdk
+    compileSdk = sdkCompile
     defaultCompileOptions(jvmVersion)
-    defaultDefaultConfig()
+    defaultDefaultConfig(libNamespace, sdkTarget, sdkMin)
     defaultBuildTypes()
     if (withCompose) defaultComposeStuff()
     defaultPackagingOptions()
@@ -71,20 +78,29 @@ fun LibraryExtension.defaultAndro(
 
 fun ApplicationExtension.defaultDefaultConfig(
     appId: String,
+    appNamespace: String = appId,
     appVerCode: Int = 1,
-    appVerName: String = v(patch = appVerCode)
+    appVerName: String = v(patch = appVerCode),
+    sdkTarget: Int = vers.androidSdkTarget,
+    sdkMin: Int = vers.androidSdkMin,
 ) = defaultConfig {
     applicationId = appId
-    minSdk = vers.androidMinSdk
-    targetSdk = vers.androidTargetSdk
+    namespace = appNamespace
+    targetSdk = sdkTarget
+    minSdk = sdkMin
     versionCode = appVerCode
     versionName = appVerName
     testInstrumentationRunner = vers.androidTestRunnerClass
 }
 
-fun LibraryExtension.defaultDefaultConfig() = defaultConfig {
-    minSdk = vers.androidMinSdk
-    targetSdk = vers.androidTargetSdk
+fun LibraryExtension.defaultDefaultConfig(
+    libNamespace: String,
+    sdkTarget: Int = vers.androidSdkTarget,
+    sdkMin: Int = vers.androidSdkMin,
+) = defaultConfig {
+    namespace = libNamespace
+    targetSdk = sdkTarget
+    minSdk = sdkMin
     testInstrumentationRunner = vers.androidTestRunnerClass
 }
 
