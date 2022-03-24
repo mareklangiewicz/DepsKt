@@ -27,6 +27,11 @@ fun checkTemplates() {
 
 tasks.registerAllThatGroupFun("inject", ::checkTemplates, ::injectTemplates)
 
+// FIXME NOW: make publishing andro lib working
+/*
+> Configure project :template-andro-lib
+AGPBI: {"kind":"warning","text":"Software Components will not be created automatically for Maven publishing from Android Gradle Plugin 8.0. To opt-in to the future behavior, set the Gradle property android.disableAutomaticComponentCreation=true in the `gradle.properties` file or use the new publishing DSL.","sources":[{}]}
+ */
 
 // region Root Build Template
 

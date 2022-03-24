@@ -12,7 +12,7 @@ plugins {
 
 repositories { defaultRepos() }
 
-android { defaultAndro("pl.mareklangiewicz.templateandrolib", withCompose = true) }
+android { defaultAndroLib("pl.mareklangiewicz.templateandrolib", withCompose = true) }
 
 dependencies {
     defaultAndroDeps(withCompose = true)
@@ -43,7 +43,7 @@ fun TaskCollection<Task>.defaultKotlinCompileOptions(
 
 // region Andro Module Build Template
 
-fun ApplicationExtension.defaultAndro(
+fun ApplicationExtension.defaultAndroApp(
     appId: String,
     appNamespace: String = appId,
     appVerCode: Int = 1,
@@ -62,7 +62,7 @@ fun ApplicationExtension.defaultAndro(
     defaultPackagingOptions()
 }
 
-fun LibraryExtension.defaultAndro(
+fun LibraryExtension.defaultAndroLib(
     libNamespace: String,
     jvmVersion: String = vers.defaultJvm,
     sdkCompile: Int = vers.androidSdkCompile,
