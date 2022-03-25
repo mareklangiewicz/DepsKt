@@ -112,6 +112,11 @@ fun Project.defaultPublishingOfAndroLib(
     }
 }
 
+fun Project.defaultPublishingOfAndroApp(): Nothing = TODO()
+    // TODO_later: AGP allows to publish apk and aab (bundles) to maven repo.
+    // implement default configuration for it
+    // see: https://developer.android.com/reference/tools/gradle-api/7.1/com/android/build/api/dsl/ApplicationExtension#publishing(kotlin.Function1)
+
 // Provide artifacts information requited by Maven Central
 private fun MavenPublication.defaultPOM(lib: LibDetails) = pom {
     name put lib.name

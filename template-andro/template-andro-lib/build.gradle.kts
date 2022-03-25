@@ -145,4 +145,9 @@ fun LibraryExtension.defaultAndroLibPublishVariants(
     }
 }
 
+fun ApplicationExtension.defaultAndroAppPublishVariants(): Nothing = TODO()
+    // TODO_later: AGP allows to publish apk and aab (bundles) to maven repo.
+    // implement default configuration for it
+    // see: https://developer.android.com/reference/tools/gradle-api/7.1/com/android/build/api/dsl/ApplicationExtension#publishing(kotlin.Function1)
+
 // endregion Andro Module Build Template
