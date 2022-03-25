@@ -332,6 +332,7 @@ object Deps {
     val sandboxui = dep(marekGroup, "sandboxui", vers.sandboxui)
     val recyclerui = dep(marekGroup, "recyclerui", vers.recyclerui)
     val templateMPP = libs.TemplateMPP.dep()
+    val templateAndro = libs.TemplateAndro.dep("template-andro-lib")
 
 
 
