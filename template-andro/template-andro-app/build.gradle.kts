@@ -127,4 +127,17 @@ fun CommonExtension<*,*,*,*>.defaultPackagingOptions() = packagingOptions {
     resources.excludes.defaultAndroExcludedResources()
 }
 
+fun LibraryExtension.defaultAndroLibPublishVariants(
+    withSources: Boolean = true,
+    withJavadoc: Boolean = true,
+) {
+    publishing {
+        multipleVariants {
+            allVariants()
+            if (withSources) withSourcesJar()
+            if (withJavadoc) withJavadocJar()
+        }
+    }
+}
+
 // endregion Andro Module Build Template
