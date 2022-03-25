@@ -12,7 +12,10 @@ plugins {
 
 repositories { defaultRepos() }
 
-android { defaultAndroLib("pl.mareklangiewicz.templateandrolib", withCompose = true) }
+android {
+    defaultAndroLib("pl.mareklangiewicz.templateandrolib", withCompose = true)
+    defaultAndroLibPublishVariants()
+}
 
 dependencies {
     defaultAndroDeps(withCompose = true)
@@ -23,7 +26,7 @@ tasks.defaultKotlinCompileOptions()
 
 defaultGroupAndVerAndDescription(libs.TemplateAndro)
 
-defaultPublishing(libs.TemplateAndro)
+defaultPublishingOfAndroLib(libs.TemplateAndro)
 
 defaultSigning()
 
@@ -127,6 +130,19 @@ fun CommonExtension<*,*,*,*>.defaultComposeStuff() {
 
 fun CommonExtension<*,*,*,*>.defaultPackagingOptions() = packagingOptions {
     resources.excludes.defaultAndroExcludedResources()
+}
+
+fun LibraryExtension.defaultAndroLibPublishVariants(
+    withSources: Boolean = true,
+    withJavadoc: Boolean = true,
+) {
+    publishing {
+        multipleVariants {
+            allVariants()
+            if (withSources) withSourcesJar()
+            if (withJavadoc) withJavadocJar()
+        }
+    }
 }
 
 // endregion Andro Module Build Template

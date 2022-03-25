@@ -62,7 +62,7 @@ fun TaskCollection<Task>.defaultTestsOptions(
 }
 
 
-/** see also: template-mpp: fun Project.defaultSonatypeOssStuffFromSystemEnvs */
+/** See also: template-mpp: fun Project.defaultSonatypeOssStuffFromSystemEnvs */
 fun Project.defaultSigning(
     keyId: String = rootExt("signing.keyId"),
     key: String = rootExt("signing.key"),
@@ -80,44 +80,56 @@ fun Project.defaultPublishing(lib: LibDetails, readmeFile: File = File(rootDir, 
     }
 
     extensions.configure<PublishingExtension> {
-        publications.withType<MavenPublication> { defaultPublication(lib, readmeJavadocJar) }
+        publications.withType<MavenPublication> {
+            artifact(readmeJavadocJar)
+            // Adding javadoc artifact generates warnings like:
+            // Execution optimizations have been disabled for task ':uspek:signJvmPublication'
+            // It looks like a bug in kotlin multiplatform plugin:
+            // https://youtrack.jetbrains.com/issue/KT-46466
+            // FIXME_someday: Watch the issue.
+            // If it's a bug in kotlin multiplatform then remove this comment when it's fixed.
+            // Some related bug reports:
+            // https://youtrack.jetbrains.com/issue/KT-47936
+            // https://github.com/gradle/gradle/issues/17043
+
+            defaultPOM(lib)
+        }
     }
 }
 
-private fun MavenPublication.defaultPublication(lib: LibDetails, javaDocProvider: TaskProvider<Jar>) {
-
-    artifact(javaDocProvider)
-    // Adding javadoc artifact generates warnings like:
-    // Execution optimizations have been disabled for task ':uspek:signJvmPublication'
-    // It looks like a bug in kotlin multiplatform plugin:
-    // https://youtrack.jetbrains.com/issue/KT-46466
-    // FIXME_someday: Watch the issue.
-    // If it's a bug in kotlin multiplatform then remove this comment when it's fixed.
-    // Some related bug reports:
-    // https://youtrack.jetbrains.com/issue/KT-47936
-    // https://github.com/gradle/gradle/issues/17043
-
-    // Provide artifacts information requited by Maven Central
-    pom {
-        name put lib.name
-        description put lib.description
-        url put lib.githubUrl
-
-        licenses {
-            license {
-                name put lib.licenceName
-                url put lib.licenceUrl
+/** Use template-andro/build.gradle.kts:fun defaultAndroLibPublishVariants() to create component with name "default". */
+fun Project.defaultPublishingOfAndroLib(
+    lib: LibDetails,
+    componentName: String = "default"
+) {
+    afterEvaluate {
+        extensions.configure<PublishingExtension> {
+            publications.register<MavenPublication>(componentName) {
+                from(components[componentName])
+                defaultPOM(lib)
             }
-        }
-        developers {
-            developer {
-                id put lib.authorId
-                name put lib.authorName
-                email put lib.authorEmail
-            }
-        }
-        scm {
-            url put lib.githubUrl
         }
     }
+}
+
+// Provide artifacts information requited by Maven Central
+private fun MavenPublication.defaultPOM(lib: LibDetails) = pom {
+    name put lib.name
+    description put lib.description
+    url put lib.githubUrl
+
+    licenses {
+        license {
+            name put lib.licenceName
+            url put lib.licenceUrl
+        }
+    }
+    developers {
+        developer {
+            id put lib.authorId
+            name put lib.authorName
+            email put lib.authorEmail
+        }
+    }
+    scm { url put lib.githubUrl }
 }
