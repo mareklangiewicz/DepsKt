@@ -10,6 +10,7 @@ plugins {
     id("signing")
 }
 
+// TODO NOW: same for AndroidLib
 defaultBuildTemplateForAndroidApp(
     appId = "pl.mareklangiewicz.templateandro",
     withCompose = true,
@@ -47,7 +48,7 @@ fun Project.defaultBuildTemplateForAndroidApp(
     sdkTarget: Int = vers.androidSdkTarget,
     sdkMin: Int = vers.androidSdkMin,
     withCompose: Boolean = false,
-    details: pl.mareklangiewicz.deps.LibDetails = libs.UnknownLib,
+    details: pl.mareklangiewicz.deps.LibDetails = libs.Unknown,
     publishVariant: String? = null, // null means disable publishing to maven repo
 ) {
 
