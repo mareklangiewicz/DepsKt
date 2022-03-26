@@ -14,7 +14,7 @@ repositories { defaultRepos() }
 
 android {
     defaultAndroApp("pl.mareklangiewicz.templateandro", withCompose = true)
-    defaultAndroAppPublishVariant()
+    defaultAndroAppPublishVariant("debug")
 }
 
 dependencies {
@@ -27,7 +27,7 @@ tasks.defaultKotlinCompileOptions()
 
 defaultGroupAndVerAndDescription(libs.TemplateAndro)
 
-defaultPublishingOfAndroApp(libs.TemplateAndro)
+defaultPublishingOfAndroApp(libs.TemplateAndro, "debug")
 
 defaultSigning()
 

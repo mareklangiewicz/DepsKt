@@ -51,7 +51,7 @@ object LibsDetails {
 
     val TemplateAndro = lib(
         name = "TemplateAndro",
-        version = v(0, 0, 2),
+        version = v(0, 0, 3),
         description = "Template for android projects.",
         githubUrl = "https://github.com/langara/deps.kt/template-andro",
     )
