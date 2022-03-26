@@ -3,6 +3,7 @@
 package pl.mareklangiewicz.deps
 
 import pl.mareklangiewicz.defaults.v
+import java.util.*
 
 object LibsDetails {
 
@@ -50,7 +51,7 @@ object LibsDetails {
 
     val TemplateAndro = lib(
         name = "TemplateAndro",
-        version = v(0, 0, 1),
+        version = v(0, 0, 2),
         description = "Template for android projects.",
         githubUrl = "https://github.com/langara/deps.kt/template-andro",
     )
@@ -68,7 +69,7 @@ data class LibDetails(
     val licenceName: String,
     val licenceUrl: String,
 ) {
-    fun dep(moduleName: String = name.toLowerCase(), moduleGroup: String = group, moduleVersion: String = version) =
+    fun dep(moduleName: String = name.toLowerCase(Locale.US), moduleGroup: String = group, moduleVersion: String = version) =
         "$moduleGroup:$moduleName:$moduleVersion"
 }
 

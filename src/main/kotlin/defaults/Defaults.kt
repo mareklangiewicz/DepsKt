@@ -97,7 +97,7 @@ fun Project.defaultPublishing(lib: LibDetails, readmeFile: File = File(rootDir, 
     }
 }
 
-/** Use template-andro/build.gradle.kts:fun defaultAndroLibPublishVariants() to create component with name "default". */
+/** Use template-andro/build.gradle.kts:fun defaultAndroLibPublishAllVariants() to create component with name "default". */
 fun Project.defaultPublishingOfAndroLib(
     lib: LibDetails,
     componentName: String = "default"
@@ -112,10 +112,10 @@ fun Project.defaultPublishingOfAndroLib(
     }
 }
 
-fun Project.defaultPublishingOfAndroApp(): Nothing = TODO()
-    // TODO_later: AGP allows to publish apk and aab (bundles) to maven repo.
-    // implement default configuration for it
-    // see: https://developer.android.com/reference/tools/gradle-api/7.1/com/android/build/api/dsl/ApplicationExtension#publishing(kotlin.Function1)
+fun Project.defaultPublishingOfAndroApp(
+    lib: LibDetails,
+    componentName: String = "release"
+) = defaultPublishingOfAndroLib(lib, componentName)
 
 // Provide artifacts information requited by Maven Central
 private fun MavenPublication.defaultPOM(lib: LibDetails) = pom {

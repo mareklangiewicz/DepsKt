@@ -14,7 +14,7 @@ repositories { defaultRepos() }
 
 android {
     defaultAndroLib("pl.mareklangiewicz.templateandrolib", withCompose = true)
-    defaultAndroLibPublishVariants()
+    defaultAndroLibPublishVariant()
 }
 
 dependencies {
@@ -26,7 +26,7 @@ tasks.defaultKotlinCompileOptions()
 
 defaultGroupAndVerAndDescription(libs.TemplateAndro)
 
-defaultPublishingOfAndroLib(libs.TemplateAndro)
+defaultPublishingOfAndroLib(libs.TemplateAndro, "release")
 
 defaultSigning()
 
@@ -132,9 +132,22 @@ fun CommonExtension<*,*,*,*>.defaultPackagingOptions() = packagingOptions {
     resources.excludes.defaultAndroExcludedResources()
 }
 
-fun LibraryExtension.defaultAndroLibPublishVariants(
+fun LibraryExtension.defaultAndroLibPublishVariant(
+    variant: String = "release",
     withSources: Boolean = true,
-    withJavadoc: Boolean = true,
+    withJavadoc: Boolean = false,
+) {
+    publishing {
+        singleVariant(variant) {
+            if (withSources) withSourcesJar()
+            if (withJavadoc) withJavadocJar()
+        }
+    }
+}
+
+fun LibraryExtension.defaultAndroLibPublishAllVariants(
+    withSources: Boolean = true,
+    withJavadoc: Boolean = false,
 ) {
     publishing {
         multipleVariants {
@@ -145,9 +158,13 @@ fun LibraryExtension.defaultAndroLibPublishVariants(
     }
 }
 
-fun ApplicationExtension.defaultAndroAppPublishVariants(): Nothing = TODO()
-    // TODO_later: AGP allows to publish apk and aab (bundles) to maven repo.
-    // implement default configuration for it
-    // see: https://developer.android.com/reference/tools/gradle-api/7.1/com/android/build/api/dsl/ApplicationExtension#publishing(kotlin.Function1)
+fun ApplicationExtension.defaultAndroAppPublishVariant(
+    variant: String = "release",
+    publishAPK: Boolean = true,
+    publishAAB: Boolean = false,
+) {
+    require(!publishAAB || !publishAPK) { "Either APK or AAB can be published, but not both." }
+    publishing { singleVariant(variant) { if (publishAPK) publishApk() } }
+}
 
 // endregion Andro Module Build Template
