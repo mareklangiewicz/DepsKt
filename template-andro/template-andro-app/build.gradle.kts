@@ -10,28 +10,15 @@ plugins {
     id("signing")
 }
 
-repositories { defaultRepos() }
+defaultBuildTemplateForAndroidApp(
+    appId = "pl.mareklangiewicz.templateandro",
+    withCompose = true,
+    details = libs.TemplateAndro,
+    publishVariant = "debug",
+)
 
-android {
-    defaultAndroApp("pl.mareklangiewicz.templateandro", withCompose = true)
-    defaultAndroAppPublishVariant("debug")
-}
-
-dependencies {
-    implementation(project(":template-andro-lib"))
-    defaultAndroDeps(withCompose = true)
-    defaultAndroTestDeps(withCompose = true)
-}
-
-tasks.defaultKotlinCompileOptions()
-
-defaultGroupAndVerAndDescription(libs.TemplateAndro)
-
-defaultPublishingOfAndroApp(libs.TemplateAndro, "debug")
-
-defaultSigning()
-
-
+// besides default dependencies declared by fun defaultBuildTemplateForAndroidApp
+dependencies { implementation(project(":template-andro-lib")) }
 
 
 // region Kotlin Module Build Template
@@ -49,6 +36,42 @@ fun TaskCollection<Task>.defaultKotlinCompileOptions(
 // endregion Kotlin Module Build Template
 
 // region Andro Module Build Template
+
+fun Project.defaultBuildTemplateForAndroidApp(
+    appId: String,
+    appNamespace: String = appId,
+    appVerCode: Int = 1,
+    appVerName: String = v(patch = appVerCode),
+    jvmVersion: String = vers.defaultJvm,
+    sdkCompile: Int = vers.androidSdkCompile,
+    sdkTarget: Int = vers.androidSdkTarget,
+    sdkMin: Int = vers.androidSdkMin,
+    withCompose: Boolean = false,
+    details: pl.mareklangiewicz.deps.LibDetails = libs.UnknownLib,
+    publishVariant: String? = null, // null means disable publishing to maven repo
+) {
+
+    repositories { defaultRepos() }
+
+    android {
+        defaultAndroApp(appId, appNamespace, appVerCode, appVerName, jvmVersion, sdkCompile, sdkTarget, sdkMin, withCompose)
+        publishVariant?.let { defaultAndroAppPublishVariant(it) }
+    }
+
+    dependencies {
+        defaultAndroDeps(withCompose = withCompose)
+        defaultAndroTestDeps(withCompose = withCompose)
+    }
+
+    tasks.defaultKotlinCompileOptions()
+
+    defaultGroupAndVerAndDescription(details)
+
+    publishVariant?.let {
+        defaultPublishingOfAndroApp(details, it)
+        defaultSigning()
+    }
+}
 
 fun ApplicationExtension.defaultAndroApp(
     appId: String,
