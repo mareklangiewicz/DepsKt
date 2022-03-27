@@ -1,6 +1,7 @@
 import com.android.build.api.dsl.CommonExtension
 import com.android.build.api.dsl.LibraryExtension
 import pl.mareklangiewicz.defaults.*
+import pl.mareklangiewicz.deps.*
 
 plugins {
     id("com.android.library") version vers.androidGradlePlugin
@@ -9,25 +10,12 @@ plugins {
     id("signing")
 }
 
-repositories { defaultRepos() }
-
-android {
-    defaultAndroLib("pl.mareklangiewicz.templateandrolib", withCompose = true)
-    defaultAndroLibPublishVariant()
-}
-
-dependencies {
-    defaultAndroDeps(withCompose = true)
-    defaultAndroTestDeps(withCompose = true)
-}
-
-tasks.defaultKotlinCompileOptions()
-
-defaultGroupAndVerAndDescription(libs.TemplateAndro)
-
-defaultPublishingOfAndroLib(libs.TemplateAndro, "release")
-
-defaultSigning()
+defaultBuildTemplateForAndroidLib(
+    libNamespace = "pl.mareklangiewicz.templateandrolib",
+    withCompose = true,
+    details = libs.TemplateAndro,
+    publishVariant = "debug",
+)
 
 // region [Kotlin Module Build Template]
 
@@ -69,6 +57,33 @@ fun CommonExtension<*,*,*,*>.defaultPackagingOptions() = packagingOptions {
 
 // region [Andro Lib Build Template]
 
+fun Project.defaultBuildTemplateForAndroidLib(
+    libNamespace: String,
+    jvmVersion: String = vers.defaultJvm,
+    sdkCompile: Int = vers.androidSdkCompile,
+    sdkTarget: Int = vers.androidSdkTarget,
+    sdkMin: Int = vers.androidSdkMin,
+    withCompose: Boolean = false,
+    details: LibDetails = libs.Unknown,
+    publishVariant: String? = null, // null means disable publishing to maven repo
+) {
+    repositories { defaultRepos() }
+    android {
+        defaultAndroLib(libNamespace, jvmVersion, sdkCompile, sdkTarget, sdkMin, withCompose)
+        publishVariant?.let { defaultAndroLibPublishVariant(it) }
+    }
+    dependencies {
+        defaultAndroDeps(withCompose = withCompose)
+        defaultAndroTestDeps(withCompose = withCompose)
+    }
+    tasks.defaultKotlinCompileOptions()
+    defaultGroupAndVerAndDescription(details)
+    publishVariant?.let {
+        defaultPublishingOfAndroLib(details, it)
+        defaultSigning()
+    }
+}
+
 fun LibraryExtension.defaultAndroLib(
     libNamespace: String,
     jvmVersion: String = vers.defaultJvm,
@@ -99,7 +114,7 @@ fun LibraryExtension.defaultDefaultConfig(
 fun LibraryExtension.defaultBuildTypes() = buildTypes { release { isMinifyEnabled = false } }
 
 fun LibraryExtension.defaultAndroLibPublishVariant(
-    variant: String = "release",
+    variant: String = "debug",
     withSources: Boolean = true,
     withJavadoc: Boolean = false,
 ) {

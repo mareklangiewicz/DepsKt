@@ -1,6 +1,7 @@
 import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.dsl.CommonExtension
 import pl.mareklangiewicz.defaults.*
+import pl.mareklangiewicz.deps.*
 
 plugins {
     id("com.android.application") version vers.androidGradlePlugin
@@ -9,7 +10,6 @@ plugins {
     id("signing")
 }
 
-// TODO NOW: same for AndroidLib
 defaultBuildTemplateForAndroidApp(
     appId = "pl.mareklangiewicz.templateandro",
     withCompose = true,
@@ -71,26 +71,20 @@ fun Project.defaultBuildTemplateForAndroidApp(
     sdkTarget: Int = vers.androidSdkTarget,
     sdkMin: Int = vers.androidSdkMin,
     withCompose: Boolean = false,
-    details: pl.mareklangiewicz.deps.LibDetails = libs.Unknown,
+    details: LibDetails = libs.Unknown,
     publishVariant: String? = null, // null means disable publishing to maven repo
 ) {
-
     repositories { defaultRepos() }
-
     android {
         defaultAndroApp(appId, appNamespace, appVerCode, appVerName, jvmVersion, sdkCompile, sdkTarget, sdkMin, withCompose)
         publishVariant?.let { defaultAndroAppPublishVariant(it) }
     }
-
     dependencies {
         defaultAndroDeps(withCompose = withCompose)
         defaultAndroTestDeps(withCompose = withCompose)
     }
-
     tasks.defaultKotlinCompileOptions()
-
     defaultGroupAndVerAndDescription(details)
-
     publishVariant?.let {
         defaultPublishingOfAndroApp(details, it)
         defaultSigning()
@@ -136,7 +130,7 @@ fun ApplicationExtension.defaultDefaultConfig(
 fun ApplicationExtension.defaultBuildTypes() = buildTypes { release { isMinifyEnabled = false } }
 
 fun ApplicationExtension.defaultAndroAppPublishVariant(
-    variant: String = "release",
+    variant: String = "debug",
     publishAPK: Boolean = true,
     publishAAB: Boolean = false,
 ) {
