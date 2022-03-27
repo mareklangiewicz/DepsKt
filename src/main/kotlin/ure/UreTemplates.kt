@@ -23,7 +23,7 @@ fun injectKotlinModuleBuildTemplate(vararg outputPaths: Path) = injectBuildRegio
 fun injectMppModuleBuildTemplate(vararg outputPaths: Path) = injectBuildRegionToAll(mppModuleRegionLabel, mppLibResPath, *outputPaths)
 fun injectAndroCommonBuildTemplate(vararg outputPaths: Path) = injectBuildRegionToAll(androCommonRegionLabel, androLibResPath, *outputPaths)
 fun injectAndroLibBuildTemplate(vararg outputPaths: Path) = injectBuildRegionToAll(androLibRegionLabel, androLibResPath, *outputPaths)
-fun injectAndroAppBuildTemplate(vararg outputPaths: Path) = injectBuildRegionToAll(androAppRegionLabel, androLibResPath, *outputPaths)
+fun injectAndroAppBuildTemplate(vararg outputPaths: Path) = injectBuildRegionToAll(androAppRegionLabel, androAppResPath, *outputPaths)
 
 fun checkRootBuildTemplate(buildFile: Path) = checkSomeBuildTemplates(rootRegionLabel, rootResPath, buildFile)
 fun checkKotlinModuleBuildTemplates(vararg buildFiles: Path) = checkSomeBuildTemplates(kotlinModuleRegionLabel, mppLibResPath, *buildFiles)
