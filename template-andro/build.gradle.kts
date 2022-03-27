@@ -13,13 +13,7 @@ private val rootBuild = rootProjectPath / "build.gradle.kts"
 private val libBuild = rootProjectPath / "template-andro-lib" / "build.gradle.kts"
 private val appBuild = rootProjectPath / "template-andro-app" / "build.gradle.kts"
 
-fun injectTemplates() {
-    injectRootBuildTemplate(rootBuild)
-    injectKotlinModuleBuildTemplate(libBuild, appBuild)
-    injectAndroCommonBuildTemplate(libBuild, appBuild)
-    injectAndroLibBuildTemplate(libBuild)
-    injectAndroAppBuildTemplate(appBuild)
-}
+tasks.registerAllThatGroupFun("inject", ::checkTemplates, ::injectTemplates)
 
 fun checkTemplates() {
     checkRootBuildTemplate(rootBuild)
@@ -29,7 +23,13 @@ fun checkTemplates() {
     checkAndroAppBuildTemplates(appBuild)
 }
 
-tasks.registerAllThatGroupFun("inject", ::checkTemplates, ::injectTemplates)
+fun injectTemplates() {
+    injectRootBuildTemplate(rootBuild)
+    injectKotlinModuleBuildTemplate(libBuild, appBuild)
+    injectAndroCommonBuildTemplate(libBuild, appBuild)
+    injectAndroLibBuildTemplate(libBuild)
+    injectAndroAppBuildTemplate(appBuild)
+}
 
 // region [Root Build Template]
 
