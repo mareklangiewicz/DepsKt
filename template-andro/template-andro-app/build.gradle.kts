@@ -1,6 +1,5 @@
 import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.dsl.CommonExtension
-import com.android.build.api.dsl.LibraryExtension
 import pl.mareklangiewicz.defaults.*
 
 plugins {
@@ -22,7 +21,7 @@ defaultBuildTemplateForAndroidApp(
 dependencies { implementation(project(":template-andro-lib")) }
 
 
-// region Kotlin Module Build Template
+// region [Kotlin Module Build Template]
 
 fun TaskCollection<Task>.defaultKotlinCompileOptions(
     jvmTargetVer: String = vers.defaultJvm,
@@ -34,9 +33,33 @@ fun TaskCollection<Task>.defaultKotlinCompileOptions(
     }
 }
 
-// endregion Kotlin Module Build Template
+// endregion [Kotlin Module Build Template]
 
-// region Andro Module Build Template
+// region [Andro Common Build Template]
+
+fun CommonExtension<*,*,*,*>.defaultCompileOptions(
+    jvmVersion: String = vers.defaultJvm
+) = compileOptions {
+    sourceCompatibility(jvmVersion)
+    targetCompatibility(jvmVersion)
+}
+
+fun CommonExtension<*,*,*,*>.defaultComposeStuff() {
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = vers.composeAndroidCompiler
+    }
+}
+
+fun CommonExtension<*,*,*,*>.defaultPackagingOptions() = packagingOptions {
+    resources.excludes.defaultAndroExcludedResources()
+}
+
+// endregion [Andro Common Build Template]
+
+// region [Andro App Build Template]
 
 fun Project.defaultBuildTemplateForAndroidApp(
     appId: String,
@@ -93,22 +116,6 @@ fun ApplicationExtension.defaultAndroApp(
     defaultPackagingOptions()
 }
 
-fun LibraryExtension.defaultAndroLib(
-    libNamespace: String,
-    jvmVersion: String = vers.defaultJvm,
-    sdkCompile: Int = vers.androidSdkCompile,
-    sdkTarget: Int = vers.androidSdkTarget,
-    sdkMin: Int = vers.androidSdkMin,
-    withCompose: Boolean = false,
-) {
-    compileSdk = sdkCompile
-    defaultCompileOptions(jvmVersion)
-    defaultDefaultConfig(libNamespace, sdkTarget, sdkMin)
-    defaultBuildTypes()
-    if (withCompose) defaultComposeStuff()
-    defaultPackagingOptions()
-}
-
 fun ApplicationExtension.defaultDefaultConfig(
     appId: String,
     appNamespace: String = appId,
@@ -126,65 +133,7 @@ fun ApplicationExtension.defaultDefaultConfig(
     testInstrumentationRunner = vers.androidTestRunnerClass
 }
 
-fun LibraryExtension.defaultDefaultConfig(
-    libNamespace: String,
-    sdkTarget: Int = vers.androidSdkTarget,
-    sdkMin: Int = vers.androidSdkMin,
-) = defaultConfig {
-    namespace = libNamespace
-    targetSdk = sdkTarget
-    minSdk = sdkMin
-    testInstrumentationRunner = vers.androidTestRunnerClass
-}
-
-fun CommonExtension<*,*,*,*>.defaultCompileOptions(
-    jvmVersion: String = vers.defaultJvm
-) = compileOptions {
-    sourceCompatibility(jvmVersion)
-    targetCompatibility(jvmVersion)
-}
-
 fun ApplicationExtension.defaultBuildTypes() = buildTypes { release { isMinifyEnabled = false } }
-fun LibraryExtension.defaultBuildTypes() = buildTypes { release { isMinifyEnabled = false } }
-
-fun CommonExtension<*,*,*,*>.defaultComposeStuff() {
-    buildFeatures {
-        compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = vers.composeAndroidCompiler
-    }
-}
-
-fun CommonExtension<*,*,*,*>.defaultPackagingOptions() = packagingOptions {
-    resources.excludes.defaultAndroExcludedResources()
-}
-
-fun LibraryExtension.defaultAndroLibPublishVariant(
-    variant: String = "release",
-    withSources: Boolean = true,
-    withJavadoc: Boolean = false,
-) {
-    publishing {
-        singleVariant(variant) {
-            if (withSources) withSourcesJar()
-            if (withJavadoc) withJavadocJar()
-        }
-    }
-}
-
-fun LibraryExtension.defaultAndroLibPublishAllVariants(
-    withSources: Boolean = true,
-    withJavadoc: Boolean = false,
-) {
-    publishing {
-        multipleVariants {
-            allVariants()
-            if (withSources) withSourcesJar()
-            if (withJavadoc) withJavadocJar()
-        }
-    }
-}
 
 fun ApplicationExtension.defaultAndroAppPublishVariant(
     variant: String = "release",
@@ -195,4 +144,4 @@ fun ApplicationExtension.defaultAndroAppPublishVariant(
     publishing { singleVariant(variant) { if (publishAPK) publishApk() } }
 }
 
-// endregion Andro Module Build Template
+// endregion [Andro App Build Template]
