@@ -30,7 +30,7 @@ fun checkKotlinModuleBuildTemplates(vararg buildFiles: Path) = checkSomeBuildTem
 fun checkMppModuleBuildTemplates(vararg buildFiles: Path) = checkSomeBuildTemplates(mppModuleRegionLabel, mppLibResPath, *buildFiles)
 fun checkAndroCommonBuildTemplates(vararg buildFiles: Path) = checkSomeBuildTemplates(androCommonRegionLabel, androLibResPath, *buildFiles)
 fun checkAndroLibBuildTemplates(vararg buildFiles: Path) = checkSomeBuildTemplates(androLibRegionLabel, androLibResPath, *buildFiles)
-fun checkAndroAppBuildTemplates(vararg buildFiles: Path) = checkSomeBuildTemplates(androAppRegionLabel, androLibResPath, *buildFiles)
+fun checkAndroAppBuildTemplates(vararg buildFiles: Path) = checkSomeBuildTemplates(androAppRegionLabel, androAppResPath, *buildFiles)
 
 fun checkSomeBuildTemplates(regionLabel: String, srcResPath: Path, vararg buildFiles: Path) {
     println("BEGIN: Check [$regionLabel]:")

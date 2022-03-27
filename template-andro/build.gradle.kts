@@ -11,7 +11,7 @@ defaultSonatypeOssStuffFromSystemEnvs()
 
 private val rootBuild = rootProjectPath / "build.gradle.kts"
 private val libBuild = rootProjectPath / "template-andro-lib" / "build.gradle.kts"
-private val appBuild = rootProjectPath / "template-andro-lib" / "build.gradle.kts"
+private val appBuild = rootProjectPath / "template-andro-app" / "build.gradle.kts"
 
 fun injectTemplates() {
     injectRootBuildTemplate(rootBuild)
