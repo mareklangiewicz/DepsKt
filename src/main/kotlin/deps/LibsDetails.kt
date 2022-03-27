@@ -42,6 +42,13 @@ object LibsDetails {
         githubUrl = "https://github.com/langara/TupleK",
     )
 
+    val MyStolenPlaygrounds = lib(
+        name = "MyStolenPlaygrounds",
+        version = v(0, 0, 1),
+        description = "Collection of Compose related samples, ui tests etc.",
+        githubUrl = "https://github.com/langara/MyStolenPlaygrounds",
+    )
+
     val TemplateMPP = lib(
         name = "TemplateMPP",
         version = v(0, 0, 2),
