@@ -21,7 +21,7 @@ defaultPublishing(libs.TemplateMPP)
 
 defaultSigning()
 
-// region Kotlin Module Build Template
+// region [Kotlin Module Build Template]
 
 fun TaskCollection<Task>.defaultKotlinCompileOptions(
     jvmTargetVer: String = vers.defaultJvm,
@@ -33,9 +33,9 @@ fun TaskCollection<Task>.defaultKotlinCompileOptions(
     }
 }
 
-// endregion Kotlin Module Build Template
+// endregion [Kotlin Module Build Template]
 
-// region MPP Module Build Template
+// region [MPP Module Build Template]
 
 /** Only for very standard small libs. In most cases it's better to not use this function. */
 fun KotlinMultiplatformExtension.allDefault(
@@ -79,4 +79,4 @@ fun KotlinMultiplatformExtension.jsDefault(
     }
 }
 
-// endregion MPP Module Build Template
+// endregion [MPP Module Build Template]

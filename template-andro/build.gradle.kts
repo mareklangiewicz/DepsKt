@@ -16,18 +16,22 @@ private val appBuild = rootProjectPath / "template-andro-lib" / "build.gradle.kt
 fun injectTemplates() {
     injectRootBuildTemplate(rootBuild)
     injectKotlinModuleBuildTemplate(libBuild, appBuild)
-    injectAndroModuleBuildTemplate(libBuild, appBuild)
+    injectAndroCommonBuildTemplate(libBuild, appBuild)
+    injectAndroLibBuildTemplate(libBuild)
+    injectAndroAppBuildTemplate(appBuild)
 }
 
 fun checkTemplates() {
     checkRootBuildTemplate(rootBuild)
     checkKotlinModuleBuildTemplates(libBuild, appBuild)
-    checkAndroModuleBuildTemplates(libBuild, appBuild)
+    checkAndroCommonBuildTemplates(libBuild, appBuild)
+    checkAndroLibBuildTemplates(libBuild)
+    checkAndroAppBuildTemplates(appBuild)
 }
 
 tasks.registerAllThatGroupFun("inject", ::checkTemplates, ::injectTemplates)
 
-// region Root Build Template
+// region [Root Build Template]
 
 /**
  * System.getenv() should contain six env variables with given prefix, like:
@@ -61,4 +65,4 @@ fun Project.defaultSonatypeOssNexusPublishing(
     }
 }
 
-// endregion Root Build Template
+// endregion [Root Build Template]

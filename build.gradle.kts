@@ -70,7 +70,7 @@ pluginBundle {
     }
 }
 
-// region Kotlin Module Build Template
+// region [Kotlin Module Build Template]
 
 fun TaskCollection<Task>.defaultKotlinCompileOptions(
     jvmTargetVer: String,
@@ -82,7 +82,7 @@ fun TaskCollection<Task>.defaultKotlinCompileOptions(
     }
 }
 
-// endregion Kotlin Module Build Template
+// endregion [Kotlin Module Build Template]
 
 // region Copy&Paste Code for deps building special case
 

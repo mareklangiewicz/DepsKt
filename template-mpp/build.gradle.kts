@@ -28,7 +28,7 @@ tasks.registerAllThatGroupFun("inject",
     ::injectMppTemplates,
 )
 
-// region Root Build Template
+// region [Root Build Template]
 
 /**
  * System.getenv() should contain six env variables with given prefix, like:
@@ -62,4 +62,4 @@ fun Project.defaultSonatypeOssNexusPublishing(
     }
 }
 
-// endregion Root Build Template
+// endregion [Root Build Template]
