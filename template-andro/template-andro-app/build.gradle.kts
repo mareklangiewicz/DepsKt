@@ -21,6 +21,11 @@ defaultBuildTemplateForAndroidApp(
 dependencies { implementation(project(":template-andro-lib")) }
 
 
+// TODO NOW: better defaults for versions - algo from (major, minor, path) to code;
+// Very important: default synchronization between app version and LibDetails
+// I have to have one source of truth!! But carefully select defaults propagation!
+
+
 // region [Kotlin Module Build Template]
 
 fun TaskCollection<Task>.defaultKotlinCompileOptions(

@@ -8,12 +8,14 @@ import pl.mareklangiewicz.io.*
 
 private val rootResPath = "template-root-build".toPath()
 private val mppLibResPath = "template-mpp-lib-build".toPath()
+private val jvmAppResPath = "template-jvm-app-build".toPath()
 private val androLibResPath = "template-andro-lib-build".toPath()
 private val androAppResPath = "template-andro-app-build".toPath()
 
 private val rootRegionLabel = "Root Build Template"
 private val kotlinModuleRegionLabel = "Kotlin Module Build Template"
 private val mppModuleRegionLabel = "MPP Module Build Template"
+private val jvmAppRegionLabel = "Jvm App Build Template"
 private val androCommonRegionLabel = "Andro Common Build Template"
 private val androLibRegionLabel = "Andro Lib Build Template"
 private val androAppRegionLabel = "Andro App Build Template"
@@ -21,6 +23,7 @@ private val androAppRegionLabel = "Andro App Build Template"
 fun injectRootBuildTemplate(vararg outputPaths: Path) = injectBuildRegionToAll(rootRegionLabel, rootResPath, *outputPaths)
 fun injectKotlinModuleBuildTemplate(vararg outputPaths: Path) = injectBuildRegionToAll(kotlinModuleRegionLabel, mppLibResPath, *outputPaths)
 fun injectMppModuleBuildTemplate(vararg outputPaths: Path) = injectBuildRegionToAll(mppModuleRegionLabel, mppLibResPath, *outputPaths)
+fun injectJvmAppBuildTemplate(vararg outputPaths: Path) = injectBuildRegionToAll(jvmAppRegionLabel, jvmAppResPath, *outputPaths)
 fun injectAndroCommonBuildTemplate(vararg outputPaths: Path) = injectBuildRegionToAll(androCommonRegionLabel, androLibResPath, *outputPaths)
 fun injectAndroLibBuildTemplate(vararg outputPaths: Path) = injectBuildRegionToAll(androLibRegionLabel, androLibResPath, *outputPaths)
 fun injectAndroAppBuildTemplate(vararg outputPaths: Path) = injectBuildRegionToAll(androAppRegionLabel, androAppResPath, *outputPaths)
@@ -28,6 +31,7 @@ fun injectAndroAppBuildTemplate(vararg outputPaths: Path) = injectBuildRegionToA
 fun checkRootBuildTemplate(buildFile: Path) = checkSomeBuildTemplates(rootRegionLabel, rootResPath, buildFile)
 fun checkKotlinModuleBuildTemplates(vararg buildFiles: Path) = checkSomeBuildTemplates(kotlinModuleRegionLabel, mppLibResPath, *buildFiles)
 fun checkMppModuleBuildTemplates(vararg buildFiles: Path) = checkSomeBuildTemplates(mppModuleRegionLabel, mppLibResPath, *buildFiles)
+fun checkJvmAppBuildTemplates(vararg buildFiles: Path) = checkSomeBuildTemplates(jvmAppRegionLabel, jvmAppResPath, *buildFiles)
 fun checkAndroCommonBuildTemplates(vararg buildFiles: Path) = checkSomeBuildTemplates(androCommonRegionLabel, androLibResPath, *buildFiles)
 fun checkAndroLibBuildTemplates(vararg buildFiles: Path) = checkSomeBuildTemplates(androLibRegionLabel, androLibResPath, *buildFiles)
 fun checkAndroAppBuildTemplates(vararg buildFiles: Path) = checkSomeBuildTemplates(androAppRegionLabel, androAppResPath, *buildFiles)

@@ -5,28 +5,32 @@ import pl.mareklangiewicz.utils.*
 
 plugins { id("io.github.gradle-nexus.publish-plugin") version vers.nexusPublishGradlePlugin }
 
-// TODO NOW: injecting and checking like in template-android
-
 defaultGroupAndVerAndDescription(libs.TemplateMPP)
 
 defaultSonatypeOssStuffFromSystemEnvs()
 
-fun injectMppTemplates() {
-    injectRootBuildTemplate("build.gradle.kts".toPath())
-    injectKotlinModuleBuildTemplate("template-mpp-lib/build.gradle.kts".toPath())
-    injectMppModuleBuildTemplate("template-mpp-lib/build.gradle.kts".toPath())
-}
-
-fun checkMppTemplates() {
-    checkRootBuildTemplate("build.gradle.kts".toPath())
-    checkKotlinModuleBuildTemplates("template-mpp-lib/build.gradle.kts".toPath())
-    checkMppModuleBuildTemplates("template-mpp-lib/build.gradle.kts".toPath())
-}
+private val rootBuild = rootProjectPath / "build.gradle.kts"
+private val mppLibBuild = rootProjectPath / "template-mpp-lib" / "build.gradle.kts"
+private val jvmCliBuild = rootProjectPath / "template-jvm-cli" / "build.gradle.kts"
 
 tasks.registerAllThatGroupFun("inject",
-    ::checkMppTemplates,
-    ::injectMppTemplates,
+    ::checkTemplates,
+    ::injectTemplates,
 )
+
+fun checkTemplates() {
+    checkRootBuildTemplate(rootBuild)
+    checkKotlinModuleBuildTemplates(mppLibBuild, jvmCliBuild)
+    checkMppModuleBuildTemplates(mppLibBuild)
+    checkJvmAppBuildTemplates(jvmCliBuild)
+}
+
+fun injectTemplates() {
+    injectRootBuildTemplate(rootBuild)
+    injectKotlinModuleBuildTemplate(mppLibBuild, jvmCliBuild)
+    injectMppModuleBuildTemplate(mppLibBuild)
+    injectJvmAppBuildTemplate(jvmCliBuild)
+}
 
 // region [Root Build Template]
 

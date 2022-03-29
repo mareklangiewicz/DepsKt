@@ -1,4 +1,6 @@
+import org.jetbrains.kotlin.gradle.plugin.*
 import pl.mareklangiewicz.defaults.*
+import pl.mareklangiewicz.deps.*
 import pl.mareklangiewicz.utils.*
 
 plugins {
@@ -6,23 +8,14 @@ plugins {
     application
 }
 
-defaultGroupAndVerAndDescription(libs.TemplateMPP)
-
-repositories { defaultRepos() }
-
-kotlin {
-    sourceSets {
-        val main by getting {
-            dependencies {
-                implementation(project(":template-mpp-lib"))
-            }
-        }
-    }
+defaultBuildTemplateForJvmApp(
+    appMainPackage = "pl.mareklangiewicz.hello.cli",
+    appMainClass = "MainCliKt",
+    details = libs.TemplateMPP,
+) {
+    implementation(project(":template-mpp-lib"))
 }
 
-application { mainClass put "pl.mareklangiewicz.hello.cli.MainCliKt" }
-
-tasks.defaultKotlinCompileOptions()
 
 
 // region [Kotlin Module Build Template]
@@ -40,3 +33,32 @@ fun TaskCollection<Task>.defaultKotlinCompileOptions(
 }
 
 // endregion [Kotlin Module Build Template]
+
+// region [Jvm App Build Template]
+
+@Suppress("UNUSED_VARIABLE")
+fun Project.defaultBuildTemplateForJvmApp(
+    appMainPackage: String,
+    appMainClass: String = "MainKt",
+    details: LibDetails = libs.Unknown,
+    addMainDependencies: KotlinDependencyHandler.() -> Unit = {}
+) {
+    repositories { defaultRepos() }
+    defaultGroupAndVerAndDescription(details)
+
+    kotlin {
+        sourceSets {
+            val main by getting {
+                dependencies {
+                    addMainDependencies()
+                }
+            }
+        }
+    }
+
+    application { mainClass put "$appMainPackage.$appMainClass" }
+
+    tasks.defaultKotlinCompileOptions()
+}
+
+// endregion [Jvm App Build Template]
