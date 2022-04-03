@@ -14,23 +14,11 @@ defaultBuildTemplateForMppApp(
     details = libs.TemplateMPP,
 ) {
     implementation(project(":template-mpp-lib"))
+    implementation(deps.kotlinxHtml)
 }
 
 // example stuff in addition to defaultBuildTemplate...
 repositories { maven(repos.kotlinxHtml) }
-
-// example stuff in addition to defaultBuildTemplate...
-kotlin {
-    sourceSets {
-        val jsMain by getting {
-            dependencies {
-                implementation(deps.kotlinxHtml)
-            }
-        }
-    }
-}
-
-
 
 // region [Kotlin Module Build Template]
 
