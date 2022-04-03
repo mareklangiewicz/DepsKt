@@ -2,7 +2,6 @@ package pl.mareklangiewicz.hello
 
 import kotlinx.html.*
 import kotlinx.html.stream.*
-import pl.mareklangiewicz.hello.*
 
 fun helloAll() {
     helloCommon()
