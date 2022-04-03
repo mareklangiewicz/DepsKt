@@ -24,7 +24,7 @@ kotlin {
     sourceSets {
         val jsMain by getting {
             dependencies {
-                implementation(deps.kotlinxHtmlJs)
+                implementation(deps.kotlinxHtml)
             }
         }
     }
