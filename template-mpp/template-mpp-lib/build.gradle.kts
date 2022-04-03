@@ -35,12 +35,13 @@ fun Project.defaultBuildTemplateForMppLib(
     withJvm: Boolean = true,
     withJs: Boolean = true,
     withNativeLinux64: Boolean = false,
+    withKotlinxHtml: Boolean = false,
     details: LibDetails = libs.Unknown,
     addCommonMainDependencies: KotlinDependencyHandler.() -> Unit = {}
 ) {
-    repositories { defaultRepos() }
+    repositories { defaultRepos(withKotlinxHtml = withKotlinxHtml) }
     defaultGroupAndVerAndDescription(details)
-    kotlin { allDefault(withJvm, withJs, withNativeLinux64, addCommonMainDependencies) }
+    kotlin { allDefault(withJvm, withJs, withNativeLinux64, withKotlinxHtml, addCommonMainDependencies) }
     tasks.defaultKotlinCompileOptions()
     tasks.defaultTestsOptions()
     if (plugins.hasPlugin("maven-publish")) {
@@ -57,6 +58,7 @@ fun KotlinMultiplatformExtension.allDefault(
     withJvm: Boolean = true,
     withJs: Boolean = true,
     withNativeLinux64: Boolean = false,
+    withKotlinxHtml: Boolean = false,
     addCommonMainDependencies: KotlinDependencyHandler.() -> Unit = {}
 ) {
     if (withJvm) jvm()
@@ -65,6 +67,7 @@ fun KotlinMultiplatformExtension.allDefault(
     sourceSets {
         val commonMain by getting {
             dependencies {
+                if (withKotlinxHtml) api(deps.kotlinxHtml)
                 addCommonMainDependencies()
             }
         }

@@ -25,14 +25,16 @@ fun RepositoryHandler.defaultRepos(
     withMavenCentral: Boolean = true,
     withGradle: Boolean = false,
     withGoogle: Boolean = true,
-    withKotlinX: Boolean = true,
+    withKotlinx: Boolean = true,
+    withKotlinxHtml: Boolean = false,
     withJitpack: Boolean = true,
 ) {
     if (withMavenLocal) mavenLocal()
     if (withMavenCentral) mavenCentral()
     if (withGradle) gradlePluginPortal()
     if (withGoogle) google()
-    if (withKotlinX) maven(repos.kotlinx)
+    if (withKotlinx) maven(repos.kotlinx)
+    if (withKotlinxHtml) maven(repos.kotlinxHtml)
     if (withJitpack) maven(repos.jitpack)
 }
 
