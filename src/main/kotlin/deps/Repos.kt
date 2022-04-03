@@ -9,6 +9,7 @@ object Repos {
     const val sonatypeOssNexus = "https://s01.oss.sonatype.org/service/local/"
 
     const val ktorEap = "https://maven.pkg.jetbrains.space/public/p/ktor/eap"
+    const val kotlinxHtml = "https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven"
 
     const val composeDesktopDev = "https://maven.pkg.jetbrains.space/public/p/compose/dev"
 

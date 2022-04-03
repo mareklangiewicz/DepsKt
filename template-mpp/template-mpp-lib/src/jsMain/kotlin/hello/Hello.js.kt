@@ -2,4 +2,4 @@
 
 package pl.mareklangiewicz.hello
 
-actual fun helloPlatform() = println("Hello JS World!")
+actual fun helloPlatform(): String = "Hello JS World!".also { println(it) }

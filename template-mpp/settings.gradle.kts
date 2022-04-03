@@ -13,5 +13,5 @@ rootProject.name = "template-mpp"
 
 include(":template-mpp-lib")
 include(":template-jvm-cli")
-//include(":template-js-web") TODO
+include(":template-mpp-app")
 //include(":template-native-cli") TODO

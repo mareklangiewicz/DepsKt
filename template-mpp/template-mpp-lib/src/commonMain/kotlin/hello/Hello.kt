@@ -2,6 +2,6 @@
 
 package pl.mareklangiewicz.hello
 
-fun helloCommon() = println("Hello Pure Common World!")
+fun helloCommon(): String = "Hello Pure Common World!".also { println(it) }
 
-expect fun helloPlatform()
+expect fun helloPlatform(): String

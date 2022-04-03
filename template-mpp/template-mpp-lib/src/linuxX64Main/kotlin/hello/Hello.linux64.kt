@@ -2,4 +2,4 @@
 
 package pl.mareklangiewicz.hello
 
-actual fun helloPlatform() = println("Hello Native Linux 64 World!")
+actual fun helloPlatform(): String = "Hello Native Linux 64 World!".also { println(it) }

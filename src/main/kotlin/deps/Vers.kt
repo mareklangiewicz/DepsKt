@@ -30,7 +30,7 @@ object Vers {
     const val kotlinxSerialization = "1.3.2"
     // https://github.com/Kotlin/kotlinx.serialization/releases
 
-    const val kotlinxAtomicFu = "0.17.0"
+    const val kotlinxAtomicFu = "0.17.1"
     // https://github.com/Kotlin/kotlinx.atomicfu/releases
 
     const val kotlinxHtml = "0.7.2"
@@ -42,7 +42,7 @@ object Vers {
     // just a reference - not useful in typical cases
     const val gradle5 = "5.6.4"
     const val gradle6 = "6.8.3"
-    const val gradle7 = "7.4"
+    const val gradle7 = "7.4.2"
     const val gradle = gradle7
     // https://gradle.org/releases/
     // https://services.gradle.org/versions
