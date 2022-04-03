@@ -47,9 +47,9 @@ fun Project.defaultBuildTemplateForMppLib(
     if (plugins.hasPlugin("maven-publish")) {
         defaultPublishing(details)
         if (plugins.hasPlugin("signing")) defaultSigning()
-        else println("MPP Lib signing disabled")
+        else println("MPP Module ${name}: signing disabled")
     }
-    else println("MPP Lib publishing (and signing) disabled")
+    else println("MPP Module ${name}: publishing (and signing) disabled")
 }
 
 /** Only for very standard small libs. In most cases it's better to not use this function. */

@@ -108,6 +108,7 @@ fun KotlinMultiplatformExtension.jsDefault(
 // endregion [MPP Module Build Template]
 
 // TODO: check if this region can be merged into MPP Module Build Template
+
 // region [MPP App Build Template]
 
 fun Project.defaultBuildTemplateForMppApp(
