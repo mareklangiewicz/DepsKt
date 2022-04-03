@@ -4,6 +4,12 @@ import pl.mareklangiewicz.defaults.*
 import pl.mareklangiewicz.deps.*
 import pl.mareklangiewicz.utils.*
 
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
 plugins {
     kotlin("multiplatform") version vers.kotlin
 }
@@ -20,6 +26,26 @@ defaultBuildTemplateForMppApp(
 // example stuff in addition to defaultBuildTemplate...
 repositories { maven(repos.kotlinxHtml) }
 
+//kotlin {
+//    sourceSets {
+//        val jvmMain by getting {
+//            dependencies {
+//                implementation(deps.kotlinxHtml)
+//            }
+//        }
+//        val jsMain by getting {
+//            dependencies {
+//                implementation(deps.kotlinxHtml)
+//            }
+//        }
+//        val linuxX64Main by getting {
+//            dependencies {
+//                implementation(deps.kotlinxHtml)
+//            }
+//        }
+//    }
+//}
+//
 // region [Kotlin Module Build Template]
 
 fun TaskCollection<Task>.defaultKotlinCompileOptions(
