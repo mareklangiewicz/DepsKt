@@ -33,7 +33,7 @@ object Vers {
     const val kotlinxAtomicFu = "0.17.1"
     // https://github.com/Kotlin/kotlinx.atomicfu/releases
 
-    const val kotlinxHtml = "0.7.2"
+    const val kotlinxHtml = "0.7.5"
     // https://github.com/Kotlin/kotlinx.html/releases
 
     const val kotlinxNodeJs = "0.0.7"

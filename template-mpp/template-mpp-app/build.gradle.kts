@@ -9,13 +9,26 @@ plugins {
 }
 
 defaultBuildTemplateForMppApp(
+    appMainPackage = "pl.mareklangiewicz.hello",
+    withNativeLinux64 = true,
     details = libs.TemplateMPP,
 ) {
     implementation(project(":template-mpp-lib"))
-    implementation(deps.kotlinxHtml)
 }
 
-repositories { maven(repos.kotlinxHtml) } // in addition to default repos
+// example stuff in addition to defaultBuildTemplate...
+repositories { maven(repos.kotlinxHtml) }
+
+// example stuff in addition to defaultBuildTemplate...
+kotlin {
+    sourceSets {
+        val jsMain by getting {
+            dependencies {
+                implementation(deps.kotlinxHtmlJs)
+            }
+        }
+    }
+}
 
 
 
@@ -111,6 +124,8 @@ fun KotlinMultiplatformExtension.jsDefault(
 // region [MPP App Build Template]
 
 fun Project.defaultBuildTemplateForMppApp(
+    appMainPackage: String,
+    appMainFun: String = "main",
     withJvm: Boolean = true,
     withJs: Boolean = true,
     withNativeLinux64: Boolean = false,
@@ -128,7 +143,13 @@ fun Project.defaultBuildTemplateForMppApp(
         if (withJs) js(IR) {
             binaries.executable()
         }
-        // TODO NOW: native
+        if (withNativeLinux64) linuxX64 {
+            binaries {
+                executable {
+                    entryPoint = "$appMainPackage.$appMainFun"
+                }
+            }
+        }
     }
 }
 
