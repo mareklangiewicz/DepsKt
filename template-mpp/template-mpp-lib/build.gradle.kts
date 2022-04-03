@@ -1,5 +1,7 @@
 import org.jetbrains.kotlin.gradle.dsl.*
+import org.jetbrains.kotlin.gradle.plugin.*
 import pl.mareklangiewicz.defaults.*
+import pl.mareklangiewicz.deps.*
 
 plugins {
     kotlin("multiplatform") version vers.kotlin
@@ -7,19 +9,10 @@ plugins {
     id("signing")
 }
 
-repositories { defaultRepos() }
-
-defaultGroupAndVerAndDescription(libs.TemplateMPP)
-
-kotlin { allDefault(withNativeLinux64 = true) }
-
-tasks.defaultKotlinCompileOptions()
-
-tasks.defaultTestsOptions()
-
-defaultPublishing(libs.TemplateMPP)
-
-defaultSigning()
+defaultBuildTemplateForMppLib(
+    withNativeLinux64 = true,
+    details = libs.TemplateMPP
+)
 
 // region [Kotlin Module Build Template]
 
@@ -38,16 +31,43 @@ fun TaskCollection<Task>.defaultKotlinCompileOptions(
 // region [MPP Module Build Template]
 
 /** Only for very standard small libs. In most cases it's better to not use this function. */
+fun Project.defaultBuildTemplateForMppLib(
+    withJvm: Boolean = true,
+    withJs: Boolean = true,
+    withNativeLinux64: Boolean = false,
+    details: LibDetails = libs.Unknown,
+    addCommonMainDependencies: KotlinDependencyHandler.() -> Unit = {}
+) {
+    repositories { defaultRepos() }
+    defaultGroupAndVerAndDescription(details)
+    kotlin { allDefault(withJvm, withJs, withNativeLinux64, addCommonMainDependencies) }
+    tasks.defaultKotlinCompileOptions()
+    tasks.defaultTestsOptions()
+    if (plugins.hasPlugin("maven-publish")) {
+        defaultPublishing(details)
+        if (plugins.hasPlugin("signing")) defaultSigning()
+        else println("MPP Lib signing disabled")
+    }
+    else println("MPP Lib publishing (and signing) disabled")
+}
+
+/** Only for very standard small libs. In most cases it's better to not use this function. */
+@Suppress("UNUSED_VARIABLE")
 fun KotlinMultiplatformExtension.allDefault(
     withJvm: Boolean = true,
     withJs: Boolean = true,
     withNativeLinux64: Boolean = false,
+    addCommonMainDependencies: KotlinDependencyHandler.() -> Unit = {}
 ) {
     if (withJvm) jvm()
     if (withJs) jsDefault()
     if (withNativeLinux64) linuxX64()
     sourceSets {
-        val commonMain by getting
+        val commonMain by getting {
+            dependencies {
+                addCommonMainDependencies()
+            }
+        }
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))
