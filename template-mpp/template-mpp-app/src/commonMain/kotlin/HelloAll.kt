@@ -3,17 +3,21 @@ package pl.mareklangiewicz.hello
 import kotlinx.html.*
 import kotlinx.html.stream.*
 
-fun helloAll() {
+// It's ok that it repeats helloCommon and helloPlatform twice (also in helloSomeHtml)
+fun helloEveryOneWithSomeHtml() {
     helloCommon()
     helloPlatform()
-    val someHtml = buildString {
+    helloSomeHtml()
+}
+
+fun helloSomeHtml(): String = buildString {
         appendHTML().html {
             body {
-                h1 { +"Template MPP Jvm App" }
+                h1 { +"Some H1 in Template MPP App" }
+                p { +"Some paragraph" }
+                p { +"Some other paragraph" }
                 p { +helloCommon() }
                 p { +helloPlatform() }
             }
         }
-    }
-    println(someHtml)
-}
+    }.also { println(it) }
