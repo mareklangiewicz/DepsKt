@@ -1,5 +1,5 @@
 import org.junit.jupiter.api.TestFactory
-import pl.mareklangiewicz.hello.mpp.app.*
+import pl.mareklangiewicz.hello.*
 import pl.mareklangiewicz.uspek.*
 
 class AppJvmTest {

@@ -1,5 +1,3 @@
-package pl.mareklangiewicz.hello.mpp.app
-
-import pl.mareklangiewicz.hello.*
+package pl.mareklangiewicz.hello
 
 fun main() = helloAll()
