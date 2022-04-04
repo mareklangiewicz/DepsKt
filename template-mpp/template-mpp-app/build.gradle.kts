@@ -5,7 +5,6 @@ import pl.mareklangiewicz.deps.*
 
 plugins {
     kotlin("multiplatform") version vers.kotlin
-    id("org.jetbrains.compose") version vers.composeDesktop
 }
 
 defaultBuildTemplateForMppApp(
@@ -14,8 +13,6 @@ defaultBuildTemplateForMppApp(
     details = libs.TemplateMPP,
 ) {
     implementation(project(":template-mpp-lib"))
-    implementation(kotlin.compose.runtime)
-    implementation(kotlin.compose.web.core)
 }
 
 // region [Kotlin Module Build Template]

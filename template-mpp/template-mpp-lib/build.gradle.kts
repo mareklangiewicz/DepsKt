@@ -5,6 +5,7 @@ import pl.mareklangiewicz.deps.*
 
 plugins {
     kotlin("multiplatform") version vers.kotlin
+    id("org.jetbrains.compose") version vers.composeDesktop
     id("maven-publish")
     id("signing")
 }
@@ -13,7 +14,10 @@ defaultBuildTemplateForMppLib(
 //    withNativeLinux64 = true,
 //    withKotlinxHtml = true,
     details = libs.TemplateMPP
-)
+) {
+    implementation(kotlin.compose.runtime)
+    implementation(kotlin.compose.web.core)
+}
 
 // region [Kotlin Module Build Template]
 
