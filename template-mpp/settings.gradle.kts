@@ -12,6 +12,5 @@ plugins { id("pl.mareklangiewicz.deps.settings") }
 rootProject.name = "template-mpp"
 
 include(":template-mpp-lib")
-include(":template-jvm-cli")
 include(":template-mpp-app")
-//include(":template-native-cli") TODO
+include(":template-jvm-cli")

@@ -1,9 +1,11 @@
-import okio.Path.Companion.toPath
 import pl.mareklangiewicz.defaults.*
 import pl.mareklangiewicz.ure.*
 import pl.mareklangiewicz.utils.*
 
-plugins { id("io.github.gradle-nexus.publish-plugin") version vers.nexusPublishGradlePlugin }
+plugins {
+    id("io.github.gradle-nexus.publish-plugin") version vers.nexusPublishGradlePlugin
+    kotlin("multiplatform") version vers.kotlinForCompose apply false
+}
 
 defaultGroupAndVerAndDescription(libs.TemplateMPP)
 

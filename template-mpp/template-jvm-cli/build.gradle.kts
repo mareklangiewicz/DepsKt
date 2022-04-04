@@ -4,7 +4,7 @@ import pl.mareklangiewicz.deps.*
 import pl.mareklangiewicz.utils.*
 
 plugins {
-    kotlin("jvm") version vers.kotlin
+    kotlin("jvm")
     application
 }
 
