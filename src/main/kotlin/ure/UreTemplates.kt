@@ -92,7 +92,8 @@ private fun injectBuildRegion(regionLabel: String, inputResPath: Path, outputPat
         val outputMR = ureWithBuildRegion.compile().matchEntire(output) ?: error("No match $outputPath")
         val before by outputMR
         val after by outputMR
-        val newOutput = before + region + after
+        val newAfter = if (after.isNotEmpty() && region.last() != '\n') "\n" + after else after
+        val newOutput = before + region + newAfter
         val summary = if (newOutput == output) "No changes." else "Changes detected (len ${output.length}->${newOutput.length})"
         println("Inject [$regionLabel] to $outputPath - $summary")
         newOutput
