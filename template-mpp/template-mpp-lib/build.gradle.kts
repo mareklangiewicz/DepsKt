@@ -11,6 +11,7 @@ plugins {
 
 defaultBuildTemplateForMppLib(
     withNativeLinux64 = true,
+    withKotlinxHtml = true,
     details = libs.TemplateMPP
 )
 
@@ -67,7 +68,7 @@ fun KotlinMultiplatformExtension.allDefault(
     sourceSets {
         val commonMain by getting {
             dependencies {
-                if (withKotlinxHtml) api(deps.kotlinxHtml)
+                if (withKotlinxHtml) implementation(deps.kotlinxHtml)
                 addCommonMainDependencies()
             }
         }
