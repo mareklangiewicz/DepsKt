@@ -10,8 +10,8 @@ plugins {
 }
 
 defaultBuildTemplateForMppLib(
-    withNativeLinux64 = true,
-    withKotlinxHtml = true,
+//    withNativeLinux64 = true,
+//    withKotlinxHtml = true,
     details = libs.TemplateMPP
 )
 

@@ -9,7 +9,7 @@ plugins {
 
 defaultBuildTemplateForMppApp(
     appMainPackage = "pl.mareklangiewicz.hello",
-    withNativeLinux64 = true,
+//    withNativeLinux64 = true,
     details = libs.TemplateMPP,
 ) {
     implementation(project(":template-mpp-lib"))
