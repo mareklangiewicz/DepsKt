@@ -13,9 +13,9 @@ import pl.mareklangiewicz.defaults.v
 object Vers {
     val kotlin14 = v(1, 4, 32)
     val kotlin15 = v(1, 5, 31)
-    val kotlin16ForCompose = v(1, 6, 10)
     val kotlin16 = v(1, 6, 20)
     val kotlin = kotlin16
+    val kotlinForCompose = v(1, 6, 10)
     // https://kotlinlang.org/docs/releases.html#release-details
     // https://github.com/JetBrains/kotlin/blob/master/ChangeLog.md
     // https://github.com/JetBrains/kotlin/releases
