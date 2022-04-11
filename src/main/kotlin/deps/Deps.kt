@@ -32,7 +32,7 @@ object Deps {
     val kotlinTestJUnit = kotlin withName "kotlin-test-junit"
     val kotlinTestJs = kotlin withName "kotlin-test-js"
 
-    val composeDesktopGradlePlugin = dep("org.jetbrains.compose", "compose-gradle-plugin", vers.composeDesktop)
+    val composeJbGradlePlugin = dep("org.jetbrains.compose", "compose-gradle-plugin", vers.composeJb)
     val composeAndroidAnimation = dep("androidx.compose.animation", "animation", vers.composeAndroid)
     val composeAndroidAnimationCore = composeAndroidAnimation withName "animation-core"
     val composeAndroidCompiler = dep("androidx.compose.compiler", "compiler", vers.composeAndroidCompiler)

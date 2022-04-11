@@ -4,8 +4,8 @@ import pl.mareklangiewicz.defaults.*
 import pl.mareklangiewicz.deps.*
 
 plugins {
-    kotlin("multiplatform") version vers.kotlin
-    id("org.jetbrains.compose") version vers.composeDesktop
+    kotlin("multiplatform")
+    id("org.jetbrains.compose") version vers.composeJb
     id("maven-publish")
     id("signing")
 }

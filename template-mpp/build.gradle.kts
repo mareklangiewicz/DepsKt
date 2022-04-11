@@ -23,7 +23,7 @@ tasks.registerAllThatGroupFun("inject",
 
 fun checkTemplates() {
     checkRootBuildTemplate(rootBuild)
-    checkKotlinModuleBuildTemplates(mppLibBuild, jvmCliBuild)
+    checkKotlinModuleBuildTemplates(mppLibBuild, mppAppBuild, jvmCliBuild)
     checkMppModuleBuildTemplates(mppLibBuild, mppAppBuild)
     checkMppAppBuildTemplates(mppAppBuild)
     checkJvmAppBuildTemplates(jvmCliBuild)
@@ -31,7 +31,7 @@ fun checkTemplates() {
 
 fun injectTemplates() {
     injectRootBuildTemplate(rootBuild)
-    injectKotlinModuleBuildTemplate(mppLibBuild, jvmCliBuild)
+    injectKotlinModuleBuildTemplate(mppLibBuild, mppAppBuild, jvmCliBuild)
     injectMppModuleBuildTemplate(mppLibBuild, mppAppBuild)
     injectMppAppBuildTemplate(mppAppBuild)
     injectJvmAppBuildTemplate(jvmCliBuild)

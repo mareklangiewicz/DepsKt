@@ -15,7 +15,7 @@ object Vers {
     val kotlin15 = v(1, 5, 31)
     val kotlin16 = v(1, 6, 20)
     val kotlinForCompose = v(1, 6, 10)
-    val kotlin = kotlinForCompose
+    val kotlin = kotlin16
     // https://kotlinlang.org/docs/releases.html#release-details
     // https://github.com/JetBrains/kotlin/blob/master/ChangeLog.md
     // https://github.com/JetBrains/kotlin/releases
@@ -50,9 +50,10 @@ object Vers {
     // https://services.gradle.org/versions/current
     // https://services.gradle.org/versions/release-candidate
 
-    const val composeDesktopVerMain = "1.1.1"
-    const val composeDesktopVerEdge = "1.2.0-alpha01-dev620"
-    const val composeDesktop = composeDesktopVerEdge
+    const val composeJbMain = "1.1.1"
+    const val composeJbEdge = "1.2.0-alpha01-dev620"
+    const val composeJbEdgeForKotlin1620 = "1.2.0-alpha01-dev597"
+    const val composeJb = composeJbEdge
 
     // https://github.com/JetBrains/compose-jb
     // https://github.com/JetBrains/compose-jb/releases

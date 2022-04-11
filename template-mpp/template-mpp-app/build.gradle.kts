@@ -4,7 +4,7 @@ import pl.mareklangiewicz.defaults.*
 import pl.mareklangiewicz.deps.*
 
 plugins {
-    kotlin("multiplatform") version vers.kotlin
+    kotlin("multiplatform")
 }
 
 defaultBuildTemplateForMppApp(
