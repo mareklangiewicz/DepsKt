@@ -76,7 +76,9 @@ private fun FileSystem.checkBuildRegion(regionLabel: String, regionExpected: Str
     val ureWithBuildRegion = ureWithSpecialRegion(regionLabel)
     require(ureWithBuildRegion.compile().matches(regionExpected)) { "regionExpected doesn't match ureWithBuildRegion(regionLabel)" }
     val region by readAndMatchUre(outputPath, ureWithBuildRegion) ?: error("No match $outputPath")
-    check(region == regionExpected) { "ERROR Region: [$regionLabel] in File: $outputPath was modified.".also { println(it) } }
+    check(region.trimEnd('\n') == regionExpected.trimEnd('\n')) {
+        "ERROR Region: [$regionLabel] in File: $outputPath was modified.".also { println(it) }
+    }
     if (verbose) println("OK [$regionLabel] in $outputPath")
 }
 
