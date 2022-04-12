@@ -9,8 +9,8 @@ plugins {
 
 defaultBuildTemplateForMppApp(
     appMainPackage = "pl.mareklangiewicz.hello",
-//    withNativeLinux64 = true,
     details = libs.TemplateMPP,
+//    withNativeLinux64 = true,
 ) {
     implementation(project(":template-mpp-lib"))
 }
@@ -34,11 +34,11 @@ fun TaskCollection<Task>.defaultKotlinCompileOptions(
 
 /** Only for very standard small libs. In most cases it's better to not use this function. */
 fun Project.defaultBuildTemplateForMppLib(
+    details: LibDetails = libs.Unknown,
     withJvm: Boolean = true,
     withJs: Boolean = true,
     withNativeLinux64: Boolean = false,
     withKotlinxHtml: Boolean = false,
-    details: LibDetails = libs.Unknown,
     addCommonMainDependencies: KotlinDependencyHandler.() -> Unit = {}
 ) {
     repositories { defaultRepos(withKotlinxHtml = withKotlinxHtml) }
@@ -113,15 +113,14 @@ fun KotlinMultiplatformExtension.jsDefault(
 fun Project.defaultBuildTemplateForMppApp(
     appMainPackage: String,
     appMainFun: String = "main",
+    details: LibDetails = libs.Unknown,
     withJvm: Boolean = true,
     withJs: Boolean = true,
     withNativeLinux64: Boolean = false,
     withKotlinxHtml: Boolean = false,
-    details: LibDetails = libs.Unknown,
     addCommonMainDependencies: KotlinDependencyHandler.() -> Unit = {}
 ) {
-    // TODO NOW: withCompose
-    defaultBuildTemplateForMppLib(withJvm, withJs, withNativeLinux64, withKotlinxHtml, details, addCommonMainDependencies)
+    defaultBuildTemplateForMppLib(details, withJvm, withJs, withNativeLinux64, withKotlinxHtml, addCommonMainDependencies)
     kotlin {
         if (withJvm) jvm {
             println("MPP App ${project.name}: Generating general jvm executables with kotlin multiplatform plugin is not supported (without compose).")

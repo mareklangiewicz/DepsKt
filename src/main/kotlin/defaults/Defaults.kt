@@ -27,7 +27,9 @@ fun RepositoryHandler.defaultRepos(
     withGoogle: Boolean = true,
     withKotlinx: Boolean = true,
     withKotlinxHtml: Boolean = false,
-    withJitpack: Boolean = true,
+    withComposeJbDev: Boolean = false,
+    withKtorEap: Boolean = false,
+    withJitpack: Boolean = false,
 ) {
     if (withMavenLocal) mavenLocal()
     if (withMavenCentral) mavenCentral()
@@ -35,6 +37,8 @@ fun RepositoryHandler.defaultRepos(
     if (withGoogle) google()
     if (withKotlinx) maven(repos.kotlinx)
     if (withKotlinxHtml) maven(repos.kotlinxHtml)
+    if (withComposeJbDev) maven(repos.composeJbDev)
+    if (withKtorEap) maven(repos.ktorEap)
     if (withJitpack) maven(repos.jitpack)
 }
 

@@ -11,7 +11,7 @@ object Repos {
     const val ktorEap = "https://maven.pkg.jetbrains.space/public/p/ktor/eap"
     const val kotlinxHtml = "https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven"
 
-    const val composeDesktopDev = "https://maven.pkg.jetbrains.space/public/p/compose/dev"
+    const val composeJbDev = "https://maven.pkg.jetbrains.space/public/p/compose/dev"
 
     const val jitpack = "https://jitpack.io"
 
