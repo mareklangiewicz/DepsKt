@@ -9,7 +9,7 @@ plugins {
     id("org.jetbrains.compose") version vers.composeJb
 }
 
-defaultBuildTemplateForMppApp(
+defaultBuildTemplateForComposeMppApp(
     appMainPackage = "pl.mareklangiewicz.hello",
     details = libs.TemplateMPP,
 //    withNativeLinux64 = true,
@@ -226,5 +226,62 @@ fun Project.defaultBuildTemplateForComposeMppLib(
 // endregion [Compose MPP Module Build Template]
 
 // region [Compose MPP App Build Template]
-// TODO NOW: implement
+
+/** Only for very standard compose mpp apps. In most cases it's better to not use this function. */
+@Suppress("UNUSED_VARIABLE")
+fun Project.defaultBuildTemplateForComposeMppApp(
+    appMainPackage: String,
+    appMainClass: String = "App_jvmKt", // for compose jvm
+    appMainFun: String = "main", // for native
+    details: LibDetails = libs.Unknown,
+    withJvm: Boolean = true,
+    withJs: Boolean = true,
+    withNativeLinux64: Boolean = false,
+    withKotlinxHtml: Boolean = false,
+    withComposeUi: Boolean = withJvm,
+    withComposeFoundation: Boolean = withJvm,
+    withComposeMaterial2: Boolean = withJvm,
+    withComposeMaterial3: Boolean = withJvm,
+    withComposeMaterialIconsExtended: Boolean = withJvm,
+    withComposeFullAnimation: Boolean = withJvm,
+    withComposeDesktop: Boolean = withJvm,
+    withComposeDesktopComponents: Boolean = withJvm,
+    withComposeWebCore: Boolean = withJs,
+    withComposeWebSvg: Boolean = withJs,
+    withComposeTestUiJUnit4: Boolean = withJvm,
+    withComposeTestWebUtils: Boolean = withJs,
+    addCommonMainDependencies: KotlinDependencyHandler.() -> Unit = {}
+) {
+    defaultBuildTemplateForComposeMppLib(details, withJvm, withJs, withNativeLinux64, withKotlinxHtml, withComposeUi,
+        withComposeFoundation, withComposeMaterial2, withComposeMaterial3, withComposeMaterialIconsExtended,
+        withComposeFullAnimation, withComposeDesktop, withComposeDesktopComponents, withComposeWebCore,
+        withComposeWebSvg, withComposeTestUiJUnit4, withComposeTestWebUtils, addCommonMainDependencies)
+    kotlin {
+        if (withJs) js(IR) {
+            binaries.executable()
+        }
+    }
+    if (withJvm) {
+        compose.desktop {
+            application {
+                mainClass = "$appMainPackage.$appMainClass"
+            }
+            // TODO NOW: parameters for default jvm "native" packages
+            // nativeDistributions {
+            //     targetFormats(org.jetbrains.compose.desktop.application.dsl.TargetFormat.Dmg, org.jetbrains.compose.desktop.application.dsl.TargetFormat.Msi, org.jetbrains.compose.desktop.application.dsl.TargetFormat.Deb)
+            //     packageName = "kthreelhu"
+            //     packageVersion = "1.0.0"
+            // }
+        }
+    }
+    // TODO NOW: check if it doesn't conflict with compose
+    // if (withNativeLinux64) linuxX64 {
+    //     binaries {
+    //         executable {
+    //             entryPoint = "$appMainPackage.$appMainFun"
+    //         }
+    //     }
+    // }
+}
+
 // endregion [Compose MPP App Build Template]
