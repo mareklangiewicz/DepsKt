@@ -269,13 +269,13 @@ fun Project.defaultBuildTemplateForComposeMppApp(
         compose.desktop {
             application {
                 mainClass = "$appMainPackage.$appMainClass"
+                nativeDistributions {
+                    targetFormats(org.jetbrains.compose.desktop.application.dsl.TargetFormat.Deb)
+                    packageName = details.name
+                    packageVersion = details.version
+                    description = details.description
+                }
             }
-            // TODO NOW: parameters for default jvm "native" packages
-            // nativeDistributions {
-            //     targetFormats(org.jetbrains.compose.desktop.application.dsl.TargetFormat.Dmg, org.jetbrains.compose.desktop.application.dsl.TargetFormat.Msi, org.jetbrains.compose.desktop.application.dsl.TargetFormat.Deb)
-            //     packageName = "kthreelhu"
-            //     packageVersion = "1.0.0"
-            // }
         }
     }
 }
