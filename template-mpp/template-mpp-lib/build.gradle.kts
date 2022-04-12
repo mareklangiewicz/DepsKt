@@ -12,7 +12,7 @@ plugins {
 }
 
 defaultBuildTemplateForComposeMppLib(
-    details = libs.TemplateMPP
+    details = libs.TemplateMPP,
 //    withNativeLinux64 = true,
 //    withKotlinxHtml = true,
 )
@@ -136,13 +136,9 @@ fun Project.defaultBuildTemplateForComposeMppLib(
     defaultBuildTemplateForMppLib(details, withJvm, withJs, withNativeLinux64, withKotlinxHtml, true, addCommonMainDependencies)
     kotlin {
         sourceSets {
-            val commonMain by getting {
-                dependencies {
-                    implementation(compose.runtime)
-                }
-            }
             val jvmMain by getting {
                 dependencies {
+                    implementation(compose.runtime)
                     if (withComposeUi) {
                         implementation(compose.ui)
                         implementation(compose.uiTooling)
@@ -167,6 +163,7 @@ fun Project.defaultBuildTemplateForComposeMppLib(
             }
             val jsMain by getting {
                 dependencies {
+                    implementation(compose.runtime)
                     if (withComposeWebCore) implementation(compose.web.core)
                     if (withComposeWebSvg) implementation(compose.web.svg)
                 }

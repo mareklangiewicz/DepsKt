@@ -174,13 +174,9 @@ fun Project.defaultBuildTemplateForComposeMppLib(
     defaultBuildTemplateForMppLib(details, withJvm, withJs, withNativeLinux64, withKotlinxHtml, true, addCommonMainDependencies)
     kotlin {
         sourceSets {
-            val commonMain by getting {
-                dependencies {
-                    implementation(compose.runtime)
-                }
-            }
             val jvmMain by getting {
                 dependencies {
+                    implementation(compose.runtime)
                     if (withComposeUi) {
                         implementation(compose.ui)
                         implementation(compose.uiTooling)
@@ -205,6 +201,7 @@ fun Project.defaultBuildTemplateForComposeMppLib(
             }
             val jsMain by getting {
                 dependencies {
+                    implementation(compose.runtime)
                     if (withComposeWebCore) implementation(compose.web.core)
                     if (withComposeWebSvg) implementation(compose.web.svg)
                 }
@@ -260,6 +257,13 @@ fun Project.defaultBuildTemplateForComposeMppApp(
         if (withJs) js(IR) {
             binaries.executable()
         }
+        if (withNativeLinux64) linuxX64 {
+            binaries {
+                executable {
+                    entryPoint = "$appMainPackage.$appMainFun"
+                }
+            }
+        }
     }
     if (withJvm) {
         compose.desktop {
@@ -274,14 +278,6 @@ fun Project.defaultBuildTemplateForComposeMppApp(
             // }
         }
     }
-    // TODO NOW: check if it doesn't conflict with compose
-    // if (withNativeLinux64) linuxX64 {
-    //     binaries {
-    //         executable {
-    //             entryPoint = "$appMainPackage.$appMainFun"
-    //         }
-    //     }
-    // }
 }
 
 // endregion [Compose MPP App Build Template]
