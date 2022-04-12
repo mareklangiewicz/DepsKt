@@ -1,3 +1,4 @@
+import org.jetbrains.compose.*
 import org.jetbrains.kotlin.gradle.plugin.*
 import org.jetbrains.kotlin.gradle.dsl.*
 import pl.mareklangiewicz.defaults.*
@@ -5,6 +6,7 @@ import pl.mareklangiewicz.deps.*
 
 plugins {
     kotlin("multiplatform")
+    id("org.jetbrains.compose") version vers.composeJb
 }
 
 defaultBuildTemplateForMppApp(
@@ -39,9 +41,10 @@ fun Project.defaultBuildTemplateForMppLib(
     withJs: Boolean = true,
     withNativeLinux64: Boolean = false,
     withKotlinxHtml: Boolean = false,
+    withComposeJbDevRepo: Boolean = false,
     addCommonMainDependencies: KotlinDependencyHandler.() -> Unit = {}
 ) {
-    repositories { defaultRepos(withKotlinxHtml = withKotlinxHtml) }
+    repositories { defaultRepos(withKotlinxHtml = withKotlinxHtml, withComposeJbDev = withComposeJbDevRepo) }
     defaultGroupAndVerAndDescription(details)
     kotlin { allDefault(withJvm, withJs, withNativeLinux64, withKotlinxHtml, addCommonMainDependencies) }
     tasks.defaultKotlinCompileOptions()
@@ -118,9 +121,10 @@ fun Project.defaultBuildTemplateForMppApp(
     withJs: Boolean = true,
     withNativeLinux64: Boolean = false,
     withKotlinxHtml: Boolean = false,
+    withComposeJbDevRepo: Boolean = false,
     addCommonMainDependencies: KotlinDependencyHandler.() -> Unit = {}
 ) {
-    defaultBuildTemplateForMppLib(details, withJvm, withJs, withNativeLinux64, withKotlinxHtml, addCommonMainDependencies)
+    defaultBuildTemplateForMppLib(details, withJvm, withJs, withNativeLinux64, withKotlinxHtml, withComposeJbDevRepo, addCommonMainDependencies)
     kotlin {
         if (withJvm) jvm {
             println("MPP App ${project.name}: Generating general jvm executables with kotlin multiplatform plugin is not supported (without compose).")
@@ -143,7 +147,82 @@ fun Project.defaultBuildTemplateForMppApp(
 // endregion [MPP App Build Template]
 
 // region [Compose MPP Module Build Template]
-// TODO NOW: use inject to fix this region
+
+/** Only for very standard compose mpp libs. In most cases it's better to not use this function. */
+@Suppress("UNUSED_VARIABLE")
+@OptIn(ExperimentalComposeLibrary::class)
+fun Project.defaultBuildTemplateForComposeMppLib(
+    details: LibDetails = libs.Unknown,
+    withJvm: Boolean = true,
+    withJs: Boolean = true,
+    withNativeLinux64: Boolean = false,
+    withKotlinxHtml: Boolean = false,
+    withComposeUi: Boolean = withJvm,
+    withComposeFoundation: Boolean = withJvm,
+    withComposeMaterial2: Boolean = withJvm,
+    withComposeMaterial3: Boolean = withJvm,
+    withComposeMaterialIconsExtended: Boolean = withJvm,
+    withComposeFullAnimation: Boolean = withJvm,
+    withComposeDesktop: Boolean = withJvm,
+    withComposeDesktopComponents: Boolean = withJvm,
+    withComposeWebCore: Boolean = withJs,
+    withComposeWebSvg: Boolean = withJs,
+    withComposeTestUiJUnit4: Boolean = withJvm,
+    withComposeTestWebUtils: Boolean = withJs,
+    addCommonMainDependencies: KotlinDependencyHandler.() -> Unit = {}
+) {
+    defaultBuildTemplateForMppLib(details, withJvm, withJs, withNativeLinux64, withKotlinxHtml, true, addCommonMainDependencies)
+    kotlin {
+        sourceSets {
+            val commonMain by getting {
+                dependencies {
+                    implementation(compose.runtime)
+                }
+            }
+            val jvmMain by getting {
+                dependencies {
+                    if (withComposeUi) {
+                        implementation(compose.ui)
+                        implementation(compose.uiTooling)
+                        implementation(compose.preview)
+                    }
+                    if (withComposeFoundation) implementation(compose.foundation)
+                    if (withComposeMaterial2) implementation(compose.material)
+                    if (withComposeMaterial3) implementation(compose.material3)
+                    if (withComposeMaterialIconsExtended) implementation(compose.materialIconsExtended)
+                    if (withComposeFullAnimation) {
+                        implementation(compose.animation)
+                        implementation(compose.animationGraphics)
+                    }
+                    if (withComposeDesktop) {
+                        implementation(compose.desktop.common)
+                        implementation(compose.desktop.currentOs)
+                    }
+                    if (withComposeDesktopComponents) {
+                        implementation(compose.desktop.components.splitPane)
+                    }
+                }
+            }
+            val jsMain by getting {
+                dependencies {
+                    if (withComposeWebCore) implementation(compose.web.core)
+                    if (withComposeWebSvg) implementation(compose.web.svg)
+                }
+            }
+            val jvmTest by getting {
+                dependencies {
+                    if (withComposeTestUiJUnit4) implementation(compose.uiTestJUnit4)
+                }
+            }
+            val jsTest by getting {
+                dependencies {
+                    if (withComposeTestWebUtils) implementation(compose.web.testUtils)
+                }
+            }
+        }
+    }
+}
+
 // endregion [Compose MPP Module Build Template]
 
 // region [Compose MPP App Build Template]
