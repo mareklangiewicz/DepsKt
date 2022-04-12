@@ -141,3 +141,11 @@ fun Project.defaultBuildTemplateForMppApp(
 }
 
 // endregion [MPP App Build Template]
+
+// region [Compose MPP Module Build Template]
+// TODO NOW: use inject to fix this region
+// endregion [Compose MPP Module Build Template]
+
+// region [Compose MPP App Build Template]
+// TODO NOW: implement
+// endregion [Compose MPP App Build Template]

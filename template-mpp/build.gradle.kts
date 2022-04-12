@@ -26,6 +26,8 @@ fun checkTemplates() {
     checkKotlinModuleBuildTemplates(mppLibBuild, mppAppBuild, jvmCliBuild)
     checkMppModuleBuildTemplates(mppLibBuild, mppAppBuild)
     checkMppAppBuildTemplates(mppAppBuild)
+    checkComposeMppModuleBuildTemplates(mppLibBuild, mppAppBuild)
+    checkComposeMppAppBuildTemplates(mppAppBuild)
     checkJvmAppBuildTemplates(jvmCliBuild)
 }
 
@@ -34,6 +36,8 @@ fun injectTemplates() {
     injectKotlinModuleBuildTemplate(mppLibBuild, mppAppBuild, jvmCliBuild)
     injectMppModuleBuildTemplate(mppLibBuild, mppAppBuild)
     injectMppAppBuildTemplate(mppAppBuild)
+    injectComposeMppModuleBuildTemplate(mppLibBuild, mppAppBuild)
+    injectComposeMppAppBuildTemplate(mppAppBuild)
     injectJvmAppBuildTemplate(jvmCliBuild)
 }
 
