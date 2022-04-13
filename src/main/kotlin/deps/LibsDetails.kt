@@ -30,7 +30,7 @@ object LibsDetails {
 
     val AbcdK = lib(
         name = "AbcdK",
-        version = v(0, 0, 6),
+        version = v(0, 0, 7),
         description = "Tiny unions lib for Kotlin.",
         githubUrl = "https://github.com/langara/AbcdK",
     )
