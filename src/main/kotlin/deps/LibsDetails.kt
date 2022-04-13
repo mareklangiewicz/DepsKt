@@ -49,6 +49,13 @@ object LibsDetails {
         githubUrl = "https://github.com/langara/MyStolenPlaygrounds",
     )
 
+    val Kthreelhu = lib(
+        name = "Kthreelhu",
+        version = v(0, 0, 2),
+        description = "Dirty experiments with Kotlin + Three.js + Compose",
+        githubUrl = "https://github.com/langara/Kthreelhu",
+    )
+
     val TemplateMPP = lib(
         name = "TemplateMPP",
         version = v(0, 0, 2),
