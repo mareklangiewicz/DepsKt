@@ -101,7 +101,8 @@ private fun injectBuildRegion(regionLabel: String, inputResPath: Path, outputPat
         val before by outputMR
         val after by outputMR
         val newAfter = if (after.isNotEmpty() && region.last() != '\n') "\n" + after else after
-        val newOutput = before + region + newAfter
+        val newRegion = if (newAfter.isEmpty()) region.trimEnd() else region
+        val newOutput = before + newRegion + newAfter
         val summary = if (newOutput == output) "No changes." else "Changes detected (len ${output.length}->${newOutput.length})"
         println("Inject [$regionLabel] to $outputPath - $summary")
         newOutput
