@@ -151,7 +151,17 @@ fun Project.defaultBuildTemplateForComposeMppLib(
     withComposeTestWebUtils: Boolean = withJs,
     addCommonMainDependencies: KotlinDependencyHandler.() -> Unit = {}
 ) {
-    defaultBuildTemplateForMppLib(details, withJvm, withJs, withNativeLinux64, withKotlinxHtml, true, addCommonMainDependencies)
+    defaultBuildTemplateForMppLib(
+        details = details,
+        withJvm = withJvm,
+        withJs = withJs,
+        withNativeLinux64 = withNativeLinux64,
+        withKotlinxHtml = withKotlinxHtml,
+        withComposeJbDevRepo = true,
+        withTestJUnit5 = false, // Unfortunately Compose UI steel uses JUnit4 instead of 5
+        withTestUSpekX = true,
+        addCommonMainDependencies = addCommonMainDependencies
+    )
     kotlin {
         sourceSets {
             val jvmMain by getting {

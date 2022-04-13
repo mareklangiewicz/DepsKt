@@ -251,11 +251,27 @@ fun Project.defaultBuildTemplateForComposeMppApp(
     withComposeTestWebUtils: Boolean = withJs,
     addCommonMainDependencies: KotlinDependencyHandler.() -> Unit = {}
 ) {
-    defaultBuildTemplateForComposeMppLib(details, withJvm, withJs, withNativeLinux64, withKotlinxHtml, withComposeUi,
-        withComposeFoundation, withComposeMaterial2, withComposeMaterial3, withComposeMaterialIconsExtended,
-        withComposeFullAnimation, withComposeDesktop, withComposeDesktopComponents, withComposeWebCore,
-        withComposeWebWidgets, withComposeWebSvg, withComposeTestUiJUnit4, withComposeTestWebUtils,
-        addCommonMainDependencies)
+    defaultBuildTemplateForComposeMppLib(
+        details = details,
+        withJvm = withJvm,
+        withJs = withJs,
+        withNativeLinux64 = withNativeLinux64,
+        withKotlinxHtml = withKotlinxHtml,
+        withComposeUi = withComposeUi,
+        withComposeFoundation = withComposeFoundation,
+        withComposeMaterial2 = withComposeMaterial2,
+        withComposeMaterial3 = withComposeMaterial3,
+        withComposeMaterialIconsExtended = withComposeMaterialIconsExtended,
+        withComposeFullAnimation = withComposeFullAnimation,
+        withComposeDesktop = withComposeDesktop,
+        withComposeDesktopComponents = withComposeDesktopComponents,
+        withComposeWebCore = withComposeWebCore,
+        withComposeWebWidgets = withComposeWebWidgets,
+        withComposeWebSvg = withComposeWebSvg,
+        withComposeTestUiJUnit4 = withComposeTestUiJUnit4,
+        withComposeTestWebUtils = withComposeTestWebUtils,
+        addCommonMainDependencies = addCommonMainDependencies
+    )
     kotlin {
         if (withJs) js(IR) {
             binaries.executable()
