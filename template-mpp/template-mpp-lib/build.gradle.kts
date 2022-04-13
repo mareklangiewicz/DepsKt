@@ -128,7 +128,7 @@ fun Project.defaultBuildTemplateForComposeMppLib(
     withComposeDesktop: Boolean = withJvm,
     withComposeDesktopComponents: Boolean = withJvm,
     withComposeWebCore: Boolean = withJs,
-    withComposeWebWidgets: Boolean = withJs,
+    withComposeWebWidgets: Boolean = false,
     withComposeWebSvg: Boolean = withJs,
     withComposeTestUiJUnit4: Boolean = withJvm,
     withComposeTestWebUtils: Boolean = withJs,
