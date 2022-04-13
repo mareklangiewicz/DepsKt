@@ -42,13 +42,23 @@ fun Project.defaultBuildTemplateForMppLib(
     withNativeLinux64: Boolean = false,
     withKotlinxHtml: Boolean = false,
     withComposeJbDevRepo: Boolean = false,
+    withTestJUnit5: Boolean = true,
+    withTestUSpekX: Boolean = true,
     addCommonMainDependencies: KotlinDependencyHandler.() -> Unit = {}
 ) {
     repositories { defaultRepos(withKotlinxHtml = withKotlinxHtml, withComposeJbDev = withComposeJbDevRepo) }
     defaultGroupAndVerAndDescription(details)
-    kotlin { allDefault(withJvm, withJs, withNativeLinux64, withKotlinxHtml, addCommonMainDependencies) }
+    kotlin { allDefault(
+        withJvm,
+        withJs,
+        withNativeLinux64,
+        withKotlinxHtml,
+        withTestJUnit5,
+        withTestUSpekX,
+        addCommonMainDependencies
+    ) }
     tasks.defaultKotlinCompileOptions()
-    tasks.defaultTestsOptions()
+    tasks.defaultTestsOptions(onJvmUseJUnitPlatform = withTestJUnit5)
     if (plugins.hasPlugin("maven-publish")) {
         defaultPublishing(details)
         if (plugins.hasPlugin("signing")) defaultSigning()
@@ -64,6 +74,8 @@ fun KotlinMultiplatformExtension.allDefault(
     withJs: Boolean = true,
     withNativeLinux64: Boolean = false,
     withKotlinxHtml: Boolean = false,
+    withTestJUnit5: Boolean = true,
+    withTestUSpekX: Boolean = true,
     addCommonMainDependencies: KotlinDependencyHandler.() -> Unit = {}
 ) {
     if (withJvm) jvm()
@@ -79,7 +91,12 @@ fun KotlinMultiplatformExtension.allDefault(
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))
-                implementation(deps.uspekx)
+                if (withTestUSpekX) implementation(deps.uspekx)
+            }
+        }
+        val jvmTest by getting {
+            dependencies {
+                if (withTestJUnit5) implementation(deps.junit5engine)
             }
         }
     }
@@ -120,9 +137,21 @@ fun Project.defaultBuildTemplateForMppApp(
     withNativeLinux64: Boolean = false,
     withKotlinxHtml: Boolean = false,
     withComposeJbDevRepo: Boolean = false,
+    withTestJUnit5: Boolean = true,
+    withTestUSpekX: Boolean = true,
     addCommonMainDependencies: KotlinDependencyHandler.() -> Unit = {}
 ) {
-    defaultBuildTemplateForMppLib(details, withJvm, withJs, withNativeLinux64, withKotlinxHtml, withComposeJbDevRepo, addCommonMainDependencies)
+    defaultBuildTemplateForMppLib(
+        details = details,
+        withJvm = withJvm,
+        withJs = withJs,
+        withNativeLinux64 = withNativeLinux64,
+        withKotlinxHtml = withKotlinxHtml,
+        withComposeJbDevRepo = withComposeJbDevRepo,
+        withTestJUnit5 = withTestJUnit5,
+        withTestUSpekX = withTestUSpekX,
+        addCommonMainDependencies = addCommonMainDependencies
+    )
     kotlin {
         if (withJvm) jvm {
             println("MPP App ${project.name}: Generating general jvm executables with kotlin multiplatform plugin is not supported (without compose).")
@@ -170,7 +199,17 @@ fun Project.defaultBuildTemplateForComposeMppLib(
     withComposeTestWebUtils: Boolean = withJs,
     addCommonMainDependencies: KotlinDependencyHandler.() -> Unit = {}
 ) {
-    defaultBuildTemplateForMppLib(details, withJvm, withJs, withNativeLinux64, withKotlinxHtml, true, addCommonMainDependencies)
+    defaultBuildTemplateForMppLib(
+        details = details,
+        withJvm = withJvm,
+        withJs = withJs,
+        withNativeLinux64 = withNativeLinux64,
+        withKotlinxHtml = withKotlinxHtml,
+        withComposeJbDevRepo = true,
+        withTestJUnit5 = false, // Unfortunately Compose UI steel uses JUnit4 instead of 5
+        withTestUSpekX = true,
+        addCommonMainDependencies = addCommonMainDependencies
+    )
     kotlin {
         sourceSets {
             val jvmMain by getting {
