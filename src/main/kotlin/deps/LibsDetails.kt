@@ -23,7 +23,7 @@ object LibsDetails {
 
     val UPue = lib(
         name = "UPue",
-        version = v(0, 0, 9),
+        version = v(0, 0, 10),
         description = "Micro Multiplatform Reactive Library.",
         githubUrl = "https://github.com/langara/UPue",
     )

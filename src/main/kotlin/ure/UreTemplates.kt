@@ -46,12 +46,14 @@ fun checkAndroCommonBuildTemplates(vararg buildFiles: Path) = checkSomeBuildTemp
 fun checkAndroLibBuildTemplates(vararg buildFiles: Path) = checkSomeBuildTemplates(androLibRegionLabel, androLibResPath, *buildFiles)
 fun checkAndroAppBuildTemplates(vararg buildFiles: Path) = checkSomeBuildTemplates(androAppRegionLabel, androAppResPath, *buildFiles)
 
-fun checkSomeBuildTemplates(regionLabel: String, srcResPath: Path, vararg buildFiles: Path) {
+fun checkSomeBuildTemplates(regionLabel: String, srcResPath: Path, vararg buildFiles: Path) = try {
     println("BEGIN: Check [$regionLabel]:")
     checkAllBuildRegionsSync() // to be sure source of truth is clean
     val region by RESOURCES.readAndMatchUre(srcResPath, ureWithSpecialRegion(regionLabel)) ?: error("No match $srcResPath")
     for (path in buildFiles) SYSTEM.checkBuildRegion(regionLabel, region, path, verbose = true)
     println("END: Check [$regionLabel].")
+} catch (e: IllegalStateException) {
+    println("ERROR: ${e.message}")
 }
 
 private fun ureWithSpecialRegion(regionLabel: String) = ure {
