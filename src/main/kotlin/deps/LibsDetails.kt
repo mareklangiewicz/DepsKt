@@ -37,7 +37,7 @@ object LibsDetails {
 
     val TupleK = lib(
         name = "TupleK",
-        version = v(0, 0, 5),
+        version = v(0, 0, 6),
         description = "Tiny tuples lib for Kotlin with cool infix syntax.",
         githubUrl = "https://github.com/langara/TupleK",
     )
