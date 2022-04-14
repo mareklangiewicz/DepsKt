@@ -94,18 +94,23 @@ private fun injectBuildRegionToAll(regionLabel: String, inputResPath: Path, vara
 
 private fun injectBuildRegion(regionLabel: String, inputResPath: Path, outputPath: Path) {
     val ureWithBuildRegion = ureWithSpecialRegion(regionLabel)
-    val inputMR = RESOURCES.readAndMatchUre(inputResPath, ureWithBuildRegion) ?: error("No match $inputResPath")
+    val inputMR = RESOURCES.readAndMatchUre(inputResPath, ureWithBuildRegion) ?: error("No match in input: $inputResPath")
     val region by inputMR
     SYSTEM.processFile(outputPath, outputPath) { output ->
-        val outputMR = ureWithBuildRegion.compile().matchEntire(output) ?: error("No match $outputPath")
-        val before by outputMR
-        val after by outputMR
-        val newAfter = if (after.isNotEmpty() && region.last() != '\n') "\n" + after else after
-        val newRegion = if (newAfter.isEmpty()) region.trimEnd() else region
-        val newOutput = before + newRegion + newAfter
-        val summary = if (newOutput == output) "No changes." else "Changes detected (len ${output.length}->${newOutput.length})"
-        println("Inject [$regionLabel] to $outputPath - $summary")
-        newOutput
+        val outputMR = ureWithBuildRegion.compile().matchEntire(output)
+        if (outputMR == null) {
+            println("No match in output: $outputPath. Adding new region at the end...")
+            output + "\n\n" + region.trimEnd()
+        } else {
+            val before by outputMR
+            val after by outputMR
+            val newAfter = if (after.isNotEmpty() && region.last() != '\n') "\n" + after else after
+            val newRegion = if (newAfter.isEmpty()) region.trimEnd() else region
+            val newOutput = before + newRegion + newAfter
+            val summary = if (newOutput == output) "No changes." else "Changes detected (len ${output.length}->${newOutput.length})"
+            println("Inject [$regionLabel] to $outputPath - $summary")
+            newOutput
+        }
     }
 }
 
