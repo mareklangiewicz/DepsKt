@@ -101,7 +101,7 @@ private fun injectBuildRegion(regionLabel: String, inputResPath: Path, outputPat
     SYSTEM.processFile(outputPath, outputPath) { output ->
         val outputMR = ureWithBuildRegion.compile().matchEntire(output)
         if (outputMR == null) {
-            println("No match in output: $outputPath. Adding new region at the end...")
+            println("Inject [$regionLabel] to $outputPath - No match. Adding new region at the end.")
             output + "\n\n" + region.trimEnd()
         } else {
             val before by outputMR
