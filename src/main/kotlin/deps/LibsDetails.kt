@@ -9,7 +9,7 @@ object LibsDetails {
 
     val USpek = lib(
         name = "USpek",
-        version = v(0, 0, 22),
+        version = v(0, 0, 23),
         description = "Micro tool for testing with syntax similar to Spek, but shorter.",
         githubUrl = "https://github.com/langara/USpek",
     )
