@@ -93,10 +93,16 @@ fun KotlinMultiplatformExtension.allDefault(
                 if (withTestUSpekX) implementation(deps.uspekx)
             }
         }
-        val jvmTest by getting {
-            dependencies {
-                if (withTestJUnit5) implementation(deps.junit5engine)
+        if (withJvm) {
+            val jvmTest by getting {
+                dependencies {
+                    if (withTestJUnit5) implementation(deps.junit5engine)
+                }
             }
+        }
+        if (withNativeLinux64) {
+            val linuxX64Main by getting
+            val linuxX64Test by getting
         }
     }
 }

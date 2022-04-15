@@ -1,10 +1,13 @@
-import org.junit.jupiter.api.TestFactory
+import org.junit.*
 import pl.mareklangiewicz.hello.*
 import pl.mareklangiewicz.uspek.*
 
 class AppJvmTest {
-    @TestFactory fun exampleTests() = uspekTestFactory {
-        "just launch main fun" o {
+
+    @Ignore
+    @Test
+    fun exampleTests() = uspek {
+        "Launch main window (user has to close it)" o {
             main()
         }
     }
