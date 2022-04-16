@@ -299,19 +299,19 @@ object Vers {
     // https://mvnrepository.com/artifact/com.offbytwo/docopt
     // https://github.com/docopt/docopt.java
 
-    const val npmReact = "17.0.2"
+    const val npmReact = "18.0.0"
     // https://reactjs.org/versions
 
     const val npmStyled = "5.3.3"
 
     // https://github.com/JetBrains/kotlin-wrappers
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin-wrappers/kotlin-wrappers-bom
-    val kotlinJsWrappersBoM = "0.0.1-pre.293-kotlin-$kotlin"
+    val kotlinJsWrappersBoM = "0.0.1-pre.330-kotlin-$kotlin"
 
     // https://github.com/JetBrains/kotlin-wrappers/blob/master/kotlin-react/README.md
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin-wrappers/kotlin-react
     @Deprecated("Use BoM")
-    val kotlinJsWrappersReact = "$npmReact-pre.293-kotlin-$kotlin"
+    val kotlinJsWrappersReact = "$npmReact-pre.330-kotlin-$kotlin"
 
     // https://github.com/JetBrains/kotlin-wrappers/blob/master/kotlin-react-dom/README.md
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin-wrappers/kotlin-react-dom
@@ -322,7 +322,7 @@ object Vers {
     // https://github.com/JetBrains/kotlin-wrappers/blob/master/kotlin-styled/README.md
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin-wrappers/kotlin-styled
     @Deprecated("Use BoM")
-    val kotlinJsWrappersStyled = "$npmStyled-pre.293-kotlin-$kotlin"
+    val kotlinJsWrappersStyled = "$npmStyled-pre.330-kotlin-$kotlin"
 
 
     // My libs - see details in LibsDetails.kt:
