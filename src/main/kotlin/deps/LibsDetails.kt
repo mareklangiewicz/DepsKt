@@ -14,6 +14,13 @@ object LibsDetails {
         githubUrl = "https://github.com/langara/USpek",
     )
 
+    val RxMock = lib(
+        name = "RxMock",
+        version = v(0, 0, 3),
+        description = "Tiny library for mocking RxJava calls.",
+        githubUrl = "https://github.com/langara/RxMock",
+    )
+
     val KommandLine = lib(
         name = "KommandLine",
         version = v(0, 0, 7),
