@@ -14,6 +14,13 @@ object LibsDetails {
         githubUrl = "https://github.com/langara/USpek",
     )
 
+    val SMokK = lib(
+        name = "SMokK",
+        version = v(0, 0, 5),
+        description = "A bit scary library for mocking suspendable functions in Kotlin :-)",
+        githubUrl = "https://github.com/langara/SMokK",
+    )
+
     val RxMock = lib(
         name = "RxMock",
         version = v(0, 0, 3),
