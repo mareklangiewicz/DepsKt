@@ -14,7 +14,6 @@ object Vers {
     val kotlin14 = v(1, 4, 32)
     val kotlin15 = v(1, 5, 31)
     val kotlin16 = v(1, 6, 21)
-    val kotlinForCompose = v(1, 6, 10)
     val kotlin = kotlin16
     // https://kotlinlang.org/docs/releases.html#release-details
     // https://github.com/JetBrains/kotlin/blob/master/ChangeLog.md
@@ -51,8 +50,7 @@ object Vers {
     // https://services.gradle.org/versions/release-candidate
 
     const val composeJbMain = "1.1.1"
-    const val composeJbEdge = "1.2.0-alpha01-dev620"
-    const val composeJbEdgeForKotlin1620 = "1.2.0-alpha01-dev597"
+    const val composeJbEdge = "1.2.0-alpha01-dev679"
     const val composeJb = composeJbEdge
 
     // https://github.com/JetBrains/compose-jb
@@ -60,9 +58,9 @@ object Vers {
     // https://github.com/JetBrains/compose-jb/blob/master/CHANGELOG.md
 
 
-    const val composeAndroid = "1.2.0-alpha07"
+    const val composeAndroid = "1.2.0-alpha08"
     const val composeAndroidCompiler = composeAndroid
-    const val composeAndroidMaterial3 = "1.0.0-alpha09"
+    const val composeAndroidMaterial3 = "1.0.0-alpha10"
     // https://developer.android.com/jetpack/androidx/releases/compose
 
     const val googleAccompanist = "0.24.5-alpha"
