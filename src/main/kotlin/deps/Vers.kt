@@ -174,7 +174,7 @@ object Vers {
     // https://github.com/square/okhttp
     // https://github.com/square/okhttp/releases
 
-    const val okio = "3.0.0"
+    const val okio = "3.1.0"
     // https://square.github.io/okio/changelog/
     // https://square.github.io/okio/#releases
 
