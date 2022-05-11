@@ -63,7 +63,7 @@ object Vers {
     const val composeAndroidMaterial3 = "1.0.0-alpha11"
     // https://developer.android.com/jetpack/androidx/releases/compose
 
-    const val googleAccompanist = "0.24.5-alpha"
+    const val googleAccompanist = "0.24.7-alpha"
     const val googleAccompanistImage = "0.15.0"
     const val googleAccompanistPicasso = "0.6.2"
     // https://search.maven.org/search?q=g:com.google.accompanist
