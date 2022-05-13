@@ -56,6 +56,13 @@ object LibsDetails {
         githubUrl = "https://github.com/langara/TupleK",
     )
 
+    val UWidgets = lib(
+        name = "UWidgets",
+        version = v(0, 0, 1),
+        description = "Micro widgets for Compose Multiplatform",
+        githubUrl = "https://github.com/langara/UWidgets",
+    )
+
     val MyStolenPlaygrounds = lib(
         name = "MyStolenPlaygrounds",
         version = v(0, 0, 1),
