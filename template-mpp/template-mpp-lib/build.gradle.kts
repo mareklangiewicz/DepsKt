@@ -13,8 +13,8 @@ plugins {
 
 defaultBuildTemplateForComposeMppLib(
     details = libs.TemplateMPP,
-//    withNativeLinux64 = true,
-//    withKotlinxHtml = true,
+    withNativeLinux64 = true,
+    withKotlinxHtml = true,
 )
 
 // region [Kotlin Module Build Template]

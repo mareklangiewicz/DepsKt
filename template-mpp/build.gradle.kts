@@ -4,7 +4,7 @@ import pl.mareklangiewicz.utils.*
 
 plugins {
     id("io.github.gradle-nexus.publish-plugin") version vers.nexusPublishGradlePlugin
-    kotlin("multiplatform") version vers.kotlinForCompose apply false
+    kotlin("multiplatform") version vers.kotlin apply false
 }
 
 defaultGroupAndVerAndDescription(libs.TemplateMPP)

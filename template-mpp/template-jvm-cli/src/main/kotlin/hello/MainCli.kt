@@ -7,4 +7,5 @@ import pl.mareklangiewicz.hello.*
 fun main(vararg args: String) {
     helloCommon()
     helloPlatform()
+    helloSomeHtml()
 }

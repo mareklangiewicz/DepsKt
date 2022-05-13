@@ -8,6 +8,10 @@ plugins {
     application
 }
 
+repositories { // TODO_later: why gradle needs compose repo here?
+    defaultRepos(withComposeJbDev = true)
+}
+
 defaultBuildTemplateForJvmApp(
     appMainPackage = "pl.mareklangiewicz.hello.cli",
     appMainClass = "MainCliKt",

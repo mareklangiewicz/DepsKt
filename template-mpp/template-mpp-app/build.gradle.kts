@@ -12,7 +12,8 @@ plugins {
 defaultBuildTemplateForComposeMppApp(
     appMainPackage = "pl.mareklangiewicz.hello",
     details = libs.TemplateMPP,
-//    withNativeLinux64 = true,
+    withNativeLinux64 = true,
+    withKotlinxHtml = true,
 ) {
     implementation(project(":template-mpp-lib"))
 }

@@ -5,7 +5,13 @@ import pl.mareklangiewicz.evts.*
 
 gradle.logSomeEventsToFile(rootProject.projectDir.toOkioPath() / "my.gradle.log")
 
-pluginManagement { includeBuild("..") } // deps.kt
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
+    }
+    includeBuild("..") // deps.kt
+}
 
 plugins { id("pl.mareklangiewicz.deps.settings") }
 
