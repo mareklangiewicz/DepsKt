@@ -190,8 +190,8 @@ fun Project.defaultBuildTemplateForComposeMppLib(
     withJs: Boolean = true,
     withNativeLinux64: Boolean = false,
     withKotlinxHtml: Boolean = false,
-    withComposeUi: Boolean = withJvm,
-    withComposeFoundation: Boolean = withJvm,
+    withComposeUi: Boolean = true,
+    withComposeFoundation: Boolean = true,
     withComposeMaterial2: Boolean = withJvm,
     withComposeMaterial3: Boolean = withJvm,
     withComposeMaterialIconsExtended: Boolean = withJvm,
@@ -218,22 +218,26 @@ fun Project.defaultBuildTemplateForComposeMppLib(
     )
     kotlin {
         sourceSets {
-            val jvmMain by getting {
+            val commonMain by getting {
                 dependencies {
                     implementation(compose.runtime)
                     if (withComposeUi) {
                         implementation(compose.ui)
+                    }
+                    if (withComposeFoundation) implementation(compose.foundation)
+                    if (withComposeFullAnimation) implementation(compose.animation)
+                    if (withComposeMaterial2) implementation(compose.material)
+                }
+            }
+            val jvmMain by getting {
+                dependencies {
+                    if (withComposeUi) {
                         implementation(compose.uiTooling)
                         implementation(compose.preview)
                     }
-                    if (withComposeFoundation) implementation(compose.foundation)
-                    if (withComposeMaterial2) implementation(compose.material)
+                    if (withComposeFullAnimation) implementation(compose.animationGraphics)
                     if (withComposeMaterial3) implementation(compose.material3)
                     if (withComposeMaterialIconsExtended) implementation(compose.materialIconsExtended)
-                    if (withComposeFullAnimation) {
-                        implementation(compose.animation)
-                        implementation(compose.animationGraphics)
-                    }
                     if (withComposeDesktop) {
                         implementation(compose.desktop.common)
                         implementation(compose.desktop.currentOs)
@@ -281,8 +285,8 @@ fun Project.defaultBuildTemplateForComposeMppApp(
     withJs: Boolean = true,
     withNativeLinux64: Boolean = false,
     withKotlinxHtml: Boolean = false,
-    withComposeUi: Boolean = withJvm,
-    withComposeFoundation: Boolean = withJvm,
+    withComposeUi: Boolean = true,
+    withComposeFoundation: Boolean = true,
     withComposeMaterial2: Boolean = withJvm,
     withComposeMaterial3: Boolean = withJvm,
     withComposeMaterialIconsExtended: Boolean = withJvm,
