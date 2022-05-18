@@ -69,7 +69,7 @@ object Vers {
     // https://search.maven.org/search?q=g:com.google.accompanist
     // https://google.github.io/accompanist/
 
-    const val androidGradlePlugin = "7.4.0-alpha01"
+    const val androidGradlePlugin = "7.4.0-alpha02"
     // https://maven.google.com/web/index.html#com.android.tools.build:gradle
     // https://developer.android.com/studio/releases/gradle-plugin
     // https://google.github.io/android-gradle-dsl/
@@ -106,7 +106,7 @@ object Vers {
     const val androidxConstraint1 = "1.1.3"
 
     // https://developer.android.com/training/constraint-layout
-    const val androidxConstraint2 = "2.1.1"
+    const val androidxConstraint2 = "2.1.3"
     const val androidxConstraint = androidxConstraint2
 
     const val androidxRecyclerview = "1.3.0-alpha01"
@@ -115,32 +115,32 @@ object Vers {
     const val androidxAnnotation = "1.3.0-beta01"
     const val androidxPreference = "1.1.1"
     const val androidxBrowser = "1.4.0-rc01"
-    const val androidxBrowserHelper = "2.2.2"
+    const val androidxBrowserHelper = "2.3.0"
     // https://github.com/GoogleChrome/android-browser-helper
 
     const val androidxPercentLayout = "1.0.0"
     const val androidxFlexboxLayout = "3.0.0"
     // https://github.com/google/flexbox-layout/releases
 
-    const val androidxLifecycle = "2.4.0"
+    const val androidxLifecycle = "2.5.0-rc01"
     // https://developer.android.com/jetpack/androidx/releases/lifecycle
 
-    const val androidxCamera = "1.1.0-alpha12"
+    const val androidxCamera = "1.1.0-rc01"
     const val androidxCameraExtensions = "1.0.0-alpha32"
     const val androidxCameraView = "1.0.0-alpha32"
     // https://developer.android.com/jetpack/androidx/releases/camera
 
-    const val androidxRoom = "2.4.0-rc01"
+    const val androidxRoom = "2.5.0-alpha01"
     // https://developer.android.com/jetpack/androidx/releases/room
 
-    const val androidxTest = "1.4.1-alpha03"
-    const val androidxTestRunner = androidxTest
+    const val androidxTest = "1.4.1-alpha06"
+    const val androidxTestRunner = "1.5.0-alpha03"
     const val androidxTestRules = androidxTest
-    const val androidxTestExtTruth = "1.5.0-alpha03"
-    const val androidxTestExtJUnit = "1.1.4-alpha03"
+    const val androidxTestExtTruth = "1.5.0-alpha06"
+    const val androidxTestExtJUnit = "1.1.4-alpha06"
     // https://developer.android.com/jetpack/androidx/releases/test
 
-    const val androidxEspresso = "3.4.0"
+    const val androidxEspresso = "3.5.0-alpha06"
 
     const val androidCommons = "0.0.24"
     // https://github.com/elpassion/android-commons/releases
@@ -158,7 +158,8 @@ object Vers {
     // https://github.com/JakeWharton/RxBinding/blob/master/CHANGELOG.md
 
     const val rxrelay = "3.0.1"
-    // https://github.com/JakeWharton/RxRelay/releases
+    // https://github.com/JakeWharton/RxRelay
+    // https://github.com/JakeWharton/RxRelay/tags
 
     const val rxandroid = "3.0.0"
     // https://github.com/ReactiveX/RxAndroid/releases
@@ -168,11 +169,11 @@ object Vers {
 
     const val retrofit = "2.9.0"
     // https://github.com/square/retrofit
-    // https://github.com/square/retrofit/releases
+    // https://github.com/square/retrofit/tags
 
-    const val okhttp = "5.0.0-alpha.2"
+    const val okhttp = "5.0.0-alpha.7"
     // https://github.com/square/okhttp
-    // https://github.com/square/okhttp/releases
+    // https://github.com/square/okhttp/tags
 
     const val okio = "3.1.0"
     // https://square.github.io/okio/changelog/
@@ -188,10 +189,10 @@ object Vers {
     // https://mvnrepository.com/artifact/org.java-websocket/Java-WebSocket
 
     //    const val slf4jSimple = "1.7.30"
-    const val slf4jSimple = "2.0.0-alpha5"
+    const val slf4jSimple = "2.0.0-alpha7"
     // https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
 
-    const val log4j2 = "2.16.0"
+    const val log4j2 = "2.17.2"
     // http://logging.apache.org/log4j/2.x/maven-artifacts.html
 
     const val googleServicesPlugin = "4.3.10"
