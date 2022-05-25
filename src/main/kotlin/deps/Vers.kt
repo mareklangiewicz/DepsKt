@@ -109,6 +109,9 @@ object Vers {
     const val androidxConstraint2 = "2.1.3"
     const val androidxConstraint = androidxConstraint2
 
+    const val androidxNavigation = "2.5.0-rc01"
+    // https://developer.android.com/jetpack/androidx/releases/navigation
+
     const val androidxRecyclerview = "1.3.0-alpha01"
     const val androidxCardview = "1.0.0"
     const val androidMaterial = "1.5.0-alpha04"

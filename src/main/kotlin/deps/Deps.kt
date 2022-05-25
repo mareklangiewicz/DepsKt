@@ -133,6 +133,12 @@ object Deps {
     val androidxConstraint2Solver = androidxConstraint1Solver ver vers.androidxConstraint2
     val androidxConstraintSolver = androidxConstraint1Solver
 
+    val androidxNavigationUiKtx = dep("androidx.navigation", "navigation-ui-ktx", vers.androidxNavigation)
+    val androidxNavigationFragmentKtx = androidxNavigationUiKtx withName "fragment-ktx"
+    val androidxNavigationDynamicFeaturesFragment = androidxNavigationUiKtx withName "navigation-dynamic-features-fragment"
+    val androidxNavigationTesting = androidxNavigationUiKtx withName "navigation-testing"
+    val androidxNavigationCompose = androidxNavigationUiKtx withName "navigation-compose"
+
     val androidxLifecycleCommon = dep("androidx.lifecycle", "lifecycle-common", vers.androidxLifecycle)
     val androidxLifecycleCompiler = androidxLifecycleCommon  withName "lifecycle-compiler"
     val androidxLifecycleExtensions = androidxLifecycleCommon  withName "lifecycle-extensions"
