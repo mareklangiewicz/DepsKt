@@ -50,7 +50,7 @@ object Vers {
     // https://services.gradle.org/versions/release-candidate
 
     const val composeJbMain = "1.1.1"
-    const val composeJbEdge = "1.2.0-alpha01-dev683"
+    const val composeJbEdge = "1.2.0-alpha01-dev686"
     const val composeJb = composeJbEdge
 
     // https://github.com/JetBrains/compose-jb
@@ -58,9 +58,9 @@ object Vers {
     // https://github.com/JetBrains/compose-jb/blob/master/CHANGELOG.md
 
 
-    const val composeAndroid = "1.2.0-beta01"
+    const val composeAndroid = "1.2.0-beta02"
     const val composeAndroidCompiler = composeAndroid
-    const val composeAndroidMaterial3 = "1.0.0-alpha11"
+    const val composeAndroidMaterial3 = "1.0.0-alpha12"
     // https://developer.android.com/jetpack/androidx/releases/compose
 
     const val googleAccompanist = "0.24.7-alpha"
