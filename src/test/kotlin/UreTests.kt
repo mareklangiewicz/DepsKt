@@ -8,6 +8,7 @@ import pl.mareklangiewicz.uspek.eq
 import pl.mareklangiewicz.uspek.o
 import pl.mareklangiewicz.uspek.uspekTestFactory
 import pl.mareklangiewicz.deps.*
+import pl.mareklangiewicz.io.*
 
 class UreTests {
     @TestFactory
@@ -38,6 +39,7 @@ class UreTests {
         testWithEmail(regex, "a.b.c@d.e.f.hhh", "a.b.c", "d.e.f.hhh")
         testWithIncorrectEmail(regex, "a.b.cd.e.f.hhh")
         testWithIncorrectEmail(regex, "a@b@c")
+        testUreMultiplatform()
     }
 
     private fun testWithEmail(regex: Regex, email: String, expectedUser: String, expectedDomain: String) {
@@ -56,6 +58,15 @@ class UreTests {
         "for incorrect email: $email" o {
             "it does not match" o { regex.matches(email) eq false }
             "match result is null" o { regex.matchEntire(email) eq null }
+        }
+    }
+
+    private fun testUreMultiplatform() {
+        "On UWidgetsCmnKt" o {
+            val path = "/home/marek/code/kotlin/UWidgets/uwidgets/src/commonMain/kotlin/uwidgets/UWidgets.cmn.kt".toPath()
+            val content = SYSTEM.readUtf8(path)
+            val output = content.commentOutMultiplatformFun()
+            println(output) // TODO_later: better tests
         }
     }
 
