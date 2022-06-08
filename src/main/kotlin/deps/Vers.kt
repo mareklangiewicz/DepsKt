@@ -80,7 +80,7 @@ object Vers {
 
     val dokkaGradlePlugin = kotlin // will it be synced with kotlin version in the future?
 
-    const val androidSdkCompile = 31
+    const val androidSdkCompile = 32
     const val androidSdkTarget = androidSdkCompile
     const val androidSdkMin = 26
     // https://developer.android.com/about/dashboards/index.html
