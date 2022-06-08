@@ -58,9 +58,9 @@ object Vers {
     // https://github.com/JetBrains/compose-jb/blob/master/CHANGELOG.md
 
 
-    const val composeAndroid = "1.2.0-beta02"
+    const val composeAndroid = "1.2.0-beta03"
     const val composeAndroidCompiler = composeAndroid
-    const val composeAndroidMaterial3 = "1.0.0-alpha12"
+    const val composeAndroidMaterial3 = "1.0.0-alpha13"
     // https://developer.android.com/jetpack/androidx/releases/compose
 
     const val googleAccompanist = "0.24.9-beta"
