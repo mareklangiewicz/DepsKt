@@ -52,7 +52,7 @@ fun DependencyHandler.defaultAndroTestDeps(
     withCompose: Boolean = false,
 ) = deps.run {
     addAll(configuration,
-//        uspekx,
+        uspekx,
         junit4,
         androidxEspressoCore,
         googleTruth,
