@@ -42,7 +42,7 @@ object Vers {
     // just a reference - not useful in typical cases
     const val gradle5 = "5.6.4"
     const val gradle6 = "6.8.3"
-    const val gradle7 = "7.4.2"
+    const val gradle7 = "7.5-rc-2"
     const val gradle = gradle7
     // https://gradle.org/releases/
     // https://services.gradle.org/versions
@@ -50,7 +50,7 @@ object Vers {
     // https://services.gradle.org/versions/release-candidate
 
     const val composeJbMain = "1.1.1"
-    const val composeJbEdge = "1.2.0-alpha01-dev709"
+    const val composeJbEdge = "1.2.0-alpha01-dev716"
     const val composeJb = composeJbEdge
 
     // https://github.com/JetBrains/compose-jb
@@ -58,18 +58,18 @@ object Vers {
     // https://github.com/JetBrains/compose-jb/blob/master/CHANGELOG.md
 
 
-    const val composeAndroid = "1.2.0-beta03"
+    const val composeAndroid = "1.2.0-rc01"
     const val composeAndroidCompiler = composeAndroid
     const val composeAndroidMaterial3 = "1.0.0-alpha13"
     // https://developer.android.com/jetpack/androidx/releases/compose
 
-    const val googleAccompanist = "0.24.9-beta"
+    const val googleAccompanist = "0.24.11-rc"
     const val googleAccompanistImage = "0.15.0"
     const val googleAccompanistPicasso = "0.6.2"
     // https://search.maven.org/search?q=g:com.google.accompanist
     // https://google.github.io/accompanist/
 
-    const val androidGradlePlugin = "7.4.0-alpha04"
+    const val androidGradlePlugin = "7.4.0-alpha05"
     // https://maven.google.com/web/index.html#com.android.tools.build:gradle
     // https://developer.android.com/studio/releases/gradle-plugin
     // https://google.github.io/android-gradle-dsl/
