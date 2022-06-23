@@ -325,6 +325,8 @@ object Deps {
 
     val uspek = libs.USpek.dep("uspek")
     val uspekx = libs.USpek.dep("uspekx")
+    val uspekxJUnit4 = libs.USpek.dep("uspekx-junit4")
+    val uspekxJUnit5 = libs.USpek.dep("uspekx-junit5")
 
     val smokk = libs.SMokK.dep("smokk")
     val smokkx = libs.SMokK.dep("smokkx")
