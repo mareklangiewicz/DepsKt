@@ -50,7 +50,7 @@ object Vers {
     // https://services.gradle.org/versions/release-candidate
 
     const val composeJbMain = "1.1.1"
-    const val composeJbEdge = "1.2.0-alpha01-dev716"
+    const val composeJbEdge = "1.2.0-alpha01-dev724"
     const val composeJb = composeJbEdge
 
     // https://github.com/JetBrains/compose-jb
@@ -58,7 +58,7 @@ object Vers {
     // https://github.com/JetBrains/compose-jb/blob/master/CHANGELOG.md
 
 
-    const val composeAndroid = "1.2.0-rc01"
+    const val composeAndroid = "1.2.0-rc02"
     const val composeAndroidCompiler = composeAndroid
     const val composeAndroidMaterial3 = "1.0.0-alpha13"
     // https://developer.android.com/jetpack/androidx/releases/compose
