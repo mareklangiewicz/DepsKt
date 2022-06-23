@@ -301,19 +301,21 @@ object Vers {
     // https://mvnrepository.com/artifact/com.offbytwo/docopt
     // https://github.com/docopt/docopt.java
 
-    const val npmReact = "18.0.0"
+    const val npmReact = "18.2.0"
     // https://reactjs.org/versions
 
     const val npmStyled = "5.3.3"
 
+    private const val kotlinJsWrappersPre = "pre.347"
+
     // https://github.com/JetBrains/kotlin-wrappers
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin-wrappers/kotlin-wrappers-bom
-    val kotlinJsWrappersBoM = "0.0.1-pre.330-kotlin-$kotlin"
+    val kotlinJsWrappersBoM = "1.0.0-$kotlinJsWrappersPre"
 
     // https://github.com/JetBrains/kotlin-wrappers/blob/master/kotlin-react/README.md
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin-wrappers/kotlin-react
     @Deprecated("Use BoM")
-    val kotlinJsWrappersReact = "$npmReact-pre.330-kotlin-$kotlin"
+    val kotlinJsWrappersReact = "$npmReact-$kotlinJsWrappersPre"
 
     // https://github.com/JetBrains/kotlin-wrappers/blob/master/kotlin-react-dom/README.md
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin-wrappers/kotlin-react-dom
@@ -324,7 +326,7 @@ object Vers {
     // https://github.com/JetBrains/kotlin-wrappers/blob/master/kotlin-styled/README.md
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin-wrappers/kotlin-styled
     @Deprecated("Use BoM")
-    val kotlinJsWrappersStyled = "$npmStyled-pre.330-kotlin-$kotlin"
+    val kotlinJsWrappersStyled = "$npmStyled-$kotlinJsWrappersPre"
 
 
     // My libs - see details in LibsDetails.kt:
