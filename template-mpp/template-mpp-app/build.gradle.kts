@@ -42,6 +42,7 @@ fun Project.defaultBuildTemplateForMppLib(
     withNativeLinux64: Boolean = false,
     withKotlinxHtml: Boolean = false,
     withComposeJbDevRepo: Boolean = false,
+    withTestJUnit4: Boolean = false,
     withTestJUnit5: Boolean = true,
     withTestUSpekX: Boolean = true,
     addCommonMainDependencies: KotlinDependencyHandler.() -> Unit = {}
@@ -53,6 +54,7 @@ fun Project.defaultBuildTemplateForMppLib(
         withJs,
         withNativeLinux64,
         withKotlinxHtml,
+        withTestJUnit4,
         withTestJUnit5,
         withTestUSpekX,
         addCommonMainDependencies
@@ -74,6 +76,7 @@ fun KotlinMultiplatformExtension.allDefault(
     withJs: Boolean = true,
     withNativeLinux64: Boolean = false,
     withKotlinxHtml: Boolean = false,
+    withTestJUnit4: Boolean = false,
     withTestJUnit5: Boolean = true,
     withTestUSpekX: Boolean = true,
     addCommonMainDependencies: KotlinDependencyHandler.() -> Unit = {}
@@ -97,7 +100,9 @@ fun KotlinMultiplatformExtension.allDefault(
         if (withJvm) {
             val jvmTest by getting {
                 dependencies {
+                    if (withTestJUnit4) implementation(deps.junit4)
                     if (withTestJUnit5) implementation(deps.junit5engine)
+                    // TODO: uspekx+junitx
                 }
             }
         }
@@ -143,6 +148,7 @@ fun Project.defaultBuildTemplateForMppApp(
     withNativeLinux64: Boolean = false,
     withKotlinxHtml: Boolean = false,
     withComposeJbDevRepo: Boolean = false,
+    withTestJUnit4: Boolean = false,
     withTestJUnit5: Boolean = true,
     withTestUSpekX: Boolean = true,
     addCommonMainDependencies: KotlinDependencyHandler.() -> Unit = {}
@@ -154,6 +160,7 @@ fun Project.defaultBuildTemplateForMppApp(
         withNativeLinux64 = withNativeLinux64,
         withKotlinxHtml = withKotlinxHtml,
         withComposeJbDevRepo = withComposeJbDevRepo,
+        withTestJUnit4 = withTestJUnit4,
         withTestJUnit5 = withTestJUnit5,
         withTestUSpekX = withTestUSpekX,
         addCommonMainDependencies = addCommonMainDependencies
@@ -212,7 +219,8 @@ fun Project.defaultBuildTemplateForComposeMppLib(
         withNativeLinux64 = withNativeLinux64,
         withKotlinxHtml = withKotlinxHtml,
         withComposeJbDevRepo = true,
-        withTestJUnit5 = false, // Unfortunately Compose UI steel uses JUnit4 instead of 5
+        withTestJUnit4 = true, // Unfortunately Compose UI steel uses JUnit4 instead of 5
+        withTestJUnit5 = false,
         withTestUSpekX = true,
         addCommonMainDependencies = addCommonMainDependencies
     )
