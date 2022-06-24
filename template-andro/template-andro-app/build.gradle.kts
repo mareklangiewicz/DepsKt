@@ -5,7 +5,7 @@ import pl.mareklangiewicz.deps.*
 
 plugins {
     id("com.android.application") version vers.androidGradlePlugin
-    kotlin("android") version vers.kotlinForCompose
+    kotlin("android") version vers.kotlin
     id("maven-publish")
     id("signing")
 }
