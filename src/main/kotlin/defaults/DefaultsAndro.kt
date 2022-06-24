@@ -52,8 +52,8 @@ fun DependencyHandler.defaultAndroTestDeps(
     withCompose: Boolean = false,
 ) = deps.run {
     addAll(configuration,
-        uspekx,
-        junit4,
+        junit4, // FIXME_someday: when will android move to JUnit5?
+        uspekxJUnit4,
         androidxEspressoCore,
         googleTruth,
         androidxTestRules,
