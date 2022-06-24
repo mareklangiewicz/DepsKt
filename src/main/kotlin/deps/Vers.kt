@@ -14,7 +14,8 @@ object Vers {
     val kotlin14 = v(1, 4, 32)
     val kotlin15 = v(1, 5, 31)
     val kotlin16 = v(1, 6, 21)
-    val kotlin = kotlin16
+    val kotlin17 = "1.7.0"
+    val kotlin = kotlin16 // waiting for compose to move to kotlin17 https://developer.android.com/jetpack/androidx/releases/compose-kotlin
     // https://kotlinlang.org/docs/releases.html#release-details
     // https://github.com/JetBrains/kotlin/blob/master/ChangeLog.md
     // https://github.com/JetBrains/kotlin/releases
@@ -310,6 +311,7 @@ object Vers {
 
     // https://github.com/JetBrains/kotlin-wrappers
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin-wrappers/kotlin-wrappers-bom
+    // NOTE: syntax for mpp build files: implementation(project.dependencies.enforcedPlatform(deps.kotlinJsWrappersBoM))
     val kotlinJsWrappersBoM = "1.0.0-$kotlinJsWrappersPre"
 
     // https://github.com/JetBrains/kotlin-wrappers/blob/master/kotlin-react/README.md
