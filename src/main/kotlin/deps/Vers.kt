@@ -14,11 +14,14 @@ object Vers {
     val kotlin14 = v(1, 4, 32)
     val kotlin15 = v(1, 5, 31)
     val kotlin16 = v(1, 6, 21)
-    val kotlin17 = "1.7.0"
-    val kotlin = kotlin16 // waiting for compose to move to kotlin17 https://developer.android.com/jetpack/androidx/releases/compose-kotlin
+    val kotlin17 = v(1,7,0, patchLength = 1)
+    val kotlin = kotlin17
     // https://kotlinlang.org/docs/releases.html#release-details
     // https://github.com/JetBrains/kotlin/blob/master/ChangeLog.md
     // https://github.com/JetBrains/kotlin/releases
+    // compatibility with compose:
+    //   https://developer.android.com/jetpack/androidx/releases/compose-kotlin
+    //   https://androidx.dev/storage/compose-compiler/repository
 
     const val defaultJvm = "11" // I had terrible issues with "16" (andro compose project)
 
@@ -43,7 +46,7 @@ object Vers {
     // just a reference - not useful in typical cases
     const val gradle5 = "5.6.4"
     const val gradle6 = "6.8.3"
-    const val gradle7 = "7.5-rc-2"
+    const val gradle7 = "7.5-rc-3"
     const val gradle = gradle7
     // https://gradle.org/releases/
     // https://services.gradle.org/versions
@@ -51,7 +54,7 @@ object Vers {
     // https://services.gradle.org/versions/release-candidate
 
     const val composeJbMain = "1.1.1"
-    const val composeJbEdge = "1.2.0-alpha01-dev724"
+    const val composeJbEdge = "1.2.0-alpha01-dev731"
     const val composeJb = composeJbEdge
 
     // https://github.com/JetBrains/compose-jb
@@ -59,9 +62,12 @@ object Vers {
     // https://github.com/JetBrains/compose-jb/blob/master/CHANGELOG.md
 
 
-    const val composeAndroid = "1.2.0-rc02"
-    const val composeAndroidCompiler = composeAndroid
-    const val composeAndroidMaterial3 = "1.0.0-alpha13"
+    const val composeAndroidMain = "1.2.0-rc03"
+    const val composeAndroidEdge = "1.3.0-alpha01"
+    const val composeAndroid = composeAndroidEdge
+    val composeAndroidCompiler = v(1, 2, 0, patchLength = 1)
+        // https://android-developers.googleblog.com/2022/06/independent-versioning-of-Jetpack-Compose-libraries.html?utm_source=dlvr.it&utm_medium=twitter
+    const val composeAndroidMaterial3 = "1.0.0-alpha14"
     // https://developer.android.com/jetpack/androidx/releases/compose
 
     const val googleAccompanist = "0.24.11-rc"
@@ -70,7 +76,7 @@ object Vers {
     // https://search.maven.org/search?q=g:com.google.accompanist
     // https://google.github.io/accompanist/
 
-    const val androidGradlePlugin = "7.4.0-alpha05"
+    const val androidGradlePlugin = "7.4.0-alpha07"
     // https://maven.google.com/web/index.html#com.android.tools.build:gradle
     // https://developer.android.com/studio/releases/gradle-plugin
     // https://google.github.io/android-gradle-dsl/

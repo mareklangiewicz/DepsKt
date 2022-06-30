@@ -54,6 +54,7 @@ object Deps {
     val composeAndroidUiTestJUnit4 = composeAndroidUi withName "ui-test-junit4"
     val composeAndroidUiTestManifest = composeAndroidUi withName "ui-test-manifest"
     val composeAndroidUiTooling = composeAndroidUi withName "ui-tooling"
+    val composeAndroidUiToolingPreview = composeAndroidUi withName "ui-tooling-preview"
 
     private val googleAccompanist = dep("com.google.accompanist", "", vers.googleAccompanist)
     val googleAccompanistSytemUiController = googleAccompanist withName "accompanist-systemuicontroller"

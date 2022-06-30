@@ -41,6 +41,7 @@ fun DependencyHandler.defaultAndroDeps(
     if (withCompose) addAll(configuration,
         composeAndroidUi,
         composeAndroidUiTooling,
+        composeAndroidUiToolingPreview,
         composeAndroidMaterial3,
         composeAndroidMaterial,
         androidxActivityCompose,
