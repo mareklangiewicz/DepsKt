@@ -6,100 +6,141 @@ import okio.FileSystem.Companion.SYSTEM
 import okio.Path.Companion.toPath
 import pl.mareklangiewicz.io.*
 
-private val rootResPath = "template-root-build".toPath()
-private val mppLibResPath = "template-mpp-lib-build".toPath()
-private val mppAppResPath = "template-mpp-app-build".toPath()
-private val jvmAppResPath = "template-jvm-app-build".toPath()
-private val androLibResPath = "template-andro-lib-build".toPath()
-private val androAppResPath = "template-andro-app-build".toPath()
+const val labelRoot = "Root Build Template"
+const val labelKotlinModule = "Kotlin Module Build Template"
+const val labelMppModule = "MPP Module Build Template"
+const val labelMppApp = "MPP App Build Template"
+const val labelJvmApp = "Jvm App Build Template"
+const val labelComposeMppModule = "Compose MPP Module Build Template"
+const val labelComposeMppApp = "Compose MPP App Build Template"
+const val labelAndroCommon = "Andro Common Build Template"
+const val labelAndroLib = "Andro Lib Build Template"
+const val labelAndroApp = "Andro App Build Template"
 
-private val rootRegionLabel = "Root Build Template"
-private val kotlinModuleRegionLabel = "Kotlin Module Build Template"
-private val mppModuleRegionLabel = "MPP Module Build Template"
-private val mppAppRegionLabel = "MPP App Build Template"
-private val jvmAppRegionLabel = "Jvm App Build Template"
-private val composeMppModuleRegionLabel = "Compose MPP Module Build Template"
-private val composeMppAppRegionLabel = "Compose MPP App Build Template"
-private val androCommonRegionLabel = "Andro Common Build Template"
-private val androLibRegionLabel = "Andro Lib Build Template"
-private val androAppRegionLabel = "Andro App Build Template"
+private const val pathMppRoot = "template-mpp"
+private const val pathMppLib = "template-mpp/template-mpp-lib"
+private const val pathMppApp = "template-mpp/template-mpp-app"
+private const val pathJvmApp = "template-mpp/template-jvm-cli"
+private const val pathAndroLib = "template-andro/template-andro-lib"
+private const val pathAndroApp = "template-andro/template-andro-app"
 
-fun injectRootBuildTemplate(vararg outputPaths: Path) = injectBuildRegionToAll(rootRegionLabel, rootResPath, *outputPaths)
-fun injectKotlinModuleBuildTemplate(vararg outputPaths: Path) = injectBuildRegionToAll(kotlinModuleRegionLabel, mppLibResPath, *outputPaths)
-fun injectMppModuleBuildTemplate(vararg outputPaths: Path) = injectBuildRegionToAll(mppModuleRegionLabel, mppLibResPath, *outputPaths)
-fun injectMppAppBuildTemplate(vararg outputPaths: Path) = injectBuildRegionToAll(mppAppRegionLabel, mppAppResPath, *outputPaths)
-fun injectComposeMppModuleBuildTemplate(vararg outputPaths: Path) = injectBuildRegionToAll(composeMppModuleRegionLabel, mppLibResPath, *outputPaths)
-fun injectComposeMppAppBuildTemplate(vararg outputPaths: Path) = injectBuildRegionToAll(composeMppAppRegionLabel, mppAppResPath, *outputPaths)
-fun injectJvmAppBuildTemplate(vararg outputPaths: Path) = injectBuildRegionToAll(jvmAppRegionLabel, jvmAppResPath, *outputPaths)
-fun injectAndroCommonBuildTemplate(vararg outputPaths: Path) = injectBuildRegionToAll(androCommonRegionLabel, androLibResPath, *outputPaths)
-fun injectAndroLibBuildTemplate(vararg outputPaths: Path) = injectBuildRegionToAll(androLibRegionLabel, androLibResPath, *outputPaths)
-fun injectAndroAppBuildTemplate(vararg outputPaths: Path) = injectBuildRegionToAll(androAppRegionLabel, androAppResPath, *outputPaths)
+data class RegionInfo(val label: String, val resPath: Path, val srcPath: Path, val syncedSrcPaths: List<Path>)
 
-fun checkRootBuildTemplate(buildFile: Path) = checkSomeBuildTemplates(rootRegionLabel, rootResPath, buildFile)
-fun checkKotlinModuleBuildTemplates(vararg buildFiles: Path) = checkSomeBuildTemplates(kotlinModuleRegionLabel, mppLibResPath, *buildFiles)
-fun checkMppModuleBuildTemplates(vararg buildFiles: Path) = checkSomeBuildTemplates(mppModuleRegionLabel, mppLibResPath, *buildFiles)
-fun checkMppAppBuildTemplates(vararg buildFiles: Path) = checkSomeBuildTemplates(mppAppRegionLabel, mppAppResPath, *buildFiles)
-fun checkComposeMppModuleBuildTemplates(vararg buildFiles: Path) = checkSomeBuildTemplates(composeMppModuleRegionLabel, mppLibResPath, *buildFiles)
-fun checkComposeMppAppBuildTemplates(vararg buildFiles: Path) = checkSomeBuildTemplates(composeMppAppRegionLabel, mppAppResPath, *buildFiles)
-fun checkJvmAppBuildTemplates(vararg buildFiles: Path) = checkSomeBuildTemplates(jvmAppRegionLabel, jvmAppResPath, *buildFiles)
-fun checkAndroCommonBuildTemplates(vararg buildFiles: Path) = checkSomeBuildTemplates(androCommonRegionLabel, androLibResPath, *buildFiles)
-fun checkAndroLibBuildTemplates(vararg buildFiles: Path) = checkSomeBuildTemplates(androLibRegionLabel, androLibResPath, *buildFiles)
-fun checkAndroAppBuildTemplates(vararg buildFiles: Path) = checkSomeBuildTemplates(androAppRegionLabel, androAppResPath, *buildFiles)
+private fun info(label: String, resPathStr: String, srcPathStr: String, vararg syncedSrcPathsStr: String) =
+    RegionInfo(label, resPathStr.toPath(), srcPathStr.toPath(), syncedSrcPathsStr.toList().map { it.toPath() })
 
-fun checkSomeBuildTemplates(regionLabel: String, srcResPath: Path, vararg buildFiles: Path) = try {
-    println("BEGIN: Check [$regionLabel]:")
-    checkAllBuildRegionsSync() // to be sure source of truth is clean
-    val region by RESOURCES.readAndMatchUre(srcResPath, ureWithSpecialRegion(regionLabel)) ?: error("No match $srcResPath")
-    for (path in buildFiles) SYSTEM.checkBuildRegion(regionLabel, region, path, verbose = true)
-    println("END: Check [$regionLabel].")
+// TODO NOW: resPaths should be the same as srcPaths, but in resources!
+private val regionsInfos = listOf(
+    info(labelRoot, "template-root-build", pathMppRoot),
+    info(labelKotlinModule, "template-mpp-lib-build", pathMppLib, pathMppApp, pathJvmApp, pathAndroLib, pathAndroApp),
+    info(labelMppModule, "template-mpp-lib-build", pathMppLib, pathMppApp),
+    info(labelMppApp, "template-mpp-app-build", pathMppApp),
+    info(labelJvmApp, "template-jvm-app-build", pathJvmApp),
+    info(labelComposeMppModule, "template-mpp-lib-build", pathMppLib, pathMppApp),
+    info(labelComposeMppApp, "template-mpp-app-build", pathMppApp),
+    info(labelAndroCommon, "template-andro-lib-build", pathAndroLib, pathAndroApp),
+    info(labelAndroLib, "template-andro-lib-build", pathAndroLib),
+    info(labelAndroApp, "template-andro-app-build", pathAndroApp),
+)
+
+operator fun List<RegionInfo>.get(label: String) = find { it.label == label } ?: error("Unknown region label: $label")
+
+private fun knownRegion(regionLabel: String): String {
+    val inputResPath = regionsInfos[regionLabel].resPath
+    val ureWithRegion = ureWithSpecialRegion(regionLabel)
+    val mr = RESOURCES.readAndMatchUre(inputResPath, ureWithRegion) ?: error("No region [$regionLabel] in $inputResPath")
+    return mr["region"]
+}
+
+private fun knownRegionFullTemplatePath(
+    regionLabel: String,
+    depsKtRootPath: Path = "~/code/kotlin/deps.kt".toPath(true)
+) = SYSTEM.canonicalize(depsKtRootPath / regionsInfos[regionLabel].srcPath)
+
+fun checkAllKnownRegionsInProject(projectRootPath: Path) = try {
+    println("BEGIN: Check all known regions in project:")
+    checkAllKnownRegionsSynced() // to be sure source of truth is clean
+    SYSTEM.checkAllKnownRegionsInAllFoundFiles(projectRootPath, verbose = true)
+    println("END: Check all known regions in project.")
 } catch (e: IllegalStateException) {
     println("ERROR: ${e.message}")
 }
 
+// This actually is self check for deps.kt, so it should be in some unit test for deps.kt
+// But let's run it every time when checking client regions just to be sure the "source of truth" is consistent.
+fun checkAllKnownRegionsSynced() = regionsInfos.forEach {
+    SYSTEM.checkKnownRegion(it.label, it.srcPath, *it.syncedSrcPaths.toTypedArray(), verbose = true)
+}
+
+fun FileSystem.checkAllKnownRegionsInAllFoundFiles(
+    outputTreePath: Path,
+    outputFileExt: String = ".gradle.kts",
+    failIfNotFound: Boolean = false,
+    verbose: Boolean = false,
+) {
+    val outputPaths = findAllFiles(outputTreePath).filterExt(outputFileExt).toList().toTypedArray()
+    for (label in regionsInfos.map { it.label })
+        checkKnownRegion(label, *outputPaths, failIfNotFound = failIfNotFound, verbose = verbose)
+}
+
+fun FileSystem.checkKnownRegionInAllFoundFiles(
+    regionLabel: String,
+    outputTreePath: Path,
+    outputFileExt: String = ".gradle.kts",
+    failIfNotFound: Boolean = false,
+    verbose: Boolean = false,
+) {
+    val outputPaths = findAllFiles(outputTreePath).filterExt(outputFileExt).toList().toTypedArray()
+    checkKnownRegion(regionLabel, *outputPaths, failIfNotFound = failIfNotFound, verbose = verbose)
+}
+
+// by "special" we mean region with label wrapped in squared brackets
+// the promise is: all special regions with some label should contain exactly the same content (synced)
 private fun ureWithSpecialRegion(regionLabel: String) = ure {
     1 of ureWhateva().withName("before")
     1 of ureRegion(ureWhateva(), ir("\\[$regionLabel\\]")).withName("region")
     1 of ureWhateva(reluctant = false).withName("after")
 }
 
-// This actually is self check for deps.kt so it should be in some unit test for deps.kt
-// But let's run it every time when checking client regions just to be sure the "source of truth" is consistent.
-// Note: I'm always adding input path also as first output path. It's on purpose. It's just sanity check.
-// It should never fail unless some deeper problem.
-private fun checkAllBuildRegionsSync() = RESOURCES.run {
-    checkBuildRegionsSync(rootRegionLabel, rootResPath, rootResPath, ) // TODO_later: add other root files to check sync
-    checkBuildRegionsSync(kotlinModuleRegionLabel, mppLibResPath, mppLibResPath, androLibResPath, androAppResPath) // TODO_later: add other kotlin modules to check sync
-    checkBuildRegionsSync(mppModuleRegionLabel, mppLibResPath, mppLibResPath) // TODO_later: add other mpp modules to check sync
-    checkBuildRegionsSync(androCommonRegionLabel, androLibResPath, androLibResPath, androAppResPath)
-    checkBuildRegionsSync(androLibRegionLabel, androLibResPath, androLibResPath)
-    checkBuildRegionsSync(androAppRegionLabel, androAppResPath, androAppResPath)
-}
-private fun FileSystem.checkBuildRegionsSync(regionLabel: String, inputPath: Path, vararg outputPaths: Path) {
-    val mr = readAndMatchUre(inputPath, ureWithSpecialRegion(regionLabel)) ?: error("No region [$regionLabel] in ${canonicalize(inputPath)}")
-    val region by mr
-    for (path in outputPaths) checkBuildRegion(regionLabel, region, path)
+fun FileSystem.checkKnownRegion(
+    regionLabel: String,
+    vararg outputPaths: Path,
+    failIfNotFound: Boolean = true,
+    verbose: Boolean = false,
+) = outputPaths.forEach { path ->
+    val hint = "Try sth like: ideap diff ${knownRegionFullTemplatePath(regionLabel)} ${canonicalize(path)}"
+    checkRegion(regionLabel, knownRegion(regionLabel), path, failIfNotFound, verbose, hint.takeIf { verbose })
 }
 
-private fun FileSystem.checkBuildRegion(regionLabel: String, regionExpected: String, outputPath: Path, verbose: Boolean = false) {
-    val ureWithBuildRegion = ureWithSpecialRegion(regionLabel)
-    require(ureWithBuildRegion.compile().matches(regionExpected)) { "regionExpected doesn't match ureWithBuildRegion(regionLabel)" }
-    val region by readAndMatchUre(outputPath, ureWithBuildRegion) ?: error("No match $outputPath")
+private fun FileSystem.checkRegion(
+    regionLabel: String,
+    regionExpected: String,
+    outputPath: Path,
+    failIfNotFound: Boolean = true,
+    verbose: Boolean = false,
+    verboseCheckFailedHint: String? = null,
+) {
+    val ureWithRegion = ureWithSpecialRegion(regionLabel)
+    require(
+        ureWithRegion.compile().matches(regionExpected)
+    ) { "regionExpected doesn't match ureWithRegion(regionLabel)" }
+    val region by readAndMatchUre(outputPath, ureWithRegion)
+        ?: if (failIfNotFound) error("Region [$regionLabel] not found in $outputPath") else return
     check(region.trimEnd('\n') == regionExpected.trimEnd('\n')) {
+        if (verbose) {
+            println("Region: [$regionLabel] in File: $outputPath was modified.")
+            verboseCheckFailedHint?.let { println(it) }
+        }
         "Region: [$regionLabel] in File: $outputPath was modified."
     }
     if (verbose) println("OK [$regionLabel] in $outputPath")
 }
 
-private fun injectBuildRegionToAll(regionLabel: String, inputResPath: Path, vararg outputPaths: Path) {
-    for (path in outputPaths) injectBuildRegion(regionLabel, inputResPath, path)
-}
-
-private fun injectBuildRegion(regionLabel: String, inputResPath: Path, outputPath: Path) {
-    val ureWithBuildRegion = ureWithSpecialRegion(regionLabel)
-    val inputMR = RESOURCES.readAndMatchUre(inputResPath, ureWithBuildRegion) ?: error("No match in input: $inputResPath")
-    val region by inputMR
+fun injectKnownRegion(regionLabel: String, vararg outputPaths: Path) = outputPaths.forEach { outputPath ->
+    val region = knownRegion(regionLabel)
+    val regex = ureWithSpecialRegion(regionLabel).compile()
     SYSTEM.processFile(outputPath, outputPath) { output ->
-        val outputMR = ureWithBuildRegion.compile().matchEntire(output)
+        val outputMR = regex.matchEntire(output)
         if (outputMR == null) {
             println("Inject [$regionLabel] to $outputPath - No match. Adding new region at the end.")
             output + "\n\n" + region.trimEnd()
