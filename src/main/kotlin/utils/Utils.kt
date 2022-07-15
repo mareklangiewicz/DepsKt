@@ -7,7 +7,6 @@ import org.gradle.api.initialization.*
 import org.gradle.api.plugins.*
 import org.gradle.api.provider.*
 import org.gradle.api.tasks.*
-import org.gradle.kotlin.dsl.*
 import kotlin.properties.*
 import kotlin.reflect.*
 
@@ -31,8 +30,10 @@ fun <T> Property<T>.properting() = object : ReadWriteProperty<Any?, T> {
     override fun setValue(thisRef: Any?, property: KProperty<*>, value: T) = set(value)
 }
 
-fun Project.rootExt(name: String) = rootProject.extra[name]!!.toString()
-fun Project.rootExtOrNull(name: String) = rootProject.extra[name]?.toString()
+fun ExtensionAware.ext(name: String) = extensions.extraProperties[name]!!.toString()
+fun ExtensionAware.extOrNull(name: String) = extensions.extraProperties[name]?.toString()
+fun Project.rootExt(name: String) = rootProject.ext(name)
+fun Project.rootExtOrNull(name: String) = rootProject.extOrNull(name)
 
 val Project.projectPath get() = rootDir.toOkioPath()
 val Project.rootProjectPath get() = rootProject.projectPath
@@ -44,9 +45,9 @@ val Project.buildPath: Path get() = layout.buildDirectory.get().asFile.toOkioPat
 // https://publicobject.com/2021/03/11/includebuild/
 fun Settings.includeAndSubstituteBuild(rootProject: Any, substituteModule: String, withProject: String) {
     includeBuild(rootProject) {
-        dependencySubstitution {
-            substitute(module(substituteModule))
-                .using(project(withProject))
+        it.dependencySubstitution {
+            it.substitute(it.module(substituteModule))
+                .using(it.project(withProject))
         }
     }
 }
@@ -57,7 +58,7 @@ fun TaskContainer.registerAllThatGroupFun(group: String, vararg afun: KCallable<
 }
 
 fun TaskContainer.registerAllThatGroupFun(group: String, vararg afun: Pair<String, () -> Unit>) {
-    for ((name, code) in afun) register(name) { this.group = group; doLast { code() } }
+    for ((name, code) in afun) register(name) { it.group = group; it.doLast { code() } }
 }
 
 /**

@@ -28,7 +28,7 @@ class SourceFunRegistering(val project: Project, val configuration: SourceFunTas
 
     operator fun provideDelegate(thisObj: SourceFunExtension?, property: KProperty<*>):
             ReadOnlyProperty<SourceFunExtension?, TaskProvider<SourceFunTask>> {
-        val taskProvider = project.tasks.register(property.name, configuration)
+        val taskProvider = project.tasks.register(property.name, SourceFunTask::class.java, configuration)
         return ReadOnlyProperty { _, _ -> taskProvider }
     }
 }
@@ -56,11 +56,11 @@ class SourceFunPlugin : Plugin<Project> {
         val extension = project.extensions.create("sourceFun", SourceFunExtension::class.java)
 
         project.afterEvaluate {// FIXME: is afterEvaluate appropriate here??
-            for (def in extension.definitions) project.tasks.register<SourceFunTask>(def.taskName) {
-                addSource(def.sourcePath)
-                setOutput(def.outputPath)
-                setTransformFun(def.transform)
-                def.taskGroup?.let { group = it }
+            for (def in extension.definitions) project.tasks.register(def.taskName, SourceFunTask::class.java) { task ->
+                task.addSource(def.sourcePath)
+                task.setOutput(def.outputPath)
+                task.setTransformFun(def.transform)
+                def.taskGroup?.let { task.group = it }
             }
         }
     }
@@ -97,7 +97,7 @@ var SourceFunTask.out: Path
 
 
 fun SourceFunTask.setVisitFun(action: FileVisitDetails.(outDir: Directory) -> Unit) {
-    setTaskAction { srcTree, outDir -> srcTree.visit { action(outDir) } }
+    setTaskAction { srcTree, outDir -> srcTree.visit { it.action(outDir) } }
 }
 
 fun SourceFunTask.setVisitPathFun(action: (inPath: Path, outPath: Path) -> Unit) {
