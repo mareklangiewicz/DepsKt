@@ -24,7 +24,7 @@ class SourceFunTests {
 private fun onExampleWithProjectBuilder() {
     "On example with ProjectBuilder" o {
         val project = ProjectBuilder.builder().build()!!
-        project.pluginManager.apply(SourceFunPlugin::class)
+        project.pluginManager.apply(SourceFunPlugin::class.java)
         // TODO_maybe: how to configure my plugin in such test? (so I can assert it creates appropriate tasks)
         project.plugins.any { it is SourceFunPlugin } eq true
     }
