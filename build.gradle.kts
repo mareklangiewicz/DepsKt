@@ -11,11 +11,12 @@ repositories {
 }
 
 dependencies {
+    // TODO NOW: check which deps I actually need now (after moving code to templates) (and versions)
     implementation("org.jetbrains.kotlin:kotlin-reflect:1.7.0")
     api("com.squareup.okio:okio:3.0.0")
-   implementation(gradleApi())
+    implementation(gradleApi())
     implementation("org.gradle.kotlin:gradle-kotlin-dsl-conventions:0.7.0")
-   implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.0")
+    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.0")
     // testApi(gradleTestKit()) // this is automatically added by java-gradle-plugin
     testImplementation("pl.mareklangiewicz:uspekx:0.0.21") // TODO: try to use deps.uspek (see comment in settings)
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2") // TODO: try to use deps.uspek (see comment in settings)
