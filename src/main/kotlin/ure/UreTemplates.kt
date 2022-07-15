@@ -21,32 +21,33 @@ private const val pathMppRoot = "template-mpp"
 private const val pathMppLib = "template-mpp/template-mpp-lib"
 private const val pathMppApp = "template-mpp/template-mpp-app"
 private const val pathJvmApp = "template-mpp/template-jvm-cli"
+private const val pathAndroRoot = "template-andro"
 private const val pathAndroLib = "template-andro/template-andro-lib"
 private const val pathAndroApp = "template-andro/template-andro-app"
 
-data class RegionInfo(val label: String, val resPath: Path, val srcPath: Path, val syncedSrcPaths: List<Path>)
+data class RegionInfo(val label: String, val path: Path, val syncedPaths: List<Path>)
 
-private fun info(label: String, resPathStr: String, srcPathStr: String, vararg syncedSrcPathsStr: String) =
-    RegionInfo(label, resPathStr.toPath(), srcPathStr.toPath(), syncedSrcPathsStr.toList().map { it.toPath() })
+private fun info(label: String, dir: String, vararg syncedDirs: String) =
+    RegionInfo(label, dir.toPath() / "build.gradle.kts", syncedDirs.toList().map { it.toPath() / "build.gradle.kts" })
 
 // TODO NOW: resPaths should be the same as srcPaths, but in resources!
 private val regionsInfos = listOf(
-    info(labelRoot, "template-root-build", pathMppRoot),
-    info(labelKotlinModule, "template-mpp-lib-build", pathMppLib, pathMppApp, pathJvmApp, pathAndroLib, pathAndroApp),
-    info(labelMppModule, "template-mpp-lib-build", pathMppLib, pathMppApp),
-    info(labelMppApp, "template-mpp-app-build", pathMppApp),
-    info(labelJvmApp, "template-jvm-app-build", pathJvmApp),
-    info(labelComposeMppModule, "template-mpp-lib-build", pathMppLib, pathMppApp),
-    info(labelComposeMppApp, "template-mpp-app-build", pathMppApp),
-    info(labelAndroCommon, "template-andro-lib-build", pathAndroLib, pathAndroApp),
-    info(labelAndroLib, "template-andro-lib-build", pathAndroLib),
-    info(labelAndroApp, "template-andro-app-build", pathAndroApp),
+    info(labelRoot, pathMppRoot, pathAndroRoot),
+    info(labelKotlinModule, pathMppLib, pathMppApp, pathJvmApp, pathAndroLib, pathAndroApp),
+    info(labelMppModule, pathMppLib, pathMppApp),
+    info(labelMppApp, pathMppApp),
+    info(labelJvmApp, pathJvmApp),
+    info(labelComposeMppModule, pathMppLib, pathMppApp),
+    info(labelComposeMppApp, pathMppApp),
+    info(labelAndroCommon, pathAndroLib, pathAndroApp),
+    info(labelAndroLib, pathAndroLib),
+    info(labelAndroApp, pathAndroApp),
 )
 
 operator fun List<RegionInfo>.get(label: String) = find { it.label == label } ?: error("Unknown region label: $label")
 
 private fun knownRegion(regionLabel: String): String {
-    val inputResPath = regionsInfos[regionLabel].resPath
+    val inputResPath = regionsInfos[regionLabel].path
     val ureWithRegion = ureWithSpecialRegion(regionLabel)
     val mr = RESOURCES.readAndMatchUre(inputResPath, ureWithRegion) ?: error("No region [$regionLabel] in $inputResPath")
     return mr["region"]
@@ -54,8 +55,8 @@ private fun knownRegion(regionLabel: String): String {
 
 private fun knownRegionFullTemplatePath(
     regionLabel: String,
-    depsKtRootPath: Path = "~/code/kotlin/deps.kt".toPath(true)
-) = SYSTEM.canonicalize(depsKtRootPath / regionsInfos[regionLabel].srcPath)
+    depsKtRootPath: Path = "/home/marek/code/kotlin/deps.kt".toPath()
+) = SYSTEM.canonicalize(depsKtRootPath / regionsInfos[regionLabel].path)
 
 fun checkAllKnownRegionsInProject(projectRootPath: Path) = try {
     println("BEGIN: Check all known regions in project:")
@@ -69,7 +70,7 @@ fun checkAllKnownRegionsInProject(projectRootPath: Path) = try {
 // This actually is self check for deps.kt, so it should be in some unit test for deps.kt
 // But let's run it every time when checking client regions just to be sure the "source of truth" is consistent.
 fun checkAllKnownRegionsSynced() = regionsInfos.forEach {
-    SYSTEM.checkKnownRegion(it.label, it.srcPath, *it.syncedSrcPaths.toTypedArray(), verbose = true)
+    SYSTEM.checkKnownRegion(it.label, it.path, *it.syncedPaths.toTypedArray(), verbose = true)
 }
 
 fun FileSystem.checkAllKnownRegionsInAllFoundFiles(

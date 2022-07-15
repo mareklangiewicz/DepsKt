@@ -1,0 +1,1 @@
+../../../../../template-mpp/template-mpp-lib/build.gradle.kts

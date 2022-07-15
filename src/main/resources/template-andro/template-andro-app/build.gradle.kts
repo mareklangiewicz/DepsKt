@@ -1,0 +1,1 @@
+../../../../../template-andro/template-andro-app/build.gradle.kts

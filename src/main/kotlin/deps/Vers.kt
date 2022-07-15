@@ -25,19 +25,19 @@ object Vers {
 
     const val defaultJvm = "11" // I had terrible issues with "16" (andro compose project)
 
-    const val kotlinxDateTime = "0.3.2"
+    const val kotlinxDateTime = "0.4.0"
     // https://github.com/Kotlin/kotlinx-datetime
 
-    const val kotlinxCoroutines = "1.6.0"
+    const val kotlinxCoroutines = "1.6.4"
     // https://github.com/Kotlin/kotlinx.coroutines/releases
 
-    const val kotlinxSerialization = "1.3.2"
+    const val kotlinxSerialization = "1.3.3"
     // https://github.com/Kotlin/kotlinx.serialization/releases
 
-    const val kotlinxAtomicFu = "0.17.1"
+    const val kotlinxAtomicFu = "0.18.2"
     // https://github.com/Kotlin/kotlinx.atomicfu/releases
 
-    const val kotlinxHtml = "0.7.5"
+    const val kotlinxHtml = "0.8.0"
     // https://github.com/Kotlin/kotlinx.html/releases
 
     const val kotlinxNodeJs = "0.0.7"
@@ -46,7 +46,7 @@ object Vers {
     // just a reference - not useful in typical cases
     const val gradle5 = "5.6.4"
     const val gradle6 = "6.8.3"
-    const val gradle7 = "7.5-rc-4"
+    const val gradle7 = "7.5"
     const val gradle = gradle7
     // https://gradle.org/releases/
     // https://services.gradle.org/versions
@@ -70,7 +70,7 @@ object Vers {
     const val composeAndroidMaterial3 = "1.0.0-alpha14"
     // https://developer.android.com/jetpack/androidx/releases/compose
 
-    const val googleAccompanist = "0.24.11-rc"
+    const val googleAccompanist = "0.24.13-rc"
     const val googleAccompanistImage = "0.15.0"
     const val googleAccompanistPicasso = "0.6.2"
     // https://search.maven.org/search?q=g:com.google.accompanist
