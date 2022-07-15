@@ -29,6 +29,28 @@ dependencies { implementation(project(":template-andro-lib")) }
 
 // region [Kotlin Module Build Template]
 
+fun RepositoryHandler.defaultRepos(
+    withMavenLocal: Boolean = false,
+    withMavenCentral: Boolean = true,
+    withGradle: Boolean = false,
+    withGoogle: Boolean = true,
+    withKotlinx: Boolean = true,
+    withKotlinxHtml: Boolean = false,
+    withComposeJbDev: Boolean = false,
+    withKtorEap: Boolean = false,
+    withJitpack: Boolean = false,
+) {
+    if (withMavenLocal) mavenLocal()
+    if (withMavenCentral) mavenCentral()
+    if (withGradle) gradlePluginPortal()
+    if (withGoogle) google()
+    if (withKotlinx) maven(repos.kotlinx)
+    if (withKotlinxHtml) maven(repos.kotlinxHtml)
+    if (withComposeJbDev) maven(repos.composeJbDev)
+    if (withKtorEap) maven(repos.ktorEap)
+    if (withJitpack) maven(repos.jitpack)
+}
+
 fun TaskCollection<Task>.defaultKotlinCompileOptions(
     jvmTargetVer: String = vers.defaultJvm,
     requiresOptIn: Boolean = true
@@ -39,9 +61,153 @@ fun TaskCollection<Task>.defaultKotlinCompileOptions(
     }
 }
 
+fun TaskCollection<Task>.defaultTestsOptions(
+    printStandardStreams: Boolean = true,
+    printStackTraces: Boolean = true,
+    onJvmUseJUnitPlatform: Boolean = true,
+) = withType<AbstractTestTask>().configureEach {
+    testLogging {
+        showStandardStreams = printStandardStreams
+        showStackTraces = printStackTraces
+    }
+    if (onJvmUseJUnitPlatform) (this as? Test)?.useJUnitPlatform()
+}
+
+// Provide artifacts information requited by Maven Central
+private fun MavenPublication.defaultPOM(lib: LibDetails) = pom {
+    name put lib.name
+    description put lib.description
+    url put lib.githubUrl
+
+    licenses {
+        license {
+            name put lib.licenceName
+            url put lib.licenceUrl
+        }
+    }
+    developers {
+        developer {
+            id put lib.authorId
+            name put lib.authorName
+            email put lib.authorEmail
+        }
+    }
+    scm { url put lib.githubUrl }
+}
+
+/** See also: root project template-mpp: fun Project.defaultSonatypeOssStuffFromSystemEnvs */
+fun Project.defaultSigning(
+    keyId: String = rootExt("signing.keyId"),
+    key: String = rootExt("signing.key"),
+    password: String = rootExt("signing.password"),
+) = extensions.configure<SigningExtension> {
+    useInMemoryPgpKeys(keyId, key, password)
+    sign(extensions.getByType<PublishingExtension>().publications)
+}
+
+fun Project.defaultPublishing(lib: LibDetails, readmeFile: File = File(rootDir, "README.md")) {
+
+    val readmeJavadocJar by tasks.registering(Jar::class) {
+        from(readmeFile) // TODO_maybe: use dokka to create real docs? (but it's not even java..)
+        archiveClassifier put "javadoc"
+    }
+
+    extensions.configure<PublishingExtension> {
+        publications.withType<MavenPublication> {
+            artifact(readmeJavadocJar)
+            // Adding javadoc artifact generates warnings like:
+            // Execution optimizations have been disabled for task ':uspek:signJvmPublication'
+            // It looks like a bug in kotlin multiplatform plugin:
+            // https://youtrack.jetbrains.com/issue/KT-46466
+            // FIXME_someday: Watch the issue.
+            // If it's a bug in kotlin multiplatform then remove this comment when it's fixed.
+            // Some related bug reports:
+            // https://youtrack.jetbrains.com/issue/KT-47936
+            // https://github.com/gradle/gradle/issues/17043
+
+            defaultPOM(lib)
+        }
+    }
+}
+
+
 // endregion [Kotlin Module Build Template]
 
 // region [Andro Common Build Template]
+
+
+/** usually not needed - see template-andro */
+fun ScriptHandlerScope.defaultAndroBuildScript() {
+    repositories {
+        defaultRepos(withGradle = true)
+    }
+    dependencies {
+        defaultAndroBuildScriptDeps()
+    }
+}
+
+
+/** usually not needed - see template-android */
+fun DependencyHandler.defaultAndroBuildScriptDeps(
+) {
+    add("classpath", deps.kotlinGradlePlugin)
+    add("classpath", deps.androidGradlePlugin)
+}
+
+
+
+fun DependencyHandler.defaultAndroDeps(
+    configuration: String = "implementation",
+    withCompose: Boolean = false,
+) = deps.run {
+    addAll(configuration,
+        androidxCoreKtx,
+        androidxAppcompat,
+        androidMaterial,
+        androidxLifecycleCompiler,
+        androidxLifecycleRuntimeKtx,
+    )
+    if (withCompose) addAll(configuration,
+        composeAndroidUi,
+        composeAndroidUiTooling,
+        composeAndroidUiToolingPreview,
+        composeAndroidMaterial3,
+        composeAndroidMaterial,
+        androidxActivityCompose,
+    )
+}
+
+fun DependencyHandler.defaultAndroTestDeps(
+    configuration: String = "testImplementation",
+    withCompose: Boolean = false,
+) = deps.run {
+    addAll(configuration,
+        junit4, // FIXME_someday: when will android move to JUnit5?
+        uspekxJUnit4,
+        androidxEspressoCore,
+        googleTruth,
+        androidxTestRules,
+        androidxTestRunner,
+        androidxTestExtTruth,
+        androidxTestExtJUnit,
+        "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0",
+//        mockitoKotlin2,
+        mockitoAndroid
+    )
+    if (withCompose) addAll(configuration,
+        composeAndroidUiTest,
+        composeAndroidUiTestJUnit4,
+        composeAndroidUiTestManifest,
+    )
+}
+
+fun MutableSet<String>.defaultAndroExcludedResources() = addAll(listOf(
+    "**/*.md",
+    "**/attach_hotspot_windows.dll",
+    "META-INF/licenses/**",
+    "META-INF/AL2.0",
+    "META-INF/LGPL2.1",
+))
 
 fun CommonExtension<*,*,*,*>.defaultCompileOptions(
     jvmVersion: String = vers.defaultJvm
@@ -62,6 +228,27 @@ fun CommonExtension<*,*,*,*>.defaultComposeStuff() {
 fun CommonExtension<*,*,*,*>.defaultPackagingOptions() = packagingOptions {
     resources.excludes.defaultAndroExcludedResources()
 }
+
+/** Use template-andro/build.gradle.kts:fun defaultAndroLibPublishAllVariants() to create component with name "default". */
+fun Project.defaultPublishingOfAndroLib(
+    lib: LibDetails,
+    componentName: String = "default"
+) {
+    afterEvaluate {
+        extensions.configure<PublishingExtension> {
+            publications.register<MavenPublication>(componentName) {
+                from(components[componentName])
+                defaultPOM(lib)
+            }
+        }
+    }
+}
+
+fun Project.defaultPublishingOfAndroApp(
+    lib: LibDetails,
+    componentName: String = "release"
+) = defaultPublishingOfAndroLib(lib, componentName)
+
 
 // endregion [Andro Common Build Template]
 
