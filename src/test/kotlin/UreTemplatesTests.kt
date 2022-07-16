@@ -12,16 +12,9 @@ class UreTemplatesTests {
         "check all build regions sync" o {
             checkAllKnownRegionsSynced()
         }
-    }
-
-
-    // experiment with this test manually, but
-    // be careful not to commit this "test" without @Ignore
-    // @Ignore
-    @Test
-    fun checkAllKnownRegionsInAllMyKotlinCode() {
-        // val myKotlinSrcCodeRoot = "/home/marek/code/kotlin".toPath(normalize = true)
-        val myKotlinSrcCodeRoot = "/home/marek/code/kotlin/KommandLine".toPath(normalize = true)
-        SYSTEM.checkAllKnownRegionsInAllFoundFiles(myKotlinSrcCodeRoot, verbose = true)
+        "check all known regions in KommandLine project" ox {
+            val myKotlinSrcCodeRoot = "/home/marek/code/kotlin/KommandLine".toPath()
+            SYSTEM.checkAllKnownRegionsInAllFoundFiles(myKotlinSrcCodeRoot, verbose = true)
+        }
     }
 }

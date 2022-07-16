@@ -75,7 +75,7 @@ fun checkAllKnownRegionsSynced() = regionsInfos.forEach {
 
 fun FileSystem.checkAllKnownRegionsInAllFoundFiles(
     outputTreePath: Path,
-    outputFileExt: String = ".gradle.kts",
+    outputFileExt: String = "gradle.kts",
     failIfNotFound: Boolean = false,
     verbose: Boolean = false,
 ) {
@@ -87,7 +87,7 @@ fun FileSystem.checkAllKnownRegionsInAllFoundFiles(
 fun FileSystem.checkKnownRegionInAllFoundFiles(
     regionLabel: String,
     outputTreePath: Path,
-    outputFileExt: String = ".gradle.kts",
+    outputFileExt: String = "gradle.kts",
     failIfNotFound: Boolean = false,
     verbose: Boolean = false,
 ) {
@@ -122,9 +122,7 @@ private fun FileSystem.checkRegion(
     verboseCheckFailedHint: String? = null,
 ) {
     val ureWithRegion = ureWithSpecialRegion(regionLabel)
-    require(
-        ureWithRegion.compile().matches(regionExpected)
-    ) { "regionExpected doesn't match ureWithRegion(regionLabel)" }
+    require(ureWithRegion.compile().matches(regionExpected)) { "regionExpected doesn't match region [$regionLabel]" }
     val region by readAndMatchUre(outputPath, ureWithRegion)
         ?: if (failIfNotFound) error("Region [$regionLabel] not found in $outputPath") else return
     check(region.trimEnd('\n') == regionExpected.trimEnd('\n')) {
