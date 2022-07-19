@@ -17,6 +17,7 @@ const val labelAndroCommon = "Andro Common Build Template"
 const val labelAndroLib = "Andro Lib Build Template"
 const val labelAndroApp = "Andro App Build Template"
 
+// paths to "bgtemplate.kts" symlinks are the same as paths to source "build.gradle.kts" files
 private const val pathMppRoot = "template-mpp"
 private const val pathMppLib = "template-mpp/template-mpp-lib"
 private const val pathMppApp = "template-mpp/template-mpp-app"
@@ -39,7 +40,6 @@ fun RegionInfo.syncedPathsArrInSrc(depsKtRootPath: Path = "/home/marek/code/kotl
 private fun info(label: String, dir: String, vararg syncedDirs: String) =
     RegionInfo(label, dir.toPath(), syncedDirs.toList().map { it.toPath() })
 
-// TODO NOW: resPaths should be the same as srcPaths, but in resources!
 private val regionsInfos = listOf(
     info(labelRoot, pathMppRoot, pathAndroRoot),
     info(labelKotlinModule, pathMppLib, pathMppApp, pathJvmApp, pathAndroLib, pathAndroApp),
