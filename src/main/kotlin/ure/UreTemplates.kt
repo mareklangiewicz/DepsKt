@@ -27,8 +27,17 @@ private const val pathAndroApp = "template-andro/template-andro-app"
 
 data class RegionInfo(val label: String, val path: Path, val syncedPaths: List<Path>)
 
+val RegionInfo.pathInRes get() = path / "bgtemplate.kts"
+    // "bgtemplate.kts" has to be different from "build.gradle.kts" otherwise gradle sometimes tries to run it..
+
+fun RegionInfo.pathInSrc(depsKtRootPath: Path = "/home/marek/code/kotlin/deps.kt".toPath()) =
+    depsKtRootPath / path / "build.gradle.kts"
+
+fun RegionInfo.syncedPathsArrInSrc(depsKtRootPath: Path = "/home/marek/code/kotlin/deps.kt".toPath()) =
+    syncedPaths.map { depsKtRootPath / it / "build.gradle.kts" }.toTypedArray()
+
 private fun info(label: String, dir: String, vararg syncedDirs: String) =
-    RegionInfo(label, dir.toPath() / "build.gradle.kts", syncedDirs.toList().map { it.toPath() / "build.gradle.kts" })
+    RegionInfo(label, dir.toPath(), syncedDirs.toList().map { it.toPath() })
 
 // TODO NOW: resPaths should be the same as srcPaths, but in resources!
 private val regionsInfos = listOf(
@@ -47,7 +56,7 @@ private val regionsInfos = listOf(
 operator fun List<RegionInfo>.get(label: String) = find { it.label == label } ?: error("Unknown region label: $label")
 
 private fun knownRegion(regionLabel: String): String {
-    val inputResPath = regionsInfos[regionLabel].path
+    val inputResPath = regionsInfos[regionLabel].pathInRes
     val ureWithRegion = ureWithSpecialRegion(regionLabel)
     val mr = RESOURCES.readAndMatchUre(inputResPath, ureWithRegion) ?: error("No region [$regionLabel] in $inputResPath")
     return mr["region"]
@@ -56,7 +65,7 @@ private fun knownRegion(regionLabel: String): String {
 private fun knownRegionFullTemplatePath(
     regionLabel: String,
     depsKtRootPath: Path = "/home/marek/code/kotlin/deps.kt".toPath()
-) = SYSTEM.canonicalize(depsKtRootPath / regionsInfos[regionLabel].path)
+) = SYSTEM.canonicalize(regionsInfos[regionLabel].pathInSrc(depsKtRootPath))
 
 fun checkAllKnownRegionsInProject(projectRootPath: Path) = try {
     println("BEGIN: Check all known regions in project:")
@@ -69,13 +78,15 @@ fun checkAllKnownRegionsInProject(projectRootPath: Path) = try {
 
 // This actually is self check for deps.kt, so it should be in some unit test for deps.kt
 // But let's run it every time when checking client regions just to be sure the "source of truth" is consistent.
-fun checkAllKnownRegionsSynced() = regionsInfos.forEach {
-    SYSTEM.checkKnownRegion(it.label, it.path, *it.syncedPaths.toTypedArray(), verbose = true)
-}
+fun checkAllKnownRegionsSynced(depsKtRootPath: Path = "/home/marek/code/kotlin/deps.kt".toPath()) =
+    regionsInfos.forEach {
+        SYSTEM.checkKnownRegion(it.label, it.pathInSrc(depsKtRootPath), *it.syncedPathsArrInSrc(depsKtRootPath), verbose = true)
+    }
 
-fun injectAllKnownRegionsToSync() = regionsInfos.forEach {
-    SYSTEM.injectKnownRegion(it.label, *it.syncedPaths.toTypedArray(), addIfNotFound = false)
-}
+fun injectAllKnownRegionsToSync(depsKtRootPath: Path = "/home/marek/code/kotlin/deps.kt".toPath()) =
+    regionsInfos.forEach {
+        SYSTEM.injectKnownRegion(it.label, *it.syncedPathsArrInSrc(depsKtRootPath), addIfNotFound = false)
+    }
 
 fun FileSystem.checkAllKnownRegionsInAllFoundFiles(
     outputTreePath: Path,
