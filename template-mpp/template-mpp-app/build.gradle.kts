@@ -65,7 +65,7 @@ fun TaskCollection<Task>.defaultTestsOptions(
 }
 
 // Provide artifacts information requited by Maven Central
-private fun MavenPublication.defaultPOM(lib: LibDetails) = pom {
+fun MavenPublication.defaultPOM(lib: LibDetails) = pom {
     name put lib.name
     description put lib.description
     url put lib.githubUrl

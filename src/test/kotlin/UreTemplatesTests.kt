@@ -13,7 +13,7 @@ class UreTemplatesTests {
             checkAllKnownRegionsSynced()
         }
         "inject all build regions to sync" ox {
-            checkAllKnownRegionsSynced()
+            injectAllKnownRegionsToSync()
         }
         "check all known regions in KommandLine project" ox {
             val myKotlinSrcCodeRoot = "/home/marek/code/kotlin/KommandLine".toPath()
