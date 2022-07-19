@@ -73,6 +73,10 @@ fun checkAllKnownRegionsSynced() = regionsInfos.forEach {
     SYSTEM.checkKnownRegion(it.label, it.path, *it.syncedPaths.toTypedArray(), verbose = true)
 }
 
+fun injectAllKnownRegionsToSync() = regionsInfos.forEach {
+    SYSTEM.injectKnownRegion(it.label, *it.syncedPaths.toTypedArray(), addIfNotFound = false)
+}
+
 fun FileSystem.checkAllKnownRegionsInAllFoundFiles(
     outputTreePath: Path,
     outputFileExt: String = "gradle.kts",
@@ -135,14 +139,22 @@ private fun FileSystem.checkRegion(
     if (verbose) println("OK [$regionLabel] in $outputPath")
 }
 
-fun injectKnownRegion(regionLabel: String, vararg outputPaths: Path) = outputPaths.forEach { outputPath ->
+fun FileSystem.injectKnownRegion(
+    regionLabel: String,
+    vararg outputPaths: Path,
+    addIfNotFound: Boolean = true,
+) = outputPaths.forEach { outputPath ->
     val region = knownRegion(regionLabel)
     val regex = ureWithSpecialRegion(regionLabel).compile()
-    SYSTEM.processFile(outputPath, outputPath) { output ->
+    processFile(outputPath, outputPath) { output ->
         val outputMR = regex.matchEntire(output)
         if (outputMR == null) {
-            println("Inject [$regionLabel] to $outputPath - No match. Adding new region at the end.")
-            output + "\n\n" + region.trimEnd()
+            println("Inject [$regionLabel] to $outputPath - No match.")
+            if (addIfNotFound) {
+                println("Adding new region at the end.")
+                output + "\n\n" + region.trimEnd()
+            }
+            else null
         } else {
             val before by outputMR
             val after by outputMR
