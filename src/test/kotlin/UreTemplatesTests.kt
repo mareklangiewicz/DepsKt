@@ -12,9 +12,6 @@ class UreTemplatesTests {
         "check all build regions sync" o {
             checkAllKnownRegionsSynced()
         }
-        "inject all build regions to sync" ox {
-            injectAllKnownRegionsToSync()
-        }
         "check all known regions in KommandLine project" ox {
             val myKotlinSrcCodeRoot = "/home/marek/code/kotlin/KommandLine".toPath()
             SYSTEM.checkAllKnownRegionsInAllFoundFiles(myKotlinSrcCodeRoot, verbose = true)
@@ -22,6 +19,15 @@ class UreTemplatesTests {
         "check all known regions in all kotlin projects" ox {
             val myKotlinSrcCodeRoot = "/home/marek/code/kotlin".toPath()
             SYSTEM.checkAllKnownRegionsInAllFoundFiles(myKotlinSrcCodeRoot, verbose = true)
+        }
+
+        "DANGEROUS inject all build regions to sync" ox {
+            injectAllKnownRegionsToSync()
+        }
+
+        "DANGEROUS inject all known regions to KommandLine project" ox {
+            val myKotlinSrcCodeRoot = "/home/marek/code/kotlin/KommandLine".toPath()
+            SYSTEM.injectAllKnownRegionsToAllFoundFiles(myKotlinSrcCodeRoot)
         }
     }
 }

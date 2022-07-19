@@ -99,6 +99,26 @@ fun FileSystem.checkKnownRegionInAllFoundFiles(
     checkKnownRegion(regionLabel, *outputPaths, failIfNotFound = failIfNotFound, verbose = verbose)
 }
 
+fun FileSystem.injectAllKnownRegionsToAllFoundFiles(
+    outputTreePath: Path,
+    outputFileExt: String = "gradle.kts",
+    addIfNotFound: Boolean = false,
+) {
+    val outputPaths = findAllFiles(outputTreePath).filterExt(outputFileExt).toList().toTypedArray()
+    for (label in regionsInfos.map { it.label })
+        injectKnownRegion(label, *outputPaths, addIfNotFound = addIfNotFound)
+}
+
+fun FileSystem.injectKnownRegionToAllFoundFiles(
+    regionLabel: String,
+    outputTreePath: Path,
+    outputFileExt: String = "gradle.kts",
+    addIfNotFound: Boolean = false,
+) {
+    val outputPaths = findAllFiles(outputTreePath).filterExt(outputFileExt).toList().toTypedArray()
+    injectKnownRegion(regionLabel, *outputPaths, addIfNotFound = addIfNotFound)
+}
+
 // by "special" we mean region with label wrapped in squared brackets
 // the promise is: all special regions with some label should contain exactly the same content (synced)
 private fun ureWithSpecialRegion(regionLabel: String) = ure {
