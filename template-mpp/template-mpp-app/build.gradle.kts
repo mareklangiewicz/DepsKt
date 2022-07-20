@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.plugin.*
 import org.jetbrains.kotlin.gradle.dsl.*
 import pl.mareklangiewicz.defaults.*
 import pl.mareklangiewicz.deps.*
+import pl.mareklangiewicz.utils.*
 
 plugins {
     kotlin("multiplatform")
@@ -12,7 +13,7 @@ plugins {
 defaultBuildTemplateForComposeMppApp(
     appMainPackage = "pl.mareklangiewicz.hello",
     details = libs.TemplateMPP,
-    withNativeLinux64 = true,
+    withNativeLinux64 = false,
     withKotlinxHtml = true,
 ) {
     implementation(project(":template-mpp-lib"))

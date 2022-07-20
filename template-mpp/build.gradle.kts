@@ -1,10 +1,11 @@
+import okio.FileSystem.Companion.SYSTEM
 import pl.mareklangiewicz.defaults.*
 import pl.mareklangiewicz.ure.*
 import pl.mareklangiewicz.utils.*
 
 plugins {
     id("io.github.gradle-nexus.publish-plugin") version vers.nexusPublishGradlePlugin
-    kotlin("multiplatform") version vers.kotlin apply false
+    kotlin("multiplatform") apply false
 }
 
 defaultGroupAndVerAndDescription(libs.TemplateMPP)
@@ -21,25 +22,8 @@ tasks.registerAllThatGroupFun("inject",
     ::injectTemplates,
 )
 
-fun checkTemplates() {
-    checkRootBuildTemplate(rootBuild)
-    checkKotlinModuleBuildTemplates(mppLibBuild, mppAppBuild, jvmCliBuild)
-    checkMppModuleBuildTemplates(mppLibBuild, mppAppBuild)
-    checkMppAppBuildTemplates(mppAppBuild)
-    checkComposeMppModuleBuildTemplates(mppLibBuild, mppAppBuild)
-    checkComposeMppAppBuildTemplates(mppAppBuild)
-    checkJvmAppBuildTemplates(jvmCliBuild)
-}
-
-fun injectTemplates() {
-    injectRootBuildTemplate(rootBuild)
-    injectKotlinModuleBuildTemplate(mppLibBuild, mppAppBuild, jvmCliBuild)
-    injectMppModuleBuildTemplate(mppLibBuild, mppAppBuild)
-    injectMppAppBuildTemplate(mppAppBuild)
-    injectComposeMppModuleBuildTemplate(mppLibBuild, mppAppBuild)
-    injectComposeMppAppBuildTemplate(mppAppBuild)
-    injectJvmAppBuildTemplate(jvmCliBuild)
-}
+fun checkTemplates() = checkAllKnownRegionsInProject(rootProjectPath)
+fun injectTemplates() = SYSTEM.injectAllKnownRegionsToAllFoundFiles(rootProjectPath)
 
 // region [Root Build Template]
 

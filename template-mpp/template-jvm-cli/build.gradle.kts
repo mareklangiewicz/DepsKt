@@ -9,7 +9,7 @@ plugins {
 }
 
 repositories { // TODO_later: why gradle needs compose repo here?
-    defaultRepos(withComposeJbDev = true)
+    defaultRepos(withKotlinxHtml = true, withComposeJbDev = true)
 }
 
 defaultBuildTemplateForJvmApp(
