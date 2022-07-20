@@ -9,27 +9,10 @@ defaultGroupAndVerAndDescription(libs.TemplateAndro)
 defaultSonatypeOssStuffFromSystemEnvs()
 
 
-private val rootBuild = rootProjectPath / "build.gradle.kts"
-private val libBuild = rootProjectPath / "template-andro-lib" / "build.gradle.kts"
-private val appBuild = rootProjectPath / "template-andro-app" / "build.gradle.kts"
-
 tasks.registerAllThatGroupFun("inject", ::checkTemplates, ::injectTemplates)
 
-fun checkTemplates() {
-    checkRootBuildTemplate(rootBuild)
-    checkKotlinModuleBuildTemplates(libBuild, appBuild)
-    checkAndroCommonBuildTemplates(libBuild, appBuild)
-    checkAndroLibBuildTemplates(libBuild)
-    checkAndroAppBuildTemplates(appBuild)
-}
-
-fun injectTemplates() {
-    injectRootBuildTemplate(rootBuild)
-    injectKotlinModuleBuildTemplate(libBuild, appBuild)
-    injectAndroCommonBuildTemplate(libBuild, appBuild)
-    injectAndroLibBuildTemplate(libBuild)
-    injectAndroAppBuildTemplate(appBuild)
-}
+fun checkTemplates() = checkAllKnownRegionsInProject(rootProjectPath)
+fun injectTemplates() = SYSTEM.injectAllKnownRegionsToAllFoundFiles(rootProjectPath)
 
 // region [Root Build Template]
 

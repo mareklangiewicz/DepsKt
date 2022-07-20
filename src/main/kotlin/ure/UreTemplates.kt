@@ -4,7 +4,9 @@ import okio.*
 import okio.FileSystem.Companion.RESOURCES
 import okio.FileSystem.Companion.SYSTEM
 import okio.Path.Companion.toPath
+import org.gradle.api.*
 import pl.mareklangiewicz.io.*
+import pl.mareklangiewicz.utils.*
 
 const val labelRoot = "Root Build Template"
 const val labelKotlinModule = "Kotlin Module Build Template"
@@ -67,13 +69,19 @@ private fun knownRegionFullTemplatePath(
     depsKtRootPath: Path = "/home/marek/code/kotlin/deps.kt".toPath()
 ) = SYSTEM.canonicalize(regionsInfos[regionLabel].pathInSrc(depsKtRootPath))
 
-fun checkAllKnownRegionsInProject(projectRootPath: Path) = try {
+fun Project.checkAllKnownRegionsInProject() = try {
     println("BEGIN: Check all known regions in project:")
     checkAllKnownRegionsSynced() // to be sure source of truth is clean
-    SYSTEM.checkAllKnownRegionsInAllFoundFiles(projectRootPath, verbose = true)
+    SYSTEM.checkAllKnownRegionsInAllFoundFiles(projectPath, verbose = true)
     println("END: Check all known regions in project.")
 } catch (e: IllegalStateException) {
     println("ERROR: ${e.message}")
+}
+
+fun Project.injectAllKnownRegionsInProject() {
+    println("BEGIN: Inject all known regions in project:")
+    SYSTEM.injectAllKnownRegionsToAllFoundFiles(projectPath)
+    println("END: Inject all known regions in project.")
 }
 
 // This actually is self check for deps.kt, so it should be in some unit test for deps.kt

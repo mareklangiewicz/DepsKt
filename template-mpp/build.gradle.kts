@@ -1,4 +1,3 @@
-import okio.FileSystem.Companion.SYSTEM
 import pl.mareklangiewicz.defaults.*
 import pl.mareklangiewicz.ure.*
 import pl.mareklangiewicz.utils.*
@@ -12,18 +11,10 @@ defaultGroupAndVerAndDescription(libs.TemplateMPP)
 
 defaultSonatypeOssStuffFromSystemEnvs()
 
-private val rootBuild = rootProjectPath / "build.gradle.kts"
-private val mppLibBuild = rootProjectPath / "template-mpp-lib" / "build.gradle.kts"
-private val mppAppBuild = rootProjectPath / "template-mpp-app" / "build.gradle.kts"
-private val jvmCliBuild = rootProjectPath / "template-jvm-cli" / "build.gradle.kts"
+tasks.registerAllThatGroupFun("inject", ::checkTemplates, ::injectTemplates)
 
-tasks.registerAllThatGroupFun("inject",
-    ::checkTemplates,
-    ::injectTemplates,
-)
-
-fun checkTemplates() = checkAllKnownRegionsInProject(rootProjectPath)
-fun injectTemplates() = SYSTEM.injectAllKnownRegionsToAllFoundFiles(rootProjectPath)
+fun checkTemplates() = checkAllKnownRegionsInProject()
+fun injectTemplates() = injectAllKnownRegionsInProject()
 
 // region [Root Build Template]
 
