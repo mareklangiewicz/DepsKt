@@ -19,6 +19,13 @@ defaultBuildTemplateForComposeMppApp(
     implementation(project(":template-mpp-lib"))
 }
 
+
+// Fixes webpack-cli incompatibility by pinning the newest version.
+// https://youtrack.jetbrains.com/issue/KT-52776/KJS-Gradle-Webpack-version-update-despite-yarnlock-breaks-KotlinJS-build
+rootProject.extensions.configure<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension> {
+    versions.webpackCli.version = "4.10.0"
+}
+
 // region [Kotlin Module Build Template]
 
 fun RepositoryHandler.defaultRepos(
