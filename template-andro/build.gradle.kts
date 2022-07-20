@@ -2,7 +2,12 @@ import pl.mareklangiewicz.utils.*
 import pl.mareklangiewicz.ure.*
 import pl.mareklangiewicz.defaults.*
 
-plugins { id("io.github.gradle-nexus.publish-plugin") version vers.nexusPublishGradlePlugin }
+plugins {
+    id("com.android.library") version vers.androidGradlePlugin apply false
+    id("com.android.application") version vers.androidGradlePlugin apply false
+    kotlin("android") apply false
+    id("io.github.gradle-nexus.publish-plugin") version vers.nexusPublishGradlePlugin
+}
 
 defaultGroupAndVerAndDescription(libs.TemplateAndro)
 
@@ -11,8 +16,8 @@ defaultSonatypeOssStuffFromSystemEnvs()
 
 tasks.registerAllThatGroupFun("inject", ::checkTemplates, ::injectTemplates)
 
-fun checkTemplates() = checkAllKnownRegionsInProject(rootProjectPath)
-fun injectTemplates() = SYSTEM.injectAllKnownRegionsToAllFoundFiles(rootProjectPath)
+fun checkTemplates() = checkAllKnownRegionsInProject()
+fun injectTemplates() = injectAllKnownRegionsInProject()
 
 // region [Root Build Template]
 

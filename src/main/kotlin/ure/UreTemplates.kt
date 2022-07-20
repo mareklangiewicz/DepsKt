@@ -70,8 +70,8 @@ private fun knownRegionFullTemplatePath(
 ) = SYSTEM.canonicalize(regionsInfos[regionLabel].pathInSrc(depsKtRootPath))
 
 fun Project.checkAllKnownRegionsInProject() = try {
-    println("BEGIN: Check all known regions in project:")
     checkAllKnownRegionsSynced() // to be sure source of truth is clean
+    println("BEGIN: Check all known regions in project:")
     SYSTEM.checkAllKnownRegionsInAllFoundFiles(projectPath, verbose = true)
     println("END: Check all known regions in project.")
 } catch (e: IllegalStateException) {
@@ -88,7 +88,7 @@ fun Project.injectAllKnownRegionsInProject() {
 // But let's run it every time when checking client regions just to be sure the "source of truth" is consistent.
 fun checkAllKnownRegionsSynced(depsKtRootPath: Path = "/home/marek/code/kotlin/deps.kt".toPath()) =
     regionsInfos.forEach {
-        SYSTEM.checkKnownRegion(it.label, it.pathInSrc(depsKtRootPath), *it.syncedPathsArrInSrc(depsKtRootPath), verbose = true)
+        SYSTEM.checkKnownRegion(it.label, it.pathInSrc(depsKtRootPath), *it.syncedPathsArrInSrc(depsKtRootPath), verbose = false)
     }
 
 fun injectAllKnownRegionsToSync(depsKtRootPath: Path = "/home/marek/code/kotlin/deps.kt".toPath()) =

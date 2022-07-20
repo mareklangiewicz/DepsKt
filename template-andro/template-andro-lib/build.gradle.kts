@@ -2,10 +2,11 @@ import com.android.build.api.dsl.CommonExtension
 import com.android.build.api.dsl.LibraryExtension
 import pl.mareklangiewicz.defaults.*
 import pl.mareklangiewicz.deps.*
+import pl.mareklangiewicz.utils.*
 
 plugins {
-    id("com.android.library") version vers.androidGradlePlugin
-    kotlin("android") version vers.kotlin
+    id("com.android.library")
+    kotlin("android")
     id("maven-publish")
     id("signing")
 }
