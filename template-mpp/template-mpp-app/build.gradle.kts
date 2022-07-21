@@ -15,6 +15,7 @@ defaultBuildTemplateForComposeMppApp(
     details = libs.TemplateMPP,
     withNativeLinux64 = false,
     withKotlinxHtml = true,
+    withComposeCompilerFix = true,
 ) {
     implementation(project(":template-mpp-lib"))
 }
@@ -36,6 +37,7 @@ fun RepositoryHandler.defaultRepos(
     withKotlinx: Boolean = true,
     withKotlinxHtml: Boolean = false,
     withComposeJbDev: Boolean = false,
+    withComposeCompilerAndroidxDev: Boolean = false,
     withKtorEap: Boolean = false,
     withJitpack: Boolean = false,
 ) {
@@ -46,6 +48,7 @@ fun RepositoryHandler.defaultRepos(
     if (withKotlinx) maven(repos.kotlinx)
     if (withKotlinxHtml) maven(repos.kotlinxHtml)
     if (withComposeJbDev) maven(repos.composeJbDev)
+    if (withComposeCompilerAndroidxDev) maven(repos.composeCompilerAndroidxDev)
     if (withKtorEap) maven(repos.ktorEap)
     if (withJitpack) maven(repos.jitpack)
 }
@@ -142,12 +145,29 @@ fun Project.defaultBuildTemplateForMppLib(
     withNativeLinux64: Boolean = false,
     withKotlinxHtml: Boolean = false,
     withComposeJbDevRepo: Boolean = false,
+    withComposeCompilerFix: Boolean = false,
     withTestJUnit4: Boolean = false,
     withTestJUnit5: Boolean = true,
     withTestUSpekX: Boolean = true,
     addCommonMainDependencies: KotlinDependencyHandler.() -> Unit = {}
 ) {
-    repositories { defaultRepos(withKotlinxHtml = withKotlinxHtml, withComposeJbDev = withComposeJbDevRepo) }
+    repositories {
+        defaultRepos(
+            withKotlinxHtml = withKotlinxHtml,
+            withComposeJbDev = withComposeJbDevRepo,
+            withComposeCompilerAndroidxDev = withComposeCompilerFix,
+        )
+    }
+    if (withComposeCompilerFix) {
+        require(withComposeJbDevRepo) { "Compose compiler fix is available only for compose-jb projects." }
+        configurations.all {
+            resolutionStrategy.dependencySubstitution {
+                substitute(module(deps.composeCompilerJbDev)).apply {
+                    using(module(deps.composeCompilerAndroidxDev))
+                }
+            }
+        }
+    }
     defaultGroupAndVerAndDescription(details)
     kotlin { allDefault(
         withJvm,
@@ -301,6 +321,7 @@ fun Project.defaultBuildTemplateForComposeMppLib(
     withJs: Boolean = true,
     withNativeLinux64: Boolean = false,
     withKotlinxHtml: Boolean = false,
+    withComposeCompilerFix: Boolean = false,
     withComposeUi: Boolean = true,
     withComposeFoundation: Boolean = true,
     withComposeMaterial2: Boolean = withJvm,
@@ -323,6 +344,7 @@ fun Project.defaultBuildTemplateForComposeMppLib(
         withNativeLinux64 = withNativeLinux64,
         withKotlinxHtml = withKotlinxHtml,
         withComposeJbDevRepo = true,
+        withComposeCompilerFix = withComposeCompilerFix,
         withTestJUnit4 = withComposeTestUiJUnit4, // Unfortunately Compose UI steel uses JUnit4 instead of 5
         withTestJUnit5 = false,
         withTestUSpekX = true,
@@ -397,6 +419,7 @@ fun Project.defaultBuildTemplateForComposeMppApp(
     withJs: Boolean = true,
     withNativeLinux64: Boolean = false,
     withKotlinxHtml: Boolean = false,
+    withComposeCompilerFix: Boolean = false,
     withComposeUi: Boolean = true,
     withComposeFoundation: Boolean = true,
     withComposeMaterial2: Boolean = withJvm,
@@ -418,6 +441,7 @@ fun Project.defaultBuildTemplateForComposeMppApp(
         withJs = withJs,
         withNativeLinux64 = withNativeLinux64,
         withKotlinxHtml = withKotlinxHtml,
+        withComposeCompilerFix = withComposeCompilerFix,
         withComposeUi = withComposeUi,
         withComposeFoundation = withComposeFoundation,
         withComposeMaterial2 = withComposeMaterial2,

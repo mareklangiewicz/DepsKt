@@ -7,20 +7,6 @@ plugins {
     kotlin("multiplatform") apply false
 }
 
-allprojects {
-    configurations.all {
-        resolutionStrategy.dependencySubstitution {
-            substitute(module(deps.composeCompilerJbDev)).apply {
-                using(module(deps.composeCompilerAndroidxDev))
-            }
-        }
-    }
-    repositories {
-        maven(repos.composeCompilerAndroidxDev)
-    }
-}
-
-
 defaultGroupAndVerAndDescription(libs.TemplateMPP)
 
 defaultSonatypeOssStuffFromSystemEnvs()
