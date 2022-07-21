@@ -3,9 +3,6 @@ import pl.mareklangiewicz.ure.*
 import pl.mareklangiewicz.defaults.*
 
 plugins {
-    id("com.android.library") version vers.androidGradlePlugin apply false
-    id("com.android.application") version vers.androidGradlePlugin apply false
-    kotlin("android") apply false
     id("io.github.gradle-nexus.publish-plugin") version vers.nexusPublishGradlePlugin
 }
 
