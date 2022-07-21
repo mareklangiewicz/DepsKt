@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.7.0"
+    kotlin("jvm") version "1.7.10"
     id("com.gradle.plugin-publish") version "1.0.0" // https://plugins.gradle.org/docs/publish-plugin
     id("signing")
 }
@@ -15,7 +15,7 @@ dependencies {
     api("com.squareup.okio:okio:3.2.0")
     implementation(gradleApi())
     implementation("org.gradle.kotlin:gradle-kotlin-dsl-conventions:0.7.0")
-    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.0")
+    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10")
     // testApi(gradleTestKit()) // this is automatically added by java-gradle-plugin
     testImplementation("pl.mareklangiewicz:uspekx:0.0.24") // TODO: try to use deps.uspek (see comment in settings)
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2") // TODO: try to use deps.uspek (see comment in settings)

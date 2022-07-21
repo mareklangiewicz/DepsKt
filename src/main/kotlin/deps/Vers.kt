@@ -14,7 +14,7 @@ object Vers {
     val kotlin14 = v(1, 4, 32)
     val kotlin15 = v(1, 5, 31)
     val kotlin16 = v(1, 6, 21)
-    val kotlin17 = v(1,7,0, patchLength = 1)
+    val kotlin17 = v(1,7,10)
     val kotlin = kotlin17
     // https://kotlinlang.org/docs/releases.html#release-details
     // https://github.com/JetBrains/kotlin/blob/master/ChangeLog.md
@@ -65,7 +65,8 @@ object Vers {
     const val composeAndroidMain = "1.2.0-rc03"
     const val composeAndroidEdge = "1.3.0-alpha01"
     const val composeAndroid = composeAndroidEdge
-    val composeAndroidCompiler = v(1, 2, 0, patchLength = 1)
+    val composeAndroidCompilerStable = v(1, 2, 0, patchLength = 1) // for kotlin 1.7.0
+    val composeAndroidCompiler = v(1, 3, 0, suffix = "beta01")
         // https://android-developers.googleblog.com/2022/06/independent-versioning-of-Jetpack-Compose-libraries.html?utm_source=dlvr.it&utm_medium=twitter
     const val composeAndroidMaterial3 = "1.0.0-alpha14"
     // https://developer.android.com/jetpack/androidx/releases/compose
