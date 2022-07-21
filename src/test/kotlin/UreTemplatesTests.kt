@@ -1,5 +1,6 @@
 package pl.mareklangiewicz.ure
 
+import okio.*
 import okio.FileSystem.Companion.SYSTEM
 import okio.Path.Companion.toPath
 import org.junit.jupiter.api.*
@@ -45,20 +46,31 @@ class UreTemplatesTests {
         // oDangerousInjectAllKnownRegionsToSync()
         // oDangerousInjectAllKnownRegionsToKotlinProjects(*someOfMyKotlinProjects.toTypedArray())
 
-        // oExperimentWithGradle()
+        // oExperiment()
     }
 }
 
-private fun oExperimentWithGradle() = "experiment with gradle" o {
-    val gradleFiles =
-        listOf("", ".bat").map { "gradlew$it" } + listOf("jar", "properties").map { "gradle/wrapper/gradle-wrapper.$it" }
-    gradleFiles.forEach {
-        val src = defaultDepsKtRootPath / it
-        val dst = defaultDepsKtRootPath / "src" / "main" / "resources" / "$it.tmpl"
+private fun oExperiment() = "experiment" o {
+    val buildFiles = SYSTEM
+        .findAllFiles(defaultDepsKtRootPath)
+        .filter { it.segments.any { it.startsWith("template-") } }
+        .filterExt("gradle.kts")
+        .toList()
+    val gradleStrNames =
+        listOf("", ".bat").map { "gradlew$it" } +
+        listOf("jar", "properties").map { "gradle/wrapper/gradle-wrapper.$it" }
+    val gradleFiles = gradleStrNames.map { defaultDepsKtRootPath / it }
+    val files = buildFiles + gradleFiles
+    files.forEach { src ->
+        val srcRel = src.asRelativeTo(defaultDepsKtRootPath)
+        val dst = defaultDepsKtRootPath / "src" / "main" / "resources" / srcRel.withName { "$it.tmpl" }.toString()
         println("$src -> $dst")
         SYSTEM.processFile(src, dst) { content -> content }
     }
 }
+
+private fun Path.withName(getNewName: (oldName: String) -> String) =
+    parent?.let { it / getNewName(name) } ?: getNewName(name).toPath()
 
 private val pathToKotlinProjects = "/home/marek/code/kotlin".toPath()
 

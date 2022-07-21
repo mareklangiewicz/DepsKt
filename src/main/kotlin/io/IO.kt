@@ -40,6 +40,7 @@ fun FileSystem.processEachFile(
     }
 }
 
+// FIXME: okio has Path.relativeTo - is it the same?
 fun Path.asRelativeTo(path: Path): Path {
     require(this.isAbsolute)
     require(path.isAbsolute)
