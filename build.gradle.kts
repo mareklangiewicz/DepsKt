@@ -17,7 +17,7 @@ dependencies {
         // Warning: andro gradle plugin is needed here, so kotlin plugin can access BaseExtension class etc.
         // It is needed in android projects using deps.kt (which does: plugins { kotlin("android") }
         // It doesn't work if users just add this andro gradle plugin dependency in their projects.
-    testImplementation("pl.mareklangiewicz:uspekx:0.0.24") // TODO: try to use deps.uspek (see comment in settings)
+    testImplementation("pl.mareklangiewicz:uspekx-junit5:0.0.24") // TODO: try to use deps.uspek (see comment in settings)
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2") // TODO: try to use deps.uspek (see comment in settings)
     testImplementation("org.junit.jupiter:junit-jupiter-engine:5.8.2") // TODO: try to use deps.uspek (see comment in settings)
     // TODO: check separation between api and engine - so I can do similar in ULog (with separate bridges to CLog etc.)

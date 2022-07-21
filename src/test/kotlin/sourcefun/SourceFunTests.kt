@@ -3,7 +3,6 @@ package pl.mareklangiewicz.sourcefun
 import okio.*
 import okio.FileSystem.Companion.SYSTEM
 import okio.Path.Companion.toPath
-import org.gradle.kotlin.dsl.*
 import org.gradle.testfixtures.*
 import org.gradle.testkit.runner.*
 import org.gradle.testkit.runner.TaskOutcome.*
