@@ -32,6 +32,7 @@ fun RepositoryHandler.defaultRepos(
     withKotlinx: Boolean = true,
     withKotlinxHtml: Boolean = false,
     withComposeJbDev: Boolean = false,
+    withComposeCompilerAndroidxDev: Boolean = false,
     withKtorEap: Boolean = false,
     withJitpack: Boolean = false,
 ) {
@@ -42,6 +43,7 @@ fun RepositoryHandler.defaultRepos(
     if (withKotlinx) maven(repos.kotlinx)
     if (withKotlinxHtml) maven(repos.kotlinxHtml)
     if (withComposeJbDev) maven(repos.composeJbDev)
+    if (withComposeCompilerAndroidxDev) maven(repos.composeCompilerAndroidxDev)
     if (withKtorEap) maven(repos.ktorEap)
     if (withJitpack) maven(repos.jitpack)
 }
