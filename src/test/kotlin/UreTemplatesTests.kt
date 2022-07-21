@@ -61,12 +61,14 @@ private fun oExperiment() = "experiment" o {
         listOf("jar", "properties").map { "gradle/wrapper/gradle-wrapper.$it" }
     val gradleFiles = gradleStrNames.map { defaultDepsKtRootPath / it }
     val files = buildFiles + gradleFiles
-    files.forEach { src ->
-        val srcRel = src.asRelativeTo(defaultDepsKtRootPath)
-        val dst = defaultDepsKtRootPath / "src" / "main" / "resources" / srcRel.withName { "$it.tmpl" }.toString()
-        println("$src -> $dst")
-        SYSTEM.createDirectories(dst.parent!!)
-        SYSTEM.createSymlink(dst, src)
+    files.forEach { srcAbs ->
+        val srcRel = srcAbs.asRelativeTo(defaultDepsKtRootPath)
+        val linkRel = "src/main/resources".toPath() / srcRel.withName { "$it.tmpl" }
+        val linkAbs = defaultDepsKtRootPath / linkRel
+        val target = linkRel.parent!!.segments.joinToString("/") { ".." }.toPath() / srcRel
+        println("symlink $linkAbs -> $target")
+        SYSTEM.createDirectories(linkAbs.parent!!)
+        SYSTEM.createSymlink(linkAbs, target)
     }
 }
 
