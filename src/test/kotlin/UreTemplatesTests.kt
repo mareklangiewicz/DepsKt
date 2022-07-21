@@ -65,7 +65,8 @@ private fun oExperiment() = "experiment" o {
         val srcRel = src.asRelativeTo(defaultDepsKtRootPath)
         val dst = defaultDepsKtRootPath / "src" / "main" / "resources" / srcRel.withName { "$it.tmpl" }.toString()
         println("$src -> $dst")
-        SYSTEM.processFile(src, dst) { content -> content }
+        SYSTEM.createDirectories(dst.parent!!)
+        SYSTEM.createSymlink(dst, src)
     }
 }
 
