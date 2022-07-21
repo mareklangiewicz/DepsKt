@@ -21,6 +21,7 @@ private val someOfMyKotlinProjects = listOf(
     "MyStolenPlaygrounds",
     "RxDebugBridge",
     "RxEdges",
+    "RxMock",
     "SMokK",
     "SourceFun",
     "TixyPlayground",
@@ -37,9 +38,9 @@ class UreTemplatesTests {
     @TestFactory
     fun ureTemplatesTestFactory() = uspekTestFactory {
         oCheckAllKnownRegionsSynced()
-        oCheckAllKnownRegionsInKotlinProject("KommandLine")
-        oCheckAllKnownRegionsInKotlinProject("AbcdK")
-        // oCheckAllKnownRegionsInAllKotlinProjects()
+        // oCheckAllKnownRegionsInKotlinProject("KommandLine")
+        // oCheckAllKnownRegionsInKotlinProject("AbcdK")
+        oCheckAllKnownRegionsInAllKotlinProjects()
         // oDangerousInjectAllKnownRegionsToSync()
         // oDangerousInjectAllKnownRegionsToKotlinProjects(*someOfMyKotlinProjects.toTypedArray())
     }

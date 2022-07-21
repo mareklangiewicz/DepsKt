@@ -59,7 +59,9 @@ pluginBundle {
     description = "Updated dependencies for typical java/kotlin/android projects (with IDE support)."
 }
 
-// region [Kotlin Module Build Template]
+// region Copy&Paste Code for deps building special case
+
+// Note: Can not import pl.mareklangiewicz.defaults.* here
 
 fun TaskCollection<Task>.defaultKotlinCompileOptions(
     jvmTargetVer: String,
@@ -70,12 +72,6 @@ fun TaskCollection<Task>.defaultKotlinCompileOptions(
         if (requiresOptIn) freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlin.RequiresOptIn"
     }
 }
-
-// endregion [Kotlin Module Build Template]
-
-// region Copy&Paste Code for deps building special case
-
-// note: Can not import pl.mareklangiewicz.defaults.* here
 
 fun TaskCollection<Task>.defaultTestsOptions(
     printStandardStreams: Boolean = true,
