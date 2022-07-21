@@ -7,6 +7,7 @@ gradle.logSomeEventsToFile(rootProject.projectDir.toOkioPath() / "my.gradle.log"
 
 pluginManagement {
     repositories {
+        google() // unfortunately needed for deps.kt, because it has to add andro gradle plugin to classpath
         gradlePluginPortal()
         maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
     }

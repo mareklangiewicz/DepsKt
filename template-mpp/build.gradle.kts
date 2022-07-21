@@ -7,6 +7,20 @@ plugins {
     kotlin("multiplatform") apply false
 }
 
+allprojects {
+    configurations.all {
+        resolutionStrategy.dependencySubstitution {
+            substitute(module("org.jetbrains.compose.compiler:compiler")).apply {
+                using(module("androidx.compose.compiler:compiler:1.2.1-dev-k1.7.10-27cf0868d10"))
+            }
+        }
+    }
+    repositories {
+        maven("https://androidx.dev/storage/compose-compiler/repository/")
+    }
+}
+
+
 defaultGroupAndVerAndDescription(libs.TemplateMPP)
 
 defaultSonatypeOssStuffFromSystemEnvs()
