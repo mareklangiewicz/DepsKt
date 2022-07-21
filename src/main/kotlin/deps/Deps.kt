@@ -33,9 +33,15 @@ object Deps {
     val kotlinTestJs = kotlin withName "kotlin-test-js"
 
     val composeJbGradlePlugin = dep("org.jetbrains.compose", "compose-gradle-plugin", vers.composeJb)
+
+    val composeCompilerAndroidx = dep("androidx.compose.compiler", "compiler", vers.composeCompilerBeta)
+    val composeCompilerAndroidxDev = dep("androidx.compose.compiler", "compiler", vers.composeCompilerDev)
+
+    // No version to use it in hotfix with module substitution (see: template-mpp/build.gradle/kts)
+    val composeCompilerJbDev = dep("org.jetbrains.compose.compiler", "compiler")
+
     val composeAndroidAnimation = dep("androidx.compose.animation", "animation", vers.composeAndroid)
     val composeAndroidAnimationCore = composeAndroidAnimation withName "animation-core"
-    val composeAndroidCompiler = dep("androidx.compose.compiler", "compiler", vers.composeAndroidCompiler)
     val composeAndroidFoundation = dep("androidx.compose.foundation", "foundation", vers.composeAndroid)
     val composeAndroidFoundationLayout = composeAndroidFoundation withName "foundation-layout"
     val composeAndroidFoundationShape = composeAndroidFoundation withName "foundation-shape"

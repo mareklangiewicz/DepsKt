@@ -13,7 +13,10 @@ object Repos {
 
     const val composeJbDev = "https://maven.pkg.jetbrains.space/public/p/compose/dev"
 
+    const val composeCompilerAndroidxDev = "https://androidx.dev/storage/compose-compiler/repository/"
+
     const val jitpack = "https://jitpack.io"
 
     const val kotlinx = "https://kotlin.bintray.com/kotlinx"
+    const val kotlinxSpaceDev = "https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev/"
 }

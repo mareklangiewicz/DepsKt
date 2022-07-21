@@ -10,13 +10,13 @@ plugins {
 allprojects {
     configurations.all {
         resolutionStrategy.dependencySubstitution {
-            substitute(module("org.jetbrains.compose.compiler:compiler")).apply {
-                using(module("androidx.compose.compiler:compiler:1.2.1-dev-k1.7.10-27cf0868d10"))
+            substitute(module(deps.composeCompilerJbDev)).apply {
+                using(module(deps.composeCompilerAndroidxDev))
             }
         }
     }
     repositories {
-        maven("https://androidx.dev/storage/compose-compiler/repository/")
+        maven(repos.composeCompilerAndroidxDev)
     }
 }
 

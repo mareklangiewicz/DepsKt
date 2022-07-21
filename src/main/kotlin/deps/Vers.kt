@@ -65,9 +65,13 @@ object Vers {
     const val composeAndroidMain = "1.2.0-rc03"
     const val composeAndroidEdge = "1.3.0-alpha01"
     const val composeAndroid = composeAndroidEdge
-    val composeAndroidCompilerStable = v(1, 2, 0, patchLength = 1) // for kotlin 1.7.0
-    val composeAndroidCompiler = v(1, 3, 0, patchLength = 1,suffix = "-beta01")
+    val composeCompilerStable = v(1, 2, 0, patchLength = 1) // for kotlin 1.7.0
+    val composeCompilerBeta = v(1, 3, 0, patchLength = 1,suffix = "-beta01")
+    val composeCompilerDev = v(1, 2, 1, patchLength = 1,suffix = "-dev-k1.7.10-27cf0868d10")
+    val composeCompiler = composeCompilerBeta
         // https://android-developers.googleblog.com/2022/06/independent-versioning-of-Jetpack-Compose-libraries.html?utm_source=dlvr.it&utm_medium=twitter
+        // https://androidx.dev/storage/compose-compiler/repository
+
     const val composeAndroidMaterial3 = "1.0.0-alpha14"
     // https://developer.android.com/jetpack/androidx/releases/compose
 
