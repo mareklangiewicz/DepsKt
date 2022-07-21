@@ -14,6 +14,9 @@ dependencies {
     api("com.squareup.okio:okio:3.2.0")
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10")
     implementation("com.android.library:com.android.library.gradle.plugin:7.4.0-alpha08")
+        // Warning: andro gradle plugin is needed here, so kotlin plugin can access BaseExtension class etc.
+        // It is needed in android projects using deps.kt (which does: plugins { kotlin("android") }
+        // It doesn't work if users just add this andro gradle plugin dependency in their projects.
     testImplementation("pl.mareklangiewicz:uspekx:0.0.24") // TODO: try to use deps.uspek (see comment in settings)
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2") // TODO: try to use deps.uspek (see comment in settings)
     testImplementation("org.junit.jupiter:junit-jupiter-engine:5.8.2") // TODO: try to use deps.uspek (see comment in settings)
