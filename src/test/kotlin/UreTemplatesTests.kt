@@ -3,6 +3,7 @@ package pl.mareklangiewicz.ure
 import okio.FileSystem.Companion.SYSTEM
 import okio.Path.Companion.toPath
 import org.junit.jupiter.api.*
+import pl.mareklangiewicz.io.*
 import pl.mareklangiewicz.uspek.*
 
 private val someOfMyKotlinProjects = listOf(
@@ -37,14 +38,26 @@ class UreTemplatesTests {
 
     @TestFactory
     fun ureTemplatesTestFactory() = uspekTestFactory {
-        oCheckAllKnownRegionsSynced()
+        // oCheckAllKnownRegionsSynced()
         // oCheckAllKnownRegionsInKotlinProject("KommandLine")
         // oCheckAllKnownRegionsInKotlinProject("AbcdK")
-        oCheckAllKnownRegionsInAllKotlinProjects()
+        // oCheckAllKnownRegionsInAllKotlinProjects()
         // oDangerousInjectAllKnownRegionsToSync()
         // oDangerousInjectAllKnownRegionsToKotlinProjects(*someOfMyKotlinProjects.toTypedArray())
-    }
 
+        // oExperimentWithGradle()
+    }
+}
+
+private fun oExperimentWithGradle() = "experiment with gradle" o {
+    val gradleFiles =
+        listOf("", ".bat").map { "gradlew$it" } + listOf("jar", "properties").map { "gradle/wrapper/gradle-wrapper.$it" }
+    gradleFiles.forEach {
+        val src = defaultDepsKtRootPath / it
+        val dst = defaultDepsKtRootPath / "src" / "main" / "resources" / "$it.tmpl"
+        println("$src -> $dst")
+        SYSTEM.processFile(src, dst) { content -> content }
+    }
 }
 
 private val pathToKotlinProjects = "/home/marek/code/kotlin".toPath()
