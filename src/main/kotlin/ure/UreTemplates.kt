@@ -19,7 +19,7 @@ const val labelAndroCommon = "Andro Common Build Template"
 const val labelAndroLib = "Andro Lib Build Template"
 const val labelAndroApp = "Andro App Build Template"
 
-// paths to "bgtemplate.kts" symlinks are the same as paths to source "build.gradle.kts" files
+// paths to "bgtemplate" symlinks are the same as paths to source "build.gradle.kts" files
 private const val pathMppRoot = "template-mpp"
 private const val pathMppLib = "template-mpp/template-mpp-lib"
 private const val pathMppApp = "template-mpp/template-mpp-app"
@@ -30,8 +30,9 @@ private const val pathAndroApp = "template-andro/template-andro-app"
 
 data class RegionInfo(val label: String, val path: Path, val syncedPaths: List<Path>)
 
-val RegionInfo.pathInRes get() = path / "bgtemplate.kts"
-    // "bgtemplate.kts" has to be different from "build.gradle.kts" otherwise gradle sometimes tries to run it..
+val RegionInfo.pathInRes get() = path / "bgtemplate"
+    // "bgtemplate" has to have different suffix from "build.gradle.kts" otherwise gradle sometimes tries to run it..
+    // (even just .kts extension sometimes confuses at least IDE)
 
 fun RegionInfo.pathInSrc(depsKtRootPath: Path = "/home/marek/code/kotlin/deps.kt".toPath()) =
     depsKtRootPath / path / "build.gradle.kts"

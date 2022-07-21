@@ -41,7 +41,7 @@ class UreTemplatesTests {
         oCheckAllKnownRegionsInKotlinProject("AbcdK")
         // oCheckAllKnownRegionsInAllKotlinProjects()
         // oDangerousInjectAllKnownRegionsToSync()
-        // oDangerousInjectAllKnownRegionsToKotlinProject("AbcdK")
+        // oDangerousInjectAllKnownRegionsToKotlinProjects(*someOfMyKotlinProjects.toTypedArray())
     }
 
 }
