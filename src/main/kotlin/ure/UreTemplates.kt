@@ -6,6 +6,7 @@ import okio.FileSystem.Companion.SYSTEM
 import okio.Path.Companion.toPath
 import org.gradle.api.*
 import pl.mareklangiewicz.io.*
+import pl.mareklangiewicz.maintenance.*
 import pl.mareklangiewicz.utils.*
 
 const val labelRoot = "Root Build Template"
@@ -27,18 +28,16 @@ private const val pathAndroRoot = "template-andro"
 private const val pathAndroLib = "template-andro/template-andro-lib"
 private const val pathAndroApp = "template-andro/template-andro-app"
 
-internal val defaultDepsKtRootPath: Path = "/home/marek/code/kotlin/deps.kt".toPath()
-
 data class RegionInfo(val label: String, val path: Path, val syncedPaths: List<Path>)
 
 val RegionInfo.pathInRes get() = path / "build.gradle.kts.tmpl"
     // pathInRes has to have different suffix from "build.gradle.kts" otherwise gradle sometimes tries to run it..
     // (even just .kts extension sometimes confuses at least IDE)
 
-fun RegionInfo.pathInSrc(depsKtRootPath: Path = defaultDepsKtRootPath) =
+fun RegionInfo.pathInSrc(depsKtRootPath: Path = MyDepsKtRootPath) =
     depsKtRootPath / path / "build.gradle.kts"
 
-fun RegionInfo.syncedPathsArrInSrc(depsKtRootPath: Path = defaultDepsKtRootPath) =
+fun RegionInfo.syncedPathsArrInSrc(depsKtRootPath: Path = MyDepsKtRootPath) =
     syncedPaths.map { depsKtRootPath / it / "build.gradle.kts" }.toTypedArray()
 
 private fun info(label: String, dir: String, vararg syncedDirs: String) =
@@ -68,7 +67,7 @@ private fun knownRegion(regionLabel: String): String {
 
 private fun knownRegionFullTemplatePath(
     regionLabel: String,
-    depsKtRootPath: Path = defaultDepsKtRootPath,
+    depsKtRootPath: Path = MyDepsKtRootPath,
 ) = SYSTEM.canonicalize(regionsInfos[regionLabel].pathInSrc(depsKtRootPath))
 
 fun Project.checkAllKnownRegionsInProject() = try {
@@ -88,12 +87,12 @@ fun Project.injectAllKnownRegionsInProject() {
 
 // This actually is self check for deps.kt, so it should be in some unit test for deps.kt
 // But let's run it every time when checking client regions just to be sure the "source of truth" is consistent.
-fun checkAllKnownRegionsSynced(depsKtRootPath: Path = defaultDepsKtRootPath) =
+fun checkAllKnownRegionsSynced(depsKtRootPath: Path = MyDepsKtRootPath) =
     regionsInfos.forEach {
         SYSTEM.checkKnownRegion(it.label, it.pathInSrc(depsKtRootPath), *it.syncedPathsArrInSrc(depsKtRootPath), verbose = false)
     }
 
-fun injectAllKnownRegionsToSync(depsKtRootPath: Path = defaultDepsKtRootPath) =
+fun injectAllKnownRegionsToSync(depsKtRootPath: Path = MyDepsKtRootPath) =
     regionsInfos.forEach {
         SYSTEM.injectKnownRegion(it.label, *it.syncedPathsArrInSrc(depsKtRootPath), addIfNotFound = false)
     }
