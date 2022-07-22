@@ -19,6 +19,9 @@ fun FileSystem.findAllFiles(path: Path, maxDepth: Int = Int.MAX_VALUE): Sequence
     }
 }
 
+fun Path.withName(getNewName: (oldName: String) -> String) =
+    parent?.let { it / getNewName(name) } ?: getNewName(name).toPath()
+
 fun Sequence<Path>.filterExt(ext: String) = filter { it.name.endsWith(".$ext") }
 
 /**
