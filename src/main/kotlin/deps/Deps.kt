@@ -23,6 +23,8 @@ object Deps {
     val androidMavenGradlePlugin = dep("com.github.dcendents", "android-maven-gradle-plugin", vers.androidMavenGradlePlugin)
     val nexusPublishGradlePlugin = dep("io.github.gradle-nexus", "publish-plugin", vers.nexusPublishGradlePlugin)
 
+    val osackyDoctorPlugin = dep("com.osacky.doctor", "doctor-plugin", vers.osackyDoctorPlugin)
+
     val kotlinStdlib7 = kotlin withName "kotlin-stdlib-jdk7"
     val kotlinStdlib8 = kotlin withName "kotlin-stdlib-jdk8"
     val kotlinScriptRuntime = kotlin withName "kotlin-script-runtime"

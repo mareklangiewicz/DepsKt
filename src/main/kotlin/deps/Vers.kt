@@ -92,6 +92,9 @@ object Vers {
 
     val dokkaGradlePlugin = kotlin // will it be synced with kotlin version in the future?
 
+    val osackyDoctorPlugin = v(0, 8, 1, patchLength = 1)
+    // https://plugins.gradle.org/plugin/com.osacky.doctor
+
     const val androidSdkCompile = 32
     const val androidSdkTarget = androidSdkCompile
     const val androidSdkMin = 26
