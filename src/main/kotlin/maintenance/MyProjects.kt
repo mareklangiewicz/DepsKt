@@ -1,19 +1,24 @@
 package pl.mareklangiewicz.maintenance
 
+import okio.*
 import okio.FileSystem.Companion.SYSTEM
 import okio.Path.Companion.toPath
 import pl.mareklangiewicz.ure.*
 
-internal fun checkAllKnownRegionsInMyProjects() = checkAllKnownRegionsInProjects(*MyKotlinProjects.toTypedArray())
-internal fun checkAllKnownRegionsInProjects(vararg projectDirs: String) = projectDirs.forEach {
+internal fun checkAllKnownRegionsInAllMyProjects() = checkAllKnownRegionsInMyProjects(*MyKotlinProjects.toTypedArray())
+internal fun checkAllKnownRegionsInMyProjects(vararg names: String) =
+    checkAllKnownRegionsInProjects(*names.map { PathToMyKotlinProjects / it }.toTypedArray())
+fun checkAllKnownRegionsInProjects(vararg projects: Path) = projects.forEach {
     println("Check all known regions in project: $it")
-    SYSTEM.checkAllKnownRegionsInAllFoundFiles(PathToMyKotlinProjects / it, verbose = true)
+    SYSTEM.checkAllKnownRegionsInAllFoundFiles(it, verbose = true)
 }
 
-internal fun injectAllKnownRegionsToMyProjects() = injectAllKnownRegionsToProjects(*MyKotlinProjects.toTypedArray())
-internal fun injectAllKnownRegionsToProjects(vararg projectDirs: String) = projectDirs.forEach {
+internal fun injectAllKnownRegionsToAllMyProjects() = injectAllKnownRegionsToMyProjects(*MyKotlinProjects.toTypedArray())
+internal fun injectAllKnownRegionsToMyProjects(vararg names: String) =
+    injectAllKnownRegionsToProjects(*names.map { PathToMyKotlinProjects / it }.toTypedArray())
+fun injectAllKnownRegionsToProjects(vararg projects: Path) = projects.forEach {
     println("Inject all known regions to project: $it")
-    SYSTEM.injectAllKnownRegionsToAllFoundFiles(PathToMyKotlinProjects / it)
+    SYSTEM.injectAllKnownRegionsToAllFoundFiles(it)
 }
 
 internal val PathToMyKotlinProjects = "/home/marek/code/kotlin".toPath()
