@@ -24,9 +24,9 @@ fun updateGradlewFilesInProjects(vararg projects: Path) = projects.forEach { pro
     gradlewRelPaths.forEach { gradlewRelPath ->
         val targetPath = projectPath / gradlewRelPath
         check(SYSTEM.exists(targetPath)) { "Gradlew file does not exist: $targetPath" }
-        val content = RESOURCES.readUtf8(gradlewRelPath.withName { "$it.tmpl" })
+        val content = RESOURCES.readByteString(gradlewRelPath.withName { "$it.tmpl" })
         println("Updating gradlew file: $targetPath")
-        SYSTEM.writeUtf8(targetPath, content)
+        SYSTEM.writeByteString(targetPath, content)
     }
 }
 

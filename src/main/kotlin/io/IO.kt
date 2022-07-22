@@ -56,10 +56,15 @@ fun Path.asRelativeTo(path: Path): Path {
 }
 
 fun FileSystem.readUtf8(file: Path): String = read(file) { readUtf8() }
+fun FileSystem.readByteString(file: Path): ByteString = read(file) { readByteString() }
 
 fun FileSystem.writeUtf8(file: Path, content: String, createParentDir: Boolean = false) {
     if (createParentDir) createDirectories(file.parent!!)
     write(file) { writeUtf8(content) }
+}
+fun FileSystem.writeByteString(file: Path, content: ByteString, createParentDir: Boolean = false) {
+    if (createParentDir) createDirectories(file.parent!!)
+    write(file) { write(content) }
 }
 
 /**
