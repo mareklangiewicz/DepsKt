@@ -346,6 +346,7 @@ object Deps {
     val upue = libs.UPue.dep()
     val upueTest = libs.UPue.dep("upue-test")
     val kommandLine = libs.KommandLine.dep()
+    val uwidgets = libs.UWidgets.dep()
     val dbusKotlin = dep(marekGroup, "dbus-kotlin", vers.dbusKotlin)
     val sandboxui = dep(marekGroup, "sandboxui", vers.sandboxui)
     val recyclerui = dep(marekGroup, "recyclerui", vers.recyclerui)

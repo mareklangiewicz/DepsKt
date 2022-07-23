@@ -111,7 +111,7 @@ data class LibDetails(
     val licenceName: String,
     val licenceUrl: String,
 ) {
-    fun dep(moduleName: String = name.toLowerCase(Locale.US), moduleGroup: String = group, moduleVersion: String = version) =
+    fun dep(moduleName: String = name.lowercase(Locale.US), moduleGroup: String = group, moduleVersion: String = version) =
         "$moduleGroup:$moduleName:$moduleVersion"
 }
 
