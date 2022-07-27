@@ -25,6 +25,7 @@ internal val PathToMyKotlinProjects = "/home/marek/code/kotlin".toPath()
 
 internal val MyKotlinProjects = listOf(
     "AbcdK",
+    "AreaKim",
     "AutomateK",
     "CoEdges",
     "dbus-kotlin",
