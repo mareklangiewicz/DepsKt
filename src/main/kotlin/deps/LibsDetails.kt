@@ -63,6 +63,13 @@ object LibsDetails {
         githubUrl = "https://github.com/langara/UWidgets",
     )
 
+    val AreaKim = lib(
+        name = "AreaKim",
+        version = v(0, 0, 1),
+        description = "Kotlin Vim Area for Compose Multiplatform",
+        githubUrl = "https://github.com/langara/AreaKim",
+    )
+
     val MyStolenPlaygrounds = lib(
         name = "MyStolenPlaygrounds",
         version = v(0, 0, 1),
