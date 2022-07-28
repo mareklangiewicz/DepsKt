@@ -287,7 +287,7 @@ object Vers {
     const val junit4 = "4.13.2"
     // https://github.com/junit-team/junit4/releases
 
-    const val junit5 = "5.8.2"
+    const val junit5 = "5.9.0"
     // https://github.com/junit-team/junit5/releases
 
     const val googleTruth = "1.1.3"
@@ -296,15 +296,15 @@ object Vers {
     const val androidTestRunnerClass = "androidx.test.runner.AndroidJUnitRunner"
     // https://developer.android.com/reference/android/support/test/runner/AndroidJUnitRunner.html
 
-    const val realm = "10.9.0"
+    const val realm = "10.11.1"
     // https://docs.mongodb.com/realm/sdk/android/install/
 
-    const val ktor = "1.6.7"
+    const val ktor = "2.0.3"
     // https://maven.pkg.jetbrains.space/public/p/ktor/eap/io/ktor/ktor/
     // https://github.com/ktorio/ktor
     // https://github.com/ktorio/ktor/releases
 
-    const val rsocket = "0.14.3"
+    const val rsocket = "0.15.4"
     // https://github.com/rsocket/rsocket-kotlin
     // https://github.com/rsocket/rsocket-kotlin/releases
 
