@@ -224,7 +224,7 @@ fun CommonExtension<*,*,*,*>.defaultComposeStuff() {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = vers.composeAndroidCompiler
+        kotlinCompilerExtensionVersion = vers.composeCompiler
     }
 }
 
@@ -270,7 +270,7 @@ fun Project.defaultBuildTemplateForAndroidApp(
     details: LibDetails = libs.Unknown,
     publishVariant: String? = null, // null means disable publishing to maven repo
 ) {
-    repositories { defaultRepos() }
+    repositories { defaultRepos(withComposeCompilerAndroidxDev = withCompose) }
     android {
         defaultAndroApp(appId, appNamespace, appVerCode, appVerName, jvmVersion, sdkCompile, sdkTarget, sdkMin, withCompose)
         publishVariant?.let { defaultAndroAppPublishVariant(it) }

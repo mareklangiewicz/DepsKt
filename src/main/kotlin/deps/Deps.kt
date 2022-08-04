@@ -36,8 +36,8 @@ object Deps {
 
     val composeJbGradlePlugin = dep("org.jetbrains.compose", "compose-gradle-plugin", vers.composeJb)
 
-    val composeCompilerAndroidx = dep("androidx.compose.compiler", "compiler", vers.composeCompilerBeta)
-    val composeCompilerAndroidxDev = dep("androidx.compose.compiler", "compiler", vers.composeCompilerDev)
+    val composeCompilerAndroidx = dep("androidx.compose.compiler", "compiler", vers.composeCompiler)
+    val composeCompilerAndroidxDev = dep("androidx.compose.compiler", "compiler", vers.composeCompiler)
 
     // No version to use it in hotfix with module substitution (see: template-mpp/build.gradle/kts)
     val composeCompilerJbDev = dep("org.jetbrains.compose.compiler", "compiler")
