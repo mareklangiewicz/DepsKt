@@ -316,9 +316,8 @@ object Deps {
     val ktorClientApache = ktor withName "ktor-client-apache"
     private val rsocket = dep("io.rsocket.kotlin", "", vers.rsocket)
     val rsocketCore = rsocket withName "rsocket-core"
-    val rsocketKtor = rsocket withName "rsocket-transport-ktor"
-    val rsocketKtorClient = rsocket withName "rsocket-transport-ktor-client"
-    val rsocketKtorServer = rsocket withName "rsocket-transport-ktor-server"
+    val rsocketKtorClient = rsocket withName "rsocket-ktor-client"
+    val rsocketKtorServer = rsocket withName "rsocket-ktor-server"
     val splitties = dep("com.louiscad.splitties", "splitties-fun-pack-android-material-components-with-views-dsl", vers.splitties)
     val docoptJava = dep("com.offbytwo", "docopt", vers.docoptJava)
 
