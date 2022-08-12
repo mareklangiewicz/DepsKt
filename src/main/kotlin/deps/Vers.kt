@@ -47,7 +47,7 @@ object Vers {
     // just a reference - not useful in typical cases
     const val gradle5 = "5.6.4"
     const val gradle6 = "6.8.3"
-    const val gradle7 = "7.5"
+    const val gradle7 = "7.5.1"
     const val gradle = gradle7
     // https://gradle.org/releases/
     // https://services.gradle.org/versions
@@ -55,7 +55,7 @@ object Vers {
     // https://services.gradle.org/versions/release-candidate
 
     const val composeJbMain = "1.1.1"
-    const val composeJbEdge = "1.2.0-alpha01-dev753"
+    const val composeJbEdge = "1.2.0-alpha01-dev755"
     const val composeJb = composeJbEdge
 
     // https://github.com/JetBrains/compose-jb
@@ -63,18 +63,16 @@ object Vers {
     // https://github.com/JetBrains/compose-jb/blob/master/CHANGELOG.md
 
 
-    const val composeAndroidMain = "1.2.0-rc03"
-    const val composeAndroidEdge = "1.3.0-alpha01"
+    const val composeAndroidMain = "1.2.1"
+    const val composeAndroidEdge = "1.3.0-alpha03"
     const val composeAndroid = composeAndroidEdge
-    val composeCompilerStable = v(1, 2, 0, patchLength = 1) // for kotlin 1.7.0
-    val composeCompilerBeta = v(1, 3, 0, patchLength = 1,suffix = "-beta01")
-    val composeCompilerDev1710 = v(1, 2, 1, patchLength = 1,suffix = "-dev-k1.7.10-27cf0868d10")
+    val composeCompilerStable = v(1, 3, 0, patchLength = 1) // for kotlin 1.7.10
     val composeCompilerDev1720Beta = v(1, 3, 0, patchLength = 1,suffix = "-dev-k1.7.20-Beta-18f49346e42") // doesn't work for me (MyStolenPlaygrounds)
-    val composeCompiler = composeCompilerDev1710
+    val composeCompiler = composeCompilerStable
         // https://android-developers.googleblog.com/2022/06/independent-versioning-of-Jetpack-Compose-libraries.html?utm_source=dlvr.it&utm_medium=twitter
         // https://androidx.dev/storage/compose-compiler/repository
 
-    const val composeAndroidMaterial3 = "1.0.0-alpha14"
+    const val composeAndroidMaterial3 = "1.0.0-alpha16"
     // https://developer.android.com/jetpack/androidx/releases/compose
 
     const val googleAccompanist = "0.24.13-rc"
