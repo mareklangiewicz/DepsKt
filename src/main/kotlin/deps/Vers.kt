@@ -55,7 +55,7 @@ object Vers {
     // https://services.gradle.org/versions/release-candidate
 
     const val composeJbMain = "1.1.1"
-    const val composeJbEdge = "1.2.0-alpha01-dev755"
+    const val composeJbEdge = "1.2.0-alpha01-dev764"
     const val composeJb = composeJbEdge
 
     // https://github.com/JetBrains/compose-jb
