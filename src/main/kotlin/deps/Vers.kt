@@ -63,25 +63,26 @@ object Vers {
     // https://github.com/JetBrains/compose-jb/blob/master/CHANGELOG.md
 
 
-    const val composeAndroidMain = "1.2.1"
-    const val composeAndroidEdge = "1.3.0-alpha03"
-    const val composeAndroid = composeAndroidEdge
+    val composeAndroidMain = v(1, 2, 1, patchLength = 1)
+    val composeAndroidEdge = v(1, 3, 0, patchLength = 1, suffix = "-beta01")
+    // https://developer.android.com/jetpack/androidx/releases/compose
+    val composeAndroid = composeAndroidEdge
     val composeCompilerStable = v(1, 3, 0, patchLength = 1) // for kotlin 1.7.10
     val composeCompilerDev1720Beta = v(1, 3, 0, patchLength = 1,suffix = "-dev-k1.7.20-Beta-18f49346e42") // doesn't work for me (MyStolenPlaygrounds)
     val composeCompiler = composeCompilerStable
         // https://android-developers.googleblog.com/2022/06/independent-versioning-of-Jetpack-Compose-libraries.html?utm_source=dlvr.it&utm_medium=twitter
         // https://androidx.dev/storage/compose-compiler/repository
 
-    const val composeAndroidMaterial3 = "1.0.0-alpha16"
+    val composeAndroidMaterial3 = v(1, 0, 0, patchLength = 1, suffix = "-beta01")
     // https://developer.android.com/jetpack/androidx/releases/compose
 
-    const val googleAccompanist = "0.24.13-rc"
+    const val googleAccompanist = "0.26.2-beta"
     const val googleAccompanistImage = "0.15.0"
     const val googleAccompanistPicasso = "0.6.2"
     // https://search.maven.org/search?q=g:com.google.accompanist
     // https://google.github.io/accompanist/
 
-    const val androidGradlePlugin = "7.4.0-alpha09"
+    const val androidGradlePlugin = "7.4.0-alpha10"
     // https://maven.google.com/web/index.html#com.android.tools.build:gradle
     // https://developer.android.com/studio/releases/gradle-plugin
     // https://google.github.io/android-gradle-dsl/
