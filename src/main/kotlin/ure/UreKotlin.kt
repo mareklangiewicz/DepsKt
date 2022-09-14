@@ -1,6 +1,6 @@
 package pl.mareklangiewicz.ure
 
-import kotlin.text.RegexOption.IGNORE_CASE
+import kotlin.text.RegexOption.*
 
 fun urePackageLine(withNamePrefix: String = "ktPackage") = ureKtKeywordLine("package", withNamePrefix)
 fun ureImportLine(withNamePrefix: String = "ktImport") = ureKtKeywordLine("import", withNamePrefix)
@@ -15,8 +15,7 @@ fun ureKtKeywordLine(keyword: String, withNamePrefix: String = keyword) =
 
 private val ureLicenceMarker = (ir("licence") or ir("copyright")).withOptionsEnabled(IGNORE_CASE)
 fun ureLicenceComment(licenceMarker: Ure = ureLicenceMarker) = ure {
-        TODO()
-
+    TODO()
 }
 
 fun ureKtOutline(withNamePrefix: String = "ktPart") = ure {

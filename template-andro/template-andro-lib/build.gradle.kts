@@ -46,7 +46,7 @@ fun RepositoryHandler.defaultRepos(
 
 fun TaskCollection<Task>.defaultKotlinCompileOptions(
     jvmTargetVer: String = vers.defaultJvm,
-    requiresOptIn: Boolean = true
+    requiresOptIn: Boolean = true,
 ) = withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
     kotlinOptions {
         jvmTarget = jvmTargetVer
@@ -148,19 +148,20 @@ fun DependencyHandler.defaultAndroBuildScriptDeps(
 }
 
 
-
 fun DependencyHandler.defaultAndroDeps(
     configuration: String = "implementation",
     withCompose: Boolean = false,
 ) = deps.run {
-    addAll(configuration,
+    addAll(
+        configuration,
         androidxCoreKtx,
         androidxAppcompat,
         androidMaterial,
         androidxLifecycleCompiler,
         androidxLifecycleRuntimeKtx,
     )
-    if (withCompose) addAll(configuration,
+    if (withCompose) addAll(
+        configuration,
         composeAndroidUi,
         composeAndroidUiTooling,
         composeAndroidUiToolingPreview,
@@ -174,7 +175,8 @@ fun DependencyHandler.defaultAndroTestDeps(
     configuration: String = "testImplementation",
     withCompose: Boolean = false,
 ) = deps.run {
-    addAll(configuration,
+    addAll(
+        configuration,
         junit4, // FIXME_someday: when will android move to JUnit5?
         uspekxJUnit4,
         androidxEspressoCore,
@@ -187,29 +189,32 @@ fun DependencyHandler.defaultAndroTestDeps(
 //        mockitoKotlin2,
         mockitoAndroid
     )
-    if (withCompose) addAll(configuration,
+    if (withCompose) addAll(
+        configuration,
         composeAndroidUiTest,
         composeAndroidUiTestJUnit4,
         composeAndroidUiTestManifest,
     )
 }
 
-fun MutableSet<String>.defaultAndroExcludedResources() = addAll(listOf(
-    "**/*.md",
-    "**/attach_hotspot_windows.dll",
-    "META-INF/licenses/**",
-    "META-INF/AL2.0",
-    "META-INF/LGPL2.1",
-))
+fun MutableSet<String>.defaultAndroExcludedResources() = addAll(
+    listOf(
+        "**/*.md",
+        "**/attach_hotspot_windows.dll",
+        "META-INF/licenses/**",
+        "META-INF/AL2.0",
+        "META-INF/LGPL2.1",
+    )
+)
 
-fun CommonExtension<*,*,*,*>.defaultCompileOptions(
-    jvmVersion: String = vers.defaultJvm
+fun CommonExtension<*, *, *, *>.defaultCompileOptions(
+    jvmVersion: String = vers.defaultJvm,
 ) = compileOptions {
     sourceCompatibility(jvmVersion)
     targetCompatibility(jvmVersion)
 }
 
-fun CommonExtension<*,*,*,*>.defaultComposeStuff() {
+fun CommonExtension<*, *, *, *>.defaultComposeStuff() {
     buildFeatures {
         compose = true
     }
@@ -218,14 +223,14 @@ fun CommonExtension<*,*,*,*>.defaultComposeStuff() {
     }
 }
 
-fun CommonExtension<*,*,*,*>.defaultPackagingOptions() = packagingOptions {
+fun CommonExtension<*, *, *, *>.defaultPackagingOptions() = packagingOptions {
     resources.excludes.defaultAndroExcludedResources()
 }
 
 /** Use template-andro/build.gradle.kts:fun defaultAndroLibPublishAllVariants() to create component with name "default". */
 fun Project.defaultPublishingOfAndroLib(
     lib: LibDetails,
-    componentName: String = "default"
+    componentName: String = "default",
 ) {
     afterEvaluate {
         extensions.configure<PublishingExtension> {
@@ -239,7 +244,7 @@ fun Project.defaultPublishingOfAndroLib(
 
 fun Project.defaultPublishingOfAndroApp(
     lib: LibDetails,
-    componentName: String = "release"
+    componentName: String = "release",
 ) = defaultPublishingOfAndroLib(lib, componentName)
 
 

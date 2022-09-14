@@ -2,13 +2,9 @@ package pl.mareklangiewicz.ure
 
 import okio.FileSystem.Companion.SYSTEM
 import okio.Path.Companion.toPath
-import org.junit.jupiter.api.Disabled
-import org.junit.jupiter.api.TestFactory
-import pl.mareklangiewicz.uspek.eq
-import pl.mareklangiewicz.uspek.o
-import pl.mareklangiewicz.uspek.uspekTestFactory
-import pl.mareklangiewicz.deps.*
+import org.junit.jupiter.api.*
 import pl.mareklangiewicz.io.*
+import pl.mareklangiewicz.uspek.*
 
 class UreTests {
     @TestFactory

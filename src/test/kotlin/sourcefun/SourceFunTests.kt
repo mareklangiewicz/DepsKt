@@ -61,7 +61,7 @@ private fun onSingleHelloWorldProject() {
             "On gradle runner within temp environment" o {
 
                 val runner = GradleRunner.create().withProjectPath(tempDir)
-                    //.withPluginClasspath() // it's automatically added by java-gradle-plugin
+                //.withPluginClasspath() // it's automatically added by java-gradle-plugin
 
                 "On task helloWorld" o {
                     runner.withArguments("helloWorld")
@@ -100,7 +100,7 @@ private fun onSampleSourceFunProject() {
     "On sample-sourcefun project" o {
 
         val runner = GradleRunner.create().withProjectPath(sampleSourceFunProjectPath)
-            //.withPluginClasspath() // it's automatically added by java-gradle-plugin
+        //.withPluginClasspath() // it's automatically added by java-gradle-plugin
 
         "On gradle tasks command" o {
             runner.withArguments("tasks")
@@ -109,11 +109,11 @@ private fun onSampleSourceFunProject() {
             "All awesome tasks printed" o {
                 val lines = result.output.lines()
                 val idx = lines.indexOf("Awesome tasks")
-                check (idx > 0)
-                lines[idx+2] eq "processExtensions1"
-                lines[idx+3] eq "processExtensions2deprecated"
-                lines[idx+4] eq "reportStuff1"
-                lines[idx+5] eq "reportStuff2"
+                check(idx > 0)
+                lines[idx + 2] eq "processExtensions1"
+                lines[idx + 3] eq "processExtensions2deprecated"
+                lines[idx + 4] eq "reportStuff1"
+                lines[idx + 5] eq "reportStuff2"
             }
         }
 

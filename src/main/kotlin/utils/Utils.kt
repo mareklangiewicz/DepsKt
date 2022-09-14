@@ -68,7 +68,7 @@ fun TaskContainer.registerAllThatGroupFun(group: String, vararg afun: Pair<Strin
  */
 fun ExtraPropertiesExtension.addAllFromSystemEnvs(
     envKeyMatchPrefix: String,
-    envKeyReplace: (envKey: String) -> String = { it.removePrefix(envKeyMatchPrefix).replace('_', '.') }
+    envKeyReplace: (envKey: String) -> String = { it.removePrefix(envKeyMatchPrefix).replace('_', '.') },
 ) {
     val envs = System.getenv()
     val keys = envs.keys.filter { it.startsWith(envKeyMatchPrefix) }

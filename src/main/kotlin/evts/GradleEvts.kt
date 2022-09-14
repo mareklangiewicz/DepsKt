@@ -1,29 +1,15 @@
 package pl.mareklangiewicz.evts
 
-import okio.FileSystem
-import okio.Path
-import okio.buffer
-import org.gradle.BuildListener
-import org.gradle.BuildResult
-import org.gradle.api.Project
-import org.gradle.api.ProjectEvaluationListener
-import org.gradle.api.ProjectState
-import org.gradle.api.Task
-import org.gradle.api.artifacts.DependencyResolutionListener
-import org.gradle.api.artifacts.ResolvableDependencies
-import org.gradle.api.execution.TaskActionListener
-import org.gradle.api.execution.TaskExecutionGraph
-import org.gradle.api.execution.TaskExecutionGraphListener
-import org.gradle.api.execution.TaskExecutionListener
-import org.gradle.api.initialization.Settings
-import org.gradle.api.invocation.Gradle
-import org.gradle.api.logging.StandardOutputListener
-import org.gradle.api.tasks.TaskState
-import org.gradle.api.tasks.testing.TestDescriptor
-import org.gradle.api.tasks.testing.TestListener
-import org.gradle.api.tasks.testing.TestOutputEvent
-import org.gradle.api.tasks.testing.TestOutputListener
-import org.gradle.api.tasks.testing.TestResult
+import okio.*
+import org.gradle.*
+import org.gradle.api.*
+import org.gradle.api.artifacts.*
+import org.gradle.api.execution.*
+import org.gradle.api.initialization.*
+import org.gradle.api.invocation.*
+import org.gradle.api.logging.*
+import org.gradle.api.tasks.*
+import org.gradle.api.tasks.testing.*
 import pl.mareklangiewicz.evts.GradleEvt.BuildEvt.*
 import pl.mareklangiewicz.evts.GradleEvt.DependencyResolutionEvt.*
 import pl.mareklangiewicz.evts.GradleEvt.ProjectEvaluationEvt.*
@@ -33,46 +19,54 @@ import pl.mareklangiewicz.evts.GradleEvt.TaskExecutionEvt.*
 import pl.mareklangiewicz.evts.GradleEvt.TaskExecutionGraphEvt.*
 import pl.mareklangiewicz.evts.GradleEvt.TestEvt.*
 import pl.mareklangiewicz.evts.GradleEvt.TestOutEvt.*
-import java.util.Date
+import java.util.*
 
 sealed class GradleEvt {
     sealed class BuildEvt : GradleEvt() {
-        data class BeforeSettings(val settings: Settings): BuildEvt()
-        data class BuildFinished(val result: BuildResult): BuildEvt()
-        data class ProjectsEvaluated(val gradle: Gradle): BuildEvt()
-        data class ProjectsLoaded(val gradle: Gradle): BuildEvt()
-        data class SettingsEvaluated(val settings: Settings): BuildEvt()
+        data class BeforeSettings(val settings: Settings) : BuildEvt()
+        data class BuildFinished(val result: BuildResult) : BuildEvt()
+        data class ProjectsEvaluated(val gradle: Gradle) : BuildEvt()
+        data class ProjectsLoaded(val gradle: Gradle) : BuildEvt()
+        data class SettingsEvaluated(val settings: Settings) : BuildEvt()
     }
+
     sealed class ProjectEvaluationEvt : GradleEvt() {
-        data class BeforeEvaluate(val project: Project): ProjectEvaluationEvt()
-        data class AfterEvaluate(val project: Project, val state: ProjectState): ProjectEvaluationEvt()
+        data class BeforeEvaluate(val project: Project) : ProjectEvaluationEvt()
+        data class AfterEvaluate(val project: Project, val state: ProjectState) : ProjectEvaluationEvt()
     }
+
     sealed class TaskExecutionEvt : GradleEvt() {
-        data class BeforeExecute(val task: Task): TaskExecutionEvt()
-        data class AfterExecute(val task: Task, val state: TaskState): TaskExecutionEvt()
+        data class BeforeExecute(val task: Task) : TaskExecutionEvt()
+        data class AfterExecute(val task: Task, val state: TaskState) : TaskExecutionEvt()
     }
+
     sealed class TaskExecutionGraphEvt : GradleEvt() {
-        data class GraphPopulated(val graph: TaskExecutionGraph): TaskExecutionGraphEvt()
+        data class GraphPopulated(val graph: TaskExecutionGraph) : TaskExecutionGraphEvt()
     }
+
     sealed class TaskActionEvt : GradleEvt() {
-        data class BeforeActions(val task: Task): TaskActionEvt()
-        data class AfterActions(val task: Task): TaskActionEvt()
+        data class BeforeActions(val task: Task) : TaskActionEvt()
+        data class AfterActions(val task: Task) : TaskActionEvt()
     }
+
     sealed class StdOutEvt : GradleEvt() {
-        data class OnOutput(val output: CharSequence?): StdOutEvt()
+        data class OnOutput(val output: CharSequence?) : StdOutEvt()
     }
+
     sealed class TestEvt : GradleEvt() {
-        data class BeforeSuite(val suite: TestDescriptor?): TestEvt()
-        data class AfterSuite(val suite: TestDescriptor?, val result: TestResult?): TestEvt()
-        data class BeforeTest(val descriptor: TestDescriptor?): TestEvt()
-        data class AfterTest(val descriptor: TestDescriptor?, val result: TestResult?): TestEvt()
+        data class BeforeSuite(val suite: TestDescriptor?) : TestEvt()
+        data class AfterSuite(val suite: TestDescriptor?, val result: TestResult?) : TestEvt()
+        data class BeforeTest(val descriptor: TestDescriptor?) : TestEvt()
+        data class AfterTest(val descriptor: TestDescriptor?, val result: TestResult?) : TestEvt()
     }
+
     sealed class TestOutEvt : GradleEvt() {
-        data class OnTestOutput(val descriptor: TestDescriptor?, val output: TestOutputEvent?): TestOutEvt()
+        data class OnTestOutput(val descriptor: TestDescriptor?, val output: TestOutputEvent?) : TestOutEvt()
     }
+
     sealed class DependencyResolutionEvt : GradleEvt() {
-        data class BeforeResolve(val dependencies: ResolvableDependencies): DependencyResolutionEvt()
-        data class AfterResolve(val dependencies: ResolvableDependencies): DependencyResolutionEvt()
+        data class BeforeResolve(val dependencies: ResolvableDependencies) : DependencyResolutionEvt()
+        data class AfterResolve(val dependencies: ResolvableDependencies) : DependencyResolutionEvt()
     }
 }
 
@@ -113,7 +107,7 @@ class GradleListener(val pushee: (GradleEvt) -> Unit) : BuildListener, ProjectEv
 fun Gradle.logSomeEventsToFile(
     file: Path,
     system: FileSystem = FileSystem.SYSTEM,
-    filter: (GradleEvt) -> Boolean = { true }
+    filter: (GradleEvt) -> Boolean = { true },
 ) {
     println("Logging some GradleEvts to file: $file")
     val sink = system.sink(file).buffer()
@@ -127,7 +121,7 @@ fun Gradle.logSomeEventsToFile(
         if (it is BuildFinished) {
             removeListener(listener)
             sink.close()
-            //val proj = it.result.gradle?.rootProject?.name // This is problematic: https://github.com/gradle/gradle/issues/16532
+            // val proj = it.result.gradle?.rootProject?.name // This is problematic: https://github.com/gradle/gradle/issues/16532
             val act = it.result.action
             val fail = it.result.failure
             println("Logging some GradleEvts to $file finished. (act: $act; fail?: $fail)")

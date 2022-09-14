@@ -1,7 +1,7 @@
 package pl.mareklangiewicz.ure
 
-import pl.mareklangiewicz.io.*
 import okio.*
+import pl.mareklangiewicz.io.*
 
 
 fun FileSystem.readAndMatchUre(file: Path, vararg opts: RegexOption, init: UreProduct.() -> Unit): MatchResult? =

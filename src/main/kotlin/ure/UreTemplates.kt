@@ -31,8 +31,8 @@ private const val pathAndroApp = "template-andro/template-andro-app"
 data class RegionInfo(val label: String, val path: Path, val syncedPaths: List<Path>)
 
 val RegionInfo.pathInRes get() = path / "build.gradle.kts.tmpl"
-    // pathInRes has to have different suffix from "build.gradle.kts" otherwise gradle sometimes tries to run it..
-    // (even just .kts extension sometimes confuses at least IDE)
+// pathInRes has to have different suffix from "build.gradle.kts" otherwise gradle sometimes tries to run it..
+// (even just .kts extension sometimes confuses at least IDE)
 
 fun RegionInfo.pathInSrc(depsKtRootPath: Path = MyDepsKtRootPath) =
     depsKtRootPath / path / "build.gradle.kts"
@@ -193,8 +193,7 @@ fun FileSystem.injectKnownRegion(
             if (addIfNotFound) {
                 println("Adding new region at the end.")
                 output + "\n\n" + region.trimEnd()
-            }
-            else null
+            } else null
         } else {
             val before by outputMR
             val after by outputMR

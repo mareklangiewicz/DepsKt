@@ -2,7 +2,7 @@
 
 package pl.mareklangiewicz.deps
 
-import org.gradle.api.artifacts.dsl.DependencyHandler
+import org.gradle.api.artifacts.dsl.*
 
 val libs = LibsDetails // instead of import - to avoid circular init problem
 val vers = Vers // instead of import - to avoid circular init problem
@@ -138,7 +138,7 @@ object Deps {
     val androidxConstraint1 = dep("androidx.constraintlayout", "constraintlayout", vers.androidxConstraint1)
     val androidxConstraint2 = androidxConstraint1 ver vers.androidxConstraint2
     val androidxConstraint = androidxConstraint1
-    val androidxConstraint1Solver = androidxConstraint1  withName "constraintlayout-solver"
+    val androidxConstraint1Solver = androidxConstraint1 withName "constraintlayout-solver"
     val androidxConstraint2Solver = androidxConstraint1Solver ver vers.androidxConstraint2
     val androidxConstraintSolver = androidxConstraint1Solver
 
@@ -149,15 +149,15 @@ object Deps {
     val androidxNavigationCompose = androidxNavigationUiKtx withName "navigation-compose"
 
     val androidxLifecycleCommon = dep("androidx.lifecycle", "lifecycle-common", vers.androidxLifecycle)
-    val androidxLifecycleCompiler = androidxLifecycleCommon  withName "lifecycle-compiler"
-    val androidxLifecycleExtensions = androidxLifecycleCommon  withName "lifecycle-extensions"
-    val androidxLifecycleRuntime = androidxLifecycleCommon  withName "lifecycle-runtime"
-    val androidxLifecycleRuntimeKtx = androidxLifecycleCommon  withName "lifecycle-runtime-ktx"
-    val androidxLifecycleLiveData = androidxLifecycleCommon  withName "lifecycle-livedata"
-    val androidxLifecycleLiveDataCore = androidxLifecycleCommon  withName "lifecycle-livedata-core"
-    val androidxLifecycleLiveDataCoreKtx = androidxLifecycleCommon  withName "lifecycle-livedata-core-ktx"
-    val androidxLifecycleViewModel = androidxLifecycleCommon  withName "lifecycle-viewmodel"
-    val androidxLifecycleViewModelKtx = androidxLifecycleCommon  withName "lifecycle-viewmodel-ktx"
+    val androidxLifecycleCompiler = androidxLifecycleCommon withName "lifecycle-compiler"
+    val androidxLifecycleExtensions = androidxLifecycleCommon withName "lifecycle-extensions"
+    val androidxLifecycleRuntime = androidxLifecycleCommon withName "lifecycle-runtime"
+    val androidxLifecycleRuntimeKtx = androidxLifecycleCommon withName "lifecycle-runtime-ktx"
+    val androidxLifecycleLiveData = androidxLifecycleCommon withName "lifecycle-livedata"
+    val androidxLifecycleLiveDataCore = androidxLifecycleCommon withName "lifecycle-livedata-core"
+    val androidxLifecycleLiveDataCoreKtx = androidxLifecycleCommon withName "lifecycle-livedata-core-ktx"
+    val androidxLifecycleViewModel = androidxLifecycleCommon withName "lifecycle-viewmodel"
+    val androidxLifecycleViewModelKtx = androidxLifecycleCommon withName "lifecycle-viewmodel-ktx"
 
     private val androidxCamera = dep("androidx.camera", "", vers.androidxCamera)
     val androidxCameraCore = androidxCamera withName "camera-core"
@@ -184,8 +184,10 @@ object Deps {
     val androidCommonsEspresso = dep("com.github.elpassion.android-commons", "espresso", vers.androidCommons)
     val androidCommonsRxJavaTest = dep("com.github.elpassion.android-commons", "rxjava-test", vers.androidCommons)
     val androidCommonsSharedPrefs = dep("com.github.elpassion.android-commons", "shared-preferences", vers.androidCommons)
-    val androidCommonsSharedPrefsMoshi = dep("com.github.elpassion.android-commons", "shared-preferences-moshi-converter-adapter", vers.androidCommons)
-    val androidCommonsSharedPrefsGson = dep("com.github.elpassion.android-commons", "shared-preferences-gson-converter-adapter", vers.androidCommons)
+    val androidCommonsSharedPrefsMoshi =
+        dep("com.github.elpassion.android-commons", "shared-preferences-moshi-converter-adapter", vers.androidCommons)
+    val androidCommonsSharedPrefsGson =
+        dep("com.github.elpassion.android-commons", "shared-preferences-gson-converter-adapter", vers.androidCommons)
     val androidCommonsView = dep("com.github.elpassion.android-commons", "view", vers.androidCommons)
     val androidCommonsPager = dep("com.github.elpassion.android-commons", "pager", vers.androidCommons)
     val androidCommonsRecycler = dep("com.github.elpassion.android-commons", "recycler", vers.androidCommons)
@@ -196,14 +198,14 @@ object Deps {
     val rxandroid = dep("io.reactivex.rxjava3", "rxandroid", vers.rxandroid)
     val rxrelay = dep("com.jakewharton.rxrelay3", "rxrelay", vers.rxrelay)
     val rxbinding = dep("com.jakewharton.rxbinding4", "rxbinding", vers.rxbinding)
-    val rxbindingCore = rxbinding  withName "rxbinding-core"
-    val rxbindingAppCompat = rxbinding  withName "rxbinding-appcompat"
-    val rxbindingDrawerLayout = rxbinding  withName "rxbinding-drawerlayout"
-    val rxbindingLeanback = rxbinding  withName "rxbinding-leanback"
-    val rxbindingRecyclerView = rxbinding  withName "rxbinding-recyclerview"
-    val rxbindingSlidingPaneLayout = rxbinding  withName "rxbinding-slidingpanelayout"
-    val rxbindingSwipeRefreshLayout = rxbinding  withName "rxbinding-swiperefreshlayout"
-    val rxbindingViewPager = rxbinding  withName "rxbinding-viewpager"
+    val rxbindingCore = rxbinding withName "rxbinding-core"
+    val rxbindingAppCompat = rxbinding withName "rxbinding-appcompat"
+    val rxbindingDrawerLayout = rxbinding withName "rxbinding-drawerlayout"
+    val rxbindingLeanback = rxbinding withName "rxbinding-leanback"
+    val rxbindingRecyclerView = rxbinding withName "rxbinding-recyclerview"
+    val rxbindingSlidingPaneLayout = rxbinding withName "rxbinding-slidingpanelayout"
+    val rxbindingSwipeRefreshLayout = rxbinding withName "rxbinding-swiperefreshlayout"
+    val rxbindingViewPager = rxbinding withName "rxbinding-viewpager"
     val rxlifecycleComponents = dep("com.trello.rxlifecycle2", "rxlifecycle-components", vers.rxlifecycle)
     val rxlifecycleKotlin = dep("com.trello.rxlifecycle2", "rxlifecycle-kotlin", vers.rxlifecycle)
     val retrofit = dep("com.squareup.retrofit2", "retrofit", vers.retrofit)
@@ -254,10 +256,10 @@ object Deps {
     val firebaseUiAuth = dep("com.firebaseui", "firebase-ui-auth", vers.firebaseUiAuth)
 
     val googleCloudBoM = dep("com.google.cloud", "libraries-bom", vers.googleCloudBoM)
-        // FIXME: some extension functions for BoM deps, so its easier to add it to multiplatform projects than:
-        // implementation(project.dependencies.platform(deps.googleCloudBoM))
-        // and to make it impossible to mistakenly add it as normal dependency like:
-        // implementation(deps.googleCloudBoM)
+    // FIXME: some extension functions for BoM deps, so its easier to add it to multiplatform projects than:
+    // implementation(project.dependencies.platform(deps.googleCloudBoM))
+    // and to make it impossible to mistakenly add it as normal dependency like:
+    // implementation(deps.googleCloudBoM)
 
     val googleCloudStorage = dep("com.google.cloud", "google-cloud-storage")
     val googleCloudFirestore = dep("com.google.cloud", "google-cloud-firestore")
@@ -328,7 +330,6 @@ object Deps {
     val kotlinJsWrappersStyled = dep(kotlinJsWrappersGroup, "kotlin-styled")
 
 
-
     const val marekGroup = "pl.mareklangiewicz"
 
     val uspek = libs.USpek.dep("uspek")
@@ -352,8 +353,6 @@ object Deps {
     val recyclerui = dep(marekGroup, "recyclerui", vers.recyclerui)
     val templateMPP = libs.TemplateMPP.dep()
     val templateAndro = libs.TemplateAndro.dep("template-andro-lib")
-
-
 
 
     private fun dep(group: String, name: String, version: String? = null): String =

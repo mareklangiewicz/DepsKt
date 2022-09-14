@@ -47,7 +47,7 @@ fun RepositoryHandler.defaultRepos(
 
 fun TaskCollection<Task>.defaultKotlinCompileOptions(
     jvmTargetVer: String = vers.defaultJvm,
-    requiresOptIn: Boolean = true
+    requiresOptIn: Boolean = true,
 ) = withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
     kotlinOptions {
         jvmTarget = jvmTargetVer
@@ -141,7 +141,7 @@ fun Project.defaultBuildTemplateForMppLib(
     withTestJUnit4: Boolean = false,
     withTestJUnit5: Boolean = true,
     withTestUSpekX: Boolean = true,
-    addCommonMainDependencies: KotlinDependencyHandler.() -> Unit = {}
+    addCommonMainDependencies: KotlinDependencyHandler.() -> Unit = {},
 ) {
     repositories {
         defaultRepos(
@@ -161,24 +161,25 @@ fun Project.defaultBuildTemplateForMppLib(
         }
     }
     defaultGroupAndVerAndDescription(details)
-    kotlin { allDefault(
-        withJvm,
-        withJs,
-        withNativeLinux64,
-        withKotlinxHtml,
-        withTestJUnit4,
-        withTestJUnit5,
-        withTestUSpekX,
-        addCommonMainDependencies
-    ) }
+    kotlin {
+        allDefault(
+            withJvm,
+            withJs,
+            withNativeLinux64,
+            withKotlinxHtml,
+            withTestJUnit4,
+            withTestJUnit5,
+            withTestUSpekX,
+            addCommonMainDependencies
+        )
+    }
     tasks.defaultKotlinCompileOptions()
     tasks.defaultTestsOptions(onJvmUseJUnitPlatform = withTestJUnit5)
     if (plugins.hasPlugin("maven-publish")) {
         defaultPublishing(details)
         if (plugins.hasPlugin("signing")) defaultSigning()
         else println("MPP Module ${name}: signing disabled")
-    }
-    else println("MPP Module ${name}: publishing (and signing) disabled")
+    } else println("MPP Module ${name}: publishing (and signing) disabled")
 }
 
 /** Only for very standard small libs. In most cases it's better to not use this function. */
@@ -191,7 +192,7 @@ fun KotlinMultiplatformExtension.allDefault(
     withTestJUnit4: Boolean = false,
     withTestJUnit5: Boolean = true,
     withTestUSpekX: Boolean = true,
-    addCommonMainDependencies: KotlinDependencyHandler.() -> Unit = {}
+    addCommonMainDependencies: KotlinDependencyHandler.() -> Unit = {},
 ) {
     if (withJvm) jvm()
     if (withJs) jsDefault()
@@ -278,7 +279,7 @@ fun Project.defaultBuildTemplateForComposeMppLib(
     withComposeWebSvg: Boolean = withJs,
     withComposeTestUiJUnit4: Boolean = withJvm,
     withComposeTestWebUtils: Boolean = withJs,
-    addCommonMainDependencies: KotlinDependencyHandler.() -> Unit = {}
+    addCommonMainDependencies: KotlinDependencyHandler.() -> Unit = {},
 ) {
     defaultBuildTemplateForMppLib(
         details = details,

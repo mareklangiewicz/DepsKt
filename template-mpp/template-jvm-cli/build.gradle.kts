@@ -21,7 +21,6 @@ defaultBuildTemplateForJvmApp(
 }
 
 
-
 // region [Kotlin Module Build Template]
 
 fun RepositoryHandler.defaultRepos(
@@ -50,7 +49,7 @@ fun RepositoryHandler.defaultRepos(
 
 fun TaskCollection<Task>.defaultKotlinCompileOptions(
     jvmTargetVer: String = vers.defaultJvm,
-    requiresOptIn: Boolean = true
+    requiresOptIn: Boolean = true,
 ) = withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
     kotlinOptions {
         jvmTarget = jvmTargetVer
@@ -140,7 +139,7 @@ fun Project.defaultBuildTemplateForJvmApp(
     withTestJUnit4: Boolean = false,
     withTestJUnit5: Boolean = true,
     withTestUSpekX: Boolean = true,
-    addMainDependencies: KotlinDependencyHandler.() -> Unit = {}
+    addMainDependencies: KotlinDependencyHandler.() -> Unit = {},
 ) {
     repositories { defaultRepos() }
     defaultGroupAndVerAndDescription(details)

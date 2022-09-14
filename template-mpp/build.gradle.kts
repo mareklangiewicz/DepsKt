@@ -40,7 +40,7 @@ fun Project.defaultSonatypeOssNexusPublishing(
     ossrhPassword: String = rootExt("ossrhPassword"),
 ) = nexusPublishing {
     repositories {
-        sonatype {  //only for users registered in Sonatype after 24 Feb 2021
+        sonatype {  // only for users registered in Sonatype after 24 Feb 2021
             stagingProfileId put sonatypeStagingProfileId
             username put ossrhUsername
             password put ossrhPassword

@@ -51,7 +51,7 @@ private val ureFunParams = ureFunParamsInLine or ureFunParamsMultiLine
 private val ureFunDeclaration = ure {
     1 of ir("fun")
     1..MAX of space
-    0 .. 1 of { // receiver
+    0..1 of { // receiver
         1 of ureTypedef
         1 of dot
     }

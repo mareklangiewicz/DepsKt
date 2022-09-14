@@ -20,13 +20,13 @@ internal data class SourceFunDefinition(
     val sourcePath: Path,
     val outputPath: Path,
     val taskGroup: String? = null,
-    val transform: Path.(String) -> String?
+    val transform: Path.(String) -> String?,
 )
 
 class SourceFunRegistering(val project: Project, val configuration: SourceFunTask.() -> Unit) {
 
     operator fun provideDelegate(thisObj: SourceFunExtension?, property: KProperty<*>):
-            ReadOnlyProperty<SourceFunExtension?, TaskProvider<SourceFunTask>> {
+        ReadOnlyProperty<SourceFunExtension?, TaskProvider<SourceFunTask>> {
         val taskProvider = project.tasks.register(property.name, SourceFunTask::class.java, configuration)
         return ReadOnlyProperty { _, _ -> taskProvider }
     }
@@ -84,7 +84,9 @@ abstract class SourceFunTask : SourceTask() {
     fun taskAction() = taskActionProperty.get()(source, outputDirProperty.get())
 }
 
-fun SourceTask.addSource(path: Path) { source(path.toFile()) }
+fun SourceTask.addSource(path: Path) {
+    source(path.toFile())
+}
 
 var SourceFunTask.src: Path
     get() = error("src is write only")
@@ -123,19 +125,22 @@ abstract class SourceRegexTask : SourceFunTask() {
     abstract val match: Property<String>
     @get:Input
     abstract val replace: Property<String>
-    init { setTransformFun { it.replace(Regex(match.get()), replace.get()) } }
+
+    init {
+        setTransformFun { it.replace(Regex(match.get()), replace.get()) }
+    }
 }
 
 @Suppress("UnstableApiUsage")
 @UntrackedTask(because = "Git version and build time is external state and can't be tracked.")
-abstract class VersionDetailsTask: DefaultTask() {
+abstract class VersionDetailsTask : DefaultTask() {
 
     @get:OutputDirectory
     abstract val generatedAssetsDir: DirectoryProperty
 
     @TaskAction
-    fun execute(){
-        val process = ProcessBuilder("git", "rev-parse",  "HEAD").start()
+    fun execute() {
+        val process = ProcessBuilder("git", "rev-parse", "HEAD").start()
         val error = process.errorStream.bufferedReader().use { it.readText() }
         check(error.isBlank()) { "GitVersionTask error: $error" }
         val commit = process.inputStream.bufferedReader().use { it.readText() }

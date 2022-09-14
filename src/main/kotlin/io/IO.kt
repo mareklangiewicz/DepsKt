@@ -3,7 +3,6 @@ package pl.mareklangiewicz.io
 import okio.*
 import okio.FileSystem.Companion.SYSTEM
 import okio.FileSystem.Companion.SYSTEM_TEMPORARY_DIRECTORY
-import okio.IOException
 import okio.Path.Companion.toPath
 import kotlin.math.*
 import kotlin.random.*
@@ -33,7 +32,7 @@ fun Sequence<Path>.filterExt(ext: String) = filter { it.name.endsWith(".$ext") }
 fun FileSystem.processEachFile(
     inputRoot: Path,
     outputRoot: Path? = null,
-    process: (input: Path, output: Path?, content: String) -> String?
+    process: (input: Path, output: Path?, content: String) -> String?,
 ) {
     require(inputRoot.isAbsolute)
     require(outputRoot?.isAbsolute ?: true)
@@ -62,6 +61,7 @@ fun FileSystem.writeUtf8(file: Path, content: String, createParentDir: Boolean =
     if (createParentDir) createDirectories(file.parent!!)
     write(file) { writeUtf8(content) }
 }
+
 fun FileSystem.writeByteString(file: Path, content: ByteString, createParentDir: Boolean = false) {
     if (createParentDir) createDirectories(file.parent!!)
     write(file) { write(content) }
@@ -95,8 +95,11 @@ fun FileSystem.processFile(inputPath: Path, outputPath: Path? = null, process: (
 
 fun FileSystem.withTempDir(tempDirPrefix: String, code: FileSystem.(tempDir: Path) -> Unit) {
     val tempDir = createTempDir(tempDirPrefix)
-    try { code(tempDir) }
-    finally { deleteRecursively(tempDir) }
+    try {
+        code(tempDir)
+    } finally {
+        deleteRecursively(tempDir)
+    }
 }
 
 fun FileSystem.createTempDir(tempDirPrefix: String): Path {

@@ -3,7 +3,7 @@
 package pl.mareklangiewicz.deps
 
 import libs
-import pl.mareklangiewicz.defaults.v
+import pl.mareklangiewicz.defaults.*
 
 /**
  * Common dependencies versions for java/kotlin/android projects
@@ -14,8 +14,8 @@ object Vers {
     val kotlin14 = v(1, 4, 32)
     val kotlin15 = v(1, 5, 31)
     val kotlin16 = v(1, 6, 21)
-    val kotlin17 = v(1,7,10)
-    val kotlin1720Beta = v(1,7,20, suffix = "-Beta")
+    val kotlin17 = v(1, 7, 10)
+    val kotlin1720Beta = v(1, 7, 20, suffix = "-Beta")
     val kotlin = kotlin17
     // https://kotlinlang.org/docs/releases.html#release-details
     // https://github.com/JetBrains/kotlin/blob/master/ChangeLog.md
@@ -68,10 +68,11 @@ object Vers {
     // https://developer.android.com/jetpack/androidx/releases/compose
     val composeAndroid = composeAndroidEdge
     val composeCompilerStable = v(1, 3, 0, patchLength = 1) // for kotlin 1.7.10
-    val composeCompilerDev1720Beta = v(1, 3, 0, patchLength = 1,suffix = "-dev-k1.7.20-Beta-18f49346e42") // doesn't work for me (MyStolenPlaygrounds)
+    val composeCompilerDev1720Beta =
+        v(1, 3, 0, patchLength = 1, suffix = "-dev-k1.7.20-Beta-18f49346e42") // doesn't work for me (MyStolenPlaygrounds)
     val composeCompiler = composeCompilerStable
-        // https://android-developers.googleblog.com/2022/06/independent-versioning-of-Jetpack-Compose-libraries.html?utm_source=dlvr.it&utm_medium=twitter
-        // https://androidx.dev/storage/compose-compiler/repository
+    // https://android-developers.googleblog.com/2022/06/independent-versioning-of-Jetpack-Compose-libraries.html?utm_source=dlvr.it&utm_medium=twitter
+    // https://androidx.dev/storage/compose-compiler/repository
 
     val composeAndroidMaterial3 = v(1, 0, 0, patchLength = 1, suffix = "-beta01")
     // https://developer.android.com/jetpack/androidx/releases/compose

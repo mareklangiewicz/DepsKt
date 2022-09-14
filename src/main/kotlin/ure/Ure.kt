@@ -1,13 +1,7 @@
 package pl.mareklangiewicz.ure
 
-import kotlin.reflect.KProperty
-import kotlin.text.RegexOption.CANON_EQ
-import kotlin.text.RegexOption.COMMENTS
-import kotlin.text.RegexOption.DOT_MATCHES_ALL
-import kotlin.text.RegexOption.IGNORE_CASE
-import kotlin.text.RegexOption.LITERAL
-import kotlin.text.RegexOption.MULTILINE
-import kotlin.text.RegexOption.UNIX_LINES
+import kotlin.reflect.*
+import kotlin.text.RegexOption.*
 
 /**
  * Multiplatform Kotlin Frontend / DSL for regular expressions. Actual regular expressions are used like IR
@@ -51,6 +45,7 @@ fun ureWithName(name: String, content: Ure) = UreNamedGroup(content, name)
 fun Ure.withName(name: String?) = if (name == null) this else UreNamedGroup(this, name)
 fun Ure.withOptions(enable: Set<RegexOption> = emptySet(), disable: Set<RegexOption> = emptySet()) =
     UreChangeOptionsGroup(this, enable, disable)
+
 fun Ure.withOptionsEnabled(vararg options: RegexOption) = withOptions(enable = options.toSet())
 fun Ure.withOptionsDisabled(vararg options: RegexOption) = withOptions(disable = options.toSet())
 
@@ -85,59 +80,71 @@ sealed class Ure {
 
 infix fun Ure.or(that: Ure) = UreUnion(this, that)
 infix fun Ure.then(that: Ure) = UreProduct(mutableListOf(this, that))
-    // Do not rename "then" to "and". The "and" is more like special lookahead/lookbehind group
+// Do not rename "then" to "and". The "and" is more like special lookahead/lookbehind group
 
-data class UreProduct(val product: MutableList<Ure> = mutableListOf()): Ure() {
-    constructor(init: UreProduct.() -> Unit) : this() { init() }
+data class UreProduct(val product: MutableList<Ure> = mutableListOf()) : Ure() {
+    constructor(init: UreProduct.() -> Unit) : this() {
+        init()
+    }
+
     override fun toIR(): UreIR = when (product.size) {
         0 -> ""
         1 -> product[0].toIR()
         else -> product.joinToString(separator = "") { if (it is UreProduct) it.toIR() else it.toClosedIR() }
     }
+
     override fun toClosedIR() = when (product.size) {
         1 -> product[0].toClosedIR()
         else -> ncapt(this).toIR() // in 0 case we also want ncapt!
-            // To avoid issues when outside operator captures something else instead of empty product.
-            // I decided NOT to throw IllegalStateError in 0 case so we can always monitor IR in half-baked UREs.
-            // (like when creating UREs with some compose UI)
+        // To avoid issues when outside operator captures something else instead of empty product.
+        // I decided NOT to throw IllegalStateError in 0 case so we can always monitor IR in half-baked UREs.
+        // (like when creating UREs with some compose UI)
     }
+
     class UreX(val times: IntRange, val reluctant: Boolean, val possessive: Boolean)
+
     fun x(times: IntRange, reluctant: Boolean = false, possessive: Boolean = false) = UreX(times, reluctant, possessive)
     fun x(times: Int) = x(times..times)
-    infix fun UreX.of(ure: Ure) { product.add(quantify(ure, times, reluctant, possessive)) }
-    infix fun UreX.of(init: UreProduct.() -> Unit) { product.add(quantify(times, reluctant, possessive, init)) }
+    infix fun UreX.of(ure: Ure) {
+        product.add(quantify(ure, times, reluctant, possessive))
+    }
+
+    infix fun UreX.of(init: UreProduct.() -> Unit) {
+        product.add(quantify(times, reluctant, possessive, init))
+    }
+
     infix fun IntRange.of(ure: Ure) = x(this) of ure
     infix fun Int.of(ure: Ure) = x(this) of ure
     infix fun IntRange.of(init: UreProduct.() -> Unit) = x(this) of init
     infix fun Int.of(init: UreProduct.() -> Unit) = x(this) of init
 }
 
-data class UreUnion(val first: Ure, val second: Ure): Ure() {
+data class UreUnion(val first: Ure, val second: Ure) : Ure() {
     override fun toIR() = first.toClosedIR() + "|" + second.toClosedIR()
     override fun toClosedIR() = ncapt(this).toIR()
 }
 
-abstract class UreGroup: Ure() {
+abstract class UreGroup : Ure() {
     abstract val content: Ure
     private val contentIR get() = content.toIR()
     protected abstract val typeIR: String
 
     override fun toIR(): UreIR = "($typeIR$contentIR)"
-        // looks like all possible typeIR prefixes can not be confused with first contentIR characters.
-        // (meaning: RE designers thought about it, so I don't have to be extra careful here)
+    // looks like all possible typeIR prefixes can not be confused with first contentIR characters.
+    // (meaning: RE designers thought about it, so I don't have to be extra careful here)
 
     override fun toClosedIR() = toIR() // group is always "closed" - has parentheses outside
 }
 
-data class UreNamedGroup(override val content: Ure, val name: String): UreGroup() {
+data class UreNamedGroup(override val content: Ure, val name: String) : UreGroup() {
     override val typeIR get() = "?<$name>"
 }
 
-data class UreNonCaptGroup(override val content: Ure): UreGroup() {
+data class UreNonCaptGroup(override val content: Ure) : UreGroup() {
     override val typeIR get() = "?:"
 }
 
-data class UreCaptGroup(override val content: Ure): UreGroup() {
+data class UreCaptGroup(override val content: Ure) : UreGroup() {
     override val typeIR get() = ""
 }
 
@@ -145,45 +152,48 @@ data class UreCaptGroup(override val content: Ure): UreGroup() {
 data class UreChangeOptionsGroup(
     override val content: Ure,
     val enable: Set<RegexOption> = emptySet(),
-    val disable: Set<RegexOption> = emptySet()
-): UreGroup() {
+    val disable: Set<RegexOption> = emptySet(),
+) : UreGroup() {
     init {
         require((enable intersect disable).isEmpty()) { "Can not enable and disable the same option at the same time" }
         require(enable.isNotEmpty() || disable.isNotEmpty()) { "No options provided" }
     }
+
     override val typeIR get() = "?${enable.ir}-${disable.ir}:" // TODO_later: check if either set can be empty
 
     // TODO_later: review flags we support - but probably want to be multiplatform??
-    private val RegexOption.code get() = when (this) {
-        IGNORE_CASE -> "i"
-        MULTILINE -> "m"
-        LITERAL -> TODO()
-        UNIX_LINES -> "d"
-        COMMENTS -> "x" // but not really supported... maybe in UreRawIR, but I wouldn't use it
-        DOT_MATCHES_ALL -> "s" // s means - treat all as a single line (so dot matches terminators too)
-        CANON_EQ -> TODO()
-        // TODO_someday "u" is not supported (unicode case)
-    }
+    private val RegexOption.code
+        get() = when (this) {
+            IGNORE_CASE -> "i"
+            MULTILINE -> "m"
+            LITERAL -> TODO()
+            UNIX_LINES -> "d"
+            COMMENTS -> "x" // but not really supported... maybe in UreRawIR, but I wouldn't use it
+            DOT_MATCHES_ALL -> "s" // s means - treat all as a single line (so dot matches terminators too)
+            CANON_EQ -> TODO()
+            // TODO_someday "u" is not supported (unicode case)
+        }
 
     private val Set<RegexOption>.ir get() = joinToString("") { it.code }
 }
 // TODO_someday: there are also similar "groups" without content (see Pattern.java), add support for it (content nullable?)
 
 
-data class UreLookGroup(override val content: Ure, val ahead: Boolean = true, val positive: Boolean = true): UreGroup() {
-    override val typeIR get() = when (ahead to positive) {
-        true to true -> "?="
-        true to false -> "?!"
-        false to true -> "?<="
-        false to false -> "?<!"
-        else -> error("Impossible case")
-    }
+data class UreLookGroup(override val content: Ure, val ahead: Boolean = true, val positive: Boolean = true) : UreGroup() {
+    override val typeIR
+        get() = when (ahead to positive) {
+            true to true -> "?="
+            true to false -> "?!"
+            false to true -> "?<="
+            false to false -> "?<!"
+            else -> error("Impossible case")
+        }
 }
 
 
 // TODO_someday: "independent" non-capturing group - what is that? (see Pattern.java)
 
-data class UreGroupRef(val nr: Int? = null, val name: String? = null): Ure() {
+data class UreGroupRef(val nr: Int? = null, val name: String? = null) : Ure() {
     init {
         nr == null || name == null || error("Can not reference capturing group by both nr ($nr) and name ($name)")
         nr == null && name == null && error("Either nr or name has to be provided for the group reference")
@@ -205,16 +215,19 @@ data class UreQuantifier(
     val times: IntRange,
     val reluctant: Boolean = false,
     val possessive: Boolean = false,
-): Ure() {
-    init { reluctant && possessive && error("Quantifier can't be reluctant and possessive at the same time") }
+) : Ure() {
+    init {
+        reluctant && possessive && error("Quantifier can't be reluctant and possessive at the same time")
+    }
+
     val greedy get() = !reluctant && !possessive
     override fun toIR(): UreIR {
-        val timesIR = when(times) {
+        val timesIR = when (times) {
             1..1 -> return content.toIR()
             0..1 -> "?"
             0..MAX -> "*"
             1..MAX -> "+"
-            else -> when(times.last) {
+            else -> when (times.last) {
                 times.first -> "{${times.first}}"
                 MAX -> "{${times.first},}"
                 else -> "{${times.first},${times.last}}"
@@ -229,7 +242,7 @@ data class UreQuantifier(
     }
     //    override fun toClosedIR(): UreIR = ncapt(this).toIR()
     override fun toClosedIR() = toIR()
-        // TODO_later: I think it's correct, but should be analyzed more carefully (and write tests!).
+    // TODO_later: I think it's correct, but should be analyzed more carefully (and write tests!).
 }
 
 data class UreChar(val ir: UreIR) : Ure() {
@@ -267,7 +280,7 @@ data class UreRawIR(val ir: UreIR) : Ure() {
     override fun toClosedIR(): UreIR = ncapt(this).toIR()
 }
 
-data class UreQuote(val string: String): Ure() {
+data class UreQuote(val string: String) : Ure() {
     override fun toIR() = "\\Q$string\\E"
     override fun toClosedIR(): UreIR = toIR()
 }
@@ -286,12 +299,14 @@ operator fun Ure.not(): Ure = when (this) {
         // TODO: check if particular ir is appropriate for such wrapping
         // TODO_later: other special cases?
     }
+
     is UreCharRange -> UreCharRange(from, to, !positive)
     is UreCharSet -> UreCharSet(chars, !positive)
     is UreGroup -> when (this) {
         is UreLookGroup -> UreLookGroup(content, ahead, !positive)
         else -> error("Unsupported UreGroup for negation: ${this::class.simpleName}")
     }
+
     is UreGroupRef -> error("UreGroupRef can not be negated")
     is UreProduct -> error("UreProduct can not be negated")
     is UreQuantifier -> error("UreQuantifier can not be negated")
@@ -299,8 +314,8 @@ operator fun Ure.not(): Ure = when (this) {
     is UreRawIR -> error("UreRawIR can not be negated")
     is UreUnion -> error("UreUnion can not be negated")
     else -> error("Unexpected Ure type: ${this::class.simpleName}")
-        // had to add "else" branch because Android Studio 2021.2.1 canary 7 complains..
-        // TODO_later: Remove "else" when newer AS stops complaining
+    // had to add "else" branch because Android Studio 2021.2.1 canary 7 complains..
+    // TODO_later: Remove "else" when newer AS stops complaining
 }
 // TODO_later: experiment more with different operators overloading (after impl some working examples)
 //  especially indexed access operators and invoke operators..

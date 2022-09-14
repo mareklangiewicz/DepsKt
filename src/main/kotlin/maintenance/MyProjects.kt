@@ -8,6 +8,7 @@ import pl.mareklangiewicz.ure.*
 internal fun checkAllKnownRegionsInAllMyProjects() = checkAllKnownRegionsInMyProjects(*MyKotlinProjects.toTypedArray())
 internal fun checkAllKnownRegionsInMyProjects(vararg names: String) =
     checkAllKnownRegionsInProjects(*names.map { PathToMyKotlinProjects / it }.toTypedArray())
+
 fun checkAllKnownRegionsInProjects(vararg projects: Path) = projects.forEach {
     println("Check all known regions in project: $it")
     SYSTEM.checkAllKnownRegionsInAllFoundFiles(it, verbose = true)
@@ -16,6 +17,7 @@ fun checkAllKnownRegionsInProjects(vararg projects: Path) = projects.forEach {
 internal fun injectAllKnownRegionsToAllMyProjects() = injectAllKnownRegionsToMyProjects(*MyKotlinProjects.toTypedArray())
 internal fun injectAllKnownRegionsToMyProjects(vararg names: String) =
     injectAllKnownRegionsToProjects(*names.map { PathToMyKotlinProjects / it }.toTypedArray())
+
 fun injectAllKnownRegionsToProjects(vararg projects: Path) = projects.forEach {
     println("Inject all known regions to project: $it")
     SYSTEM.injectAllKnownRegionsToAllFoundFiles(it)

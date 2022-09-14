@@ -12,7 +12,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun RotatedBox(degrees:Float = 10f) {
+fun RotatedBox(degrees: Float = 10f) {
     Box(
         Modifier
             .padding(8.dp)

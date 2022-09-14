@@ -2,7 +2,7 @@
 
 package pl.mareklangiewicz.deps
 
-import pl.mareklangiewicz.defaults.v
+import pl.mareklangiewicz.defaults.*
 import java.util.*
 
 object LibsDetails {

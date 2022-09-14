@@ -10,8 +10,9 @@ internal val MyDepsKtRootPath = "/home/marek/code/kotlin/deps.kt".toPath()
 private val resourcesRelPath = "src/main/resources".toPath()
 private val resourcesAbsPath = MyDepsKtRootPath / resourcesRelPath
 
-private val Path.isTmplSymlink get() =
-    name.endsWith(".tmpl") && Companion.SYSTEM.metadata(this).symlinkTarget != null
+private val Path.isTmplSymlink
+    get() =
+        name.endsWith(".tmpl") && Companion.SYSTEM.metadata(this).symlinkTarget != null
 
 internal fun updateDepsKtResourcesSymLinks() {
     FileSystem.SYSTEM.listRecursively(resourcesAbsPath).forEach {

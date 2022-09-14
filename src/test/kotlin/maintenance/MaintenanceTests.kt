@@ -1,7 +1,6 @@
 package pl.mareklangiewicz.maintenance
 
 import org.junit.jupiter.api.*
-import pl.mareklangiewicz.ure.*
 import pl.mareklangiewicz.uspek.*
 
 class MaintenanceTests {

@@ -7,12 +7,14 @@ fun <T> Array<T>.asMicroList() = asMicroMutableList() as MicroList<T>
 fun <T> Array<T>.asMicroMutableList() = object : MicroMutableList<T> {
 
     override fun get(idx: Int) = this@asMicroMutableList[idx]
-    override fun set(idx: Int, item: T) { this@asMicroMutableList[idx] = item }
+    override fun set(idx: Int, item: T) {
+        this@asMicroMutableList[idx] = item
+    }
 
     override val size: Int get() = this@asMicroMutableList.size
     override fun iterator() = this@asMicroMutableList.iterator()
     override fun contains(item: Any?) = item in this@asMicroMutableList
-        // current standard Array.contains impl is same as MicroList.contains, but better to always use original impl.
+    // current standard Array.contains impl is same as MicroList.contains, but better to always use original impl.
 }
 
 fun <T> List<T>.asMicroList() = object : MicroList<T> {
@@ -27,7 +29,9 @@ fun <T> List<T>.asMicroList() = object : MicroList<T> {
 fun <T> MutableList<T>.asMicroMutableList() = object : MicroMutableList<T> {
 
     override fun get(idx: Int) = this@asMicroMutableList[idx]
-    override fun set(idx: Int, item: T) { this@asMicroMutableList[idx] = item }
+    override fun set(idx: Int, item: T) {
+        this@asMicroMutableList[idx] = item
+    }
 
     override val size: Int get() = this@asMicroMutableList.size
     override fun iterator() = this@asMicroMutableList.iterator()

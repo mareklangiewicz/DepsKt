@@ -1,4 +1,3 @@
-
 // package has to be default - to be available even in buildscript blocks
 
 val libs = pl.mareklangiewicz.deps.LibsDetails
