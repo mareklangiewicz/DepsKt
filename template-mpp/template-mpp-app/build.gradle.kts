@@ -409,7 +409,6 @@ fun Project.defaultBuildTemplateForComposeMppLib(
 // region [Compose MPP App Build Template]
 
 /** Only for very standard compose mpp apps. In most cases it's better to not use this function. */
-@Suppress("UNUSED_VARIABLE")
 fun Project.defaultBuildTemplateForComposeMppApp(
     appMainPackage: String,
     appMainClass: String = "App_jvmKt", // for compose jvm
