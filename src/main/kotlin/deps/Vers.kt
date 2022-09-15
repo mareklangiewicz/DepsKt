@@ -55,12 +55,14 @@ object Vers {
     // https://services.gradle.org/versions/release-candidate
 
     const val composeJbMain = "1.1.1"
-    const val composeJbEdge = "1.2.0-alpha01-dev774"
+    const val composeJbEdge = "1.2.0-alpha01-dev786"
     const val composeJb = composeJbEdge
 
     // https://github.com/JetBrains/compose-jb
     // https://github.com/JetBrains/compose-jb/releases
     // https://github.com/JetBrains/compose-jb/blob/master/CHANGELOG.md
+    // https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/
+    // https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/compose-gradle-plugin/
 
 
     val composeAndroidMain = v(1, 2, 1, patchLength = 1)
