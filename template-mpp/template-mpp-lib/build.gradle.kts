@@ -275,7 +275,6 @@ fun Project.defaultBuildTemplateForComposeMppLib(
     withComposeDesktop: Boolean = withJvm,
     withComposeDesktopComponents: Boolean = withJvm,
     withComposeWebCore: Boolean = withJs,
-    withComposeWebWidgets: Boolean = false,
     withComposeWebSvg: Boolean = withJs,
     withComposeTestUiJUnit4: Boolean = withJvm,
     withComposeTestWebUtils: Boolean = withJs,
@@ -331,8 +330,6 @@ fun Project.defaultBuildTemplateForComposeMppLib(
                 dependencies {
                     implementation(compose.runtime)
                     if (withComposeWebCore) implementation(compose.web.core)
-                    @Suppress("DEPRECATION")
-                    if (withComposeWebWidgets) implementation(compose.web.widgets)
                     if (withComposeWebSvg) implementation(compose.web.svg)
                 }
             }
