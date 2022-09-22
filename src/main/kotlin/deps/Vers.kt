@@ -15,7 +15,7 @@ object Vers {
     val kotlin15 = v(1, 5, 31)
     val kotlin16 = v(1, 6, 21)
     val kotlin17 = v(1, 7, 10)
-    val kotlin1720Beta = v(1, 7, 20, suffix = "-Beta")
+    val kotlin1720RC = v(1, 7, 20, suffix = "-RC")
     val kotlin = kotlin17
     // https://kotlinlang.org/docs/releases.html#release-details
     // https://github.com/JetBrains/kotlin/blob/master/ChangeLog.md
@@ -55,7 +55,8 @@ object Vers {
     // https://services.gradle.org/versions/release-candidate
 
     const val composeJbMain = "1.1.1"
-    const val composeJbEdge = "1.2.0-alpha01-dev786"
+    const val composeJbBeta = "1.2.0-beta01"
+    const val composeJbEdge = "1.2.0-beta02-dev795"
     const val composeJb = composeJbEdge
 
     // https://github.com/JetBrains/compose-jb
@@ -66,26 +67,26 @@ object Vers {
 
 
     val composeAndroidMain = v(1, 2, 1, patchLength = 1)
-    val composeAndroidEdge = v(1, 3, 0, patchLength = 1, suffix = "-beta01")
+    val composeAndroidEdge = v(1, 3, 0, patchLength = 1, suffix = "-beta03")
     // https://developer.android.com/jetpack/androidx/releases/compose
     val composeAndroid = composeAndroidEdge
     val composeCompilerStable = v(1, 3, 0, patchLength = 1) // for kotlin 1.7.10
-    val composeCompilerDev1720Beta =
-        v(1, 3, 0, patchLength = 1, suffix = "-dev-k1.7.20-Beta-18f49346e42") // doesn't work for me (MyStolenPlaygrounds)
+    val composeCompilerDev1720Beta = v(1, 3, 0, patchLength = 1, suffix = "-dev-k1.7.20-Beta-18f49346e42") // doesn't work for me (MyStolenPlaygrounds)
+    val composeCompilerDev1720RC = v(1, 4, 0, patchLength = 1, suffix = "-dev-k1.7.20-RC-a143c065804") // doesn't work for me (UWidgets:jsBrowserDevelopmentRun compilation cryptic error)
     val composeCompiler = composeCompilerStable
     // https://android-developers.googleblog.com/2022/06/independent-versioning-of-Jetpack-Compose-libraries.html?utm_source=dlvr.it&utm_medium=twitter
     // https://androidx.dev/storage/compose-compiler/repository
 
-    val composeAndroidMaterial3 = v(1, 0, 0, patchLength = 1, suffix = "-beta01")
+    val composeAndroidMaterial3 = v(1, 0, 0, patchLength = 1, suffix = "-beta03")
     // https://developer.android.com/jetpack/androidx/releases/compose
 
-    const val googleAccompanist = "0.26.2-beta"
+    const val googleAccompanist = "0.26.3-beta"
     const val googleAccompanistImage = "0.15.0"
     const val googleAccompanistPicasso = "0.6.2"
     // https://search.maven.org/search?q=g:com.google.accompanist
     // https://google.github.io/accompanist/
 
-    const val androidGradlePlugin = "7.4.0-alpha10"
+    const val androidGradlePlugin = "8.0.0-alpha01"
     // https://maven.google.com/web/index.html#com.android.tools.build:gradle
     // https://developer.android.com/studio/releases/gradle-plugin
     // https://google.github.io/android-gradle-dsl/
@@ -291,7 +292,7 @@ object Vers {
     const val junit4 = "4.13.2"
     // https://github.com/junit-team/junit4/releases
 
-    const val junit5 = "5.9.0"
+    const val junit5 = "5.9.1"
     // https://github.com/junit-team/junit5/releases
 
     const val googleTruth = "1.1.3"
