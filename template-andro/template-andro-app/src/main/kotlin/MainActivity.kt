@@ -11,7 +11,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
-import androidx.compose.ui.Modifier
+import androidx.compose.ui.Modifier as Mod
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import pl.mareklangiewicz.templateandro.theme.TemplateAndroTheme
@@ -24,7 +24,7 @@ class MainActivity : ComponentActivity() {
             TemplateAndroTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
+                    modifier = Mod.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
                     HelloStuff("Android")
@@ -36,7 +36,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun HelloStuff(name: String) {
-    Column(Modifier.padding(16.dp)) {
+    Column(Mod.padding(16.dp)) {
         var rotation by remember { mutableStateOf(80f) }
         Text(text = "Hello $name! rotation:$rotation")
         RotatedBox(rotation)
