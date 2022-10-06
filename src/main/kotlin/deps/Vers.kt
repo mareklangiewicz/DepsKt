@@ -14,8 +14,7 @@ object Vers {
     val kotlin14 = v(1, 4, 32)
     val kotlin15 = v(1, 5, 31)
     val kotlin16 = v(1, 6, 21)
-    val kotlin17 = v(1, 7, 10)
-    val kotlin1720RC = v(1, 7, 20, suffix = "-RC")
+    val kotlin17 = v(1, 7, 20)
     val kotlin = kotlin17
     // https://kotlinlang.org/docs/releases.html#release-details
     // https://github.com/JetBrains/kotlin/blob/master/ChangeLog.md
@@ -55,8 +54,8 @@ object Vers {
     // https://services.gradle.org/versions/release-candidate
 
     const val composeJbMain = "1.1.1"
-    const val composeJbBeta = "1.2.0-beta01"
-    const val composeJbEdge = "1.2.0-beta02-dev798"
+    const val composeJbBeta = "1.2.0-beta03"
+    const val composeJbEdge = "1.2.0-beta03-dev803"
     const val composeJb = composeJbEdge
 
     // https://github.com/JetBrains/compose-jb
@@ -67,13 +66,17 @@ object Vers {
 
 
     val composeAndroidMain = v(1, 2, 1, patchLength = 1)
-    val composeAndroidEdge = v(1, 3, 0, patchLength = 1, suffix = "-beta03")
+    val composeAndroidEdge = v(1, 3, 0, patchLength = 1, suffix = "-rc01")
     // https://developer.android.com/jetpack/androidx/releases/compose
     val composeAndroid = composeAndroidEdge
-    val composeCompilerStable = v(1, 3, 0, patchLength = 1) // for kotlin 1.7.10
-    val composeCompilerDev1720Beta = v(1, 3, 0, patchLength = 1, suffix = "-dev-k1.7.20-Beta-18f49346e42") // doesn't work for me (MyStolenPlaygrounds)
-    val composeCompilerDev1720RC = v(1, 4, 0, patchLength = 1, suffix = "-dev-k1.7.20-RC-a143c065804") // doesn't work for me (UWidgets:jsBrowserDevelopmentRun compilation cryptic error)
-    val composeCompiler = composeCompilerStable
+    val composeCompilerStable = v(1, 3, 2, patchLength = 1)
+        // Failure with: composeJbEdge = "1.2.0-beta03-dev803"
+        // :uwidgets:compileKotlinJs fails with error:
+        // org.jetbrains.kotlin.ir.expressions.impl.IrCallImpl@7acbc181: No such value argument slot: 0
+        // But JVM works.
+    val composeCompilerDev = "1.4.0-dev-k1.7.20-e49b3b6028b"
+        // Failure on JS same as above
+    val composeCompiler = composeCompilerDev
     // https://android-developers.googleblog.com/2022/06/independent-versioning-of-Jetpack-Compose-libraries.html?utm_source=dlvr.it&utm_medium=twitter
     // https://androidx.dev/storage/compose-compiler/repository
 
