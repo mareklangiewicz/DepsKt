@@ -14,6 +14,7 @@ plugins {
 
 defaultBuildTemplateForComposeMppLib(
     details = libs.TemplateMPP,
+    withJs = false, // FIXME: enable when kotlin 1.7.20 is supported
     withNativeLinux64 = false,
     withKotlinxHtml = true,
     withComposeCompilerFix = true,
@@ -92,7 +93,7 @@ fun MavenPublication.defaultPOM(lib: LibDetails) = pom {
 /** See also: root project template-mpp: fun Project.defaultSonatypeOssStuffFromSystemEnvs */
 fun Project.defaultSigning(
     keyId: String = rootExt("signing.keyId"),
-    key: String = rootExt("signing.key"),
+    key: String = rootExtReadFileUtf8("signing.keyFile"),
     password: String = rootExt("signing.password"),
 ) = extensions.configure<SigningExtension> {
     useInMemoryPgpKeys(keyId, key, password)
@@ -310,37 +311,41 @@ fun Project.defaultBuildTemplateForComposeMppLib(
                     if (withComposeMaterial3) implementation(compose.material3)
                 }
             }
-            val jvmMain by getting {
-                dependencies {
-                    if (withComposeUi) {
-                        implementation(compose.uiTooling)
-                        implementation(compose.preview)
+            if (withJvm) {
+                val jvmMain by getting {
+                    dependencies {
+                        if (withComposeUi) {
+                            implementation(compose.uiTooling)
+                            implementation(compose.preview)
+                        }
+                        if (withComposeMaterialIconsExtended) implementation(compose.materialIconsExtended)
+                        if (withComposeDesktop) {
+                            implementation(compose.desktop.common)
+                            implementation(compose.desktop.currentOs)
+                        }
+                        if (withComposeDesktopComponents) {
+                            implementation(compose.desktop.components.splitPane)
+                        }
                     }
-                    if (withComposeMaterialIconsExtended) implementation(compose.materialIconsExtended)
-                    if (withComposeDesktop) {
-                        implementation(compose.desktop.common)
-                        implementation(compose.desktop.currentOs)
-                    }
-                    if (withComposeDesktopComponents) {
-                        implementation(compose.desktop.components.splitPane)
+                }
+                val jvmTest by getting {
+                    dependencies {
+                        if (withComposeTestUiJUnit4) implementation(compose.uiTestJUnit4)
                     }
                 }
             }
-            val jsMain by getting {
-                dependencies {
-                    implementation(compose.runtime)
-                    if (withComposeWebCore) implementation(compose.web.core)
-                    if (withComposeWebSvg) implementation(compose.web.svg)
+            if (withJs) {
+                val jsMain by getting {
+                    dependencies {
+                        implementation(compose.runtime)
+                        if (withComposeWebCore) implementation(compose.web.core)
+                        if (withComposeWebSvg) implementation(compose.web.svg)
+                    }
                 }
-            }
-            val jvmTest by getting {
-                dependencies {
-                    if (withComposeTestUiJUnit4) implementation(compose.uiTestJUnit4)
-                }
-            }
-            val jsTest by getting {
-                dependencies {
-                    if (withComposeTestWebUtils) implementation(compose.web.testUtils)
+                val jsTest by getting {
+                    dependencies {
+                        if (withComposeTestWebUtils) implementation(compose.web.testUtils)
+                    }
                 }
             }
         }

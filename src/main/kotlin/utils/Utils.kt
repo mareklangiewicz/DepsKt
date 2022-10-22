@@ -1,12 +1,15 @@
 package pl.mareklangiewicz.utils
 
 import okio.*
+import okio.FileSystem.Companion.SYSTEM
 import okio.Path.Companion.toOkioPath
+import okio.Path.Companion.toPath
 import org.gradle.api.*
 import org.gradle.api.initialization.*
 import org.gradle.api.plugins.*
 import org.gradle.api.provider.*
 import org.gradle.api.tasks.*
+import pl.mareklangiewicz.io.*
 import kotlin.properties.*
 import kotlin.reflect.*
 
@@ -34,6 +37,7 @@ fun ExtensionAware.ext(name: String) = extensions.extraProperties[name]!!.toStri
 fun ExtensionAware.extOrNull(name: String) = extensions.extraProperties[name]?.toString()
 fun Project.rootExt(name: String) = rootProject.ext(name)
 fun Project.rootExtOrNull(name: String) = rootProject.extOrNull(name)
+fun Project.rootExtReadFileUtf8(name: String) = SYSTEM.readUtf8(rootExt(name).toPath())
 
 val Project.projectPath get() = rootDir.toOkioPath()
 val Project.rootProjectPath get() = rootProject.projectPath

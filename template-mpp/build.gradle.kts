@@ -22,7 +22,7 @@ fun injectTemplates() = injectAllKnownRegionsInProject()
  * System.getenv() should contain six env variables with given prefix, like:
  * * MYKOTLIBS_signing_keyId
  * * MYKOTLIBS_signing_password
- * * MYKOTLIBS_signing_key
+ * * MYKOTLIBS_signing_keyFile
  * * MYKOTLIBS_ossrhUsername
  * * MYKOTLIBS_ossrhPassword
  * * MYKOTLIBS_sonatypeStagingProfileId
