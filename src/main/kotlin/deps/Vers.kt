@@ -55,7 +55,7 @@ object Vers {
 
     const val composeJbMain = "1.1.1"
     const val composeJbBeta = "1.2.0-beta03"
-    const val composeJbEdge = "1.3.0-alpha01-dev827"
+    const val composeJbEdge = "1.3.0-alpha01-dev831"
     const val composeJb = composeJbEdge
 
     // https://github.com/JetBrains/compose-jb
@@ -65,8 +65,8 @@ object Vers {
     // https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/compose-gradle-plugin/
 
 
-    val composeAndroidMain = v(1, 2, 1, patchLength = 1)
-    val composeAndroidEdge = v(1, 3, 0, patchLength = 1, suffix = "-rc01")
+    val composeAndroidMain = v(1, 3, 0, patchLength = 1)
+    val composeAndroidEdge = v(1, 4, 0, patchLength = 1, suffix = "-alpha01")
     // https://developer.android.com/jetpack/androidx/releases/compose
     val composeAndroid = composeAndroidEdge
     val composeCompilerStable = v(1, 3, 2, patchLength = 1)
@@ -80,7 +80,9 @@ object Vers {
     // https://android-developers.googleblog.com/2022/06/independent-versioning-of-Jetpack-Compose-libraries.html?utm_source=dlvr.it&utm_medium=twitter
     // https://androidx.dev/storage/compose-compiler/repository
 
-    val composeAndroidMaterial3 = v(1, 0, 0, patchLength = 1, suffix = "-beta03")
+    val composeAndroidMaterial3Stable = v(1, 0, 0, patchLength = 1)
+    val composeAndroidMaterial3Alpha = v(1, 1, 0, patchLength = 1, suffix = "-alpha01")
+    val composeAndroidMaterial3 = composeAndroidMaterial3Alpha
     // https://developer.android.com/jetpack/androidx/releases/compose
 
     const val googleAccompanist = "0.26.3-beta"
@@ -89,7 +91,7 @@ object Vers {
     // https://search.maven.org/search?q=g:com.google.accompanist
     // https://google.github.io/accompanist/
 
-    const val androidGradlePlugin = "8.0.0-alpha05"
+    const val androidGradlePlugin = "8.0.0-alpha06"
     // https://maven.google.com/web/index.html#com.android.tools.build:gradle
     // https://developer.android.com/studio/releases/gradle-plugin
     // https://google.github.io/android-gradle-dsl/
