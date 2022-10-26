@@ -42,6 +42,14 @@ object Deps {
     // No version to use it in hotfix with module substitution (see: template-mpp/build.gradle/kts)
     val composeCompilerJbDev = dep("org.jetbrains.compose.compiler", "compiler")
 
+    /**
+     * Important: by default composeAndroidStableBoM is NOT used in dependencies below.
+     * That is because I want newest alpha versions and not stable.
+     * To actually use dep from: implementation(platform(deps.composeAndroidStableBoM))
+     * you have to also remove explicit versions with String.withoutVer extension.
+     * For example: implementation(deps.composeAndroidFoundation.withoutVer)
+     */
+    val composeAndroidStableBoM = dep("androidx.compose", "compose-bom", vers.composeAndroidStableBoM)
     val composeAndroidAnimation = dep("androidx.compose.animation", "animation", vers.composeAndroid)
     val composeAndroidAnimationCore = composeAndroidAnimation withName "animation-core"
     val composeAndroidFoundation = dep("androidx.compose.foundation", "foundation", vers.composeAndroid)
@@ -355,14 +363,14 @@ object Deps {
     val templateAndro = libs.TemplateAndro.dep("template-andro-lib")
 
 
-    private fun dep(group: String, name: String, version: String? = null): String =
+    fun dep(group: String, name: String, version: String? = null): String =
         if (version === null) "$group:$name" else "$group:$name:$version"
 
-    private infix fun String.withName(name: String) = split(":")
+    infix fun String.withName(name: String) = split(":")
         .mapIndexed { i: Int, s: String -> if (i == 1) name else s }
         .joinToString(":")
 
-    private infix fun String.ver(v: String) = (split(":").take(2) + v)
+    infix fun String.ver(v: String) = (split(":").take(2) + v)
         .joinToString(":")
 
     fun DependencyHandler.addAll(configuration: String, vararg deps: String) {
@@ -371,4 +379,5 @@ object Deps {
 
     val String.group get() = split(":").first()
     val String.artifact get() = split(":")[1]
+    val String.withoutVer get() = split(":").take(2).joinToString(":")
 }

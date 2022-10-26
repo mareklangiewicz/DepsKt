@@ -65,6 +65,7 @@ object Vers {
     // https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/compose-gradle-plugin/
 
 
+    const val composeAndroidStableBoM = "2022.10.00" // I don't use it for now (stable usually too old for me)
     val composeAndroidMain = v(1, 3, 0, patchLength = 1)
     val composeAndroidEdge = v(1, 4, 0, patchLength = 1, suffix = "-alpha01")
     // https://developer.android.com/jetpack/androidx/releases/compose
