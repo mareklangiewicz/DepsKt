@@ -55,7 +55,7 @@ object Vers {
 
     const val composeJbMain = "1.1.1"
     const val composeJbBeta = "1.2.0-beta03"
-    const val composeJbEdge = "1.3.0-alpha01-dev831"
+    const val composeJbEdge = "1.3.0-alpha01-dev834"
     const val composeJb = composeJbEdge
 
     // https://github.com/JetBrains/compose-jb
