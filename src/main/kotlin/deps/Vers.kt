@@ -162,14 +162,15 @@ object Vers {
     const val androidxRoom = "2.5.0-alpha01"
     // https://developer.android.com/jetpack/androidx/releases/room
 
-    const val androidxTest = "1.4.1-alpha06"
-    const val androidxTestRunner = "1.5.0-alpha03"
-    const val androidxTestRules = androidxTest
-    const val androidxTestExtTruth = "1.5.0-alpha06"
-    const val androidxTestExtJUnit = "1.1.4-alpha06"
+    const val androidxTestCore = "1.5.0-rc01"
+    const val androidxTestAnnotation = "1.0.1-rc01"
+    const val androidxTestRunner = androidxTestCore
+    const val androidxTestRules = androidxTestCore
+    const val androidxTestExtTruth = androidxTestCore
+    const val androidxTestExtJUnit = "1.1.4-rc01"
     // https://developer.android.com/jetpack/androidx/releases/test
 
-    const val androidxEspresso = "3.5.0-alpha06"
+    const val androidxEspresso = "3.5.0-rc01"
 
     const val androidCommons = "0.0.24"
     // https://github.com/elpassion/android-commons/releases

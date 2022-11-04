@@ -308,6 +308,7 @@ object Deps {
     val mockitoAndroid4 = dep("org.mockito", "mockito-android", vers.mockitoAndroid4)
     val mockitoAndroid = mockitoAndroid4
 
+    val androidxTestCore = dep("androidx.test", "core", vers.androidxTestCore)
     val androidxTestRunner = dep("androidx.test", "runner", vers.androidxTestRunner)
     val androidxTestRules = dep("androidx.test", "rules", vers.androidxTestRules)
     val androidxTestExtTruth = dep("androidx.test.ext", "truth", vers.androidxTestExtTruth)
