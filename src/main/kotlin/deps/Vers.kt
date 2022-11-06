@@ -284,6 +284,7 @@ object Vers {
     // https://github.com/mockito/mockito/releases
     // https://search.maven.org/artifact/org.mockito/mockito-core
 
+    const val mockitoKotlin2nhaarman = "2.2.0" // last version with old package name: com.nhaarman.mockitokotlin2
     const val mockitoKotlin2 = "2.2.11"
     const val mockitoKotlin3 = "3.2.0"
     const val mockitoKotlin4 = "4.0.0"

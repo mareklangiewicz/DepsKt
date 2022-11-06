@@ -298,6 +298,8 @@ object Deps {
     val mockitoCore4 = dep("org.mockito", "mockito-core", vers.mockitoCore4)
     val mockitoCore = mockitoCore4
 
+    // last version with old package name: com.nhaarman.mockitokotlin2
+    val mockitoKotlin2nhaarman = dep("com.nhaarman.mockitokotlin2", "mockito-kotlin", vers.mockitoKotlin2nhaarman)
     val mockitoKotlin2 = dep("org.mockito.kotlin", "mockito-kotlin", vers.mockitoKotlin2)
     val mockitoKotlin3 = dep("org.mockito.kotlin", "mockito-kotlin", vers.mockitoKotlin3)
     val mockitoKotlin4 = dep("org.mockito.kotlin", "mockito-kotlin", vers.mockitoKotlin4)
