@@ -55,7 +55,7 @@ object Vers {
 
     const val composeJbMain = "1.1.1"
     const val composeJbBeta = "1.2.1-rc03"
-    const val composeJbEdge = "1.3.0-alpha01-dev834"
+    const val composeJbEdge = "1.3.0-alpha01-dev849"
     const val composeJb = composeJbEdge
 
     // https://github.com/JetBrains/compose-jb
@@ -92,7 +92,7 @@ object Vers {
     // https://search.maven.org/search?q=g:com.google.accompanist
     // https://google.github.io/accompanist/
 
-    const val androidGradlePlugin = "8.0.0-alpha07"
+    const val androidGradlePlugin = "8.0.0-alpha08"
     // https://maven.google.com/web/index.html#com.android.tools.build:gradle
     // https://developer.android.com/studio/releases/gradle-plugin
     // https://google.github.io/android-gradle-dsl/
