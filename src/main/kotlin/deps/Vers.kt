@@ -14,7 +14,7 @@ object Vers {
     val kotlin14 = v(1, 4, 32)
     val kotlin15 = v(1, 5, 31)
     val kotlin16 = v(1, 6, 21)
-    val kotlin17 = v(1, 7, 20)
+    val kotlin17 = v(1, 7, 21)
     val kotlin = kotlin17
     // https://kotlinlang.org/docs/releases.html#release-details
     // https://github.com/JetBrains/kotlin/blob/master/ChangeLog.md
@@ -75,9 +75,10 @@ object Vers {
         // :uwidgets:compileKotlinJs fails with error:
         // org.jetbrains.kotlin.ir.expressions.impl.IrCallImpl@7acbc181: No such value argument slot: 0
         // But JVM works.
-    val composeCompilerDev = "1.4.0-dev-k1.7.20-e49b3b6028b"
+    val composeCompilerDev1720 = "1.4.0-dev-k1.7.20-e49b3b6028b"
+    val composeCompilerDev1721 = "1.4.0-dev-k1.7.21-d324f46b7bd"
         // Failure on JS same as above
-    val composeCompiler = composeCompilerDev
+    val composeCompiler = composeCompilerDev1721
     // https://android-developers.googleblog.com/2022/06/independent-versioning-of-Jetpack-Compose-libraries.html?utm_source=dlvr.it&utm_medium=twitter
     // https://androidx.dev/storage/compose-compiler/repository
 
