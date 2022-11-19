@@ -54,9 +54,9 @@ object Vers {
     // https://services.gradle.org/versions/release-candidate
 
     const val composeJbMain = "1.1.1"
-    const val composeJbBeta = "1.2.1-rc03"
-    const val composeJbEdge = "1.3.0-alpha01-dev849"
-    const val composeJb = composeJbEdge
+    const val composeJbBeta = "1.3.0-beta03"
+    const val composeJbEdge = "1.3.0-alpha01-dev853"
+    const val composeJb = composeJbBeta
 
     // https://github.com/JetBrains/compose-jb
     // https://github.com/JetBrains/compose-jb/releases
@@ -88,7 +88,7 @@ object Vers {
     val composeAndroidMaterial3 = composeAndroidMaterial3Alpha
     // https://developer.android.com/jetpack/androidx/releases/compose
 
-    const val googleAccompanist = "0.26.3-beta"
+    const val googleAccompanist = "0.27.1"
     const val googleAccompanistImage = "0.15.0"
     const val googleAccompanistPicasso = "0.6.2"
     // https://search.maven.org/search?q=g:com.google.accompanist
