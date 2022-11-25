@@ -179,6 +179,7 @@ fun DependencyHandler.defaultAndroTestDeps(
 ) = deps.run {
     addAll(
         configuration,
+        kotlinTestJUnit,
         junit4, // FIXME_someday: when will android move to JUnit5?
         uspekxJUnit4,
         androidxEspressoCore,
@@ -187,9 +188,7 @@ fun DependencyHandler.defaultAndroTestDeps(
         androidxTestRunner,
         androidxTestExtTruth,
         androidxTestExtJUnit,
-        "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0",
-//        mockitoKotlin2,
-        mockitoAndroid
+        mockitoKotlin4,
     )
     if (withCompose) addAll(
         configuration,
