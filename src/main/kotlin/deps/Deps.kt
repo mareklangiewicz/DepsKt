@@ -181,6 +181,8 @@ object Deps {
     val androidxRoomRxJava2 = dep("androidx.room", "room-rxjava2", vers.androidxRoom)
     val androidxRoomTesting = dep("androidx.room", "room-testing", vers.androidxRoom)
 
+    val androidxAutofill = dep("androidx.autofill", "autofill", vers.androidxAutofill)
+
     val androidxEspressoAccessibility = dep("androidx.test.espresso", "espresso-accessibility", vers.androidxEspresso)
     val androidxEspressoContrib = dep("androidx.test.espresso", "espresso-contrib", vers.androidxEspresso)
     val androidxEspressoCore = dep("androidx.test.espresso", "espresso-core", vers.androidxEspresso)
@@ -309,6 +311,8 @@ object Deps {
     val mockitoAndroid3 = dep("org.mockito", "mockito-android", vers.mockitoAndroid3)
     val mockitoAndroid4 = dep("org.mockito", "mockito-android", vers.mockitoAndroid4)
     val mockitoAndroid = mockitoAndroid4
+
+    val robolectric = dep("org.robolectric", "robolectric", vers.robolectric)
 
     val androidxTestCore = dep("androidx.test", "core", vers.androidxTestCore)
     val androidxTestRunner = dep("androidx.test", "runner", vers.androidxTestRunner)

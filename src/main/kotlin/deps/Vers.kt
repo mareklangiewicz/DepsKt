@@ -164,6 +164,9 @@ object Vers {
     const val androidxRoom = "2.5.0-alpha01"
     // https://developer.android.com/jetpack/androidx/releases/room
 
+    const val androidxAutofill = "1.2.0-beta01"
+    // https://developer.android.com/jetpack/androidx/releases/autofill
+
     const val androidxTestCore = "1.5.0-rc01"
     const val androidxTestAnnotation = "1.0.1-rc01"
     const val androidxTestRunner = androidxTestCore
@@ -298,6 +301,10 @@ object Vers {
     const val mockitoAndroid4 = "4.1.0"
     const val mockitoAndroid = mockitoAndroid4
     // https://search.maven.org/artifact/org.mockito/mockito-android
+
+
+    const val robolectric = "4.8"
+    // https://robolectric.org/getting-started/
 
     const val junit4 = "4.13.2"
     // https://github.com/junit-team/junit4/releases
