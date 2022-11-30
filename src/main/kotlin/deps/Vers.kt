@@ -55,7 +55,7 @@ object Vers {
 
     const val composeJbMain = "1.2.1"
     const val composeJbBeta = "1.3.0-beta03"
-    const val composeJbEdge = "1.3.0-alpha01-dev866"
+    const val composeJbEdge = "1.3.0-beta04-dev871"
     const val composeJb = composeJbEdge
 
     // https://github.com/JetBrains/compose-jb
@@ -88,7 +88,7 @@ object Vers {
     val composeAndroidMaterial3 = composeAndroidMaterial3Alpha
     // https://developer.android.com/jetpack/androidx/releases/compose
 
-    const val googleAccompanist = "0.27.1"
+    const val googleAccompanist = "0.28.0"
     const val googleAccompanistImage = "0.15.0"
     const val googleAccompanistPicasso = "0.6.2"
     // https://search.maven.org/search?q=g:com.google.accompanist
@@ -115,7 +115,7 @@ object Vers {
     // https://source.android.com/setup/start/build-numbers
 
     @Deprecated("Deprecated with android gradle plugin 3.0.0 or higher")
-    const val androidBuildTools = "30.0.2"
+    const val androidBuildTools = "33.0.1"
     // https://developer.android.com/studio/releases/build-tools.html
 
     @Deprecated("Use androidx")
@@ -134,7 +134,7 @@ object Vers {
     const val androidxConstraint1 = "1.1.3"
 
     // https://developer.android.com/training/constraint-layout
-    const val androidxConstraint2 = "2.1.3"
+    const val androidxConstraint2 = "2.1.4"
     const val androidxConstraint = androidxConstraint2
 
     const val androidxNavigation = "2.5.0-rc01"
@@ -181,7 +181,7 @@ object Vers {
     // https://github.com/elpassion/android-commons/releases
 
     const val rxjava2 = "2.2.16"
-    const val rxjava3 = "3.1.4"
+    const val rxjava3 = "3.1.5"
     // https://github.com/ReactiveX/RxJava/releases
 
     const val rxkotlin = "3.0.1"
