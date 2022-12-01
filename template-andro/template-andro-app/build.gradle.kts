@@ -14,6 +14,7 @@ plugins {
 defaultBuildTemplateForAndroidApp(
     appId = "pl.mareklangiewicz.templateandro",
     withCompose = true,
+    withComposeCompilerVer = vers.composeCompilerDev1720,
     details = libs.TemplateAndro,
     publishVariant = "debug",
 )
@@ -225,12 +226,12 @@ fun CommonExtension<*, *, *, *>.defaultCompileOptions(
     targetCompatibility(jvmVersion)
 }
 
-fun CommonExtension<*, *, *, *>.defaultComposeStuff() {
+fun CommonExtension<*, *, *, *>.defaultComposeStuff(withComposeCompilerVer: String? = null) {
     buildFeatures {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = vers.composeCompiler
+        kotlinCompilerExtensionVersion = withComposeCompilerVer
     }
 }
 
@@ -273,12 +274,13 @@ fun Project.defaultBuildTemplateForAndroidApp(
     sdkTarget: Int = vers.androidSdkTarget,
     sdkMin: Int = vers.androidSdkMin,
     withCompose: Boolean = false,
+    withComposeCompilerVer: String? = null,
     details: LibDetails = libs.Unknown,
     publishVariant: String? = null, // null means disable publishing to maven repo
 ) {
     repositories { defaultRepos(withComposeCompilerAndroidxDev = withCompose) }
     android {
-        defaultAndroApp(appId, appNamespace, appVerCode, appVerName, jvmVersion, sdkCompile, sdkTarget, sdkMin, withCompose)
+        defaultAndroApp(appId, appNamespace, appVerCode, appVerName, jvmVersion, sdkCompile, sdkTarget, sdkMin, withCompose, withComposeCompilerVer)
         publishVariant?.let { defaultAndroAppPublishVariant(it) }
     }
     dependencies {
@@ -303,12 +305,13 @@ fun ApplicationExtension.defaultAndroApp(
     sdkTarget: Int = vers.androidSdkTarget,
     sdkMin: Int = vers.androidSdkMin,
     withCompose: Boolean = false,
+    withComposeCompilerVer: String? = null,
 ) {
     compileSdk = sdkCompile
     defaultCompileOptions(jvmVersion)
     defaultDefaultConfig(appId, appNamespace, appVerCode, appVerName, sdkTarget, sdkMin)
     defaultBuildTypes()
-    if (withCompose) defaultComposeStuff()
+    if (withCompose) defaultComposeStuff(withComposeCompilerVer)
     defaultPackagingOptions()
 }
 
