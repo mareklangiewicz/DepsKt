@@ -13,7 +13,7 @@ plugins {
 defaultBuildTemplateForComposeMppApp(
     appMainPackage = "pl.mareklangiewicz.hello",
     details = libs.TemplateMPP,
-    withJs = false, // FIXME: enable when kotlin 1.7.20 is supported
+    withJs = true,
     withNativeLinux64 = false,
     withKotlinxHtml = true,
 ) {
