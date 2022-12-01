@@ -14,8 +14,9 @@ object Vers {
     val kotlin14 = v(1, 4, 32)
     val kotlin15 = v(1, 5, 31)
     val kotlin16 = v(1, 6, 21)
+    val kotlin1720 = v(1, 7, 20)
     val kotlin17 = v(1, 7, 21)
-    val kotlin = kotlin17
+    val kotlin = kotlin1720 // compose multiplatform doesn't work with 1.7.21
     // https://kotlinlang.org/docs/releases.html#release-details
     // https://github.com/JetBrains/kotlin/blob/master/ChangeLog.md
     // https://github.com/JetBrains/kotlin/releases
@@ -55,7 +56,7 @@ object Vers {
 
     const val composeJbMain = "1.2.1"
     const val composeJbBeta = "1.3.0-beta03"
-    const val composeJbEdge = "1.3.0-beta04-dev871"
+    const val composeJbEdge = "1.3.0-beta04-dev873"
     const val composeJb = composeJbEdge
 
     // https://github.com/JetBrains/compose-jb
@@ -79,8 +80,8 @@ object Vers {
     val composeCompilerDev1720 = "1.4.0-dev-k1.7.20-e49b3b6028b"
     val composeCompilerDev1721 = "1.4.0-dev-k1.7.21-d324f46b7bd"
         // Failure on JS same as above
-    val composeCompiler = composeCompilerDev1721
-    // https://android-developers.googleblog.com/2022/06/independent-versioning-of-Jetpack-Compose-libraries.html?utm_source=dlvr.it&utm_medium=twitter
+    val composeCompiler = composeCompilerEdge
+    // https://developer.android.com/jetpack/androidx/releases/compose-kotlin#pre-release_kotlin_compatibility
     // https://androidx.dev/storage/compose-compiler/repository
 
     val composeAndroidMaterial3Stable = v(1, 0, 1, patchLength = 1)
@@ -94,7 +95,7 @@ object Vers {
     // https://search.maven.org/search?q=g:com.google.accompanist
     // https://google.github.io/accompanist/
 
-    const val androidGradlePlugin = "8.0.0-alpha08"
+    const val androidGradlePlugin = "8.0.0-alpha09"
     // https://maven.google.com/web/index.html#com.android.tools.build:gradle
     // https://developer.android.com/studio/releases/gradle-plugin
     // https://google.github.io/android-gradle-dsl/

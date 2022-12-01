@@ -17,7 +17,6 @@ defaultBuildTemplateForComposeMppLib(
     withJs = false, // FIXME: enable when kotlin 1.7.20 is supported
     withNativeLinux64 = false,
     withKotlinxHtml = true,
-    withComposeCompilerFix = true,
 )
 
 // region [Kotlin Module Build Template]
@@ -140,7 +139,7 @@ fun Project.defaultBuildTemplateForMppLib(
     withNativeLinux64: Boolean = false,
     withKotlinxHtml: Boolean = false,
     withComposeJbDevRepo: Boolean = false,
-    withComposeCompilerFix: Boolean = false,
+    withComposeCompilerAndroidxDev: String? = null, // e.g. deps.composeCompilerAndroidxDev
     withTestJUnit4: Boolean = false,
     withTestJUnit5: Boolean = true,
     withTestUSpekX: Boolean = true,
@@ -150,17 +149,12 @@ fun Project.defaultBuildTemplateForMppLib(
         defaultRepos(
             withKotlinxHtml = withKotlinxHtml,
             withComposeJbDev = withComposeJbDevRepo,
-            withComposeCompilerAndroidxDev = withComposeCompilerFix,
+            withComposeCompilerAndroidxDev = withComposeCompilerAndroidxDev != null,
         )
     }
-    if (withComposeCompilerFix) {
-        require(withComposeJbDevRepo) { "Compose compiler fix is available only for compose-jb projects." }
-        configurations.all {
-            resolutionStrategy.dependencySubstitution {
-                substitute(module(deps.composeCompilerJbDev)).apply {
-                    using(module(deps.composeCompilerAndroidxDev))
-                }
-            }
+    if (withComposeCompilerAndroidxDev != null) {
+        compose {
+            kotlinCompilerPlugin.set(withComposeCompilerAndroidxDev)
         }
     }
     defaultGroupAndVerAndDescription(details)
@@ -268,7 +262,7 @@ fun Project.defaultBuildTemplateForComposeMppLib(
     withJs: Boolean = true,
     withNativeLinux64: Boolean = false,
     withKotlinxHtml: Boolean = false,
-    withComposeCompilerFix: Boolean = false,
+    withComposeCompilerAndroidxDev: String? = null,
     withComposeUi: Boolean = true,
     withComposeFoundation: Boolean = true,
     withComposeMaterial2: Boolean = withJvm,
@@ -290,7 +284,7 @@ fun Project.defaultBuildTemplateForComposeMppLib(
         withNativeLinux64 = withNativeLinux64,
         withKotlinxHtml = withKotlinxHtml,
         withComposeJbDevRepo = true,
-        withComposeCompilerFix = withComposeCompilerFix,
+        withComposeCompilerAndroidxDev = withComposeCompilerAndroidxDev,
         withTestJUnit4 = withComposeTestUiJUnit4, // Unfortunately Compose UI steel uses JUnit4 instead of 5
         withTestJUnit5 = false,
         withTestUSpekX = true,
