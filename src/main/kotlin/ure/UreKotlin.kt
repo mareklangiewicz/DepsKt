@@ -24,6 +24,7 @@ fun ureLicenceComment(licenceMarker: Ure = ureLicenceMarker, withName: String = 
 
 fun ureKtComposeTestOutline() = ure {
     1 of ureLicenceComment().withOptSpacesAround()
+    1 of ureWhateva(reluctant = false).withName("ktOtherStuffBeforePackageLine")
     1 of urePackageLine().withOptSpacesAround()
     1 of ureWhateva(reluctant = false).withName("ktRest")
 }
