@@ -16,13 +16,14 @@ object Vers {
     val kotlin16 = v(1, 6, 21)
     val kotlin1720 = v(1, 7, 20)
     val kotlin17 = v(1, 7, 21)
-    val kotlin = kotlin1720 // compose multiplatform doesn't work with 1.7.21
+    val kotlin = kotlin17
     // https://kotlinlang.org/docs/releases.html#release-details
     // https://github.com/JetBrains/kotlin/blob/master/ChangeLog.md
     // https://github.com/JetBrains/kotlin/releases
     // compatibility with compose:
     //   https://developer.android.com/jetpack/androidx/releases/compose-kotlin
     //   https://androidx.dev/storage/compose-compiler/repository
+    //   https://github.com/JetBrains/compose-jb/blob/63846c63c0b7399340638de0645369dd3bb6ef1c/gradle-plugins/compose/src/main/kotlin/org/jetbrains/compose/ComposeCompilerCompatability.kt
 
     const val defaultJvm = "11" // I had terrible issues with "16" (andro compose project)
 
@@ -56,7 +57,7 @@ object Vers {
 
     const val composeJbMain = "1.2.1"
     const val composeJbBeta = "1.3.0-beta03"
-    const val composeJbEdge = "1.3.0-beta04-dev877"
+    const val composeJbEdge = "1.3.0-beta04-dev885"
     const val composeJb = composeJbEdge
 
     // https://github.com/JetBrains/compose-jb
