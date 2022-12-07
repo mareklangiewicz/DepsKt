@@ -2,4 +2,4 @@
 
 package pl.mareklangiewicz.hello
 
-actual fun helloPlatform(): String = "Hello JS World!".also { println(it) }
+actual fun helloPlatform(): String = "Hello JS World! (kotlin: ${KotlinVersion.CURRENT})".also { println(it) }

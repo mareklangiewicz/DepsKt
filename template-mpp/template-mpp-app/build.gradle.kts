@@ -16,6 +16,7 @@ defaultBuildTemplateForComposeMppApp(
     withJs = true,
     withNativeLinux64 = false,
     withKotlinxHtml = true,
+    withComposeCompilerAndroidxDev = deps.composeCompilerAndroidxDev,
 ) {
     implementation(project(":template-mpp-lib"))
 }

@@ -17,6 +17,7 @@ defaultBuildTemplateForComposeMppLib(
     withJs = true,
     withNativeLinux64 = false,
     withKotlinxHtml = true,
+    withComposeCompilerAndroidxDev = deps.composeCompilerAndroidxDev,
 )
 
 // region [Kotlin Module Build Template]
