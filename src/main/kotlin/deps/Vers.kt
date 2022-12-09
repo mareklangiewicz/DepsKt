@@ -69,24 +69,20 @@ object Vers {
 
     const val composeAndroidStableBoM = "2022.11.00" // I don't use it for now (stable usually too old for me)
     val composeAndroidMain = v(1, 3, 1, patchLength = 1)
-    val composeAndroidEdge = v(1, 4, 0, patchLength = 1, suffix = "-alpha02")
+    val composeAndroidEdge = v(1, 4, 0, patchLength = 1, suffix = "-alpha03")
     // https://developer.android.com/jetpack/androidx/releases/compose
     val composeAndroid = composeAndroidEdge
     val composeCompilerStable = v(1, 3, 2, patchLength = 1)
     val composeCompilerEdge = v(1, 4, 0, patchLength = 1, suffix = "-alpha02")
-        // Failure with: composeJbEdge = "1.2.0-beta03-dev803"
-        // :uwidgets:compileKotlinJs fails with error:
-        // org.jetbrains.kotlin.ir.expressions.impl.IrCallImpl@7acbc181: No such value argument slot: 0
-        // But JVM works.
     val composeCompilerDev1720 = "1.4.0-dev-k1.7.20-e49b3b6028b"
     val composeCompilerDev1721 = "1.4.0-dev-k1.7.21-d324f46b7bd"
-        // Failure on JS same as above
+    val composeCompilerDev180Beta = "1.4.0-dev-k1.8.0-Beta-73ea385313b"
     val composeCompiler = composeCompilerEdge
     // https://developer.android.com/jetpack/androidx/releases/compose-kotlin#pre-release_kotlin_compatibility
     // https://androidx.dev/storage/compose-compiler/repository
 
     val composeAndroidMaterial3Stable = v(1, 0, 1, patchLength = 1)
-    val composeAndroidMaterial3Alpha = v(1, 1, 0, patchLength = 1, suffix = "-alpha02")
+    val composeAndroidMaterial3Alpha = v(1, 1, 0, patchLength = 1, suffix = "-alpha03")
     val composeAndroidMaterial3 = composeAndroidMaterial3Alpha
     // https://developer.android.com/jetpack/androidx/releases/compose
 
