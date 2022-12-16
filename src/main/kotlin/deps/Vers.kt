@@ -55,9 +55,9 @@ object Vers {
     // https://services.gradle.org/versions/current
     // https://services.gradle.org/versions/release-candidate
 
-    const val composeJbMain = "1.2.1"
+    const val composeJbMain = "1.2.2"
     const val composeJbBeta = "1.3.0-beta03"
-    const val composeJbEdge = "1.3.0-beta04-dev885"
+    const val composeJbEdge = "1.3.0-rc01"
     const val composeJb = composeJbEdge
 
     // https://github.com/JetBrains/compose-jb
@@ -77,9 +77,11 @@ object Vers {
     val composeCompilerDev1720 = "1.4.0-dev-k1.7.20-e49b3b6028b"
     val composeCompilerDev1721 = "1.4.0-dev-k1.7.21-d324f46b7bd"
     val composeCompilerDev180Beta = "1.4.0-dev-k1.8.0-Beta-73ea385313b"
+    val composeCompilerDev180RC = "1.4.0-dev-k1.8.0-RC-4c1865595ed"
     val composeCompiler = composeCompilerEdge
     // https://developer.android.com/jetpack/androidx/releases/compose-kotlin#pre-release_kotlin_compatibility
     // https://androidx.dev/storage/compose-compiler/repository
+    // https://mvnrepository.com/artifact/org.jetbrains.compose.compiler/compiler
 
     val composeAndroidMaterial3Stable = v(1, 0, 1, patchLength = 1)
     val composeAndroidMaterial3Alpha = v(1, 1, 0, patchLength = 1, suffix = "-alpha03")
