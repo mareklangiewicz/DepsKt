@@ -196,7 +196,7 @@ object Vers {
     // https://github.com/JakeWharton/RxRelay
     // https://github.com/JakeWharton/RxRelay/tags
 
-    const val rxandroid = "3.0.0"
+    const val rxandroid = "3.0.2"
     // https://github.com/ReactiveX/RxAndroid/releases
 
     const val rxlifecycle = "4.0.2"
@@ -206,7 +206,7 @@ object Vers {
     // https://github.com/square/retrofit
     // https://github.com/square/retrofit/tags
 
-    const val okhttp = "5.0.0-alpha.7"
+    const val okhttp = "5.0.0-alpha.10"
     // https://github.com/square/okhttp
     // https://github.com/square/okhttp/tags
 
@@ -214,20 +214,19 @@ object Vers {
     // https://square.github.io/okio/changelog/
     // https://square.github.io/okio/#releases
 
-    const val dbusJava = "3.3.1"
+    const val dbusJava = "3.3.2"
     // https://github.com/hypfvieh/dbus-java
 
     const val dbusKotlin = "0.0.08"
     // https://github.com/langara/dbus-kotlin
 
-    const val javaWebsocket = "1.5.2"
+    const val javaWebsocket = "1.5.3"
     // https://mvnrepository.com/artifact/org.java-websocket/Java-WebSocket
 
-    //    const val slf4jSimple = "1.7.30"
-    const val slf4jSimple = "2.0.0-alpha7"
+    const val slf4jSimple = "2.0.6"
     // https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
 
-    const val log4j2 = "2.17.2"
+    const val log4j2 = "2.19.0"
     // http://logging.apache.org/log4j/2.x/maven-artifacts.html
 
     const val googleServicesPlugin = "4.3.10"
