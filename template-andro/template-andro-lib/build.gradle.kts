@@ -14,7 +14,7 @@ plugins {
 defaultBuildTemplateForAndroidLib(
     libNamespace = "pl.mareklangiewicz.templateandrolib",
     withCompose = true,
-    withComposeCompilerVer = vers.composeCompilerEdge,
+    withComposeCompilerVer = vers.composeCompiler,
     details = libs.TemplateAndro,
     publishVariant = "debug",
 )

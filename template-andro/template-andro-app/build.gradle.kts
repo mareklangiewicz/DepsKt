@@ -14,7 +14,7 @@ plugins {
 defaultBuildTemplateForAndroidApp(
     appId = "pl.mareklangiewicz.templateandro",
     withCompose = true,
-    withComposeCompilerVer = vers.composeCompilerEdge,
+    withComposeCompilerVer = vers.composeCompiler,
     details = libs.TemplateAndro,
     publishVariant = "debug",
 )

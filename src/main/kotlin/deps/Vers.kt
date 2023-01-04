@@ -74,7 +74,7 @@ object Vers {
     // https://developer.android.com/jetpack/androidx/releases/compose
     val composeAndroid = composeAndroidEdge
     val composeCompilerStable = v(1, 3, 2, patchLength = 1)
-    val composeCompilerEdge = v(1, 4, 0, patchLength = 1, suffix = "-alpha02")
+    val composeCompilerAlpha = v(1, 4, 0, patchLength = 1, suffix = "-alpha02")
     val composeCompilerDev1720 = "1.4.0-dev-k1.7.20-e49b3b6028b"
     val composeCompilerDev1721 = "1.4.0-dev-k1.7.21-d324f46b7bd"
     val composeCompilerDev180Beta = "1.4.0-dev-k1.8.0-Beta-73ea385313b"
