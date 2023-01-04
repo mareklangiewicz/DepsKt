@@ -25,7 +25,7 @@ object Vers {
     //   https://androidx.dev/storage/compose-compiler/repository
     //   https://github.com/JetBrains/compose-jb/blob/63846c63c0b7399340638de0645369dd3bb6ef1c/gradle-plugins/compose/src/main/kotlin/org/jetbrains/compose/ComposeCompilerCompatability.kt
 
-    const val defaultJvm = "11" // I had terrible issues with "16" (andro compose project)
+    const val defaultJvm = "17" // I had terrible issues with "16" (andro compose project)
 
     const val kotlinxDateTime = "0.4.0"
     // https://github.com/Kotlin/kotlinx-datetime
@@ -78,6 +78,7 @@ object Vers {
     val composeCompilerDev1721 = "1.4.0-dev-k1.7.21-d324f46b7bd"
     val composeCompilerDev180Beta = "1.4.0-dev-k1.8.0-Beta-73ea385313b"
     val composeCompilerDev180RC = "1.4.0-dev-k1.8.0-RC-4c1865595ed"
+    val composeCompilerDev180 = "1.4.0-dev-k1.8.0-33c0ad36f83"
     val composeCompiler = composeCompilerEdge
     // https://developer.android.com/jetpack/androidx/releases/compose-kotlin#pre-release_kotlin_compatibility
     // https://androidx.dev/storage/compose-compiler/repository
@@ -94,7 +95,7 @@ object Vers {
     // https://search.maven.org/search?q=g:com.google.accompanist
     // https://google.github.io/accompanist/
 
-    const val androidGradlePlugin = "8.0.0-alpha09"
+    const val androidGradlePlugin = "8.0.0-alpha10"
     // https://maven.google.com/web/index.html#com.android.tools.build:gradle
     // https://developer.android.com/studio/releases/gradle-plugin
     // https://google.github.io/android-gradle-dsl/
