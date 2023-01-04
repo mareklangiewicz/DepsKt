@@ -16,7 +16,8 @@ object Vers {
     val kotlin16 = v(1, 6, 21)
     val kotlin1720 = v(1, 7, 20)
     val kotlin17 = v(1, 7, 21)
-    val kotlin = kotlin17
+    val kotlin18 = v(1, 8, 0, patchLength = 1)
+    val kotlin = kotlin18
     // https://kotlinlang.org/docs/releases.html#release-details
     // https://github.com/JetBrains/kotlin/blob/master/ChangeLog.md
     // https://github.com/JetBrains/kotlin/releases
@@ -67,7 +68,7 @@ object Vers {
     // https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/compose-gradle-plugin/
 
 
-    const val composeAndroidStableBoM = "2022.11.00" // I don't use it for now (stable usually too old for me)
+    const val composeAndroidStableBoM = "2022.12.00" // I don't use it for now (stable usually too old for me)
     val composeAndroidMain = v(1, 3, 1, patchLength = 1)
     val composeAndroidEdge = v(1, 4, 0, patchLength = 1, suffix = "-alpha03")
     // https://developer.android.com/jetpack/androidx/releases/compose
@@ -79,7 +80,7 @@ object Vers {
     val composeCompilerDev180Beta = "1.4.0-dev-k1.8.0-Beta-73ea385313b"
     val composeCompilerDev180RC = "1.4.0-dev-k1.8.0-RC-4c1865595ed"
     val composeCompilerDev180 = "1.4.0-dev-k1.8.0-33c0ad36f83"
-    val composeCompiler = composeCompilerEdge
+    val composeCompiler = composeCompilerDev180
     // https://developer.android.com/jetpack/androidx/releases/compose-kotlin#pre-release_kotlin_compatibility
     // https://androidx.dev/storage/compose-compiler/repository
     // https://mvnrepository.com/artifact/org.jetbrains.compose.compiler/compiler
@@ -95,7 +96,7 @@ object Vers {
     // https://search.maven.org/search?q=g:com.google.accompanist
     // https://google.github.io/accompanist/
 
-    const val androidGradlePlugin = "8.0.0-alpha10"
+    const val androidGradlePlugin = "8.0.0-alpha11"
     // https://maven.google.com/web/index.html#com.android.tools.build:gradle
     // https://developer.android.com/studio/releases/gradle-plugin
     // https://google.github.io/android-gradle-dsl/
