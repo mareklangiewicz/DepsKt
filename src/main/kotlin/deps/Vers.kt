@@ -321,7 +321,7 @@ object Vers {
     const val realm = "10.11.1"
     // https://docs.mongodb.com/realm/sdk/android/install/
 
-    const val ktor = "2.2.1"
+    const val ktor = "2.2.2"
     // https://maven.pkg.jetbrains.space/public/p/ktor/eap/io/ktor/ktor/
     // https://github.com/ktorio/ktor
     // https://github.com/ktorio/ktor/releases
