@@ -1,6 +1,6 @@
 plugins {
     kotlin("jvm") version "1.8.0"
-    id("com.gradle.plugin-publish") version "1.0.0" // https://plugins.gradle.org/docs/publish-plugin
+    id("com.gradle.plugin-publish") version "1.1.0" // https://plugins.gradle.org/docs/publish-plugin
     id("signing")
 }
 
@@ -13,7 +13,7 @@ repositories {
 dependencies {
     api("com.squareup.okio:okio:3.2.0")
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.0")
-    implementation("com.android.library:com.android.library.gradle.plugin:8.0.0-alpha11")
+    implementation("com.android.library:com.android.library.gradle.plugin:8.1.0-alpha01")
     // Warning: andro gradle plugin is needed here, so kotlin plugin can access BaseExtension class etc.
     // It is needed in android projects using deps.kt (which does: plugins { kotlin("android") }
     // It doesn't work if users just add this andro gradle plugin dependency in their projects.
@@ -28,10 +28,14 @@ tasks.defaultKotlinCompileOptions("17")
 tasks.defaultTestsOptions()
 
 group = "pl.mareklangiewicz.deps"
-version = "0.2.19"
+version = "0.2.20"
 
 
 gradlePlugin {
+    website.set("https://github.com/langara/deps.kt")
+    vcsUrl.set("https://github.com/langara/deps.kt")
+    // tags.set(listOf("bom", "dependencies"))
+    // description.set("Updated dependencies for typical java/kotlin/android projects (with IDE support).")
     plugins {
         create("depsPlugin") {
             id = "pl.mareklangiewicz.deps"
@@ -49,14 +53,6 @@ gradlePlugin {
             displayName = "SourceFun plugin"
         }
     }
-}
-
-pluginBundle {
-    // These settings are set for the whole plugin bundle
-    website = "https://github.com/langara/deps.kt"
-    vcsUrl = "https://github.com/langara/deps.kt"
-    tags = listOf("bom", "dependencies")
-    description = "Updated dependencies for typical java/kotlin/android projects (with IDE support)."
 }
 
 // region Copy&Paste Code for deps building special case

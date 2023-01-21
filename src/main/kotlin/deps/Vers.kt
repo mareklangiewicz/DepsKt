@@ -96,7 +96,7 @@ object Vers {
     // https://search.maven.org/search?q=g:com.google.accompanist
     // https://google.github.io/accompanist/
 
-    const val androidGradlePlugin = "8.0.0-alpha11"
+    const val androidGradlePlugin = "8.1.0-alpha01"
     // https://maven.google.com/web/index.html#com.android.tools.build:gradle
     // https://developer.android.com/studio/releases/gradle-plugin
     // https://google.github.io/android-gradle-dsl/
@@ -208,15 +208,15 @@ object Vers {
     // https://github.com/square/retrofit
     // https://github.com/square/retrofit/tags
 
-    const val okhttp = "5.0.0-alpha.10"
+    const val okhttp = "5.0.0-alpha.11"
     // https://github.com/square/okhttp
     // https://github.com/square/okhttp/tags
 
-    const val okio = "3.2.0"
+    const val okio = "3.3.0"
     // https://square.github.io/okio/changelog/
     // https://square.github.io/okio/#releases
 
-    const val dbusJava = "3.3.2"
+    const val dbusJava = "4.2.1"
     // https://github.com/hypfvieh/dbus-java
 
     const val dbusKotlin = "0.0.08"
