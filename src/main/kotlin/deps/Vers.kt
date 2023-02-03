@@ -56,9 +56,10 @@ object Vers {
     // https://services.gradle.org/versions/current
     // https://services.gradle.org/versions/release-candidate
 
-    const val composeJbMain = "1.2.2"
-    const val composeJbBeta = "1.3.0-beta03"
+    const val composeJbMain = "1.3.0"
+    // const val composeJbBeta = "1.3.0-beta03"
     const val composeJbEdge = "1.4.0-alpha01-dev924"
+    // const val composeJbEdge = "1.4.0-alpha01-dev929"
     const val composeJb = composeJbEdge
 
     // https://github.com/JetBrains/compose-jb
@@ -70,7 +71,7 @@ object Vers {
 
     const val composeAndroidStableBoM = "2022.12.00" // I don't use it for now (stable usually too old for me)
     val composeAndroidMain = v(1, 3, 3, patchLength = 1)
-    val composeAndroidEdge = v(1, 4, 0, patchLength = 1, suffix = "-alpha04")
+    val composeAndroidEdge = v(1, 4, 0, patchLength = 1, suffix = "-alpha05")
     // https://developer.android.com/jetpack/androidx/releases/compose
     val composeAndroid = composeAndroidEdge
     val composeCompilerStable = v(1, 4, 0, patchLength = 1)
@@ -86,7 +87,7 @@ object Vers {
     // https://mvnrepository.com/artifact/org.jetbrains.compose.compiler/compiler
 
     val composeAndroidMaterial3Stable = v(1, 0, 1, patchLength = 1)
-    val composeAndroidMaterial3Alpha = v(1, 1, 0, patchLength = 1, suffix = "-alpha04")
+    val composeAndroidMaterial3Alpha = v(1, 1, 0, patchLength = 1, suffix = "-alpha05")
     val composeAndroidMaterial3 = composeAndroidMaterial3Alpha
     // https://developer.android.com/jetpack/androidx/releases/compose
 
