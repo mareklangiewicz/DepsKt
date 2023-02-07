@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.8.0"
+    kotlin("jvm") version "1.8.10"
     id("com.gradle.plugin-publish") version "1.1.0" // https://plugins.gradle.org/docs/publish-plugin
     id("signing")
 }
@@ -11,9 +11,9 @@ repositories {
 }
 
 dependencies {
-    api("com.squareup.okio:okio:3.2.0")
-    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.0")
-    implementation("com.android.library:com.android.library.gradle.plugin:8.1.0-alpha01")
+    api("com.squareup.okio:okio:3.3.0")
+    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.10")
+    implementation("com.android.library:com.android.library.gradle.plugin:8.1.0-alpha02")
     // Warning: andro gradle plugin is needed here, so kotlin plugin can access BaseExtension class etc.
     // It is needed in android projects using deps.kt (which does: plugins { kotlin("android") }
     // It doesn't work if users just add this andro gradle plugin dependency in their projects.
@@ -28,7 +28,7 @@ tasks.defaultKotlinCompileOptions("17")
 tasks.defaultTestsOptions()
 
 group = "pl.mareklangiewicz.deps"
-version = "0.2.20"
+version = "0.2.21"
 
 
 gradlePlugin {
