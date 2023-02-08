@@ -263,10 +263,12 @@ fun Project.defaultBuildTemplateForComposeMppLib(
     withComposeFoundation: Boolean = true,
     withComposeMaterial2: Boolean = withJvm,
     withComposeMaterial3: Boolean = withJvm,
-    withComposeMaterialIconsExtended: Boolean = withJvm,
+    withComposeMaterialIconsExtended: Boolean = false,
+        // https://mvnrepository.com/artifact/org.jetbrains.compose.material/material-icons-extended?repo=space-public-compose-dev
     withComposeFullAnimation: Boolean = withJvm,
     withComposeDesktop: Boolean = withJvm,
-    withComposeDesktopComponents: Boolean = withJvm,
+    withComposeDesktopComponents: Boolean = false,
+        // https://mvnrepository.com/artifact/org.jetbrains.compose.components/components-splitpane?repo=space-public-compose-dev
     withComposeWebCore: Boolean = withJs,
     withComposeWebSvg: Boolean = withJs,
     withComposeTestUiJUnit4: Boolean = withJvm,
