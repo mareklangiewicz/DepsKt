@@ -416,6 +416,9 @@ fun ref(nr: Int? = null, name: String? = null) = UreGroupRef(nr, name)
 
 fun quote(string: String) = UreQuote(string)
 
+fun CharSequence.replace(ure: Ure, transform: (MatchResult) -> CharSequence) = ure.compile().replace(this, transform)
+fun CharSequence.replace(ure: Ure, replacement: String): String = ure.compile().replace(this, replacement)
+fun CharSequence.replaceFirst(ure: Ure, replacement: String): String = ure.compile().replaceFirst(this, replacement)
 
 operator fun MatchResult.get(name: String) = groups[name]!!.value
 
