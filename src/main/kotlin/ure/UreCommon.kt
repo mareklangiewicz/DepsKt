@@ -31,6 +31,8 @@ fun ureWhateva(reluctant: Boolean = true, inLine: Boolean = false) =
         else withOptionsEnabled(DOT_MATCHES_ALL)
     }
 
+fun ureWhatevaInLine(reluctant: Boolean = true) = ureWhateva(reluctant, inLine = true)
+
 fun ureBlankStartOfLine() = ure {
     1 of BOL
     0..MAX of spaceInLine
@@ -68,6 +70,14 @@ fun Ure.withOptSpacesAround(inLine: Boolean = false) = ure {
     1 of this@withOptSpacesAround
     0..MAX of s
 }
+
+fun Ure.withOptSpacesAroundInLine() = withOptSpacesAround(inLine = true)
+
+fun Ure.withOptWhatevaAround(reluctant: Boolean = true, inLine: Boolean = false) =
+    ureWhateva(reluctant, inLine) then this then ureWhateva(reluctant, inLine)
+
+fun Ure.withOptWhatevaAroundInLine(reluctant: Boolean = true) =
+    withOptWhatevaAround(reluctant, inLine = true)
 
 fun Ure.commentedOut(inLine: Boolean = false, traditional: Boolean = true, kdoc: Boolean = false) = ure {
     require(inLine || traditional) { "Non traditional comments are only single line" }
