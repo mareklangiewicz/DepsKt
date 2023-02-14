@@ -49,6 +49,16 @@ fun ureLineWithContent(content: Ure, withOptCR: Boolean = true, withOptLF: Boole
     1 of ureBlankRestOfLine(withOptCR, withOptLF)
 }
 
+fun ureLineWithContentFragments(vararg contentFragment: Ure, withOptCR: Boolean = true, withOptLF: Boolean = true) = ure {
+    1 of ureBlankStartOfLine()
+    1 of ureWhateva(inLine = true)
+    for (fragment in contentFragment) {
+        1 of fragment
+        1 of ureWhateva(inLine = true)
+    }
+    1 of ureBlankRestOfLine(withOptCR, withOptLF)
+}
+
 fun ureAnyLine(withOptCR: Boolean = true, withOptLF: Boolean = true) =
     ureLineWithContent(ureWhateva(inLine = true), withOptCR, withOptLF)
 
