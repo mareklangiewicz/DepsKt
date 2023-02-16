@@ -18,7 +18,7 @@ private val ureLicenceMarker = (ir("licence") or ir("copyright")).withOptionsEna
 
 fun ureLicenceComment(licenceMarker: Ure = ureLicenceMarker, withName: String = "ktLicenceComment") = ure {
     1 of ureWhateva()
-    1 of ureLicenceMarker
+    1 of licenceMarker
     1 of ureWhateva()
 }.commentedOut(traditional = true).withName(withName)
 

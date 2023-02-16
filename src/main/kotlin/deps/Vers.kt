@@ -346,7 +346,7 @@ object Vers {
 
     const val npmStyled = "5.3.3"
 
-    private const val kotlinJsWrappersPre = "pre.497"
+    private const val kotlinJsWrappersPre = "pre.498"
 
     // https://github.com/JetBrains/kotlin-wrappers
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin-wrappers/kotlin-wrappers-bom

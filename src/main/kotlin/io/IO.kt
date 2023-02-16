@@ -110,7 +110,7 @@ fun FileSystem.createTempDir(tempDirPrefix: String): Path {
 fun FileSystem.createUniqueDir(parentDir: Path, namePrefix: String = "", nameSuffix: String = "") =
     (parentDir / Random.name(namePrefix, nameSuffix)).also { createDirectory(it, mustCreate = true) }
 
-fun FileSystem.openTempFile(parentDir: Path, namePrefix: String = "", nameSuffix: String = ""): FileHandle {
+fun FileSystem.openTempFile(namePrefix: String = "", nameSuffix: String = ""): FileHandle {
     require(this === SYSTEM) { "SYSTEM_TEMPORARY_DIRECTORY is available only on FileSystem.SYSTEM" }
     return openUniqueFile(SYSTEM_TEMPORARY_DIRECTORY, namePrefix, nameSuffix)
 }
