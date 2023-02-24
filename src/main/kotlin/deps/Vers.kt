@@ -50,16 +50,17 @@ object Vers {
     // just a reference - not useful in typical cases
     const val gradle5 = "5.6.4"
     const val gradle6 = "6.8.3"
-    const val gradle7 = "7.6"
-    const val gradle = gradle7
+    const val gradle7 = "7.6.1"
+    const val gradle8 = "8.0.1"
+    const val gradle = gradle8
     // https://gradle.org/releases/
     // https://services.gradle.org/versions
     // https://services.gradle.org/versions/current
     // https://services.gradle.org/versions/release-candidate
 
     const val composeJbMain = "1.3.0"
-    // const val composeJbBeta = "1.3.0-beta03"
-    const val composeJbEdge = "1.4.0-alpha01-dev933"
+    const val composeJbRc = "1.3.1-rc01"
+    const val composeJbEdge = "1.4.0-alpha01-dev954"
     const val composeJb = composeJbEdge
 
     // https://github.com/JetBrains/compose-jb
@@ -71,10 +72,10 @@ object Vers {
 
     const val composeAndroidStableBoM = "2022.12.00" // I don't use it for now (stable usually too old for me)
     val composeAndroidMain = v(1, 3, 3, patchLength = 1)
-    val composeAndroidEdge = v(1, 4, 0, patchLength = 1, suffix = "-alpha05")
+    val composeAndroidEdge = v(1, 4, 0, patchLength = 1, suffix = "-beta02")
     // https://developer.android.com/jetpack/androidx/releases/compose
     val composeAndroid = composeAndroidEdge
-    val composeCompilerStable = v(1, 4, 0, patchLength = 1)
+    val composeCompilerStable = v(1, 4, 3, patchLength = 1)
     // val composeCompilerAlpha = v(1, 4, 0, patchLength = 1, suffix = "-alpha02")
     val composeCompilerDev1720 = "1.4.0-dev-k1.7.20-e49b3b6028b"
     val composeCompilerDev1721 = "1.4.0-dev-k1.7.21-d324f46b7bd"
@@ -82,13 +83,14 @@ object Vers {
     val composeCompilerDev180RC = "1.4.0-dev-k1.8.0-RC-4c1865595ed"
     val composeCompilerDev1800 = "1.4.0-dev-k1.8.0-33c0ad36f83"
     val composeCompilerDev1810 = "1.4.1-dev-k1.8.10-c312d77f4cb"
-    val composeCompiler = composeCompilerDev1810
+    val composeCompilerDev1820Beta = "1.4.3-dev-k1.8.20-Beta-c5841510cbf"
+    val composeCompiler = composeCompilerStable
     // https://developer.android.com/jetpack/androidx/releases/compose-kotlin#pre-release_kotlin_compatibility
     // https://androidx.dev/storage/compose-compiler/repository
     // https://mvnrepository.com/artifact/org.jetbrains.compose.compiler/compiler
 
     val composeAndroidMaterial3Stable = v(1, 0, 1, patchLength = 1)
-    val composeAndroidMaterial3Alpha = v(1, 1, 0, patchLength = 1, suffix = "-alpha05")
+    val composeAndroidMaterial3Alpha = v(1, 1, 0, patchLength = 1, suffix = "-alpha07")
     val composeAndroidMaterial3 = composeAndroidMaterial3Alpha
     // https://developer.android.com/jetpack/androidx/releases/compose
 
@@ -98,7 +100,7 @@ object Vers {
     // https://search.maven.org/search?q=g:com.google.accompanist
     // https://google.github.io/accompanist/
 
-    const val androidGradlePlugin = "8.1.0-alpha04"
+    const val androidGradlePlugin = "8.1.0-alpha06"
     // https://maven.google.com/web/index.html#com.android.tools.build:gradle
     // https://developer.android.com/studio/releases/gradle-plugin
     // https://google.github.io/android-gradle-dsl/
