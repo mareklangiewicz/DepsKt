@@ -172,8 +172,8 @@ object Deps {
     val androidxCameraCamera2 = androidxCamera withName "camera-camera2"
     val androidxCameraLifecycle = androidxCamera withName "camera-lifecycle"
     val androidxCameraVideo = androidxCamera withName "camera-video"
-    val androidxCameraExtensions = androidxCamera withName "camera-extensions" ver vers.androidxCameraExtensions
-    val androidxCameraView = androidxCamera withName "camera-view" ver vers.androidxCameraView
+    val androidxCameraExtensions = androidxCamera withName "camera-extensions"
+    val androidxCameraView = androidxCamera withName "camera-view"
 
     val androidxRoomRuntime = dep("androidx.room", "room-runtime", vers.androidxRoom)
     val androidxRoomCompiler = dep("androidx.room", "room-compiler", vers.androidxRoom)

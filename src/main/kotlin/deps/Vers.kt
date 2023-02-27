@@ -35,10 +35,10 @@ object Vers {
     const val kotlinxCoroutines = "1.6.4"
     // https://github.com/Kotlin/kotlinx.coroutines/releases
 
-    const val kotlinxSerialization = "1.3.3"
+    const val kotlinxSerialization = "1.5.0"
     // https://github.com/Kotlin/kotlinx.serialization/releases
 
-    const val kotlinxAtomicFu = "0.18.2"
+    const val kotlinxAtomicFu = "0.20.0"
     // https://github.com/Kotlin/kotlinx.atomicfu/releases
 
     const val kotlinxHtml = "0.8.0"
@@ -94,20 +94,26 @@ object Vers {
     val composeAndroidMaterial3 = composeAndroidMaterial3Alpha
     // https://developer.android.com/jetpack/androidx/releases/compose
 
-    const val googleAccompanist = "0.28.0"
+    const val googleAccompanistForCompose13 = "0.28.0"
+    const val googleAccompanistForCompose14 = "0.29.1-alpha"
+    const val googleAccompanist = googleAccompanistForCompose14
+        // https://google.github.io/accompanist/
+        // https://central.sonatype.com/search?q=com.google.accompanist
     const val googleAccompanistImage = "0.15.0"
+        // https://central.sonatype.com/search?q=accompanist-imageloading-core
+        // https://central.sonatype.com/search?q=accompanist-coil
+        // https://central.sonatype.com/search?q=accompanist-glide
     const val googleAccompanistPicasso = "0.6.2"
-    // https://search.maven.org/search?q=g:com.google.accompanist
-    // https://google.github.io/accompanist/
+        // https://central.sonatype.com/search?q=accompanist-picasso
 
-    const val androidGradlePlugin = "8.1.0-alpha06"
+    const val androidGradlePlugin = "8.1.0-alpha07"
     // https://maven.google.com/web/index.html#com.android.tools.build:gradle
     // https://developer.android.com/studio/releases/gradle-plugin
     // https://google.github.io/android-gradle-dsl/
 
     @Deprecated("Use https://developer.android.com/studio/build/maven-publish-plugin")
     const val androidMavenGradlePlugin = "2.1" // https://github.com/dcendents/android-maven-gradle-plugin/releases
-    const val nexusPublishGradlePlugin = "1.1.0" // https://github.com/gradle-nexus/publish-plugin/
+    const val nexusPublishGradlePlugin = "1.2.0" // https://github.com/gradle-nexus/publish-plugin/
 
     val dokkaGradlePlugin = kotlin // will it be synced with kotlin version in the future?
 
@@ -140,10 +146,10 @@ object Vers {
     const val androidxConstraint1 = "1.1.3"
 
     // https://developer.android.com/training/constraint-layout
-    const val androidxConstraint2 = "2.1.4"
+    const val androidxConstraint2 = "2.2.0-alpha07"
     const val androidxConstraint = androidxConstraint2
 
-    const val androidxNavigation = "2.5.0-rc01"
+    const val androidxNavigation = "2.6.0-alpha06"
     // https://developer.android.com/jetpack/androidx/releases/navigation
 
     const val androidxRecyclerview = "1.3.0-alpha01"
@@ -152,42 +158,40 @@ object Vers {
     const val androidxAnnotation = "1.3.0-beta01"
     const val androidxPreference = "1.1.1"
     const val androidxBrowser = "1.4.0-rc01"
-    const val androidxBrowserHelper = "2.3.0"
+    const val androidxBrowserHelper = "2.4.0"
     // https://github.com/GoogleChrome/android-browser-helper
 
     const val androidxPercentLayout = "1.0.0"
     const val androidxFlexboxLayout = "3.0.0"
     // https://github.com/google/flexbox-layout/releases
 
-    const val androidxLifecycle = "2.5.0-rc01"
+    const val androidxLifecycle = "2.6.0-rc01"
     // https://developer.android.com/jetpack/androidx/releases/lifecycle
 
-    const val androidxCamera = "1.1.0-rc01"
-    const val androidxCameraExtensions = "1.0.0-alpha32"
-    const val androidxCameraView = "1.0.0-alpha32"
+    const val androidxCamera = "1.3.0-alpha04"
     // https://developer.android.com/jetpack/androidx/releases/camera
 
-    const val androidxRoom = "2.5.0-alpha01"
+    const val androidxRoom = "2.5.0"
     // https://developer.android.com/jetpack/androidx/releases/room
 
     const val androidxAutofill = "1.2.0-beta01"
     // https://developer.android.com/jetpack/androidx/releases/autofill
 
-    const val androidxTestCore = "1.5.0-rc01"
-    const val androidxTestAnnotation = "1.0.1-rc01"
-    const val androidxTestRunner = androidxTestCore
+    const val androidxTestCore = "1.5.0"
+    const val androidxTestAnnotation = "1.0.1"
+    const val androidxTestRunner = "1.5.2"
     const val androidxTestRules = androidxTestCore
     const val androidxTestExtTruth = androidxTestCore
-    const val androidxTestExtJUnit = "1.1.4-rc01"
+    const val androidxTestExtJUnit = "1.1.5"
+    const val androidxEspresso = "3.5.1"
     // https://developer.android.com/jetpack/androidx/releases/test
 
-    const val androidxEspresso = "3.5.0-rc01"
 
     const val androidCommons = "0.0.24"
     // https://github.com/elpassion/android-commons/releases
 
     const val rxjava2 = "2.2.16"
-    const val rxjava3 = "3.1.5"
+    const val rxjava3 = "3.1.6"
     // https://github.com/ReactiveX/RxJava/releases
 
     const val rxkotlin = "3.0.1"
