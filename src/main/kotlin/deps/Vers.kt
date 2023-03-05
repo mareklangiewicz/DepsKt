@@ -51,7 +51,7 @@ object Vers {
     const val gradle5 = "5.6.4"
     const val gradle6 = "6.8.3"
     const val gradle7 = "7.6.1"
-    const val gradle8 = "8.0.1"
+    const val gradle8 = "8.0.2"
     const val gradle = gradle8
     // https://gradle.org/releases/
     // https://services.gradle.org/versions
@@ -60,7 +60,7 @@ object Vers {
 
     const val composeJbMain = "1.3.0"
     const val composeJbRc = "1.3.1-rc01"
-    const val composeJbEdge = "1.4.0-alpha01-dev954"
+    const val composeJbEdge = "1.4.0-alpha01-dev958"
     const val composeJb = composeJbEdge
 
     // https://github.com/JetBrains/compose-jb
