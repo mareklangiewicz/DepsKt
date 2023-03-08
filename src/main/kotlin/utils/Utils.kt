@@ -9,6 +9,7 @@ import org.gradle.api.initialization.*
 import org.gradle.api.plugins.*
 import org.gradle.api.provider.*
 import org.gradle.api.tasks.*
+import pl.mareklangiewicz.deps.LibDetails
 import pl.mareklangiewicz.io.*
 import kotlin.properties.*
 import kotlin.reflect.*
@@ -45,6 +46,10 @@ val Settings.rootProjectPath get() = rootProject.projectDir.toOkioPath()
 
 val Project.buildPath: Path get() = layout.buildDirectory.get().asFile.toOkioPath()
 
+// Kinda hack to attach some lib details to some global project or sth
+var ExtensionAware.extLibDetails
+    get() = extensions.extraProperties["LibDetails"] as LibDetails
+    set(value) = extensions.extraProperties.set("LibDetails", value)
 
 // https://publicobject.com/2021/03/11/includebuild/
 fun Settings.includeAndSubstituteBuild(rootProject: Any, substituteModule: String, withProject: String) {
