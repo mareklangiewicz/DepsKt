@@ -51,6 +51,10 @@ var ExtensionAware.extLibDetails
     get() = extensions.extraProperties["LibDetails"] as LibDetails
     set(value) = extensions.extraProperties.set("LibDetails", value)
 
+var Project.rootExtLibDetails
+    get() = rootProject.extLibDetails
+    set(value) { rootProject.extLibDetails = value }
+
 // https://publicobject.com/2021/03/11/includebuild/
 fun Settings.includeAndSubstituteBuild(rootProject: Any, substituteModule: String, withProject: String) {
     includeBuild(rootProject) {
