@@ -34,11 +34,19 @@ fun <T> Property<T>.properting() = object : ReadWriteProperty<Any?, T> {
     override fun setValue(thisRef: Any?, property: KProperty<*>, value: T) = set(value)
 }
 
-fun ExtensionAware.ext(name: String) = extensions.extraProperties[name]!!.toString()
-fun ExtensionAware.extOrNull(name: String) = extensions.extraProperties[name]?.toString()
-fun Project.rootExt(name: String) = rootProject.ext(name)
-fun Project.rootExtOrNull(name: String) = rootProject.extOrNull(name)
-fun Project.rootExtReadFileUtf8(name: String) = SYSTEM.readUtf8(rootExt(name).toPath())
+// Wrapper for extra properties to have better map-like DSL in kotlin (in groove they have something similar)
+@Suppress("UNCHECKED_CAST")
+@JvmInline value class UExt<T>(private val extraProperties: ExtraPropertiesExtension) {
+    operator fun get(name: String): T = extraProperties.get(name) as T
+    operator fun set(name: String, value: T) { extraProperties.set(name, value) }
+
+}
+
+fun <T> ExtensionAware.ext(): UExt<T> = UExt(extensions.extraProperties)
+
+val ExtensionAware.extString get() = ext<String>()
+val Project.rootExtString get() = rootProject.extString
+fun Project.rootExtReadFileUtf8(name: String) = SYSTEM.readUtf8(rootExtString[name].toPath())
 
 val Project.projectPath get() = rootDir.toOkioPath()
 val Project.rootProjectPath get() = rootProject.projectPath
@@ -47,9 +55,9 @@ val Settings.rootProjectPath get() = rootProject.projectDir.toOkioPath()
 val Project.buildPath: Path get() = layout.buildDirectory.get().asFile.toOkioPath()
 
 // Kinda hack to attach some lib details to some global project or sth
-var ExtensionAware.extLibDetails
-    get() = extensions.extraProperties["LibDetails"] as LibDetails
-    set(value) = extensions.extraProperties.set("LibDetails", value)
+var ExtensionAware.extLibDetails: LibDetails
+    get() = ext<LibDetails>()["LibDetails"]
+    set(value) { ext<LibDetails>()["LibDetails"] = value }
 
 var Project.rootExtLibDetails
     get() = rootProject.extLibDetails

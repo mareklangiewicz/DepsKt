@@ -35,9 +35,9 @@ fun Project.defaultSonatypeOssStuffFromSystemEnvs(envKeyMatchPrefix: String = "M
 }
 
 fun Project.defaultSonatypeOssNexusPublishing(
-    sonatypeStagingProfileId: String = rootExt("sonatypeStagingProfileId"),
-    ossrhUsername: String = rootExt("ossrhUsername"),
-    ossrhPassword: String = rootExt("ossrhPassword"),
+    sonatypeStagingProfileId: String = rootExtString["sonatypeStagingProfileId"],
+    ossrhUsername: String = rootExtString["ossrhUsername"],
+    ossrhPassword: String = rootExtString["ossrhPassword"],
 ) = nexusPublishing {
     repositories {
         sonatype {  // only for users registered in Sonatype after 24 Feb 2021
