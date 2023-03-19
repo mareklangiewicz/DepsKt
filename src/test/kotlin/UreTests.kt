@@ -10,7 +10,7 @@ class UreTests {
     @TestFactory
     fun ureTestFactory() = uspekTestFactory {
         val simpleEmailURE = ure {
-            1 of BOL
+            1 of bBOLine
             1 of ure("user") {
                 1..MAX of oneCharOf("\\w", "-", "\\.")
             }
@@ -22,7 +22,7 @@ class UreTests {
                 }
                 2..4 of oneCharOf("\\w", "-")
             }
-            1 of EOL
+            1 of bEOLine
         }
         val ureIR = simpleEmailURE.toIR()
         val regex = simpleEmailURE.compile()

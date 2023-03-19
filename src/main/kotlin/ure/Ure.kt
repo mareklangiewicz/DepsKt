@@ -1,3 +1,5 @@
+@file:Suppress("NOTHING_TO_INLINE")
+
 package pl.mareklangiewicz.ure
 
 import kotlin.jvm.JvmInline
@@ -22,7 +24,7 @@ import kotlin.text.RegexOption.*
  * Here UreIR is the traditional regular expression - no human should read - kind of "intermediate representation"
  */
 typealias UreIR = String
-// TODO_later: change to value class (when we have new kotlin in gradle scripts)
+// TODO NOW: change to value class (when we have new kotlin in gradle scripts)
 
 fun ure(vararg opts: RegexOption, init: UreProduct.() -> Unit) = ure(enable = opts.toSet(), disable = emptySet(), init)
 
@@ -57,16 +59,16 @@ fun Ure.withWordBoundaries(boundaryBefore: Boolean = true, boundaryAfter: Boolea
         if (boundaryAfter) 1 of bEOWord
     }
 
-sealed class Ure {
+sealed interface Ure {
 
-    abstract fun toIR(): UreIR
+    fun toIR(): UreIR
 
     /**
      * Optionally wraps in non-capturing group before generating IR, so it's safe to use with quantifiers, unions, etc
      * Wrapping is done only when needed. For example concatenation(product) with more than one element is wrapped.
      * (UreProduct with 0 elements also is wrapped - so f. e. external UreQuantifier only catches empty product)
      */
-    abstract fun toClosedIR(): UreIR
+    fun toClosedIR(): UreIR
 
     /**
      * It sets MULTILINE by default.
@@ -90,10 +92,12 @@ infix fun Ure.or(that: Ure) = UreUnion(this, that)
 infix fun Ure.then(that: Ure) = UreProduct(mutableListOf(this, that))
 // Do not rename "then" to "and". The "and" is more like special lookahead/lookbehind group
 
-data class UreProduct(val product: MutableList<Ure> = mutableListOf()) : Ure() {
-    constructor(init: UreProduct.() -> Unit) : this() {
-        init()
-    }
+
+@Deprecated("Or not?? I added it because had to remove UreProduct secondary constructor")
+private fun UreProduct(init: UreProduct.() -> Unit) = UreProduct().apply { init() }
+
+@JvmInline
+value class UreProduct(val product: MutableList<Ure> = mutableListOf()) : Ure {
 
     override fun toIR(): UreIR = when (product.size) {
         0 -> ""
@@ -127,15 +131,15 @@ data class UreProduct(val product: MutableList<Ure> = mutableListOf()) : Ure() {
     infix fun Int.of(init: UreProduct.() -> Unit) = x(this) of init
 }
 
-data class UreUnion(val first: Ure, val second: Ure) : Ure() {
+data class UreUnion(val first: Ure, val second: Ure) : Ure {
     override fun toIR() = first.toClosedIR() + "|" + second.toClosedIR()
     override fun toClosedIR() = ncapt(this).toIR()
 }
 
-abstract class UreGroup : Ure() {
-    abstract val content: Ure
+sealed interface UreGroup : Ure {
+    val content: Ure
     private val contentIR get() = content.toIR()
-    protected abstract val typeIR: String
+    val typeIR: String
 
     override fun toIR(): UreIR = "($typeIR$contentIR)"
     // looks like all possible typeIR prefixes can not be confused with first contentIR characters.
@@ -144,15 +148,17 @@ abstract class UreGroup : Ure() {
     override fun toClosedIR() = toIR() // group is always "closed" - has parentheses outside
 }
 
-data class UreNamedGroup(override val content: Ure, val name: String) : UreGroup() {
+data class UreNamedGroup(override val content: Ure, val name: String) : UreGroup {
     override val typeIR get() = "?<$name>"
 }
 
-data class UreNonCaptGroup(override val content: Ure) : UreGroup() {
+@JvmInline
+value class UreNonCaptGroup(override val content: Ure) : UreGroup {
     override val typeIR get() = "?:"
 }
 
-data class UreCaptGroup(override val content: Ure) : UreGroup() {
+@JvmInline
+value class UreCaptGroup(override val content: Ure) : UreGroup {
     override val typeIR get() = ""
 }
 
@@ -161,7 +167,7 @@ data class UreChangeOptionsGroup(
     override val content: Ure,
     val enable: Set<RegexOption> = emptySet(),
     val disable: Set<RegexOption> = emptySet(),
-) : UreGroup() {
+) : UreGroup {
     init {
         require((enable intersect disable).isEmpty()) { "Can not enable and disable the same option at the same time" }
         require(enable.isNotEmpty() || disable.isNotEmpty()) { "No options provided" }
@@ -188,7 +194,7 @@ data class UreChangeOptionsGroup(
 // TODO_someday: there are also similar "groups" without content (see Pattern.java), add support for it (content nullable?)
 
 
-data class UreLookGroup(override val content: Ure, val ahead: Boolean = true, val positive: Boolean = true) : UreGroup() {
+data class UreLookGroup(override val content: Ure, val ahead: Boolean = true, val positive: Boolean = true) : UreGroup {
     override val typeIR
         get() = when (ahead to positive) {
             true to true -> "?="
@@ -202,7 +208,7 @@ data class UreLookGroup(override val content: Ure, val ahead: Boolean = true, va
 
 // TODO_someday: "independent" non-capturing group - what is that? (see Pattern.java)
 
-data class UreGroupRef(val nr: Int? = null, val name: String? = null) : Ure() {
+data class UreGroupRef(val nr: Int? = null, val name: String? = null) : Ure {
     init {
         nr == null || name == null || error("Can not reference capturing group by both nr ($nr) and name ($name)")
         nr == null && name == null && error("Either nr or name has to be provided for the group reference")
@@ -224,7 +230,7 @@ data class UreQuantifier(
     val times: IntRange,
     val reluctant: Boolean = false,
     val possessive: Boolean = false,
-) : Ure() {
+) : Ure {
     init {
         reluctant && possessive && error("Quantifier can't be reluctant and possessive at the same time")
     }
@@ -254,12 +260,35 @@ data class UreQuantifier(
     // TODO_later: I think it's correct, but should be analyzed more carefully (and write tests!).
 }
 
-data class UreChar(val ir: UreIR) : Ure() {
+@JvmInline
+value class UreChar(val ir: UreIR) : Ure {
     // TODO_later: separate sealed class for specials etc. We should never ask user to manually provide UreIR
+    override fun toIR(): UreIR = ir
+    override fun toClosedIR(): UreIR = UreRawIR(ir).toClosedIR()
+}
+
+// TODO_later: can I do something like: chars: Set<UreChar> ??
+data class UreCharSet(val chars: Set<UreIR>, val positive: Boolean = true) : Ure {
+    override fun toIR(): UreIR = chars.joinToString("", if (positive) "[" else "[^", "]")
+    override fun toClosedIR(): UreIR = toIR()
+}
+
+// TODO_later: more complicated combinations of char classes
+// TODO_later: analyze if some special kotlin progression/range would fit here better
+data class UreCharRange(val from: UreIR, val to: UreIR, val positive: Boolean = true) : Ure {
+    private val neg = if (positive) "" else "^"
+    override fun toIR(): UreIR = "[$neg$from-$to]"
+    override fun toClosedIR(): UreIR = toIR()
+}
+
+@JvmInline
+value class UreRawIR(val ir: UreIR) : Ure {
+    // This is a dirty way to inject whole strings fast. TODO_someday_maybe: think what would be better.
+    // Maybe still ask user for string, but validate and transform to the actual UreProduct of UreChar's
 
     override fun toIR(): UreIR = ir
     override fun toClosedIR(): UreIR = if (isClosed) ir else ncapt(this).toIR()
-    private val isClosed = when {
+    private val isClosed get() = when {
         ir.length == 1 -> true
         ir.length == 2 && ir[0] == '\\' -> true
         else -> false
@@ -267,29 +296,8 @@ data class UreChar(val ir: UreIR) : Ure() {
     // TODO_someday: analyze more carefully and drop grouping when actually not needed.
 }
 
-// TODO_later: can I do something like: chars: Set<UreChar> ??
-data class UreCharSet(val chars: Set<UreIR>, val positive: Boolean = true) : Ure() {
-    override fun toIR(): UreIR = chars.joinToString("", if (positive) "[" else "[^", "]")
-    override fun toClosedIR(): UreIR = toIR()
-}
-
-// TODO_later: more complicated combinations of char classes
-// TODO_later: analyze if some special kotlin progression/range would fit here better
-data class UreCharRange(val from: UreIR, val to: UreIR, val positive: Boolean = true) : Ure() {
-    private val neg = if (positive) "" else "^"
-    override fun toIR(): UreIR = "[$neg$from-$to]"
-    override fun toClosedIR(): UreIR = toIR()
-}
-
-data class UreRawIR(val ir: UreIR) : Ure() {
-    // TODO_later: this is a dirty way to inject whole strings fast. TODO_later: think what would be better.
-    // maybe still ask user for string, but validate and transform to actual UreProduct of UreChar's
-
-    override fun toIR(): UreIR = ir
-    override fun toClosedIR(): UreIR = ncapt(this).toIR()
-}
-
-data class UreQuote(val string: String) : Ure() {
+@JvmInline
+value class UreQuote(val string: String) : Ure {
     override fun toIR() = "\\Q$string\\E"
     override fun toClosedIR(): UreIR = toIR()
 }
@@ -302,11 +310,14 @@ operator fun Ure.not(): Ure = when (this) {
         chNonDigit -> chDigit
         chSpace -> chNonSpace
         chNonSpace -> chSpace
-        bchWord -> bchWordNot
-        bchWordNot -> bchWord
         else -> oneCharNotOf(ir)
         // TODO: check if particular ir is appropriate for such wrapping
         // TODO_later: other special cases?
+    }
+    is UreRawIR -> when (this) {
+        bchWord -> bchWordNot
+        bchWordNot -> bchWord
+        else -> error("This UreRawIR can not be negated")
     }
 
     is UreCharRange -> UreCharRange(from, to, !positive)
@@ -320,7 +331,6 @@ operator fun Ure.not(): Ure = when (this) {
     is UreProduct -> error("UreProduct can not be negated")
     is UreQuantifier -> error("UreQuantifier can not be negated")
     is UreQuote -> error("UreQuote can not be negated")
-    is UreRawIR -> error("UreRawIR can not be negated")
     is UreUnion -> error("UreUnion can not be negated")
     else -> error("Unexpected Ure type: ${this::class.simpleName}")
     // had to add "else" branch because Android Studio 2021.2.1 canary 7 complains..
@@ -329,16 +339,16 @@ operator fun Ure.not(): Ure = when (this) {
 // TODO_later: experiment more with different operators overloading (after impl some working examples)
 //  especially indexed access operators and invoke operators..
 
-fun ch(ir: UreIR) = UreChar(ir)
-fun ir(ir: UreIR) = UreRawIR(ir)
-
-val backslash = ch("\\\\")
-
-fun unicode(name: String) = ch("\\N{$name}")
+inline fun ch(ir: UreIR) = UreChar(ir)
+inline fun ir(ir: UreIR) = UreRawIR(ir)
 
 
 // Ure constants matching one char (special chars; common categories). All names start with ch.
 // (turns out it's really more important to have common prefix, than to be shorter)
+
+val chBackSlash = ch("\\\\")
+
+inline fun chUniCode(name: String) = ch("\\N{$name}")
 
 val chTab = ch("\\t")
 val chLF = ch("\\n")
@@ -402,6 +412,9 @@ fun oneCharNotOf(vararg chars: UreIR) = UreCharSet(chars.toSet(), positive = fal
 fun oneCharOfRange(from: UreIR, to: UreIR) = UreCharRange(from, to)
 fun oneCharNotOfRange(from: UreIR, to: UreIR) = UreCharRange(from, to, positive = false)
 
+
+// TODO NOW: try to use receivers everywhere! for content (much better composability, and no global namespace pollution with different prefixes)
+
 fun capt(content: Ure) = UreCaptGroup(content)
 fun capt(init: UreProduct.() -> Unit) = capt(UreProduct(init))
 fun ncapt(content: Ure) = UreNonCaptGroup(content)
@@ -413,10 +426,14 @@ fun lookBehind(positive: Boolean = true, init: UreProduct.() -> Unit) = lookBehi
 
 
 /**
- * By default it's "greedy" - tries to match as many "times" as possible. But backs off one by one if it would fail.
+ * By default, it's "greedy" - tries to match as many "times" as possible. But backs off one by one if it fails.
  * @param reluctant - Tries to eat as little "times" as possible. Opposite to default "greedy" behavior.
  * @param possessive - It's like more greedy than default greedy. Never backs off - fails instead.
  */
+inline fun Ure.times(min: Int = 1, max: Int = MAX, reluctant: Boolean = false, possessive: Boolean = false) =
+    if (min == 1 && max == 1) this else UreQuantifier(this, min..max, reluctant, possessive)
+
+@Deprecated("Let's try to use .times instead")
 fun quantify(
     content: Ure,
     times: IntRange,
@@ -424,11 +441,7 @@ fun quantify(
     possessive: Boolean = false,
 ) = if (times == 1..1) content else UreQuantifier(content, times, reluctant, possessive)
 
-/**
- * By default it's "greedy" - tries to match as many "times" as possible. But backs off one by one if it would fail.
- * @param reluctant - Tries to eat as little "times" as possible. Opposite to default "greedy" behavior.
- * @param possessive - It's like more greedy than default greedy. Never backs off - fails instead.
- */
+@Deprecated("Let's try to use .times instead")
 fun quantify(
     times: IntRange,
     reluctant: Boolean = false,
@@ -436,9 +449,9 @@ fun quantify(
     init: UreProduct.() -> Unit,
 ) = quantify(UreProduct(init), times, reluctant, possessive)
 
-fun ref(nr: Int? = null, name: String? = null) = UreGroupRef(nr, name)
+fun ureRef(nr: Int? = null, name: String? = null) = UreGroupRef(nr, name)
 
-fun quote(string: String) = UreQuote(string)
+fun ureQuote(string: String) = UreQuote(string)
 
 fun CharSequence.replace(ure: Ure, transform: (MatchResult) -> CharSequence) = ure.compile().replace(this, transform)
 fun CharSequence.replace(ure: Ure, replacement: String): String = ure.compile().replace(this, replacement)
