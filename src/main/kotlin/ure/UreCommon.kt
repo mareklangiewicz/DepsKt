@@ -40,31 +40,29 @@ fun ureBlankStartOfLine() = ure {
     0..MAX of chSpaceInLine
 }
 
-fun ureBlankRestOfLine(withOptCR: Boolean = true, withOptLF: Boolean = true) = ure {
+fun ureBlankRestOfLine(withOptLineBreak: Boolean = true) = ure {
     0..MAX of chSpaceInLine
     1 of bEOLine
-    if (withOptCR) 0..1 of chCR
-    if (withOptLF) 0..1 of chLF
+    if (withOptLineBreak) 0..1 of ureLineBreak
 }
 
-fun ureLineWithContent(content: Ure, withOptCR: Boolean = true, withOptLF: Boolean = true) = ure {
+fun ureLineWithContent(content: Ure, withOptLineBreak: Boolean = true) = ure {
     1 of ureBlankStartOfLine()
     1 of content
-    1 of ureBlankRestOfLine(withOptCR, withOptLF)
+    1 of ureBlankRestOfLine(withOptLineBreak)
 }
 
-fun ureLineWithContentFragments(vararg contentFragment: Ure, withOptCR: Boolean = true, withOptLF: Boolean = true) = ure {
+fun ureLineWithContentFragments(vararg contentFragment: Ure, withOptLineBreak: Boolean = true) = ure {
     1 of ureBlankStartOfLine()
     1 of ureWhateva(inLine = true)
     for (fragment in contentFragment) {
         1 of fragment
         1 of ureWhateva(inLine = true)
     }
-    1 of ureBlankRestOfLine(withOptCR, withOptLF)
+    1 of ureBlankRestOfLine(withOptLineBreak)
 }
 
-fun ureAnyLine(withOptCR: Boolean = true, withOptLF: Boolean = true) =
-    ureLineWithContent(ureWhateva(inLine = true), withOptCR, withOptLF)
+fun ureAnyLine(withOptLineBreak: Boolean = true) = ureLineWithContent(ureWhateva(inLine = true), withOptLineBreak)
 
 fun Ure.withOptSpacesAround(inLine: Boolean = false, allowBefore: Boolean = true, allowAfter: Boolean = true) =
     if (!allowBefore && !allowAfter) this else ure {
