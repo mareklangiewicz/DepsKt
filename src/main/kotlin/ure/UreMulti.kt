@@ -36,7 +36,7 @@ private val ureFunParamsInLine = ure {
     1 of ch("\\(")
     0..MAX of any
     1 of ch("\\)")
-}.withOptionsDisabled(DOT_MATCHES_ALL) // it's disabled by default, but just to be sure
+}
 
 private val ureFunParamsMultiLine = ure {
     1 of ch("\\(")

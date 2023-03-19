@@ -49,6 +49,13 @@ fun Ure.withOptions(enable: Set<RegexOption> = emptySet(), disable: Set<RegexOpt
 fun Ure.withOptionsEnabled(vararg options: RegexOption) = withOptions(enable = options.toSet())
 fun Ure.withOptionsDisabled(vararg options: RegexOption) = withOptions(disable = options.toSet())
 
+fun Ure.withWordBoundaries(boundaryBefore: Boolean = true, boundaryAfter: Boolean = true) =
+    if (!boundaryBefore && !boundaryAfter) this else ure {
+        if (boundaryBefore) 1 of wordBoundary
+        1 of this@withWordBoundaries // it should flatten if this is UreProduct (see UreProduct.toIR()) TODO_later: doublecheck
+        if (boundaryAfter) 1 of wordBoundary
+    }
+
 sealed class Ure {
 
     abstract fun toIR(): UreIR
@@ -166,12 +173,13 @@ data class UreChangeOptionsGroup(
         get() = when (this) {
             IGNORE_CASE -> "i"
             MULTILINE -> "m"
-            LITERAL -> TODO()
-            UNIX_LINES -> "d"
-            COMMENTS -> "x" // but not really supported... maybe in UreRawIR, but I wouldn't use it
-            DOT_MATCHES_ALL -> "s" // s means - treat all as a single line (so dot matches terminators too)
-            CANON_EQ -> TODO()
-            // TODO_someday "u" is not supported (unicode case)
+            else -> error("Only multiplatform regex options are supported.")
+//            LITERAL -> TODO()
+//            UNIX_LINES -> "d"
+//            COMMENTS -> "x" // but not really supported... maybe in UreRawIR, but I wouldn't use it
+//            DOT_MATCHES_ALL -> "s" // s means - treat all as a single line (so dot matches terminators too)
+//            CANON_EQ -> TODO()
+//            // TODO_someday "u" is not supported (unicode case)
         }
 
     private val Set<RegexOption>.ir get() = joinToString("") { it.code }
@@ -335,6 +343,7 @@ val esc = ch("\\e")
 
 val dot = ch("\\.")
 val any = ch(".")
+val anyMultiLine = ch("(?s:.)")
 
 val digit = ch("\\d")
 val nonDigit = ch("\\D")
@@ -420,6 +429,20 @@ fun CharSequence.replace(ure: Ure, transform: (MatchResult) -> CharSequence) = u
 fun CharSequence.replace(ure: Ure, replacement: String): String = ure.compile().replace(this, replacement)
 fun CharSequence.replaceFirst(ure: Ure, replacement: String): String = ure.compile().replaceFirst(this, replacement)
 
-operator fun MatchResult.get(name: String) = groups[name]!!.value
+@Deprecated("Explicit groups is better") // experiment more before removing (or not) (at least should not !! but be nullable)
+operator fun MatchResult.get(name: String) = named[name]!!.value
 
+@Deprecated("Explicit named is better") // experiment more before removing (or not)
 operator fun MatchResult.getValue(thisObj: Any?, property: KProperty<*>) = get(property.name)
+
+operator fun MatchNamedGroupCollection.getValue(thisObj: Any?, property: KProperty<*>) = get(property.name)?.value
+
+// FIXME_someday: this is hack, but I can't reliably get named groups from MatchResult (at least in multiplatform)
+// TRACK: https://youtrack.jetbrains.com/issue/KT-51908
+// see also:
+//    https://youtrack.jetbrains.com/issue/KT-41890
+//    https://youtrack.jetbrains.com/issue/KT-29241/Unable-to-use-named-Regex-groups-on-JDK-11
+//    https://youtrack.jetbrains.com/issue/KT-20865/Retrieving-groups-by-name-is-not-supported-on-Java-9-even-with-kotlin-stdlib-jre8-in-the-classpath
+//    https://github.com/JetBrains/kotlin/commit/9c4c1ed557a889bf57c754b81f4897a0d8405b0d
+val MatchResult.named get() = groups as? MatchNamedGroupCollection
+    ?: throw UnsupportedOperationException("Retrieving groups by name is not supported on this platform.")
