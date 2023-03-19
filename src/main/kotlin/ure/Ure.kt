@@ -51,9 +51,9 @@ fun Ure.withOptionsDisabled(vararg options: RegexOption) = withOptions(disable =
 
 fun Ure.withWordBoundaries(boundaryBefore: Boolean = true, boundaryAfter: Boolean = true) =
     if (!boundaryBefore && !boundaryAfter) this else ure {
-        if (boundaryBefore) 1 of wordBoundary
+        if (boundaryBefore) 1 of bchWord
         1 of this@withWordBoundaries // it should flatten if this is UreProduct (see UreProduct.toIR()) TODO_later: doublecheck
-        if (boundaryAfter) 1 of wordBoundary
+        if (boundaryAfter) 1 of bchWord
     }
 
 sealed class Ure {
@@ -295,14 +295,14 @@ data class UreQuote(val string: String) : Ure() {
 
 operator fun Ure.not(): Ure = when (this) {
     is UreChar -> when (this) {
-        word -> nonWord
-        nonWord -> word
-        digit -> nonDigit
-        nonDigit -> digit
-        space -> nonSpace
-        nonSpace -> space
-        wordBoundary -> nonWordBoundary
-        nonWordBoundary -> wordBoundary
+        chWord -> chNonWord
+        chNonWord -> chWord
+        chDigit -> chNonDigit
+        chNonDigit -> chDigit
+        chSpace -> chNonSpace
+        chNonSpace -> chSpace
+        bchWord -> bchWordNot
+        bchWordNot -> bchWord
         else -> oneCharNotOf(ir)
         // TODO: check if particular ir is appropriate for such wrapping
         // TODO_later: other special cases?
@@ -334,52 +334,60 @@ fun ir(ir: UreIR) = UreRawIR(ir)
 val backslash = ch("\\\\")
 
 fun unicode(name: String) = ch("\\N{$name}")
-val tab = ch("\\t")
-val lf = ch("\\n")
-val cr = ch("\\r")
-val ff = ch("\\f")
-val alert = ch("\\a")
-val esc = ch("\\e")
 
-val dot = ch("\\.")
-val any = ch(".")
-val anyMultiLine = ch("(?s:.)")
 
-val digit = ch("\\d")
-val nonDigit = ch("\\D")
-val space = ch("\\s")
-val spaceInLine = ch(" ") or tab
-val nonSpace = ch("\\S")
+// Ure constants matching one char (special chars; common categories). All names start with ch.
+// (turns out it's really more important to have common prefix, than to be shorter)
+
+val chTab = ch("\\t")
+val chLF = ch("\\n")
+val chCR = ch("\\r")
+val chFF = ch("\\f")
+val chAlert = ch("\\a")
+val chEsc = ch("\\e")
+
+val chDot = ch("\\.")
+val chAny = ch(".")
+val chAnyMultiLine = ch("(?s:.)")
+
+val chDigit = ch("\\d")
+val chNonDigit = ch("\\D")
+val chSpace = ch("\\s")
+val chSpaceInLine = ch(" ") or chTab
+val chNonSpace = ch("\\S")
 
 /** [a-zA-Z_0-9] */
-val word = ch("\\w")
-val nonWord = ch("\\W")
+val chWord = ch("\\w")
+val chNonWord = ch("\\W")
+val chWordOrHyphen = ch("\\W") or ch("-") // also points out (when typing chWo..) that normal chWord doesn't match hyphen.
 
-val az = oneCharOfRange("a", "z")
-val AZ = oneCharOfRange("A", "Z")
-val azAZ = az or AZ
+val chaz = oneCharOfRange("a", "z")
+val chAZ = oneCharOfRange("A", "Z")
+val chazAZ = chaz or chAZ
+
+val chPosixLower = ch("\\p{Lower}")
+val chPosixUpper = ch("\\p{Upper}")
+val chPosixAlpha = ch("\\p{Alpha}")
+val chPosixDigit = ch("\\p{Digit}")
+val chPosixAlnum = ch("\\p{Alnum}")
+val chPosixPunct = ch("\\p{Punct}")
+val chPosixPrint = ch("\\p{Print}")
+val chPosixBlank = ch("\\p{Blank}")
+val chPosixCntrl = ch("\\p{Cntrl}")
+val chPosixXDigit = ch("\\p{XDigit}")
+val chPosixSpace = ch("\\p{Space}")
 
 
-val posixLower = ch("\\p{Lower}")
-val posixUpper = ch("\\p{Upper}")
-val posixAlpha = ch("\\p{Alpha}")
-val posixDigit = ch("\\p{Digit}")
-val posixAlnum = ch("\\p{Alnum}")
-val posixPunct = ch("\\p{Punct}")
-val posixPrint = ch("\\p{Print}")
-val posixBlank = ch("\\p{Blank}")
-val posixCntrl = ch("\\p{Cntrl}")
-val posixXDigit = ch("\\p{XDigit}")
-val posixSpace = ch("\\p{Space}")
+// boundaries (b...)
 
-val BOL = ch("^")
-val EOL = ch("$")
-val BOInput = ch("\\A")
-val EOInput = ch("\\z")
-val EOPreviousMatch = ch("\\G")
+val bBOL = ir("^")
+val bEOL = ir("$")
+val bBOInput = ir("\\A")
+val bEOInput = ir("\\z")
+val bEOPreviousMatch = ir("\\G")
 
-val wordBoundary = ch("\\b")
-val nonWordBoundary = ch("\\B")
+val bchWord = ir("\\b")
+val bchWordNot = ir("\\B") // calling it "non-word boundary" is wrong. it's more like negation of bchWord
 
 fun control(x: String) = ch("\\c$x") // FIXME_later: what exactly is this?? (see std Pattern.java)
 fun oneCharOf(vararg chars: UreIR) = UreCharSet(chars.toSet()) // TODO_later: Use UreChar as vararg type

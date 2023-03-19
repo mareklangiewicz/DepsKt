@@ -1,7 +1,5 @@
 package pl.mareklangiewicz.ure
 
-import kotlin.text.RegexOption.*
-
 fun String.commentOutMultiplatformFun(): String {
     val output1 = ureExpectFun.notCommentedOut().compile().replace(this) { "/*\n${it.value}\n*/" }
     val output2 = ir("actual fun").compile().replace(output1) { "/*actual*/ fun" }
@@ -15,18 +13,14 @@ fun String.undoCommentOutMultiplatformFun(): String {
     return ir("/\\*actual\\*/").compile().replace(output1) { "actual" }
 }
 
-private val ureKeyword = ure {
-    1 of wordBoundary
-    1..MAX of posixLower
-    1 of wordBoundary
-}
+private val ureKeyword = ure { 1..MAX of chPosixLower }.withWordBoundaries()
 
 private val ureTypedef = ure {
-    1 of word
+    1 of chWord
     0..1 of {
-        0..1 of space
+        0..1 of chSpace
         ch("\\<")
-        1..MAX of any
+        1..MAX of chAny
         ch("\\>")
     }
 }
@@ -34,7 +28,7 @@ private val ureTypedef = ure {
 
 private val ureFunParamsInLine = ure {
     1 of ch("\\(")
-    0..MAX of any
+    0..MAX of chAny
     1 of ch("\\)")
 }
 
@@ -50,28 +44,28 @@ private val ureFunParams = ureFunParamsInLine or ureFunParamsMultiLine
 
 private val ureFunDeclaration = ure {
     1 of ir("fun")
-    1..MAX of space
+    1..MAX of chSpace
     0..1 of { // receiver
         1 of ureTypedef
-        1 of dot
+        1 of chDot
     }
-    1..MAX of word // funname
+    1..MAX of chWord // funname
     1 of ureFunParams
     0..1 of { // :Type<..>
-        0..1 of space
+        0..1 of chSpace
         1 of ch(":")
-        0..MAX of space
+        0..MAX of chSpace
         1 of ureTypedef
     }
 }
 
 val ureExpectFun = ure {
-    1 of BOL
-    0..1 of { 1 of ir("@Composable"); 1..MAX of space }
-    0..MAX of { 1 of ureKeyword; 1..MAX of space }
+    1 of bBOL
+    0..1 of { 1 of ir("@Composable"); 1..MAX of chSpace }
+    0..MAX of { 1 of ureKeyword; 1..MAX of chSpace }
     1 of ir("expect ")
     0..1 of ir("suspend ")
     1 of ureFunDeclaration
-    0..MAX of space
-    1 of EOL
+    0..MAX of chSpace
+    1 of bEOL
 }

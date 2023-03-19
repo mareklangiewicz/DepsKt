@@ -1,18 +1,18 @@
 package pl.mareklangiewicz.ure
 
-// TODO NOW: where else in standard ure utils I should use default addWordBoundaries??
-fun ureIdent(first: Ure = azAZ, withWordBoundaries: Boolean = true, allowHyphensInside: Boolean = false) = ure {
+// TODO NOW: where else in standard ure utils I should use default withWordBoundaries??
+fun ureIdent(first: Ure = chazAZ, withWordBoundaries: Boolean = true, allowHyphensInside: Boolean = false) = ure {
     1 of first
-    0..MAX of word
+    0..MAX of chWord
     if (allowHyphensInside) 0..MAX of ure {
         1 of ch("-")
-        1..MAX of word
+        1..MAX of chWord
     }
 }.withWordBoundaries(withWordBoundaries, withWordBoundaries)
 
 fun ureChain(
     element: Ure,
-    separator: Ure = spaceInLine,
+    separator: Ure = chSpaceInLine,
     times: IntRange = 1..MAX,
     reluctant: Boolean = false,
     possessive: Boolean = false,
@@ -31,20 +31,20 @@ fun ureChain(
 }
 
 fun ureWhateva(reluctant: Boolean = true, inLine: Boolean = false) =
-    ure { x(0..MAX, reluctant = reluctant) of if (inLine) any else anyMultiLine }
+    ure { x(0..MAX, reluctant = reluctant) of if (inLine) chAny else chAnyMultiLine }
 
 fun ureWhatevaInLine(reluctant: Boolean = true) = ureWhateva(reluctant, inLine = true)
 
 fun ureBlankStartOfLine() = ure {
-    1 of BOL
-    0..MAX of spaceInLine
+    1 of bBOL
+    0..MAX of chSpaceInLine
 }
 
 fun ureBlankRestOfLine(withOptCR: Boolean = true, withOptLF: Boolean = true) = ure {
-    0..MAX of spaceInLine
-    1 of EOL
-    if (withOptCR) 0..1 of cr
-    if (withOptLF) 0..1 of lf
+    0..MAX of chSpaceInLine
+    1 of bEOL
+    if (withOptCR) 0..1 of chCR
+    if (withOptLF) 0..1 of chLF
 }
 
 fun ureLineWithContent(content: Ure, withOptCR: Boolean = true, withOptLF: Boolean = true) = ure {
@@ -68,7 +68,7 @@ fun ureAnyLine(withOptCR: Boolean = true, withOptLF: Boolean = true) =
 
 fun Ure.withOptSpacesAround(inLine: Boolean = false, allowBefore: Boolean = true, allowAfter: Boolean = true) =
     if (!allowBefore && !allowAfter) this else ure {
-        val s = if (inLine) spaceInLine else space
+        val s = if (inLine) chSpaceInLine else chSpace
         if (allowBefore) 0..MAX of s
         1 of this@withOptSpacesAround // it should flatten if this is UreProduct (see UreProduct.toIR()) TODO_later: doublecheck
         if (allowAfter) 0..MAX of s
@@ -106,12 +106,12 @@ fun Ure.commentedOut(inLine: Boolean = false, traditional: Boolean = true, kdoc:
 fun Ure.notCommentedOut(traditional: Boolean = true, maxSpacesBehind: Int = 100) = ure {
     1 of lookBehind(positive = false) {
         1 of if (traditional) ir("/\\*") else ir("//")
-        0..maxSpacesBehind of if (traditional) space else spaceInLine
+        0..maxSpacesBehind of if (traditional) chSpace else chSpaceInLine
         // Can not use MAX - java look-behind implementation complains (throws)
     }
     1 of this@notCommentedOut
     if (traditional) 1 of lookAhead(positive = false) {
-        0..MAX of space
+        0..MAX of chSpace
         1 of ir("\\*/")
     }
 }
@@ -132,7 +132,7 @@ fun ureRegion(content: Ure, regionName: Ure? = null) = ure {
 fun ureKeywordAndOptArg(
     keyword: Ure,
     arg: Ure? = null,
-    separator: Ure = ure { 1..MAX of spaceInLine },
+    separator: Ure = ure { 1..MAX of chSpaceInLine },
 ) = ure {
     1 of keyword
     arg?.let {

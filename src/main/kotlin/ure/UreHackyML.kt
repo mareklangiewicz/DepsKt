@@ -68,7 +68,7 @@ fun Ure.withTagAroundOrJustTagCollapsed(
 }
 
 fun ureEmptyContentElement(name: String, vararg expectedAttrs: Ure, allowCollapsed: Boolean = false) =
-    ure { 0..MAX of space }
+    ure { 0..MAX of chSpace }
         .withTagAroundOrJustTagCollapsed(
             name, *expectedAttrs, withOptSpacesAroundContent = false, allowJustTagCollapsed = allowCollapsed
         )
