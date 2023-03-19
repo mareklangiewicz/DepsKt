@@ -428,6 +428,9 @@ fun quote(string: String) = UreQuote(string)
 fun CharSequence.replace(ure: Ure, transform: (MatchResult) -> CharSequence) = ure.compile().replace(this, transform)
 fun CharSequence.replace(ure: Ure, replacement: String): String = ure.compile().replace(this, replacement)
 fun CharSequence.replaceFirst(ure: Ure, replacement: String): String = ure.compile().replaceFirst(this, replacement)
+fun CharSequence.findAll(ure: Ure, startIndex: Int = 0) = ure.compile().findAll(this, startIndex)
+fun CharSequence.find(ure: Ure, startIndex: Int = 0) = ure.compile().find(this, startIndex)
+fun CharSequence.matchEntire(ure: Ure) = ure.compile().matchEntire(this)
 
 @Deprecated("Explicit groups is better") // experiment more before removing (or not) (at least should not !! but be nullable)
 operator fun MatchResult.get(name: String) = named[name]!!.value

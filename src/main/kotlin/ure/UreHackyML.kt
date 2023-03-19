@@ -42,11 +42,36 @@ fun Ure.withTagAround(name: String, vararg expectedAttrs: Ure, withOptSpacesArou
     1 of ureEndTag(name)
 }
 
-fun ureEmptyElement(name: String, vararg expectedAttrs: Ure, allowCollapsed: Boolean = false) =
-    ure { 0..MAX of space }.withTagAround(name, *expectedAttrs, withOptSpacesAroundContent = false)
-        .let { if (allowCollapsed) it or ureCollapsedTag(name, *expectedAttrs) else it }
-            // TODO_someday: big union with the collapsed case is really not optimal
-            // (but be careful when reimplementing - e.g. do not match <tag/></tag>)
+/**
+ * Makes most sense if we ignore content anyway.
+ * (like ureWhateva().withTagAroundOrJustTagCollapsed(..) ure { 0..MAX of space }.withTAOJTC..)
+ * Purposefully long name to discourage using it directly. Use ureEmptyContentElement, ureWhatevaContentElement..
+ */
+fun Ure.withTagAroundOrJustTagCollapsed(
+    name: String,
+    vararg expectedAttrs: Ure,
+    withOptSpacesAroundContent: Boolean = true,
+    allowJustTagCollapsed: Boolean = true,
+) = ure {
+    1 of ureSomeTag(name, *expectedAttrs, ureEnd = ir("/?>"))
+    val collapsed = lookBehind(ir("/>"))
+    val notCollapsed = ure {
+        1 of lookBehind(ir("/>"), positive = false)
+        1 of this@withTagAroundOrJustTagCollapsed
+            .withOptSpacesAround(allowBefore = withOptSpacesAroundContent, allowAfter = withOptSpacesAroundContent)
+        1 of ureEndTag(name)
+    }
+    if (allowJustTagCollapsed)
+        1 of (collapsed or notCollapsed)
+    else
+        1 of notCollapsed
+}
+
+fun ureEmptyContentElement(name: String, vararg expectedAttrs: Ure, allowCollapsed: Boolean = false) =
+    ure { 0..MAX of space }
+        .withTagAroundOrJustTagCollapsed(
+            name, *expectedAttrs, withOptSpacesAroundContent = false, allowJustTagCollapsed = allowCollapsed
+        )
 
 fun ureWhatevaContentElement(
     name: String,
@@ -55,10 +80,9 @@ fun ureWhatevaContentElement(
     whatevaContentName: String? = null,
     allowCollapsed: Boolean = false,
 ) = ureWhateva().withName(whatevaContentName)
-    .withTagAround(name, *expectedAttrs, withOptSpacesAroundContent = withOptSpacesAroundContent)
-    .let { if (allowCollapsed) it or ureCollapsedTag(name, *expectedAttrs) else it }
-        // TODO_someday: big union with the collapsed case is really not optimal
-        // (but be careful when reimplementing - e.g. do not match <tag/></tag>)
+    .withTagAroundOrJustTagCollapsed(name, *expectedAttrs,
+        withOptSpacesAroundContent = withOptSpacesAroundContent, allowJustTagCollapsed = allowCollapsed
+    )
 
 
 private val ureOptIgnoredAttrsOptSpaces = ureChain(ureTagAttr(), times = 0..MAX, reluctant = true)
