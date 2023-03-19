@@ -1,9 +1,9 @@
 @file:Suppress("UnstableApiUsage")
 
-import okio.Path.Companion.toOkioPath
 import pl.mareklangiewicz.evts.*
+import pl.mareklangiewicz.utils.rootProjectPath
 
-gradle.logSomeEventsToFile(rootProject.projectDir.toOkioPath() / "my.gradle.log")
+gradle.logSomeEventsToFile(rootProjectPath / "my.gradle.log")
 
 pluginManagement {
     repositories {

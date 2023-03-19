@@ -58,9 +58,8 @@ object Vers {
     // https://services.gradle.org/versions/current
     // https://services.gradle.org/versions/release-candidate
 
-    const val composeJbMain = "1.3.0"
-    const val composeJbRc = "1.3.1-rc01"
-    const val composeJbEdge = "1.4.0-alpha01-dev958"
+    const val composeJbMain = "1.3.1"
+    const val composeJbEdge = "1.4.0-alpha01-dev977"
     const val composeJb = composeJbEdge
 
     // https://github.com/JetBrains/compose-jb
