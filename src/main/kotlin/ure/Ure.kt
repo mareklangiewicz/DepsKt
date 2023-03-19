@@ -52,9 +52,9 @@ fun Ure.withOptionsDisabled(vararg options: RegexOption) = withOptions(disable =
 
 fun Ure.withWordBoundaries(boundaryBefore: Boolean = true, boundaryAfter: Boolean = true) =
     if (!boundaryBefore && !boundaryAfter) this else ure {
-        if (boundaryBefore) 1 of bchWord
+        if (boundaryBefore) 1 of bBOWord
         1 of this@withWordBoundaries // it should flatten if this is UreProduct (see UreProduct.toIR()) TODO_later: doublecheck
-        if (boundaryAfter) 1 of bchWord
+        if (boundaryAfter) 1 of bEOWord
     }
 
 sealed class Ure {
@@ -381,14 +381,17 @@ val chPosixSpace = ch("\\p{Space}")
 
 // boundaries (b...)
 
-val bBOL = ir("^")
-val bEOL = ir("$")
+val bBOLine = ir("^")
+val bEOLine = ir("$")
 val bBOInput = ir("\\A")
 val bEOInput = ir("\\z")
 val bEOPreviousMatch = ir("\\G")
 
 val bchWord = ir("\\b")
 val bchWordNot = ir("\\B") // calling it "non-word boundary" is wrong. it's more like negation of bchWord
+
+val bBOWord = bchWord then lookAhead(chWord) // emulating sth like in vim: "\<"
+val bEOWord = bchWord then lookBehind(chWord) // emulating sth like in vim: "\>"
 
 /** Any Unicode linebreak sequence, is equivalent to \u000D\u000A|[\u000A\u000B\u000C\u000D\u0085\u2028\u2029] */
 val ureLineBreak = ir("\\R")

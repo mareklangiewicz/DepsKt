@@ -31,10 +31,10 @@ package pl.mareklangiewicz.ure
  */
 fun ureStartTag(name: String, vararg expectedAttrs: Ure) = ureSomeTag(name, *expectedAttrs)
 
-fun ureEndTag(name: String) = ureSomeTag(name, ureBegin = ch("</"))
+fun ureEndTag(name: String) = ureSomeTag(name, ureBegin = ir("</"))
 
 fun ureCollapsedTag(name: String, vararg expectedAttrs: Ure) =
-    ureSomeTag(name, *expectedAttrs, ureEnd = ch("/>"))
+    ureSomeTag(name, *expectedAttrs, ureEnd = ir("/>"))
 
 fun Ure.withTagAround(name: String, vararg expectedAttrs: Ure, withOptSpacesAroundContent: Boolean = true) = ure {
     1 of ureStartTag(name, *expectedAttrs)

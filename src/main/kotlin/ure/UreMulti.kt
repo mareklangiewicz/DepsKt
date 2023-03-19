@@ -60,12 +60,12 @@ private val ureFunDeclaration = ure {
 }
 
 val ureExpectFun = ure {
-    1 of bBOL
+    1 of bBOLine
     0..1 of { 1 of ir("@Composable"); 1..MAX of chSpace }
     0..MAX of { 1 of ureKeyword; 1..MAX of chSpace }
     1 of ir("expect ")
     0..1 of ir("suspend ")
     1 of ureFunDeclaration
     0..MAX of chSpace
-    1 of bEOL
+    1 of bEOLine
 }

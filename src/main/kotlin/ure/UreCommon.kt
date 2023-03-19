@@ -36,13 +36,13 @@ fun ureWhateva(reluctant: Boolean = true, inLine: Boolean = false) =
 fun ureWhatevaInLine(reluctant: Boolean = true) = ureWhateva(reluctant, inLine = true)
 
 fun ureBlankStartOfLine() = ure {
-    1 of bBOL
+    1 of bBOLine
     0..MAX of chSpaceInLine
 }
 
 fun ureBlankRestOfLine(withOptCR: Boolean = true, withOptLF: Boolean = true) = ure {
     0..MAX of chSpaceInLine
-    1 of bEOL
+    1 of bEOLine
     if (withOptCR) 0..1 of chCR
     if (withOptLF) 0..1 of chLF
 }
