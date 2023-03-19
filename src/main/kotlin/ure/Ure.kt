@@ -1,5 +1,6 @@
 package pl.mareklangiewicz.ure
 
+import kotlin.jvm.JvmInline
 import kotlin.reflect.*
 import kotlin.text.RegexOption.*
 
@@ -389,6 +390,9 @@ val bEOPreviousMatch = ir("\\G")
 val bchWord = ir("\\b")
 val bchWordNot = ir("\\B") // calling it "non-word boundary" is wrong. it's more like negation of bchWord
 
+/** Any Unicode linebreak sequence, is equivalent to \u000D\u000A|[\u000A\u000B\u000C\u000D\u0085\u2028\u2029] */
+val ureLineBreak = ir("\\R")
+
 fun control(x: String) = ch("\\c$x") // FIXME_later: what exactly is this?? (see std Pattern.java)
 fun oneCharOf(vararg chars: UreIR) = UreCharSet(chars.toSet()) // TODO_later: Use UreChar as vararg type
 fun oneCharNotOf(vararg chars: UreIR) = UreCharSet(chars.toSet(), positive = false) // TODO_later: jw
@@ -440,13 +444,9 @@ fun CharSequence.findAll(ure: Ure, startIndex: Int = 0) = ure.compile().findAll(
 fun CharSequence.find(ure: Ure, startIndex: Int = 0) = ure.compile().find(this, startIndex)
 fun CharSequence.matchEntire(ure: Ure) = ure.compile().matchEntire(this)
 
-@Deprecated("Explicit groups is better") // experiment more before removing (or not) (at least should not !! but be nullable)
-operator fun MatchResult.get(name: String) = named[name]!!.value
+operator fun MatchResult.get(name: String) = namedValues[name] ?: error("Group named \"$name\" not found in MatchResult.")
 
-@Deprecated("Explicit named is better") // experiment more before removing (or not)
 operator fun MatchResult.getValue(thisObj: Any?, property: KProperty<*>) = get(property.name)
-
-operator fun MatchNamedGroupCollection.getValue(thisObj: Any?, property: KProperty<*>) = get(property.name)?.value
 
 // FIXME_someday: this is hack, but I can't reliably get named groups from MatchResult (at least in multiplatform)
 // TRACK: https://youtrack.jetbrains.com/issue/KT-51908
@@ -457,3 +457,18 @@ operator fun MatchNamedGroupCollection.getValue(thisObj: Any?, property: KProper
 //    https://github.com/JetBrains/kotlin/commit/9c4c1ed557a889bf57c754b81f4897a0d8405b0d
 val MatchResult.named get() = groups as? MatchNamedGroupCollection
     ?: throw UnsupportedOperationException("Retrieving groups by name is not supported on this platform.")
+
+val MatchResult.namedValues: Map<String, String?> get() = MatchNamedValues(named)
+
+@JvmInline
+value class MatchNamedValues(private val groups: MatchNamedGroupCollection): Map<String, String?> {
+    override val entries: Set<Map.Entry<String, String?>> get() = error("Operation not implemented.")
+    override val keys: Set<String> get() = error("Operation not implemented.")
+    override val size: Int get() = groups.size
+    override val values: Collection<String?> get() = groups.map { it?.value }
+
+    override fun isEmpty(): Boolean = groups.isEmpty()
+    override fun get(key: String): String? = groups[key]?.value
+    override fun containsValue(value: String?): Boolean = error("Operation not implemented.")
+    override fun containsKey(key: String): Boolean = error("Operation not implemented.")
+}
