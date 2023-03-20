@@ -1,4 +1,3 @@
-@file:Suppress("NOTHING_TO_INLINE")
 
 package pl.mareklangiewicz.ure
 
@@ -341,11 +340,11 @@ operator fun Ure.not(): Ure = when (this) {
 // TODO_later: experiment more with different operators overloading (after impl some working examples)
 //  especially indexed access operators and invoke operators..
 
-inline fun ir(ir: UreIR) = UreRawIR(ir)
-inline fun ir(str: String) = UreRawIR(UreIR(str))
-inline fun ch(ir: UreIR) = UreChar(ir)
-inline fun ch(str: String) = ch(UreIR(str))
-inline fun ch(chr: Char) = ch(chr.toString())
+fun ir(ir: UreIR) = UreRawIR(ir)
+fun ir(str: String) = UreRawIR(UreIR(str))
+fun ch(ir: UreIR) = UreChar(ir)
+fun ch(str: String) = ch(UreIR(str))
+fun ch(chr: Char) = ch(chr.toString())
 
 
 // Ure constants matching one char (special chars; common categories). All names start with ch.
@@ -353,7 +352,7 @@ inline fun ch(chr: Char) = ch(chr.toString())
 
 val chBackSlash = ch("\\\\")
 
-inline fun chUniCode(name: String) = ch("\\N{$name}")
+fun chUniCode(name: String) = ch("\\N{$name}")
 
 val chTab = ch("\\t")
 val chLF = ch("\\n")
@@ -418,7 +417,7 @@ fun oneCharOfRange(from: String, to: String) = UreCharRange(from, to)
 fun oneCharNotOfRange(from: String, to: String) = UreCharRange(from, to, positive = false)
 
 
-inline fun Ure.group(capture: Boolean = true, name: String? = null) = when {
+fun Ure.group(capture: Boolean = true, name: String? = null) = when {
     name != null -> {
         require(capture) { "Named group is always capturing." }
         withName(name)
@@ -427,10 +426,10 @@ inline fun Ure.group(capture: Boolean = true, name: String? = null) = when {
     else -> groupNonCapt()
 }
 
-inline fun Ure.groupNonCapt() = UreNonCaptGroup(this)
+fun Ure.groupNonCapt() = UreNonCaptGroup(this)
 
-inline fun Ure.lookAhead(positive: Boolean = true) = UreLookGroup(this, true, positive)
-inline fun Ure.lookBehind(positive: Boolean = true) = UreLookGroup(this, false, positive)
+fun Ure.lookAhead(positive: Boolean = true) = UreLookGroup(this, true, positive)
+fun Ure.lookBehind(positive: Boolean = true) = UreLookGroup(this, false, positive)
 
 fun ureLookAhead(positive: Boolean = true, init: UreProduct.() -> Unit) = ure(init = init).lookAhead(positive)
 fun ureLookBehind(positive: Boolean = true, init: UreProduct.() -> Unit) = ure(init = init).lookBehind(positive)
@@ -441,16 +440,16 @@ fun ureLookBehind(positive: Boolean = true, init: UreProduct.() -> Unit) = ure(i
  * @param reluctant - Tries to eat as little "times" as possible. Opposite to default "greedy" behavior.
  * @param possessive - It's like more greedy than default greedy. Never backs off - fails instead.
  */
-inline fun Ure.timesMinMax(min: Int, max: Int, reluctant: Boolean = false, possessive: Boolean = false) =
+fun Ure.timesMinMax(min: Int, max: Int, reluctant: Boolean = false, possessive: Boolean = false) =
     if (min == 1 && max == 1) this else UreQuantifier(this, min..max, reluctant, possessive)
 
-inline fun Ure.timesMin(min: Int, reluctant: Boolean = false, possessive: Boolean = false) =
+fun Ure.timesMin(min: Int, reluctant: Boolean = false, possessive: Boolean = false) =
     UreQuantifier(this, min..MAX, reluctant, possessive)
 
-inline fun Ure.timesMax(max: Int, reluctant: Boolean = false, possessive: Boolean = false) =
+fun Ure.timesMax(max: Int, reluctant: Boolean = false, possessive: Boolean = false) =
     UreQuantifier(this, 0..max, reluctant, possessive)
 
-inline fun Ure.times(exactly: Int) = UreQuantifier(this, exactly..exactly)
+fun Ure.times(exactly: Int) = UreQuantifier(this, exactly..exactly)
 
 @Deprecated("Let's try to use .times instead")
 fun quantify(
