@@ -1,6 +1,5 @@
 package pl.mareklangiewicz.ure
 
-// TODO NOW: where else in standard ure utils I should use default withWordBoundaries??
 fun ureIdent(first: Ure = chazAZ, withWordBoundaries: Boolean = true, allowHyphensInside: Boolean = false) = ure {
     1 of first
     0..MAX of chWord
