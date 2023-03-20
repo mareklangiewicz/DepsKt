@@ -122,15 +122,18 @@ fun ureLineWithEndingComment(comment: Ure) =
 
 
 fun ureRegion(content: Ure, regionName: Ure? = null) = ure {
-    1 of ureCommentLine(ureKeywordAndOptArg(ir("region"), regionName), traditional = false)
+    1 of ureCommentLine(ureKeywordAndOptArg("region", regionName), traditional = false)
     1 of content
-    1 of ureCommentLine(ureKeywordAndOptArg(ir("endregion"), regionName), traditional = false)
+    1 of ureCommentLine(ureKeywordAndOptArg("endregion", regionName), traditional = false)
 }
+
+fun ureKeywordAndOptArg(keyword: String, arg: Ure? = null, separator: Ure = chSpaceInLine.timesMin(1)) =
+    ureKeywordAndOptArg(ir(keyword).withWordBoundaries(), arg, separator)
 
 fun ureKeywordAndOptArg(
     keyword: Ure,
     arg: Ure? = null,
-    separator: Ure = ure { 1..MAX of chSpaceInLine },
+    separator: Ure = chSpaceInLine.timesMin(1),
 ) = ure {
     1 of keyword
     arg?.let {

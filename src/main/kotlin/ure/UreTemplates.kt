@@ -4,10 +4,8 @@ import okio.*
 import okio.FileSystem.Companion.RESOURCES
 import okio.FileSystem.Companion.SYSTEM
 import okio.Path.Companion.toPath
-import org.gradle.api.*
 import pl.mareklangiewicz.io.*
 import pl.mareklangiewicz.maintenance.*
-import pl.mareklangiewicz.utils.*
 
 const val labelRoot = "Root Build Template"
 const val labelKotlinModule = "Kotlin Module Build Template"
@@ -70,7 +68,7 @@ private fun knownRegionFullTemplatePath(
     depsKtRootPath: Path = MyDepsKtRootPath,
 ) = SYSTEM.canonicalize(regionsInfos[regionLabel].pathInSrc(depsKtRootPath))
 
-fun Project.checkAllKnownRegionsInProject() = try {
+fun checkAllKnownRegionsInProject(projectPath: Path) = try {
     checkAllKnownRegionsSynced() // to be sure source of truth is clean
     println("BEGIN: Check all known regions in project:")
     SYSTEM.checkAllKnownRegionsInAllFoundFiles(projectPath, verbose = true)
@@ -79,7 +77,7 @@ fun Project.checkAllKnownRegionsInProject() = try {
     println("ERROR: ${e.message}")
 }
 
-fun Project.injectAllKnownRegionsInProject() {
+fun injectAllKnownRegionsInProject(projectPath: Path) {
     println("BEGIN: Inject all known regions in project:")
     SYSTEM.injectAllKnownRegionsToAllFoundFiles(projectPath)
     println("END: Inject all known regions in project.")

@@ -13,8 +13,8 @@ defaultSonatypeOssStuffFromSystemEnvs()
 
 tasks.registerAllThatGroupFun("inject", ::checkTemplates, ::injectTemplates)
 
-fun checkTemplates() = checkAllKnownRegionsInProject()
-fun injectTemplates() = injectAllKnownRegionsInProject()
+fun checkTemplates() = checkAllKnownRegionsInProject(projectPath)
+fun injectTemplates() = injectAllKnownRegionsInProject(projectPath)
 
 // region [Root Build Template]
 

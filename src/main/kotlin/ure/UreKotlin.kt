@@ -8,7 +8,7 @@ fun ureImportLine(withNamePrefix: String = "ktImport") = ureKtKeywordLine("impor
 fun ureKtKeywordLine(keyword: String, withNamePrefix: String = keyword) =
     ureLineWithContent(
         ureKeywordAndOptArg(
-            keyword = ir(keyword),
+            keyword = keyword,
             arg = ureChain(ureIdent(), chDot).withName(withNamePrefix + "Name")
         )
     ).withName(withNamePrefix + "Line")
