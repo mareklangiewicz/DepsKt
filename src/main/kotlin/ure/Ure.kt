@@ -17,6 +17,7 @@ import kotlin.text.RegexOption.*
  * https://docs.oracle.com/javase/tutorial/essential/regex/quant.html
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp
  * https://www.w3schools.com/jsref/jsref_obj_regexp.asp
+ * https://www.regular-expressions.info/ (comprehensive information, notes about different implementations)
  * https://regexr.com/
  */
 
@@ -44,7 +45,6 @@ fun ure(name: String, vararg opts: RegexOption, init: UreProduct.() -> Unit) =
     if (opts.isEmpty()) UreProduct(init).withName(name)
     else UreProduct(init).withOptionsEnabled(*opts).withName(name)
 
-@Deprecated("Use Ure.withName")
 fun ureWithName(name: String, content: Ure) = UreNamedGroup(content, name)
 
 fun Ure.withName(name: String?) = if (name == null) this else UreNamedGroup(this, name)
@@ -109,7 +109,7 @@ value class UreProduct(val product: MutableList<Ure> = mutableListOf()) : Ure {
 
     override fun toClosedIR() = when (product.size) {
         1 -> product[0].toClosedIR()
-        else -> ncapt(this).toIR() // in 0 case we also want ncapt!
+        else -> this.groupNonCapt().toIR() // in 0 case we also want ncapt!
         // To avoid issues when outside operator captures something else instead of empty product.
         // I decided NOT to throw IllegalStateError in 0 case so we can always monitor IR in half-baked UREs.
         // (like when creating UREs with some compose UI)
@@ -135,7 +135,7 @@ value class UreProduct(val product: MutableList<Ure> = mutableListOf()) : Ure {
 
 data class UreUnion(val first: Ure, val second: Ure) : Ure {
     override fun toIR() = "${first.toClosedIR()}|${second.toClosedIR()}".asUreIR
-    override fun toClosedIR() = ncapt(this).toIR()
+    override fun toClosedIR() = this.groupNonCapt().toIR()
 }
 
 sealed interface UreGroup : Ure {
@@ -289,7 +289,7 @@ value class UreRawIR(val ir: UreIR) : Ure {
     // Maybe still ask user for string, but validate and transform to the actual UreProduct of UreChar's
 
     override fun toIR(): UreIR = ir
-    override fun toClosedIR(): UreIR = if (isClosed) ir else ncapt(this).toIR()
+    override fun toClosedIR(): UreIR = if (isClosed) ir else this.groupNonCapt().toIR()
     private val isClosed get() = when {
         ir.str.length == 1 -> true
         ir.str.length == 2 && ir.str[0] == '\\' -> true
@@ -405,8 +405,8 @@ val bEOPreviousMatch = ir("\\G")
 val bchWord = ir("\\b")
 val bchWordNot = ir("\\B") // calling it "non-word boundary" is wrong. it's more like negation of bchWord
 
-val bBOWord = bchWord then lookAhead(chWord) // emulating sth like in vim: "\<"
-val bEOWord = bchWord then lookBehind(chWord) // emulating sth like in vim: "\>"
+val bBOWord = bchWord then chWord.lookAhead() // emulating sth like in vim: "\<"
+val bEOWord = bchWord then chWord.lookBehind() // emulating sth like in vim: "\>"
 
 /** Any Unicode linebreak sequence, is equivalent to \u000D\u000A|[\u000A\u000B\u000C\u000D\u0085\u2028\u2029] */
 val ureLineBreak = ir("\\R")
@@ -418,16 +418,22 @@ fun oneCharOfRange(from: String, to: String) = UreCharRange(from, to)
 fun oneCharNotOfRange(from: String, to: String) = UreCharRange(from, to, positive = false)
 
 
-// TODO NOW: try to use receivers everywhere! for content (much better composability, and no global namespace pollution with different prefixes)
+inline fun Ure.group(capture: Boolean = true, name: String? = null) = when {
+    name != null -> {
+        require(capture) { "Named group is always capturing." }
+        withName(name)
+    }
+    capture -> UreCaptGroup(this)
+    else -> groupNonCapt()
+}
 
-fun capt(content: Ure) = UreCaptGroup(content)
-fun capt(init: UreProduct.() -> Unit) = capt(UreProduct(init))
-fun ncapt(content: Ure) = UreNonCaptGroup(content)
-fun ncapt(init: UreProduct.() -> Unit) = ncapt(UreProduct(init))
-fun lookAhead(content: Ure, positive: Boolean = true) = UreLookGroup(content, true, positive)
-fun lookAhead(positive: Boolean = true, init: UreProduct.() -> Unit) = lookAhead(UreProduct(init), positive)
-fun lookBehind(content: Ure, positive: Boolean = true) = UreLookGroup(content, false, positive)
-fun lookBehind(positive: Boolean = true, init: UreProduct.() -> Unit) = lookBehind(UreProduct(init), positive)
+inline fun Ure.groupNonCapt() = UreNonCaptGroup(this)
+
+inline fun Ure.lookAhead(positive: Boolean = true) = UreLookGroup(this, true, positive)
+inline fun Ure.lookBehind(positive: Boolean = true) = UreLookGroup(this, false, positive)
+
+fun ureLookAhead(positive: Boolean = true, init: UreProduct.() -> Unit) = ure(init = init).lookAhead(positive)
+fun ureLookBehind(positive: Boolean = true, init: UreProduct.() -> Unit) = ure(init = init).lookBehind(positive)
 
 
 /**
@@ -435,8 +441,16 @@ fun lookBehind(positive: Boolean = true, init: UreProduct.() -> Unit) = lookBehi
  * @param reluctant - Tries to eat as little "times" as possible. Opposite to default "greedy" behavior.
  * @param possessive - It's like more greedy than default greedy. Never backs off - fails instead.
  */
-inline fun Ure.times(min: Int = 1, max: Int = MAX, reluctant: Boolean = false, possessive: Boolean = false) =
+inline fun Ure.timesMinMax(min: Int, max: Int, reluctant: Boolean = false, possessive: Boolean = false) =
     if (min == 1 && max == 1) this else UreQuantifier(this, min..max, reluctant, possessive)
+
+inline fun Ure.timesMin(min: Int, reluctant: Boolean = false, possessive: Boolean = false) =
+    UreQuantifier(this, min..MAX, reluctant, possessive)
+
+inline fun Ure.timesMax(max: Int, reluctant: Boolean = false, possessive: Boolean = false) =
+    UreQuantifier(this, 0..max, reluctant, possessive)
+
+inline fun Ure.times(exactly: Int) = UreQuantifier(this, exactly..exactly)
 
 @Deprecated("Let's try to use .times instead")
 fun quantify(

@@ -102,13 +102,13 @@ fun Ure.commentedOut(inLine: Boolean = false, traditional: Boolean = true, kdoc:
 }
 
 fun Ure.notCommentedOut(traditional: Boolean = true, maxSpacesBehind: Int = 100) = ure {
-    1 of lookBehind(positive = false) {
+    1 of ureLookBehind(positive = false) {
         1 of if (traditional) ir("/\\*") else ir("//")
         0..maxSpacesBehind of if (traditional) chSpace else chSpaceInLine
         // Can not use MAX - java look-behind implementation complains (throws)
     }
     1 of this@notCommentedOut
-    if (traditional) 1 of lookAhead(positive = false) {
+    if (traditional) 1 of ureLookAhead(positive = false) {
         0..MAX of chSpace
         1 of ir("\\*/")
     }
