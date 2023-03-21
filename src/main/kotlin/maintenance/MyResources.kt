@@ -14,7 +14,7 @@ private val Path.isTmplSymlink
     get() =
         name.endsWith(".tmpl") && Companion.SYSTEM.metadata(this).symlinkTarget != null
 
-internal fun updateDepsKtResourcesSymLinks() {
+fun updateDepsKtResourcesSymLinks() {
     FileSystem.SYSTEM.listRecursively(resourcesAbsPath).forEach {
         if (FileSystem.SYSTEM.metadata(it).isDirectory) return@forEach
         check(it.isTmplSymlink) { "Unexpected file in resources: $it" }

@@ -5,8 +5,8 @@ import okio.FileSystem.Companion.SYSTEM
 import okio.Path.Companion.toPath
 import pl.mareklangiewicz.ure.*
 
-internal fun checkAllKnownRegionsInAllMyProjects() = checkAllKnownRegionsInMyProjects(*MyKotlinProjects.toTypedArray())
-internal fun checkAllKnownRegionsInMyProjects(vararg names: String) =
+fun checkAllKnownRegionsInAllMyProjects() = checkAllKnownRegionsInMyProjects(*MyKotlinProjects.toTypedArray())
+fun checkAllKnownRegionsInMyProjects(vararg names: String) =
     checkAllKnownRegionsInProjects(*names.map { PathToMyKotlinProjects / it }.toTypedArray())
 
 fun checkAllKnownRegionsInProjects(vararg projects: Path) = projects.forEach {
@@ -14,8 +14,8 @@ fun checkAllKnownRegionsInProjects(vararg projects: Path) = projects.forEach {
     SYSTEM.checkAllKnownRegionsInAllFoundFiles(it, verbose = true)
 }
 
-internal fun injectAllKnownRegionsToAllMyProjects() = injectAllKnownRegionsToMyProjects(*MyKotlinProjects.toTypedArray())
-internal fun injectAllKnownRegionsToMyProjects(vararg names: String) =
+fun injectAllKnownRegionsToAllMyProjects() = injectAllKnownRegionsToMyProjects(*MyKotlinProjects.toTypedArray())
+fun injectAllKnownRegionsToMyProjects(vararg names: String) =
     injectAllKnownRegionsToProjects(*names.map { PathToMyKotlinProjects / it }.toTypedArray())
 
 fun injectAllKnownRegionsToProjects(vararg projects: Path) = projects.forEach {

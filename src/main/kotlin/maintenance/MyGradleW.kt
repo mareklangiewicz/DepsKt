@@ -17,8 +17,8 @@ private val MyGradlewSubProjects =
 
 private val MyGradlewProjects = MyKotlinProjects - MyNonGradlewProjects + MyGradlewSubProjects
 
-internal fun updateGradlewFilesInAllMyProjects() = updateGradlewFilesInMyProjects(*MyGradlewProjects.toTypedArray())
-internal fun updateGradlewFilesInMyProjects(vararg names: String) =
+fun updateGradlewFilesInAllMyProjects() = updateGradlewFilesInMyProjects(*MyGradlewProjects.toTypedArray())
+fun updateGradlewFilesInMyProjects(vararg names: String) =
     updateGradlewFilesInProjects(*names.map { PathToMyKotlinProjects / it }.toTypedArray())
 
 fun updateGradlewFilesInProjects(vararg projects: Path) = projects.forEach { projectPath ->
