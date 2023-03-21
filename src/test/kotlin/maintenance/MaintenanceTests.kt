@@ -6,6 +6,8 @@ import org.junit.jupiter.api.*
 import pl.mareklangiewicz.ure.*
 import pl.mareklangiewicz.uspek.*
 
+// TODO_later: move whole maintenance stuff to separate cli app, but inside deps.kt repo (but separate gradle and all)
+
 class MaintenanceTests {
 
     @TestFactory

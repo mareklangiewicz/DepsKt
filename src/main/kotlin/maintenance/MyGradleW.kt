@@ -17,16 +17,17 @@ private val MyGradlewSubProjects =
 
 private val MyGradlewProjects = MyKotlinProjects - MyNonGradlewProjects + MyGradlewSubProjects
 
-fun updateGradlewFilesInAllMyProjects() = updateGradlewFilesInMyProjects(*MyGradlewProjects.toTypedArray())
-fun updateGradlewFilesInMyProjects(vararg names: String) =
-    updateGradlewFilesInProjects(*names.map { PathToMyKotlinProjects / it }.toTypedArray())
+fun updateGradlewFilesInAllMyProjects(log: (Any?) -> Unit = ::println) =
+    updateGradlewFilesInMyProjects(*MyGradlewProjects.toTypedArray(), log = log)
+fun updateGradlewFilesInMyProjects(vararg names: String, log: (Any?) -> Unit = ::println) =
+    updateGradlewFilesInProjects(*names.map { PathToMyKotlinProjects / it }.toTypedArray(), log = log)
 
-fun updateGradlewFilesInProjects(vararg projects: Path) = projects.forEach { projectPath ->
+fun updateGradlewFilesInProjects(vararg projects: Path, log: (Any?) -> Unit = ::println) = projects.forEach { projectPath ->
     gradlewRelPaths.forEach { gradlewRelPath ->
         val targetPath = projectPath / gradlewRelPath
         check(SYSTEM.exists(targetPath)) { "Gradlew file does not exist: $targetPath" }
         val content = RESOURCES.readByteString(gradlewRelPath.withName { "$it.tmpl" })
-        println("Updating gradlew file: $targetPath")
+        log("Updating gradlew file: $targetPath")
         SYSTEM.writeByteString(targetPath, content)
     }
 }
