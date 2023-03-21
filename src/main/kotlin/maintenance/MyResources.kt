@@ -14,7 +14,7 @@ private val Path.isTmplSymlink
     get() =
         name.endsWith(".tmpl") && Companion.SYSTEM.metadata(this).symlinkTarget != null
 
-fun updateDepsKtResourcesSymLinks() {
+fun updateDepsKtResourcesSymLinks(log: (Any?) -> Unit = ::println) {
     FileSystem.SYSTEM.listRecursively(resourcesAbsPath).forEach {
         if (FileSystem.SYSTEM.metadata(it).isDirectory) return@forEach
         check(it.isTmplSymlink) { "Unexpected file in resources: $it" }
@@ -37,7 +37,7 @@ fun updateDepsKtResourcesSymLinks() {
         val linkAbs = MyDepsKtRootPath / linkRel
         val targetDots = linkRel.parent!!.segments.joinToString("/") { ".." }
         val target = targetDots.toPath() / srcRel
-        println("symlink $linkAbs -> $target")
+        log("symlink $linkAbs -> $target")
         FileSystem.SYSTEM.createDirectories(linkAbs.parent!!)
         FileSystem.SYSTEM.createSymlink(linkAbs, target)
     }
