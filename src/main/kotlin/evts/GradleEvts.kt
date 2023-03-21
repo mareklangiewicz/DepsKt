@@ -104,6 +104,9 @@ class GradleListener(val pushee: (GradleEvt) -> Unit) : BuildListener, ProjectEv
     override fun afterResolve(dependencies: ResolvableDependencies) = pushee(AfterResolve(dependencies))
 }
 
+// TODO_someday: investigate if it can considerably slow down gradle (additional IO during configuration, etc),
+// if not: maybe remove deprecation
+@Deprecated("Can potentially slow down gradle (e.g. configuration). Use only when actually needed.")
 fun Gradle.logSomeEventsToFile(
     file: Path,
     system: FileSystem = FileSystem.SYSTEM,

@@ -3,7 +3,7 @@
 import pl.mareklangiewicz.evts.*
 import pl.mareklangiewicz.utils.rootProjectPath
 
-gradle.logSomeEventsToFile(rootProjectPath / "my.gradle.log")
+//gradle.logSomeEventsToFile(rootProjectPath / "my.gradle.log")
 
 pluginManagement {
     repositories {
