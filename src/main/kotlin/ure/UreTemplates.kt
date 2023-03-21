@@ -68,31 +68,31 @@ private fun knownRegionFullTemplatePath(
     depsKtRootPath: Path = MyDepsKtRootPath,
 ) = SYSTEM.canonicalize(regionsInfos[regionLabel].pathInSrc(depsKtRootPath))
 
-fun checkAllKnownRegionsInProject(projectPath: Path) = try {
-    checkAllKnownRegionsSynced() // to be sure source of truth is clean
-    println("BEGIN: Check all known regions in project:")
-    SYSTEM.checkAllKnownRegionsInAllFoundFiles(projectPath, verbose = true)
-    println("END: Check all known regions in project.")
+fun checkAllKnownRegionsInProject(projectPath: Path, log: (Any?) -> Unit = ::println) = try {
+    checkAllKnownRegionsSynced(log = log) // to be sure source of truth is clean
+    log("BEGIN: Check all known regions in project:")
+    SYSTEM.checkAllKnownRegionsInAllFoundFiles(projectPath, verbose = true, log = log)
+    log("END: Check all known regions in project.")
 } catch (e: IllegalStateException) {
-    println("ERROR: ${e.message}")
+    log("ERROR: ${e.message}")
 }
 
-fun injectAllKnownRegionsInProject(projectPath: Path) {
-    println("BEGIN: Inject all known regions in project:")
-    SYSTEM.injectAllKnownRegionsToAllFoundFiles(projectPath)
-    println("END: Inject all known regions in project.")
+fun injectAllKnownRegionsInProject(projectPath: Path, log: (Any?) -> Unit = ::println) {
+    log("BEGIN: Inject all known regions in project:")
+    SYSTEM.injectAllKnownRegionsToAllFoundFiles(projectPath, log = log)
+    log("END: Inject all known regions in project.")
 }
 
 // This actually is self check for deps.kt, so it should be in some unit test for deps.kt
 // But let's run it every time when checking client regions just to be sure the "source of truth" is consistent.
-fun checkAllKnownRegionsSynced(depsKtRootPath: Path = MyDepsKtRootPath) =
+fun checkAllKnownRegionsSynced(depsKtRootPath: Path = MyDepsKtRootPath, verbose: Boolean = false, log: (Any?) -> Unit = ::println) =
     regionsInfos.forEach {
-        SYSTEM.checkKnownRegion(it.label, it.pathInSrc(depsKtRootPath), *it.syncedPathsArrInSrc(depsKtRootPath), verbose = false)
+        SYSTEM.checkKnownRegion(it.label, it.pathInSrc(depsKtRootPath), *it.syncedPathsArrInSrc(depsKtRootPath), verbose = verbose, log = log)
     }
 
-fun injectAllKnownRegionsToSync(depsKtRootPath: Path = MyDepsKtRootPath) =
+fun injectAllKnownRegionsToSync(depsKtRootPath: Path = MyDepsKtRootPath, log: (Any?) -> Unit = ::println) =
     regionsInfos.forEach {
-        SYSTEM.injectKnownRegion(it.label, *it.syncedPathsArrInSrc(depsKtRootPath), addIfNotFound = false)
+        SYSTEM.injectKnownRegion(it.label, *it.syncedPathsArrInSrc(depsKtRootPath), addIfNotFound = false, log = log)
     }
 
 fun FileSystem.checkAllKnownRegionsInAllFoundFiles(
@@ -100,10 +100,11 @@ fun FileSystem.checkAllKnownRegionsInAllFoundFiles(
     outputFileExt: String = "gradle.kts",
     failIfNotFound: Boolean = false,
     verbose: Boolean = false,
+    log: (Any?) -> Unit = ::println,
 ) {
     val outputPaths = findAllFiles(outputTreePath).filterExt(outputFileExt).toList().toTypedArray()
     for (label in regionsInfos.map { it.label })
-        checkKnownRegion(label, *outputPaths, failIfNotFound = failIfNotFound, verbose = verbose)
+        checkKnownRegion(label, *outputPaths, failIfNotFound = failIfNotFound, verbose = verbose, log = log)
 }
 
 fun FileSystem.checkKnownRegionInAllFoundFiles(
@@ -112,19 +113,21 @@ fun FileSystem.checkKnownRegionInAllFoundFiles(
     outputFileExt: String = "gradle.kts",
     failIfNotFound: Boolean = false,
     verbose: Boolean = false,
+    log: (Any?) -> Unit = ::println,
 ) {
     val outputPaths = findAllFiles(outputTreePath).filterExt(outputFileExt).toList().toTypedArray()
-    checkKnownRegion(regionLabel, *outputPaths, failIfNotFound = failIfNotFound, verbose = verbose)
+    checkKnownRegion(regionLabel, *outputPaths, failIfNotFound = failIfNotFound, verbose = verbose, log = log)
 }
 
 fun FileSystem.injectAllKnownRegionsToAllFoundFiles(
     outputTreePath: Path,
     outputFileExt: String = "gradle.kts",
     addIfNotFound: Boolean = false,
+    log: (Any?) -> Unit = ::println,
 ) {
     val outputPaths = findAllFiles(outputTreePath).filterExt(outputFileExt).toList().toTypedArray()
     for (label in regionsInfos.map { it.label })
-        injectKnownRegion(label, *outputPaths, addIfNotFound = addIfNotFound)
+        injectKnownRegion(label, *outputPaths, addIfNotFound = addIfNotFound, log = log)
 }
 
 fun FileSystem.injectKnownRegionToAllFoundFiles(
@@ -132,9 +135,10 @@ fun FileSystem.injectKnownRegionToAllFoundFiles(
     outputTreePath: Path,
     outputFileExt: String = "gradle.kts",
     addIfNotFound: Boolean = false,
+    log: (Any?) -> Unit = ::println,
 ) {
     val outputPaths = findAllFiles(outputTreePath).filterExt(outputFileExt).toList().toTypedArray()
-    injectKnownRegion(regionLabel, *outputPaths, addIfNotFound = addIfNotFound)
+    injectKnownRegion(regionLabel, *outputPaths, addIfNotFound = addIfNotFound, log = log)
 }
 
 // by "special" we mean region with label wrapped in squared brackets
@@ -150,9 +154,10 @@ fun FileSystem.checkKnownRegion(
     vararg outputPaths: Path,
     failIfNotFound: Boolean = true,
     verbose: Boolean = false,
+    log: (Any?) -> Unit = ::println,
 ) = outputPaths.forEach { path ->
     val hint = "Try sth like: ideap diff ${knownRegionFullTemplatePath(regionLabel)} ${canonicalize(path)}"
-    checkRegion(regionLabel, knownRegion(regionLabel), path, failIfNotFound, verbose, hint.takeIf { verbose })
+    checkRegion(regionLabel, knownRegion(regionLabel), path, failIfNotFound, verbose, hint.takeIf { verbose }, log = log)
 }
 
 private fun FileSystem.checkRegion(
@@ -162,6 +167,7 @@ private fun FileSystem.checkRegion(
     failIfNotFound: Boolean = true,
     verbose: Boolean = false,
     verboseCheckFailedHint: String? = null,
+    log: (Any?) -> Unit = ::println,
 ) {
     val ureWithRegion = ureWithSpecialRegion(regionLabel)
     require(ureWithRegion.compile().matches(regionExpected)) { "regionExpected doesn't match region [$regionLabel]" }
@@ -169,27 +175,28 @@ private fun FileSystem.checkRegion(
         ?: if (failIfNotFound) error("Region [$regionLabel] not found in $outputPath") else return
     check(region.trimEnd('\n') == regionExpected.trimEnd('\n')) {
         if (verbose) {
-            println("Region: [$regionLabel] in File: $outputPath was modified.")
-            verboseCheckFailedHint?.let { println(it) }
+            log("Region: [$regionLabel] in File: $outputPath was modified.")
+            verboseCheckFailedHint?.let { log(it) }
         }
         "Region: [$regionLabel] in File: $outputPath was modified."
     }
-    if (verbose) println("OK [$regionLabel] in $outputPath")
+    if (verbose) log("OK [$regionLabel] in $outputPath")
 }
 
 fun FileSystem.injectKnownRegion(
     regionLabel: String,
     vararg outputPaths: Path,
     addIfNotFound: Boolean = true,
+    log: (Any?) -> Unit = ::println,
 ) = outputPaths.forEach { outputPath ->
     val region = knownRegion(regionLabel)
     val regex = ureWithSpecialRegion(regionLabel).compile()
     processFile(outputPath, outputPath) { output ->
         val outputMR = regex.matchEntire(output)
         if (outputMR == null) {
-            println("Inject [$regionLabel] to $outputPath - No match.")
+            log("Inject [$regionLabel] to $outputPath - No match.")
             if (addIfNotFound) {
-                println("Adding new region at the end.")
+                log("Adding new region at the end.")
                 output + "\n\n" + region.trimEnd()
             } else null
         } else {
@@ -199,7 +206,7 @@ fun FileSystem.injectKnownRegion(
             val newRegion = if (newAfter.isEmpty()) region.trimEnd() else region
             val newOutput = before + newRegion + newAfter
             val summary = if (newOutput == output) "No changes." else "Changes detected (len ${output.length}->${newOutput.length})"
-            println("Inject [$regionLabel] to $outputPath - $summary")
+            log("Inject [$regionLabel] to $outputPath - $summary")
             newOutput
         }
     }

@@ -5,22 +5,24 @@ import okio.FileSystem.Companion.SYSTEM
 import okio.Path.Companion.toPath
 import pl.mareklangiewicz.ure.*
 
-fun checkAllKnownRegionsInAllMyProjects() = checkAllKnownRegionsInMyProjects(*MyKotlinProjects.toTypedArray())
-fun checkAllKnownRegionsInMyProjects(vararg names: String) =
-    checkAllKnownRegionsInProjects(*names.map { PathToMyKotlinProjects / it }.toTypedArray())
+fun checkAllKnownRegionsInAllMyProjects(log: (Any?) -> Unit = ::println) =
+    checkAllKnownRegionsInMyProjects(*MyKotlinProjects.toTypedArray(), log = log)
+fun checkAllKnownRegionsInMyProjects(vararg names: String, log: (Any?) -> Unit = ::println) =
+    checkAllKnownRegionsInProjects(*names.map { PathToMyKotlinProjects / it }.toTypedArray(), log = log)
 
-fun checkAllKnownRegionsInProjects(vararg projects: Path) = projects.forEach {
-    println("Check all known regions in project: $it")
-    SYSTEM.checkAllKnownRegionsInAllFoundFiles(it, verbose = true)
+fun checkAllKnownRegionsInProjects(vararg projects: Path, log: (Any?) -> Unit = ::println) = projects.forEach {
+    log("Check all known regions in project: $it")
+    SYSTEM.checkAllKnownRegionsInAllFoundFiles(it, verbose = true, log = log)
 }
 
-fun injectAllKnownRegionsToAllMyProjects() = injectAllKnownRegionsToMyProjects(*MyKotlinProjects.toTypedArray())
-fun injectAllKnownRegionsToMyProjects(vararg names: String) =
-    injectAllKnownRegionsToProjects(*names.map { PathToMyKotlinProjects / it }.toTypedArray())
+fun injectAllKnownRegionsToAllMyProjects(log: (Any?) -> Unit = ::println) =
+    injectAllKnownRegionsToMyProjects(*MyKotlinProjects.toTypedArray(), log = log)
+fun injectAllKnownRegionsToMyProjects(vararg names: String, log: (Any?) -> Unit = ::println) =
+    injectAllKnownRegionsToProjects(*names.map { PathToMyKotlinProjects / it }.toTypedArray(), log = log)
 
-fun injectAllKnownRegionsToProjects(vararg projects: Path) = projects.forEach {
-    println("Inject all known regions to project: $it")
-    SYSTEM.injectAllKnownRegionsToAllFoundFiles(it)
+fun injectAllKnownRegionsToProjects(vararg projects: Path, log: (Any?) -> Unit = ::println) = projects.forEach {
+    log("Inject all known regions to project: $it")
+    SYSTEM.injectAllKnownRegionsToAllFoundFiles(it, log = log)
 }
 
 internal val PathToMyKotlinProjects = "/home/marek/code/kotlin".toPath()
