@@ -131,7 +131,6 @@ abstract class SourceRegexTask : SourceFunTask() {
     }
 }
 
-@Suppress("UnstableApiUsage")
 @UntrackedTask(because = "Git version and build time is external state and can't be tracked.")
 abstract class VersionDetailsTask : DefaultTask() {
 

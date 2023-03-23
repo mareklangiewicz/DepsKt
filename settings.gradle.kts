@@ -1,11 +1,13 @@
-// TODO: try to use deps plugin itself (the version I already published to gradle portal) in here too! :-)
 
 rootProject.name = "deps.kt"
 
 pluginManagement {
     repositories {
+        mavenLocal()
         google()
         mavenCentral()
         gradlePluginPortal()
     }
 }
+
+plugins { id("pl.mareklangiewicz.deps.settings") version "0.2.22"}
