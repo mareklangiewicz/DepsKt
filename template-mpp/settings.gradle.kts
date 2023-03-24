@@ -11,10 +11,10 @@ pluginManagement {
         gradlePluginPortal()
         maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
     }
-    includeBuild("..") // deps.kt
+//    includeBuild("..") // deps.kt
 }
 
-plugins { id("pl.mareklangiewicz.deps.settings") }
+plugins { id("pl.mareklangiewicz.deps.settings") version "0.2.23" }
 
 rootProject.name = "template-mpp"
 

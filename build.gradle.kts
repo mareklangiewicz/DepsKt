@@ -5,7 +5,7 @@ import pl.mareklangiewicz.utils.*
 
 plugins {
     kotlin("jvm")
-    id("com.gradle.plugin-publish") version "1.1.0" // https://plugins.gradle.org/docs/publish-plugin
+    id("com.gradle.plugin-publish") version vers.publishGradlePlugin
     id("io.github.gradle-nexus.publish-plugin") version vers.nexusPublishGradlePlugin
     signing
 }
@@ -17,20 +17,19 @@ repositories {
 }
 
 dependencies {
-    api("com.squareup.okio:okio:3.3.0")
-    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.10")
+    api(deps.okio)
+    implementation(deps.kotlinGradlePlugin)
     implementation("com.android.library:com.android.library.gradle.plugin:8.1.0-alpha09")
     // Warning: andro gradle plugin is needed here, so kotlin plugin can access BaseExtension class etc.
     // It is needed in android projects using deps.kt (which does: plugins { kotlin("android") }
     // It doesn't work if users just add this andro gradle plugin dependency in their projects.
     testImplementation(deps.uspekxJUnit5)
-    testImplementation("pl.mareklangiewicz:uspekx-junit5:0.0.25") // TODO: try to use deps.uspek (see comment in settings)
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.1") // TODO: try to use deps... (see comment in settings)
-    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.9.1") // TODO: try to use deps... (see comment in settings)
+    testImplementation(deps.junit5)
+    testImplementation(deps.junit5engine)
     // TODO: check separation between api and engine - so I can do similar in ULog (with separate bridges to CLog etc.)
 }
 
-tasks.defaultKotlinCompileOptions("17")
+tasks.defaultKotlinCompileOptions()
 
 tasks.defaultTestsOptions()
 
@@ -39,7 +38,7 @@ defaultSonatypeOssStuffFromSystemEnvs()
 defaultSigning()
 
 group = "pl.mareklangiewicz.deps"
-version = "0.2.23"
+version = "0.2.24"
 
 
 gradlePlugin {
