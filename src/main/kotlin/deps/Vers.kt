@@ -58,6 +58,13 @@ object Vers {
     // https://services.gradle.org/versions/current
     // https://services.gradle.org/versions/release-candidate
 
+    const val publishGradlePlugin = "1.1.0"
+    // https://plugins.gradle.org/plugin/com.gradle.plugin-publish
+    // https://plugins.gradle.org/docs/publish-plugin
+
+    const val depsKtGradlePlugin = "0.2.23"
+    // https://plugins.gradle.org/search?term=pl.mareklangiewicz
+
     const val composeJbMain = "1.3.1"
     const val composeJbEdge = "1.4.0-alpha01-dev977"
     const val composeJb = composeJbEdge
