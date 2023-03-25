@@ -5,7 +5,7 @@ import pl.mareklangiewicz.utils.*
 
 plugins {
     kotlin("jvm")
-    id("com.gradle.plugin-publish") version vers.publishGradlePlugin
+    id("com.gradle.plugin-publish") version "1.1.0"
     id("io.github.gradle-nexus.publish-plugin") version vers.nexusPublishGradlePlugin
     signing
 }
@@ -18,11 +18,6 @@ repositories {
 
 dependencies {
     api(deps.okio)
-    implementation(deps.kotlinGradlePlugin)
-    implementation("com.android.library:com.android.library.gradle.plugin:8.1.0-alpha09")
-    // Warning: andro gradle plugin is needed here, so kotlin plugin can access BaseExtension class etc.
-    // It is needed in android projects using deps.kt (which does: plugins { kotlin("android") }
-    // It doesn't work if users just add this andro gradle plugin dependency in their projects.
     testImplementation(deps.uspekxJUnit5)
     testImplementation(deps.junit5)
     testImplementation(deps.junit5engine)
@@ -38,7 +33,7 @@ defaultSonatypeOssStuffFromSystemEnvs()
 defaultSigning()
 
 group = "pl.mareklangiewicz.deps"
-version = "0.2.24"
+version = "0.2.25"
 
 
 gradlePlugin {

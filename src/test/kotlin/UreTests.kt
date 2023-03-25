@@ -29,7 +29,7 @@ class UreTests {
         println("ure:\n$simpleEmailURE")
         println("ureIR:\n$ureIR")
         println("regex:\n$regex")
-        "assert IR as expected" o { ureIR eq "^(?<user>[\\w-\\.]+)@(?<domain>(?:[\\w-]+\\.)+[\\w-]{2,4})\$" }
+        "assert IR as expected" o { ureIR.str eq "^(?<user>[\\w-\\.]+)@(?<domain>(?:[\\w-]+\\.)+[\\w-]{2,4})\$" }
         testWithEmail(regex, "marek.langiewicz@gmail.com", "marek.langiewicz", "gmail.com")
         testWithEmail(regex, "langara@wp.pl", "langara", "wp.pl")
         testWithEmail(regex, "a.b.c@d.e.f.hhh", "a.b.c", "d.e.f.hhh")
