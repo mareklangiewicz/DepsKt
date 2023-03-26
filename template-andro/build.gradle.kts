@@ -38,14 +38,16 @@ fun Project.defaultSonatypeOssNexusPublishing(
     sonatypeStagingProfileId: String = rootExtString["sonatypeStagingProfileId"],
     ossrhUsername: String = rootExtString["ossrhUsername"],
     ossrhPassword: String = rootExtString["ossrhPassword"],
-) = nexusPublishing {
-    repositories {
-        sonatype {  // only for users registered in Sonatype after 24 Feb 2021
-            stagingProfileId put sonatypeStagingProfileId
-            username put ossrhUsername
-            password put ossrhPassword
-            nexusUrl put uri(repos.sonatypeOssNexus)
-            snapshotRepositoryUrl put uri(repos.sonatypeOssSnapshots)
+) {
+    nexusPublishing {
+        this.repositories {
+            sonatype {  // only for users registered in Sonatype after 24 Feb 2021
+                stagingProfileId put sonatypeStagingProfileId
+                username put ossrhUsername
+                password put ossrhPassword
+                nexusUrl put uri(repos.sonatypeOssNexus)
+                snapshotRepositoryUrl put uri(repos.sonatypeOssSnapshots)
+            }
         }
     }
 }
