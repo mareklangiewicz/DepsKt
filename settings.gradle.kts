@@ -10,4 +10,4 @@ pluginManagement {
     }
 }
 
-plugins { id("pl.mareklangiewicz.deps.settings") version "0.2.23" }
+plugins { id("pl.mareklangiewicz.deps.settings") version "0.2.25" }
