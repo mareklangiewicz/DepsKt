@@ -62,7 +62,7 @@ object Vers {
     // https://plugins.gradle.org/plugin/com.gradle.plugin-publish
     // https://plugins.gradle.org/docs/publish-plugin
 
-    const val depsKtGradlePlugin = "0.2.23"
+    const val depsKtGradlePlugin = "0.2.25"
     // https://plugins.gradle.org/search?term=pl.mareklangiewicz
 
     const val composeJbMain = "1.3.1"
