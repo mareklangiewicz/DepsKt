@@ -18,6 +18,7 @@ object Vers {
     val kotlin17 = v(1, 7, 21)
     val kotlin1800 = v(1, 8, 0, patchLength = 1)
     val kotlin18 = v(1, 8, 10)
+    val kotlin1820RC2 = v(1, 8, 20, suffix = "-RC2")
     val kotlin = kotlin18
     // https://kotlinlang.org/docs/releases.html#release-details
     // https://github.com/JetBrains/kotlin/blob/master/ChangeLog.md
