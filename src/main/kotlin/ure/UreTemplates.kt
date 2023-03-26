@@ -19,6 +19,7 @@ const val labelAndroLib = "Andro Lib Build Template"
 const val labelAndroApp = "Andro App Build Template"
 
 private const val pathMppRoot = "template-mpp"
+private const val pathDepsKtRoot = ""
 private const val pathMppLib = "template-mpp/template-mpp-lib"
 private const val pathMppApp = "template-mpp/template-mpp-app"
 private const val pathJvmApp = "template-mpp/template-jvm-cli"
@@ -42,8 +43,8 @@ private fun info(label: String, dir: String, vararg syncedDirs: String) =
     RegionInfo(label, dir.toPath(), syncedDirs.toList().map { it.toPath() })
 
 private val regionsInfos = listOf(
-    info(labelRoot, pathMppRoot, pathAndroRoot),
-    info(labelKotlinModule, pathMppLib, pathMppApp, pathJvmApp, pathAndroLib, pathAndroApp),
+    info(labelRoot, pathMppRoot, pathAndroRoot, pathDepsKtRoot),
+    info(labelKotlinModule, pathMppLib, pathMppApp, pathJvmApp, pathAndroLib, pathAndroApp, pathDepsKtRoot),
     info(labelMppModule, pathMppLib, pathMppApp),
     info(labelMppApp, pathMppApp),
     info(labelJvmApp, pathJvmApp),
@@ -83,7 +84,7 @@ fun injectAllKnownRegionsInProject(projectPath: Path, log: (Any?) -> Unit = ::pr
     log("END: Inject all known regions in project.")
 }
 
-// This actually is self check for deps.kt, so it should be in some unit test for deps.kt
+// This actually is self-check for deps.kt, so it should be in some unit test for deps.kt
 // But let's run it every time when checking client regions just to be sure the "source of truth" is consistent.
 fun checkAllKnownRegionsSynced(depsKtRootPath: Path = MyDepsKtRootPath, verbose: Boolean = false, log: (Any?) -> Unit = ::println) =
     regionsInfos.forEach {
