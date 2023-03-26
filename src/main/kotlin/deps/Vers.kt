@@ -67,7 +67,7 @@ object Vers {
     // https://plugins.gradle.org/search?term=pl.mareklangiewicz
 
     const val composeJbMain = "1.3.1"
-    const val composeJbEdge = "1.4.0-alpha01-dev977"
+    const val composeJbEdge = "1.4.0-alpha01-dev980"
     const val composeJb = composeJbEdge
 
     // https://github.com/JetBrains/compose-jb
@@ -77,12 +77,12 @@ object Vers {
     // https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/compose-gradle-plugin/
 
 
-    const val composeAndroidStableBoM = "2022.12.00" // I don't use it for now (stable usually too old for me)
-    val composeAndroidMain = v(1, 3, 3, patchLength = 1)
-    val composeAndroidEdge = v(1, 4, 0, patchLength = 1, suffix = "-beta02")
+    const val composeAndroidStableBoM = "2023.03.00" // I don't use it for now (stable usually too old for me)
+    val composeAndroidMain = v(1, 4, 0, patchLength = 1)
+    val composeAndroidEdge = v(1, 5, 0, patchLength = 1, suffix = "-alpha01")
     // https://developer.android.com/jetpack/androidx/releases/compose
     val composeAndroid = composeAndroidEdge
-    val composeCompilerStable = v(1, 4, 3, patchLength = 1)
+    val composeCompilerStable = v(1, 4, 4, patchLength = 1)
     // val composeCompilerAlpha = v(1, 4, 0, patchLength = 1, suffix = "-alpha02")
     val composeCompilerDev1720 = "1.4.0-dev-k1.7.20-e49b3b6028b"
     val composeCompilerDev1721 = "1.4.0-dev-k1.7.21-d324f46b7bd"
@@ -91,18 +91,18 @@ object Vers {
     val composeCompilerDev1800 = "1.4.0-dev-k1.8.0-33c0ad36f83"
     val composeCompilerDev1810 = "1.4.1-dev-k1.8.10-c312d77f4cb"
     val composeCompilerDev1820Beta = "1.4.3-dev-k1.8.20-Beta-c5841510cbf"
+    val composeCompilerDev1820RC = "1.4.4-dev-k1.8.20-RC-88d9f3a8232"
     val composeCompiler = composeCompilerStable
     // https://developer.android.com/jetpack/androidx/releases/compose-kotlin#pre-release_kotlin_compatibility
     // https://androidx.dev/storage/compose-compiler/repository
     // https://mvnrepository.com/artifact/org.jetbrains.compose.compiler/compiler
 
     val composeAndroidMaterial3Stable = v(1, 0, 1, patchLength = 1)
-    val composeAndroidMaterial3Alpha = v(1, 1, 0, patchLength = 1, suffix = "-alpha07")
-    val composeAndroidMaterial3 = composeAndroidMaterial3Alpha
+    val composeAndroidMaterial3Beta = v(1, 1, 0, patchLength = 1, suffix = "-beta01")
+    val composeAndroidMaterial3 = composeAndroidMaterial3Beta
     // https://developer.android.com/jetpack/androidx/releases/compose
 
-    const val googleAccompanistForCompose13 = "0.28.0"
-    const val googleAccompanistForCompose14 = "0.29.1-alpha"
+    const val googleAccompanistForCompose14 = "0.30.0"
     const val googleAccompanist = googleAccompanistForCompose14
         // https://google.github.io/accompanist/
         // https://central.sonatype.com/search?q=com.google.accompanist
@@ -113,16 +113,16 @@ object Vers {
     const val googleAccompanistPicasso = "0.6.2"
         // https://central.sonatype.com/search?q=accompanist-picasso
 
-    const val androidGradlePlugin = "8.1.0-alpha07"
+    const val androidGradlePlugin = "8.1.0-alpha10"
     // https://maven.google.com/web/index.html#com.android.tools.build:gradle
     // https://developer.android.com/studio/releases/gradle-plugin
     // https://google.github.io/android-gradle-dsl/
 
     @Deprecated("Use https://developer.android.com/studio/build/maven-publish-plugin")
     const val androidMavenGradlePlugin = "2.1" // https://github.com/dcendents/android-maven-gradle-plugin/releases
-    const val nexusPublishGradlePlugin = "1.2.0" // https://github.com/gradle-nexus/publish-plugin/
+    const val nexusPublishGradlePlugin = "1.3.0" // https://github.com/gradle-nexus/publish-plugin/
 
-    val dokkaGradlePlugin = kotlin // will it be synced with kotlin version in the future?
+    val dokkaGradlePlugin = kotlin // will it be synced with a kotlin version in the future?
 
     val osackyDoctorPlugin = v(0, 8, 1, patchLength = 1)
     // https://plugins.gradle.org/plugin/com.osacky.doctor
