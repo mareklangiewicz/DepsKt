@@ -7,14 +7,13 @@ import pl.mareklangiewicz.utils.rootProjectPath
 
 pluginManagement {
     repositories {
-        google() // unfortunately needed for deps.kt, because it has to add andro gradle plugin to classpath
+        mavenLocal()
         gradlePluginPortal()
-        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
     }
 //    includeBuild("..") // deps.kt
 }
 
-plugins { id("pl.mareklangiewicz.deps.settings") version "0.2.23" }
+plugins { id("pl.mareklangiewicz.deps.settings") version "0.2.25" }
 
 rootProject.name = "template-mpp"
 
