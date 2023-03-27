@@ -33,13 +33,13 @@ object Vers {
     const val kotlinxDateTime = "0.4.0"
     // https://github.com/Kotlin/kotlinx-datetime
 
-    const val kotlinxCoroutines = "1.6.4"
+    const val kotlinxCoroutines = "1.7.0-Beta"
     // https://github.com/Kotlin/kotlinx.coroutines/releases
 
     const val kotlinxSerialization = "1.5.0"
     // https://github.com/Kotlin/kotlinx.serialization/releases
 
-    const val kotlinxAtomicFu = "0.20.0"
+    const val kotlinxAtomicFu = "0.20.1"
     // https://github.com/Kotlin/kotlinx.atomicfu/releases
 
     const val kotlinxHtml = "0.8.0"
@@ -63,7 +63,7 @@ object Vers {
     // https://plugins.gradle.org/plugin/com.gradle.plugin-publish
     // https://plugins.gradle.org/docs/publish-plugin
 
-    const val depsKtGradlePlugin = "0.2.25"
+    const val depsKtGradlePlugin = "0.2.26"
     // https://plugins.gradle.org/search?term=pl.mareklangiewicz
 
     const val composeJbMain = "1.3.1"
@@ -144,27 +144,30 @@ object Vers {
     // https://developer.android.com/jetpack/androidx/versions
     // https://dl.google.com/dl/android/maven2/index.html
 
-    const val androidxCore = "1.7.0-rc01"
+    const val androidxCore = "1.11.0-alpha01"
 
-    const val androidxActivity = "1.4.0-rc01"
+    const val androidxActivity = "1.8.0-alpha02"
 
-    const val androidxAppcompat = "1.4.0-beta01"
+    const val androidxAppcompat = "1.7.0-alpha02"
 
     const val androidxConstraint1 = "1.1.3"
 
     // https://developer.android.com/training/constraint-layout
-    const val androidxConstraint2 = "2.2.0-alpha07"
+    const val androidxConstraint2 = "2.2.0-alpha09"
     const val androidxConstraint = androidxConstraint2
 
-    const val androidxNavigation = "2.6.0-alpha06"
+    const val androidxNavigation = "2.6.0-alpha08"
     // https://developer.android.com/jetpack/androidx/releases/navigation
 
-    const val androidxRecyclerview = "1.3.0-alpha01"
+    const val androidxRecyclerview = "1.3.0"
     const val androidxCardview = "1.0.0"
-    const val androidMaterial = "1.5.0-alpha04"
-    const val androidxAnnotation = "1.3.0-beta01"
-    const val androidxPreference = "1.1.1"
-    const val androidxBrowser = "1.4.0-rc01"
+
+    const val androidMaterial = "1.9.0-beta01"
+    // https://github.com/material-components/material-components-android/releases
+
+    const val androidxAnnotation = "1.7.0-alpha02"
+    const val androidxPreference = "1.2.0"
+    const val androidxBrowser = "1.5.0"
     const val androidxBrowserHelper = "2.4.0"
     // https://github.com/GoogleChrome/android-browser-helper
 
@@ -172,25 +175,25 @@ object Vers {
     const val androidxFlexboxLayout = "3.0.0"
     // https://github.com/google/flexbox-layout/releases
 
-    const val androidxLifecycle = "2.6.0-rc01"
+    const val androidxLifecycle = "2.6.1"
     // https://developer.android.com/jetpack/androidx/releases/lifecycle
 
-    const val androidxCamera = "1.3.0-alpha04"
+    const val androidxCamera = "1.3.0-alpha05"
     // https://developer.android.com/jetpack/androidx/releases/camera
 
-    const val androidxRoom = "2.5.0"
+    const val androidxRoom = "2.6.0-alpha01"
     // https://developer.android.com/jetpack/androidx/releases/room
 
     const val androidxAutofill = "1.2.0-beta01"
     // https://developer.android.com/jetpack/androidx/releases/autofill
 
-    const val androidxTestCore = "1.5.0"
-    const val androidxTestAnnotation = "1.0.1"
-    const val androidxTestRunner = "1.5.2"
+    const val androidxTestCore = "1.6.0-alpha01"
+    const val androidxTestAnnotation = "1.1.0-alpha01"
+    const val androidxTestRunner = androidxTestCore
     const val androidxTestRules = androidxTestCore
     const val androidxTestExtTruth = androidxTestCore
-    const val androidxTestExtJUnit = "1.1.5"
-    const val androidxEspresso = "3.5.1"
+    const val androidxTestExtJUnit = "1.2.0-alpha01"
+    const val androidxEspresso = "3.6.0-alpha01"
     // https://developer.android.com/jetpack/androidx/releases/test
 
 
@@ -231,7 +234,7 @@ object Vers {
     // https://square.github.io/okio/changelog/
     // https://square.github.io/okio/#releases
 
-    const val dbusJava = "4.2.1"
+    const val dbusJava = "4.3.0"
     // https://github.com/hypfvieh/dbus-java
 
     const val dbusKotlin = "0.0.08"
@@ -240,48 +243,49 @@ object Vers {
     const val javaWebsocket = "1.5.3"
     // https://mvnrepository.com/artifact/org.java-websocket/Java-WebSocket
 
-    const val slf4jSimple = "2.0.6"
+    const val slf4jSimple = "2.0.7"
     // https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
 
-    const val log4j2 = "2.19.0"
+    const val log4j2 = "2.20.0"
     // http://logging.apache.org/log4j/2.x/maven-artifacts.html
 
-    const val googleServicesPlugin = "4.3.10"
+    const val googleServicesPlugin = "4.3.15"
     // https://developers.google.com/android/guides/google-services-plugin
 
-    const val googlePlayServicesBase = "18.0.0"
+    const val googlePlayServicesBase = "18.2.0"
     // https://developers.google.com/android/guides/setup
+    // https://developers.google.com/android/guides/setup#list-dependencies
     // https://developers.google.com/android/guides/releases
 
-    const val firebaseGitlive = "1.4.3"
+    const val firebaseGitlive = "1.7.2"
     // https://github.com/GitLiveApp/firebase-kotlin-sdk
 
-    const val firebaseCrashlyticsPlugin = "2.8.1"
+    const val firebaseCrashlyticsPlugin = "2.9.4"
     // https://firebase.google.com/docs/crashlytics/get-started?platform=android
 
-    const val firebaseAdmin = "8.1.0"
+    const val firebaseAdmin = "9.1.1"
     // https://firebase.google.com/docs/admin/setup
 
-    const val firebaseAndroidBoM = "29.0.2"
+    const val firebaseAndroidBoM = "31.3.0"
     // https://firebase.google.com/support/release-notes/android
     // https://firebase.google.com/docs/android/setup#add-sdks
 
-    const val firebaseUiAuth = "8.0.0"
+    const val firebaseUiAuth = "8.0.2"
     // https://github.com/firebase/FirebaseUI-Android
     // https://github.com/firebase/FirebaseUI-Android/releases
     // https://firebase.google.com/docs/auth/android/firebaseui
 
-    const val googleCloudBoM = "24.0.0"
-    // https://github.com/GoogleCloudPlatform/cloud-opensource-java/wiki/The-Google-Cloud-Platform-Libraries-BOM
+    const val googleCloudBoM = "25.4.0"
+    // https://cloud.google.com/java/docs/bom
 
-    const val googleAuth = "1.3.0"
+    const val googleAuth = "1.12.2"
     // https://github.com/googleapis/google-auth-library-java
 
-    const val googleGuavaJre = "31.0.1-jre"
-    const val googleGuavaAndroid = "31.0.1-android"
+    const val googleGuavaJre = "31.1-jre"
+    const val googleGuavaAndroid = "31.1-android"
     // https://github.com/google/guava
 
-    const val googleGuavaMissingMetadataPlugin = "0.5"
+    const val googleGuavaMissingMetadataPlugin = "31.1.1"
     // https://github.com/jjohannes/missing-metadata-guava
 
     const val picasso = "2.8"
@@ -292,7 +296,7 @@ object Vers {
     // https://github.com/afollestad/material-dialogs
     // https://github.com/afollestad/material-dialogs/releases
 
-    const val leakcanary = "2.7"
+    const val leakcanary = "2.10"
     // https://github.com/square/leakcanary/releases
 
     const val paperwork = "1.2.7"
@@ -301,43 +305,46 @@ object Vers {
     const val mockitoCore2 = "2.28.2"
     const val mockitoCore3 = "3.12.4"
     const val mockitoCore4 = "4.1.0"
-    const val mockitoCore = mockitoCore4
+    const val mockitoCore5 = "5.2.0"
+    const val mockitoCore = mockitoCore5
     // https://github.com/mockito/mockito/releases
     // https://search.maven.org/artifact/org.mockito/mockito-core
 
     const val mockitoKotlin2nhaarman = "2.2.0" // last version with old package name: com.nhaarman.mockitokotlin2
     const val mockitoKotlin2 = "2.2.11"
     const val mockitoKotlin3 = "3.2.0"
-    const val mockitoKotlin4 = "4.0.0"
+    const val mockitoKotlin4 = "4.1.0"
     const val mockitoKotlin = mockitoKotlin4
     // https://github.com/nhaarman/mockito-kotlin/releases
 
     const val mockitoAndroid2 = "2.28.2"
     const val mockitoAndroid3 = "3.12.4"
     const val mockitoAndroid4 = "4.1.0"
-    const val mockitoAndroid = mockitoAndroid4
-    // https://search.maven.org/artifact/org.mockito/mockito-android
+    const val mockitoAndroid5 = "5.2.0"
+    const val mockitoAndroid = mockitoAndroid5
+    // https://central.sonatype.com/search?smo=true&q=mockito-android
 
 
-    const val robolectric = "4.8"
+    const val robolectric = "4.9"
     // https://robolectric.org/getting-started/
 
     const val junit4 = "4.13.2"
     // https://github.com/junit-team/junit4/releases
 
-    const val junit5 = "5.9.1"
+    const val junit5 = "5.9.2"
     // https://github.com/junit-team/junit5/releases
 
     const val googleTruth = "1.1.3"
     // https://github.com/google/truth/releases
 
+    @Deprecated("Use androidx")
     const val androidTestRunnerClass = "androidx.test.runner.AndroidJUnitRunner"
     // https://developer.android.com/reference/android/support/test/runner/AndroidJUnitRunner.html
 
     const val realm = "10.11.1"
     // https://docs.mongodb.com/realm/sdk/android/install/
 
-    const val ktor = "2.2.2"
+    const val ktor = "2.2.4"
     // https://maven.pkg.jetbrains.space/public/p/ktor/eap/io/ktor/ktor/
     // https://github.com/ktorio/ktor
     // https://github.com/ktorio/ktor/releases
@@ -355,21 +362,20 @@ object Vers {
     // https://github.com/docopt/docopt.java
 
     const val npmReact = "18.2.0"
-    // https://reactjs.org/versions
+    // https://github.com/facebook/react/blob/main/CHANGELOG.md
 
-    const val npmStyled = "5.3.3"
-
-    private const val kotlinJsWrappersPre = "pre.498"
+    const val npmStyled = "5.3.9"
+    // https://github.com/styled-components/styled-components
 
     // https://github.com/JetBrains/kotlin-wrappers
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin-wrappers/kotlin-wrappers-bom
     // NOTE: syntax for mpp build files: implementation(project.dependencies.enforcedPlatform(deps.kotlinJsWrappersBoM))
-    val kotlinJsWrappersBoM = "1.0.0-$kotlinJsWrappersPre"
+    val kotlinJsWrappersBoM = "1.0.0-pre.522"
 
     // https://github.com/JetBrains/kotlin-wrappers/blob/master/kotlin-react/README.md
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin-wrappers/kotlin-react
     @Deprecated("Use BoM")
-    val kotlinJsWrappersReact = "$npmReact-$kotlinJsWrappersPre"
+    val kotlinJsWrappersReact = "$npmReact-pre.523"
 
     // https://github.com/JetBrains/kotlin-wrappers/blob/master/kotlin-react-dom/README.md
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin-wrappers/kotlin-react-dom
@@ -380,7 +386,7 @@ object Vers {
     // https://github.com/JetBrains/kotlin-wrappers/blob/master/kotlin-styled/README.md
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin-wrappers/kotlin-styled
     @Deprecated("Use BoM")
-    val kotlinJsWrappersStyled = "$npmStyled-$kotlinJsWrappersPre"
+    val kotlinJsWrappersStyled = "$npmStyled-pre.523"
 
 
     // My libs - see details in LibsDetails.kt:

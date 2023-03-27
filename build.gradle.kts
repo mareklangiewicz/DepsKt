@@ -7,7 +7,7 @@ import pl.mareklangiewicz.utils.*
 
 plugins {
     kotlin("jvm") version vers.kotlin
-    id("com.gradle.plugin-publish") version "1.1.0"
+    id("com.gradle.plugin-publish") version vers.publishGradlePlugin
     id("io.github.gradle-nexus.publish-plugin") version vers.nexusPublishGradlePlugin
     signing
 }
@@ -35,7 +35,7 @@ defaultSonatypeOssStuffFromSystemEnvs()
 defaultSigning()
 
 group = "pl.mareklangiewicz.deps"
-version = "0.2.25"
+version = "0.2.26"
 
 
 gradlePlugin {
