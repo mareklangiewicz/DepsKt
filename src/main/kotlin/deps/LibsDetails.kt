@@ -58,14 +58,14 @@ object LibsDetails {
 
     val UWidgets = langaraLibDetails(
         name = "UWidgets",
-        version = v(0, 0, 2),
+        version = v(0, 0, 3),
         description = "Micro widgets for Compose Multiplatform",
         githubUrl = "https://github.com/langara/UWidgets",
     )
 
     val AreaKim = langaraLibDetails(
         name = "AreaKim",
-        version = v(0, 0, 2),
+        version = v(0, 0, 3),
         description = "Kotlin Vim Area for Compose Multiplatform",
         githubUrl = "https://github.com/langara/AreaKim",
     )
