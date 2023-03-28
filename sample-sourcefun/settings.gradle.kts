@@ -7,7 +7,7 @@ pluginManagement {
         mavenLocal()
         gradlePluginPortal()
     }
-//    includeBuild("..") // deps.kt
+//    includeBuild("..") // DepsKt
 }
 
 plugins {

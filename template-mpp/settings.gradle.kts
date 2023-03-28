@@ -10,7 +10,7 @@ pluginManagement {
         mavenLocal()
         gradlePluginPortal()
     }
-//    includeBuild("..") // deps.kt
+//    includeBuild("..") // DepsKt
 }
 
 plugins { id("pl.mareklangiewicz.deps.settings") version "0.2.25" }

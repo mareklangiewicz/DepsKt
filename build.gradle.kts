@@ -39,20 +39,20 @@ version = "0.2.26"
 
 
 gradlePlugin {
-    website.set("https://github.com/langara/deps.kt")
-    vcsUrl.set("https://github.com/langara/deps.kt")
+    website.set("https://github.com/langara/DepsKt")
+    vcsUrl.set("https://github.com/langara/DepsKt")
     plugins {
         create("depsPlugin") {
             id = "pl.mareklangiewicz.deps"
             implementationClass = "pl.mareklangiewicz.deps.DepsPlugin"
-            displayName = "Deps.kt plugin"
+            displayName = "DepsKt plugin"
             description = "Updated dependencies for typical java/kotlin/android projects (with IDE support)."
             tags.set(listOf("bom", "dependencies"))
         }
         create("depsSettingsPlugin") {
             id = "pl.mareklangiewicz.deps.settings"
             implementationClass = "pl.mareklangiewicz.deps.DepsSettingsPlugin"
-            displayName = "Deps.kt settings plugin"
+            displayName = "DepsKt settings plugin"
             description = "Updated dependencies for typical java/kotlin/android projects (with IDE support) (settings plugin)."
             tags.set(listOf("bom", "dependencies"))
         }
@@ -95,7 +95,7 @@ fun injectTemplates() = injectAllKnownRegionsInProject(projectPath)
  * * MYKOTLIBS_ossrhPassword
  * * MYKOTLIBS_sonatypeStagingProfileId
  * * First three of these used in fun pl.mareklangiewicz.defaults.defaultSigning
- * * See deps.kt/template-mpp/template-mpp-lib/build.gradle.kts
+ * * See DepsKt/template-mpp/template-mpp-lib/build.gradle.kts
  */
 fun Project.defaultSonatypeOssStuffFromSystemEnvs(envKeyMatchPrefix: String = "MYKOTLIBS_") {
     ext.addAllFromSystemEnvs(envKeyMatchPrefix)
@@ -238,7 +238,7 @@ FAILURE: Build failed with an exception.
 
 * What went wrong:
 A problem was found with the configuration of task ':template-mpp-lib:signJvmPublication' (type 'Sign').
-  - Gradle detected a problem with the following location: '/home/marek/code/kotlin/deps.kt/template-mpp/template-mpp-lib/build/libs/template-mpp-lib-0.0.02-javadoc.jar.asc'.
+  - Gradle detected a problem with the following location: '/home/marek/code/kotlin/DepsKt/template-mpp/template-mpp-lib/build/libs/template-mpp-lib-0.0.02-javadoc.jar.asc'.
 
     Reason: Task ':template-mpp-lib:publishJsPublicationToMavenLocal' uses this output of task ':template-mpp-lib:signJvmPublication' without declaring an explicit or implicit dependency. This can lead to incorrect results being produced, depending on what order the tasks are executed.
 

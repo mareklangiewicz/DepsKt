@@ -1,7 +1,7 @@
 @file:Suppress("UnstableApiUsage")
 
 pluginManagement {
-    includeBuild("..") // this is deps.kt
+    includeBuild("..") // this is DepsKt
     repositories {
         google()
         gradlePluginPortal()
