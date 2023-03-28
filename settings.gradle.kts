@@ -1,5 +1,5 @@
 
-rootProject.name = "deps.kt"
+rootProject.name = "DepsKt"
 
 pluginManagement {
     repositories {
