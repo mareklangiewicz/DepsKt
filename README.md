@@ -6,9 +6,9 @@ It's a gradle "convention plugin": https://docs.gradle.org/current/samples/sampl
 Usage:
 
 - clone this repo outside your project
-    - `git clone git@github.com:langara/deps.kt.git`
+    - `git clone git@github.com:langara/DepsKt.git`
 - include it in your `settings.gradle.kts`
-    - `includeBuild("../deps.kt")`
+    - `includeBuild("../DepsKt")`
 - add the plugin to your build files `build.gradle.kts`
     - `plugins { id("pl.mareklangiewicz.deps") }`
 - use `Vers` and `Deps` objects in your build files to get current versions of common libraries
@@ -19,7 +19,7 @@ Usage:
 
 - It's a statically checked Kotlin code, so we should have full IDE support
 - If you don't want to use it all, you can still just bookmark one
-  file [github:Vers.kt](https://github.com/langara/deps.kt/blob/master/src/main/kotlin/Vers.kt) to quickly check current versions of popular
+  file [github:Vers.kt](https://github.com/langara/DepsKt/blob/master/src/main/kotlin/deps/Vers.kt) to quickly check current versions of popular
   libraries
 
 #### UPDATE
@@ -33,4 +33,4 @@ Usage:
 - The deps.settings plugin just allows to add it all in settings file,
   so the code is available in all build files.
 - The sourcefun plugin is an experiment to allow easy code generation. Example:
-    - https://github.com/langara/deps.kt/blob/master/sample-sourcefun/build.gradle.kts
+    - https://github.com/langara/DepsKt/blob/master/sample-sourcefun/build.gradle.kts
