@@ -11,6 +11,6 @@ pluginManagement {
 }
 
 plugins {
-    id("pl.mareklangiewicz.deps.settings") version "0.2.25"
+    id("pl.mareklangiewicz.deps.settings") version "0.2.26"
     id("de.fayard.refreshVersions") version "0.51.0" // See https://jmfayard.github.io/refreshVersions
 }
