@@ -1,4 +1,4 @@
-# deps.kt
+# DepsKt
 
 This repo allows to easily share current versions of well known libraries for Kotlin/Java/Android between projects.
 It's a gradle "convention plugin": https://docs.gradle.org/current/samples/sample_convention_plugins.html
