@@ -1,5 +1,10 @@
-@file:Suppress("GrazieInspection", "unused", "unused", "PackageDirectoryMismatch", "MemberVisibilityCanBePrivate",
-    "ClassName", "SpellCheckingInspection"
+@file:Suppress(
+    "unused",
+    "SpellCheckingInspection",
+    "GrazieInspection",
+    "ClassName",
+    "PackageDirectoryMismatch",
+    "MemberVisibilityCanBePrivate",
 )
 
 // region [Deps Impl Notes]
