@@ -1,4 +1,6 @@
-@file:Suppress("GrazieInspection")
+@file:Suppress("GrazieInspection", "unused", "unused", "PackageDirectoryMismatch", "MemberVisibilityCanBePrivate",
+    "ClassName", "SpellCheckingInspection"
+)
 
 // region [Deps Impl Notes]
 /*
@@ -44,7 +46,7 @@ data class Dep(val group: String, val name: String, val vers: List<Ver>): CharSe
 
     // FIXME: that's to fragile to updates (indices usually will totally change)
     //   better would be last with given max instability
-    @Deprecated("FIXME")
+    @Deprecated("FIXME", ReplaceWith("withVer(ver: Ver)"))
     fun withVer(verIdx: Int) = copy(vers = listOf(vers[verIdx]))
 
     fun withVer(verName: String, verInstability: Instability? = null) =
@@ -1468,7 +1470,6 @@ object DepsNew {
                 val kotlin_deeplearning_api = Dep("org.jetbrains.kotlinx", "kotlin-deeplearning-api", Ver("0.5.1", 0), Ver("0.6.0-alpha-1", 300))
                 val kotlin_deeplearning_onnx = Dep("org.jetbrains.kotlinx", "kotlin-deeplearning-onnx", Ver("0.5.1", 0), Ver("0.6.0-alpha-1", 300))
                 val kotlin_deeplearning_visualization = Dep("org.jetbrains.kotlinx", "kotlin-deeplearning-visualization", Ver("0.5.1", 0), Ver("0.6.0-alpha-1", 300))
-                val kotlinx_reflect_lite = Dep("org.jetbrains.kotlinx", "kotlinx.reflect.lite", Ver("1.1.0", 0))
                 val kotlinx_cli = Dep("org.jetbrains.kotlinx", "kotlinx-cli", Ver("0.3.5", 0))
                 val kotlinx_collections_immutable = Dep("org.jetbrains.kotlinx", "kotlinx-collections-immutable", Ver("0.3.5", 0))
                 val kotlinx_collections_immutable_jvm = Dep("org.jetbrains.kotlinx", "kotlinx-collections-immutable-jvm", Ver("0.3.5", 0))
@@ -1492,6 +1493,7 @@ object DepsNew {
                 val kotlinx_html = Dep("org.jetbrains.kotlinx", "kotlinx-html", Ver("0.8.1", 0))
                 val kotlinx_io_jvm = Dep("org.jetbrains.kotlinx", "kotlinx-io-jvm", Ver("0.1.16", 0))
                 val kotlinx_nodejs = Dep("org.jetbrains.kotlinx", "kotlinx-nodejs", Ver("0.0.7", 0))
+                val kotlinx_reflect_lite = Dep("org.jetbrains.kotlinx", "kotlinx.reflect.lite", Ver("1.1.0", 0))
                 val kotlinx_serialization_bom = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-bom", Ver("1.5.0", 0))
                 val kotlinx_serialization_cbor = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-cbor", Ver("1.5.0", 0))
                 val kotlinx_serialization_core = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-core", Ver("1.5.0", 0))
