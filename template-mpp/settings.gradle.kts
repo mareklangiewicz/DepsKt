@@ -10,10 +10,10 @@ pluginManagement {
         mavenLocal()
         gradlePluginPortal()
     }
-//    includeBuild("..") // DepsKt
+    includeBuild("..") // DepsKt
 }
 
-plugins { id("pl.mareklangiewicz.deps.settings") version "0.2.25" }
+plugins { id("pl.mareklangiewicz.deps.settings") version "0.2.26" }
 
 rootProject.name = "template-mpp"
 
