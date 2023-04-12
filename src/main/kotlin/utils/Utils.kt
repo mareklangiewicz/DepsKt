@@ -42,7 +42,7 @@ fun <T> Property<T>.properting() = object : ReadWriteProperty<Any?, T> {
 @JvmInline value class UExt<T>(private val extraProperties: ExtraPropertiesExtension) {
     operator fun get(name: String): T = extraProperties.get(name) as T
     operator fun set(name: String, value: T) { extraProperties.set(name, value) }
-
+    fun getOrNull(name: String): T? = extraProperties.get(name) as? T
 }
 
 fun <T> ExtensionAware.ext(): UExt<T> = UExt(extensions.extraProperties)
@@ -50,6 +50,8 @@ fun <T> ExtensionAware.ext(): UExt<T> = UExt(extensions.extraProperties)
 val ExtensionAware.extString get() = ext<String>()
 val Project.rootExtString get() = rootProject.extString
 fun Project.rootExtReadFileUtf8(name: String) = SYSTEM.readUtf8(rootExtString[name].toPath())
+fun Project.rootExtReadFileUtf8OrNull(name: String) =
+    rootExtString.getOrNull(name)?.toPath()?.let { SYSTEM.readUtf8(it) }
 
 val Project.projectPath get() = rootDir.toOkioPath()
 val Project.rootProjectPath get() = rootProject.projectPath
