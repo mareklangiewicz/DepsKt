@@ -20,6 +20,7 @@ repositories {
 
 dependencies {
     api(deps.okio)
+    implementation("io.github.typesafegithub:github-workflows-kt:0.40.1") // fixme_later: add to DepsNew
     testImplementation(deps.uspekxJUnit5)
     testImplementation(deps.junit5)
     testImplementation(deps.junit5engine)

@@ -14,8 +14,10 @@ class MaintenanceTests {
     fun maintenanceTestFactory() = uspekTestFactory {
         // "check all known regions synced" o { checkAllKnownRegionsSynced() }
         // "check all known regions in all my kotlin projects" o { checkAllKnownRegionsInAllMyProjects() }
+        // "check all workflows in all my kotlin projects" o { checkAllWorkflowsInAllMyProjects() }
         // "DANGEROUS inject all known regions to sync" o { injectAllKnownRegionsToSync() }
         // "DANGEROUS inject all known regions to all my projects" o { injectAllKnownRegionsToAllMyProjects() }
+        // "DANGEROUS inject default workflows to all my projects" o { injectDefaultWorkflowsToAllMyProjects() }
 
         "experiment" o {
             // updateDepsKtResourcesSymLinks()
