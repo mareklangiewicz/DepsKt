@@ -20,6 +20,7 @@ class MaintenanceTests {
         // "DANGEROUS inject default workflows to all my projects" o { injectDefaultWorkflowsToAllMyProjects() }
         // "DANGEROUS inject default workflows to AbcdK" o { injectDefaultWorkflowsToMyProjects("AbcdK") }
         // "DANGEROUS inject default workflows to TupleK" o { injectDefaultWorkflowsToMyProjects("TupleK") }
+        // "DANGEROUS someIgnoredStuff" o { someIgnoredStuff() }
 
         "experiment" o {
             // updateDepsKtResourcesSymLinks()
