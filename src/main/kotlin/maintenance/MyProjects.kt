@@ -17,10 +17,10 @@ fun checkAllWorkflowsInMyProjects(vararg names: String, log: (Any?) -> Unit = ::
 
 fun checkAllWorkflowsInProjects(vararg projects: Path, log: (Any?) -> Unit = ::println) = projects.forEach {
     log("Check all workflows in project: $it")
-    SYSTEM.checkAllFoundWorkflowsInProject(it, verbose = true, log = log)
+    SYSTEM.checkAllWorkflowsInProject(it, verbose = true, log = log)
 }
 
-fun FileSystem.checkAllFoundWorkflowsInProject(
+fun FileSystem.checkAllWorkflowsInProject(
     projectPath: Path,
     yamlFilesPath: Path = projectPath / ".github" / "workflows",
     yamlFilesExt: String = "yml",
@@ -76,9 +76,9 @@ fun FileSystem.injectDefaultWorkflowsToProject(
 ) {
     for (dname in MyWorkflowDNames) {
         val file = yamlFilesPath / "$dname.$yamlFilesExt"
-        val contentOld = readUtf8(file)
+        val contentOld = try { readUtf8(file) } catch (e: FileNotFoundException) { "" }
         val contentNew = defaultWorkflow(dname).toYaml()
-        SYSTEM.writeUtf8(file, contentNew)
+        SYSTEM.writeUtf8(file, contentNew, createParentDir = true)
         val summary =
             if (contentNew == contentOld) "No changes."
             else "Changes detected (len ${contentOld.length}->${contentNew.length})"

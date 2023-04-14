@@ -5,7 +5,7 @@ import okio.FileSystem.*
 import okio.Path.Companion.toPath
 import pl.mareklangiewicz.io.*
 
-internal val MyDepsKtRootPath = "/home/marek/code/kotlin/deps.kt".toPath()
+internal val MyDepsKtRootPath = "/home/marek/code/kotlin/DepsKt".toPath()
 
 private val resourcesRelPath = "src/main/resources".toPath()
 private val resourcesAbsPath = MyDepsKtRootPath / resourcesRelPath

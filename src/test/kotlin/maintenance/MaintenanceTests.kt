@@ -18,6 +18,8 @@ class MaintenanceTests {
         // "DANGEROUS inject all known regions to sync" o { injectAllKnownRegionsToSync() }
         // "DANGEROUS inject all known regions to all my projects" o { injectAllKnownRegionsToAllMyProjects() }
         // "DANGEROUS inject default workflows to all my projects" o { injectDefaultWorkflowsToAllMyProjects() }
+        // "DANGEROUS inject default workflows to AbcdK" o { injectDefaultWorkflowsToMyProjects("AbcdK") }
+        // "DANGEROUS inject default workflows to TupleK" o { injectDefaultWorkflowsToMyProjects("TupleK") }
 
         "experiment" o {
             // updateDepsKtResourcesSymLinks()
