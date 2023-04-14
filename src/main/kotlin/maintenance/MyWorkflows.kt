@@ -31,11 +31,11 @@ fun injectHackyGenerateDepsWorkflowToRefreshDepsRepo() {
         name = "Generate Deps",
         on = listOf(Schedule(listOf(everyMondayAt7am)), WorkflowDispatch()),
         targetFileName = "generate-deps.yml",
-        _customArguments = mapOf("permissions" to "write-all"),
     ) {
         job(
             id = "generate-deps",
             runsOn = RunnerType.UbuntuLatest,
+            _customArguments = mapOf("permissions" to mapOf("contents" to "write")),
         ) {
             uses(CheckoutV3())
             usesJdk()
