@@ -4,6 +4,7 @@ import io.github.typesafegithub.workflows.actions.actions.CheckoutV3
 import io.github.typesafegithub.workflows.actions.actions.SetupJavaV3
 import io.github.typesafegithub.workflows.actions.endbug.AddAndCommitV9
 import io.github.typesafegithub.workflows.actions.gradle.GradleBuildActionV2
+import io.github.typesafegithub.workflows.actions.reposync.PullRequestV2
 import io.github.typesafegithub.workflows.domain.JobOutputs
 import io.github.typesafegithub.workflows.domain.RunnerType
 import io.github.typesafegithub.workflows.domain.triggers.*
@@ -45,11 +46,21 @@ fun injectHackyGenerateDepsWorkflowToRefreshDepsRepo() {
                 ),
                 env = linkedMapOf("GENERATE_DEPS" to "true"),
             )
+            val branchForPR = "objects-for-deps"
             uses(
                 name = "Commit",
                 action = AddAndCommitV9(
                     add = "plugins/dependencies/src/test/resources/objects-for-deps.txt",
+                    newBranch = branchForPR
                 ),
+            )
+            uses(
+                name = "Pull Request",
+                action = PullRequestV2(
+                    sourceBranch = branchForPR,
+                    destinationBranch = "main",
+                    githubToken = expr { secrets.GITHUB_TOKEN },
+                )
             )
         }
     }
