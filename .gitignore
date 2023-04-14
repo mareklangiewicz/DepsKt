@@ -8,3 +8,4 @@ build
 out
 /captures
 .externalNativeBuild
+src/main/kotlin/maintenance/MyIgnoredStuff.kt
