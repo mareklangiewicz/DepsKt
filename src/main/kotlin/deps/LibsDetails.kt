@@ -109,6 +109,7 @@ object LibsDetails {
 data class LibDetails(
     val name: String,
     val group: String,
+    @Deprecated("FIXME: migrate to new version management. For now use LibDetails.copy(version = ..)")
     val version: String,
     val description: String,
     val authorId: String, // unique id in SCM like github
