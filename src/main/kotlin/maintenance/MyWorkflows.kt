@@ -2,14 +2,16 @@ package pl.mareklangiewicz.maintenance
 
 import io.github.typesafegithub.workflows.actions.actions.CheckoutV3
 import io.github.typesafegithub.workflows.actions.actions.SetupJavaV3
+import io.github.typesafegithub.workflows.actions.endbug.AddAndCommitV9
 import io.github.typesafegithub.workflows.actions.gradle.GradleBuildActionV2
 import io.github.typesafegithub.workflows.domain.JobOutputs
 import io.github.typesafegithub.workflows.domain.RunnerType
-import io.github.typesafegithub.workflows.domain.triggers.PullRequest
-import io.github.typesafegithub.workflows.domain.triggers.Push
+import io.github.typesafegithub.workflows.domain.triggers.*
 import io.github.typesafegithub.workflows.dsl.JobBuilder
 import io.github.typesafegithub.workflows.dsl.expressions.expr
 import io.github.typesafegithub.workflows.dsl.workflow
+import io.github.typesafegithub.workflows.yaml.writeToFile
+import okio.Path.Companion.toPath
 
 private val myFork = expr { "${github.repository_owner} == 'langara'" }
 
@@ -19,6 +21,40 @@ private val myEnv = listOf(
 )
     .map { "MYKOTLIBS_$it" }
     .associateWith { expr("secrets.$it") } as LinkedHashMap<String, String>
+
+
+// FIXME: something less hacky/hardcoded
+fun injectHackyGenerateDepsWorkflowToRefreshDepsRepo() {
+    val everyMondayAt7am = Cron(minute = "0", hour = "7", dayWeek = "1")
+    val workflow = workflow(
+        name = "Generate Deps",
+        on = listOf(Schedule(listOf(everyMondayAt7am)), WorkflowDispatch()),
+        targetFileName = "generate-deps.yml",
+    ) {
+        job(
+            id = "generate-deps",
+            runsOn = RunnerType.UbuntuLatest,
+        ) {
+            uses(CheckoutV3())
+            usesJdk()
+            uses(
+                name = "MyExperiments.generateDeps",
+                action = GradleBuildActionV2(
+                    arguments = "--info :refreshVersions:test --tests MyExperiments.generateDeps",
+                    buildRootDirectory = "plugins",
+                ),
+                env = linkedMapOf("GENERATE_DEPS" to "true"),
+            )
+            uses(
+                name = "Commit",
+                action = AddAndCommitV9(
+                    add = "plugins/dependencies/src/test/resources/objects-for-deps.txt",
+                ),
+            )
+        }
+    }
+    workflow.writeToFile(gitRootDir = "/home/marek/code/kotlin/refreshDeps".toPath().toNioPath())
+}
 
 
 internal val MyWorkflowDNames = listOf("dbuild", "drelease")
