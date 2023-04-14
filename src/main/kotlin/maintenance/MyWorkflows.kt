@@ -31,6 +31,7 @@ fun injectHackyGenerateDepsWorkflowToRefreshDepsRepo() {
         name = "Generate Deps",
         on = listOf(Schedule(listOf(everyMondayAt7am)), WorkflowDispatch()),
         targetFileName = "generate-deps.yml",
+        _customArguments = mapOf("permissions" to "write-all"),
     ) {
         job(
             id = "generate-deps",
@@ -46,21 +47,11 @@ fun injectHackyGenerateDepsWorkflowToRefreshDepsRepo() {
                 ),
                 env = linkedMapOf("GENERATE_DEPS" to "true"),
             )
-            val branchForPR = "objects-for-deps"
             uses(
                 name = "Commit",
                 action = AddAndCommitV9(
                     add = "plugins/dependencies/src/test/resources/objects-for-deps.txt",
-                    newBranch = branchForPR
                 ),
-            )
-            uses(
-                name = "Pull Request",
-                action = PullRequestV2(
-                    sourceBranch = branchForPR,
-                    destinationBranch = "main",
-                    githubToken = expr { secrets.GITHUB_TOKEN },
-                )
             )
         }
     }
