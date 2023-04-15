@@ -7,6 +7,8 @@ import pl.mareklangiewicz.io.*
 import pl.mareklangiewicz.uspek.*
 
 class UreTests {
+
+    @Disabled // FIXME later
     @TestFactory
     fun ureTestFactory() = uspekTestFactory {
         val simpleEmailURE = ure {

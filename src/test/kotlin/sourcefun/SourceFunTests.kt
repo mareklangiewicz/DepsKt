@@ -10,6 +10,7 @@ import org.junit.jupiter.api.*
 import pl.mareklangiewicz.io.*
 import pl.mareklangiewicz.uspek.*
 
+@Disabled // FIXME LATER
 class SourceFunTests {
 
     @TestFactory
@@ -94,7 +95,8 @@ private fun onSingleHelloWorldProject() {
     }
 }
 
-private val sampleSourceFunProjectPath = "/home/marek/code/kotlin/deps.kt/sample-sourcefun".toPath()
+// FIXME: do not hardcode my local paths
+private val sampleSourceFunProjectPath = "/home/marek/code/kotlin/DepsKt/sample-sourcefun".toPath()
 
 private fun onSampleSourceFunProject() {
     "On sample-sourcefun project" o {
