@@ -3,7 +3,6 @@ rootProject.name = "DepsKt"
 
 pluginManagement {
     repositories {
-        mavenLocal()
         google()
         mavenCentral()
         gradlePluginPortal()
@@ -11,5 +10,5 @@ pluginManagement {
 }
 
 plugins {
-    id("pl.mareklangiewicz.deps.settings") version "0.2.29"
+    id("pl.mareklangiewicz.deps.settings") version "0.2.31"
 }
