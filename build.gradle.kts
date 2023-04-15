@@ -38,7 +38,7 @@ defaultSonatypeOssStuffFromSystemEnvs()
 defaultSigning()
 
 group = "pl.mareklangiewicz.deps"
-version = "0.2.28"
+version = "0.2.29"
 
 gradlePlugin {
     website.set("https://github.com/langara/DepsKt")
