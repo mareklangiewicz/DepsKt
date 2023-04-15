@@ -104,7 +104,7 @@ fun MavenPublication.defaultPOM(lib: LibDetails) = pom {
 /** See also: root project template-mpp: fun Project.defaultSonatypeOssStuffFromSystemEnvs */
 fun Project.defaultSigning(
     keyId: String = rootExtString["signing.keyId"],
-    key: String = rootExtReadFileUtf8("signing.keyFile"),
+    key: String = rootExtReadFileUtf8TryOrNull("signing.keyFile") ?: rootExtString["signing.key"],
     password: String = rootExtString["signing.password"],
 ) = extensions.configure<SigningExtension> {
     useInMemoryPgpKeys(keyId, key, password)

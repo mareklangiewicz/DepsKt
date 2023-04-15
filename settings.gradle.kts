@@ -11,5 +11,5 @@ pluginManagement {
 }
 
 plugins {
-    id("pl.mareklangiewicz.deps.settings") version "0.2.26"
+    id("pl.mareklangiewicz.deps.settings") version "0.2.28"
 }
