@@ -139,6 +139,8 @@ abstract class VersionDetailsTask : DefaultTask() {
 
     @TaskAction
     fun execute() {
+        // FIXME NOW: use kommand(..)
+        // FIXME LATER: add git to KommandLine library, then use it here
         val process = ProcessBuilder("git", "rev-parse", "HEAD").start()
         val error = process.errorStream.bufferedReader().use { it.readText() }
         check(error.isBlank()) { "GitVersionTask error: $error" }

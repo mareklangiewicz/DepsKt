@@ -189,8 +189,15 @@ fun FileSystem.injectKnownRegion(
     vararg outputPaths: Path,
     addIfNotFound: Boolean = true,
     log: (Any?) -> Unit = ::println,
+) = injectCustomRegion(regionLabel, knownRegion(regionLabel), *outputPaths, addIfNotFound = addIfNotFound, log = log)
+
+fun FileSystem.injectCustomRegion(
+    regionLabel: String,
+    region: String,
+    vararg outputPaths: Path,
+    addIfNotFound: Boolean = true,
+    log: (Any?) -> Unit = ::println,
 ) = outputPaths.forEach { outputPath ->
-    val region = knownRegion(regionLabel)
     val regex = ureWithSpecialRegion(regionLabel).compile()
     processFile(outputPath, outputPath) { output ->
         val outputMR = regex.matchEntire(output)

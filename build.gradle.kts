@@ -2,6 +2,7 @@
 
 import pl.mareklangiewicz.defaults.*
 import pl.mareklangiewicz.deps.*
+import pl.mareklangiewicz.deps.Deps.ver
 import pl.mareklangiewicz.ure.*
 import pl.mareklangiewicz.utils.*
 
@@ -20,6 +21,7 @@ repositories {
 
 dependencies {
     api(deps.okio)
+    api(deps.kommandLine.ver("0.0.09")) // fixme_later: use DepsNew
     implementation("io.github.typesafegithub:github-workflows-kt:0.40.1") // fixme_later: add to DepsNew
     testImplementation(deps.uspekxJUnit5)
     testImplementation(deps.junit5)
