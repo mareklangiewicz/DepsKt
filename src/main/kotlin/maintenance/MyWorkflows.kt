@@ -59,6 +59,38 @@ fun injectHackyGenerateDepsWorkflowToRefreshDepsRepo() {
 }
 
 
+// FIXME: something less hacky/hardcoded/repetative
+fun injectUpdateGeneratedDepsWorkflowToDepsKtRepo() {
+    val everyMondayAt8am = Cron(minute = "0", hour = "8", dayWeek = "1")
+    val workflow = workflow(
+        name = "Update Generated Deps",
+        on = listOf(Schedule(listOf(everyMondayAt8am)), WorkflowDispatch()),
+        targetFileName = "update-generated-deps.yml",
+    ) {
+        job(
+            id = "update-generated-deps",
+            runsOn = RunnerType.UbuntuLatest,
+            _customArguments = mapOf("permissions" to mapOf("contents" to "write")),
+        ) {
+            uses(CheckoutV3())
+            usesJdk()
+            uses(
+                name = "MaintenanceTests.updateGeneratedDeps",
+                action = GradleBuildActionV2(
+                    arguments = "test --tests MaintenanceTests.updateGeneratedDeps",
+                ),
+                env = linkedMapOf("UPDATE_GENERATED_DEPS" to "true"),
+            )
+            uses(
+                name = "Commit",
+                action = AddAndCommitV9(add = "src/main/kotlin/deps/DepsNew.kt"),
+            )
+        }
+    }
+    workflow.writeToFile(gitRootDir = "/home/marek/code/kotlin/DepsKt".toPath().toNioPath())
+}
+
+
 internal val MyWorkflowDNames = listOf("dbuild", "drelease")
 
 /**

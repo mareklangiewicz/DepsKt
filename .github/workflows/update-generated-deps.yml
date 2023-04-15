@@ -1,0 +1,35 @@
+# This file was generated using a Kotlin DSL.
+# If you want to modify the workflow, please change the Kotlin source and regenerate this YAML file.
+# Generated with https://github.com/typesafegithub/github-workflows-kt
+
+name: Update Generated Deps
+on:
+  schedule:
+  - cron: 0 8 * * 1
+  workflow_dispatch: {}
+jobs:
+  update-generated-deps:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+    - id: step-0
+      uses: actions/checkout@v3
+    - id: step-1
+      name: Set up JDK
+      uses: actions/setup-java@v3
+      with:
+        java-version: 17
+        distribution: zulu
+    - id: step-2
+      name: MaintenanceTests.updateGeneratedDeps
+      uses: gradle/gradle-build-action@v2
+      with:
+        arguments: test --tests MaintenanceTests.updateGeneratedDeps
+      env:
+        UPDATE_GENERATED_DEPS: true
+    - id: step-3
+      name: Commit
+      uses: EndBug/add-and-commit@v9
+      with:
+        add: src/main/kotlin/deps/DepsNew.kt

@@ -10,7 +10,9 @@ import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable
 import pl.mareklangiewicz.io.readUtf8
 import pl.mareklangiewicz.kommand.Platform.Companion.SYS
 import pl.mareklangiewicz.kommand.kommand
+import pl.mareklangiewicz.ure.checkAllKnownRegionsSynced
 import pl.mareklangiewicz.ure.downloadAndInjectFileToSpecialRegion
+import pl.mareklangiewicz.ure.injectAllKnownRegionsToSync
 import pl.mareklangiewicz.ure.injectCustomRegion
 import pl.mareklangiewicz.uspek.*
 import kotlin.math.absoluteValue
@@ -32,19 +34,21 @@ class MaintenanceTests {
 
     @TestFactory
     fun maintenanceTestFactory() = uspekTestFactory {
-        // "check all known regions synced" o { checkAllKnownRegionsSynced() }
-        // "check all known regions in all my kotlin projects" o { checkAllKnownRegionsInAllMyProjects() }
-        // "check all workflows in all my kotlin projects" o { checkAllWorkflowsInAllMyProjects() }
-        // "DANGEROUS inject all known regions to sync" o { injectAllKnownRegionsToSync() }
-        // "DANGEROUS inject all known regions to all my projects" o { injectAllKnownRegionsToAllMyProjects() }
-        // "DANGEROUS inject default workflows to all my projects" o { injectDefaultWorkflowsToAllMyProjects() }
-        // "DANGEROUS inject default workflows to Some Proj" o { injectDefaultWorkflowsToMyProjects("KommandLine") }
-        // "DANGEROUS someIgnoredStuff" o { someIgnoredStuff() }
-        // "DANGEROUS inject hacky workflow to refreshDeps repo" o { injectHackyGenerateDepsWorkflowToRefreshDepsRepo() }
-
-        "experiment" o {
-            // updateDepsKtResourcesSymLinks()
-            // updateGradlewFilesInAllMyProjects()
-        }
+//        "check all known regions synced" o { checkAllKnownRegionsSynced() }
+//        "check all known regions in all my kotlin projects" o { checkAllKnownRegionsInAllMyProjects() }
+//        "check all workflows in all my kotlin projects" o { checkAllWorkflowsInAllMyProjects() }
+//
+//        "DANGEROUS inject all known regions to sync" o { injectAllKnownRegionsToSync() }
+//        "DANGEROUS inject all known regions to all my projects" o { injectAllKnownRegionsToAllMyProjects() }
+//        "DANGEROUS inject default workflows to all my projects" o { injectDefaultWorkflowsToAllMyProjects() }
+//        "DANGEROUS inject default workflows to Some Proj" o { injectDefaultWorkflowsToMyProjects("KommandLine") }
+//
+//        "DANGEROUS updateDepsKtResourcesSymLinks" o { updateDepsKtResourcesSymLinks() }
+//        "DANGEROUS updateGradlewFilesInAllMyProjects" o { updateGradlewFilesInAllMyProjects() }
+//
+//        "DANGEROUS someIgnoredStuff" o { someIgnoredStuff() }
+//
+//        "DANGEROUS inject hacky workflow to refreshDeps repo" o { injectHackyGenerateDepsWorkflowToRefreshDepsRepo() }
+//        "DANGEROUS inject updateGeneratedDeps workflow to DepsKt repo" o { injectUpdateGeneratedDepsWorkflowToDepsKtRepo() }
     }
 }
