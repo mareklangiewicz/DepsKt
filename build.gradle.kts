@@ -35,10 +35,17 @@ tasks.defaultTestsOptions()
 
 defaultSonatypeOssStuffFromSystemEnvs()
 
-defaultSigning()
+val details get() = langaraLibDetails(
+    name = "DepsKt",
+    group = "pl.mareklangiewicz.deps",
+    version = v(0, 2, 31),
+    description = "Updated dependencies for typical java/kotlin/android projects (with IDE support).",
+    githubUrl = "https://github.com/langara/DepsKt",
+)
 
-group = "pl.mareklangiewicz.deps"
-version = "0.2.29"
+defaultGroupAndVerAndDescription(details)
+
+defaultSigning()
 
 gradlePlugin {
     website.set("https://github.com/langara/DepsKt")
