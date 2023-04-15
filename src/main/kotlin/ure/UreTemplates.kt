@@ -5,7 +5,11 @@ import okio.FileSystem.Companion.RESOURCES
 import okio.FileSystem.Companion.SYSTEM
 import okio.Path.Companion.toPath
 import pl.mareklangiewicz.io.*
+import pl.mareklangiewicz.kommand.Platform
+import pl.mareklangiewicz.kommand.kommand
 import pl.mareklangiewicz.maintenance.*
+import kotlin.math.absoluteValue
+import kotlin.random.Random
 
 const val labelRoot = "Root Build Template"
 const val labelKotlinModule = "Kotlin Module Build Template"
@@ -219,6 +223,33 @@ fun FileSystem.injectCustomRegion(
         }
     }
 }
+
+
+fun downloadTmpFile(
+    url: String,
+    name: String = "tmp${Random.nextLong().absoluteValue}.txt",
+    dir: Path = "build".toPath(),
+): Path = Platform.SYS.run {
+    val path = dir / name
+    // TODO: Add curl to KommandLine library, then use it here
+    kommand("curl", "-o", path.toString(), url)()
+    path
+}
+
+fun downloadAndInjectFileToSpecialRegion(
+    inFileUrl: String,
+    outFilePath: Path,
+    outFileRegionLabel: String,
+) {
+    val inFilePath = downloadTmpFile(inFileUrl)
+    val regionContent = SYSTEM.readUtf8(inFilePath)
+    val markBefore = "// region [$outFileRegionLabel]\n"
+    val markAfter = "// endregion [$outFileRegionLabel]\n"
+    val region = "$markBefore\n$regionContent\n$markAfter"
+    SYSTEM.injectCustomRegion(outFileRegionLabel, region, outFilePath)
+}
+
+
 
 // TODO_someday: scan imports and add imports from template-android/lib/build.gradle.kts if needed
 
