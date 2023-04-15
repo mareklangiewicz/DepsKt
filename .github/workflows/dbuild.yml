@@ -2,11 +2,13 @@
 # If you want to modify the workflow, please change the Kotlin source and regenerate this YAML file.
 # Generated with https://github.com/typesafegithub/github-workflows-kt
 
-name: Update Generated Deps
+name: dbuild
 on:
-  schedule:
-  - cron: 0 8 * * 1
-  workflow_dispatch: {}
+  push:
+    branches:
+    - master
+    - main
+  pull_request: {}
 env:
   MYKOTLIBS_signing_keyId: ${{ secrets.MYKOTLIBS_signing_keyId }}
   MYKOTLIBS_signing_password: ${{ secrets.MYKOTLIBS_signing_password }}
@@ -15,10 +17,8 @@ env:
   MYKOTLIBS_ossrhPassword: ${{ secrets.MYKOTLIBS_ossrhPassword }}
   MYKOTLIBS_sonatypeStagingProfileId: ${{ secrets.MYKOTLIBS_sonatypeStagingProfileId }}
 jobs:
-  update-generated-deps:
+  build-for-UbuntuLatest:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
     - id: step-0
       uses: actions/checkout@v3
@@ -29,14 +29,7 @@ jobs:
         java-version: 17
         distribution: zulu
     - id: step-2
-      name: MaintenanceTests.updateGeneratedDeps
+      name: Build
       uses: gradle/gradle-build-action@v2
       with:
-        arguments: test --tests MaintenanceTests.updateGeneratedDeps
-      env:
-        UPDATE_GENERATED_DEPS: true
-    - id: step-3
-      name: Commit
-      uses: EndBug/add-and-commit@v9
-      with:
-        add: src/main/kotlin/deps/DepsNew.kt
+        arguments: build

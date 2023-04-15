@@ -65,6 +65,7 @@ fun injectUpdateGeneratedDepsWorkflowToDepsKtRepo() {
     val workflow = workflow(
         name = "Update Generated Deps",
         on = listOf(Schedule(listOf(everyMondayAt8am)), WorkflowDispatch()),
+        env = myEnv,
         targetFileName = "update-generated-deps.yml",
     ) {
         job(
