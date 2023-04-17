@@ -1031,11 +1031,11 @@ object DepsNew {
         }
         object Rickclephas {
             object Kmp {
-                val nativecoroutines_annotations = Dep("com.rickclephas.kmp", "kmp-nativecoroutines-annotations", Ver("0.13.3", 0), Ver("1.0.0-ALPHA-6", 300))
-                val nativecoroutines_compiler = Dep("com.rickclephas.kmp", "kmp-nativecoroutines-compiler", Ver("0.13.3", 0), Ver("1.0.0-ALPHA-6", 300))
-                val nativecoroutines_compiler_embeddable = Dep("com.rickclephas.kmp", "kmp-nativecoroutines-compiler-embeddable", Ver("0.13.3", 0), Ver("1.0.0-ALPHA-6", 300))
-                val nativecoroutines_core = Dep("com.rickclephas.kmp", "kmp-nativecoroutines-core", Ver("0.13.3", 0), Ver("1.0.0-ALPHA-6", 300))
-                val nativecoroutines_gradle_plugin = Dep("com.rickclephas.kmp", "kmp-nativecoroutines-gradle-plugin", Ver("0.13.3", 0), Ver("1.0.0-ALPHA-6", 300))
+                val nativecoroutines_annotations = Dep("com.rickclephas.kmp", "kmp-nativecoroutines-annotations", Ver("0.13.3", 0), Ver("1.0.0-ALPHA-6", 300), Ver("1.0.0-ALPHA-7", 300))
+                val nativecoroutines_compiler = Dep("com.rickclephas.kmp", "kmp-nativecoroutines-compiler", Ver("0.13.3", 0), Ver("1.0.0-ALPHA-7", 300))
+                val nativecoroutines_compiler_embeddable = Dep("com.rickclephas.kmp", "kmp-nativecoroutines-compiler-embeddable", Ver("0.13.3", 0), Ver("1.0.0-ALPHA-7", 300))
+                val nativecoroutines_core = Dep("com.rickclephas.kmp", "kmp-nativecoroutines-core", Ver("0.13.3", 0), Ver("1.0.0-ALPHA-6", 300), Ver("1.0.0-ALPHA-7", 300))
+                val nativecoroutines_gradle_plugin = Dep("com.rickclephas.kmp", "kmp-nativecoroutines-gradle-plugin", Ver("0.13.3", 0), Ver("1.0.0-ALPHA-7", 300))
             }
         }
         object Russhwolf {
@@ -1214,22 +1214,22 @@ object DepsNew {
         object Kotest {
             val assertions_arrow = Dep("io.kotest", "kotest-assertions-arrow", Ver("4.4.3", 0))
             val assertions_compiler = Dep("io.kotest", "kotest-assertions-compiler", Ver("4.6.4", 0), Ver("5.0.0.M3", 120))
-            val assertions_core = Dep("io.kotest", "kotest-assertions-core", Ver("5.5.5", 0))
-            val assertions_json = Dep("io.kotest", "kotest-assertions-json", Ver("5.5.5", 0))
+            val assertions_core = Dep("io.kotest", "kotest-assertions-core", Ver("5.5.5", 0), Ver("5.6.0", 0))
+            val assertions_json = Dep("io.kotest", "kotest-assertions-json", Ver("5.5.5", 0), Ver("5.6.0", 0))
             val assertions_jsoup = Dep("io.kotest", "kotest-assertions-jsoup", Ver("4.4.3", 0))
             val assertions_klock = Dep("io.kotest", "kotest-assertions-klock", Ver("4.4.3", 0))
             val assertions_konform = Dep("io.kotest", "kotest-assertions-konform", Ver("4.4.3", 0))
             val assertions_kotlinx_time = Dep("io.kotest", "kotest-assertions-kotlinx-time", Ver("4.4.3", 0))
             val assertions_ktor = Dep("io.kotest", "kotest-assertions-ktor", Ver("4.4.3", 0))
-            val assertions_sql = Dep("io.kotest", "kotest-assertions-sql", Ver("5.5.5", 0))
+            val assertions_sql = Dep("io.kotest", "kotest-assertions-sql", Ver("5.6.0", 0))
             val core = Dep("io.kotest", "kotest-core", Ver("4.1.3", 0), Ver("4.2.0.RC2", 100))
-            val framework_api = Dep("io.kotest", "kotest-framework-api", Ver("5.5.5", 0))
-            val framework_datatest = Dep("io.kotest", "kotest-framework-datatest", Ver("5.5.5", 0))
+            val framework_api = Dep("io.kotest", "kotest-framework-api", Ver("5.5.5", 0), Ver("5.6.0", 0))
+            val framework_datatest = Dep("io.kotest", "kotest-framework-datatest", Ver("5.5.5", 0), Ver("5.6.0", 0))
             val plugins_pitest = Dep("io.kotest", "kotest-plugins-pitest", Ver("4.4.3", 0))
-            val property = Dep("io.kotest", "kotest-property", Ver("5.5.5", 0))
+            val property = Dep("io.kotest", "kotest-property", Ver("5.5.5", 0), Ver("5.6.0", 0))
             val property_arrow = Dep("io.kotest", "kotest-property-arrow", Ver("4.4.3", 0))
-            val runner_junit4 = Dep("io.kotest", "kotest-runner-junit4", Ver("5.5.5", 0))
-            val runner_junit5 = Dep("io.kotest", "kotest-runner-junit5", Ver("5.5.5", 0))
+            val runner_junit4 = Dep("io.kotest", "kotest-runner-junit4", Ver("5.5.5", 0), Ver("5.6.0", 0))
+            val runner_junit5 = Dep("io.kotest", "kotest-runner-junit5", Ver("5.5.5", 0), Ver("5.6.0", 0))
             object Extensions {
                 val kotest_extensions_allure = Dep("io.kotest.extensions", "kotest-extensions-allure", Ver("1.2.0", 0))
                 val kotest_extensions_embedded_kafka = Dep("io.kotest.extensions", "kotest-extensions-embedded-kafka", Ver("1.0.6", 0))
@@ -1656,7 +1656,7 @@ object DepsNew {
                 val spring_cloud_starter_netflix_turbine_stream = Dep("org.springframework.cloud", "spring-cloud-starter-netflix-turbine-stream", Ver("2.2.10.RELEASE", 0))
                 val spring_cloud_starter_netflix_zuul = Dep("org.springframework.cloud", "spring-cloud-starter-netflix-zuul", Ver("2.2.10.RELEASE", 0))
                 val spring_cloud_starter_oauth2 = Dep("org.springframework.cloud", "spring-cloud-starter-oauth2", Ver("2.2.5.RELEASE", 0))
-                val spring_cloud_starter_open_service_broker = Dep("org.springframework.cloud", "spring-cloud-starter-open-service-broker", Ver("3.6.1", 0), Ver("4.0.0", 0))
+                val spring_cloud_starter_open_service_broker = Dep("org.springframework.cloud", "spring-cloud-starter-open-service-broker", Ver("4.0.0", 0))
                 val spring_cloud_starter_openfeign = Dep("org.springframework.cloud", "spring-cloud-starter-openfeign", Ver("4.0.2", 0))
                 val spring_cloud_starter_security = Dep("org.springframework.cloud", "spring-cloud-starter-security", Ver("2.2.5.RELEASE", 0))
                 val spring_cloud_starter_sleuth = Dep("org.springframework.cloud", "spring-cloud-starter-sleuth", Ver("3.1.7", 0))
@@ -1671,7 +1671,7 @@ object DepsNew {
                 val spring_cloud_stream_binder_rabbit = Dep("org.springframework.cloud", "spring-cloud-stream-binder-rabbit", Ver("4.0.2", 0))
             }
             object Data {
-                val spring_data_rest_hal_explorer = Dep("org.springframework.data", "spring-data-rest-hal-explorer", Ver("4.0.4", 0), Ver("4.0.5", 0))
+                val spring_data_rest_hal_explorer = Dep("org.springframework.data", "spring-data-rest-hal-explorer", Ver("4.0.5", 0))
             }
             object Geode {
                 val spring_geode_bom = Dep("org.springframework.geode", "spring-geode-bom", Ver("1.7.5", 0))
