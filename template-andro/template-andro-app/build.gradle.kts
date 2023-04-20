@@ -243,14 +243,14 @@ fun MutableSet<String>.defaultAndroExcludedResources() = addAll(
     )
 )
 
-fun CommonExtension<*, *, *, *>.defaultCompileOptions(
+fun CommonExtension<*, *, *, *, *>.defaultCompileOptions(
     jvmVersion: String = vers.defaultJvm,
 ) = compileOptions {
     sourceCompatibility(jvmVersion)
     targetCompatibility(jvmVersion)
 }
 
-fun CommonExtension<*, *, *, *>.defaultComposeStuff(withComposeCompilerVer: String? = null) {
+fun CommonExtension<*, *, *, *, *>.defaultComposeStuff(withComposeCompilerVer: String? = null) {
     buildFeatures {
         compose = true
     }
@@ -259,7 +259,7 @@ fun CommonExtension<*, *, *, *>.defaultComposeStuff(withComposeCompilerVer: Stri
     }
 }
 
-fun CommonExtension<*, *, *, *>.defaultPackagingOptions() = packagingOptions {
+fun CommonExtension<*, *, *, *, *>.defaultPackagingOptions() = packagingOptions {
     resources.excludes.defaultAndroExcludedResources()
 }
 
