@@ -300,9 +300,9 @@ object DepsNew {
 
     object AndroidX {
         object Activity {
-            val activity = Dep("androidx.activity", "activity", Ver("1.7.0", 0), Ver("1.8.0-alpha03", 300))
-            val compose = Dep("androidx.activity", "activity-compose", Ver("1.7.0", 0), Ver("1.8.0-alpha03", 300))
-            val ktx = Dep("androidx.activity", "activity-ktx", Ver("1.7.0", 0), Ver("1.8.0-alpha03", 300))
+            val activity = Dep("androidx.activity", "activity", Ver("1.7.1", 0), Ver("1.8.0-alpha03", 300))
+            val compose = Dep("androidx.activity", "activity-compose", Ver("1.7.1", 0), Ver("1.8.0-alpha03", 300))
+            val ktx = Dep("androidx.activity", "activity-ktx", Ver("1.7.1", 0), Ver("1.8.0-alpha03", 300))
         }
         object Annotation {
             val annotation = Dep("androidx.annotation", "annotation", Ver("1.6.0", 0), Ver("1.7.0-alpha02", 300))
@@ -348,13 +348,13 @@ object DepsNew {
             val browser = Dep("androidx.browser", "browser", Ver("1.5.0", 0))
         }
         object Camera {
-            val camera2 = Dep("androidx.camera", "camera-camera2", Ver("1.2.2", 0), Ver("1.3.0-alpha05", 300))
-            val core = Dep("androidx.camera", "camera-core", Ver("1.2.2", 0), Ver("1.3.0-alpha05", 300))
-            val extensions = Dep("androidx.camera", "camera-extensions", Ver("1.2.2", 0), Ver("1.3.0-alpha05", 300))
-            val lifecycle = Dep("androidx.camera", "camera-lifecycle", Ver("1.2.2", 0), Ver("1.3.0-alpha05", 300))
-            val mlkit_vision = Dep("androidx.camera", "camera-mlkit-vision", Ver("1.2.0-beta02", 200), Ver("1.3.0-alpha05", 300))
-            val video = Dep("androidx.camera", "camera-video", Ver("1.2.2", 0), Ver("1.3.0-alpha05", 300))
-            val view = Dep("androidx.camera", "camera-view", Ver("1.2.2", 0), Ver("1.3.0-alpha05", 300))
+            val camera2 = Dep("androidx.camera", "camera-camera2", Ver("1.2.2", 0), Ver("1.3.0-alpha06", 300))
+            val core = Dep("androidx.camera", "camera-core", Ver("1.2.2", 0), Ver("1.3.0-alpha06", 300))
+            val extensions = Dep("androidx.camera", "camera-extensions", Ver("1.2.2", 0), Ver("1.3.0-alpha06", 300))
+            val lifecycle = Dep("androidx.camera", "camera-lifecycle", Ver("1.2.2", 0), Ver("1.3.0-alpha06", 300))
+            val mlkit_vision = Dep("androidx.camera", "camera-mlkit-vision", Ver("1.2.0-beta02", 200), Ver("1.3.0-alpha06", 300))
+            val video = Dep("androidx.camera", "camera-video", Ver("1.2.2", 0), Ver("1.3.0-alpha06", 300))
+            val view = Dep("androidx.camera", "camera-view", Ver("1.2.2", 0), Ver("1.3.0-alpha06", 300))
         }
         object Car {
             object App {
@@ -372,53 +372,53 @@ object DepsNew {
             val ktx = Dep("androidx.collection", "collection-ktx", Ver("1.2.0", 0), Ver("1.3.0-alpha04", 300))
         }
         object Compose {
-            val bom = Dep("androidx.compose", "compose-bom", Ver("2023.04.00", 0))
+            val bom = Dep("androidx.compose", "compose-bom", Ver("2023.04.01", 0))
             object Animation {
-                val animation = Dep("androidx.compose.animation", "animation", Ver("1.4.1", 0), Ver("1.5.0-alpha02", 300))
-                val core = Dep("androidx.compose.animation", "animation-core", Ver("1.4.1", 0), Ver("1.5.0-alpha02", 300))
-                val graphics = Dep("androidx.compose.animation", "animation-graphics", Ver("1.4.1", 0), Ver("1.5.0-alpha02", 300))
+                val animation = Dep("androidx.compose.animation", "animation", Ver("1.4.2", 0), Ver("1.5.0-alpha03", 300))
+                val core = Dep("androidx.compose.animation", "animation-core", Ver("1.4.2", 0), Ver("1.5.0-alpha03", 300))
+                val graphics = Dep("androidx.compose.animation", "animation-graphics", Ver("1.4.2", 0), Ver("1.5.0-alpha03", 300))
             }
             object Compiler {
-                val compiler = Dep("androidx.compose.compiler", "compiler", Ver("1.4.5", 0))
+                val compiler = Dep("androidx.compose.compiler", "compiler", Ver("1.4.6", 0))
             }
             object Foundation {
-                val foundation = Dep("androidx.compose.foundation", "foundation", Ver("1.4.1", 0), Ver("1.5.0-alpha02", 300))
-                val layout = Dep("androidx.compose.foundation", "foundation-layout", Ver("1.4.1", 0), Ver("1.5.0-alpha02", 300))
+                val foundation = Dep("androidx.compose.foundation", "foundation", Ver("1.4.2", 0), Ver("1.5.0-alpha03", 300))
+                val layout = Dep("androidx.compose.foundation", "foundation-layout", Ver("1.4.2", 0), Ver("1.5.0-alpha03", 300))
             }
             object Material {
-                val icons_core = Dep("androidx.compose.material", "material-icons-core", Ver("1.4.1", 0), Ver("1.5.0-alpha02", 300))
-                val icons_extended = Dep("androidx.compose.material", "material-icons-extended", Ver("1.4.1", 0), Ver("1.5.0-alpha02", 300))
-                val material = Dep("androidx.compose.material", "material", Ver("1.4.1", 0), Ver("1.5.0-alpha02", 300))
-                val ripple = Dep("androidx.compose.material", "material-ripple", Ver("1.4.1", 0), Ver("1.5.0-alpha02", 300))
+                val icons_core = Dep("androidx.compose.material", "material-icons-core", Ver("1.4.2", 0), Ver("1.5.0-alpha03", 300))
+                val icons_extended = Dep("androidx.compose.material", "material-icons-extended", Ver("1.4.2", 0), Ver("1.5.0-alpha03", 300))
+                val material = Dep("androidx.compose.material", "material", Ver("1.4.2", 0), Ver("1.5.0-alpha03", 300))
+                val ripple = Dep("androidx.compose.material", "material-ripple", Ver("1.4.2", 0), Ver("1.5.0-alpha03", 300))
             }
             object Material3 {
-                val material3 = Dep("androidx.compose.material3", "material3", Ver("1.0.1", 0), Ver("1.1.0-beta02", 200))
-                val window_size_class = Dep("androidx.compose.material3", "material3-window-size-class", Ver("1.0.1", 0), Ver("1.1.0-beta02", 200))
+                val material3 = Dep("androidx.compose.material3", "material3", Ver("1.0.1", 0), Ver("1.1.0-rc01", 100))
+                val window_size_class = Dep("androidx.compose.material3", "material3-window-size-class", Ver("1.0.1", 0), Ver("1.1.0-rc01", 100))
             }
             object Runtime {
                 val dispatch = Dep("androidx.compose.runtime", "runtime-dispatch", Ver("1.0.0-alpha12", 300))
-                val livedata = Dep("androidx.compose.runtime", "runtime-livedata", Ver("1.4.1", 0), Ver("1.5.0-alpha02", 300))
-                val runtime = Dep("androidx.compose.runtime", "runtime", Ver("1.4.1", 0), Ver("1.5.0-alpha02", 300))
-                val rxjava2 = Dep("androidx.compose.runtime", "runtime-rxjava2", Ver("1.4.1", 0), Ver("1.5.0-alpha02", 300))
-                val rxjava3 = Dep("androidx.compose.runtime", "runtime-rxjava3", Ver("1.4.1", 0), Ver("1.5.0-alpha02", 300))
-                val saveable = Dep("androidx.compose.runtime", "runtime-saveable", Ver("1.4.1", 0), Ver("1.5.0-alpha02", 300))
+                val livedata = Dep("androidx.compose.runtime", "runtime-livedata", Ver("1.4.2", 0), Ver("1.5.0-alpha03", 300))
+                val runtime = Dep("androidx.compose.runtime", "runtime", Ver("1.4.2", 0), Ver("1.5.0-alpha03", 300))
+                val rxjava2 = Dep("androidx.compose.runtime", "runtime-rxjava2", Ver("1.4.2", 0), Ver("1.5.0-alpha03", 300))
+                val rxjava3 = Dep("androidx.compose.runtime", "runtime-rxjava3", Ver("1.4.2", 0), Ver("1.5.0-alpha03", 300))
+                val saveable = Dep("androidx.compose.runtime", "runtime-saveable", Ver("1.4.2", 0), Ver("1.5.0-alpha03", 300))
                 val tracing = Dep("androidx.compose.runtime", "runtime-tracing", Ver("1.0.0-alpha03", 300))
             }
             object Ui {
-                val geometry = Dep("androidx.compose.ui", "ui-geometry", Ver("1.4.1", 0), Ver("1.5.0-alpha02", 300))
-                val graphics = Dep("androidx.compose.ui", "ui-graphics", Ver("1.4.1", 0), Ver("1.5.0-alpha02", 300))
-                val test = Dep("androidx.compose.ui", "ui-test", Ver("1.4.1", 0), Ver("1.5.0-alpha02", 300))
-                val test_junit4 = Dep("androidx.compose.ui", "ui-test-junit4", Ver("1.4.1", 0), Ver("1.5.0-alpha02", 300))
-                val test_manifest = Dep("androidx.compose.ui", "ui-test-manifest", Ver("1.4.1", 0), Ver("1.5.0-alpha02", 300))
-                val text = Dep("androidx.compose.ui", "ui-text", Ver("1.4.1", 0), Ver("1.5.0-alpha02", 300))
-                val text_google_fonts = Dep("androidx.compose.ui", "ui-text-google-fonts", Ver("1.4.1", 0), Ver("1.5.0-alpha02", 300))
-                val tooling = Dep("androidx.compose.ui", "ui-tooling", Ver("1.4.1", 0), Ver("1.5.0-alpha02", 300))
-                val tooling_data = Dep("androidx.compose.ui", "ui-tooling-data", Ver("1.4.1", 0), Ver("1.5.0-alpha02", 300))
-                val tooling_preview = Dep("androidx.compose.ui", "ui-tooling-preview", Ver("1.4.1", 0), Ver("1.5.0-alpha02", 300))
-                val ui = Dep("androidx.compose.ui", "ui", Ver("1.4.1", 0), Ver("1.5.0-alpha02", 300))
-                val unit = Dep("androidx.compose.ui", "ui-unit", Ver("1.4.1", 0), Ver("1.5.0-alpha02", 300))
-                val util = Dep("androidx.compose.ui", "ui-util", Ver("1.4.1", 0), Ver("1.5.0-alpha02", 300))
-                val viewbinding = Dep("androidx.compose.ui", "ui-viewbinding", Ver("1.4.1", 0), Ver("1.5.0-alpha02", 300))
+                val geometry = Dep("androidx.compose.ui", "ui-geometry", Ver("1.4.2", 0), Ver("1.5.0-alpha03", 300))
+                val graphics = Dep("androidx.compose.ui", "ui-graphics", Ver("1.4.2", 0), Ver("1.5.0-alpha03", 300))
+                val test = Dep("androidx.compose.ui", "ui-test", Ver("1.4.2", 0), Ver("1.5.0-alpha03", 300))
+                val test_junit4 = Dep("androidx.compose.ui", "ui-test-junit4", Ver("1.4.2", 0), Ver("1.5.0-alpha03", 300))
+                val test_manifest = Dep("androidx.compose.ui", "ui-test-manifest", Ver("1.4.2", 0), Ver("1.5.0-alpha03", 300))
+                val text = Dep("androidx.compose.ui", "ui-text", Ver("1.4.2", 0), Ver("1.5.0-alpha03", 300))
+                val text_google_fonts = Dep("androidx.compose.ui", "ui-text-google-fonts", Ver("1.4.2", 0), Ver("1.5.0-alpha03", 300))
+                val tooling = Dep("androidx.compose.ui", "ui-tooling", Ver("1.4.2", 0), Ver("1.5.0-alpha03", 300))
+                val tooling_data = Dep("androidx.compose.ui", "ui-tooling-data", Ver("1.4.2", 0), Ver("1.5.0-alpha03", 300))
+                val tooling_preview = Dep("androidx.compose.ui", "ui-tooling-preview", Ver("1.4.2", 0), Ver("1.5.0-alpha03", 300))
+                val ui = Dep("androidx.compose.ui", "ui", Ver("1.4.2", 0), Ver("1.5.0-alpha03", 300))
+                val unit = Dep("androidx.compose.ui", "ui-unit", Ver("1.4.2", 0), Ver("1.5.0-alpha03", 300))
+                val util = Dep("androidx.compose.ui", "ui-util", Ver("1.4.2", 0), Ver("1.5.0-alpha03", 300))
+                val viewbinding = Dep("androidx.compose.ui", "ui-viewbinding", Ver("1.4.2", 0), Ver("1.5.0-alpha03", 300))
             }
         }
         object Concurrent {
@@ -444,7 +444,7 @@ object DepsNew {
             val performance = Dep("androidx.core", "core-performance", Ver("1.0.0-alpha02", 300))
             val remoteviews = Dep("androidx.core", "core-remoteviews", Ver("1.0.0-beta03", 200))
             val role = Dep("androidx.core", "core-role", Ver("1.0.0", 0), Ver("1.1.0-rc01", 100))
-            val splashscreen = Dep("androidx.core", "core-splashscreen", Ver("1.0.0", 0), Ver("1.1.0-alpha01", 300))
+            val splashscreen = Dep("androidx.core", "core-splashscreen", Ver("1.0.1", 0), Ver("1.1.0-alpha01", 300))
             object Uwb {
                 val rxjava3 = Dep("androidx.core.uwb", "uwb-rxjava3", Ver("1.0.0-alpha05", 300))
                 val uwb = Dep("androidx.core.uwb", "uwb", Ver("1.0.0-alpha05", 300))
@@ -487,10 +487,10 @@ object DepsNew {
             val emoji = Dep("androidx.emoji", "emoji", Ver("1.1.0", 0), Ver("1.2.0-alpha03", 300))
         }
         object Emoji2 {
-            val bundled = Dep("androidx.emoji2", "emoji2-bundled", Ver("1.3.0", 0), Ver("1.4.0-beta01", 200))
-            val emoji2 = Dep("androidx.emoji2", "emoji2", Ver("1.3.0", 0), Ver("1.4.0-beta01", 200))
-            val views = Dep("androidx.emoji2", "emoji2-views", Ver("1.3.0", 0), Ver("1.4.0-beta01", 200))
-            val views_helper = Dep("androidx.emoji2", "emoji2-views-helper", Ver("1.3.0", 0), Ver("1.4.0-beta01", 200))
+            val bundled = Dep("androidx.emoji2", "emoji2-bundled", Ver("1.3.0", 0), Ver("1.4.0-beta02", 200))
+            val emoji2 = Dep("androidx.emoji2", "emoji2", Ver("1.3.0", 0), Ver("1.4.0-beta02", 200))
+            val views = Dep("androidx.emoji2", "emoji2-views", Ver("1.3.0", 0), Ver("1.4.0-beta02", 200))
+            val views_helper = Dep("androidx.emoji2", "emoji2-views-helper", Ver("1.3.0", 0), Ver("1.4.0-beta02", 200))
         }
         object Enterprise {
             val feedback = Dep("androidx.enterprise", "enterprise-feedback", Ver("1.1.0", 0))
@@ -500,15 +500,15 @@ object DepsNew {
             val exifinterface = Dep("androidx.exifinterface", "exifinterface", Ver("1.3.6", 0))
         }
         object Fragment {
-            val fragment = Dep("androidx.fragment", "fragment", Ver("1.5.6", 0), Ver("1.6.0-alpha09", 300))
-            val ktx = Dep("androidx.fragment", "fragment-ktx", Ver("1.5.6", 0), Ver("1.6.0-alpha09", 300))
-            val testing = Dep("androidx.fragment", "fragment-testing", Ver("1.5.6", 0), Ver("1.6.0-alpha09", 300))
+            val fragment = Dep("androidx.fragment", "fragment", Ver("1.5.7", 0), Ver("1.6.0-beta01", 200))
+            val ktx = Dep("androidx.fragment", "fragment-ktx", Ver("1.5.7", 0), Ver("1.6.0-beta01", 200))
+            val testing = Dep("androidx.fragment", "fragment-testing", Ver("1.5.7", 0), Ver("1.6.0-beta01", 200))
         }
         object Games {
             val activity = Dep("androidx.games", "games-activity", Ver("2.0.1", 0))
             val controller = Dep("androidx.games", "games-controller", Ver("2.0.0", 0))
             val frame_pacing = Dep("androidx.games", "games-frame-pacing", Ver("2.0.0", 0), Ver("2.1.0-alpha01", 300))
-            val performance_tuner = Dep("androidx.games", "games-performance-tuner", Ver("1.6.0", 0), Ver("2.0.0-alpha03", 300))
+            val performance_tuner = Dep("androidx.games", "games-performance-tuner", Ver("1.6.0", 0), Ver("2.0.0-alpha04", 300))
             val text_input = Dep("androidx.games", "games-text-input", Ver("2.0.0", 0))
         }
         object Glance {
@@ -534,7 +534,7 @@ object DepsNew {
         object Hilt {
             val compiler = Dep("androidx.hilt", "hilt-compiler", Ver("1.0.0", 0))
             val navigation_compose = Dep("androidx.hilt", "hilt-navigation-compose", Ver("1.0.0", 0), Ver("1.1.0-alpha01", 300))
-            val navigation_fragment = Dep("androidx.hilt", "hilt-navigation-fragment", Ver("1.0.0", 0))
+            val navigation_fragment = Dep("androidx.hilt", "hilt-navigation-fragment", Ver("1.0.0", 0), Ver("1.1.0-alpha02", 300))
             val work = Dep("androidx.hilt", "hilt-work", Ver("1.0.0", 0))
         }
         object Input {
@@ -590,30 +590,30 @@ object DepsNew {
             val widget = Dep("androidx.media2", "media2-widget", Ver("1.2.1", 0))
         }
         object Media3 {
-            val cast = Dep("androidx.media3", "media3-cast", Ver("1.0.0", 0))
-            val common = Dep("androidx.media3", "media3-common", Ver("1.0.0", 0))
-            val database = Dep("androidx.media3", "media3-database", Ver("1.0.0", 0))
-            val datasource = Dep("androidx.media3", "media3-datasource", Ver("1.0.0", 0))
-            val datasource_cronet = Dep("androidx.media3", "media3-datasource-cronet", Ver("1.0.0", 0))
-            val datasource_okhttp = Dep("androidx.media3", "media3-datasource-okhttp", Ver("1.0.0", 0))
-            val datasource_rtmp = Dep("androidx.media3", "media3-datasource-rtmp", Ver("1.0.0", 0))
-            val decoder = Dep("androidx.media3", "media3-decoder", Ver("1.0.0", 0))
-            val exoplayer = Dep("androidx.media3", "media3-exoplayer", Ver("1.0.0", 0))
-            val exoplayer_dash = Dep("androidx.media3", "media3-exoplayer-dash", Ver("1.0.0", 0))
-            val exoplayer_hls = Dep("androidx.media3", "media3-exoplayer-hls", Ver("1.0.0", 0))
-            val exoplayer_ima = Dep("androidx.media3", "media3-exoplayer-ima", Ver("1.0.0", 0))
-            val exoplayer_rtsp = Dep("androidx.media3", "media3-exoplayer-rtsp", Ver("1.0.0", 0))
-            val exoplayer_workmanager = Dep("androidx.media3", "media3-exoplayer-workmanager", Ver("1.0.0", 0))
-            val extractor = Dep("androidx.media3", "media3-extractor", Ver("1.0.0", 0))
-            val session = Dep("androidx.media3", "media3-session", Ver("1.0.0", 0))
-            val test_utils = Dep("androidx.media3", "media3-test-utils", Ver("1.0.0", 0))
-            val test_utils_robolectric = Dep("androidx.media3", "media3-test-utils-robolectric", Ver("1.0.0", 0))
-            val transformer = Dep("androidx.media3", "media3-transformer", Ver("1.0.0", 0))
-            val ui = Dep("androidx.media3", "media3-ui", Ver("1.0.0", 0))
-            val ui_leanback = Dep("androidx.media3", "media3-ui-leanback", Ver("1.0.0", 0))
+            val cast = Dep("androidx.media3", "media3-cast", Ver("1.0.1", 0))
+            val common = Dep("androidx.media3", "media3-common", Ver("1.0.1", 0))
+            val database = Dep("androidx.media3", "media3-database", Ver("1.0.1", 0))
+            val datasource = Dep("androidx.media3", "media3-datasource", Ver("1.0.1", 0))
+            val datasource_cronet = Dep("androidx.media3", "media3-datasource-cronet", Ver("1.0.1", 0))
+            val datasource_okhttp = Dep("androidx.media3", "media3-datasource-okhttp", Ver("1.0.1", 0))
+            val datasource_rtmp = Dep("androidx.media3", "media3-datasource-rtmp", Ver("1.0.1", 0))
+            val decoder = Dep("androidx.media3", "media3-decoder", Ver("1.0.1", 0))
+            val exoplayer = Dep("androidx.media3", "media3-exoplayer", Ver("1.0.1", 0))
+            val exoplayer_dash = Dep("androidx.media3", "media3-exoplayer-dash", Ver("1.0.1", 0))
+            val exoplayer_hls = Dep("androidx.media3", "media3-exoplayer-hls", Ver("1.0.1", 0))
+            val exoplayer_ima = Dep("androidx.media3", "media3-exoplayer-ima", Ver("1.0.1", 0))
+            val exoplayer_rtsp = Dep("androidx.media3", "media3-exoplayer-rtsp", Ver("1.0.1", 0))
+            val exoplayer_workmanager = Dep("androidx.media3", "media3-exoplayer-workmanager", Ver("1.0.1", 0))
+            val extractor = Dep("androidx.media3", "media3-extractor", Ver("1.0.1", 0))
+            val session = Dep("androidx.media3", "media3-session", Ver("1.0.1", 0))
+            val test_utils = Dep("androidx.media3", "media3-test-utils", Ver("1.0.1", 0))
+            val test_utils_robolectric = Dep("androidx.media3", "media3-test-utils-robolectric", Ver("1.0.1", 0))
+            val transformer = Dep("androidx.media3", "media3-transformer", Ver("1.0.1", 0))
+            val ui = Dep("androidx.media3", "media3-ui", Ver("1.0.1", 0))
+            val ui_leanback = Dep("androidx.media3", "media3-ui-leanback", Ver("1.0.1", 0))
         }
         object MediaRouter {
-            val mediarouter = Dep("androidx.mediarouter", "mediarouter", Ver("1.3.1", 0), Ver("1.4.0-rc01", 100), Ver("1.6.0-alpha02", 300))
+            val mediarouter = Dep("androidx.mediarouter", "mediarouter", Ver("1.3.1", 0), Ver("1.4.0-rc01", 100), Ver("1.6.0-alpha03", 300))
         }
         object Metrics {
             val performance = Dep("androidx.metrics", "metrics-performance", Ver("1.0.0-alpha04", 300))
@@ -623,19 +623,19 @@ object DepsNew {
             val multidex = Dep("androidx.multidex", "multidex", Ver("2.0.1", 0))
         }
         object Navigation {
-            val common = Dep("androidx.navigation", "navigation-common", Ver("2.5.3", 0), Ver("2.6.0-alpha09", 300))
-            val common_ktx = Dep("androidx.navigation", "navigation-common-ktx", Ver("2.5.3", 0), Ver("2.6.0-alpha09", 300))
-            val compose = Dep("androidx.navigation", "navigation-compose", Ver("2.5.3", 0), Ver("2.6.0-alpha09", 300))
-            val dynamic_features_fragment = Dep("androidx.navigation", "navigation-dynamic-features-fragment", Ver("2.5.3", 0), Ver("2.6.0-alpha09", 300))
-            val fragment = Dep("androidx.navigation", "navigation-fragment", Ver("2.5.3", 0), Ver("2.6.0-alpha09", 300))
-            val fragment_ktx = Dep("androidx.navigation", "navigation-fragment-ktx", Ver("2.5.3", 0), Ver("2.6.0-alpha09", 300))
-            val runtime = Dep("androidx.navigation", "navigation-runtime", Ver("2.5.3", 0), Ver("2.6.0-alpha09", 300))
-            val runtime_ktx = Dep("androidx.navigation", "navigation-runtime-ktx", Ver("2.5.3", 0), Ver("2.6.0-alpha09", 300))
-            val safe_args_generator = Dep("androidx.navigation", "navigation-safe-args-generator", Ver("2.5.3", 0), Ver("2.6.0-alpha09", 300))
-            val safe_args_gradle_plugin = Dep("androidx.navigation", "navigation-safe-args-gradle-plugin", Ver("2.5.3", 0), Ver("2.6.0-alpha09", 300))
-            val testing = Dep("androidx.navigation", "navigation-testing", Ver("2.5.3", 0), Ver("2.6.0-alpha09", 300))
-            val ui = Dep("androidx.navigation", "navigation-ui", Ver("2.5.3", 0), Ver("2.6.0-alpha09", 300))
-            val ui_ktx = Dep("androidx.navigation", "navigation-ui-ktx", Ver("2.5.3", 0), Ver("2.6.0-alpha09", 300))
+            val common = Dep("androidx.navigation", "navigation-common", Ver("2.5.3", 0), Ver("2.6.0-beta01", 200))
+            val common_ktx = Dep("androidx.navigation", "navigation-common-ktx", Ver("2.5.3", 0), Ver("2.6.0-beta01", 200))
+            val compose = Dep("androidx.navigation", "navigation-compose", Ver("2.5.3", 0), Ver("2.6.0-beta01", 200))
+            val dynamic_features_fragment = Dep("androidx.navigation", "navigation-dynamic-features-fragment", Ver("2.5.3", 0), Ver("2.6.0-beta01", 200))
+            val fragment = Dep("androidx.navigation", "navigation-fragment", Ver("2.5.3", 0), Ver("2.6.0-beta01", 200))
+            val fragment_ktx = Dep("androidx.navigation", "navigation-fragment-ktx", Ver("2.5.3", 0), Ver("2.6.0-beta01", 200))
+            val runtime = Dep("androidx.navigation", "navigation-runtime", Ver("2.5.3", 0), Ver("2.6.0-beta01", 200))
+            val runtime_ktx = Dep("androidx.navigation", "navigation-runtime-ktx", Ver("2.5.3", 0), Ver("2.6.0-beta01", 200))
+            val safe_args_generator = Dep("androidx.navigation", "navigation-safe-args-generator", Ver("2.5.3", 0), Ver("2.6.0-beta01", 200))
+            val safe_args_gradle_plugin = Dep("androidx.navigation", "navigation-safe-args-gradle-plugin", Ver("2.5.3", 0), Ver("2.6.0-beta01", 200))
+            val testing = Dep("androidx.navigation", "navigation-testing", Ver("2.5.3", 0), Ver("2.6.0-beta01", 200))
+            val ui = Dep("androidx.navigation", "navigation-ui", Ver("2.5.3", 0), Ver("2.6.0-beta01", 200))
+            val ui_ktx = Dep("androidx.navigation", "navigation-ui-ktx", Ver("2.5.3", 0), Ver("2.6.0-beta01", 200))
         }
         object Paging {
             val common = Dep("androidx.paging", "paging-common", Ver("3.1.1", 0), Ver("3.2.0-alpha04", 300))
@@ -652,6 +652,9 @@ object DepsNew {
         object Palette {
             val ktx = Dep("androidx.palette", "palette-ktx", Ver("1.0.0", 0))
             val palette = Dep("androidx.palette", "palette", Ver("1.0.0", 0))
+        }
+        object PercentLayout {
+            val percentlayout = Dep("androidx.percentlayout", "percentlayout", Ver("1.0.0", 0))
         }
         object Preference {
             val ktx = Dep("androidx.preference", "preference-ktx", Ver("1.2.0", 0))
@@ -692,8 +695,8 @@ object DepsNew {
         object Security {
             val app_authenticator = Dep("androidx.security", "security-app-authenticator", Ver("1.0.0-alpha02", 300))
             val app_authenticator_testing = Dep("androidx.security", "security-app-authenticator-testing", Ver("1.0.0-alpha01", 300))
-            val crypto = Dep("androidx.security", "security-crypto", Ver("1.0.0", 0), Ver("1.1.0-alpha05", 300))
-            val crypto_ktx = Dep("androidx.security", "security-crypto-ktx", Ver("1.1.0-alpha05", 300))
+            val crypto = Dep("androidx.security", "security-crypto", Ver("1.0.0", 0), Ver("1.1.0-alpha06", 300))
+            val crypto_ktx = Dep("androidx.security", "security-crypto-ktx", Ver("1.1.0-alpha06", 300))
             val identity_credential = Dep("androidx.security", "security-identity-credential", Ver("1.0.0-alpha03", 300))
         }
         object ShareTarget {
@@ -749,8 +752,8 @@ object DepsNew {
             object Services {
                 val test_services = Dep("androidx.test.services", "test-services", Ver("1.4.2", 0), Ver("1.5.0-alpha01", 300))
             }
-            object Uiautomator {
-                val uiautomator = Dep("androidx.test.uiautomator", "uiautomator", Ver("2.2.0", 0), Ver("2.3.0-alpha02", 300))
+            object UiAutoMator {
+                val uiautomator = Dep("androidx.test.uiautomator", "uiautomator", Ver("2.2.0", 0), Ver("2.3.0-alpha03", 300))
             }
         }
         object TextClassifier {
@@ -766,8 +769,8 @@ object DepsNew {
             val transition = Dep("androidx.transition", "transition", Ver("1.4.1", 0))
         }
         object Tv {
-            val foundation = Dep("androidx.tv", "tv-foundation", Ver("1.0.0-alpha05", 300))
-            val material = Dep("androidx.tv", "tv-material", Ver("1.0.0-alpha05", 300))
+            val foundation = Dep("androidx.tv", "tv-foundation", Ver("1.0.0-alpha06", 300))
+            val material = Dep("androidx.tv", "tv-material", Ver("1.0.0-alpha06", 300))
         }
         object TvProvider {
             val tvprovider = Dep("androidx.tvprovider", "tvprovider", Ver("1.0.0", 0), Ver("1.1.0-alpha01", 300))
@@ -792,24 +795,24 @@ object DepsNew {
             val ongoing = Dep("androidx.wear", "wear-ongoing", Ver("1.0.0", 0))
             val phone_interactions = Dep("androidx.wear", "wear-phone-interactions", Ver("1.0.1", 0), Ver("1.1.0-alpha03", 300))
             val remote_interactions = Dep("androidx.wear", "wear-remote-interactions", Ver("1.0.0", 0))
-            val wear = Dep("androidx.wear", "wear", Ver("1.2.0", 0), Ver("1.3.0-alpha04", 300))
+            val wear = Dep("androidx.wear", "wear", Ver("1.2.0", 0), Ver("1.3.0-alpha05", 300))
             object Compose {
-                val foundation = Dep("androidx.wear.compose", "compose-foundation", Ver("1.1.2", 0), Ver("1.2.0-alpha08", 300))
-                val material = Dep("androidx.wear.compose", "compose-material", Ver("1.1.2", 0), Ver("1.2.0-alpha08", 300))
-                val navigation = Dep("androidx.wear.compose", "compose-navigation", Ver("1.1.2", 0), Ver("1.2.0-alpha08", 300))
+                val foundation = Dep("androidx.wear.compose", "compose-foundation", Ver("1.1.2", 0), Ver("1.2.0-alpha09", 300))
+                val material = Dep("androidx.wear.compose", "compose-material", Ver("1.1.2", 0), Ver("1.2.0-alpha09", 300))
+                val navigation = Dep("androidx.wear.compose", "compose-navigation", Ver("1.1.2", 0), Ver("1.2.0-alpha09", 300))
             }
             object Tiles {
-                val material = Dep("androidx.wear.tiles", "tiles-material", Ver("1.1.0", 0), Ver("1.2.0-alpha03", 300))
-                val renderer = Dep("androidx.wear.tiles", "tiles-renderer", Ver("1.1.0", 0), Ver("1.2.0-alpha03", 300))
-                val testing = Dep("androidx.wear.tiles", "tiles-testing", Ver("1.1.0", 0), Ver("1.2.0-alpha03", 300))
-                val tiles = Dep("androidx.wear.tiles", "tiles", Ver("1.1.0", 0), Ver("1.2.0-alpha03", 300))
+                val material = Dep("androidx.wear.tiles", "tiles-material", Ver("1.1.0", 0), Ver("1.2.0-alpha04", 300))
+                val renderer = Dep("androidx.wear.tiles", "tiles-renderer", Ver("1.1.0", 0), Ver("1.2.0-alpha04", 300))
+                val testing = Dep("androidx.wear.tiles", "tiles-testing", Ver("1.1.0", 0), Ver("1.2.0-alpha04", 300))
+                val tiles = Dep("androidx.wear.tiles", "tiles", Ver("1.1.0", 0), Ver("1.2.0-alpha04", 300))
             }
             object Watchface {
-                val complications_data_source = Dep("androidx.wear.watchface", "watchface-complications-data-source", Ver("1.1.1", 0), Ver("1.2.0-alpha07", 300))
-                val complications_data_source_ktx = Dep("androidx.wear.watchface", "watchface-complications-data-source-ktx", Ver("1.1.1", 0), Ver("1.2.0-alpha07", 300))
-                val complications_rendering = Dep("androidx.wear.watchface", "watchface-complications-rendering", Ver("1.1.1", 0), Ver("1.2.0-alpha07", 300))
-                val editor = Dep("androidx.wear.watchface", "watchface-editor", Ver("1.1.1", 0), Ver("1.2.0-alpha07", 300))
-                val watchface = Dep("androidx.wear.watchface", "watchface", Ver("1.1.1", 0), Ver("1.2.0-alpha07", 300))
+                val complications_data_source = Dep("androidx.wear.watchface", "watchface-complications-data-source", Ver("1.1.1", 0), Ver("1.2.0-alpha08", 300))
+                val complications_data_source_ktx = Dep("androidx.wear.watchface", "watchface-complications-data-source-ktx", Ver("1.1.1", 0), Ver("1.2.0-alpha08", 300))
+                val complications_rendering = Dep("androidx.wear.watchface", "watchface-complications-rendering", Ver("1.1.1", 0), Ver("1.2.0-alpha08", 300))
+                val editor = Dep("androidx.wear.watchface", "watchface-editor", Ver("1.1.1", 0), Ver("1.2.0-alpha08", 300))
+                val watchface = Dep("androidx.wear.watchface", "watchface", Ver("1.1.1", 0), Ver("1.2.0-alpha08", 300))
             }
         }
         object WebKit {
@@ -879,7 +882,7 @@ object DepsNew {
                 val desugar_jdk_libs = Dep("com.android.tools", "desugar_jdk_libs", Ver("2.0.3", 0))
                 val r8 = Dep("com.android.tools", "r8", Ver("8.0.40", 0))
                 object Build {
-                    val gradle = Dep("com.android.tools.build", "gradle", Ver("2.3.0", 0), Ver("2.3.3", 0), Ver("2.4.0-alpha7", 300), Ver("2.5.0-alpha-preview-02", 400), Ver("8.0.0", 0), Ver("8.1.0-alpha11", 300))
+                    val gradle = Dep("com.android.tools.build", "gradle", Ver("2.3.0", 0), Ver("2.3.3", 0), Ver("2.4.0-alpha7", 300), Ver("2.5.0-alpha-preview-02", 400), Ver("8.0.0", 0), Ver("8.1.0-beta01", 200))
                 }
             }
         }
@@ -908,15 +911,19 @@ object DepsNew {
         object Google {
             object Accompanist {
                 val appcompat_theme = Dep("com.google.accompanist", "accompanist-appcompat-theme", Ver("0.30.1", 0), Ver("0.31.0-alpha", 300))
+                val coil = Dep("com.google.accompanist", "accompanist-coil", Ver("0.15.0", 0))
                 val drawablepainter = Dep("com.google.accompanist", "accompanist-drawablepainter", Ver("0.30.1", 0), Ver("0.31.0-alpha", 300))
                 val flowlayout = Dep("com.google.accompanist", "accompanist-flowlayout", Ver("0.30.1", 0), Ver("0.31.0-alpha", 300))
+                val glide = Dep("com.google.accompanist", "accompanist-glide", Ver("0.15.0", 0))
+                val imageloading_core = Dep("com.google.accompanist", "accompanist-imageloading-core", Ver("0.15.0", 0))
                 val insets = Dep("com.google.accompanist", "accompanist-insets", Ver("0.30.1", 0), Ver("0.31.0-alpha", 300))
-                val insets_ui = Dep("com.google.accompanist", "accompanist-insets-ui", Ver("0.30.0", 0), Ver("0.30.1", 0), Ver("0.31.0-alpha", 300))
+                val insets_ui = Dep("com.google.accompanist", "accompanist-insets-ui", Ver("0.30.1", 0), Ver("0.31.0-alpha", 300))
                 val navigation_animation = Dep("com.google.accompanist", "accompanist-navigation-animation", Ver("0.30.1", 0), Ver("0.31.0-alpha", 300))
                 val navigation_material = Dep("com.google.accompanist", "accompanist-navigation-material", Ver("0.30.1", 0), Ver("0.31.0-alpha", 300))
                 val pager = Dep("com.google.accompanist", "accompanist-pager", Ver("0.30.1", 0), Ver("0.31.0-alpha", 300))
                 val pager_indicators = Dep("com.google.accompanist", "accompanist-pager-indicators", Ver("0.30.1", 0), Ver("0.31.0-alpha", 300))
                 val permissions = Dep("com.google.accompanist", "accompanist-permissions", Ver("0.30.1", 0), Ver("0.31.0-alpha", 300))
+                val picasso = Dep("com.google.accompanist", "accompanist-picasso", Ver("0.6.2", 0))
                 val placeholder = Dep("com.google.accompanist", "accompanist-placeholder", Ver("0.30.1", 0), Ver("0.31.0-alpha", 300))
                 val placeholder_material = Dep("com.google.accompanist", "accompanist-placeholder-material", Ver("0.30.1", 0), Ver("0.31.0-alpha", 300))
                 val swiperefresh = Dep("com.google.accompanist", "accompanist-swiperefresh", Ver("0.30.1", 0), Ver("0.31.0-alpha", 300))
@@ -968,7 +975,7 @@ object DepsNew {
                     val play_services_mlkit_language_id = Dep("com.google.android.gms", "play-services-mlkit-language-id", Ver("17.0.0", 0))
                     val play_services_mlkit_text_recognition = Dep("com.google.android.gms", "play-services-mlkit-text-recognition", Ver("18.0.2", 0))
                     val play_services_nearby = Dep("com.google.android.gms", "play-services-nearby", Ver("18.5.0", 0))
-                    val play_services_oss_licenses = Dep("com.google.android.gms", "play-services-oss-licenses", Ver("17.0.0", 0))
+                    val play_services_oss_licenses = Dep("com.google.android.gms", "play-services-oss-licenses", Ver("17.0.1", 0))
                     val play_services_panorama = Dep("com.google.android.gms", "play-services-panorama", Ver("17.0.0", 0))
                     val play_services_password_complexity = Dep("com.google.android.gms", "play-services-password-complexity", Ver("18.0.1", 0))
                     val play_services_pay = Dep("com.google.android.gms", "play-services-pay", Ver("16.1.0", 0))
@@ -977,7 +984,7 @@ object DepsNew {
                     val play_services_tagmanager = Dep("com.google.android.gms", "play-services-tagmanager", Ver("18.0.2", 0))
                     val play_services_tasks = Dep("com.google.android.gms", "play-services-tasks", Ver("18.0.2", 0))
                     val play_services_vision = Dep("com.google.android.gms", "play-services-vision", Ver("20.1.3", 0))
-                    val play_services_wallet = Dep("com.google.android.gms", "play-services-wallet", Ver("19.1.0", 0))
+                    val play_services_wallet = Dep("com.google.android.gms", "play-services-wallet", Ver("19.1.0", 0), Ver("19.2.0-beta01", 200))
                     val play_services_wearable = Dep("com.google.android.gms", "play-services-wearable", Ver("18.0.0", 0))
                     val strict_version_matcher_plugin = Dep("com.google.android.gms", "strict-version-matcher-plugin", Ver("1.2.4", 0))
                 }
@@ -1134,6 +1141,10 @@ object DepsNew {
             object Oboe {
                 val oboe = Dep("com.google.oboe", "oboe", Ver("1.7.0", 0))
             }
+            object Truth {
+                val parent = Dep("com.google.truth", "truth-parent", Ver("1.1.3", 0))
+                val truth = Dep("com.google.truth", "truth", Ver("1.1.3", 0))
+            }
         }
         object JakeWharton {
             object Confundus {
@@ -1146,7 +1157,7 @@ object DepsNew {
                 val picnic = Dep("com.jakewharton.picnic", "picnic", Ver("0.6.0", 0))
             }
             object Retrofit {
-                val retrofit2_kotlinx_serialization_converter = Dep("com.jakewharton.retrofit", "retrofit2-kotlinx-serialization-converter", Ver("0.8.0", 0))
+                val retrofit2_kotlinx_serialization_converter = Dep("com.jakewharton.retrofit", "retrofit2-kotlinx-serialization-converter", Ver("1.0.0", 0))
             }
             object RxBinding3 {
                 val rxbinding = Dep("com.jakewharton.rxbinding3", "rxbinding", Ver("3.1.0", 0))
@@ -1252,10 +1263,10 @@ object DepsNew {
         }
         object Rickclephas {
             object Kmp {
-                val nativecoroutines_annotations = Dep("com.rickclephas.kmp", "kmp-nativecoroutines-annotations", Ver("0.13.3", 0), Ver("1.0.0-ALPHA-6", 300), Ver("1.0.0-ALPHA-7", 300))
+                val nativecoroutines_annotations = Dep("com.rickclephas.kmp", "kmp-nativecoroutines-annotations", Ver("0.13.3", 0), Ver("1.0.0-ALPHA-7", 300))
                 val nativecoroutines_compiler = Dep("com.rickclephas.kmp", "kmp-nativecoroutines-compiler", Ver("0.13.3", 0), Ver("1.0.0-ALPHA-7", 300))
                 val nativecoroutines_compiler_embeddable = Dep("com.rickclephas.kmp", "kmp-nativecoroutines-compiler-embeddable", Ver("0.13.3", 0), Ver("1.0.0-ALPHA-7", 300))
-                val nativecoroutines_core = Dep("com.rickclephas.kmp", "kmp-nativecoroutines-core", Ver("0.13.3", 0), Ver("1.0.0-ALPHA-6", 300), Ver("1.0.0-ALPHA-7", 300))
+                val nativecoroutines_core = Dep("com.rickclephas.kmp", "kmp-nativecoroutines-core", Ver("0.13.3", 0), Ver("1.0.0-ALPHA-7", 300))
                 val nativecoroutines_gradle_plugin = Dep("com.rickclephas.kmp", "kmp-nativecoroutines-gradle-plugin", Ver("0.13.3", 0), Ver("1.0.0-ALPHA-7", 300))
             }
         }
@@ -1422,7 +1433,7 @@ object DepsNew {
         object Insert_koin {
             val koin_android = Dep("io.insert-koin", "koin-android", Ver("3.4.0", 0))
             val koin_android_compat = Dep("io.insert-koin", "koin-android-compat", Ver("3.4.0", 0))
-            val koin_androidx_compose = Dep("io.insert-koin", "koin-androidx-compose", Ver("3.4.3", 0))
+            val koin_androidx_compose = Dep("io.insert-koin", "koin-androidx-compose", Ver("3.4.4", 0))
             val koin_androidx_navigation = Dep("io.insert-koin", "koin-androidx-navigation", Ver("3.4.0", 0))
             val koin_androidx_workmanager = Dep("io.insert-koin", "koin-androidx-workmanager", Ver("3.4.0", 0))
             val koin_core = Dep("io.insert-koin", "koin-core", Ver("3.4.0", 0))
@@ -1435,22 +1446,22 @@ object DepsNew {
         object Kotest {
             val assertions_arrow = Dep("io.kotest", "kotest-assertions-arrow", Ver("4.4.3", 0))
             val assertions_compiler = Dep("io.kotest", "kotest-assertions-compiler", Ver("4.6.4", 0), Ver("5.0.0.M3", 120))
-            val assertions_core = Dep("io.kotest", "kotest-assertions-core", Ver("5.5.5", 0), Ver("5.6.0", 0))
-            val assertions_json = Dep("io.kotest", "kotest-assertions-json", Ver("5.5.5", 0), Ver("5.6.0", 0))
+            val assertions_core = Dep("io.kotest", "kotest-assertions-core", Ver("5.6.1", 0))
+            val assertions_json = Dep("io.kotest", "kotest-assertions-json", Ver("5.6.1", 0))
             val assertions_jsoup = Dep("io.kotest", "kotest-assertions-jsoup", Ver("4.4.3", 0))
             val assertions_klock = Dep("io.kotest", "kotest-assertions-klock", Ver("4.4.3", 0))
             val assertions_konform = Dep("io.kotest", "kotest-assertions-konform", Ver("4.4.3", 0))
             val assertions_kotlinx_time = Dep("io.kotest", "kotest-assertions-kotlinx-time", Ver("4.4.3", 0))
             val assertions_ktor = Dep("io.kotest", "kotest-assertions-ktor", Ver("4.4.3", 0))
-            val assertions_sql = Dep("io.kotest", "kotest-assertions-sql", Ver("5.6.0", 0))
+            val assertions_sql = Dep("io.kotest", "kotest-assertions-sql", Ver("5.6.1", 0))
             val core = Dep("io.kotest", "kotest-core", Ver("4.1.3", 0), Ver("4.2.0.RC2", 100))
-            val framework_api = Dep("io.kotest", "kotest-framework-api", Ver("5.5.5", 0), Ver("5.6.0", 0))
-            val framework_datatest = Dep("io.kotest", "kotest-framework-datatest", Ver("5.5.5", 0), Ver("5.6.0", 0))
+            val framework_api = Dep("io.kotest", "kotest-framework-api", Ver("5.6.1", 0))
+            val framework_datatest = Dep("io.kotest", "kotest-framework-datatest", Ver("5.6.1", 0))
             val plugins_pitest = Dep("io.kotest", "kotest-plugins-pitest", Ver("4.4.3", 0))
-            val property = Dep("io.kotest", "kotest-property", Ver("5.5.5", 0), Ver("5.6.0", 0))
+            val property = Dep("io.kotest", "kotest-property", Ver("5.6.1", 0))
             val property_arrow = Dep("io.kotest", "kotest-property-arrow", Ver("4.4.3", 0))
-            val runner_junit4 = Dep("io.kotest", "kotest-runner-junit4", Ver("5.5.5", 0), Ver("5.6.0", 0))
-            val runner_junit5 = Dep("io.kotest", "kotest-runner-junit5", Ver("5.5.5", 0), Ver("5.6.0", 0))
+            val runner_junit4 = Dep("io.kotest", "kotest-runner-junit4", Ver("5.6.1", 0))
+            val runner_junit5 = Dep("io.kotest", "kotest-runner-junit5", Ver("5.6.1", 0))
             object Extensions {
                 val kotest_extensions_allure = Dep("io.kotest.extensions", "kotest-extensions-allure", Ver("1.2.0", 0))
                 val kotest_extensions_embedded_kafka = Dep("io.kotest.extensions", "kotest-extensions-embedded-kafka", Ver("1.0.6", 0))
@@ -1467,92 +1478,92 @@ object DepsNew {
             }
         }
         object Ktor {
-            val client_android = Dep("io.ktor", "ktor-client-android", Ver("2.2.4", 0))
-            val client_apache = Dep("io.ktor", "ktor-client-apache", Ver("2.2.4", 0))
-            val client_auth = Dep("io.ktor", "ktor-client-auth", Ver("2.2.4", 0))
-            val client_cio = Dep("io.ktor", "ktor-client-cio", Ver("2.2.4", 0))
-            val client_content_negotiation = Dep("io.ktor", "ktor-client-content-negotiation", Ver("2.2.4", 0))
-            val client_content_negotiation_tests = Dep("io.ktor", "ktor-client-content-negotiation-tests", Ver("2.2.4", 0))
-            val client_core = Dep("io.ktor", "ktor-client-core", Ver("2.2.4", 0))
-            val client_curl = Dep("io.ktor", "ktor-client-curl", Ver("2.2.4", 0))
-            val client_darwin = Dep("io.ktor", "ktor-client-darwin", Ver("2.2.4", 0))
-            val client_encoding = Dep("io.ktor", "ktor-client-encoding", Ver("2.2.4", 0))
-            val client_gson = Dep("io.ktor", "ktor-client-gson", Ver("2.2.4", 0))
-            val client_jackson = Dep("io.ktor", "ktor-client-jackson", Ver("2.2.4", 0))
-            val client_java = Dep("io.ktor", "ktor-client-java", Ver("2.2.4", 0))
-            val client_jetty = Dep("io.ktor", "ktor-client-jetty", Ver("2.2.4", 0))
-            val client_json = Dep("io.ktor", "ktor-client-json", Ver("2.2.4", 0))
-            val client_json_tests = Dep("io.ktor", "ktor-client-json-tests", Ver("2.2.4", 0))
-            val client_logging = Dep("io.ktor", "ktor-client-logging", Ver("2.2.4", 0))
-            val client_mock = Dep("io.ktor", "ktor-client-mock", Ver("2.2.4", 0))
-            val client_okhttp = Dep("io.ktor", "ktor-client-okhttp", Ver("2.2.4", 0))
-            val client_resources = Dep("io.ktor", "ktor-client-resources", Ver("2.2.4", 0))
-            val client_serialization = Dep("io.ktor", "ktor-client-serialization", Ver("2.2.4", 0))
-            val client_tests = Dep("io.ktor", "ktor-client-tests", Ver("2.2.4", 0))
-            val events = Dep("io.ktor", "ktor-events", Ver("2.2.4", 0))
-            val http = Dep("io.ktor", "ktor-http", Ver("2.2.4", 0))
-            val http_cio = Dep("io.ktor", "ktor-http-cio", Ver("2.2.4", 0))
-            val io = Dep("io.ktor", "ktor-io", Ver("2.2.4", 0))
-            val network = Dep("io.ktor", "ktor-network", Ver("2.2.4", 0))
-            val network_tls = Dep("io.ktor", "ktor-network-tls", Ver("2.2.4", 0))
-            val network_tls_certificates = Dep("io.ktor", "ktor-network-tls-certificates", Ver("2.2.4", 0))
-            val resources = Dep("io.ktor", "ktor-resources", Ver("2.2.4", 0))
-            val serialization = Dep("io.ktor", "ktor-serialization", Ver("2.2.4", 0))
-            val serialization_gson = Dep("io.ktor", "ktor-serialization-gson", Ver("2.2.4", 0))
-            val serialization_jackson = Dep("io.ktor", "ktor-serialization-jackson", Ver("2.2.4", 0))
-            val serialization_kotlinx = Dep("io.ktor", "ktor-serialization-kotlinx", Ver("2.2.4", 0))
-            val serialization_kotlinx_cbor = Dep("io.ktor", "ktor-serialization-kotlinx-cbor", Ver("2.2.4", 0))
-            val serialization_kotlinx_json = Dep("io.ktor", "ktor-serialization-kotlinx-json", Ver("2.2.4", 0))
-            val serialization_kotlinx_tests = Dep("io.ktor", "ktor-serialization-kotlinx-tests", Ver("2.2.4", 0))
-            val serialization_kotlinx_xml = Dep("io.ktor", "ktor-serialization-kotlinx-xml", Ver("2.2.4", 0))
-            val server = Dep("io.ktor", "ktor-server", Ver("2.2.4", 0))
-            val server_auth = Dep("io.ktor", "ktor-server-auth", Ver("2.2.4", 0))
-            val server_auth_jwt = Dep("io.ktor", "ktor-server-auth-jwt", Ver("2.2.4", 0))
-            val server_auth_ldap = Dep("io.ktor", "ktor-server-auth-ldap", Ver("2.2.4", 0))
-            val server_auto_head_response = Dep("io.ktor", "ktor-server-auto-head-response", Ver("2.2.4", 0))
-            val server_caching_headers = Dep("io.ktor", "ktor-server-caching-headers", Ver("2.2.4", 0))
-            val server_call_id = Dep("io.ktor", "ktor-server-call-id", Ver("2.2.4", 0))
-            val server_call_logging = Dep("io.ktor", "ktor-server-call-logging", Ver("2.2.4", 0))
-            val server_cio = Dep("io.ktor", "ktor-server-cio", Ver("2.2.4", 0))
-            val server_compression = Dep("io.ktor", "ktor-server-compression", Ver("2.2.4", 0))
-            val server_conditional_headers = Dep("io.ktor", "ktor-server-conditional-headers", Ver("2.2.4", 0))
-            val server_content_negotiation = Dep("io.ktor", "ktor-server-content-negotiation", Ver("2.2.4", 0))
-            val server_core = Dep("io.ktor", "ktor-server-core", Ver("2.2.4", 0))
-            val server_cors = Dep("io.ktor", "ktor-server-cors", Ver("2.2.4", 0))
-            val server_data_conversion = Dep("io.ktor", "ktor-server-data-conversion", Ver("2.2.4", 0))
-            val server_default_headers = Dep("io.ktor", "ktor-server-default-headers", Ver("2.2.4", 0))
-            val server_double_receive = Dep("io.ktor", "ktor-server-double-receive", Ver("2.2.4", 0))
-            val server_forwarded_header = Dep("io.ktor", "ktor-server-forwarded-header", Ver("2.2.4", 0))
-            val server_freemarker = Dep("io.ktor", "ktor-server-freemarker", Ver("2.2.4", 0))
-            val server_host_common = Dep("io.ktor", "ktor-server-host-common", Ver("2.2.4", 0))
-            val server_hsts = Dep("io.ktor", "ktor-server-hsts", Ver("2.2.4", 0))
-            val server_html_builder = Dep("io.ktor", "ktor-server-html-builder", Ver("2.2.4", 0))
-            val server_http_redirect = Dep("io.ktor", "ktor-server-http-redirect", Ver("2.2.4", 0))
-            val server_jetty = Dep("io.ktor", "ktor-server-jetty", Ver("2.2.4", 0))
-            val server_jte = Dep("io.ktor", "ktor-server-jte", Ver("2.2.4", 0))
-            val server_locations = Dep("io.ktor", "ktor-server-locations", Ver("2.2.4", 0))
-            val server_method_override = Dep("io.ktor", "ktor-server-method-override", Ver("2.2.4", 0))
-            val server_metrics = Dep("io.ktor", "ktor-server-metrics", Ver("2.2.4", 0))
-            val server_metrics_micrometer = Dep("io.ktor", "ktor-server-metrics-micrometer", Ver("2.2.4", 0))
-            val server_mustache = Dep("io.ktor", "ktor-server-mustache", Ver("2.2.4", 0))
-            val server_netty = Dep("io.ktor", "ktor-server-netty", Ver("2.2.4", 0))
-            val server_partial_content = Dep("io.ktor", "ktor-server-partial-content", Ver("2.2.4", 0))
-            val server_pebble = Dep("io.ktor", "ktor-server-pebble", Ver("2.2.4", 0))
-            val server_resources = Dep("io.ktor", "ktor-server-resources", Ver("2.2.4", 0))
-            val server_servlet = Dep("io.ktor", "ktor-server-servlet", Ver("2.2.4", 0))
-            val server_sessions = Dep("io.ktor", "ktor-server-sessions", Ver("2.2.4", 0))
-            val server_status_pages = Dep("io.ktor", "ktor-server-status-pages", Ver("2.2.4", 0))
-            val server_test_host = Dep("io.ktor", "ktor-server-test-host", Ver("2.2.4", 0))
-            val server_test_suites = Dep("io.ktor", "ktor-server-test-suites", Ver("2.2.4", 0))
-            val server_thymeleaf = Dep("io.ktor", "ktor-server-thymeleaf", Ver("2.2.4", 0))
-            val server_tomcat = Dep("io.ktor", "ktor-server-tomcat", Ver("2.2.4", 0))
-            val server_velocity = Dep("io.ktor", "ktor-server-velocity", Ver("2.2.4", 0))
-            val server_webjars = Dep("io.ktor", "ktor-server-webjars", Ver("2.2.4", 0))
-            val server_websockets = Dep("io.ktor", "ktor-server-websockets", Ver("2.2.4", 0))
-            val test_dispatcher = Dep("io.ktor", "ktor-test-dispatcher", Ver("2.2.4", 0))
-            val utils = Dep("io.ktor", "ktor-utils", Ver("2.2.4", 0))
-            val websocket_serialization = Dep("io.ktor", "ktor-websocket-serialization", Ver("2.2.4", 0))
-            val websockets = Dep("io.ktor", "ktor-websockets", Ver("2.2.4", 0))
+            val client_android = Dep("io.ktor", "ktor-client-android", Ver("2.3.0", 0))
+            val client_apache = Dep("io.ktor", "ktor-client-apache", Ver("2.3.0", 0))
+            val client_auth = Dep("io.ktor", "ktor-client-auth", Ver("2.3.0", 0))
+            val client_cio = Dep("io.ktor", "ktor-client-cio", Ver("2.3.0", 0))
+            val client_content_negotiation = Dep("io.ktor", "ktor-client-content-negotiation", Ver("2.3.0", 0))
+            val client_content_negotiation_tests = Dep("io.ktor", "ktor-client-content-negotiation-tests", Ver("2.3.0", 0))
+            val client_core = Dep("io.ktor", "ktor-client-core", Ver("2.3.0", 0))
+            val client_curl = Dep("io.ktor", "ktor-client-curl", Ver("2.3.0", 0))
+            val client_darwin = Dep("io.ktor", "ktor-client-darwin", Ver("2.3.0", 0))
+            val client_encoding = Dep("io.ktor", "ktor-client-encoding", Ver("2.3.0", 0))
+            val client_gson = Dep("io.ktor", "ktor-client-gson", Ver("2.3.0", 0))
+            val client_jackson = Dep("io.ktor", "ktor-client-jackson", Ver("2.3.0", 0))
+            val client_java = Dep("io.ktor", "ktor-client-java", Ver("2.3.0", 0))
+            val client_jetty = Dep("io.ktor", "ktor-client-jetty", Ver("2.3.0", 0))
+            val client_json = Dep("io.ktor", "ktor-client-json", Ver("2.3.0", 0))
+            val client_json_tests = Dep("io.ktor", "ktor-client-json-tests", Ver("2.3.0", 0))
+            val client_logging = Dep("io.ktor", "ktor-client-logging", Ver("2.3.0", 0))
+            val client_mock = Dep("io.ktor", "ktor-client-mock", Ver("2.3.0", 0))
+            val client_okhttp = Dep("io.ktor", "ktor-client-okhttp", Ver("2.3.0", 0))
+            val client_resources = Dep("io.ktor", "ktor-client-resources", Ver("2.3.0", 0))
+            val client_serialization = Dep("io.ktor", "ktor-client-serialization", Ver("2.3.0", 0))
+            val client_tests = Dep("io.ktor", "ktor-client-tests", Ver("2.3.0", 0))
+            val events = Dep("io.ktor", "ktor-events", Ver("2.3.0", 0))
+            val http = Dep("io.ktor", "ktor-http", Ver("2.3.0", 0))
+            val http_cio = Dep("io.ktor", "ktor-http-cio", Ver("2.3.0", 0))
+            val io = Dep("io.ktor", "ktor-io", Ver("2.3.0", 0))
+            val network = Dep("io.ktor", "ktor-network", Ver("2.3.0", 0))
+            val network_tls = Dep("io.ktor", "ktor-network-tls", Ver("2.3.0", 0))
+            val network_tls_certificates = Dep("io.ktor", "ktor-network-tls-certificates", Ver("2.3.0", 0))
+            val resources = Dep("io.ktor", "ktor-resources", Ver("2.3.0", 0))
+            val serialization = Dep("io.ktor", "ktor-serialization", Ver("2.3.0", 0))
+            val serialization_gson = Dep("io.ktor", "ktor-serialization-gson", Ver("2.3.0", 0))
+            val serialization_jackson = Dep("io.ktor", "ktor-serialization-jackson", Ver("2.3.0", 0))
+            val serialization_kotlinx = Dep("io.ktor", "ktor-serialization-kotlinx", Ver("2.3.0", 0))
+            val serialization_kotlinx_cbor = Dep("io.ktor", "ktor-serialization-kotlinx-cbor", Ver("2.3.0", 0))
+            val serialization_kotlinx_json = Dep("io.ktor", "ktor-serialization-kotlinx-json", Ver("2.3.0", 0))
+            val serialization_kotlinx_tests = Dep("io.ktor", "ktor-serialization-kotlinx-tests", Ver("2.3.0", 0))
+            val serialization_kotlinx_xml = Dep("io.ktor", "ktor-serialization-kotlinx-xml", Ver("2.3.0", 0))
+            val server = Dep("io.ktor", "ktor-server", Ver("2.3.0", 0))
+            val server_auth = Dep("io.ktor", "ktor-server-auth", Ver("2.3.0", 0))
+            val server_auth_jwt = Dep("io.ktor", "ktor-server-auth-jwt", Ver("2.3.0", 0))
+            val server_auth_ldap = Dep("io.ktor", "ktor-server-auth-ldap", Ver("2.3.0", 0))
+            val server_auto_head_response = Dep("io.ktor", "ktor-server-auto-head-response", Ver("2.3.0", 0))
+            val server_caching_headers = Dep("io.ktor", "ktor-server-caching-headers", Ver("2.3.0", 0))
+            val server_call_id = Dep("io.ktor", "ktor-server-call-id", Ver("2.3.0", 0))
+            val server_call_logging = Dep("io.ktor", "ktor-server-call-logging", Ver("2.3.0", 0))
+            val server_cio = Dep("io.ktor", "ktor-server-cio", Ver("2.3.0", 0))
+            val server_compression = Dep("io.ktor", "ktor-server-compression", Ver("2.3.0", 0))
+            val server_conditional_headers = Dep("io.ktor", "ktor-server-conditional-headers", Ver("2.3.0", 0))
+            val server_content_negotiation = Dep("io.ktor", "ktor-server-content-negotiation", Ver("2.3.0", 0))
+            val server_core = Dep("io.ktor", "ktor-server-core", Ver("2.3.0", 0))
+            val server_cors = Dep("io.ktor", "ktor-server-cors", Ver("2.3.0", 0))
+            val server_data_conversion = Dep("io.ktor", "ktor-server-data-conversion", Ver("2.3.0", 0))
+            val server_default_headers = Dep("io.ktor", "ktor-server-default-headers", Ver("2.3.0", 0))
+            val server_double_receive = Dep("io.ktor", "ktor-server-double-receive", Ver("2.3.0", 0))
+            val server_forwarded_header = Dep("io.ktor", "ktor-server-forwarded-header", Ver("2.3.0", 0))
+            val server_freemarker = Dep("io.ktor", "ktor-server-freemarker", Ver("2.3.0", 0))
+            val server_host_common = Dep("io.ktor", "ktor-server-host-common", Ver("2.3.0", 0))
+            val server_hsts = Dep("io.ktor", "ktor-server-hsts", Ver("2.3.0", 0))
+            val server_html_builder = Dep("io.ktor", "ktor-server-html-builder", Ver("2.3.0", 0))
+            val server_http_redirect = Dep("io.ktor", "ktor-server-http-redirect", Ver("2.3.0", 0))
+            val server_jetty = Dep("io.ktor", "ktor-server-jetty", Ver("2.3.0", 0))
+            val server_jte = Dep("io.ktor", "ktor-server-jte", Ver("2.3.0", 0))
+            val server_locations = Dep("io.ktor", "ktor-server-locations", Ver("2.3.0", 0))
+            val server_method_override = Dep("io.ktor", "ktor-server-method-override", Ver("2.3.0", 0))
+            val server_metrics = Dep("io.ktor", "ktor-server-metrics", Ver("2.3.0", 0))
+            val server_metrics_micrometer = Dep("io.ktor", "ktor-server-metrics-micrometer", Ver("2.3.0", 0))
+            val server_mustache = Dep("io.ktor", "ktor-server-mustache", Ver("2.3.0", 0))
+            val server_netty = Dep("io.ktor", "ktor-server-netty", Ver("2.3.0", 0))
+            val server_partial_content = Dep("io.ktor", "ktor-server-partial-content", Ver("2.3.0", 0))
+            val server_pebble = Dep("io.ktor", "ktor-server-pebble", Ver("2.3.0", 0))
+            val server_resources = Dep("io.ktor", "ktor-server-resources", Ver("2.3.0", 0))
+            val server_servlet = Dep("io.ktor", "ktor-server-servlet", Ver("2.3.0", 0))
+            val server_sessions = Dep("io.ktor", "ktor-server-sessions", Ver("2.3.0", 0))
+            val server_status_pages = Dep("io.ktor", "ktor-server-status-pages", Ver("2.3.0", 0))
+            val server_test_host = Dep("io.ktor", "ktor-server-test-host", Ver("2.3.0", 0))
+            val server_test_suites = Dep("io.ktor", "ktor-server-test-suites", Ver("2.3.0", 0))
+            val server_thymeleaf = Dep("io.ktor", "ktor-server-thymeleaf", Ver("2.3.0", 0))
+            val server_tomcat = Dep("io.ktor", "ktor-server-tomcat", Ver("2.3.0", 0))
+            val server_velocity = Dep("io.ktor", "ktor-server-velocity", Ver("2.3.0", 0))
+            val server_webjars = Dep("io.ktor", "ktor-server-webjars", Ver("2.3.0", 0))
+            val server_websockets = Dep("io.ktor", "ktor-server-websockets", Ver("2.3.0", 0))
+            val test_dispatcher = Dep("io.ktor", "ktor-test-dispatcher", Ver("2.3.0", 0))
+            val utils = Dep("io.ktor", "ktor-utils", Ver("2.3.0", 0))
+            val websocket_serialization = Dep("io.ktor", "ktor-websocket-serialization", Ver("2.3.0", 0))
+            val websockets = Dep("io.ktor", "ktor-websockets", Ver("2.3.0", 0))
         }
         object MockK {
             val android = Dep("io.mockk", "mockk-android", Ver("1.13.5", 0))
@@ -1584,6 +1595,22 @@ object DepsNew {
                 val rxandroid = Dep("io.reactivex.rxjava3", "rxandroid", Ver("3.0.2", 0))
                 val rxjava = Dep("io.reactivex.rxjava3", "rxjava", Ver("3.1.6", 0))
                 val rxkotlin = Dep("io.reactivex.rxjava3", "rxkotlin", Ver("3.0.1", 0))
+            }
+        }
+        object Realm {
+            val gradle_plugin = Dep("io.realm", "realm-gradle-plugin", Ver("10.15.0", 0), Ver("10.15.1", 0))
+        }
+        object Rsocket {
+            object Kotlin {
+                val rsocket_core = Dep("io.rsocket.kotlin", "rsocket-core", Ver("0.15.4", 0))
+                val rsocket_ktor_client = Dep("io.rsocket.kotlin", "rsocket-ktor-client", Ver("0.15.4", 0))
+                val rsocket_ktor_server = Dep("io.rsocket.kotlin", "rsocket-ktor-server", Ver("0.15.4", 0))
+                val rsocket_transport_ktor = Dep("io.rsocket.kotlin", "rsocket-transport-ktor", Ver("0.15.4", 0))
+                val rsocket_transport_ktor_tcp = Dep("io.rsocket.kotlin", "rsocket-transport-ktor-tcp", Ver("0.15.4", 0))
+                val rsocket_transport_ktor_websocket = Dep("io.rsocket.kotlin", "rsocket-transport-ktor-websocket", Ver("0.15.4", 0))
+                val rsocket_transport_ktor_websocket_client = Dep("io.rsocket.kotlin", "rsocket-transport-ktor-websocket-client", Ver("0.15.4", 0))
+                val rsocket_transport_ktor_websocket_server = Dep("io.rsocket.kotlin", "rsocket-transport-ktor-websocket-server", Ver("0.15.4", 0))
+                val rsocket_transport_nodejs_tcp = Dep("io.rsocket.kotlin", "rsocket-transport-nodejs-tcp", Ver("0.15.4", 0))
             }
         }
         object Strikt {
@@ -1686,7 +1713,10 @@ object DepsNew {
                 val junit_jupiter_params = Dep("org.junit.jupiter", "junit-jupiter-params", Ver("5.9.2", 0))
             }
         }
-        object Jetbrains {
+        object JetBrains {
+            object Compose {
+                val gradle_plugin = Dep("org.jetbrains.compose", "compose-gradle-plugin", Ver("1.4.0", 0))
+            }
             object Exposed {
                 val core = Dep("org.jetbrains.exposed", "exposed-core", Ver("0.41.1", 0))
                 val dao = Dep("org.jetbrains.exposed", "exposed-dao", Ver("0.41.1", 0))
@@ -1709,25 +1739,26 @@ object DepsNew {
                 val test_testng = Dep("org.jetbrains.kotlin", "kotlin-test-testng", Ver("1.8.20", 0))
             }
             object KotlinX {
+                val atomicfu_gradle_plugin = Dep("org.jetbrains.kotlinx", "atomicfu-gradle-plugin", Ver("0.20.2", 0))
                 val cli = Dep("org.jetbrains.kotlinx", "kotlinx-cli", Ver("0.3.5", 0))
                 val collections_immutable = Dep("org.jetbrains.kotlinx", "kotlinx-collections-immutable", Ver("0.3.5", 0))
                 val collections_immutable_jvm = Dep("org.jetbrains.kotlinx", "kotlinx-collections-immutable-jvm", Ver("0.3.5", 0))
-                val coroutines_android = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-android", Ver("1.6.4", 0), Ver("1.7.0-Beta", 200))
-                val coroutines_bom = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-bom", Ver("1.6.4", 0), Ver("1.7.0-Beta", 200))
-                val coroutines_core = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-core", Ver("1.6.4", 0), Ver("1.7.0-Beta", 200))
-                val coroutines_debug = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-debug", Ver("1.6.4", 0), Ver("1.7.0-Beta", 200))
-                val coroutines_guava = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-guava", Ver("1.6.4", 0), Ver("1.7.0-Beta", 200))
-                val coroutines_javafx = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-javafx", Ver("1.6.4", 0), Ver("1.7.0-Beta", 200))
-                val coroutines_jdk8 = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-jdk8", Ver("1.6.4", 0), Ver("1.7.0-Beta", 200))
-                val coroutines_jdk9 = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-jdk9", Ver("1.6.4", 0), Ver("1.7.0-Beta", 200))
-                val coroutines_play_services = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-play-services", Ver("1.6.4", 0), Ver("1.7.0-Beta", 200))
-                val coroutines_reactive = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-reactive", Ver("1.6.4", 0), Ver("1.7.0-Beta", 200))
-                val coroutines_reactor = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-reactor", Ver("1.6.4", 0), Ver("1.7.0-Beta", 200))
-                val coroutines_rx2 = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-rx2", Ver("1.6.4", 0), Ver("1.7.0-Beta", 200))
-                val coroutines_rx3 = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-rx3", Ver("1.6.4", 0), Ver("1.7.0-Beta", 200))
-                val coroutines_slf4j = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-slf4j", Ver("1.6.4", 0), Ver("1.7.0-Beta", 200))
-                val coroutines_swing = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-swing", Ver("1.6.4", 0), Ver("1.7.0-Beta", 200))
-                val coroutines_test = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-test", Ver("1.6.4", 0), Ver("1.7.0-Beta", 200))
+                val coroutines_android = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-android", Ver("1.6.4", 0), Ver("1.7.0-RC", 100))
+                val coroutines_bom = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-bom", Ver("1.6.4", 0), Ver("1.7.0-RC", 100))
+                val coroutines_core = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-core", Ver("1.6.4", 0), Ver("1.7.0-RC", 100))
+                val coroutines_debug = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-debug", Ver("1.6.4", 0), Ver("1.7.0-RC", 100))
+                val coroutines_guava = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-guava", Ver("1.6.4", 0), Ver("1.7.0-RC", 100))
+                val coroutines_javafx = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-javafx", Ver("1.6.4", 0), Ver("1.7.0-RC", 100))
+                val coroutines_jdk8 = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-jdk8", Ver("1.6.4", 0), Ver("1.7.0-RC", 100))
+                val coroutines_jdk9 = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-jdk9", Ver("1.6.4", 0), Ver("1.7.0-RC", 100))
+                val coroutines_play_services = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-play-services", Ver("1.6.4", 0), Ver("1.7.0-RC", 100))
+                val coroutines_reactive = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-reactive", Ver("1.6.4", 0), Ver("1.7.0-RC", 100))
+                val coroutines_reactor = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-reactor", Ver("1.6.4", 0), Ver("1.7.0-RC", 100))
+                val coroutines_rx2 = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-rx2", Ver("1.6.4", 0), Ver("1.7.0-RC", 100))
+                val coroutines_rx3 = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-rx3", Ver("1.6.4", 0), Ver("1.7.0-RC", 100))
+                val coroutines_slf4j = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-slf4j", Ver("1.6.4", 0), Ver("1.7.0-RC", 100))
+                val coroutines_swing = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-swing", Ver("1.6.4", 0), Ver("1.7.0-RC", 100))
+                val coroutines_test = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-test", Ver("1.6.4", 0), Ver("1.7.0-RC", 100))
                 val dataframe = Dep("org.jetbrains.kotlinx", "dataframe", Ver("1548", 0))
                 val dataframe_arrow = Dep("org.jetbrains.kotlinx", "dataframe-arrow", Ver("1548", 0))
                 val dataframe_core = Dep("org.jetbrains.kotlinx", "dataframe-core", Ver("1548", 0))
@@ -1755,6 +1786,48 @@ object DepsNew {
                 val serialization_properties = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-properties", Ver("1.5.0", 0))
                 val serialization_protobuf = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-protobuf", Ver("1.5.0", 0))
             }
+            object Kotlin_Wrappers {
+                val bom = Dep("org.jetbrains.kotlin-wrappers", "kotlin-wrappers-bom", Ver("1.0.0-pre.540", 0))
+                val kotlin_actions_toolkit = Dep("org.jetbrains.kotlin-wrappers", "kotlin-actions-toolkit", Ver("0.0.1-pre.540", 0))
+                val kotlin_browser = Dep("org.jetbrains.kotlin-wrappers", "kotlin-browser", Ver("1.0.0-pre.540", 0))
+                val kotlin_cesium = Dep("org.jetbrains.kotlin-wrappers", "kotlin-cesium", Ver("1.104.0-pre.540", 0))
+                val kotlin_css = Dep("org.jetbrains.kotlin-wrappers", "kotlin-css", Ver("1.0.0-pre.540", 0))
+                val kotlin_csstype = Dep("org.jetbrains.kotlin-wrappers", "kotlin-csstype", Ver("3.1.2-pre.540", 0))
+                val kotlin_emotion = Dep("org.jetbrains.kotlin-wrappers", "kotlin-emotion", Ver("11.10.6-pre.540", 0))
+                val kotlin_history = Dep("org.jetbrains.kotlin-wrappers", "kotlin-history", Ver("5.3.0-pre.506-compat", 0))
+                val kotlin_js = Dep("org.jetbrains.kotlin-wrappers", "kotlin-js", Ver("1.0.0-pre.540", 0))
+                val kotlin_mui = Dep("org.jetbrains.kotlin-wrappers", "kotlin-mui", Ver("5.10.8-pre.540", 0))
+                val kotlin_mui_icons = Dep("org.jetbrains.kotlin-wrappers", "kotlin-mui-icons", Ver("5.11.11-pre.540", 0))
+                val kotlin_node = Dep("org.jetbrains.kotlin-wrappers", "kotlin-node", Ver("18.15.12-pre.540", 0))
+                val kotlin_popper = Dep("org.jetbrains.kotlin-wrappers", "kotlin-popper", Ver("2.11.7-pre.540", 0))
+                val kotlin_react = Dep("org.jetbrains.kotlin-wrappers", "kotlin-react", Ver("18.2.0-pre.540", 0))
+                val kotlin_react_beautiful_dnd = Dep("org.jetbrains.kotlin-wrappers", "kotlin-react-beautiful-dnd", Ver("13.1.1-pre.540", 0))
+                val kotlin_react_core = Dep("org.jetbrains.kotlin-wrappers", "kotlin-react-core", Ver("18.2.0-pre.540", 0))
+                val kotlin_react_dom = Dep("org.jetbrains.kotlin-wrappers", "kotlin-react-dom", Ver("18.2.0-pre.540", 0))
+                val kotlin_react_dom_legacy = Dep("org.jetbrains.kotlin-wrappers", "kotlin-react-dom-legacy", Ver("18.2.0-pre.540", 0))
+                val kotlin_react_dom_test_utils = Dep("org.jetbrains.kotlin-wrappers", "kotlin-react-dom-test-utils", Ver("18.2.0-pre.540", 0))
+                val kotlin_react_legacy = Dep("org.jetbrains.kotlin-wrappers", "kotlin-react-legacy", Ver("18.2.0-pre.540", 0))
+                val kotlin_react_popper = Dep("org.jetbrains.kotlin-wrappers", "kotlin-react-popper", Ver("2.3.0-pre.540", 0))
+                val kotlin_react_redux = Dep("org.jetbrains.kotlin-wrappers", "kotlin-react-redux", Ver("7.2.6-pre.540", 0))
+                val kotlin_react_router = Dep("org.jetbrains.kotlin-wrappers", "kotlin-react-router", Ver("6.10.0-pre.540", 0))
+                val kotlin_react_router_dom = Dep("org.jetbrains.kotlin-wrappers", "kotlin-react-router-dom", Ver("6.10.0-pre.540", 0))
+                val kotlin_react_select = Dep("org.jetbrains.kotlin-wrappers", "kotlin-react-select", Ver("5.7.2-pre.540", 0))
+                val kotlin_react_use = Dep("org.jetbrains.kotlin-wrappers", "kotlin-react-use", Ver("17.4.0-pre.540", 0))
+                val kotlin_redux = Dep("org.jetbrains.kotlin-wrappers", "kotlin-redux", Ver("4.1.2-pre.540", 0))
+                val kotlin_remix_run_router = Dep("org.jetbrains.kotlin-wrappers", "kotlin-remix-run-router", Ver("1.5.0-pre.540", 0))
+                val kotlin_ring_ui = Dep("org.jetbrains.kotlin-wrappers", "kotlin-ring-ui", Ver("4.1.5-pre.540", 0))
+                val kotlin_styled = Dep("org.jetbrains.kotlin-wrappers", "kotlin-styled", Ver("5.3.9-pre.540", 0))
+                val kotlin_styled_next = Dep("org.jetbrains.kotlin-wrappers", "kotlin-styled-next", Ver("1.2.2-pre.540", 0))
+                val kotlin_tanstack_query_core = Dep("org.jetbrains.kotlin-wrappers", "kotlin-tanstack-query-core", Ver("4.29.1-pre.540", 0))
+                val kotlin_tanstack_react_query = Dep("org.jetbrains.kotlin-wrappers", "kotlin-tanstack-react-query", Ver("4.29.3-pre.540", 0))
+                val kotlin_tanstack_react_query_devtools = Dep("org.jetbrains.kotlin-wrappers", "kotlin-tanstack-react-query-devtools", Ver("4.29.3-pre.540", 0))
+                val kotlin_tanstack_react_table = Dep("org.jetbrains.kotlin-wrappers", "kotlin-tanstack-react-table", Ver("8.8.5-pre.540", 0))
+                val kotlin_tanstack_react_virtual = Dep("org.jetbrains.kotlin-wrappers", "kotlin-tanstack-react-virtual", Ver("3.0.0-beta.54-pre.540", 200))
+                val kotlin_tanstack_table_core = Dep("org.jetbrains.kotlin-wrappers", "kotlin-tanstack-table-core", Ver("8.8.5-pre.540", 0))
+                val kotlin_tanstack_virtual_core = Dep("org.jetbrains.kotlin-wrappers", "kotlin-tanstack-virtual-core", Ver("3.0.0-beta.54-pre.540", 200))
+                val kotlin_typescript = Dep("org.jetbrains.kotlin-wrappers", "kotlin-typescript", Ver("4.9.5-pre.540", 0))
+                val kotlin_web = Dep("org.jetbrains.kotlin-wrappers", "kotlin-web", Ver("1.0.0-pre.540", 0))
+            }
         }
         object Kodein {
             object Di {
@@ -1775,6 +1848,9 @@ object DepsNew {
             val errorprone = Dep("org.mockito", "mockito-errorprone", Ver("5.3.0", 0))
             val inline = Dep("org.mockito", "mockito-inline", Ver("5.2.0", 0))
             val junit_jupiter = Dep("org.mockito", "mockito-junit-jupiter", Ver("5.3.0", 0))
+            object Kotlin {
+                val mockito_kotlin = Dep("org.mockito.kotlin", "mockito-kotlin", Ver("4.1.0", 0))
+            }
         }
         object Robolectric {
             val robolectric = Dep("org.robolectric", "robolectric", Ver("4.10", 0))
@@ -1794,58 +1870,58 @@ object DepsNew {
         }
         object SpringFramework {
             object Amqp {
-                val spring_rabbit_test = Dep("org.springframework.amqp", "spring-rabbit-test", Ver("3.0.3", 0))
+                val spring_rabbit_test = Dep("org.springframework.amqp", "spring-rabbit-test", Ver("3.0.4", 0))
             }
             object Batch {
                 val spring_batch_test = Dep("org.springframework.batch", "spring-batch-test", Ver("5.0.1", 0))
             }
             object Boot {
-                val spring_boot_configuration_processor = Dep("org.springframework.boot", "spring-boot-configuration-processor", Ver("3.0.5", 0))
-                val spring_boot_dependencies = Dep("org.springframework.boot", "spring-boot-dependencies", Ver("3.0.5", 0))
-                val spring_boot_devtools = Dep("org.springframework.boot", "spring-boot-devtools", Ver("3.0.5", 0))
-                val spring_boot_starter_activemq = Dep("org.springframework.boot", "spring-boot-starter-activemq", Ver("2.7.10", 0))
-                val spring_boot_starter_actuator = Dep("org.springframework.boot", "spring-boot-starter-actuator", Ver("3.0.5", 0))
-                val spring_boot_starter_amqp = Dep("org.springframework.boot", "spring-boot-starter-amqp", Ver("3.0.5", 0))
-                val spring_boot_starter_artemis = Dep("org.springframework.boot", "spring-boot-starter-artemis", Ver("3.0.5", 0))
-                val spring_boot_starter_batch = Dep("org.springframework.boot", "spring-boot-starter-batch", Ver("3.0.5", 0))
-                val spring_boot_starter_cache = Dep("org.springframework.boot", "spring-boot-starter-cache", Ver("3.0.5", 0))
-                val spring_boot_starter_data_cassandra = Dep("org.springframework.boot", "spring-boot-starter-data-cassandra", Ver("3.0.5", 0))
-                val spring_boot_starter_data_cassandra_reactive = Dep("org.springframework.boot", "spring-boot-starter-data-cassandra-reactive", Ver("3.0.5", 0))
-                val spring_boot_starter_data_couchbase = Dep("org.springframework.boot", "spring-boot-starter-data-couchbase", Ver("3.0.5", 0))
-                val spring_boot_starter_data_couchbase_reactive = Dep("org.springframework.boot", "spring-boot-starter-data-couchbase-reactive", Ver("3.0.5", 0))
-                val spring_boot_starter_data_elasticsearch = Dep("org.springframework.boot", "spring-boot-starter-data-elasticsearch", Ver("3.0.5", 0))
-                val spring_boot_starter_data_jdbc = Dep("org.springframework.boot", "spring-boot-starter-data-jdbc", Ver("3.0.5", 0))
-                val spring_boot_starter_data_jpa = Dep("org.springframework.boot", "spring-boot-starter-data-jpa", Ver("3.0.5", 0))
-                val spring_boot_starter_data_ldap = Dep("org.springframework.boot", "spring-boot-starter-data-ldap", Ver("3.0.5", 0))
-                val spring_boot_starter_data_mongodb = Dep("org.springframework.boot", "spring-boot-starter-data-mongodb", Ver("3.0.5", 0))
-                val spring_boot_starter_data_mongodb_reactive = Dep("org.springframework.boot", "spring-boot-starter-data-mongodb-reactive", Ver("3.0.5", 0))
-                val spring_boot_starter_data_neo4j = Dep("org.springframework.boot", "spring-boot-starter-data-neo4j", Ver("3.0.5", 0))
-                val spring_boot_starter_data_r2dbc = Dep("org.springframework.boot", "spring-boot-starter-data-r2dbc", Ver("3.0.5", 0))
-                val spring_boot_starter_data_redis = Dep("org.springframework.boot", "spring-boot-starter-data-redis", Ver("3.0.5", 0))
-                val spring_boot_starter_data_redis_reactive = Dep("org.springframework.boot", "spring-boot-starter-data-redis-reactive", Ver("3.0.5", 0))
-                val spring_boot_starter_data_rest = Dep("org.springframework.boot", "spring-boot-starter-data-rest", Ver("3.0.5", 0))
+                val spring_boot_configuration_processor = Dep("org.springframework.boot", "spring-boot-configuration-processor", Ver("3.0.6", 0))
+                val spring_boot_dependencies = Dep("org.springframework.boot", "spring-boot-dependencies", Ver("3.0.6", 0))
+                val spring_boot_devtools = Dep("org.springframework.boot", "spring-boot-devtools", Ver("3.0.5", 0), Ver("3.0.6", 0))
+                val spring_boot_starter_activemq = Dep("org.springframework.boot", "spring-boot-starter-activemq", Ver("2.7.11", 0))
+                val spring_boot_starter_actuator = Dep("org.springframework.boot", "spring-boot-starter-actuator", Ver("3.0.6", 0))
+                val spring_boot_starter_amqp = Dep("org.springframework.boot", "spring-boot-starter-amqp", Ver("3.0.5", 0), Ver("3.0.6", 0))
+                val spring_boot_starter_artemis = Dep("org.springframework.boot", "spring-boot-starter-artemis", Ver("3.0.6", 0))
+                val spring_boot_starter_batch = Dep("org.springframework.boot", "spring-boot-starter-batch", Ver("3.0.6", 0))
+                val spring_boot_starter_cache = Dep("org.springframework.boot", "spring-boot-starter-cache", Ver("3.0.6", 0))
+                val spring_boot_starter_data_cassandra = Dep("org.springframework.boot", "spring-boot-starter-data-cassandra", Ver("3.0.6", 0))
+                val spring_boot_starter_data_cassandra_reactive = Dep("org.springframework.boot", "spring-boot-starter-data-cassandra-reactive", Ver("3.0.6", 0))
+                val spring_boot_starter_data_couchbase = Dep("org.springframework.boot", "spring-boot-starter-data-couchbase", Ver("3.0.6", 0))
+                val spring_boot_starter_data_couchbase_reactive = Dep("org.springframework.boot", "spring-boot-starter-data-couchbase-reactive", Ver("3.0.6", 0))
+                val spring_boot_starter_data_elasticsearch = Dep("org.springframework.boot", "spring-boot-starter-data-elasticsearch", Ver("3.0.6", 0))
+                val spring_boot_starter_data_jdbc = Dep("org.springframework.boot", "spring-boot-starter-data-jdbc", Ver("3.0.6", 0))
+                val spring_boot_starter_data_jpa = Dep("org.springframework.boot", "spring-boot-starter-data-jpa", Ver("3.0.6", 0))
+                val spring_boot_starter_data_ldap = Dep("org.springframework.boot", "spring-boot-starter-data-ldap", Ver("3.0.6", 0))
+                val spring_boot_starter_data_mongodb = Dep("org.springframework.boot", "spring-boot-starter-data-mongodb", Ver("3.0.5", 0), Ver("3.0.6", 0))
+                val spring_boot_starter_data_mongodb_reactive = Dep("org.springframework.boot", "spring-boot-starter-data-mongodb-reactive", Ver("3.0.6", 0))
+                val spring_boot_starter_data_neo4j = Dep("org.springframework.boot", "spring-boot-starter-data-neo4j", Ver("3.0.5", 0), Ver("3.0.6", 0))
+                val spring_boot_starter_data_r2dbc = Dep("org.springframework.boot", "spring-boot-starter-data-r2dbc", Ver("3.0.6", 0))
+                val spring_boot_starter_data_redis = Dep("org.springframework.boot", "spring-boot-starter-data-redis", Ver("3.0.6", 0))
+                val spring_boot_starter_data_redis_reactive = Dep("org.springframework.boot", "spring-boot-starter-data-redis-reactive", Ver("3.0.5", 0), Ver("3.0.6", 0))
+                val spring_boot_starter_data_rest = Dep("org.springframework.boot", "spring-boot-starter-data-rest", Ver("3.0.6", 0))
                 val spring_boot_starter_data_solr = Dep("org.springframework.boot", "spring-boot-starter-data-solr", Ver("2.4.13", 0))
-                val spring_boot_starter_freemarker = Dep("org.springframework.boot", "spring-boot-starter-freemarker", Ver("3.0.5", 0))
-                val spring_boot_starter_groovy_templates = Dep("org.springframework.boot", "spring-boot-starter-groovy-templates", Ver("3.0.5", 0))
-                val spring_boot_starter_hateoas = Dep("org.springframework.boot", "spring-boot-starter-hateoas", Ver("3.0.5", 0))
-                val spring_boot_starter_integration = Dep("org.springframework.boot", "spring-boot-starter-integration", Ver("3.0.5", 0))
-                val spring_boot_starter_jdbc = Dep("org.springframework.boot", "spring-boot-starter-jdbc", Ver("3.0.5", 0))
-                val spring_boot_starter_jersey = Dep("org.springframework.boot", "spring-boot-starter-jersey", Ver("3.0.5", 0))
-                val spring_boot_starter_jooq = Dep("org.springframework.boot", "spring-boot-starter-jooq", Ver("3.0.5", 0))
-                val spring_boot_starter_mail = Dep("org.springframework.boot", "spring-boot-starter-mail", Ver("3.0.5", 0))
-                val spring_boot_starter_mustache = Dep("org.springframework.boot", "spring-boot-starter-mustache", Ver("3.0.5", 0))
-                val spring_boot_starter_oauth2_client = Dep("org.springframework.boot", "spring-boot-starter-oauth2-client", Ver("3.0.5", 0))
-                val spring_boot_starter_oauth2_resource_server = Dep("org.springframework.boot", "spring-boot-starter-oauth2-resource-server", Ver("3.0.5", 0))
-                val spring_boot_starter_quartz = Dep("org.springframework.boot", "spring-boot-starter-quartz", Ver("3.0.5", 0))
-                val spring_boot_starter_rsocket = Dep("org.springframework.boot", "spring-boot-starter-rsocket", Ver("3.0.5", 0))
-                val spring_boot_starter_security = Dep("org.springframework.boot", "spring-boot-starter-security", Ver("3.0.5", 0))
-                val spring_boot_starter_test = Dep("org.springframework.boot", "spring-boot-starter-test", Ver("3.0.5", 0))
-                val spring_boot_starter_thymeleaf = Dep("org.springframework.boot", "spring-boot-starter-thymeleaf", Ver("3.0.5", 0))
-                val spring_boot_starter_validation = Dep("org.springframework.boot", "spring-boot-starter-validation", Ver("3.0.5", 0))
-                val spring_boot_starter_web = Dep("org.springframework.boot", "spring-boot-starter-web", Ver("3.0.5", 0))
-                val spring_boot_starter_web_services = Dep("org.springframework.boot", "spring-boot-starter-web-services", Ver("3.0.5", 0))
-                val spring_boot_starter_webflux = Dep("org.springframework.boot", "spring-boot-starter-webflux", Ver("3.0.5", 0))
-                val spring_boot_starter_websocket = Dep("org.springframework.boot", "spring-boot-starter-websocket", Ver("3.0.5", 0))
+                val spring_boot_starter_freemarker = Dep("org.springframework.boot", "spring-boot-starter-freemarker", Ver("3.0.6", 0))
+                val spring_boot_starter_groovy_templates = Dep("org.springframework.boot", "spring-boot-starter-groovy-templates", Ver("3.0.6", 0))
+                val spring_boot_starter_hateoas = Dep("org.springframework.boot", "spring-boot-starter-hateoas", Ver("3.0.6", 0))
+                val spring_boot_starter_integration = Dep("org.springframework.boot", "spring-boot-starter-integration", Ver("3.0.6", 0))
+                val spring_boot_starter_jdbc = Dep("org.springframework.boot", "spring-boot-starter-jdbc", Ver("3.0.5", 0), Ver("3.0.6", 0))
+                val spring_boot_starter_jersey = Dep("org.springframework.boot", "spring-boot-starter-jersey", Ver("3.0.5", 0), Ver("3.0.6", 0))
+                val spring_boot_starter_jooq = Dep("org.springframework.boot", "spring-boot-starter-jooq", Ver("3.0.6", 0))
+                val spring_boot_starter_mail = Dep("org.springframework.boot", "spring-boot-starter-mail", Ver("3.0.6", 0))
+                val spring_boot_starter_mustache = Dep("org.springframework.boot", "spring-boot-starter-mustache", Ver("3.0.6", 0))
+                val spring_boot_starter_oauth2_client = Dep("org.springframework.boot", "spring-boot-starter-oauth2-client", Ver("3.0.6", 0))
+                val spring_boot_starter_oauth2_resource_server = Dep("org.springframework.boot", "spring-boot-starter-oauth2-resource-server", Ver("3.0.5", 0), Ver("3.0.6", 0))
+                val spring_boot_starter_quartz = Dep("org.springframework.boot", "spring-boot-starter-quartz", Ver("3.0.6", 0))
+                val spring_boot_starter_rsocket = Dep("org.springframework.boot", "spring-boot-starter-rsocket", Ver("3.0.6", 0))
+                val spring_boot_starter_security = Dep("org.springframework.boot", "spring-boot-starter-security", Ver("3.0.6", 0))
+                val spring_boot_starter_test = Dep("org.springframework.boot", "spring-boot-starter-test", Ver("3.0.6", 0))
+                val spring_boot_starter_thymeleaf = Dep("org.springframework.boot", "spring-boot-starter-thymeleaf", Ver("3.0.6", 0))
+                val spring_boot_starter_validation = Dep("org.springframework.boot", "spring-boot-starter-validation", Ver("3.0.6", 0))
+                val spring_boot_starter_web = Dep("org.springframework.boot", "spring-boot-starter-web", Ver("3.0.6", 0))
+                val spring_boot_starter_web_services = Dep("org.springframework.boot", "spring-boot-starter-web-services", Ver("3.0.5", 0), Ver("3.0.6", 0))
+                val spring_boot_starter_webflux = Dep("org.springframework.boot", "spring-boot-starter-webflux", Ver("3.0.5", 0), Ver("3.0.6", 0))
+                val spring_boot_starter_websocket = Dep("org.springframework.boot", "spring-boot-starter-websocket", Ver("3.0.5", 0), Ver("3.0.6", 0))
             }
             object Cloud {
                 val spring_cloud_bus = Dep("org.springframework.cloud", "spring-cloud-bus", Ver("4.0.1", 0))
@@ -1899,35 +1975,35 @@ object DepsNew {
                 val spring_geode_starter = Dep("org.springframework.geode", "spring-geode-starter", Ver("1.7.5", 0))
             }
             object Integration {
-                val spring_integration_amqp = Dep("org.springframework.integration", "spring-integration-amqp", Ver("6.0.4", 0))
+                val spring_integration_amqp = Dep("org.springframework.integration", "spring-integration-amqp", Ver("6.0.5", 0))
                 val spring_integration_gemfire = Dep("org.springframework.integration", "spring-integration-gemfire", Ver("5.5.17", 0))
-                val spring_integration_jdbc = Dep("org.springframework.integration", "spring-integration-jdbc", Ver("6.0.4", 0))
-                val spring_integration_jms = Dep("org.springframework.integration", "spring-integration-jms", Ver("6.0.4", 0))
-                val spring_integration_jpa = Dep("org.springframework.integration", "spring-integration-jpa", Ver("6.0.4", 0))
-                val spring_integration_kafka = Dep("org.springframework.integration", "spring-integration-kafka", Ver("6.0.4", 0))
-                val spring_integration_mail = Dep("org.springframework.integration", "spring-integration-mail", Ver("6.0.4", 0))
-                val spring_integration_mongodb = Dep("org.springframework.integration", "spring-integration-mongodb", Ver("6.0.4", 0))
-                val spring_integration_r2dbc = Dep("org.springframework.integration", "spring-integration-r2dbc", Ver("6.0.4", 0))
-                val spring_integration_redis = Dep("org.springframework.integration", "spring-integration-redis", Ver("6.0.4", 0))
-                val spring_integration_rsocket = Dep("org.springframework.integration", "spring-integration-rsocket", Ver("6.0.4", 0))
-                val spring_integration_security = Dep("org.springframework.integration", "spring-integration-security", Ver("6.0.4", 0))
-                val spring_integration_stomp = Dep("org.springframework.integration", "spring-integration-stomp", Ver("6.0.4", 0))
-                val spring_integration_test = Dep("org.springframework.integration", "spring-integration-test", Ver("6.0.4", 0))
-                val spring_integration_webflux = Dep("org.springframework.integration", "spring-integration-webflux", Ver("6.0.4", 0))
-                val spring_integration_websocket = Dep("org.springframework.integration", "spring-integration-websocket", Ver("6.0.4", 0))
-                val spring_integration_ws = Dep("org.springframework.integration", "spring-integration-ws", Ver("6.0.4", 0))
+                val spring_integration_jdbc = Dep("org.springframework.integration", "spring-integration-jdbc", Ver("6.0.5", 0))
+                val spring_integration_jms = Dep("org.springframework.integration", "spring-integration-jms", Ver("6.0.5", 0))
+                val spring_integration_jpa = Dep("org.springframework.integration", "spring-integration-jpa", Ver("6.0.5", 0))
+                val spring_integration_kafka = Dep("org.springframework.integration", "spring-integration-kafka", Ver("6.0.5", 0))
+                val spring_integration_mail = Dep("org.springframework.integration", "spring-integration-mail", Ver("6.0.5", 0))
+                val spring_integration_mongodb = Dep("org.springframework.integration", "spring-integration-mongodb", Ver("6.0.5", 0))
+                val spring_integration_r2dbc = Dep("org.springframework.integration", "spring-integration-r2dbc", Ver("6.0.5", 0))
+                val spring_integration_redis = Dep("org.springframework.integration", "spring-integration-redis", Ver("6.0.5", 0))
+                val spring_integration_rsocket = Dep("org.springframework.integration", "spring-integration-rsocket", Ver("6.0.5", 0))
+                val spring_integration_security = Dep("org.springframework.integration", "spring-integration-security", Ver("6.0.5", 0))
+                val spring_integration_stomp = Dep("org.springframework.integration", "spring-integration-stomp", Ver("6.0.5", 0))
+                val spring_integration_test = Dep("org.springframework.integration", "spring-integration-test", Ver("6.0.5", 0))
+                val spring_integration_webflux = Dep("org.springframework.integration", "spring-integration-webflux", Ver("6.0.5", 0))
+                val spring_integration_websocket = Dep("org.springframework.integration", "spring-integration-websocket", Ver("6.0.5", 0))
+                val spring_integration_ws = Dep("org.springframework.integration", "spring-integration-ws", Ver("6.0.5", 0))
             }
             object Kafka {
-                val spring_kafka = Dep("org.springframework.kafka", "spring-kafka", Ver("3.0.5", 0))
-                val spring_kafka_test = Dep("org.springframework.kafka", "spring-kafka-test", Ver("3.0.5", 0))
+                val spring_kafka = Dep("org.springframework.kafka", "spring-kafka", Ver("3.0.6", 0))
+                val spring_kafka_test = Dep("org.springframework.kafka", "spring-kafka-test", Ver("3.0.6", 0))
             }
             object Restdocs {
                 val spring_restdocs_webtestclient = Dep("org.springframework.restdocs", "spring-restdocs-webtestclient", Ver("3.0.0", 0))
             }
             object Security {
-                val spring_security_messaging = Dep("org.springframework.security", "spring-security-messaging", Ver("6.0.2", 0))
-                val spring_security_rsocket = Dep("org.springframework.security", "spring-security-rsocket", Ver("6.0.2", 0))
-                val spring_security_test = Dep("org.springframework.security", "spring-security-test", Ver("6.0.2", 0))
+                val spring_security_messaging = Dep("org.springframework.security", "spring-security-messaging", Ver("6.0.3", 0))
+                val spring_security_rsocket = Dep("org.springframework.security", "spring-security-rsocket", Ver("6.0.3", 0))
+                val spring_security_test = Dep("org.springframework.security", "spring-security-test", Ver("6.0.3", 0))
             }
             object Session {
                 val spring_session_data_redis = Dep("org.springframework.session", "spring-session-data-redis", Ver("3.0.1", 0))
