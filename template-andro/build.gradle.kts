@@ -9,16 +9,14 @@ plugins {
     kotlin("android") version vers.kotlin apply false
 }
 
-defaultGroupAndVerAndDescription(libs.TemplateAndro)
-
-defaultSonatypeOssStuffFromSystemEnvs()
-
-
-// FIXME
-// tasks.registerAllThatGroupFun("inject", ::checkTemplates, ::injectTemplates)
-//
-// fun checkTemplates() = checkAllKnownRegionsInProject(projectPath)
-// fun injectTemplates() = injectAllKnownRegionsInProject(projectPath)
+defaultBuildTemplateForRootProject(
+    langaraLibDetails(
+        name = "TemplateAndro",
+        description = "Template for android projects.",
+        githubUrl = "https://github.com/langara/deps.kt/template-andro",
+        version = Ver("0.0.05")
+    )
+)
 
 // region [Root Build Template]
 

@@ -73,18 +73,6 @@ object LibsDetails {
         description = "Dirty experiments with Kotlin + Three.js + Compose",
         githubUrl = "https://github.com/langara/Kthreelhu",
     )
-
-    val TemplateMPP = langaraLibDetails(
-        name = "TemplateMPP",
-        description = "Template for multi platform projects.",
-        githubUrl = "https://github.com/langara/deps.kt/template-mpp",
-    )
-
-    val TemplateAndro = langaraLibDetails(
-        name = "TemplateAndro",
-        description = "Template for android projects.",
-        githubUrl = "https://github.com/langara/deps.kt/template-andro",
-    )
 }
 
 data class LibDetails(

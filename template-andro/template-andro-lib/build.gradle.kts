@@ -15,7 +15,6 @@ defaultBuildTemplateForAndroidLib(
     libNamespace = "pl.mareklangiewicz.templateandrolib",
     withCompose = true,
     withComposeCompilerVer = vers.composeCompiler,
-    details = libs.TemplateAndro,
     publishVariant = "debug",
 )
 
@@ -286,7 +285,7 @@ fun Project.defaultBuildTemplateForAndroidLib(
     sdkMin: Int = vers.androidSdkMin,
     withCompose: Boolean = false,
     withComposeCompilerVer: String? = null,
-    details: LibDetails = libs.Unknown,
+    details: LibDetails = rootExtLibDetails,
     publishVariant: String? = null, // null means disable publishing to maven repo
 ) {
     repositories { defaultRepos(withComposeCompilerAndroidxDev = withCompose) }
