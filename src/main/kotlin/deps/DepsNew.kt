@@ -178,7 +178,7 @@ object DepsNew {
      * - [maven space](https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/)
      * - [maven space plugin](https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/compose-gradle-plugin/)
      */
-    val Compose: Dep = TODO("shortcut to multiplatform stuff")
+    val Compose: Dep get() = TODO("shortcut to multiplatform stuff")
 
     /**
      * - [releases](https://developer.android.com/jetpack/androidx/releases/compose)
