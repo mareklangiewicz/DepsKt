@@ -37,8 +37,8 @@ defaultSonatypeOssStuffFromSystemEnvs()
 
 val details get() = langaraLibDetails(
     name = "DepsKt",
-    group = "pl.mareklangiewicz.deps",
-    version = v(0, 2, 31),
+    group = "pl.mareklangiewicz.deps", // important non default ...deps group (as accepted on gradle portal)
+    version = v(0, 2, 32),
     description = "Updated dependencies for typical java/kotlin/android projects (with IDE support).",
     githubUrl = "https://github.com/langara/DepsKt",
 )
