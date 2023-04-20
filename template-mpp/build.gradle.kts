@@ -9,13 +9,14 @@ plugins {
     kotlin("multiplatform") version DepsNew.KotlinVer.ver apply false
 }
 
-val details = langaraLibDetails(
-    name = "TemplateMPP",
-    description = "Template for multi platform projects.",
-    githubUrl = "https://github.com/langara/deps.kt/template-mpp",
-    version = Ver("0.0.03", 0),
+defaultBuildTemplateForRootProject(
+    langaraLibDetails(
+        name = "TemplateMPP",
+        description = "Template for multi platform projects.",
+        githubUrl = "https://github.com/langara/DepsKt/template-mpp",
+        version = Ver("0.0.03", 0),
+    )
 )
-defaultBuildTemplateForRootProject(details)
 
 // region [Root Build Template]
 
