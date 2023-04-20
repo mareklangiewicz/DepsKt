@@ -2,88 +2,56 @@
 
 package pl.mareklangiewicz.deps
 
+import Dep
+import DepsNew
+import DepsNew.RSocketKotlinKtorClient
+import DepsNew.RealmPlugin
+import DepsNew.kotlin
+import DepsNew.truth
+import Ver
 import libs
-import pl.mareklangiewicz.defaults.*
+import verStable
 
-/**
- * Common dependencies versions for java/kotlin/android projects
- *
- * @see <a href="https://github.com/langara/deps.kt">https://github.com/langara/deps.kt</a>
- */
+@Deprecated("Use DepsNew")
 object Vers {
-    val kotlin14 = v(1, 4, 32)
-    val kotlin15 = v(1, 5, 31)
-    val kotlin16 = v(1, 6, 21)
-    val kotlin1720 = v(1, 7, 20)
-    val kotlin17 = v(1, 7, 21)
-    val kotlin1800 = v(1, 8, 0, patchLength = 1)
-    val kotlin18 = v(1, 8, 10)
-    val kotlin1820RC2 = v(1, 8, 20, suffix = "-RC2")
-    val kotlin = kotlin18
-    // https://kotlinlang.org/docs/releases.html#release-details
-    // https://github.com/JetBrains/kotlin/blob/master/ChangeLog.md
-    // https://github.com/JetBrains/kotlin/releases
-    // compatibility with compose:
-    //   https://developer.android.com/jetpack/androidx/releases/compose-kotlin
-    //   https://androidx.dev/storage/compose-compiler/repository
-    //   https://github.com/JetBrains/compose-jb/blob/63846c63c0b7399340638de0645369dd3bb6ef1c/gradle-plugins/compose/src/main/kotlin/org/jetbrains/compose/ComposeCompilerCompatability.kt
 
-    const val defaultJvm = "17" // I had terrible issues with "16" (andro compose project)
+    // temporary hack until I remove a whole old Vers object
+    private val Dep.v get() = ver?.ver ?: error("Can not find last version in $this")
+    private val Dep.vStable get() = verStable?.ver ?: error("Can not find last stable version in $this")
+    private val Ver?.v get() = this?.ver ?: error("Can not find version in $this")
 
-    const val kotlinxDateTime = "0.4.0"
-    // https://github.com/Kotlin/kotlinx-datetime
+    val kotlin = DepsNew.KotlinVer.v
 
-    const val kotlinxCoroutines = "1.7.0-Beta"
-    // https://github.com/Kotlin/kotlinx.coroutines/releases
+    val defaultJvm = DepsNew.JvmDefaultVer
 
-    const val kotlinxSerialization = "1.5.0"
-    // https://github.com/Kotlin/kotlinx.serialization/releases
+    val kotlinxDateTime = DepsNew.KotlinX.datetime.v
 
-    const val kotlinxAtomicFu = "0.20.1"
-    // https://github.com/Kotlin/kotlinx.atomicfu/releases
+    val kotlinxCoroutines = DepsNew.KotlinX.coroutines_core.v
 
-    const val kotlinxHtml = "0.8.0"
-    // https://github.com/Kotlin/kotlinx.html/releases
+    val kotlinxSerialization = DepsNew.KotlinX.serialization_core.v
 
-    const val kotlinxNodeJs = "0.0.7"
-    // https://github.com/Kotlin/kotlinx-nodejs
+    val kotlinxAtomicFu = "0.20.2" // FIXME: add it to generated in DepsNew
 
-    // just a reference - not useful in typical cases
-    const val gradle5 = "5.6.4"
-    const val gradle6 = "6.8.3"
-    const val gradle7 = "7.6.1"
-    const val gradle8 = "8.0.2"
-    const val gradle = gradle8
-    // https://gradle.org/releases/
-    // https://services.gradle.org/versions
-    // https://services.gradle.org/versions/current
-    // https://services.gradle.org/versions/release-candidate
+    val kotlinxHtml = DepsNew.KotlinX.html.v
 
-    const val publishGradlePlugin = "1.1.0"
-    // https://plugins.gradle.org/plugin/com.gradle.plugin-publish
-    // https://plugins.gradle.org/docs/publish-plugin
+    val kotlinxNodeJs = DepsNew.KotlinX.nodejs.v
 
-    const val depsKtGradlePlugin = "0.2.27"
-    // https://plugins.gradle.org/search?term=pl.mareklangiewicz
+    val gradle = DepsNew.GradleVer.ver
 
-    const val composeJbMain = "1.3.1"
-    const val composeJbEdge = "1.4.0-alpha01-dev980"
-    const val composeJb = composeJbEdge
+    // FIXME: add compose multiplatform stuff to generated in DepsNew
+    val composeJbMain = "1.4.0"
+    val composeJbEdge = "1.5.0-dev1030"
+    val composeJb = composeJbEdge
 
-    // https://github.com/JetBrains/compose-jb
-    // https://github.com/JetBrains/compose-jb/releases
-    // https://github.com/JetBrains/compose-jb/blob/master/CHANGELOG.md
-    // https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/
-    // https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/compose-gradle-plugin/
+    val composeAndroidStableBoM = DepsNew.ComposeAndro.bom.v
+    val composeAndroidMain = DepsNew.AndroidX.Compose.Runtime.runtime.vStable
+    val composeAndroidEdge = DepsNew.AndroidX.Compose.Runtime.runtime.v
 
-
-    const val composeAndroidStableBoM = "2023.03.00" // I don't use it for now (stable usually too old for me)
-    val composeAndroidMain = v(1, 4, 0, patchLength = 1)
-    val composeAndroidEdge = v(1, 5, 0, patchLength = 1, suffix = "-alpha01")
-    // https://developer.android.com/jetpack/androidx/releases/compose
     val composeAndroid = composeAndroidEdge
-    val composeCompilerStable = v(1, 4, 4, patchLength = 1)
-    // val composeCompilerAlpha = v(1, 4, 0, patchLength = 1, suffix = "-alpha02")
+    val composeCompilerLatest = DepsNew.AndroidX.Compose.Compiler.compiler.v
+    val composeCompilerStable = DepsNew.AndroidX.Compose.Compiler.compiler.vStable
+    val composeCompiler = composeCompilerLatest
+
     val composeCompilerDev1720 = "1.4.0-dev-k1.7.20-e49b3b6028b"
     val composeCompilerDev1721 = "1.4.0-dev-k1.7.21-d324f46b7bd"
     val composeCompilerDev180Beta = "1.4.0-dev-k1.8.0-Beta-73ea385313b"
@@ -92,290 +60,199 @@ object Vers {
     val composeCompilerDev1810 = "1.4.1-dev-k1.8.10-c312d77f4cb"
     val composeCompilerDev1820Beta = "1.4.3-dev-k1.8.20-Beta-c5841510cbf"
     val composeCompilerDev1820RC = "1.4.4-dev-k1.8.20-RC-88d9f3a8232"
-    val composeCompiler = composeCompilerStable
-    // https://developer.android.com/jetpack/androidx/releases/compose-kotlin#pre-release_kotlin_compatibility
-    // https://androidx.dev/storage/compose-compiler/repository
-    // https://mvnrepository.com/artifact/org.jetbrains.compose.compiler/compiler
+    val composeCompilerDev1820 = "1.4.4-dev-k1.8.20-f6ae19e64ff"
 
-    val composeAndroidMaterial3Stable = v(1, 0, 1, patchLength = 1)
-    val composeAndroidMaterial3Beta = v(1, 1, 0, patchLength = 1, suffix = "-beta01")
-    val composeAndroidMaterial3 = composeAndroidMaterial3Beta
-    // https://developer.android.com/jetpack/androidx/releases/compose
+    val composeAndroidMaterial3Stable = DepsNew.AndroidX.Compose.Material3.material3.vStable
+    val composeAndroidMaterial3Latest = DepsNew.AndroidX.Compose.Material3.material3.v
+    val composeAndroidMaterial3 = composeAndroidMaterial3Latest
 
-    const val googleAccompanistForCompose14 = "0.30.0"
-    const val googleAccompanist = googleAccompanistForCompose14
-        // https://google.github.io/accompanist/
-        // https://central.sonatype.com/search?q=com.google.accompanist
-    const val googleAccompanistImage = "0.15.0"
-        // https://central.sonatype.com/search?q=accompanist-imageloading-core
-        // https://central.sonatype.com/search?q=accompanist-coil
-        // https://central.sonatype.com/search?q=accompanist-glide
-    const val googleAccompanistPicasso = "0.6.2"
-        // https://central.sonatype.com/search?q=accompanist-picasso
+    val googleAccompanist = DepsNew.GoogleAccompanist.placeholder.v
+        // kinda incorrect (taking ver from "placeholder" artifact) because there is no one common version
+        // see: https://google.github.io/accompanist/
 
-    const val androidGradlePlugin = "8.1.0-alpha10"
-    // https://maven.google.com/web/index.html#com.android.tools.build:gradle
-    // https://developer.android.com/studio/releases/gradle-plugin
-    // https://google.github.io/android-gradle-dsl/
+    val googleAccompanistImage = DepsNew.GoogleAccompanistImageLoadingCore.v
 
-    @Deprecated("Use https://developer.android.com/studio/build/maven-publish-plugin")
-    const val androidMavenGradlePlugin = "2.1" // https://github.com/dcendents/android-maven-gradle-plugin/releases
-    const val nexusPublishGradlePlugin = "1.3.0" // https://github.com/gradle-nexus/publish-plugin/
+    val googleAccompanistPicasso = DepsNew.GoogleAccompanistPicasso.v
 
-    val dokkaGradlePlugin = kotlin // will it be synced with a kotlin version in the future?
+    val androidGradlePlugin = DepsNew.GradleAndroPluginVer.ver
 
-    val osackyDoctorPlugin = v(0, 8, 1, patchLength = 1)
-    // https://plugins.gradle.org/plugin/com.osacky.doctor
+    @Deprecated("Use GradleAndroPluginVer https://developer.android.com/build/publish-library")
+    val androidMavenGradlePlugin = DepsNew.GradleAndroMavenPluginVer.ver
+    val nexusPublishGradlePlugin = DepsNew.GradleNexusPublishPluginVer.ver
 
-    const val androidSdkCompile = 33
-    const val androidSdkTarget = androidSdkCompile
-    const val androidSdkMin = 26
-    // https://developer.android.com/about/dashboards/index.html
-    // https://source.android.com/setup/start/build-numbers
+    val dokkaGradlePlugin = DepsNew.GradleDokkaPluginVer.ver
+
+    val osackyDoctorPlugin = DepsNew.GradleOsackyDoctorPluginVer.ver
+
+    val androidSdkCompile = DepsNew.AndroSdkCompileVer
+    val androidSdkTarget = DepsNew.AndroSdkTargetVer
+    val androidSdkMin = DepsNew.AndroSdkMinVer
 
     @Deprecated("Deprecated with android gradle plugin 3.0.0 or higher")
-    const val androidBuildTools = "33.0.1"
-    // https://developer.android.com/studio/releases/build-tools.html
+    val androidBuildTools = DepsNew.AndroBuildToolsVer.ver
 
     @Deprecated("Use androidx")
-    const val androidSupport = "28.0.0"
-    // https://developer.android.com/topic/libraries/support-library/revisions.html
+    val androidSupport = DepsNew.AndroSupportLibraryVer.ver
 
-    // https://developer.android.com/jetpack/androidx/versions
-    // https://dl.google.com/dl/android/maven2/index.html
+    val androidxCore = DepsNew.AndroidX.Core.core.v
 
-    const val androidxCore = "1.11.0-alpha01"
+    val androidxActivity = DepsNew.AndroidX.Activity.activity.v
 
-    const val androidxActivity = "1.8.0-alpha02"
+    val androidxAppcompat = DepsNew.AndroidX.AppCompat.appcompat.v
 
-    const val androidxAppcompat = "1.7.0-alpha02"
+    val androidxConstraint1 = "1.1.3"
 
-    const val androidxConstraint1 = "1.1.3"
+    val androidxConstraint2 = DepsNew.AndroidX.ConstraintLayout.constraintlayout.v
+    val androidxConstraint = androidxConstraint2
 
-    // https://developer.android.com/training/constraint-layout
-    const val androidxConstraint2 = "2.2.0-alpha09"
-    const val androidxConstraint = androidxConstraint2
+    val androidxNavigation = DepsNew.AndroidX.Navigation.common.v
 
-    const val androidxNavigation = "2.6.0-alpha08"
-    // https://developer.android.com/jetpack/androidx/releases/navigation
+    val androidxRecyclerview = DepsNew.AndroidX.RecyclerView.recyclerview.v
+    val androidxCardview = DepsNew.AndroidX.CardView.cardview.v
 
-    const val androidxRecyclerview = "1.3.0"
-    const val androidxCardview = "1.0.0"
+    val androidMaterial = DepsNew.Com.Google.Android.Material.material.v
 
-    const val androidMaterial = "1.9.0-beta01"
-    // https://github.com/material-components/material-components-android/releases
+    val androidxAnnotation = DepsNew.AndroidX.Annotation.annotation.v
+    val androidxPreference = DepsNew.AndroidX.Preference.preference.v
+    val androidxBrowser = DepsNew.AndroidX.Browser.browser.v
+    val androidxBrowserHelper = DepsNew.Com.Google.AndroidBrowserHelper.androidbrowserhelper.v
 
-    const val androidxAnnotation = "1.7.0-alpha02"
-    const val androidxPreference = "1.2.0"
-    const val androidxBrowser = "1.5.0"
-    const val androidxBrowserHelper = "2.4.0"
-    // https://github.com/GoogleChrome/android-browser-helper
+    val androidxPercentLayout = DepsNew.AndroidXPercentLayout.v
+    val androidxFlexboxLayout = DepsNew.Com.Google.Android.Flexbox.flexbox.v
 
-    const val androidxPercentLayout = "1.0.0"
-    const val androidxFlexboxLayout = "3.0.0"
-    // https://github.com/google/flexbox-layout/releases
+    val androidxLifecycle = DepsNew.AndroidX.Lifecycle.common.v
 
-    const val androidxLifecycle = "2.6.1"
-    // https://developer.android.com/jetpack/androidx/releases/lifecycle
+    val androidxCamera = DepsNew.AndroidX.Camera.core.v
 
-    const val androidxCamera = "1.3.0-alpha05"
-    // https://developer.android.com/jetpack/androidx/releases/camera
+    val androidxRoom = DepsNew.AndroidX.Room.common.v
 
-    const val androidxRoom = "2.6.0-alpha01"
-    // https://developer.android.com/jetpack/androidx/releases/room
+    val androidxAutofill = DepsNew.AndroidX.AutoFill.autofill.v
 
-    const val androidxAutofill = "1.2.0-beta01"
-    // https://developer.android.com/jetpack/androidx/releases/autofill
+    val androidxTestCore = DepsNew.AndroidX.Test.core.v
+    val androidxTestAnnotation = "1.1.0-alpha01"
+    val androidxTestRunner = DepsNew.AndroidX.Test.runner.v
+    val androidxTestRules = DepsNew.AndroidX.Test.rules.v
+    val androidxTestExtTruth = DepsNew.AndroidX.Test.Ext.truth.v
+    val androidxTestExtJUnit = DepsNew.AndroidX.Test.Ext.junit.v
+    val androidxEspresso = DepsNew.AndroidX.Test.Espresso.core.v
 
-    const val androidxTestCore = "1.6.0-alpha01"
-    const val androidxTestAnnotation = "1.1.0-alpha01"
-    const val androidxTestRunner = androidxTestCore
-    const val androidxTestRules = androidxTestCore
-    const val androidxTestExtTruth = androidxTestCore
-    const val androidxTestExtJUnit = "1.2.0-alpha01"
-    const val androidxEspresso = "3.6.0-alpha01"
-    // https://developer.android.com/jetpack/androidx/releases/test
+    val androidCommons = "0.0.24" // https://github.com/elpassion/android-commons/releases
+
+    val rxjava2 = DepsNew.Io.ReactiveX.RxJava2.rxjava.v
+    val rxjava3 = DepsNew.Io.ReactiveX.RxJava3.rxjava.v
+
+    val rxkotlin = DepsNew.Io.ReactiveX.RxJava3.rxkotlin.v
+
+    val rxbinding = DepsNew.Com.JakeWharton.RxBinding4.rxbinding.v
+
+    val rxrelay = DepsNew.Com.JakeWharton.RxRelay3.rxrelay.v
+
+    val rxandroid = DepsNew.Io.ReactiveX.RxJava3.rxandroid.v
+
+    val rxlifecycle = "4.0.2" // https://github.com/trello/RxLifecycle/releases
+
+    val retrofit = DepsNew.Com.SquareUp.Retrofit2.retrofit.v
+
+    val okhttp = DepsNew.Com.SquareUp.Okhttp3.okhttp.v
+
+    val okio = DepsNew.Com.SquareUp.Okio.okio.v
 
 
-    const val androidCommons = "0.0.24"
-    // https://github.com/elpassion/android-commons/releases
+    // TODO: add to DepsNew:
 
-    const val rxjava2 = "2.2.16"
-    const val rxjava3 = "3.1.6"
-    // https://github.com/ReactiveX/RxJava/releases
-
-    const val rxkotlin = "3.0.1"
-    // https://github.com/ReactiveX/RxKotlin/releases
-
-    const val rxbinding = "4.0.0"
-    // https://github.com/JakeWharton/RxBinding
-    // https://github.com/JakeWharton/RxBinding/releases
-    // https://github.com/JakeWharton/RxBinding/blob/master/CHANGELOG.md
-
-    const val rxrelay = "3.0.1"
-    // https://github.com/JakeWharton/RxRelay
-    // https://github.com/JakeWharton/RxRelay/tags
-
-    const val rxandroid = "3.0.2"
-    // https://github.com/ReactiveX/RxAndroid/releases
-
-    const val rxlifecycle = "4.0.2"
-    // https://github.com/trello/RxLifecycle/releases
-
-    const val retrofit = "2.9.0"
-    // https://github.com/square/retrofit
-    // https://github.com/square/retrofit/tags
-
-    const val okhttp = "5.0.0-alpha.11"
-    // https://github.com/square/okhttp
-    // https://github.com/square/okhttp/tags
-
-    const val okio = "3.3.0"
-    // https://square.github.io/okio/changelog/
-    // https://square.github.io/okio/#releases
-
-    const val dbusJava = "4.3.0"
-    // https://github.com/hypfvieh/dbus-java
-
-    const val dbusKotlin = "0.0.08"
-    // https://github.com/langara/dbus-kotlin
-
-    const val javaWebsocket = "1.5.3"
-    // https://mvnrepository.com/artifact/org.java-websocket/Java-WebSocket
-
-    const val slf4jSimple = "2.0.7"
-    // https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
-
-    const val log4j2 = "2.20.0"
-    // http://logging.apache.org/log4j/2.x/maven-artifacts.html
-
-    const val googleServicesPlugin = "4.3.15"
-    // https://developers.google.com/android/guides/google-services-plugin
-
-    const val googlePlayServicesBase = "18.2.0"
-    // https://developers.google.com/android/guides/setup
-    // https://developers.google.com/android/guides/setup#list-dependencies
-    // https://developers.google.com/android/guides/releases
-
-    const val firebaseGitlive = "1.7.2"
-    // https://github.com/GitLiveApp/firebase-kotlin-sdk
-
-    const val firebaseCrashlyticsPlugin = "2.9.4"
-    // https://firebase.google.com/docs/crashlytics/get-started?platform=android
-
-    const val firebaseAdmin = "9.1.1"
-    // https://firebase.google.com/docs/admin/setup
-
-    const val firebaseAndroidBoM = "31.3.0"
-    // https://firebase.google.com/support/release-notes/android
-    // https://firebase.google.com/docs/android/setup#add-sdks
-
-    const val firebaseUiAuth = "8.0.2"
+    val dbusJava = "4.3.0" // https://github.com/hypfvieh/dbus-java
+    val dbusKotlin = "0.0.08" // https://github.com/langara/dbus-kotlin
+    val javaWebsocket = "1.5.3" // https://mvnrepository.com/artifact/org.java-websocket/Java-WebSocket
+    val slf4jSimple = "2.0.7" // https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
+    val log4j2 = "2.20.0" // http://logging.apache.org/log4j/2.x/maven-artifacts.html
+    val firebaseGitlive = "1.7.2" // https://github.com/GitLiveApp/firebase-kotlin-sdk
+    val firebaseAdmin = "9.1.1" // https://firebase.google.com/docs/admin/setup
+    val firebaseUiAuth = "8.0.2"
     // https://github.com/firebase/FirebaseUI-Android
     // https://github.com/firebase/FirebaseUI-Android/releases
     // https://firebase.google.com/docs/auth/android/firebaseui
-
-    const val googleCloudBoM = "25.4.0"
-    // https://cloud.google.com/java/docs/bom
-
-    const val googleAuth = "1.12.2"
-    // https://github.com/googleapis/google-auth-library-java
-
-    const val googleGuavaJre = "31.1-jre"
-    const val googleGuavaAndroid = "31.1-android"
-    // https://github.com/google/guava
-
-    const val googleGuavaMissingMetadataPlugin = "31.1.1"
-    // https://github.com/jjohannes/missing-metadata-guava
-
-    const val picasso = "2.8"
-    // https://github.com/square/picasso
-    // https://github.com/square/picasso/releases
-
-    const val materialDialogs = "3.3.0"
-    // https://github.com/afollestad/material-dialogs
-    // https://github.com/afollestad/material-dialogs/releases
-
-    const val leakcanary = "2.10"
-    // https://github.com/square/leakcanary/releases
-
-    const val paperwork = "1.2.7"
-    // https://github.com/zsoltk/paperwork/releases
-
-    const val mockitoCore2 = "2.28.2"
-    const val mockitoCore3 = "3.12.4"
-    const val mockitoCore4 = "4.1.0"
-    const val mockitoCore5 = "5.2.0"
-    const val mockitoCore = mockitoCore5
-    // https://github.com/mockito/mockito/releases
-    // https://search.maven.org/artifact/org.mockito/mockito-core
-
-    const val mockitoKotlin2nhaarman = "2.2.0" // last version with old package name: com.nhaarman.mockitokotlin2
-    const val mockitoKotlin2 = "2.2.11"
-    const val mockitoKotlin3 = "3.2.0"
-    const val mockitoKotlin4 = "4.1.0"
-    const val mockitoKotlin = mockitoKotlin4
-    // https://github.com/nhaarman/mockito-kotlin/releases
-
-    const val mockitoAndroid2 = "2.28.2"
-    const val mockitoAndroid3 = "3.12.4"
-    const val mockitoAndroid4 = "4.1.0"
-    const val mockitoAndroid5 = "5.2.0"
-    const val mockitoAndroid = mockitoAndroid5
-    // https://central.sonatype.com/search?smo=true&q=mockito-android
-
-
-    const val robolectric = "4.9"
-    // https://robolectric.org/getting-started/
-
-    const val junit4 = "4.13.2"
-    // https://github.com/junit-team/junit4/releases
-
-    const val junit5 = "5.9.2"
-    // https://github.com/junit-team/junit5/releases
-
-    const val googleTruth = "1.1.3"
-    // https://github.com/google/truth/releases
-
-    @Deprecated("Use androidx")
-    const val androidTestRunnerClass = "androidx.test.runner.AndroidJUnitRunner"
-    // https://developer.android.com/reference/android/support/test/runner/AndroidJUnitRunner.html
-
-    const val realm = "10.11.1"
-    // https://docs.mongodb.com/realm/sdk/android/install/
-
-    const val ktor = "2.2.4"
-    // https://maven.pkg.jetbrains.space/public/p/ktor/eap/io/ktor/ktor/
-    // https://github.com/ktorio/ktor
-    // https://github.com/ktorio/ktor/releases
-
-    const val rsocket = "0.15.4"
-    // https://github.com/rsocket/rsocket-kotlin
-    // https://github.com/rsocket/rsocket-kotlin/releases
-
-    const val splitties = "3.0.0"
-    // https://github.com/LouisCAD/Splitties/releases
-    // https://github.com/LouisCAD/Splitties
-
-    const val docoptJava = "0.6.0.20150202"
+    val googleCloudBoM = "26.12.0" // https://cloud.google.com/java/docs/bom
+    val googleAuth = "1.16.1" // https://github.com/googleapis/google-auth-library-java
+    val googleGuavaJre = "31.1-jre" // https://github.com/google/guava
+    val googleGuavaAndroid = "31.1-android"
+    @Deprecated("The functionality of this plugin has been integrated into org.gradlex.java-ecosystem-capabilities")
+    val googleGuavaMissingMetadataPlugin = "31.1.1" // https://github.com/jjohannes/missing-metadata-guava
+    val materialDialogs = "3.3.0" // https://github.com/afollestad/material-dialogs
+    val docoptJava = "0.6.0.20150202"
     // https://mvnrepository.com/artifact/com.offbytwo/docopt
     // https://github.com/docopt/docopt.java
 
-    const val npmReact = "18.2.0"
+
+
+    val googleServicesPlugin = DepsNew.Com.Google.Gms.google_services.v
+
+    val googlePlayServicesBase = DepsNew.Com.Google.Android.Gms.play_services_base.v
+
+    val firebaseCrashlyticsPlugin = DepsNew.Com.Google.Firebase.crashlytics_gradle.v
+
+    val firebaseAndroidBoM = DepsNew.Com.Google.Firebase.bom.v
+
+    val picasso = DepsNew.Com.SquareUp.Picasso.picasso.v
+
+    val leakcanary = DepsNew.Com.SquareUp.LeakCanary.android.v
+
+    @Deprecated("This is very old")
+    val paperwork = "1.2.7" // https://github.com/zsoltk/paperwork/releases
+
+    val mockitoCore = DepsNew.Org.Mockito.core.v
+
+    val mockitoKotlin2nhaarman = DepsNew.Com.Nhaarman.MockitoKotlin2.mockito_kotlin.v
+        // last version with old package name: com.nhaarman.mockitokotlin2
+
+    val mockitoKotlin2 = "2.2.11"
+    val mockitoKotlin3 = "3.2.0"
+    val mockitoKotlin4 = DepsNew.Org.Mockito.kotlin.v
+    val mockitoKotlin = mockitoKotlin4
+
+    val mockitoAndroid2 = "2.28.2"
+    val mockitoAndroid3 = "3.12.4"
+    val mockitoAndroid4 = "4.1.0"
+    val mockitoAndroid5 = DepsNew.Org.Mockito.android.v
+    val mockitoAndroid = mockitoAndroid5
+
+    val robolectric = DepsNew.Org.Robolectric.robolectric.v
+
+    val junit4 = DepsNew.JUnit.junit.v
+
+    val junit5 = DepsNew.Org.JUnit.Jupiter.junit_jupiter.v
+
+    val googleTruth = DepsNew.Com.Google.truth.v
+
+    @Deprecated("Use androidx")
+    val androidTestRunnerClass = "androidx.test.runner.AndroidJUnitRunner"
+    // https://developer.android.com/reference/android/support/test/runner/AndroidJUnitRunner.html
+
+    val realm = DepsNew.Io.RealmPlugin.v
+
+    val ktor = DepsNew.Io.Ktor.io.v
+
+    val rsocket = DepsNew.Io.RSocketKotlinKtorClient.v
+
+    val splitties = DepsNew.Com.Louiscad.Splitties.bundle.v
+
+    @Deprecated("")
+    val npmReact = "18.2.0"
     // https://github.com/facebook/react/blob/main/CHANGELOG.md
 
-    const val npmStyled = "5.3.9"
+    @Deprecated("")
+    val npmStyled = "5.3.9"
     // https://github.com/styled-components/styled-components
 
+    // FIXME: move it to generated DepsNew
     // https://github.com/JetBrains/kotlin-wrappers
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin-wrappers/kotlin-wrappers-bom
     // NOTE: syntax for mpp build files: implementation(project.dependencies.enforcedPlatform(deps.kotlinJsWrappersBoM))
-    val kotlinJsWrappersBoM = "1.0.0-pre.522"
+    val kotlinJsWrappersBoM = "1.0.0-pre.538"
 
     // https://github.com/JetBrains/kotlin-wrappers/blob/master/kotlin-react/README.md
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin-wrappers/kotlin-react
     @Deprecated("Use BoM")
-    val kotlinJsWrappersReact = "$npmReact-pre.523"
+    val kotlinJsWrappersReact = "$npmReact-pre.538"
 
     // https://github.com/JetBrains/kotlin-wrappers/blob/master/kotlin-react-dom/README.md
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin-wrappers/kotlin-react-dom
@@ -386,26 +263,22 @@ object Vers {
     // https://github.com/JetBrains/kotlin-wrappers/blob/master/kotlin-styled/README.md
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin-wrappers/kotlin-styled
     @Deprecated("Use BoM")
-    val kotlinJsWrappersStyled = "$npmStyled-pre.523"
+    val kotlinJsWrappersStyled = "$npmStyled-pre.538"
 
+    val smokk = DepsNew.Langiewicz.smokk.v
+    val rxmock = DepsNew.Langiewicz.rxmock.v
+    val abcdk = DepsNew.Langiewicz.abcdk.v
+    val tuplek = DepsNew.Langiewicz.tuplek.v
+    val uspek = DepsNew.Langiewicz.uspek.v
+    val upue = DepsNew.Langiewicz.upue.v
+    val kommandLine = DepsNew.Langiewicz.kommandline.v
+    val templateMPP = DepsNew.Langiewicz.template_mpp_lib.v
 
-    // My libs - see details in LibsDetails.kt:
-    // https://github.com/langara/deps.kt/blob/master/src/main/kotlin/deps/LibsDetails.kt
-    // https://repo1.maven.org/maven2/pl/mareklangiewicz/
-
-
-    val smokk = libs.SMokK
-    val rxmock = libs.RxMock
-    val abcdk = libs.AbcdK.version
-    val tuplek = libs.TupleK.version
-    val uspek = libs.USpek.version
-    val upue = libs.UPue.version
-    val kommandLine = libs.KommandLine.version
-    val templateMPP = libs.TemplateMPP.version
-
-    const val sandboxui = "0.0.5"
+    // FIXME: move this library to sonatype, then add to generated DepsNew
+    val sandboxui = "0.0.5"
     // https://github.com/langara/sandboxui/releases
 
-    const val recyclerui = "0.0.2"
+    // FIXME: move this library to sonatype, then add to generated DepsNew
+    val recyclerui = "0.0.2"
     // https://github.com/langara/recyclerui/releases
 }

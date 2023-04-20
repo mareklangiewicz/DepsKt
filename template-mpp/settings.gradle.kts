@@ -13,7 +13,7 @@ pluginManagement {
     includeBuild("..") // DepsKt
 }
 
-plugins { id("pl.mareklangiewicz.deps.settings") version "0.2.27" }
+plugins { id("pl.mareklangiewicz.deps.settings") version "0.2.31" }
 
 rootProject.name = "template-mpp"
 

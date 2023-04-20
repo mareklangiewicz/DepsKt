@@ -4,19 +4,16 @@ package pl.mareklangiewicz.deps
 
 import org.gradle.api.artifacts.dsl.*
 
+@Deprecated("")
 val libs = LibsDetails // instead of import - to avoid circular init problem
+
+@Deprecated("")
 val vers = Vers // instead of import - to avoid circular init problem
 
-/**
- * Common dependencies for java/kotlin/android projects
- *
- * @see <a href="https://github.com/langara/deps.kt">https://github.com/langara/deps.kt</a>
- */
+@Deprecated("Use DepsNew")
 object Deps {
     private val kotlin = dep("org.jetbrains.kotlin", "", vers.kotlin)
     val kotlinGradlePlugin = kotlin withName "kotlin-gradle-plugin"
-    val kotlin14GradlePlugin = kotlinGradlePlugin ver vers.kotlin14
-    val kotlin15GradlePlugin = kotlinGradlePlugin ver vers.kotlin15
     val androidGradlePlugin = dep("com.android.tools.build", "gradle", vers.androidGradlePlugin)
 
     @Deprecated("Use https://developer.android.com/studio/build/maven-publish-plugin")
@@ -124,9 +121,9 @@ object Deps {
     val kotlinxCoroutinesPlayServices = kotlinxCoroutines withName "kotlinx-coroutines-play-services"
 
     // just a reference - not useful in typical cases
-    const val gradleBaseUrl = "https://services.gradle.org/distributions"
-    const val gradleUrlBin = "$gradleBaseUrl/gradle-${vers.gradle}-bin.zip"
-    const val gradleUrlAll = "$gradleBaseUrl/gradle-${vers.gradle}-all.zip"
+    val gradleBaseUrl = "https://services.gradle.org/distributions"
+    val gradleUrlBin = "$gradleBaseUrl/gradle-${vers.gradle}-bin.zip"
+    val gradleUrlAll = "$gradleBaseUrl/gradle-${vers.gradle}-all.zip"
 
     val androidxCore = dep("androidx.core", "core", vers.androidxCore)
     val androidxCoreKtx = dep("androidx.core", "core-ktx", vers.androidxCore)
@@ -295,10 +292,7 @@ object Deps {
 
     val googleTruth = dep("com.google.truth", "truth", vers.googleTruth)
 
-    val mockitoCore2 = dep("org.mockito", "mockito-core", vers.mockitoCore2)
-    val mockitoCore3 = dep("org.mockito", "mockito-core", vers.mockitoCore3)
-    val mockitoCore4 = dep("org.mockito", "mockito-core", vers.mockitoCore4)
-    val mockitoCore = mockitoCore4
+    val mockitoCore = dep("org.mockito", "mockito-core", vers.mockitoCore)
 
     // last version with old package name: com.nhaarman.mockitokotlin2
     val mockitoKotlin2nhaarman = dep("com.nhaarman.mockitokotlin2", "mockito-kotlin", vers.mockitoKotlin2nhaarman)

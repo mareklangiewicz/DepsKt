@@ -5,6 +5,7 @@ package pl.mareklangiewicz.deps
 import pl.mareklangiewicz.defaults.*
 import java.util.*
 
+@Deprecated("")
 object LibsDetails {
 
     val USpek = langaraLibDetails(

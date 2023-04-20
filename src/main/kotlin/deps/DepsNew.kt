@@ -39,6 +39,12 @@ Capital-first letter for groups object is better!!
 @JvmInline
 value class Instability(val instability: Int)
 
+infix fun Instability?.moreStableThan(other: Instability?): Boolean {
+    val left = this?.instability ?: Int.MAX_VALUE
+    val right = other?.instability ?: Int.MAX_VALUE
+    return left < right
+}
+
 data class Ver(val ver: String, val instability: Instability? = null): CharSequence by ver {
     constructor(ver: String, instability: Int): this(ver, Instability(instability))
 }
@@ -46,38 +52,257 @@ data class Ver(val ver: String, val instability: Instability? = null): CharSeque
 /** versions should always be sorted from oldest to newest */
 data class Dep(val group: String, val name: String, val vers: List<Ver>): CharSequence {
     constructor(group: String, name: String, vararg vers: Ver): this(group, name, vers.toList())
-    val ver: Ver? = vers.lastOrNull()
-    fun withVer(ver: Ver) = copy(vers = listOf(ver))
 
-    // FIXME: that's to fragile to updates (indices usually will totally change)
-    //   better would be last with given max instability
-    @Deprecated("FIXME", ReplaceWith("withVer(ver: Ver)"))
-    fun withVer(verIdx: Int) = copy(vers = listOf(vers[verIdx]))
+    val ver: Ver? get() = vers.lastOrNull()
 
-    fun withVer(verName: String, verInstability: Instability? = null) =
-        copy(vers = listOf(Ver(verName, verInstability)))
     override fun toString() = ver?.let { "$group:$name:$it" } ?: "$group:$name"
     override val length get() = toString().length
     override fun get(index: Int) = toString()[index]
     override fun subSequence(startIndex: Int, endIndex: Int) = toString().subSequence(startIndex, endIndex)
 }
 
+fun Dep.withVer(ver: Ver) = copy(vers = listOf(ver))
+fun Dep.withVer(verName: String, verInstability: Int? = null) = withVer(Ver(verName, verInstability?.let(::Instability)))
+fun Dep.withVers(maxInstability: Instability) = copy(vers = vers.filter { !(maxInstability moreStableThan it.instability) })
+val Dep.verStable get() = vers.lastOrNull { it.instability?.instability == 0 }
+
 // endregion [Deps Data Structures]
 
 
 
+/**
+ * Common dependencies versions for java/kotlin/android projects
+ *
+ * @see <a href="https://github.com/langara/DepsKt">https://github.com/langara/DepsKt</a>
+ */
 object DepsNew {
 
 // region [Deps Selected]
 
-    val verKotlin get() = Ver("1.8.10", 0)
+    /**
+     * - [releases](https://github.com/JetBrains/kotlin/releases)
+     * - [release details](https://kotlinlang.org/docs/releases.html#release-details)
+     * - [changelog](https://github.com/JetBrains/kotlin/blob/master/ChangeLog.md)
+     * - compatibility with compose
+     *     - [developer android com](https://developer.android.com/jetpack/androidx/releases/compose-kotlin)
+     *     - [androidx dev compose compiler compatibility](https://androidx.dev/storage/compose-compiler/repository)
+     *     - [jetbrains/compose/ComposeCompilerCompatibility.kt](https://github.com/JetBrains/compose-multiplatform/blob/master/gradle-plugins/compose/src/main/kotlin/org/jetbrains/compose/ComposeCompilerCompatibility.kt)
+     */
+    val Kotlin = Org.Jetbrains.Kotlin
+
+    /**
+     * - KotlinX some libs links
+     *     - [date time](https://github.com/Kotlin/kotlinx-datetime)
+     *     - [coroutines](https://github.com/Kotlin/kotlinx.coroutines/releases)
+     *     - [serialization](https://github.com/Kotlin/kotlinx.serialization/releases)
+     *     - [atomic fu](https://github.com/Kotlin/kotlinx.atomicfu/releases)
+     *     - [html](https://github.com/Kotlin/kotlinx.html/releases)
+     *     - [node js](https://github.com/Kotlin/kotlinx-nodejs)
+     */
+    val KotlinX = Org.Jetbrains.KotlinX
+
+    // TODO NOW:
+    //  add KotlinX.atomic_fu library to generated deps in refreshDeps,
+    //  add compose multiplatform stuff too
+    //  then run workflows there and here to regenerate all deps
+
+    val KotlinVer = Kotlin.stdlib.ver
+    val JvmDefaultVer = "17" // I had terrible issues with "16" (andro compose project)
+
+
+    val Gradle5Ver = Ver("5.6.4", 0)
+    val Gradle6Ver = Ver("6.8.3", 0)
+    val Gradle7Ver = Ver("7.6.1", 0)
+    val Gradle8Ver = Ver("8.1", 0)
+
+    /**
+     * Gradle - just a reference - not so useful in typical usecases
+     * - [gradle releases](https://gradle.org/releases/)
+     * - [gradle versions](https://services.gradle.org/versions)
+     * - [gradle versions current](https://services.gradle.org/versions/current)
+     * - [gradle versions rel candidate](https://services.gradle.org/versions/release-candidate)
+     */
+    val GradleVer = Gradle8Ver
+
+    /**
+     * Gradle Publish Plugin Ver
+     * - [plugins gradle org](https://plugins.gradle.org/plugin/com.gradle.plugin-publish)
+     * - [plugins gradle org docs](https://plugins.gradle.org/docs/publish-plugin)
+     */
+    val GradlePublishPluginVer = Ver("1.2.0", 0)
+
+    /**
+     * Gradle Andro Plugin Ver
+     * - [maven](https://maven.google.com/web/index.html#com.android.tools.build:gradle)
+     * - [releases](https://developer.android.com/studio/releases/gradle-plugin)
+     * - [andro gradle dsl](https://google.github.io/android-gradle-dsl/)
+     */
+    val GradleAndroPluginVer = Ver("8.1.0-alpha11", 300)
+
+    /** - [deprecated releases](https://github.com/dcendents/android-maven-gradle-plugin/releases) */
+    @Deprecated("Use GradleAndroPluginVer https://developer.android.com/build/publish-library")
+    val GradleAndroMavenPluginVer = Ver("2.1", 0)
+
+    /**
+     * - [github](https://github.com/gradle-nexus/publish-plugin/)
+     * - [github releases](https://github.com/gradle-nexus/publish-plugin/releases)
+     */
+    val GradleNexusPublishPluginVer = Ver("1.3.0", 0)
+
+    /**
+     * - [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.dokka)
+     * - [github](https://github.com/Kotlin/dokka)
+     * - [github releases](https://github.com/Kotlin/dokka/releases)
+     */
+    val GradleDokkaPluginVer = Ver("1.8.10", 0)
+
+    /**
+     * - [gradle portal](https://plugins.gradle.org/plugin/com.osacky.doctor)
+     * - [github](https://github.com/runningcode/gradle-doctor)
+     * - [docs](https://runningcode.github.io/gradle-doctor/)
+     */
+    val GradleOsackyDoctorPluginVer = Ver("0.8.1", 0)
+
+    val Langiewicz = Pl.MarekLangiewicz
+
+    /**
+     * DepsKt Plugin Ver
+     * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
+     */
+    val DepsKtPluginVer = Ver("0.2.31")
+
+    /**
+     * - [github](https://github.com/JetBrains/compose-multiplatform)
+     * - [github releases](https://github.com/JetBrains/compose-multiplatform/releases)
+     * - [github changelog](https://github.com/JetBrains/compose-multiplatform/blob/master/CHANGELOG.md)
+     * - [maven space](https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/)
+     * - [maven space plugin](https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/compose-gradle-plugin/)
+     */
+    val Compose: Dep = TODO("shortcut to multiplatform stuff")
+
+    /**
+     * - [releases](https://developer.android.com/jetpack/androidx/releases/compose)
+     * - [releases compatibility](https://developer.android.com/jetpack/androidx/releases/compose-kotlin#pre-release_kotlin_compatibility)
+     * - [compiler dev repo table](https://androidx.dev/storage/compose-compiler/repository)
+     * - [compiler mvnrepository releases](https://mvnrepository.com/artifact/org.jetbrains.compose.compiler/compiler)
+     */
+    val ComposeAndro = AndroidX.Compose
+
+    // FIXME: why some accompanist stuff is not generated in DepsNew? picasso, coil..
+    /**
+     * - [accompanist docs](https://google.github.io/accompanist/)
+     * - [accompanist sonatype search](https://central.sonatype.com/search?namespace=com.google.accompanist)
+     */
+    val GoogleAccompanist = Com.Google.Accompanist
+    val GoogleAccompanistCoil = Com.Google.Accompanist.placeholder.copy(name = "accompanist-coil").withVer("0.15.0")
+    val GoogleAccompanistGlide = GoogleAccompanistCoil.copy(name = "accompanist-glide")
+    val GoogleAccompanistImageLoadingCore = GoogleAccompanistCoil.copy(name = "accompanist-imageloading-core")
+    val GoogleAccompanistPicasso = GoogleAccompanistCoil.copy(name = "accompanist-picasso").withVer("0.6.2")
+
+    val AndroSdkCompileVer = 33
+    val AndroSdkTargetVer = AndroSdkCompileVer
+
+    /**
+     * - [dashboards](https://developer.android.com/about/dashboards/index.html)
+     * - [build numbers](https://source.android.com/setup/start/build-numbers)
+     */
+    val AndroSdkMinVer = 26
+
+    /**
+     * - [releases](https://developer.android.com/tools/releases/build-tools)
+     */
+    @Deprecated("Deprecated with android gradle plugin 3.0.0 or higher")
+    val AndroBuildToolsVer = Ver("34.0.0", 0)
+
+    /**
+     * - [revisions](https://developer.android.com/topic/libraries/support-library/revisions.html)
+     */
+    @Deprecated("Use androidx")
+    val AndroSupportLibraryVer = Ver("28.0.0", 0)
+
+    /** TODO: automagically generate this one also */
+    val AndroidXPercentLayout = Dep("androidx.percentlayout", "percentlayout", listOf(Ver("1.0.0", 0)))
+
+    /** TODO: automagically generate this one also */
+    val Org.Mockito.kotlin get() = Dep("org.mockito.kotlin", "mockito-kotlin", listOf(Ver("2.2.11", 0), Ver("3.2.0", 0), Ver("4.1.0", 0)))
+
+    /** TODO: automagically generate this one also */
+    val Com.Google.truth get() = Dep("com.google.truth", "truth", listOf(Ver("1.1.3", 0)))
+
+    /** TODO: automagically generate this one also */
+    val Io.RealmPlugin get() = Dep("io.realm", "realm-gradle-plugin", listOf(Ver("10.11.1", 0)))
+
+    /** TODO: automagically generate this one also */
+    val Io.RSocketKotlinKtorClient get() = Dep("io.rsocket.kotlin", "rsocket-ktor-client", listOf(Ver("0.15.4", 0)))
+    val Io.RSocketKotlinKtorServer get() = Io.RSocketKotlinKtorClient.copy(name = "rsocket-ktor-server")
+
+    /**
+     * Android related kdoc links
+     * TODO: better places for links (auto injecting into generated objects?)
+     * - [google maven index](https://maven.google.com/web/index.html)
+     * - [androidx versions](https://developer.android.com/jetpack/androidx/versions)
+     * - [constraint layout](https://developer.android.com/develop/ui/views/layout/constraint-layout)
+     * - [navigation](https://developer.android.com/jetpack/androidx/releases/navigation)
+     * - [material components](https://github.com/material-components/material-components-android/releases)
+     * - [browser helper](https://github.com/GoogleChrome/android-browser-helper)
+     * - [flexbox layout](https://github.com/google/flexbox-layout/releases)
+     * - [percent layout](https://developer.android.com/jetpack/androidx/releases/percentlayout)
+     * - [lifecycle](https://developer.android.com/jetpack/androidx/releases/lifecycle)
+     * - [camera](https://developer.android.com/jetpack/androidx/releases/camera)
+     * - [room](https://developer.android.com/jetpack/androidx/releases/room)
+     * - [auto fill](https://developer.android.com/jetpack/androidx/releases/autofill)
+     * - [test](https://developer.android.com/jetpack/androidx/releases/test)
+     * - [rx binding](https://github.com/JakeWharton/RxBinding)
+     * - [rx android](https://github.com/ReactiveX/RxAndroid/releases)
+     * - [google services plugin](https://developers.google.com/android/guides/google-services-plugin)
+     * - [google play services setup](https://developers.google.com/android/guides/setup)
+     * - [google play services releases](https://developers.google.com/android/guides/releases)
+     * - [firebase crashlytics get started](https://firebase.google.com/docs/crashlytics/get-started?platform=android)
+     * - [firebase release notes andro](https://firebase.google.com/support/release-notes/android)
+     * - [firebase setup andro bom](https://firebase.google.com/docs/android/setup#add-sdks)
+     * - [picasso](https://github.com/square/picasso)
+     * - [leak canary](https://github.com/square/leakcanary/releases)
+     * - [mockito releases](https://github.com/mockito/mockito/releases)
+     * - [mockito core sonatype](https://central.sonatype.com/search?q=mockito-core&namespace=org.mockito)
+     * - [mockito android sonatype](https://central.sonatype.com/search?q=mockito-android&namespace=org.mockito)
+     * - [robolectric getting started](https://robolectric.org/getting-started/)
+     * - [realm android install](https://docs.mongodb.com/realm/sdk/android/install/)
+     * - [rsocket kotlin github](https://github.com/rsocket/rsocket-kotlin)
+     * - [rsocket kotlin github releases](https://github.com/rsocket/rsocket-kotlin/releases)
+     * - [splitties github](https://github.com/LouisCAD/Splitties)
+     * - [splitties github releases](https://github.com/rsocket/rsocket-kotlin/releases)
+     */
+    val AndroLinks: Nothing get() = error("Dont' use AndroLinks in code. It's only for links in kdoc comment.")
+
+
+    /**
+     *
+     * Other kdoc links
+     * TODO: better places for links (auto injecting into generated objects?)
+     * - [rx java releases](https://github.com/ReactiveX/RxJava/releases)
+     * - [rx kotlin releases](https://github.com/ReactiveX/RxKotlin/releases)
+     * - [rx relay](https://github.com/JakeWharton/RxRelay)
+     * - [retrofit](https://github.com/square/retrofit)
+     * - [okhttp](https://github.com/square/okhttp)
+     * - [okio](https://square.github.io/okio)
+     * - [mockito kotlin releases](https://github.com/nhaarman/mockito-kotlin/releases)
+     * - [junit4 releases](https://github.com/junit-team/junit4/releases)
+     * - [junit5 jupiter releases](https://github.com/junit-team/junit5/releases)
+     * - [google truth releases](https://github.com/google/truth/releases)
+     * - [ktor maven space](https://maven.pkg.jetbrains.space/public/p/ktor/eap/io/ktor/ktor/)
+     * - [ktor github](https://github.com/ktorio/ktor)
+     * - [ktor github](https://github.com/ktorio/ktor)
+     * - [ktor github](https://github.com/ktorio/ktor)
+     * - [ktor github releases](https://github.com/ktorio/ktor/releases)
+     */
+    val OtherLinks: Nothing get() = error("Don't use OtherLinks in code. It's only for links in kdoc comment.")
 
 // endregion [Deps Selected]
 
 
 // region [Deps Generated]
 
-    object Androidx {
+    object AndroidX {
         object Activity {
             val activity = Dep("androidx.activity", "activity", Ver("1.7.0", 0), Ver("1.8.0-alpha03", 300))
             val compose = Dep("androidx.activity", "activity-compose", Ver("1.7.0", 0), Ver("1.8.0-alpha03", 300))
@@ -109,7 +334,7 @@ object DepsNew {
             val appcompat = Dep("androidx.asynclayoutinflater", "asynclayoutinflater-appcompat", Ver("1.1.0-alpha01", 300))
             val asynclayoutinflater = Dep("androidx.asynclayoutinflater", "asynclayoutinflater", Ver("1.0.0", 0), Ver("1.1.0-alpha01", 300))
         }
-        object Autofill {
+        object AutoFill {
             val autofill = Dep("androidx.autofill", "autofill", Ver("1.1.0", 0), Ver("1.2.0-beta01", 200))
         }
         object Benchmark {
@@ -795,7 +1020,7 @@ object DepsNew {
                     val wearable = Dep("com.google.android.wearable", "wearable", Ver("2.9.0", 0))
                 }
             }
-            object Androidbrowserhelper {
+            object AndroidBrowserHelper {
                 val androidbrowserhelper = Dep("com.google.androidbrowserhelper", "androidbrowserhelper", Ver("2.4.0", 0))
             }
             object Ar {
@@ -1025,7 +1250,7 @@ object DepsNew {
             }
         }
         object Nhaarman {
-            object MockItoKotlin2 {
+            object MockitoKotlin2 {
                 val mockito_kotlin = Dep("com.nhaarman.mockitokotlin2", "mockito-kotlin", Ver("2.2.0", 0))
             }
         }
@@ -1051,7 +1276,7 @@ object DepsNew {
             val kotlinpoet = Dep("com.squareup", "kotlinpoet", Ver("1.13.0", 0))
             val kotlinpoet_metadata = Dep("com.squareup", "kotlinpoet-metadata", Ver("1.13.0", 0))
             val kotlinpoet_metadata_specs = Dep("com.squareup", "kotlinpoet-metadata-specs", Ver("1.9.0", 0))
-            object Leakcanary {
+            object LeakCanary {
                 val android = Dep("com.squareup.leakcanary", "leakcanary-android", Ver("2.10", 0))
                 val android_instrumentation = Dep("com.squareup.leakcanary", "leakcanary-android-instrumentation", Ver("2.10", 0))
                 val android_process = Dep("com.squareup.leakcanary", "leakcanary-android-process", Ver("2.10", 0))
@@ -1548,7 +1773,7 @@ object DepsNew {
                 val kodein_di_jxinject_jvm = Dep("org.kodein.di", "kodein-di-jxinject-jvm", Ver("7.19.1", 0), Ver("7.20.1", 0))
             }
         }
-        object MockIto {
+        object Mockito {
             val android = Dep("org.mockito", "mockito-android", Ver("5.3.0", 0))
             val core = Dep("org.mockito", "mockito-core", Ver("5.3.0", 0))
             val errorprone = Dep("org.mockito", "mockito-errorprone", Ver("5.3.0", 0))
