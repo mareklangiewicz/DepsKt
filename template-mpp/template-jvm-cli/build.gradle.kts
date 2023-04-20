@@ -15,7 +15,6 @@ repositories { // TODO_later: why gradle needs compose repo here?
 defaultBuildTemplateForJvmApp(
     appMainPackage = "pl.mareklangiewicz.hello.cli",
     appMainClass = "MainCliKt",
-    details = libs.TemplateMPP,
 ) {
     implementation(project(":template-mpp-lib"))
 }
@@ -161,7 +160,7 @@ fun TaskContainer.withSignErrorWorkaround() =
 fun Project.defaultBuildTemplateForJvmApp(
     appMainPackage: String,
     appMainClass: String = "MainKt",
-    details: LibDetails = libs.Unknown,
+    details: LibDetails = rootExtLibDetails,
     withTestJUnit4: Boolean = false,
     withTestJUnit5: Boolean = true,
     withTestUSpekX: Boolean = true,

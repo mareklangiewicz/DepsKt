@@ -1,20 +1,28 @@
 import pl.mareklangiewicz.defaults.*
 import pl.mareklangiewicz.deps.LibDetails
+import pl.mareklangiewicz.deps.langaraLibDetails
 import pl.mareklangiewicz.ure.*
 import pl.mareklangiewicz.utils.*
 
 plugins {
-    id("io.github.gradle-nexus.publish-plugin") version vers.nexusPublishGradlePlugin
-    kotlin("multiplatform") version vers.kotlin apply false
+    id("io.github.gradle-nexus.publish-plugin") version DepsNew.GradleNexusPublishPluginVer.ver
+    kotlin("multiplatform") version DepsNew.KotlinVer.ver apply false
 }
 
-defaultBuildTemplateForRootProject(libs.TemplateMPP)
+val details = langaraLibDetails(
+    name = "TemplateMPP",
+    description = "Template for multi platform projects.",
+    githubUrl = "https://github.com/langara/deps.kt/template-mpp",
+    version = Ver("0.0.03", 0),
+)
+defaultBuildTemplateForRootProject(details)
 
 // region [Root Build Template]
 
 fun Project.defaultBuildTemplateForRootProject(ossLibDetails: LibDetails? = null) {
 
     ossLibDetails?.let {
+        rootExtLibDetails = it
         defaultGroupAndVerAndDescription(it)
         defaultSonatypeOssStuffFromSystemEnvs()
     }

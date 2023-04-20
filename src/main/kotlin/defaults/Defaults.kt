@@ -4,6 +4,7 @@ package pl.mareklangiewicz.defaults
 
 import org.gradle.api.*
 import pl.mareklangiewicz.deps.*
+import pl.mareklangiewicz.utils.rootExtLibDetails
 
 fun v(major: Int = 0, minor: Int = 0, patch: Int = 1, patchLength: Int = 2, suffix: String = "") =
     "$major.$minor.${patch.toString().padStart(patchLength, '0')}$suffix"
@@ -16,9 +17,9 @@ fun Project.defaultGroupAndVer(dep: String) {
     version = v
 }
 
-fun Project.defaultGroupAndVerAndDescription(lib: LibDetails) {
+fun Project.defaultGroupAndVerAndDescription(lib: LibDetails = rootExtLibDetails) {
     group = lib.group
-    version = lib.version
+    version = lib.version?.ver ?: error("No version for ${lib.name} provided.")
     description = lib.description
 }
 

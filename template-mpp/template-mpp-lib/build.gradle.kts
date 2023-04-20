@@ -13,7 +13,6 @@ plugins {
 }
 
 defaultBuildTemplateForComposeMppLib(
-    details = libs.TemplateMPP,
     withJs = true,
     withNativeLinux64 = false,
     withKotlinxHtml = true,
@@ -158,7 +157,7 @@ fun TaskContainer.withSignErrorWorkaround() =
 
 /** Only for very standard small libs. In most cases it's better to not use this function. */
 fun Project.defaultBuildTemplateForMppLib(
-    details: LibDetails = libs.Unknown,
+    details: LibDetails = rootExtLibDetails,
     withJvm: Boolean = true,
     withJs: Boolean = true,
     withNativeLinux64: Boolean = false,
@@ -273,11 +272,11 @@ fun KotlinMultiplatformExtension.jsDefault(
 
 // region [Compose MPP Module Build Template]
 
-/** Only for very standard compose mpp libs. In most cases it's better to not use this function. */
+/** Only for very standard compose mpp libs. In most cases, it's better to not use this function. */
 @Suppress("UNUSED_VARIABLE")
 @OptIn(ExperimentalComposeLibrary::class)
 fun Project.defaultBuildTemplateForComposeMppLib(
-    details: LibDetails = libs.Unknown,
+    details: LibDetails = rootExtLibDetails,
     withJvm: Boolean = true,
     withJs: Boolean = true,
     withNativeLinux64: Boolean = false,

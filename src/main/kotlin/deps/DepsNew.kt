@@ -45,20 +45,16 @@ infix fun Instability?.moreStableThan(other: Instability?): Boolean {
     return left < right
 }
 
-data class Ver(val ver: String, val instability: Instability? = null): CharSequence by ver {
+data class Ver(val ver: String, val instability: Instability? = null) {
     constructor(ver: String, instability: Int): this(ver, Instability(instability))
 }
 
 /** versions should always be sorted from oldest to newest */
-data class Dep(val group: String, val name: String, val vers: List<Ver>): CharSequence {
+data class Dep(val group: String, val name: String, val vers: List<Ver>) {
     constructor(group: String, name: String, vararg vers: Ver): this(group, name, vers.toList())
-
     val ver: Ver? get() = vers.lastOrNull()
-
-    override fun toString() = ver?.let { "$group:$name:$it" } ?: "$group:$name"
-    override val length get() = toString().length
-    override fun get(index: Int) = toString()[index]
-    override fun subSequence(startIndex: Int, endIndex: Int) = toString().subSequence(startIndex, endIndex)
+    val mvn: String get() = ver?.ver?.let { "$group:$name:$it" } ?: "$group:$name"
+    override fun toString(): String = error("use .mvn") // FIXME: remove this assertion after refactoring
 }
 
 fun Dep.withVer(ver: Ver) = copy(vers = listOf(ver))
@@ -106,7 +102,7 @@ object DepsNew {
     //  add compose multiplatform stuff too
     //  then run workflows there and here to regenerate all deps
 
-    val KotlinVer = Kotlin.stdlib.ver
+    val KotlinVer = Kotlin.stdlib.ver!!
     val JvmDefaultVer = "17" // I had terrible issues with "16" (andro compose project)
 
 

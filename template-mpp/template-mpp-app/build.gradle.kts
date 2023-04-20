@@ -12,7 +12,6 @@ plugins {
 
 defaultBuildTemplateForComposeMppApp(
     appMainPackage = "pl.mareklangiewicz.hello",
-    details = libs.TemplateMPP,
     withJs = true,
     withNativeLinux64 = false,
     withKotlinxHtml = true,
@@ -169,7 +168,7 @@ fun TaskContainer.withSignErrorWorkaround() =
 
 /** Only for very standard small libs. In most cases it's better to not use this function. */
 fun Project.defaultBuildTemplateForMppLib(
-    details: LibDetails = libs.Unknown,
+    details: LibDetails = rootExtLibDetails,
     withJvm: Boolean = true,
     withJs: Boolean = true,
     withNativeLinux64: Boolean = false,
@@ -287,7 +286,7 @@ fun KotlinMultiplatformExtension.jsDefault(
 fun Project.defaultBuildTemplateForMppApp(
     appMainPackage: String,
     appMainFun: String = "main",
-    details: LibDetails = libs.Unknown,
+    details: LibDetails = rootExtLibDetails,
     withJvm: Boolean = true,
     withJs: Boolean = true,
     withNativeLinux64: Boolean = false,
@@ -337,7 +336,7 @@ fun Project.defaultBuildTemplateForMppApp(
 @Suppress("UNUSED_VARIABLE")
 @OptIn(ExperimentalComposeLibrary::class)
 fun Project.defaultBuildTemplateForComposeMppLib(
-    details: LibDetails = libs.Unknown,
+    details: LibDetails = rootExtLibDetails,
     withJvm: Boolean = true,
     withJs: Boolean = true,
     withNativeLinux64: Boolean = false,
@@ -444,7 +443,7 @@ fun Project.defaultBuildTemplateForComposeMppApp(
     appMainPackage: String,
     appMainClass: String = "App_jvmKt", // for compose jvm
     appMainFun: String = "main", // for native
-    details: LibDetails = libs.Unknown,
+    details: LibDetails = rootExtLibDetails,
     withJvm: Boolean = true,
     withJs: Boolean = true,
     withNativeLinux64: Boolean = false,
@@ -506,7 +505,7 @@ fun Project.defaultBuildTemplateForComposeMppApp(
                 nativeDistributions {
                     targetFormats(org.jetbrains.compose.desktop.application.dsl.TargetFormat.Deb)
                     packageName = details.name
-                    packageVersion = details.version
+                    packageVersion = details.version?.ver
                     description = details.description
                 }
             }

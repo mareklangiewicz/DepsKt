@@ -379,29 +379,26 @@ object Deps {
 
     const val marekGroup = "pl.mareklangiewicz"
 
-    val uspek = libs.USpek.dep("uspek")
-    val uspekx = libs.USpek.dep("uspekx")
-    val uspekxJUnit4 = libs.USpek.dep("uspekx-junit4")
-    val uspekxJUnit5 = libs.USpek.dep("uspekx-junit5")
+    private val l = DepsNew.Langiewicz
+    val uspek = l.uspek.mvn
+    val uspekx = l.uspekx.mvn
+    val uspekxJUnit4 = l.uspekx_junit4.mvn
+    val uspekxJUnit5 = l.uspekx_junit5.mvn
 
-    val smokk = libs.SMokK.dep("smokk")
-    val smokkx = libs.SMokK.dep("smokkx")
-    val rxmock = libs.RxMock.dep()
+    val smokk = l.smokk.mvn
+    val smokkx = l.smokkx.mvn
+    val rxmock = l.rxmock.mvn
 
-    val abcdk = libs.AbcdK.dep()
-    val tuplek = libs.TupleK.dep()
-    val upue = libs.UPue.dep()
-    val upueTest = libs.UPue.dep("upue-test")
-    val kommandLine = libs.KommandLine.dep()
-    val uwidgets = libs.UWidgets.dep()
-    val uwidgetsUDemo = libs.UWidgets.dep("uwidgets-udemo")
-    val areakim = libs.AreaKim.dep()
-    val areakimDemo = libs.AreaKim.dep("areakim-demo")
+    val abcdk = l.abcdk.mvn
+    val tuplek = l.tuplek.mvn
+    val upue = l.upue.mvn
+    val upueTest = l.upue_test.mvn
+    val kommandLine = l.kommandline.mvn
+    val uwidgets = l.uwidgets.mvn
     val dbusKotlin = dep(marekGroup, "dbus-kotlin", vers.dbusKotlin)
     val sandboxui = dep(marekGroup, "sandboxui", vers.sandboxui)
     val recyclerui = dep(marekGroup, "recyclerui", vers.recyclerui)
-    val templateMPP = libs.TemplateMPP.dep()
-    val templateAndro = libs.TemplateAndro.dep("template-andro-lib")
+    val templateAndro = l.template_andro_lib.mvn
 
 
     fun dep(group: String, name: String, version: String? = null): String =

@@ -8,7 +8,7 @@ import pl.mareklangiewicz.utils.*
 
 plugins {
     kotlin("jvm") version vers.kotlin
-    id("com.gradle.plugin-publish") version vers.publishGradlePlugin
+    id("com.gradle.plugin-publish") version "1.2.0" // FIXME
     id("io.github.gradle-nexus.publish-plugin") version vers.nexusPublishGradlePlugin
     signing
 }
