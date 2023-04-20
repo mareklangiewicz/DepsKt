@@ -54,7 +54,6 @@ data class Dep(val group: String, val name: String, val vers: List<Ver>) {
     constructor(group: String, name: String, vararg vers: Ver): this(group, name, vers.toList())
     val ver: Ver? get() = vers.lastOrNull()
     val mvn: String get() = ver?.ver?.let { "$group:$name:$it" } ?: "$group:$name"
-    override fun toString(): String = error("use .mvn") // FIXME: remove this assertion after refactoring
 }
 
 fun Dep.withVer(ver: Ver) = copy(vers = listOf(ver))
@@ -84,7 +83,7 @@ object DepsNew {
      *     - [androidx dev compose compiler compatibility](https://androidx.dev/storage/compose-compiler/repository)
      *     - [jetbrains/compose/ComposeCompilerCompatibility.kt](https://github.com/JetBrains/compose-multiplatform/blob/master/gradle-plugins/compose/src/main/kotlin/org/jetbrains/compose/ComposeCompilerCompatibility.kt)
      */
-    val Kotlin = Org.Jetbrains.Kotlin
+    val Kotlin = Org.JetBrains.Kotlin
 
     /**
      * - KotlinX some libs links
@@ -95,7 +94,7 @@ object DepsNew {
      *     - [html](https://github.com/Kotlin/kotlinx.html/releases)
      *     - [node js](https://github.com/Kotlin/kotlinx-nodejs)
      */
-    val KotlinX = Org.Jetbrains.KotlinX
+    val KotlinX = Org.JetBrains.KotlinX
 
     // TODO NOW:
     //  add KotlinX.atomic_fu library to generated deps in refreshDeps,
@@ -174,7 +173,8 @@ object DepsNew {
      * - [maven space](https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/)
      * - [maven space plugin](https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/compose-gradle-plugin/)
      */
-    val Compose: Dep get() = TODO("shortcut to multiplatform stuff")
+    val Compose get() = Org.JetBrains.Compose
+    val ComposeEdgeGradlePlugin = Compose.gradle_plugin.withVer(Ver("1.5.0-dev1030")) // FIXME: auto generate from jetbrains space
 
     /**
      * - [releases](https://developer.android.com/jetpack/androidx/releases/compose)
@@ -184,16 +184,11 @@ object DepsNew {
      */
     val ComposeAndro = AndroidX.Compose
 
-    // FIXME: why some accompanist stuff is not generated in DepsNew? picasso, coil..
     /**
      * - [accompanist docs](https://google.github.io/accompanist/)
      * - [accompanist sonatype search](https://central.sonatype.com/search?namespace=com.google.accompanist)
      */
     val GoogleAccompanist = Com.Google.Accompanist
-    val GoogleAccompanistCoil = Com.Google.Accompanist.placeholder.copy(name = "accompanist-coil").withVer("0.15.0")
-    val GoogleAccompanistGlide = GoogleAccompanistCoil.copy(name = "accompanist-glide")
-    val GoogleAccompanistImageLoadingCore = GoogleAccompanistCoil.copy(name = "accompanist-imageloading-core")
-    val GoogleAccompanistPicasso = GoogleAccompanistCoil.copy(name = "accompanist-picasso").withVer("0.6.2")
 
     val AndroSdkCompileVer = 33
     val AndroSdkTargetVer = AndroSdkCompileVer
@@ -215,22 +210,6 @@ object DepsNew {
      */
     @Deprecated("Use androidx")
     val AndroSupportLibraryVer = Ver("28.0.0", 0)
-
-    /** TODO: automagically generate this one also */
-    val AndroidXPercentLayout = Dep("androidx.percentlayout", "percentlayout", listOf(Ver("1.0.0", 0)))
-
-    /** TODO: automagically generate this one also */
-    val Org.Mockito.kotlin get() = Dep("org.mockito.kotlin", "mockito-kotlin", listOf(Ver("2.2.11", 0), Ver("3.2.0", 0), Ver("4.1.0", 0)))
-
-    /** TODO: automagically generate this one also */
-    val Com.Google.truth get() = Dep("com.google.truth", "truth", listOf(Ver("1.1.3", 0)))
-
-    /** TODO: automagically generate this one also */
-    val Io.RealmPlugin get() = Dep("io.realm", "realm-gradle-plugin", listOf(Ver("10.11.1", 0)))
-
-    /** TODO: automagically generate this one also */
-    val Io.RSocketKotlinKtorClient get() = Dep("io.rsocket.kotlin", "rsocket-ktor-client", listOf(Ver("0.15.4", 0)))
-    val Io.RSocketKotlinKtorServer get() = Io.RSocketKotlinKtorClient.copy(name = "rsocket-ktor-server")
 
     /**
      * Android related kdoc links
@@ -1600,7 +1579,7 @@ object DepsNew {
         object Realm {
             val gradle_plugin = Dep("io.realm", "realm-gradle-plugin", Ver("10.15.0", 0), Ver("10.15.1", 0))
         }
-        object Rsocket {
+        object RSocket {
             object Kotlin {
                 val rsocket_core = Dep("io.rsocket.kotlin", "rsocket-core", Ver("0.15.4", 0))
                 val rsocket_ktor_client = Dep("io.rsocket.kotlin", "rsocket-ktor-client", Ver("0.15.4", 0))

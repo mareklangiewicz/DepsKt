@@ -4,12 +4,7 @@ package pl.mareklangiewicz.deps
 
 import Dep
 import DepsNew
-import DepsNew.RSocketKotlinKtorClient
-import DepsNew.RealmPlugin
-import DepsNew.kotlin
-import DepsNew.truth
 import Ver
-import libs
 import verStable
 
 @Deprecated("Use DepsNew")
@@ -30,7 +25,7 @@ object Vers {
 
     val kotlinxSerialization = DepsNew.KotlinX.serialization_core.v
 
-    val kotlinxAtomicFu = "0.20.2" // FIXME: add it to generated in DepsNew
+    val kotlinxAtomicFu = DepsNew.KotlinX.atomicfu_gradle_plugin.v
 
     val kotlinxHtml = DepsNew.KotlinX.html.v
 
@@ -38,9 +33,8 @@ object Vers {
 
     val gradle = DepsNew.GradleVer.ver
 
-    // FIXME: add compose multiplatform stuff to generated in DepsNew
-    val composeJbMain = "1.4.0"
-    val composeJbEdge = "1.5.0-dev1030"
+    val composeJbMain = DepsNew.Compose.gradle_plugin.v
+    val composeJbEdge = DepsNew.ComposeEdgeGradlePlugin.v
     val composeJb = composeJbEdge
 
     val composeAndroidStableBoM = DepsNew.ComposeAndro.bom.v
@@ -70,9 +64,9 @@ object Vers {
         // kinda incorrect (taking ver from "placeholder" artifact) because there is no one common version
         // see: https://google.github.io/accompanist/
 
-    val googleAccompanistImage = DepsNew.GoogleAccompanistImageLoadingCore.v
+    val googleAccompanistImage = DepsNew.GoogleAccompanist.imageloading_core.v
 
-    val googleAccompanistPicasso = DepsNew.GoogleAccompanistPicasso.v
+    val googleAccompanistPicasso = DepsNew.GoogleAccompanist.picasso.v
 
     val androidGradlePlugin = DepsNew.GradleAndroPluginVer.ver
 
@@ -117,7 +111,7 @@ object Vers {
     val androidxBrowser = DepsNew.AndroidX.Browser.browser.v
     val androidxBrowserHelper = DepsNew.Com.Google.AndroidBrowserHelper.androidbrowserhelper.v
 
-    val androidxPercentLayout = DepsNew.AndroidXPercentLayout.v
+    val androidxPercentLayout = DepsNew.AndroidX.PercentLayout.percentlayout.v
     val androidxFlexboxLayout = DepsNew.Com.Google.Android.Flexbox.flexbox.v
 
     val androidxLifecycle = DepsNew.AndroidX.Lifecycle.common.v
@@ -206,7 +200,7 @@ object Vers {
 
     val mockitoKotlin2 = "2.2.11"
     val mockitoKotlin3 = "3.2.0"
-    val mockitoKotlin4 = DepsNew.Org.Mockito.kotlin.v
+    val mockitoKotlin4 = DepsNew.Org.Mockito.Kotlin.mockito_kotlin.v
     val mockitoKotlin = mockitoKotlin4
 
     val mockitoAndroid2 = "2.28.2"
@@ -221,17 +215,17 @@ object Vers {
 
     val junit5 = DepsNew.Org.JUnit.Jupiter.junit_jupiter.v
 
-    val googleTruth = DepsNew.Com.Google.truth.v
+    val googleTruth = DepsNew.Com.Google.Truth.truth.v
 
     @Deprecated("Use androidx")
     val androidTestRunnerClass = "androidx.test.runner.AndroidJUnitRunner"
     // https://developer.android.com/reference/android/support/test/runner/AndroidJUnitRunner.html
 
-    val realm = DepsNew.Io.RealmPlugin.v
+    val realm = DepsNew.Io.Realm.gradle_plugin.v
 
     val ktor = DepsNew.Io.Ktor.io.v
 
-    val rsocket = DepsNew.Io.RSocketKotlinKtorClient.v
+    val rsocket = DepsNew.Io.RSocket.Kotlin.rsocket_core.v
 
     val splitties = DepsNew.Com.Louiscad.Splitties.bundle.v
 
@@ -243,27 +237,25 @@ object Vers {
     val npmStyled = "5.3.9"
     // https://github.com/styled-components/styled-components
 
-    // FIXME: move it to generated DepsNew
     // https://github.com/JetBrains/kotlin-wrappers
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin-wrappers/kotlin-wrappers-bom
     // NOTE: syntax for mpp build files: implementation(project.dependencies.enforcedPlatform(deps.kotlinJsWrappersBoM))
-    val kotlinJsWrappersBoM = "1.0.0-pre.538"
+    val kotlinJsWrappersBoM = DepsNew.Org.JetBrains.Kotlin_Wrappers.bom.v
 
     // https://github.com/JetBrains/kotlin-wrappers/blob/master/kotlin-react/README.md
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin-wrappers/kotlin-react
     @Deprecated("Use BoM")
-    val kotlinJsWrappersReact = "$npmReact-pre.538"
+    val kotlinJsWrappersReact = DepsNew.Org.JetBrains.Kotlin_Wrappers.kotlin_react.v
 
     // https://github.com/JetBrains/kotlin-wrappers/blob/master/kotlin-react-dom/README.md
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin-wrappers/kotlin-react-dom
-    @Suppress("DEPRECATION")
     @Deprecated("Use BoM")
-    val kotlinJsWrappersReactDom = kotlinJsWrappersReact
+    val kotlinJsWrappersReactDom = DepsNew.Org.JetBrains.Kotlin_Wrappers.kotlin_react_dom.v
 
     // https://github.com/JetBrains/kotlin-wrappers/blob/master/kotlin-styled/README.md
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin-wrappers/kotlin-styled
     @Deprecated("Use BoM")
-    val kotlinJsWrappersStyled = "$npmStyled-pre.538"
+    val kotlinJsWrappersStyled = DepsNew.Org.JetBrains.Kotlin_Wrappers.kotlin_styled.v
 
     val smokk = DepsNew.Langiewicz.smokk.v
     val rxmock = DepsNew.Langiewicz.rxmock.v
@@ -274,11 +266,11 @@ object Vers {
     val kommandLine = DepsNew.Langiewicz.kommandline.v
     val templateMPP = DepsNew.Langiewicz.template_mpp_lib.v
 
-    // FIXME: move this library to sonatype, then add to generated DepsNew
+    // FIXME_later: move this library to sonatype, then add to generated DepsNew
     val sandboxui = "0.0.5"
     // https://github.com/langara/sandboxui/releases
 
-    // FIXME: move this library to sonatype, then add to generated DepsNew
+    // FIXME_later: move this library to sonatype, then add to generated DepsNew
     val recyclerui = "0.0.2"
     // https://github.com/langara/recyclerui/releases
 }
