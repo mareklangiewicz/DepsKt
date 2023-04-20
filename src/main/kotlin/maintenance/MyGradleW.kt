@@ -12,7 +12,7 @@ val gradlewRelPaths =
 
 private val MyNonGradlewProjects = listOf("MyScripts", "uspek-js-playground", "uspek-painters")
 private val MyGradlewSubProjects =
-    listOf("template-mpp", "template-andro", "sample-sourcefun").map { "deps.kt/$it" } +
+    listOf("template-mpp", "template-andro", "sample-sourcefun").map { "DepsKt/$it" } +
         listOf("isolatedground1", "isolatedground2", "isolatedground3", "isolatedkamera").map { "kokpit667/$it" }
 
 private val MyGradlewProjects = MyKotlinProjects - MyNonGradlewProjects + MyGradlewSubProjects
