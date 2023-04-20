@@ -332,7 +332,7 @@ fun Project.defaultBuildTemplateForMppApp(
 
 // region [Compose MPP Module Build Template]
 
-/** Only for very standard compose mpp libs. In most cases it's better to not use this function. */
+/** Only for very standard compose mpp libs. In most cases, it's better to not use this function. */
 @Suppress("UNUSED_VARIABLE")
 @OptIn(ExperimentalComposeLibrary::class)
 fun Project.defaultBuildTemplateForComposeMppLib(

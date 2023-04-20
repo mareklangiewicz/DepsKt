@@ -81,6 +81,7 @@ gradlePlugin {
 fun Project.defaultBuildTemplateForRootProject(ossLibDetails: LibDetails? = null) {
 
     ossLibDetails?.let {
+        rootExtLibDetails = it
         defaultGroupAndVerAndDescription(it)
         defaultSonatypeOssStuffFromSystemEnvs()
     }
