@@ -2,16 +2,11 @@
 
 import pl.mareklangiewicz.defaults.*
 import pl.mareklangiewicz.deps.*
-import pl.mareklangiewicz.deps.Deps.ver
 import pl.mareklangiewicz.ure.*
 import pl.mareklangiewicz.utils.*
 
 plugins {
-    // FIXME: use plug(..)
-    kotlin("jvm") version DepsNew.KotlinVer.ver
-    id("com.gradle.plugin-publish") version DepsNew.GradlePublishPluginVer.ver
-    id("io.github.gradle-nexus.publish-plugin") version DepsNew.GradleNexusPublishPluginVer.ver
-    signing
+    plugAll(plugs.KotlinJvm, plugs.NexusPublish, plugs.GradlePublish, plugs.Signing)
 }
 
 repositories {
@@ -21,12 +16,12 @@ repositories {
 }
 
 dependencies {
-    api(deps.okio)
-    api(deps.kommandLine.ver("0.0.09")) // fixme_later: use DepsNew
+    api(Com.SquareUp.Okio.okio)
+    api(Langiewicz.kommandline) // fixme_later: use DepsNew
     implementation("io.github.typesafegithub:github-workflows-kt:0.40.1") // fixme_later: add to DepsNew
-    testImplementation(deps.uspekxJUnit5)
-    testImplementation(deps.junit5)
-    testImplementation(deps.junit5engine)
+    testImplementation(Langiewicz.uspekx_junit5)
+    testImplementation(Org.JUnit.Jupiter.junit_jupiter)
+    testImplementation(Org.JUnit.Jupiter.junit_jupiter_engine)
     // TODO: check separation between api and engine - so I can do similar in ULog (with separate bridges to CLog etc.)
 }
 
@@ -160,13 +155,13 @@ fun RepositoryHandler.defaultRepos(
 }
 
 fun TaskCollection<Task>.defaultKotlinCompileOptions(
-    jvmTargetVer: String = vers.defaultJvm,
+    jvmTargetVer: String = versNew.JvmDefaultVer,
     renderInternalDiagnosticNames: Boolean = false,
 ) = withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
     kotlinOptions {
         jvmTarget = jvmTargetVer
         if (renderInternalDiagnosticNames) freeCompilerArgs = freeCompilerArgs + "-Xrender-internal-diagnostic-names"
-        // useful for example to suppress some errors when accessing internal code from some library, like:
+        // useful, for example, to suppress some errors when accessing internal code from some library, like:
         // @file:Suppress("INVISIBLE_MEMBER", "INVISIBLE_REFERENCE", "EXPOSED_PARAMETER_TYPE", "EXPOSED_PROPERTY_TYPE", "CANNOT_OVERRIDE_INVISIBLE_MEMBER")
     }
 }
