@@ -2,6 +2,9 @@
 
 package pl.mareklangiewicz.deps
 
+import plugs
+import versNew
+
 @Deprecated("Use DepsNew")
 object VersOld {
 
@@ -10,9 +13,9 @@ object VersOld {
     private val Dep.vStable get() = verStable?.ver ?: error("Can not find last stable version in $this")
     private val Ver?.v get() = this?.ver ?: error("Can not find version in $this")
 
-    val kotlin = KotlinVer.v
+    val kotlin = Kotlin.stdlib.ver!!.ver
 
-    val defaultJvm = JvmDefaultVer
+    val defaultJvm = versNew.JvmDefaultVer
 
     val kotlinxDateTime = KotlinX.datetime.v
 
@@ -26,7 +29,7 @@ object VersOld {
 
     val kotlinxNodeJs = KotlinX.nodejs.v
 
-    val gradle = GradleVer.ver
+    val gradle = versNew.Gradle.v
 
     val composeJbMain = Compose.gradle_plugin.v
     val composeJbEdge = ComposeEdgeGradlePlugin.v
@@ -63,25 +66,23 @@ object VersOld {
 
     val googleAccompanistPicasso = GoogleAccompanist.picasso.v
 
-    val androidGradlePlugin = GradleAndroPluginVer.ver
+    val androidGradlePlugin = plugs.Android.v
 
-    @Deprecated("Use GradleAndroPluginVer https://developer.android.com/build/publish-library")
-    val androidMavenGradlePlugin = GradleAndroMavenPluginVer.ver
-    val nexusPublishGradlePlugin = GradleNexusPublishPluginVer.ver
+    val nexusPublishGradlePlugin = plugs.NexusPublish.v
 
-    val dokkaGradlePlugin = GradleDokkaPluginVer.ver
+    val dokkaGradlePlugin = plugs.Dokka.v
 
-    val osackyDoctorPlugin = GradleOsackyDoctorPluginVer.ver
+    val osackyDoctorPlugin = plugs.Doctor.v
 
-    val androidSdkCompile = AndroSdkCompileVer
-    val androidSdkTarget = AndroSdkTargetVer
-    val androidSdkMin = AndroSdkMinVer
+    val androidSdkMin = versNew.AndroSdkMin
+    val androidSdkCompile = versNew.AndroSdkCompile
+    val androidSdkTarget = versNew.AndroSdkTarget
 
     @Deprecated("Deprecated with android gradle plugin 3.0.0 or higher")
-    val androidBuildTools = AndroBuildToolsVer.ver
+    val androidBuildTools = versNew.AndroBuildTools.v
 
     @Deprecated("Use androidx")
-    val androidSupport = AndroSupportLibraryVer.ver
+    val androidSupport = versNew.AndroSupportLibrary.v
 
     val androidxCore = AndroidX.Core.core.v
 

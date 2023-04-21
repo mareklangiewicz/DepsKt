@@ -17,8 +17,6 @@ import kotlin.properties.*
 import kotlin.reflect.*
 
 
-infix fun PluginDependencySpec.ver(v: Ver) = version(v.ver)
-
 // Overloads for setting properties in more typesafe and explicit ways (and fewer parentheses)
 // (Property.set usage in gradle kotlin dsl doesn't look great, so we need to fix it with some infix fun)
 

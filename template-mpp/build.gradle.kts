@@ -1,6 +1,5 @@
 import pl.mareklangiewicz.defaults.*
-import pl.mareklangiewicz.deps.LibDetails
-import pl.mareklangiewicz.deps.langaraLibDetails
+import pl.mareklangiewicz.deps.*
 import pl.mareklangiewicz.ure.*
 import pl.mareklangiewicz.utils.*
 

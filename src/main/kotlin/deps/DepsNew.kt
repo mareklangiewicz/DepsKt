@@ -35,19 +35,32 @@ infix fun Instability?.moreStableThan(other: Instability?): Boolean {
     return left < right
 }
 
-data class Ver(val ver: String, val instability: Instability? = null) {
+private fun detectInstability(version: String): Instability? = null // FIXME
+
+data class Ver(val ver: String, val instability: Instability? = detectInstability(ver)) {
+    // TODO: instability detection
     constructor(ver: String, instability: Int): this(ver, Instability(instability))
+    constructor(major: Int, minor: Int, patch: Int, patchLength: Int = 2, suffix: String = ""):
+            this("$major.$minor.${patch.toString().padStart(patchLength, '0')}$suffix")
 }
 
 /** versions should always be sorted from oldest to newest */
-data class Dep(val group: String, val name: String, val vers: List<Ver>) {
+data class Dep(val group: String, val name: String, val vers: List<Ver>): CharSequence {
     constructor(group: String, name: String, vararg vers: Ver): this(group, name, vers.toList())
     val ver: Ver? get() = vers.lastOrNull()
     val mvn: String get() = ver?.ver?.let { "$group:$name:$it" } ?: "$group:$name"
+    override fun toString() = mvn
+    override val length get() = mvn.length
+    override fun get(index: Int) = mvn[index]
+    override fun subSequence(startIndex: Int, endIndex: Int) = mvn.subSequence(startIndex, endIndex)
 }
 
+fun DepP(pluginId: String, vararg vers: Ver) = Dep(pluginId, "$pluginId.gradle.plugin", *vers)
+
+fun Dep.withNoVer() = copy(vers = emptyList())
 fun Dep.withVer(ver: Ver) = copy(vers = listOf(ver))
 fun Dep.withVer(verName: String, verInstability: Int? = null) = withVer(Ver(verName, verInstability?.let(::Instability)))
+fun Dep.withVers(vararg vers: Ver) = copy(vers = vers.toList())
 fun Dep.withVers(maxInstability: Instability) = copy(vers = vers.filter { !(maxInstability moreStableThan it.instability) })
 val Dep.verStable get() = vers.lastOrNull { it.instability?.instability == 0 }
 
@@ -78,70 +91,12 @@ typealias Kotlin = Org.JetBrains.Kotlin
  */
 typealias KotlinX = Org.JetBrains.KotlinX
 
-val KotlinVer = Kotlin.stdlib.ver!!
-val JvmDefaultVer = "17" // I had terrible issues with "16" (andro compose project)
-
-
-val Gradle5Ver = Ver("5.6.4", 0)
-val Gradle6Ver = Ver("6.8.3", 0)
-val Gradle7Ver = Ver("7.6.1", 0)
-val Gradle8Ver = Ver("8.1", 0)
-
 /**
- * Gradle - just a reference - not so useful in typical usecases
- * - [gradle releases](https://gradle.org/releases/)
- * - [gradle versions](https://services.gradle.org/versions)
- * - [gradle versions current](https://services.gradle.org/versions/current)
- * - [gradle versions rel candidate](https://services.gradle.org/versions/release-candidate)
+ * - [github](https://github.com/langara)
+ * - [github repositories](https://github.com/langara?tab=repositories)
+ * - [repo1 maven](https://repo1.maven.org/maven2/pl/mareklangiewicz/)
  */
-val GradleVer = Gradle8Ver
-
-/**
- * Gradle Publish Plugin Ver
- * - [plugins gradle org](https://plugins.gradle.org/plugin/com.gradle.plugin-publish)
- * - [plugins gradle org docs](https://plugins.gradle.org/docs/publish-plugin)
- */
-val GradlePublishPluginVer = Ver("1.2.0", 0)
-
-/**
- * Gradle Andro Plugin Ver
- * - [maven](https://maven.google.com/web/index.html#com.android.tools.build:gradle)
- * - [releases](https://developer.android.com/studio/releases/gradle-plugin)
- * - [andro gradle dsl](https://google.github.io/android-gradle-dsl/)
- */
-val GradleAndroPluginVer = Ver("8.1.0-alpha11", 300)
-
-/** - [deprecated releases](https://github.com/dcendents/android-maven-gradle-plugin/releases) */
-@Deprecated("Use GradleAndroPluginVer https://developer.android.com/build/publish-library")
-val GradleAndroMavenPluginVer = Ver("2.1", 0)
-
-/**
- * - [github](https://github.com/gradle-nexus/publish-plugin/)
- * - [github releases](https://github.com/gradle-nexus/publish-plugin/releases)
- */
-val GradleNexusPublishPluginVer = Ver("1.3.0", 0)
-
-/**
- * - [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.dokka)
- * - [github](https://github.com/Kotlin/dokka)
- * - [github releases](https://github.com/Kotlin/dokka/releases)
- */
-val GradleDokkaPluginVer = Ver("1.8.10", 0)
-
-/**
- * - [gradle portal](https://plugins.gradle.org/plugin/com.osacky.doctor)
- * - [github](https://github.com/runningcode/gradle-doctor)
- * - [docs](https://runningcode.github.io/gradle-doctor/)
- */
-val GradleOsackyDoctorPluginVer = Ver("0.8.1", 0)
-
 typealias Langiewicz = Pl.MarekLangiewicz
-
-/**
- * DepsKt Plugin Ver
- * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
- */
-val DepsKtPluginVer = Ver("0.2.33")
 
 /**
  * - [github](https://github.com/JetBrains/compose-multiplatform)
@@ -166,27 +121,6 @@ typealias ComposeAndro = AndroidX.Compose
  * - [accompanist sonatype search](https://central.sonatype.com/search?namespace=com.google.accompanist)
  */
 typealias GoogleAccompanist = Com.Google.Accompanist
-
-val AndroSdkCompileVer = 33
-val AndroSdkTargetVer = AndroSdkCompileVer
-
-/**
- * - [dashboards](https://developer.android.com/about/dashboards/index.html)
- * - [build numbers](https://source.android.com/setup/start/build-numbers)
- */
-val AndroSdkMinVer = 26
-
-/**
- * - [releases](https://developer.android.com/tools/releases/build-tools)
- */
-@Deprecated("Deprecated with android gradle plugin 3.0.0 or higher")
-val AndroBuildToolsVer = Ver("34.0.0", 0)
-
-/**
- * - [revisions](https://developer.android.com/topic/libraries/support-library/revisions.html)
- */
-@Deprecated("Use androidx")
-val AndroSupportLibraryVer = Ver("28.0.0", 0)
 
 /**
  * Android related kdoc links
