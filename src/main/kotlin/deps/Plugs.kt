@@ -25,6 +25,12 @@ object Plugs {
      */
     val GradlePublish = DepP("com.gradle.plugin-publish", Ver("1.2.0", 0))
 
+    /**
+     * The builtin Gradle plugin implemented by [org.gradle.api.plugins.ApplicationPlugin].
+     *
+     * @see org.gradle.api.plugins.ApplicationPlugin
+     */
+    val JvmApp = DepP("org.gradle.application")
 
     /**
      * Android Gradle Plugin
