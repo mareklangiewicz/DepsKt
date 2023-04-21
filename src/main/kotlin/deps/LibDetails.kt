@@ -25,12 +25,6 @@ object LibsDetails {
         githubUrl = "https://github.com/langara/RxMock",
     )
 
-    val KommandLine = langaraLibDetails(
-        name = "KommandLine",
-        description = "Kotlin DSL for popular CLI commands.",
-        githubUrl = "https://github.com/langara/KommandLine",
-    )
-
     val UPue = langaraLibDetails(
         name = "UPue",
         description = "Micro Multiplatform Reactive Library.",
