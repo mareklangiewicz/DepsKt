@@ -33,6 +33,8 @@ object Plugs {
      */
     val Android = DepP("com.android.tools.build", Ver("8.1.0-alpha11", 300))
 
+    val Compose = Org.JetBrains.Compose.gradle_plugin
+
     /**
      * Dokka Gradle Plugin
      * - [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.dokka)

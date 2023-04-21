@@ -7,8 +7,9 @@ import pl.mareklangiewicz.ure.*
 import pl.mareklangiewicz.utils.*
 
 plugins {
+    // FIXME: use plug(..)
     kotlin("jvm") version DepsNew.KotlinVer.ver
-    id("com.gradle.plugin-publish") version DepsNew.GradlePublishPluginVer.ver // FIXME use infix ver
+    id("com.gradle.plugin-publish") version DepsNew.GradlePublishPluginVer.ver
     id("io.github.gradle-nexus.publish-plugin") version DepsNew.GradleNexusPublishPluginVer.ver
     signing
 }

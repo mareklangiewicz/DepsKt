@@ -4,8 +4,8 @@ import pl.mareklangiewicz.ure.*
 import pl.mareklangiewicz.utils.*
 
 plugins {
-    id("io.github.gradle-nexus.publish-plugin") version DepsNew.GradleNexusPublishPluginVer.ver
-    kotlin("multiplatform") version DepsNew.KotlinVer.ver apply false
+    plug(plugs.KotlinMulti) apply false
+    plug(plugs.NexusPublish)
 }
 
 defaultBuildTemplateForRootProject(
@@ -13,7 +13,7 @@ defaultBuildTemplateForRootProject(
         name = "TemplateMPP",
         description = "Template for multi platform projects.",
         githubUrl = "https://github.com/langara/DepsKt/template-mpp",
-        version = Ver("0.0.03", 0),
+        version = Ver(0, 0, 4)
     )
 )
 

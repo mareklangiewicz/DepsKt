@@ -6,8 +6,7 @@ import pl.mareklangiewicz.deps.*
 import pl.mareklangiewicz.utils.*
 
 plugins {
-    kotlin("multiplatform")
-    id("org.jetbrains.compose") version vers.composeJb
+    plugAll(plugs.KotlinMulti, plugs.Compose)
 }
 
 defaultBuildTemplateForComposeMppApp(
@@ -15,7 +14,6 @@ defaultBuildTemplateForComposeMppApp(
     withJs = true,
     withNativeLinux64 = false,
     withKotlinxHtml = true,
-    withComposeCompilerAndroidxDev = deps.composeCompilerAndroidxDev,
 ) {
     implementation(project(":template-mpp-lib"))
 }
@@ -57,13 +55,13 @@ fun RepositoryHandler.defaultRepos(
 }
 
 fun TaskCollection<Task>.defaultKotlinCompileOptions(
-    jvmTargetVer: String = vers.defaultJvm,
+    jvmTargetVer: String = versNew.JvmDefaultVer,
     renderInternalDiagnosticNames: Boolean = false,
 ) = withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
     kotlinOptions {
         jvmTarget = jvmTargetVer
         if (renderInternalDiagnosticNames) freeCompilerArgs = freeCompilerArgs + "-Xrender-internal-diagnostic-names"
-        // useful for example to suppress some errors when accessing internal code from some library, like:
+        // useful, for example, to suppress some errors when accessing internal code from some library, like:
         // @file:Suppress("INVISIBLE_MEMBER", "INVISIBLE_REFERENCE", "EXPOSED_PARAMETER_TYPE", "EXPOSED_PROPERTY_TYPE", "CANNOT_OVERRIDE_INVISIBLE_MEMBER")
     }
 }
@@ -227,25 +225,25 @@ fun KotlinMultiplatformExtension.allDefault(
     sourceSets {
         val commonMain by getting {
             dependencies {
-                if (withKotlinxHtml) implementation(deps.kotlinxHtml)
+                if (withKotlinxHtml) implementation(KotlinX.html)
                 addCommonMainDependencies()
             }
         }
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))
-                if (withTestUSpekX) implementation(deps.uspekx)
+                if (withTestUSpekX) implementation(Langiewicz.uspekx)
             }
         }
         if (withJvm) {
             val jvmTest by getting {
                 dependencies {
-                    if (withTestJUnit4) implementation(deps.junit4)
-                    if (withTestJUnit5) implementation(deps.junit5engine)
+                    if (withTestJUnit4) implementation(JUnit.junit)
+                    if (withTestJUnit5) implementation(Org.JUnit.Jupiter.junit_jupiter_engine)
                     if (withTestUSpekX) {
-                        implementation(deps.uspekx)
-                        if (withTestJUnit4) implementation(deps.uspekxJUnit4)
-                        if (withTestJUnit5) implementation(deps.uspekxJUnit5)
+                        implementation(Langiewicz.uspekx)
+                        if (withTestJUnit4) implementation(Langiewicz.uspekx_junit4)
+                        if (withTestJUnit5) implementation(Langiewicz.uspekx_junit5)
                     }
                 }
             }
