@@ -4,9 +4,10 @@ import pl.mareklangiewicz.utils.*
 import pl.mareklangiewicz.deps.*
 
 plugins {
-    id("io.github.gradle-nexus.publish-plugin") version vers.nexusPublishGradlePlugin
-    id("com.android.application") version vers.androidGradlePlugin apply false
-    kotlin("android") version vers.kotlin apply false
+    plug(plugs.NexusPublish)
+    plug(plugs.AndroLib) apply false
+    plug(plugs.AndroApp) apply false
+    plug(plugs.KotlinAndro) apply false
 }
 
 defaultBuildTemplateForRootProject(
@@ -14,7 +15,7 @@ defaultBuildTemplateForRootProject(
         name = "TemplateAndro",
         description = "Template for android projects.",
         githubUrl = "https://github.com/langara/deps.kt/template-andro",
-        version = Ver("0.0.05")
+        version = Ver(0, 0, 6)
     )
 )
 

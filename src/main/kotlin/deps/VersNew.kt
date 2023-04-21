@@ -25,7 +25,7 @@ object VersNew {
      * - [build numbers](https://source.android.com/setup/start/build-numbers)
      */
     val AndroSdkMin = 26
-    val AndroSdkCompile = 33
+    val AndroSdkCompile = 34
     val AndroSdkTarget = AndroSdkCompile
 
     /**

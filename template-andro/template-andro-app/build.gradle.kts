@@ -5,16 +5,13 @@ import pl.mareklangiewicz.deps.*
 import pl.mareklangiewicz.utils.*
 
 plugins {
-    id("com.android.application")
-    kotlin("android")
-    id("maven-publish")
-    id("signing")
+    plugAll(plugs.AndroApp, plugs.KotlinAndro, plugs.MavenPublish, plugs.Signing)
 }
 
 defaultBuildTemplateForAndroidApp(
     appId = "pl.mareklangiewicz.templateandro",
     withCompose = true,
-    withComposeCompilerVer = vers.composeCompiler,
+    withComposeCompilerVer = versOld.composeCompiler,
     publishVariant = "debug",
 )
 
@@ -179,15 +176,15 @@ fun ScriptHandlerScope.defaultAndroBuildScript() {
 /** usually not needed - see template-android */
 fun DependencyHandler.defaultAndroBuildScriptDeps(
 ) {
-    add("classpath", deps.kotlinGradlePlugin)
-    add("classpath", deps.androidGradlePlugin)
+    add("classpath", depsOld.kotlinGradlePlugin)
+    add("classpath", depsOld.androidGradlePlugin)
 }
 
 
 fun DependencyHandler.defaultAndroDeps(
     configuration: String = "implementation",
     withCompose: Boolean = false,
-) = deps.run {
+) = depsOld.run {
     addAll(
         configuration,
         androidxCoreKtx,
@@ -210,7 +207,7 @@ fun DependencyHandler.defaultAndroDeps(
 fun DependencyHandler.defaultAndroTestDeps(
     configuration: String = "testImplementation",
     withCompose: Boolean = false,
-) = deps.run {
+) = depsOld.run {
     addAll(
         configuration,
         kotlinTestJUnit,
@@ -243,7 +240,7 @@ fun MutableSet<String>.defaultAndroExcludedResources() = addAll(
 )
 
 fun CommonExtension<*, *, *, *, *>.defaultCompileOptions(
-    jvmVersion: String = vers.defaultJvm,
+    jvmVersion: String = versNew.JvmDefaultVer,
 ) = compileOptions {
     sourceCompatibility(jvmVersion)
     targetCompatibility(jvmVersion)
@@ -258,7 +255,7 @@ fun CommonExtension<*, *, *, *, *>.defaultComposeStuff(withComposeCompilerVer: S
     }
 }
 
-fun CommonExtension<*, *, *, *, *>.defaultPackagingOptions() = packagingOptions {
+fun CommonExtension<*, *, *, *, *>.defaultPackagingOptions() = packaging {
     resources.excludes.defaultAndroExcludedResources()
 }
 
@@ -292,10 +289,10 @@ fun Project.defaultBuildTemplateForAndroidApp(
     appNamespace: String = appId,
     appVerCode: Int = 1,
     appVerName: String = v(patch = appVerCode),
-    jvmVersion: String = vers.defaultJvm,
-    sdkCompile: Int = vers.androidSdkCompile,
-    sdkTarget: Int = vers.androidSdkTarget,
-    sdkMin: Int = vers.androidSdkMin,
+    jvmVersion: String = versNew.JvmDefaultVer,
+    sdkCompile: Int = versNew.AndroSdkCompile,
+    sdkTarget: Int = versNew.AndroSdkTarget,
+    sdkMin: Int = versNew.AndroSdkMin,
     withCompose: Boolean = false,
     withComposeCompilerVer: String? = null,
     details: LibDetails = rootExtLibDetails,
@@ -323,14 +320,14 @@ fun ApplicationExtension.defaultAndroApp(
     appNamespace: String = appId,
     appVerCode: Int = 1,
     appVerName: String = v(patch = appVerCode),
-    jvmVersion: String = vers.defaultJvm,
-    sdkCompile: Int = vers.androidSdkCompile,
-    sdkTarget: Int = vers.androidSdkTarget,
-    sdkMin: Int = vers.androidSdkMin,
+    jvmVersion: String = versNew.JvmDefaultVer,
+    sdkCompile: Int = versNew.AndroSdkCompile,
+    sdkTarget: Int = versNew.AndroSdkTarget,
+    sdkMin: Int = versNew.AndroSdkMin,
     withCompose: Boolean = false,
     withComposeCompilerVer: String? = null,
 ) {
-    compileSdk = sdkCompile
+    if (sdkCompile == 34) compileSdkPreview = "UpsideDownCake" else compileSdk = sdkCompile
     defaultCompileOptions(jvmVersion)
     defaultDefaultConfig(appId, appNamespace, appVerCode, appVerName, sdkTarget, sdkMin)
     defaultBuildTypes()
@@ -343,16 +340,15 @@ fun ApplicationExtension.defaultDefaultConfig(
     appNamespace: String = appId,
     appVerCode: Int = 1,
     appVerName: String = v(patch = appVerCode),
-    sdkTarget: Int = vers.androidSdkTarget,
-    sdkMin: Int = vers.androidSdkMin,
+    sdkTarget: Int = versNew.AndroSdkTarget,
+    sdkMin: Int = versNew.AndroSdkMin,
 ) = defaultConfig {
     applicationId = appId
     namespace = appNamespace
-    targetSdk = sdkTarget
+    if (sdkTarget == 34) targetSdkPreview = "UpsideDownCake" else targetSdk = sdkTarget
     minSdk = sdkMin
     versionCode = appVerCode
     versionName = appVerName
-    testInstrumentationRunner = vers.androidTestRunnerClass
 }
 
 fun ApplicationExtension.defaultBuildTypes() = buildTypes { release { isMinifyEnabled = false } }

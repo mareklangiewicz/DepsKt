@@ -13,6 +13,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.Modifier as Mod
 import pl.mareklangiewicz.templateandro.theme.TemplateAndroTheme
 import pl.mareklangiewicz.templateandrolib.RotatedBox
 

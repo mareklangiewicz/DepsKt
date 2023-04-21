@@ -11,6 +11,7 @@ object Plugs {
     val KotlinMulti = DepP("org.jetbrains.kotlin.multiplatform", Kotlin.stdlib.ver!!)
     val KotlinJvm = DepP("org.jetbrains.kotlin.jvm", Kotlin.stdlib.ver!!)
     val KotlinJs = DepP("org.jetbrains.kotlin.js", Kotlin.stdlib.ver!!)
+    val KotlinAndro = DepP("org.jetbrains.kotlin.android", Kotlin.stdlib.ver!!)
 
     val MavenPublish = DepP("maven-publish")
 
@@ -31,7 +32,9 @@ object Plugs {
      * - [releases](https://developer.android.com/studio/releases/gradle-plugin)
      * - [andro gradle dsl](https://google.github.io/android-gradle-dsl/)
      */
-    val Android = DepP("com.android.tools.build", Ver("8.1.0-alpha11", 300))
+    val AndroVer = Ver("8.1.0-beta01", 200)
+    val AndroLib = DepP("com.android.library", AndroVer)
+    val AndroApp = DepP("com.android.application", AndroVer)
 
     val Compose = Org.JetBrains.Compose.gradle_plugin
 

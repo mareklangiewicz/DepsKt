@@ -5,16 +5,13 @@ import pl.mareklangiewicz.deps.*
 import pl.mareklangiewicz.utils.*
 
 plugins {
-    id("com.android.library")
-    kotlin("android")
-    id("maven-publish")
-    id("signing")
+    plugAll(plugs.AndroLib, plugs.KotlinAndro, plugs.MavenPublish, plugs.Signing)
 }
 
 defaultBuildTemplateForAndroidLib(
     libNamespace = "pl.mareklangiewicz.templateandrolib",
     withCompose = true,
-    withComposeCompilerVer = vers.composeCompiler,
+    withComposeCompilerVer = versOld.composeCompiler,
     publishVariant = "debug",
 )
 
@@ -169,15 +166,15 @@ fun ScriptHandlerScope.defaultAndroBuildScript() {
 /** usually not needed - see template-android */
 fun DependencyHandler.defaultAndroBuildScriptDeps(
 ) {
-    add("classpath", deps.kotlinGradlePlugin)
-    add("classpath", deps.androidGradlePlugin)
+    add("classpath", depsOld.kotlinGradlePlugin)
+    add("classpath", depsOld.androidGradlePlugin)
 }
 
 
 fun DependencyHandler.defaultAndroDeps(
     configuration: String = "implementation",
     withCompose: Boolean = false,
-) = deps.run {
+) = depsOld.run {
     addAll(
         configuration,
         androidxCoreKtx,
@@ -200,7 +197,7 @@ fun DependencyHandler.defaultAndroDeps(
 fun DependencyHandler.defaultAndroTestDeps(
     configuration: String = "testImplementation",
     withCompose: Boolean = false,
-) = deps.run {
+) = depsOld.run {
     addAll(
         configuration,
         kotlinTestJUnit,
@@ -233,7 +230,7 @@ fun MutableSet<String>.defaultAndroExcludedResources() = addAll(
 )
 
 fun CommonExtension<*, *, *, *, *>.defaultCompileOptions(
-    jvmVersion: String = vers.defaultJvm,
+    jvmVersion: String = versNew.JvmDefaultVer,
 ) = compileOptions {
     sourceCompatibility(jvmVersion)
     targetCompatibility(jvmVersion)
@@ -248,7 +245,7 @@ fun CommonExtension<*, *, *, *, *>.defaultComposeStuff(withComposeCompilerVer: S
     }
 }
 
-fun CommonExtension<*, *, *, *, *>.defaultPackagingOptions() = packagingOptions {
+fun CommonExtension<*, *, *, *, *>.defaultPackagingOptions() = packaging {
     resources.excludes.defaultAndroExcludedResources()
 }
 
@@ -279,10 +276,9 @@ fun Project.defaultPublishingOfAndroApp(
 
 fun Project.defaultBuildTemplateForAndroidLib(
     libNamespace: String,
-    jvmVersion: String = vers.defaultJvm,
-    sdkCompile: Int = vers.androidSdkCompile,
-    sdkTarget: Int = vers.androidSdkTarget,
-    sdkMin: Int = vers.androidSdkMin,
+    jvmVersion: String = versNew.JvmDefaultVer,
+    sdkCompile: Int = versNew.AndroSdkCompile,
+    sdkMin: Int = versNew.AndroSdkMin,
     withCompose: Boolean = false,
     withComposeCompilerVer: String? = null,
     details: LibDetails = rootExtLibDetails,
@@ -290,7 +286,7 @@ fun Project.defaultBuildTemplateForAndroidLib(
 ) {
     repositories { defaultRepos(withComposeCompilerAndroidxDev = withCompose) }
     android {
-        defaultAndroLib(libNamespace, jvmVersion, sdkCompile, sdkTarget, sdkMin, withCompose, withComposeCompilerVer)
+        defaultAndroLib(libNamespace, jvmVersion, sdkCompile, sdkMin, withCompose, withComposeCompilerVer)
         publishVariant?.let { defaultAndroLibPublishVariant(it) }
     }
     dependencies {
@@ -307,16 +303,15 @@ fun Project.defaultBuildTemplateForAndroidLib(
 
 fun LibraryExtension.defaultAndroLib(
     libNamespace: String,
-    jvmVersion: String = vers.defaultJvm,
-    sdkCompile: Int = vers.androidSdkCompile,
-    sdkTarget: Int = vers.androidSdkTarget,
-    sdkMin: Int = vers.androidSdkMin,
+    jvmVersion: String = versNew.JvmDefaultVer,
+    sdkCompile: Int = versNew.AndroSdkCompile,
+    sdkMin: Int = versNew.AndroSdkMin,
     withCompose: Boolean = false,
     withComposeCompilerVer: String? = null,
 ) {
-    compileSdk = sdkCompile
+    if (sdkCompile == 34) compileSdkPreview = "UpsideDownCake" else compileSdk = sdkCompile
     defaultCompileOptions(jvmVersion)
-    defaultDefaultConfig(libNamespace, sdkTarget, sdkMin)
+    defaultDefaultConfig(libNamespace, sdkMin)
     defaultBuildTypes()
     if (withCompose) defaultComposeStuff(withComposeCompilerVer)
     defaultPackagingOptions()
@@ -324,13 +319,10 @@ fun LibraryExtension.defaultAndroLib(
 
 fun LibraryExtension.defaultDefaultConfig(
     libNamespace: String,
-    sdkTarget: Int = vers.androidSdkTarget,
-    sdkMin: Int = vers.androidSdkMin,
+    sdkMin: Int = versNew.AndroSdkMin,
 ) = defaultConfig {
     namespace = libNamespace
-    targetSdk = sdkTarget
     minSdk = sdkMin
-    testInstrumentationRunner = vers.androidTestRunnerClass
 }
 
 fun LibraryExtension.defaultBuildTypes() = buildTypes { release { isMinifyEnabled = false } }
