@@ -11,12 +11,13 @@ import org.gradle.api.provider.*
 import org.gradle.api.tasks.*
 import org.gradle.plugin.use.PluginDependencySpec
 import pl.mareklangiewicz.deps.LibDetails
+import pl.mareklangiewicz.deps.Ver
 import pl.mareklangiewicz.io.*
 import kotlin.properties.*
 import kotlin.reflect.*
 
 
-infix fun PluginDependencySpec.ver(v: CharSequence) = version(v.toString())
+infix fun PluginDependencySpec.ver(v: Ver) = version(v.ver)
 
 // Overloads for setting properties in more typesafe and explicit ways (and fewer parentheses)
 // (Property.set usage in gradle kotlin dsl doesn't look great, so we need to fix it with some infix fun)

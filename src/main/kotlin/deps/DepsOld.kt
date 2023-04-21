@@ -7,11 +7,11 @@ import org.gradle.api.artifacts.dsl.*
 @Deprecated("")
 val libs = LibsDetails // instead of import - to avoid circular init problem
 
-@Deprecated("")
-val vers = Vers // instead of import - to avoid circular init problem
+@Deprecated("Use DepsNew")
+val vers = VersOld // instead of import - to avoid circular init problem
 
 @Deprecated("Use DepsNew")
-object Deps {
+object DepsOld {
     private val kotlin = dep("org.jetbrains.kotlin", "", vers.kotlin)
     val kotlinGradlePlugin = kotlin withName "kotlin-gradle-plugin"
     val androidGradlePlugin = dep("com.android.tools.build", "gradle", vers.androidGradlePlugin)
@@ -379,7 +379,7 @@ object Deps {
 
     const val marekGroup = "pl.mareklangiewicz"
 
-    private val l = DepsNew.Langiewicz
+    private val l = Langiewicz
     val uspek = l.uspek.mvn
     val uspekx = l.uspekx.mvn
     val uspekxJUnit4 = l.uspekx_junit4.mvn

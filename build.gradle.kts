@@ -7,9 +7,9 @@ import pl.mareklangiewicz.ure.*
 import pl.mareklangiewicz.utils.*
 
 plugins {
-    kotlin("jvm") version vers.kotlin
-    id("com.gradle.plugin-publish") version "1.2.0" // FIXME
-    id("io.github.gradle-nexus.publish-plugin") version vers.nexusPublishGradlePlugin
+    kotlin("jvm") version DepsNew.KotlinVer.ver
+    id("com.gradle.plugin-publish") version DepsNew.GradlePublishPluginVer.ver // FIXME use infix ver
+    id("io.github.gradle-nexus.publish-plugin") version DepsNew.GradleNexusPublishPluginVer.ver
     signing
 }
 
@@ -35,15 +35,15 @@ tasks.defaultTestsOptions()
 
 defaultSonatypeOssStuffFromSystemEnvs()
 
-val details get() = langaraLibDetails(
-    name = "DepsKt",
-    group = "pl.mareklangiewicz.deps", // important non default ...deps group (as accepted on gradle portal)
-    version = v(0, 2, 32),
-    description = "Updated dependencies for typical java/kotlin/android projects (with IDE support).",
-    githubUrl = "https://github.com/langara/DepsKt",
+defaultGroupAndVerAndDescription(
+    langaraLibDetails(
+        name = "DepsKt",
+        group = "pl.mareklangiewicz.deps", // important non default ...deps group (as accepted on gradle portal)
+        description = "Updated dependencies for typical java/kotlin/android projects (with IDE support).",
+        githubUrl = "https://github.com/langara/DepsKt",
+        version = Ver("0.2.33"),
+    )
 )
-
-defaultGroupAndVerAndDescription(details)
 
 defaultSigning()
 

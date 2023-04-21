@@ -2,7 +2,6 @@
 
 package pl.mareklangiewicz.deps
 
-import Ver
 import java.util.*
 
 @Deprecated("TODO: inline these to build files of libs themselves")

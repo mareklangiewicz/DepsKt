@@ -1,6 +1,7 @@
 package pl.mareklangiewicz.deps
 
-object Repos {
+@Deprecated("Use DepsNew")
+object ReposOld {
 
     // https://central.sonatype.org/publish/publish-guide/#accessing-repositories
     const val sonatypeOssSnapshotsOld = "https://oss.sonatype.org/content/repositories/snapshots/"
