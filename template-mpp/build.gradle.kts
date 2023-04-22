@@ -64,8 +64,8 @@ fun Project.defaultSonatypeOssNexusPublishing(
                 stagingProfileId put sonatypeStagingProfileId
                 username put ossrhUsername
                 password put ossrhPassword
-                nexusUrl put uri(repos.sonatypeOssNexus)
-                snapshotRepositoryUrl put uri(repos.sonatypeOssSnapshots)
+                nexusUrl put repos.sonatypeOssNexus
+                snapshotRepositoryUrl put repos.sonatypeOssSnapshots
             }
         }
     }
