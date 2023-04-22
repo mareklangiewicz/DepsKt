@@ -27,3 +27,12 @@ fun PluginDependenciesSpec.plug(dep: Dep): PluginDependencySpec {
 }
 
 fun PluginDependenciesSpec.plugAll(vararg deps: Dep) { for (d in deps) plug(d) }
+
+fun PluginDependenciesSpec.plugDefaultForRoot() {
+    plug(plugs.NexusPublish)
+    plug(plugs.KotlinMulti).apply(false)
+}
+
+fun PluginDependenciesSpec.plugDefaultForMppModule() {
+    plugAll(plugs.KotlinMulti, plugs.MavenPublish, plugs.Signing)
+}
