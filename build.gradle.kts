@@ -18,7 +18,7 @@ repositories {
 dependencies {
     api(Com.SquareUp.Okio.okio)
     api(Langiewicz.kommandline)
-    implementation("io.github.typesafegithub:github-workflows-kt:0.40.1") // fixme_later: add to DepsNew
+    implementation(Io.GitHub.TypeSafeGitHub.github_workflows_kt)
     testImplementation(Langiewicz.uspekx_junit5)
     testImplementation(Org.JUnit.Jupiter.junit_jupiter)
     testImplementation(Org.JUnit.Jupiter.junit_jupiter_engine)
@@ -37,7 +37,7 @@ defaultGroupAndVerAndDescription(
         group = "pl.mareklangiewicz.deps", // important non default ...deps group (as accepted on gradle portal)
         description = "Updated dependencies for typical java/kotlin/android projects (with IDE support).",
         githubUrl = "https://github.com/langara/DepsKt",
-        version = Ver(0, 2, 34),
+        version = Ver(0, 2, 35),
     )
 )
 
