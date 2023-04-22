@@ -17,7 +17,7 @@ repositories {
 
 dependencies {
     api(Com.SquareUp.Okio.okio)
-    api(Langiewicz.kommandline) // fixme_later: use DepsNew
+    api(Langiewicz.kommandline)
     implementation("io.github.typesafegithub:github-workflows-kt:0.40.1") // fixme_later: add to DepsNew
     testImplementation(Langiewicz.uspekx_junit5)
     testImplementation(Org.JUnit.Jupiter.junit_jupiter)

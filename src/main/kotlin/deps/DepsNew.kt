@@ -1319,7 +1319,7 @@ object Io {
                 val orchidwritersblocks = Dep("io.github.javaeden.orchid", "OrchidWritersBlocks", Ver("0.21.1", 0))
             }
         }
-        object TypesafeGitHub {
+        object TypeSafeGitHub {
             val github_workflows_kt = Dep("io.github.typesafegithub", "github-workflows-kt", Ver("0.41.0", 0))
         }
     }
