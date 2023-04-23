@@ -25,12 +25,6 @@ object LibsDetails {
         githubUrl = "https://github.com/langara/RxMock",
     )
 
-    val UPue = langaraLibDetails(
-        name = "UPue",
-        description = "Micro Multiplatform Reactive Library.",
-        githubUrl = "https://github.com/langara/UPue",
-    )
-
     val AbcdK = langaraLibDetails(
         name = "AbcdK",
         description = "Tiny unions lib for Kotlin.",
