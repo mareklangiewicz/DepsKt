@@ -60,12 +60,6 @@ object LibsDetails {
         description = "Collection of Compose related samples, ui tests etc.",
         githubUrl = "https://github.com/langara/MyStolenPlaygrounds",
     )
-
-    val Kthreelhu = langaraLibDetails(
-        name = "Kthreelhu",
-        description = "Dirty experiments with Kotlin + Three.js + Compose",
-        githubUrl = "https://github.com/langara/Kthreelhu",
-    )
 }
 
 data class LibDetails(
