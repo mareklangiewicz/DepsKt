@@ -43,12 +43,6 @@ object LibsDetails {
         githubUrl = "https://github.com/langara/TupleK",
     )
 
-    val UWidgets = langaraLibDetails(
-        name = "UWidgets",
-        description = "Micro widgets for Compose Multiplatform",
-        githubUrl = "https://github.com/langara/UWidgets",
-    )
-
     val AreaKim = langaraLibDetails(
         name = "AreaKim",
         description = "Kotlin Vim Area for Compose Multiplatform",
