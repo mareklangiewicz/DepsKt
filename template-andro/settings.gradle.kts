@@ -1,7 +1,7 @@
 @file:Suppress("UnstableApiUsage")
 
 pluginManagement {
-    includeBuild("..") // this is DepsKt
+//    includeBuild("..") // this is DepsKt
     repositories {
         google()
         gradlePluginPortal()
@@ -10,7 +10,7 @@ pluginManagement {
 }
 
 plugins {
-    id("pl.mareklangiewicz.deps.settings") version "0.2.34"
+    id("pl.mareklangiewicz.deps.settings") version "0.2.35"
 }
 
 rootProject.name = "template-andro"
