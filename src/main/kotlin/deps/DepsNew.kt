@@ -1668,7 +1668,7 @@ object Org {
             val multik_default = Dep("org.jetbrains.kotlinx", "multik-default", Ver("0.2.1", 0))
             val multik_jvm = Dep("org.jetbrains.kotlinx", "multik-jvm", Ver("0.1.1", 0))
             val multik_native = Dep("org.jetbrains.kotlinx", "multik-native", Ver("0.1.1", 0))
-            val nodejs = Dep("org.jetbrains.kotlinx", "kotlinx-nodejs")
+            val nodejs = Dep("org.jetbrains.kotlinx", "kotlinx-nodejs", Ver("0.0.7"))
             val reflect_lite = Dep("org.jetbrains.kotlinx", "kotlinx.reflect.lite", Ver("1.1.0", 0))
             val serialization_bom = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-bom", Ver("1.5.0", 0))
             val serialization_cbor = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-cbor", Ver("1.5.0", 0))

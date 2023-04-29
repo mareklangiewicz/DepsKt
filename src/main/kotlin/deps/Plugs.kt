@@ -38,7 +38,7 @@ object Plugs {
      * - [releases](https://developer.android.com/studio/releases/gradle-plugin)
      * - [andro gradle dsl](https://google.github.io/android-gradle-dsl/)
      */
-    val AndroVer = Ver("8.1.0-beta01", 200)
+    val AndroVer = Ver("8.2.0-alpha01")
     val AndroLib = DepP("com.android.library", AndroVer)
     val AndroApp = DepP("com.android.application", AndroVer)
 
