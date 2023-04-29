@@ -8,10 +8,10 @@ object Plugs {
      */
     val NexusPublish = DepP("io.github.gradle-nexus.publish-plugin", Ver("1.3.0", 0))
 
-    val KotlinMulti = DepP("org.jetbrains.kotlin.multiplatform", Kotlin.stdlib.ver!!)
-    val KotlinJvm = DepP("org.jetbrains.kotlin.jvm", Kotlin.stdlib.ver!!)
-    val KotlinJs = DepP("org.jetbrains.kotlin.js", Kotlin.stdlib.ver!!)
-    val KotlinAndro = DepP("org.jetbrains.kotlin.android", Kotlin.stdlib.ver!!)
+    val KotlinMulti = DepP("org.jetbrains.kotlin.multiplatform", VersNew.Kotlin)
+    val KotlinJvm = DepP("org.jetbrains.kotlin.jvm", VersNew.Kotlin)
+    val KotlinJs = DepP("org.jetbrains.kotlin.js", VersNew.Kotlin)
+    val KotlinAndro = DepP("org.jetbrains.kotlin.android", VersNew.Kotlin)
 
     val MavenPublish = DepP("maven-publish")
 

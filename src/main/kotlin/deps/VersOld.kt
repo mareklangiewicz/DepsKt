@@ -13,7 +13,7 @@ object VersOld {
     private val Dep.vStable get() = verStable?.ver ?: error("Can not find last stable version in $this")
     private val Ver?.v get() = this?.ver ?: error("Can not find version in $this")
 
-    val kotlin = Kotlin.stdlib.ver!!.ver
+    val kotlin = versNew.Kotlin.ver
 
     val defaultJvm = versNew.JvmDefaultVer
 
@@ -42,7 +42,7 @@ object VersOld {
     val composeAndroid = composeAndroidEdge
     val composeCompilerLatest = AndroidX.Compose.Compiler.compiler.v
     val composeCompilerStable = AndroidX.Compose.Compiler.compiler.vStable
-    val composeCompiler = composeCompilerLatest
+    val composeCompiler = composeCompilerStable
 
     val composeCompilerDev1720 = "1.4.0-dev-k1.7.20-e49b3b6028b"
     val composeCompilerDev1721 = "1.4.0-dev-k1.7.21-d324f46b7bd"

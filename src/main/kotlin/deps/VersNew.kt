@@ -2,6 +2,10 @@ package pl.mareklangiewicz.deps
 
 object VersNew {
 
+
+    val Kotlin = Ver("1.8.20") // version working with current compose multiplatform
+        // https://github.com/JetBrains/compose-multiplatform/blob/master/VERSIONING.md#kotlin-compatibility
+
     val JvmDefaultVer = "17" // I had terrible issues with "16" (andro compose project)
 
 
