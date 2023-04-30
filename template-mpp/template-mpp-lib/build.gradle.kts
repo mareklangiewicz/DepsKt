@@ -356,13 +356,13 @@ fun Project.defaultBuildTemplateForComposeMppLib(
                 val jsMain by getting {
                     dependencies {
                         implementation(compose.runtime)
-                        if (withComposeWebCore) implementation(compose.web.core)
-                        if (withComposeWebSvg) implementation(compose.web.svg)
+                        if (withComposeWebCore) implementation(compose.html.core)
+                        if (withComposeWebSvg) implementation(compose.html.svg)
                     }
                 }
                 val jsTest by getting {
                     dependencies {
-                        if (withComposeTestWebUtils) implementation(compose.web.testUtils)
+                        if (withComposeTestWebUtils) implementation(compose.html.testUtils)
                     }
                 }
             }
