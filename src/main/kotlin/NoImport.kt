@@ -6,11 +6,11 @@ import pl.mareklangiewicz.deps.Ver
 // package has to be default - to be available even in buildscript blocks, like: plugins {...}
 
 @Deprecated("Use DepsNew")
-val libsOld = pl.mareklangiewicz.deps.LibsDetails
+val libsOld get() = pl.mareklangiewicz.deps.LibsDetails
 @Deprecated("Use DepsNew")
-val depsOld = pl.mareklangiewicz.deps.DepsOld
+val depsOld get() = pl.mareklangiewicz.deps.DepsOld
 
-val repos = pl.mareklangiewicz.deps.Repos
+val repos get() = pl.mareklangiewicz.deps.Repos
 @Deprecated("Use versNew")
 val versOld = pl.mareklangiewicz.deps.VersOld
 

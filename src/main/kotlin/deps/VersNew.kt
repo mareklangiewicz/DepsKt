@@ -1,7 +1,35 @@
 package pl.mareklangiewicz.deps
 
-object VersNew {
+import versNew
+import org.gradle.api.artifacts.*
 
+
+fun ConfigurationContainer.checkVerSync(warnOnly: Boolean = false) = configureEach { it.checkVerSync(warnOnly) }
+fun Configuration.checkVerSync(warnOnly: Boolean = false) { withDependencies { it.checkVerSync(warnOnly) } }
+fun DependencySet.checkVerSync(warnOnly: Boolean = false) = configureEach { it.checkVerSync(warnOnly) }
+fun Dependency.checkVerSync(warnOnly: Boolean = false) {
+    when (group) {
+        "org.jetbrains.kotlin" -> checkWith(versNew.Kotlin, warnOnly)
+        "androidx.compose.compiler" -> checkWith(versNew.ComposeCompiler, warnOnly)
+        "androidx.compose.ui", "androidx.compose.animation", "androidx.compose.foundation",
+        "androidx.compose.material" -> checkWith(versNew.ComposeAndro, warnOnly)
+
+        "androidx.compose.runtime" -> when (name) {
+            "runtime-livedata", "runtime", "runtime-rxjava2", "runtime-rxjava3",
+            "runtime-saveable" -> checkWith(versNew.ComposeAndro, warnOnly)
+        }
+    }
+}
+
+private fun Dependency.checkWith(expectedVer: Ver, warnOnly: Boolean) {
+    if(version != expectedVer.ver) {
+        val msg = "Dependency $group:$name:$version not synced with $expectedVer"
+        if (warnOnly) println("WARNING: $msg") else error(msg)
+        // TODO_someday: better warning? But we don't have access to gradle logger here?
+    }
+}
+
+object VersNew {
 
     /**
      * Manually selected kotlin version. Have to be working with current compose multiplatform and compose andro.
@@ -11,8 +39,10 @@ object VersNew {
 
     /** Selected Compose Multiplatform version. Should always be kept compatible with selected Kotlin version. */
     val Compose = Org.JetBrains.Compose.gradle_plugin.verStable!!
+
     /** Selected Compose Compiler version. Should always be kept compatible with selected Kotlin version. */
     val ComposeCompiler = AndroidX.Compose.Compiler.compiler.verStable!!
+
     /** Selected Compose Android version. Should always be kept compatible with selected Kotlin version. */
     val ComposeAndro = AndroidX.Compose.Runtime.runtime.verStable!!
 

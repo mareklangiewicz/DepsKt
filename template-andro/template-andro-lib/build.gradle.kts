@@ -165,8 +165,8 @@ fun ScriptHandlerScope.defaultAndroBuildScript() {
 @Deprecated("Use plugins { plugAll(..) }") // FIXME_later: do I still need to use it somewhere?
 fun DependencyHandler.defaultAndroBuildScriptDeps(
 ) {
-    add("classpath", depsOld.kotlinGradlePlugin)
-    add("classpath", depsOld.androidGradlePlugin)
+    add("classpath", plugs.KotlinAndro.mvn)
+    add("classpath", "com.android.tools.build:gradle:${versNew.AndroPlug.ver}")
 }
 
 
@@ -216,8 +216,9 @@ fun DependencyHandler.defaultAndroTestDeps(
         AndroidX.Test.Ext.junit,
         Org.Mockito.Kotlin.mockito_kotlin,
     )
-    if (withCompose) addAll(
+    if (withCompose) addAllWithVer(
         configuration,
+        versNew.ComposeAndro,
         AndroidX.Compose.Ui.test,
         AndroidX.Compose.Ui.test_junit4,
         AndroidX.Compose.Ui.test_manifest,
@@ -298,6 +299,7 @@ fun Project.defaultBuildTemplateForAndroidLib(
         defaultAndroDeps(withCompose = withCompose)
         defaultAndroTestDeps(withCompose = withCompose)
     }
+    configurations.checkVerSync()
     tasks.defaultKotlinCompileOptions()
     defaultGroupAndVerAndDescription(details)
     publishVariant?.let {

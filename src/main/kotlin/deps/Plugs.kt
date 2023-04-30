@@ -1,5 +1,7 @@
 package pl.mareklangiewicz.deps
 
+import versNew
+
 object Plugs {
 
     /**
@@ -7,12 +9,12 @@ object Plugs {
      * - [github](https://github.com/gradle-nexus/publish-plugin/)
      * - [github releases](https://github.com/gradle-nexus/publish-plugin/releases)
      */
-    val NexusPublish = DepP("io.github.gradle-nexus.publish-plugin", VersNew.NexusPublishPlug)
+    val NexusPublish = DepP("io.github.gradle-nexus.publish-plugin", versNew.NexusPublishPlug)
 
-    val KotlinMulti = DepP("org.jetbrains.kotlin.multiplatform", VersNew.Kotlin)
-    val KotlinJvm = DepP("org.jetbrains.kotlin.jvm", VersNew.Kotlin)
-    val KotlinJs = DepP("org.jetbrains.kotlin.js", VersNew.Kotlin)
-    val KotlinAndro = DepP("org.jetbrains.kotlin.android", VersNew.Kotlin)
+    val KotlinMulti = DepP("org.jetbrains.kotlin.multiplatform", versNew.Kotlin)
+    val KotlinJvm = DepP("org.jetbrains.kotlin.jvm", versNew.Kotlin)
+    val KotlinJs = DepP("org.jetbrains.kotlin.js", versNew.Kotlin)
+    val KotlinAndro = DepP("org.jetbrains.kotlin.android", versNew.Kotlin)
 
     val MavenPublish = DepP("maven-publish")
 
@@ -24,7 +26,7 @@ object Plugs {
      * - [plugins gradle org](https://plugins.gradle.org/plugin/com.gradle.plugin-publish)
      * - [plugins gradle org docs](https://plugins.gradle.org/docs/publish-plugin)
      */
-    val GradlePublish = DepP("com.gradle.plugin-publish", VersNew.GradlePublishPlug)
+    val GradlePublish = DepP("com.gradle.plugin-publish", versNew.GradlePublishPlug)
 
     /**
      * The builtin Gradle plugin implemented by [org.gradle.api.plugins.ApplicationPlugin].
@@ -39,7 +41,7 @@ object Plugs {
      * - [releases](https://developer.android.com/studio/releases/gradle-plugin)
      * - [andro gradle dsl](https://google.github.io/android-gradle-dsl/)
      */
-    val AndroLib = DepP("com.android.library", VersNew.AndroPlug)
+    val AndroLib = DepP("com.android.library", versNew.AndroPlug)
 
     /**
      * Android Gradle Plugin
@@ -47,9 +49,9 @@ object Plugs {
      * - [releases](https://developer.android.com/studio/releases/gradle-plugin)
      * - [andro gradle dsl](https://google.github.io/android-gradle-dsl/)
      */
-    val AndroApp = DepP("com.android.application", VersNew.AndroPlug)
+    val AndroApp = DepP("com.android.application", versNew.AndroPlug)
 
-    val Compose = Org.JetBrains.Compose.gradle_plugin.withVer(VersNew.Compose)
+    val Compose = Org.JetBrains.Compose.gradle_plugin.withVer(versNew.Compose)
 
     /**
      * Dokka Gradle Plugin
@@ -57,7 +59,7 @@ object Plugs {
      * - [github](https://github.com/Kotlin/dokka)
      * - [github releases](https://github.com/Kotlin/dokka/releases)
      */
-    val Dokka = DepP("org.jetbrains.dokka", VersNew.DokkaPlug)
+    val Dokka = DepP("org.jetbrains.dokka", versNew.DokkaPlug)
 
 
     /**
@@ -66,26 +68,26 @@ object Plugs {
      * - [github](https://github.com/runningcode/gradle-doctor)
      * - [docs](https://runningcode.github.io/gradle-doctor/)
      */
-    val Doctor = DepP("com.osacky.doctor", VersNew.OsackyDoctorPlug)
+    val Doctor = DepP("com.osacky.doctor", versNew.OsackyDoctorPlug)
 
     /**
      * DepsKt Gradle Plugin
      * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
      * - [github](https://github.com/langara/DepsKt)
      */
-    val Deps = DepP("pl.mareklangiewicz.deps", VersNew.DepsPlug)
+    val Deps = DepP("pl.mareklangiewicz.deps", versNew.DepsPlug)
 
     /**
      * DepsKt Gradle Settings Plugin
      * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
      * - [github](https://github.com/langara/DepsKt)
      */
-    val DepsSettings = DepP("pl.mareklangiewicz.deps.settings", VersNew.DepsPlug)
+    val DepsSettings = DepP("pl.mareklangiewicz.deps.settings", versNew.DepsPlug)
 
     /**
      * SourceFun Gradle Plugin
      * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
      * - [github](https://github.com/langara/DepsKt)
      */
-    val SourceFun = DepP("pl.mareklangiewicz.sourcefun", VersNew.DepsPlug)
+    val SourceFun = DepP("pl.mareklangiewicz.sourcefun", versNew.DepsPlug)
 }

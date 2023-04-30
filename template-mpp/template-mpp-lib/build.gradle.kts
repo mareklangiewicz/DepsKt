@@ -185,6 +185,7 @@ fun Project.defaultBuildTemplateForMppLib(
             addCommonMainDependencies
         )
     }
+    configurations.checkVerSync()
     tasks.defaultKotlinCompileOptions()
     tasks.defaultTestsOptions(onJvmUseJUnitPlatform = withTestJUnit5)
     if (plugins.hasPlugin("maven-publish")) {
@@ -277,7 +278,7 @@ fun Project.defaultBuildTemplateForComposeMppLib(
     withJs: Boolean = true,
     withNativeLinux64: Boolean = false,
     withKotlinxHtml: Boolean = false,
-    withComposeCompilerAndroidxDev: String? = null, // e.g. deps.composeCompilerAndroidxDev
+    withComposeCompilerVer: Ver? = versNew.ComposeCompiler,
     withComposeUi: Boolean = true,
     withComposeFoundation: Boolean = true,
     withComposeMaterial2: Boolean = withJvm,
@@ -294,10 +295,9 @@ fun Project.defaultBuildTemplateForComposeMppLib(
     withComposeTestWebUtils: Boolean = withJs,
     addCommonMainDependencies: KotlinDependencyHandler.() -> Unit = {},
 ) {
-    if (withComposeCompilerAndroidxDev != null) {
-        compose {
-            kotlinCompilerPlugin.set(withComposeCompilerAndroidxDev)
-        }
+    if (withComposeCompilerVer != null) compose {
+        val cc = AndroidX.Compose.Compiler.compiler.withVer(withComposeCompilerVer)
+        kotlinCompilerPlugin.set(cc.mvn)
     }
     defaultBuildTemplateForMppLib(
         details = details,
@@ -306,7 +306,7 @@ fun Project.defaultBuildTemplateForComposeMppLib(
         withNativeLinux64 = withNativeLinux64,
         withKotlinxHtml = withKotlinxHtml,
         withComposeJbDevRepo = true,
-        withComposeCompilerAndroidxDevRepo = withComposeCompilerAndroidxDev != null,
+        withComposeCompilerAndroidxDevRepo = withComposeCompilerVer != null,
         withTestJUnit4 = withComposeTestUiJUnit4, // Unfortunately Compose UI still uses JUnit4 instead of 5
         withTestJUnit5 = false,
         withTestUSpekX = true,
