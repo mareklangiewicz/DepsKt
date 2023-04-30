@@ -132,7 +132,7 @@ internal val MyKotlinProjects = listOf(
     "SourceFun",
     "TixyPlayground",
     "TupleK",
-    "upue",
+    "UPue",
     "USpek",
     "uspek-js-playground",
     "uspek-painters",
