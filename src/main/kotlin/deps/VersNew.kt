@@ -3,8 +3,18 @@ package pl.mareklangiewicz.deps
 object VersNew {
 
 
-    val Kotlin = Ver("1.8.20") // version working with current compose multiplatform
-        // https://github.com/JetBrains/compose-multiplatform/blob/master/VERSIONING.md#kotlin-compatibility
+    /**
+     * Manually selected kotlin version. Have to be working with current compose multiplatform and compose andro.
+     * - [compose kotlin compatibility](https://github.com/JetBrains/compose-multiplatform/blob/master/VERSIONING.md#kotlin-compatibility)
+     */
+    val Kotlin = Ver("1.8.20")
+
+    /** Selected Compose Multiplatform version. Should always be kept compatible with selected Kotlin version. */
+    val Compose = Org.JetBrains.Compose.gradle_plugin.verStable!!
+    /** Selected Compose Compiler version. Should always be kept compatible with selected Kotlin version. */
+    val ComposeCompiler = AndroidX.Compose.Compiler.compiler.verStable!!
+    /** Selected Compose Android version. Should always be kept compatible with selected Kotlin version. */
+    val ComposeAndro = AndroidX.Compose.Runtime.runtime.verStable!!
 
     val JvmDefaultVer = "17" // I had terrible issues with "16" (andro compose project)
 
@@ -12,7 +22,7 @@ object VersNew {
     val Gradle5 = Ver("5.6.4", 0)
     val Gradle6 = Ver("6.8.3", 0)
     val Gradle7 = Ver("7.6.1", 0)
-    val Gradle8 = Ver("8.1", 0)
+    val Gradle8 = Ver("8.1.1", 0)
 
     /**
      * Gradle - just a reference - not so useful in typical usecases

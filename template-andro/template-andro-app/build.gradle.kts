@@ -11,7 +11,6 @@ plugins {
 defaultBuildTemplateForAndroidApp(
     appId = "pl.mareklangiewicz.templateandro",
     withCompose = true,
-    withComposeCompilerVer = versOld.composeCompiler,
     publishVariant = "debug",
 )
 
@@ -162,7 +161,7 @@ fun TaskContainer.withSignErrorWorkaround() =
 // region [Andro Common Build Template]
 
 
-/** usually not needed - see template-andro */
+@Deprecated("Use plugins { plugAll(..) }") // FIXME_later: do I still need to use it somewhere?
 fun ScriptHandlerScope.defaultAndroBuildScript() {
     repositories {
         defaultRepos(withGradle = true)
@@ -173,7 +172,7 @@ fun ScriptHandlerScope.defaultAndroBuildScript() {
 }
 
 
-/** usually not needed - see template-android */
+@Deprecated("Use plugins { plugAll(..) }") // FIXME_later: do I still need to use it somewhere?
 fun DependencyHandler.defaultAndroBuildScriptDeps(
 ) {
     add("classpath", depsOld.kotlinGradlePlugin)
@@ -184,48 +183,54 @@ fun DependencyHandler.defaultAndroBuildScriptDeps(
 fun DependencyHandler.defaultAndroDeps(
     configuration: String = "implementation",
     withCompose: Boolean = false,
-) = depsOld.run {
+) {
     addAll(
         configuration,
-        androidxCoreKtx,
-        androidxAppcompat,
-        androidMaterial,
-        androidxLifecycleCompiler,
-        androidxLifecycleRuntimeKtx,
+        AndroidX.Core.ktx,
+        AndroidX.AppCompat.appcompat,
+        AndroidX.Lifecycle.compiler,
+        AndroidX.Lifecycle.runtime_ktx,
+        Com.Google.Android.Material.material,
     )
-    if (withCompose) addAll(
-        configuration,
-        composeAndroidUi,
-        composeAndroidUiTooling,
-        composeAndroidUiToolingPreview,
-        composeAndroidMaterial3,
-        composeAndroidMaterial,
-        androidxActivityCompose,
-    )
+    if (withCompose) {
+        addAllWithVer(
+            configuration,
+            VersNew.ComposeAndro,
+            AndroidX.Compose.Ui.ui,
+            AndroidX.Compose.Ui.tooling,
+            AndroidX.Compose.Ui.tooling_preview,
+            AndroidX.Compose.Material.material,
+        )
+        addAll(
+            configuration,
+            AndroidX.Activity.compose,
+            AndroidX.Compose.Material3.material3,
+        )
+    }
 }
 
 fun DependencyHandler.defaultAndroTestDeps(
     configuration: String = "testImplementation",
     withCompose: Boolean = false,
-) = depsOld.run {
+) {
     addAll(
         configuration,
-        kotlinTestJUnit,
-        junit4, // FIXME_someday: when will android move to JUnit5?
-        uspekxJUnit4,
-        androidxEspressoCore,
-        googleTruth,
-        androidxTestRules,
-        androidxTestRunner,
-        androidxTestExtTruth,
-        androidxTestExtJUnit,
-        mockitoKotlin4,
+        Kotlin.test_junit.withVer(VersNew.Kotlin),
+        JUnit.junit, // FIXME_someday: when will android move to JUnit5?
+        Langiewicz.uspekx_junit4,
+        AndroidX.Test.Espresso.core,
+        Com.Google.Truth.truth,
+        AndroidX.Test.rules,
+        AndroidX.Test.runner,
+        AndroidX.Test.Ext.truth,
+        AndroidX.Test.Ext.junit,
+        Org.Mockito.Kotlin.mockito_kotlin,
     )
     if (withCompose) addAll(
         configuration,
-        composeAndroidUiTest,
-        composeAndroidUiTestJUnit4,
-        composeAndroidUiTestManifest,
+        AndroidX.Compose.Ui.test,
+        AndroidX.Compose.Ui.test_junit4,
+        AndroidX.Compose.Ui.test_manifest,
     )
 }
 
@@ -246,12 +251,12 @@ fun CommonExtension<*, *, *, *, *>.defaultCompileOptions(
     targetCompatibility(jvmVersion)
 }
 
-fun CommonExtension<*, *, *, *, *>.defaultComposeStuff(withComposeCompilerVer: String? = null) {
+fun CommonExtension<*, *, *, *, *>.defaultComposeStuff(withComposeCompilerVer: Ver? = VersNew.ComposeCompiler) {
     buildFeatures {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = withComposeCompilerVer
+        kotlinCompilerExtensionVersion = withComposeCompilerVer?.ver
     }
 }
 
@@ -294,7 +299,7 @@ fun Project.defaultBuildTemplateForAndroidApp(
     sdkTarget: Int = versNew.AndroSdkTarget,
     sdkMin: Int = versNew.AndroSdkMin,
     withCompose: Boolean = false,
-    withComposeCompilerVer: String? = null,
+    withComposeCompilerVer: Ver? = VersNew.ComposeCompiler,
     details: LibDetails = rootExtLibDetails,
     publishVariant: String? = null, // null means disable publishing to maven repo
 ) {
@@ -325,7 +330,7 @@ fun ApplicationExtension.defaultAndroApp(
     sdkTarget: Int = versNew.AndroSdkTarget,
     sdkMin: Int = versNew.AndroSdkMin,
     withCompose: Boolean = false,
-    withComposeCompilerVer: String? = null,
+    withComposeCompilerVer: Ver? = VersNew.ComposeCompiler,
 ) {
     if (sdkCompile == 34) compileSdkPreview = "UpsideDownCake" else compileSdk = sdkCompile
     defaultCompileOptions(jvmVersion)

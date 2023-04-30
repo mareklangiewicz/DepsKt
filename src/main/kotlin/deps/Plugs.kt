@@ -42,7 +42,7 @@ object Plugs {
     val AndroLib = DepP("com.android.library", AndroVer)
     val AndroApp = DepP("com.android.application", AndroVer)
 
-    val Compose = Org.JetBrains.Compose.gradle_plugin
+    val Compose = Org.JetBrains.Compose.gradle_plugin.withVer(VersNew.Compose)
 
     /**
      * Dokka Gradle Plugin
@@ -65,7 +65,8 @@ object Plugs {
      * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
      * - [github](https://github.com/langara/DepsKt)
      */
-    val Deps = DepP("pl.mareklangiewicz.deps", Ver("0.2.33"))
-    val DepsSettings = DepP("pl.mareklangiewicz.deps.settings", Ver("0.2.33"))
-    val SourceFun = DepP("pl.mareklangiewicz.sourcefun", Ver("0.2.33"))
+    val DepsVer = Ver("0.2.35")
+    val Deps = DepP("pl.mareklangiewicz.deps", DepsVer)
+    val DepsSettings = DepP("pl.mareklangiewicz.deps.settings", DepsVer)
+    val SourceFun = DepP("pl.mareklangiewicz.sourcefun", DepsVer)
 }

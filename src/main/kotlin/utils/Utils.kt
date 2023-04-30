@@ -5,13 +5,12 @@ import okio.FileSystem.Companion.SYSTEM
 import okio.Path.Companion.toOkioPath
 import okio.Path.Companion.toPath
 import org.gradle.api.*
+import org.gradle.api.artifacts.dsl.*
 import org.gradle.api.initialization.*
 import org.gradle.api.plugins.*
 import org.gradle.api.provider.*
 import org.gradle.api.tasks.*
-import org.gradle.plugin.use.PluginDependencySpec
-import pl.mareklangiewicz.deps.LibDetails
-import pl.mareklangiewicz.deps.Ver
+import pl.mareklangiewicz.deps.*
 import pl.mareklangiewicz.io.*
 import kotlin.properties.*
 import kotlin.reflect.*
@@ -75,6 +74,20 @@ fun Settings.includeAndSubstituteBuild(rootProject: Any, substituteModule: Strin
         }
     }
 }
+
+
+fun DependencyHandler.addAll(configuration: String, vararg deps: Dep) {
+    for (dep in deps) add(configuration, dep)
+}
+
+fun DependencyHandler.addAllWithVer(configuration: String, ver: Ver, vararg deps: Dep) {
+    for (dep in deps) add(configuration, dep.withVer(ver))
+}
+
+fun DependencyHandler.addAllWithNoVer(configuration: String, vararg deps: Dep) {
+    for (dep in deps) add(configuration, dep.withNoVer())
+}
+
 
 fun TaskContainer.registerAllThatGroupFun(group: String, vararg afun: KCallable<Unit>) {
     val pairs: List<Pair<String, () -> Unit>> = afun.map { it.name to { it.call() } }

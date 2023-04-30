@@ -31,9 +31,9 @@ object VersOld {
 
     val gradle = versNew.Gradle.v
 
-    val composeJbMain = Compose.gradle_plugin.v
+    val composeJbMain = Compose.gradle_plugin.vStable
     val composeJbEdge = ComposeEdgeGradlePlugin.v
-    val composeJb = composeJbMain
+    val composeJb = VersNew.Compose.ver
 
     val composeAndroidStableBoM = ComposeAndro.bom.v
     val composeAndroidMain = AndroidX.Compose.Runtime.runtime.vStable

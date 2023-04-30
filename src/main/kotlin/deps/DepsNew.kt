@@ -106,7 +106,7 @@ typealias Langiewicz = Pl.MarekLangiewicz
  * - [maven space plugin](https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/compose-gradle-plugin/)
  */
 typealias Compose = Org.JetBrains.Compose
-val ComposeEdgeGradlePlugin = Compose.gradle_plugin.withVer(Ver("1.5.0-dev1030")) // FIXME: auto generate from jetbrains space
+val ComposeEdgeGradlePlugin = Compose.gradle_plugin.withVer(Ver("1.5.0-dev1030")) // FIXME: auto generate from jetbrains space or deprecate?
 
 /**
  * - [releases](https://developer.android.com/jetpack/androidx/releases/compose)

@@ -409,10 +409,6 @@ object DepsOld {
     infix fun String.ver(v: String) = (split(":").take(2) + v)
         .joinToString(":")
 
-    fun DependencyHandler.addAll(configuration: String, vararg deps: String) {
-        for (dep in deps) add(configuration, dep)
-    }
-
     val String.group get() = split(":").first()
     val String.artifact get() = split(":")[1]
     val String.withoutVer get() = split(":").take(2).joinToString(":")
