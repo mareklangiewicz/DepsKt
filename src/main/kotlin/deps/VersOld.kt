@@ -66,7 +66,7 @@ object VersOld {
 
     val googleAccompanistPicasso = GoogleAccompanist.picasso.v
 
-    val androidGradlePlugin = plugs.AndroVer.v
+    val androidGradlePlugin = VersNew.AndroPlug.ver
 
     val nexusPublishGradlePlugin = plugs.NexusPublish.v
 

@@ -16,6 +16,51 @@ object VersNew {
     /** Selected Compose Android version. Should always be kept compatible with selected Kotlin version. */
     val ComposeAndro = AndroidX.Compose.Runtime.runtime.verStable!!
 
+    /**
+     * Gradle-Nexus Publish Plugin (turnkey plugin for publishing libs to maven central / sonatype)
+     * - [github](https://github.com/gradle-nexus/publish-plugin/)
+     * - [github releases](https://github.com/gradle-nexus/publish-plugin/releases)
+     */
+    val NexusPublishPlug = Ver("1.3.0", 0)
+
+    /**
+     * Gradle Publish Plugin (gradle plugin for publishing gradle plugins)
+     * - [plugins gradle org](https://plugins.gradle.org/plugin/com.gradle.plugin-publish)
+     * - [plugins gradle org docs](https://plugins.gradle.org/docs/publish-plugin)
+     */
+    val GradlePublishPlug = Ver("1.2.0", 0)
+
+    /**
+     * Android Gradle Plugin
+     * - [maven](https://maven.google.com/web/index.html#com.android.tools.build:gradle)
+     * - [releases](https://developer.android.com/studio/releases/gradle-plugin)
+     * - [andro gradle dsl](https://google.github.io/android-gradle-dsl/)
+     */
+    val AndroPlug = Ver("8.2.0-alpha01")
+
+    /**
+     * Dokka Gradle Plugin
+     * - [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.dokka)
+     * - [github](https://github.com/Kotlin/dokka)
+     * - [github releases](https://github.com/Kotlin/dokka/releases)
+     */
+    val DokkaPlug = Ver("1.8.10", 0)
+
+    /**
+     * Osacky Doctor Gradle Plugin
+     * - [gradle portal](https://plugins.gradle.org/plugin/com.osacky.doctor)
+     * - [github](https://github.com/runningcode/gradle-doctor)
+     * - [docs](https://runningcode.github.io/gradle-doctor/)
+     */
+    val OsackyDoctorPlug = Ver("0.8.1", 0)
+
+    /**
+     * DepsKt Gradle Plugin
+     * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
+     * - [github](https://github.com/langara/DepsKt)
+     */
+    val DepsPlug = Ver("0.2.35")
+
     val JvmDefaultVer = "17" // I had terrible issues with "16" (andro compose project)
 
 
