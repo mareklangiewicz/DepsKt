@@ -7,12 +7,6 @@ import java.util.*
 @Deprecated("TODO: inline these to build files of libs themselves")
 object LibsDetails {
 
-    val USpek = langaraLibDetails(
-        name = "USpek",
-        description = "Micro tool for testing with syntax similar to Spek, but shorter.",
-        githubUrl = "https://github.com/langara/USpek",
-    )
-
     val SMokK = langaraLibDetails(
         name = "SMokK",
         description = "A bit scary library for mocking suspendable functions in Kotlin :-)",
