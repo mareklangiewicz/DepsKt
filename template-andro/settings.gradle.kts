@@ -10,7 +10,7 @@ pluginManagement {
 }
 
 plugins {
-    id("pl.mareklangiewicz.deps.settings") version "0.2.35"
+    id("pl.mareklangiewicz.deps.settings") version "0.2.36"
 }
 
 rootProject.name = "template-andro"
