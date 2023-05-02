@@ -305,6 +305,7 @@ fun Project.defaultBuildTemplateForAndroidLib(
     dependencies {
         defaultAndroDeps(withCompose = withCompose, withMDC = withMDC)
         defaultAndroTestDeps(withCompose = withCompose)
+        debugImplementation(AndroidX.Tracing.ktx) // https://github.com/android/android-test/issues/1755
     }
     configurations.checkVerSync()
     tasks.defaultKotlinCompileOptions()
@@ -337,6 +338,7 @@ fun LibraryExtension.defaultDefaultConfig(
 ) = defaultConfig {
     namespace = libNamespace
     minSdk = sdkMin
+    testInstrumentationRunner = versNew.AndroTestRunner
 }
 
 fun LibraryExtension.defaultBuildTypes() = buildTypes { release { isMinifyEnabled = false } }

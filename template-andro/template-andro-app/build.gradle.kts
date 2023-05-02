@@ -314,6 +314,7 @@ fun Project.defaultBuildTemplateForAndroidApp(
     dependencies {
         defaultAndroDeps(withCompose = withCompose, withMDC = withMDC)
         defaultAndroTestDeps(withCompose = withCompose)
+        debugImplementation(AndroidX.Tracing.ktx) // https://github.com/android/android-test/issues/1755
     }
     configurations.checkVerSync()
     tasks.defaultKotlinCompileOptions()
@@ -358,6 +359,7 @@ fun ApplicationExtension.defaultDefaultConfig(
     minSdk = sdkMin
     versionCode = appVerCode
     versionName = appVerName
+    testInstrumentationRunner = versNew.AndroTestRunner
 }
 
 fun ApplicationExtension.defaultBuildTypes() = buildTypes { release { isMinifyEnabled = false } }

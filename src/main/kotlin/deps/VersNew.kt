@@ -118,6 +118,14 @@ object VersNew {
     val AndroSdkTarget = 33
 
     /**
+     * This runner looks like working correctly these years (with "gradle unified test platform).
+     * I had many crazy issues with instrumented testing, so better not to change too much.
+     * Make sure gradle.properties DOESN'T change this to false: android.experimental.androidTest.useUnifiedTestPlatform=true
+     * [andro testing docs](https://developer.android.com/training/testing/instrumented-tests#set-testing)
+     */
+    val AndroTestRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+    /**
      * - [releases](https://developer.android.com/tools/releases/build-tools)
      */
     @Deprecated("Deprecated with android gradle plugin 3.0.0 or higher")
