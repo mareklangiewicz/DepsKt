@@ -14,6 +14,11 @@ defaultBuildTemplateForAndroidLib(
     publishVariant = "debug",
 )
 
+dependencies {
+    defaultAndroTestDeps(configuration = "androidTestImplementation", withCompose = true)
+        // TODO_someday: investigate why "androidTestImplementation" doesn't inherit from "testImplementation"
+}
+
 // region [Kotlin Module Build Template]
 
 fun RepositoryHandler.defaultRepos(
@@ -173,6 +178,7 @@ fun DependencyHandler.defaultAndroBuildScriptDeps(
 fun DependencyHandler.defaultAndroDeps(
     configuration: String = "implementation",
     withCompose: Boolean = false,
+    withMDC: Boolean = false,
 ) {
     addAll(
         configuration,
@@ -180,7 +186,6 @@ fun DependencyHandler.defaultAndroDeps(
         AndroidX.AppCompat.appcompat,
         AndroidX.Lifecycle.compiler,
         AndroidX.Lifecycle.runtime_ktx,
-        Com.Google.Android.Material.material,
     )
     if (withCompose) {
         addAllWithVer(
@@ -197,6 +202,7 @@ fun DependencyHandler.defaultAndroDeps(
             AndroidX.Compose.Material3.material3,
         )
     }
+    if (withMDC) add(configuration, Com.Google.Android.Material.material)
 }
 
 fun DependencyHandler.defaultAndroTestDeps(
@@ -287,6 +293,7 @@ fun Project.defaultBuildTemplateForAndroidLib(
     sdkMin: Int = versNew.AndroSdkMin,
     withCompose: Boolean = false,
     withComposeCompilerVer: Ver? = VersNew.ComposeCompiler,
+    withMDC: Boolean = false,
     details: LibDetails = rootExtLibDetails,
     publishVariant: String? = null, // null means disable publishing to maven repo
 ) {
@@ -296,7 +303,7 @@ fun Project.defaultBuildTemplateForAndroidLib(
         publishVariant?.let { defaultAndroLibPublishVariant(it) }
     }
     dependencies {
-        defaultAndroDeps(withCompose = withCompose)
+        defaultAndroDeps(withCompose = withCompose, withMDC = withMDC)
         defaultAndroTestDeps(withCompose = withCompose)
     }
     configurations.checkVerSync()

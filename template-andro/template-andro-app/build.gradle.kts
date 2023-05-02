@@ -183,6 +183,7 @@ fun DependencyHandler.defaultAndroBuildScriptDeps(
 fun DependencyHandler.defaultAndroDeps(
     configuration: String = "implementation",
     withCompose: Boolean = false,
+    withMDC: Boolean = false,
 ) {
     addAll(
         configuration,
@@ -190,7 +191,6 @@ fun DependencyHandler.defaultAndroDeps(
         AndroidX.AppCompat.appcompat,
         AndroidX.Lifecycle.compiler,
         AndroidX.Lifecycle.runtime_ktx,
-        Com.Google.Android.Material.material,
     )
     if (withCompose) {
         addAllWithVer(
@@ -207,6 +207,7 @@ fun DependencyHandler.defaultAndroDeps(
             AndroidX.Compose.Material3.material3,
         )
     }
+    if (withMDC) add(configuration, Com.Google.Android.Material.material)
 }
 
 fun DependencyHandler.defaultAndroTestDeps(
@@ -301,6 +302,7 @@ fun Project.defaultBuildTemplateForAndroidApp(
     sdkMin: Int = versNew.AndroSdkMin,
     withCompose: Boolean = false,
     withComposeCompilerVer: Ver? = VersNew.ComposeCompiler,
+    withMDC: Boolean = false,
     details: LibDetails = rootExtLibDetails,
     publishVariant: String? = null, // null means disable publishing to maven repo
 ) {
@@ -310,7 +312,7 @@ fun Project.defaultBuildTemplateForAndroidApp(
         publishVariant?.let { defaultAndroAppPublishVariant(it) }
     }
     dependencies {
-        defaultAndroDeps(withCompose = withCompose)
+        defaultAndroDeps(withCompose = withCompose, withMDC = withMDC)
         defaultAndroTestDeps(withCompose = withCompose)
     }
     configurations.checkVerSync()

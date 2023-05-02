@@ -115,7 +115,7 @@ object VersNew {
      */
     val AndroSdkMin = 26
     val AndroSdkCompile = 34
-    val AndroSdkTarget = AndroSdkCompile
+    val AndroSdkTarget = 33
 
     /**
      * - [releases](https://developer.android.com/tools/releases/build-tools)

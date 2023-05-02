@@ -36,12 +36,6 @@ object LibsDetails {
         description = "Kotlin Vim Area for Compose Multiplatform",
         githubUrl = "https://github.com/langara/AreaKim",
     )
-
-    val MyStolenPlaygrounds = langaraLibDetails(
-        name = "MyStolenPlaygrounds",
-        description = "Collection of Compose related samples, ui tests etc.",
-        githubUrl = "https://github.com/langara/MyStolenPlaygrounds",
-    )
 }
 
 data class LibDetails(
