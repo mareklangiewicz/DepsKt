@@ -12,8 +12,10 @@ import pl.mareklangiewicz.uspek.*
 // because android tests are sooo broken / so many moving parts / so unreliable, I don't want to add another moving part.
 // see also https://developer.android.com/studio/test/test-in-android-studio#bumblebee-unified-test-runner
 // it's safer to stick with default runner as set up in build.gradle.kts:fun LibraryExtension.defaultDefaultConfig
-// Also see: template-andro-lib:build.gradle.kts:defaultBuildTemplateForAndroidApp...
+// See also: template-andro-lib:build.gradle.kts:defaultBuildTemplateForAndroidApp...
 // debugImplementation(AndroidX.Tracing.ktx) // https://github.com/android/android-test/issues/1755
+// See also file USpekCustomRunnerTests.kt where I try my own runner and it looks like working,
+// but I wouldn't trust it where I try my own runner and it looks like working, but I wouldn't trust it.
 class SomeBasicAndroTests {
 
     init {

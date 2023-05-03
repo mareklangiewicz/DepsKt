@@ -66,7 +66,7 @@ object VersNew {
      * - [releases](https://developer.android.com/studio/releases/gradle-plugin)
      * - [andro gradle dsl](https://google.github.io/android-gradle-dsl/)
      */
-    val AndroPlug = Ver("8.2.0-alpha01")
+    val AndroPlug = Ver("8.2.0-alpha02")
 
     /**
      * Dokka Gradle Plugin
