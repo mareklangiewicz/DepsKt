@@ -30,12 +30,6 @@ object LibsDetails {
         description = "Tiny tuples lib for Kotlin with cool infix syntax.",
         githubUrl = "https://github.com/langara/TupleK",
     )
-
-    val AreaKim = langaraLibDetails(
-        name = "AreaKim",
-        description = "Kotlin Vim Area for Compose Multiplatform",
-        githubUrl = "https://github.com/langara/AreaKim",
-    )
 }
 
 data class LibDetails(
