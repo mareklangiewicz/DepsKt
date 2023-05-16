@@ -35,7 +35,7 @@ object VersNew {
      * Manually selected kotlin version. Have to be working with current compose multiplatform and compose andro.
      * - [compose kotlin compatibility](https://github.com/JetBrains/compose-multiplatform/blob/master/VERSIONING.md#kotlin-compatibility)
      */
-    val Kotlin = Ver("1.8.20")
+    val Kotlin = Ver("1.8.21")
 
     /** Selected Compose Multiplatform version. Should always be kept compatible with selected Kotlin version. */
     val Compose = Org.JetBrains.Compose.gradle_plugin.verStable!!
@@ -66,7 +66,7 @@ object VersNew {
      * - [releases](https://developer.android.com/studio/releases/gradle-plugin)
      * - [andro gradle dsl](https://google.github.io/android-gradle-dsl/)
      */
-    val AndroPlug = Ver("8.2.0-alpha02")
+    val AndroPlug = Ver("8.2.0-alpha03")
 
     /**
      * Dokka Gradle Plugin

@@ -4,8 +4,7 @@ import pl.mareklangiewicz.deps.*
 import pl.mareklangiewicz.utils.*
 
 plugins {
-    kotlin("jvm")
-    application
+    plugAll(plugs.KotlinJvm, plugs.JvmApp)
 }
 
 repositories { // TODO_later: why gradle needs compose repo here?
@@ -154,12 +153,10 @@ fun TaskContainer.withSignErrorWorkaround() =
 
 // endregion [Kotlin Module Build Template]
 
-// region [Jvm App Build Template]
+// region [Jvm Lib Build Template]
 
 @Suppress("UNUSED_VARIABLE")
-fun Project.defaultBuildTemplateForJvmApp(
-    appMainPackage: String,
-    appMainClass: String = "MainKt",
+fun Project.defaultBuildTemplateForJvmLib(
     details: LibDetails = rootExtLibDetails,
     withTestJUnit4: Boolean = false,
     withTestJUnit5: Boolean = true,
@@ -190,10 +187,25 @@ fun Project.defaultBuildTemplateForJvmApp(
         }
     }
 
-    application { mainClass put "$appMainPackage.$appMainClass" }
-
     tasks.defaultKotlinCompileOptions()
     tasks.defaultTestsOptions(onJvmUseJUnitPlatform = withTestJUnit5)
+}
+// endregion [Jvm Lib Build Template]
+
+// region [Jvm App Build Template]
+
+@Suppress("UNUSED_VARIABLE")
+fun Project.defaultBuildTemplateForJvmApp(
+    appMainPackage: String,
+    appMainClass: String = "MainKt",
+    details: LibDetails = rootExtLibDetails,
+    withTestJUnit4: Boolean = false,
+    withTestJUnit5: Boolean = true,
+    withTestUSpekX: Boolean = true,
+    addMainDependencies: KotlinDependencyHandler.() -> Unit = {},
+) {
+    defaultBuildTemplateForJvmLib(details, withTestJUnit4, withTestJUnit5, withTestUSpekX, addMainDependencies)
+    application { mainClass put "$appMainPackage.$appMainClass" }
 }
 
 // endregion [Jvm App Build Template]

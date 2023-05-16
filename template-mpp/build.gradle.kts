@@ -5,6 +5,7 @@ import pl.mareklangiewicz.utils.*
 
 plugins {
     plug(plugs.KotlinMulti) apply false
+    plug(plugs.KotlinJvm) apply false
     plug(plugs.NexusPublish)
 }
 
