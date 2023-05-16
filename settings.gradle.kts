@@ -10,7 +10,7 @@ pluginManagement {
 }
 
 plugins {
-    id("pl.mareklangiewicz.deps.settings") version "0.2.36" // https://plugins.gradle.org/search?term=mareklangiewicz
+    id("pl.mareklangiewicz.deps.settings") version "0.2.37" // https://plugins.gradle.org/search?term=mareklangiewicz
     id("com.gradle.enterprise") version "3.13.1" // https://docs.gradle.com/enterprise/gradle-plugin/
 }
 
