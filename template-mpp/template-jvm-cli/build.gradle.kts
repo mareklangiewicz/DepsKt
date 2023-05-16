@@ -187,8 +187,14 @@ fun Project.defaultBuildTemplateForJvmLib(
         }
     }
 
+    configurations.checkVerSync()
     tasks.defaultKotlinCompileOptions()
     tasks.defaultTestsOptions(onJvmUseJUnitPlatform = withTestJUnit5)
+    if (plugins.hasPlugin("maven-publish")) {
+        defaultPublishing(details)
+        if (plugins.hasPlugin("signing")) defaultSigning()
+        else println("JVM Module ${name}: signing disabled")
+    } else println("JVM Module ${name}: publishing (and signing) disabled")
 }
 // endregion [Jvm Lib Build Template]
 

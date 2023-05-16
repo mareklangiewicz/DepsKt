@@ -14,7 +14,7 @@ defaultBuildTemplateForRootProject(
         name = "TemplateMPP",
         description = "Template for multi platform projects.",
         githubUrl = "https://github.com/langara/DepsKt/template-mpp",
-        version = Ver(0, 0, 4)
+        version = Ver(0, 0, 5)
     )
 )
 
