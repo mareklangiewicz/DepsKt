@@ -15,6 +15,7 @@ const val labelRoot = "Root Build Template"
 const val labelKotlinModule = "Kotlin Module Build Template"
 const val labelMppModule = "MPP Module Build Template"
 const val labelMppApp = "MPP App Build Template"
+const val labelJvmLib = "Jvm Lib Build Template"
 const val labelJvmApp = "Jvm App Build Template"
 const val labelComposeMppModule = "Compose MPP Module Build Template"
 const val labelComposeMppApp = "Compose MPP App Build Template"
@@ -26,6 +27,8 @@ private const val pathMppRoot = "template-mpp"
 private const val pathDepsKtRoot = ""
 private const val pathMppLib = "template-mpp/template-mpp-lib"
 private const val pathMppApp = "template-mpp/template-mpp-app"
+private const val pathJvmLib = "template-mpp/template-jvm-cli"
+    // For now, it's the same as pathJvmApp below. But I might create a separate module for jvm lib later.
 private const val pathJvmApp = "template-mpp/template-jvm-cli"
 private const val pathAndroRoot = "template-andro"
 private const val pathAndroLib = "template-andro/template-andro-lib"
@@ -34,7 +37,7 @@ private const val pathAndroApp = "template-andro/template-andro-app"
 data class RegionInfo(val label: String, val path: Path, val syncedPaths: List<Path>)
 
 val RegionInfo.pathInRes get() = path / "build.gradle.kts.tmpl"
-// pathInRes has to have different suffix from "build.gradle.kts" otherwise gradle sometimes tries to run it..
+// pathInRes has to have different suffix from "build.gradle.kts" otherwise gradle sometimes tries to run it…
 // (even just .kts extension sometimes confuses at least IDE)
 
 fun RegionInfo.pathInSrc(depsKtRootPath: Path = MyDepsKtRootPath) =
@@ -48,10 +51,11 @@ private fun info(label: String, dir: String, vararg syncedDirs: String) =
 
 private val regionsInfos = listOf(
     info(labelRoot, pathMppRoot, pathAndroRoot, pathDepsKtRoot),
-    info(labelKotlinModule, pathMppLib, pathMppApp, pathJvmApp, pathAndroLib, pathAndroApp, pathDepsKtRoot),
+    info(labelKotlinModule, pathMppLib, pathMppApp, pathJvmLib, pathJvmApp, pathAndroLib, pathAndroApp, pathDepsKtRoot),
     info(labelMppModule, pathMppLib, pathMppApp),
     info(labelMppApp, pathMppApp),
-    info(labelJvmApp, pathJvmApp),
+    info(labelJvmLib, pathJvmLib),
+    info(labelJvmApp, pathJvmLib, pathJvmApp),
     info(labelComposeMppModule, pathMppLib, pathMppApp),
     info(labelComposeMppApp, pathMppApp),
     info(labelAndroCommon, pathAndroLib, pathAndroApp),
