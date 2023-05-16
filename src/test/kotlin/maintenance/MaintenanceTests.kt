@@ -32,6 +32,10 @@ class MaintenanceTests {
         outFileRegionLabel = "Deps Generated"
     )
 
+    // TODO: I have to run it from command line, due to issue (todo track it):
+    // https://youtrack.jetbrains.com/issue/IDEA-320303
+    // DepsKt$ ./gradlew cleanTest
+    // DepsKt$ ./gradlew test --tests MaintenanceTests.maintenanceTestFactory
     @TestFactory
     fun maintenanceTestFactory() = uspekTestFactory {
 //        "check all known regions synced" o { checkAllKnownRegionsSynced() }
