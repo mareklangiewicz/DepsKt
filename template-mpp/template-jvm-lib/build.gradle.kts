@@ -4,19 +4,11 @@ import pl.mareklangiewicz.deps.*
 import pl.mareklangiewicz.utils.*
 
 plugins {
-    plugAll(plugs.KotlinJvm, plugs.JvmApp)
+    plugAll(plugs.KotlinJvm, plugs.MavenPublish, plugs.Signing)
 }
 
-repositories { // TODO_later: why gradle needs compose repo here?
-    defaultRepos(withKotlinxHtml = true, withComposeJbDev = true)
-}
-
-defaultBuildTemplateForJvmApp(
-    appMainPackage = "pl.mareklangiewicz.hello.cli",
-    appMainClass = "MainCliKt",
-) {
+defaultBuildTemplateForJvmLib {
     implementation(project(":template-mpp-lib"))
-    implementation(project(":template-jvm-lib"))
 }
 
 
@@ -92,7 +84,7 @@ fun MavenPublication.defaultPOM(lib: LibDetails) = pom {
     scm { url put lib.githubUrl }
 }
 
-/** See also: root project template-mpp: fun Project.defaultSonatypeOssStuffFromSystemEnvs */
+/** See also: root project template-mpp: addDefaultStuffFromSystemEnvs */
 fun Project.defaultSigning(
     keyId: String = rootExtString["signing.keyId"],
     key: String = rootExtReadFileUtf8TryOrNull("signing.keyFile") ?: rootExtString["signing.key"],
@@ -110,6 +102,16 @@ fun Project.defaultPublishing(lib: LibDetails, readmeFile: File = File(rootDir, 
     }
 
     extensions.configure<PublishingExtension> {
+
+        // We have at least two cases:
+        // 1. With plug.KotlinMulti it creates publications automatically (so no need to create here)
+        // 2. With plug.KotlinJvm it does not create publications (so we have to create it manually)
+        if (plugins.hasPlugin("org.jetbrains.kotlin.jvm")) {
+            publications.create<MavenPublication>("jvm") {
+                from(components["kotlin"])
+            }
+        }
+
         publications.withType<MavenPublication> {
             artifact(readmeJavadocJar)
             // Adding javadoc artifact generates warnings like:
@@ -195,21 +197,3 @@ fun Project.defaultBuildTemplateForJvmLib(
 }
 
 // endregion [Kotlin Module Build Template]
-
-// region [Jvm App Build Template]
-
-@Suppress("UNUSED_VARIABLE")
-fun Project.defaultBuildTemplateForJvmApp(
-    appMainPackage: String,
-    appMainClass: String = "MainKt",
-    details: LibDetails = rootExtLibDetails,
-    withTestJUnit4: Boolean = false,
-    withTestJUnit5: Boolean = true,
-    withTestUSpekX: Boolean = true,
-    addMainDependencies: KotlinDependencyHandler.() -> Unit = {},
-) {
-    defaultBuildTemplateForJvmLib(details, withTestJUnit4, withTestJUnit5, withTestUSpekX, addMainDependencies)
-    application { mainClass put "$appMainPackage.$appMainClass" }
-}
-
-// endregion [Jvm App Build Template]

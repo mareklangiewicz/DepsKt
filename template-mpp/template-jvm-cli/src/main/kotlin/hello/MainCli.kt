@@ -8,4 +8,5 @@ fun main(vararg args: String) {
     helloCommon()
     helloPlatform()
     helloSomeHtml()
+    helloFromJvmOnlyLib()
 }

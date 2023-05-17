@@ -20,4 +20,5 @@ rootProject.name = "template-mpp"
 
 include(":template-mpp-lib")
 include(":template-mpp-app")
+include(":template-jvm-lib")
 include(":template-jvm-cli")
