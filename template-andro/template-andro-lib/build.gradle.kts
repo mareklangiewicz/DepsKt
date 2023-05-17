@@ -91,7 +91,7 @@ fun MavenPublication.defaultPOM(lib: LibDetails) = pom {
     scm { url put lib.githubUrl }
 }
 
-/** See also: root project template-mpp: fun Project.defaultSonatypeOssStuffFromSystemEnvs */
+/** See also: root project template-mpp: addDefaultStuffFromSystemEnvs */
 fun Project.defaultSigning(
     keyId: String = rootExtString["signing.keyId"],
     key: String = rootExtReadFileUtf8TryOrNull("signing.keyFile") ?: rootExtString["signing.key"],
@@ -109,6 +109,16 @@ fun Project.defaultPublishing(lib: LibDetails, readmeFile: File = File(rootDir, 
     }
 
     extensions.configure<PublishingExtension> {
+
+        // We have at least two cases:
+        // 1. With plug.KotlinMulti it creates publications automatically (so no need to create here)
+        // 2. With plug.KotlinJvm it does not create publications (so we have to create it manually)
+        if (plugins.hasPlugin("org.jetbrains.kotlin.jvm")) {
+            publications.create<MavenPublication>("jvm") {
+                from(components["kotlin"])
+            }
+        }
+
         publications.withType<MavenPublication> {
             artifact(readmeJavadocJar)
             // Adding javadoc artifact generates warnings like:
@@ -150,6 +160,48 @@ A problem was found with the configuration of task ':template-mpp-lib:signJvmPub
 fun TaskContainer.withSignErrorWorkaround() =
     withType<AbstractPublishToMaven>().configureEach { dependsOn(withType<Sign>()) }
 
+
+@Suppress("UNUSED_VARIABLE")
+fun Project.defaultBuildTemplateForJvmLib(
+    details: LibDetails = rootExtLibDetails,
+    withTestJUnit4: Boolean = false,
+    withTestJUnit5: Boolean = true,
+    withTestUSpekX: Boolean = true,
+    addMainDependencies: KotlinDependencyHandler.() -> Unit = {},
+) {
+    repositories { defaultRepos() }
+    defaultGroupAndVerAndDescription(details)
+
+    kotlin {
+        sourceSets {
+            val main by getting {
+                dependencies {
+                    addMainDependencies()
+                }
+            }
+            val test by getting {
+                dependencies {
+                    if (withTestJUnit4) implementation(JUnit.junit)
+                    if (withTestJUnit5) implementation(Org.JUnit.Jupiter.junit_jupiter_engine)
+                    if (withTestUSpekX) {
+                        implementation(Langiewicz.uspekx)
+                        if (withTestJUnit4) implementation(Langiewicz.uspekx_junit4)
+                        if (withTestJUnit5) implementation(Langiewicz.uspekx_junit5)
+                    }
+                }
+            }
+        }
+    }
+
+    configurations.checkVerSync()
+    tasks.defaultKotlinCompileOptions()
+    tasks.defaultTestsOptions(onJvmUseJUnitPlatform = withTestJUnit5)
+    if (plugins.hasPlugin("maven-publish")) {
+        defaultPublishing(details)
+        if (plugins.hasPlugin("signing")) defaultSigning()
+        else println("JVM Module ${name}: signing disabled")
+    } else println("JVM Module ${name}: publishing (and signing) disabled")
+}
 
 // endregion [Kotlin Module Build Template]
 
