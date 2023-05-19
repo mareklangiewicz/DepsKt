@@ -61,6 +61,11 @@ object Plugs {
      */
     val Dokka = DepP("org.jetbrains.dokka", versNew.DokkaPlug)
 
+    /**
+     * Ktor Gradle Plugin
+     * [github](https://github.com/ktorio/ktor-build-plugins)
+     */
+    val Ktor = DepP("io.ktor.plugin", versNew.KtorPlug)
 
     /**
      * Osacky Doctor Gradle Plugin

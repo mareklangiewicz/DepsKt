@@ -76,6 +76,13 @@ object VersNew {
      */
     val DokkaPlug = Ver("1.8.10", 0)
 
+
+    /**
+     * Ktor Gradle Plugin
+     * [github](https://github.com/ktorio/ktor-build-plugins)
+     */
+    val KtorPlug get() = Io.Ktor.server.ver!! // version will probably always be synced with the server version.
+
     /**
      * Osacky Doctor Gradle Plugin
      * - [gradle portal](https://plugins.gradle.org/plugin/com.osacky.doctor)
