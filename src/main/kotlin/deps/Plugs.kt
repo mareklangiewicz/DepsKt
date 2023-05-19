@@ -68,6 +68,13 @@ object Plugs {
     val Ktor = DepP("io.ktor.plugin", versNew.KtorPlug)
 
     /**
+     * Kotlin Jupyter Gradle Plugin
+     * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
+     * [github](https://github.com/Kotlin/kotlin-jupyter)
+     */
+    val KotlinJupyter = DepP("org.jetbrains.kotlin.jupyter.api", versNew.KotlinJupyterPlug)
+
+    /**
      * Osacky Doctor Gradle Plugin
      * - [gradle portal](https://plugins.gradle.org/plugin/com.osacky.doctor)
      * - [github](https://github.com/runningcode/gradle-doctor)

@@ -81,7 +81,14 @@ object VersNew {
      * Ktor Gradle Plugin
      * [github](https://github.com/ktorio/ktor-build-plugins)
      */
-    val KtorPlug get() = Io.Ktor.server.ver!! // version will probably always be synced with the server version.
+    val KtorPlug = Io.Ktor.server.ver!! // version will probably always be synced with the server version.
+
+    /**
+     * Kotlin Jupyter Gradle Plugin
+     * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
+     * [github](https://github.com/Kotlin/kotlin-jupyter)
+     */
+    val KotlinJupyterPlug = Ver("0.11.0-387")
 
     /**
      * Osacky Doctor Gradle Plugin
