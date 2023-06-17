@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package pl.mareklangiewicz.deps
 
 import versNew
@@ -27,6 +29,13 @@ object Plugs {
      * - [plugins gradle org docs](https://plugins.gradle.org/docs/publish-plugin)
      */
     val GradlePublish = DepP("com.gradle.plugin-publish", versNew.GradlePublishPlug)
+
+    /**
+     * Gradle Enterprise Plugin (enables integration with Gradle Enterprise and scans.gradle.com)
+     * - [gradle org docs](https://docs.gradle.com/enterprise/gradle-plugin/)
+     * - [gradle portal](https://plugins.gradle.org/plugin/com.gradle.enterprise)
+     */
+    val GradleEnterprise = DepP("com.gradle.enterprise", versNew.GradleEnterprisePlug)
 
     /**
      * The builtin Gradle plugin implemented by [org.gradle.api.plugins.ApplicationPlugin].

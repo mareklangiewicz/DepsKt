@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package pl.mareklangiewicz.deps
 
 import versNew
@@ -61,12 +63,19 @@ object VersNew {
     val GradlePublishPlug = Ver("1.2.0", 0)
 
     /**
+     * Gradle Enterprise Plugin (enables integration with Gradle Enterprise and scans.gradle.com)
+     * - [gradle org docs](https://docs.gradle.com/enterprise/gradle-plugin/)
+     * - [gradle portal](https://plugins.gradle.org/plugin/com.gradle.enterprise)
+     */
+    val GradleEnterprisePlug = Ver("3.13.3", 0)
+
+    /**
      * Android Gradle Plugin
      * - [maven](https://maven.google.com/web/index.html#com.android.tools.build:gradle)
      * - [releases](https://developer.android.com/studio/releases/gradle-plugin)
      * - [andro gradle dsl](https://google.github.io/android-gradle-dsl/)
      */
-    val AndroPlug = Ver("8.2.0-alpha03")
+    val AndroPlug = Ver("8.2.0-alpha08")
 
     /**
      * Dokka Gradle Plugin
@@ -74,7 +83,7 @@ object VersNew {
      * - [github](https://github.com/Kotlin/dokka)
      * - [github releases](https://github.com/Kotlin/dokka/releases)
      */
-    val DokkaPlug = Ver("1.8.10", 0)
+    val DokkaPlug = Ver("1.8.20", 0)
 
 
     /**
@@ -88,7 +97,7 @@ object VersNew {
      * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
      * [github](https://github.com/Kotlin/kotlin-jupyter)
      */
-    val KotlinJupyterPlug = Ver("0.11.0-387")
+    val KotlinJupyterPlug = Ver("0.12.0-5")
 
     /**
      * Osacky Doctor Gradle Plugin
@@ -103,7 +112,7 @@ object VersNew {
      * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
      * - [github](https://github.com/langara/DepsKt)
      */
-    val DepsPlug = Ver("0.2.36")
+    val DepsPlug = Ver("0.2.38")
 
     val JvmDefaultVer = "17" // I had terrible issues with "16" (andro compose project)
 
