@@ -37,7 +37,7 @@ fun injectHackyGenerateDepsWorkflowToRefreshDepsRepo() {
             runsOn = RunnerType.UbuntuLatest,
             _customArguments = mapOf("permissions" to mapOf("contents" to "write")),
         ) {
-            uses(CheckoutV3())
+            uses(action = CheckoutV3())
             usesJdk()
             uses(
                 name = "MyExperiments.generateDeps",
@@ -73,7 +73,7 @@ fun injectUpdateGeneratedDepsWorkflowToDepsKtRepo() {
             runsOn = RunnerType.UbuntuLatest,
             _customArguments = mapOf("permissions" to mapOf("contents" to "write")),
         ) {
-            uses(CheckoutV3())
+            uses(action = CheckoutV3())
             usesJdk()
             uses(
                 name = "MaintenanceTests.updateGeneratedDeps",
@@ -119,7 +119,7 @@ private fun defaultBuildWorkflow(runners: List<RunnerType> = listOf(RunnerType.U
                 id = "build-for-${runnerType::class.simpleName}",
                 runsOn = runnerType,
             ) {
-                uses(CheckoutV3())
+                uses(action = CheckoutV3())
                 usesJdk()
                 usesGradleBuild()
             }
@@ -136,7 +136,7 @@ private fun defaultReleaseWorkflow() =
             id = "release",
             runsOn = RunnerType.UbuntuLatest,
         ) {
-            uses(CheckoutV3())
+            uses(action = CheckoutV3())
             usesJdk()
             usesGradleBuild()
             uses(

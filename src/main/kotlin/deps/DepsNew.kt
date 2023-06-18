@@ -1660,7 +1660,7 @@ object Org {
             val dataframe_core = Dep("org.jetbrains.kotlinx", "dataframe-core", Ver("1727", 0))
             val dataframe_excel = Dep("org.jetbrains.kotlinx", "dataframe-excel", Ver("1727", 0))
             val datetime = Dep("org.jetbrains.kotlinx", "kotlinx-datetime", Ver("0.4.0", 0))
-            val html = Dep("org.jetbrains.kotlinx", "kotlinx-html", Ver("0.9.0", 0))
+            val html = Dep("org.jetbrains.kotlinx", "kotlinx-html", Ver("0.8.0", 0))
             val io_jvm = Dep("org.jetbrains.kotlinx", "kotlinx-io-jvm", Ver("0.1.16", 0))
             val kotlin_deeplearning_api = Dep("org.jetbrains.kotlinx", "kotlin-deeplearning-api", Ver("0.5.2", 0), Ver("0.6.0-alpha-1", 300))
             val kotlin_deeplearning_onnx = Dep("org.jetbrains.kotlinx", "kotlin-deeplearning-onnx", Ver("0.5.2", 0), Ver("0.6.0-alpha-1", 300))

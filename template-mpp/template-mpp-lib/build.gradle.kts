@@ -9,11 +9,19 @@ plugins {
     plugAll(plugs.KotlinMulti, plugs.Compose, plugs.MavenPublish, plugs.Signing)
 }
 
+// workaround for crazy gradle bugs like this one or simillar:
+// https://youtrack.jetbrains.com/issue/KT-43500/KJS-IR-Failed-to-resolve-Kotlin-library-on-attempting-to-resolve-compileOnly-transitive-dependency-from-direct-dependency
+repositories { maven(repos.composeJbDev) }
+
 defaultBuildTemplateForComposeMppLib(
     withJs = true,
     withNativeLinux64 = false,
     withKotlinxHtml = true,
-)
+) {
+// workaround for crazy gradle bugs like this one or simillar:
+// https://youtrack.jetbrains.com/issue/KT-43500/KJS-IR-Failed-to-resolve-Kotlin-library-on-attempting-to-resolve-compileOnly-transitive-dependency-from-direct-dependency
+    implementation(KotlinX.coroutines_core)
+}
 
 // region [Kotlin Module Build Template]
 
@@ -330,7 +338,7 @@ fun Project.defaultBuildTemplateForComposeMppLib(
     withJs: Boolean = true,
     withNativeLinux64: Boolean = false,
     withKotlinxHtml: Boolean = false,
-    withComposeCompilerVer: Ver? = versNew.ComposeCompiler,
+    withComposeCompilerVer: Ver? = null,
     withComposeUi: Boolean = true,
     withComposeFoundation: Boolean = true,
     withComposeMaterial2: Boolean = withJvm,

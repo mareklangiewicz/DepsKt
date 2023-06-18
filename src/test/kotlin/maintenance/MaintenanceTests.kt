@@ -8,7 +8,7 @@ import okio.Path.Companion.toPath
 import org.junit.jupiter.api.*
 import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable
 import pl.mareklangiewicz.io.readUtf8
-import pl.mareklangiewicz.kommand.Platform.Companion.SYS
+import pl.mareklangiewicz.kommand.CliPlatform.Companion.SYS
 import pl.mareklangiewicz.kommand.kommand
 import pl.mareklangiewicz.ure.checkAllKnownRegionsSynced
 import pl.mareklangiewicz.ure.downloadAndInjectFileToSpecialRegion

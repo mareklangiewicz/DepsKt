@@ -9,6 +9,10 @@ plugins {
     plugAll(plugs.KotlinMulti, plugs.Compose)
 }
 
+// workaround for crazy gradle bugs like this one or simillar:
+// https://youtrack.jetbrains.com/issue/KT-43500/KJS-IR-Failed-to-resolve-Kotlin-library-on-attempting-to-resolve-compileOnly-transitive-dependency-from-direct-dependency
+repositories { maven(repos.composeJbDev) }
+
 defaultBuildTemplateForComposeMppApp(
     appMainPackage = "pl.mareklangiewicz.hello",
     withJs = true,
@@ -392,7 +396,7 @@ fun Project.defaultBuildTemplateForComposeMppLib(
     withJs: Boolean = true,
     withNativeLinux64: Boolean = false,
     withKotlinxHtml: Boolean = false,
-    withComposeCompilerVer: Ver? = versNew.ComposeCompiler,
+    withComposeCompilerVer: Ver? = null,
     withComposeUi: Boolean = true,
     withComposeFoundation: Boolean = true,
     withComposeMaterial2: Boolean = withJvm,
@@ -498,7 +502,7 @@ fun Project.defaultBuildTemplateForComposeMppApp(
     withJs: Boolean = true,
     withNativeLinux64: Boolean = false,
     withKotlinxHtml: Boolean = false,
-    withComposeCompilerVer: Ver? = versNew.ComposeCompiler,
+    withComposeCompilerVer: Ver? = null,
     withComposeUi: Boolean = true,
     withComposeFoundation: Boolean = true,
     withComposeMaterial2: Boolean = withJvm,

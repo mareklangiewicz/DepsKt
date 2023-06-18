@@ -14,7 +14,19 @@ pluginManagement {
     includeBuild("..") // DepsKt
 }
 
-plugins { id("pl.mareklangiewicz.deps.settings") version "0.2.33" }
+plugins {
+    id("pl.mareklangiewicz.deps.settings") version "0.2.38"
+    id("com.gradle.enterprise") version "3.13.3" // https://docs.gradle.com/enterprise/gradle-plugin/
+}
+
+gradleEnterprise {
+    buildScan {
+        termsOfServiceUrl = "https://gradle.com/terms-of-service"
+        termsOfServiceAgree = "yes"
+        publishAlwaysIf(System.getenv("GITHUB_ACTIONS") == "true")
+        publishOnFailure()
+    }
+}
 
 rootProject.name = "template-mpp"
 

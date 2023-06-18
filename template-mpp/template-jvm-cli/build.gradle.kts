@@ -7,6 +7,10 @@ plugins {
     plugAll(plugs.KotlinJvm, plugs.JvmApp)
 }
 
+// workaround for crazy gradle bugs like this one or simillar:
+// https://youtrack.jetbrains.com/issue/KT-43500/KJS-IR-Failed-to-resolve-Kotlin-library-on-attempting-to-resolve-compileOnly-transitive-dependency-from-direct-dependency
+repositories { maven(repos.composeJbDev) }
+
 repositories { // TODO_later: why gradle needs compose repo here?
     defaultRepos(withKotlinxHtml = true, withComposeJbDev = true)
 }

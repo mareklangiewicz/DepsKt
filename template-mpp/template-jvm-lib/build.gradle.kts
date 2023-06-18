@@ -7,6 +7,10 @@ plugins {
     plugAll(plugs.KotlinJvm, plugs.MavenPublish, plugs.Signing)
 }
 
+// workaround for crazy gradle bugs like this one or simillar:
+// https://youtrack.jetbrains.com/issue/KT-43500/KJS-IR-Failed-to-resolve-Kotlin-library-on-attempting-to-resolve-compileOnly-transitive-dependency-from-direct-dependency
+repositories { maven(repos.composeJbDev) }
+
 defaultBuildTemplateForJvmLib {
     implementation(project(":template-mpp-lib"))
 }
