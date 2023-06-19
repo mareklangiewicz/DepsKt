@@ -39,7 +39,7 @@ class MaintenanceTests {
     @TestFactory
     fun maintenanceTestFactory() = uspekTestFactory {
 //        "check all known regions synced" o { checkAllKnownRegionsSynced() }
-//        "check all known regions in all my kotlin projects" o { checkAllKnownRegionsInAllMyProjects() }
+        "check all known regions in all my kotlin projects" o { checkAllKnownRegionsInAllMyProjects() }
 //        "check all workflows in all my kotlin projects" o { checkAllWorkflowsInAllMyProjects() }
 //
 //        "DANGEROUS inject all known regions to sync" o { injectAllKnownRegionsToSync() }
