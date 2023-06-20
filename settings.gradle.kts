@@ -16,6 +16,8 @@ plugins {
     id("com.gradle.enterprise") version "3.13.3" // https://docs.gradle.com/enterprise/gradle-plugin/
 }
 
+//includeAndSubstituteBuild("../KommandLine", Langiewicz.kommandline.mvn, ":kommandline")
+
 gradleEnterprise {
     buildScan {
         termsOfServiceUrl = "https://gradle.com/terms-of-service"

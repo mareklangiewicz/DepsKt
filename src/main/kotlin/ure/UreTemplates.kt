@@ -5,8 +5,7 @@ import okio.FileSystem.Companion.RESOURCES
 import okio.FileSystem.Companion.SYSTEM
 import okio.Path.Companion.toPath
 import pl.mareklangiewicz.io.*
-import pl.mareklangiewicz.kommand.Platform
-import pl.mareklangiewicz.kommand.kommand
+import pl.mareklangiewicz.kommand.*
 import pl.mareklangiewicz.maintenance.*
 import kotlin.math.absoluteValue
 import kotlin.random.Random
@@ -230,10 +229,10 @@ fun downloadTmpFile(
     url: String,
     name: String = "tmp${Random.nextLong().absoluteValue}.txt",
     dir: Path = "build".toPath(),
-): Path = Platform.SYS.run {
+): Path = CliPlatform.SYS.run {
     val path = dir / name
     // TODO: Add curl to KommandLine library, then use it here
-    kommand("curl", "-o", path.toString(), url)()
+    kommand("curl", "-o", path.toString(), url).exec()
     path
 }
 

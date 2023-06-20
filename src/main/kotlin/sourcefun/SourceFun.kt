@@ -10,6 +10,8 @@ import org.gradle.api.file.*
 import org.gradle.api.provider.*
 import org.gradle.api.tasks.*
 import pl.mareklangiewicz.io.*
+import pl.mareklangiewicz.kommand.CliPlatform.Companion.SYS
+import pl.mareklangiewicz.kommand.git.*
 import java.time.*
 import java.time.format.*
 import kotlin.properties.*
@@ -139,12 +141,7 @@ abstract class VersionDetailsTask : DefaultTask() {
 
     @TaskAction
     fun execute() {
-        // FIXME NOW: use kommand(..)
-        // FIXME LATER: add git to KommandLine library, then use it here
-        val process = ProcessBuilder("git", "rev-parse", "HEAD").start()
-        val error = process.errorStream.bufferedReader().use { it.readText() }
-        check(error.isBlank()) { "GitVersionTask error: $error" }
-        val commit = process.inputStream.bufferedReader().use { it.readText() }
+        val commit = SYS.run { gitHash().exec().single() }
         val time = LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME)
         generatedAssetsDir.dir("version-details").get().run {
             project.mkdir(this)
