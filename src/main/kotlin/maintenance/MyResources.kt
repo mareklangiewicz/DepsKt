@@ -1,7 +1,7 @@
 package pl.mareklangiewicz.maintenance
 
 import okio.*
-import okio.FileSystem.*
+import okio.FileSystem.Companion.SYSTEM
 import okio.Path.Companion.toPath
 import pl.mareklangiewicz.io.*
 
@@ -11,21 +11,19 @@ private val resourcesRelPath = "src/main/resources".toPath()
 private val resourcesAbsPath = MyDepsKtRootPath / resourcesRelPath
 
 private val Path.isTmplSymlink
-    get() =
-        name.endsWith(".tmpl") && Companion.SYSTEM.metadata(this).symlinkTarget != null
+    get() = name.endsWith(".tmpl") && SYSTEM.metadata(this).symlinkTarget != null
 
-fun updateDepsKtResourcesSymLinks(log: (Any?) -> Unit = ::println) {
-    FileSystem.SYSTEM.listRecursively(resourcesAbsPath).forEach {
-        if (FileSystem.SYSTEM.metadata(it).isDirectory) return@forEach
+fun updateDepsKtResourcesSymLinks(log: (Any?) -> Unit = ::println) = SYSTEM.run {
+    listRecursively(resourcesAbsPath).forEach {
+        if (metadata(it).isDirectory) return@forEach
         check(it.isTmplSymlink) { "Unexpected file in resources: $it" }
-        FileSystem.SYSTEM.delete(it)
+        delete(it)
     }
-    FileSystem.SYSTEM.list(resourcesAbsPath).forEach {
-        check(FileSystem.SYSTEM.metadata(it).isDirectory) { "Some non directory left in resources: $it" }
-        FileSystem.SYSTEM.deleteRecursively(it)
+    list(resourcesAbsPath).forEach {
+        check(metadata(it).isDirectory) { "Some non directory left in resources: $it" }
+        deleteRecursively(it)
     }
-    val buildFiles = FileSystem.SYSTEM
-        .findAllFiles(MyDepsKtRootPath)
+    val buildFiles = findAllFiles(MyDepsKtRootPath)
         .filter { it.segments.any { it.startsWith("template-") } }
         .filterExt("gradle.kts")
         .toList()
@@ -38,7 +36,7 @@ fun updateDepsKtResourcesSymLinks(log: (Any?) -> Unit = ::println) {
         val targetDots = linkRel.parent!!.segments.joinToString("/") { ".." }
         val target = targetDots.toPath() / srcRel
         log("symlink $linkAbs -> $target")
-        FileSystem.SYSTEM.createDirectories(linkAbs.parent!!)
-        FileSystem.SYSTEM.createSymlink(linkAbs, target)
+        createDirectories(linkAbs.parent!!)
+        createSymlink(linkAbs, target)
     }
 }
