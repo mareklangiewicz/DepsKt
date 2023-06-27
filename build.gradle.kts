@@ -10,6 +10,7 @@ plugins {
 }
 
 repositories {
+    mavenLocal()
     google()
     mavenCentral()
     gradlePluginPortal()
@@ -17,7 +18,7 @@ repositories {
 
 dependencies {
     api(Com.SquareUp.Okio.okio)
-    api(Langiewicz.kommandline.withVer(Ver(0, 0, 16)))
+    api(Langiewicz.kommandline.withVer(Ver(0, 0, 17)))
         // FIXME: remove manual version when published deps catch up
     implementation(Io.GitHub.TypeSafeGitHub.github_workflows_kt)
     testImplementation(Langiewicz.uspekx_junit5)

@@ -3,6 +3,7 @@
 pluginManagement {
    includeBuild("..") // this is DepsKt
     repositories {
+        mavenLocal()
         google()
         gradlePluginPortal()
         mavenCentral()
@@ -10,7 +11,7 @@ pluginManagement {
 }
 
 plugins {
-    id("pl.mareklangiewicz.deps.settings") version "0.2.36"
+    id("pl.mareklangiewicz.deps.settings") version "0.2.41"
 }
 
 rootProject.name = "template-andro"

@@ -44,7 +44,9 @@ object VersNew {
     val Compose = Org.JetBrains.Compose.gradle_plugin.verStable!!
 
     /** Selected Compose Compiler version. Should always be kept compatible with selected Kotlin version. */
-    val ComposeCompiler = AndroidX.Compose.Compiler.compiler.verStable!!
+    // val ComposeCompiler = AndroidX.Compose.Compiler.compiler.verStable!!
+    // FIXME: Stuck with kotlin 1.8.20 for now, so custom compiler (for android projects)
+    val ComposeCompiler = Ver("1.4.4-dev-k1.8.20-f6ae19e64ff")
 
     /** Selected Compose Android version. Should always be kept compatible with selected Kotlin version. */
     val ComposeAndro = AndroidX.Compose.Runtime.runtime.verStable!!
@@ -68,7 +70,7 @@ object VersNew {
      * - [gradle org docs](https://docs.gradle.com/enterprise/gradle-plugin/)
      * - [gradle portal](https://plugins.gradle.org/plugin/com.gradle.enterprise)
      */
-    val GradleEnterprisePlug = Ver("3.13.3", 0)
+    val GradleEnterprisePlug = Ver("3.13.4", 0)
 
     /**
      * Android Gradle Plugin
@@ -76,7 +78,7 @@ object VersNew {
      * - [releases](https://developer.android.com/studio/releases/gradle-plugin)
      * - [andro gradle dsl](https://google.github.io/android-gradle-dsl/)
      */
-    val AndroPlug = Ver("8.2.0-alpha08")
+    val AndroPlug = Ver("8.2.0-alpha10")
 
     /**
      * Dokka Gradle Plugin
@@ -98,7 +100,7 @@ object VersNew {
      * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
      * [github](https://github.com/Kotlin/kotlin-jupyter)
      */
-    val KotlinJupyterPlug = Ver("0.12.0-5")
+    val KotlinJupyterPlug = Ver("0.12.0-7")
 
     /**
      * Osacky Doctor Gradle Plugin
