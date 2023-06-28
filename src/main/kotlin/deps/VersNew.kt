@@ -37,18 +37,19 @@ object VersNew {
      * Manually selected kotlin version. Have to be working with current compose multiplatform and compose andro.
      * - [compose kotlin compatibility](https://github.com/JetBrains/compose-multiplatform/blob/master/VERSIONING.md#kotlin-compatibility)
      * - [releases github](https://github.com/JetBrains/kotlin/releases)
+     * - [compiler dev repo table](https://androidx.dev/storage/compose-compiler/repository)
      */
     val Kotlin = Ver("1.8.20")
 
-    /** Selected Compose Multiplatform version. Should always be kept compatible with selected Kotlin version. */
-    val Compose = Org.JetBrains.Compose.gradle_plugin.verStable!!
-
-    /** Selected Compose Compiler version. Should always be kept compatible with selected Kotlin version. */
+    /** Selected Compose Compiler version. Should always be kept compatible with the selected Kotlin version. */
+    val ComposeCompiler = Ver("1.4.4-dev-k1.8.20-f6ae19e64ff")
     // val ComposeCompiler = AndroidX.Compose.Compiler.compiler.verStable!!
     // FIXME: Stuck with kotlin 1.8.20 for now, so custom compiler (for android projects)
-    val ComposeCompiler = Ver("1.4.4-dev-k1.8.20-f6ae19e64ff")
 
-    /** Selected Compose Android version. Should always be kept compatible with selected Kotlin version. */
+    /** Selected ComposeMultiplatform version. Should always be kept compatible with the selected Kotlin version. */
+    val Compose = Org.JetBrains.Compose.gradle_plugin.verStable!!
+
+    /** Selected ComposeAndroid version. Should always be kept compatible with the selected Kotlin version. */
     val ComposeAndro = AndroidX.Compose.Runtime.runtime.verStable!!
 
     /**
