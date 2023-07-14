@@ -231,9 +231,23 @@ fun downloadTmpFile(
     dir: Path = "build".toPath(),
 ): Path = CliPlatform.SYS.run {
     val path = dir / name
-    // TODO: Add curl to KommandLine library, then use it here
-    kommand("curl", "-o", path.toString(), url).exec()
+    download(url, path)
     path
+}
+
+private fun CliPlatform.download(url: String, to: Path) {
+    // TODO: Add curl to KommandLine library, then use it here
+    // -s so no progress bars on error stream; -S to report actual errors on error stream
+    val k = kommand("curl", "-s", "-S", "-o", to.toString(), url)
+    val result = start(k).waitForResult()
+    result.unwrap { err ->
+        if (err.isNotEmpty()) {
+            println("FAIL: Error stream was not empty:")
+            err.loglns()
+            false
+        }
+        else true
+    }
 }
 
 fun downloadAndInjectFileToSpecialRegion(
