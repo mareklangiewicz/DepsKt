@@ -17,6 +17,9 @@ defaultBuildTemplateForComposeMppLib(
     withJs = true,
     withNativeLinux64 = false,
     withKotlinxHtml = true,
+    withComposeCompilerVer = VersNew.ComposeCompiler,
+    // FIXME: stop using custom andro cimpiler when compose multiplatform supports kotlin 1.9.0
+    // https://github.com/JetBrains/compose-multiplatform/issues/3323
 ) {
 // workaround for crazy gradle bugs like this one or simillar:
 // https://youtrack.jetbrains.com/issue/KT-43500/KJS-IR-Failed-to-resolve-Kotlin-library-on-attempting-to-resolve-compileOnly-transitive-dependency-from-direct-dependency

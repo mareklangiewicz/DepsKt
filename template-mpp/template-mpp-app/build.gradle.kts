@@ -18,6 +18,9 @@ defaultBuildTemplateForComposeMppApp(
     withJs = true,
     withNativeLinux64 = false,
     withKotlinxHtml = true,
+    withComposeCompilerVer = VersNew.ComposeCompiler,
+    // FIXME: stop using custom andro cimpiler when compose multiplatform supports kotlin 1.9.0
+    // https://github.com/JetBrains/compose-multiplatform/issues/3323
 ) {
     implementation(project(":template-mpp-lib"))
 }

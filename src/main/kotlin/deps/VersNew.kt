@@ -39,12 +39,11 @@ object VersNew {
      * - [releases github](https://github.com/JetBrains/kotlin/releases)
      * - [compiler dev repo table](https://androidx.dev/storage/compose-compiler/repository)
      */
-    val Kotlin = Ver("1.8.20")
+    val Kotlin = Ver("1.9.0")
 
     /** Selected Compose Compiler version. Should always be kept compatible with the selected Kotlin version. */
-    val ComposeCompiler = Ver("1.4.4-dev-k1.8.20-f6ae19e64ff")
+    val ComposeCompiler = Ver("1.5.0-dev-k1.9.0-6a60475e07f")
     // val ComposeCompiler = AndroidX.Compose.Compiler.compiler.verStable!!
-    // FIXME: Stuck with kotlin 1.8.20 for now, so custom compiler (for android projects)
 
     /** Selected ComposeMultiplatform version. Should always be kept compatible with the selected Kotlin version. */
     val Compose = Org.JetBrains.Compose.gradle_plugin.verStable!!
