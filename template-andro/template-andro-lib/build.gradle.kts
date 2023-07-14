@@ -291,6 +291,7 @@ fun MutableSet<String>.defaultAndroExcludedResources() = addAll(
         "META-INF/licenses/**",
         "META-INF/AL2.0",
         "META-INF/LGPL2.1",
+        "META-INF/kotlinx_coroutines_core.version",
     )
 )
 
