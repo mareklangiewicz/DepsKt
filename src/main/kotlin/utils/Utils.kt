@@ -18,6 +18,12 @@ import kotlin.reflect.*
 
 // Overloads for setting properties in more typesafe and explicit ways (and fewer parentheses)
 // (Property.set usage in gradle kotlin dsl doesn't look great, so we need to fix it with some infix fun)
+// UPDATE: there is new overridden "=" (assign) operator in new gradle with special kotlin plugin...
+// but my infix "provides" and "put" are a bit more explicit, so maybe still better when reading scripts?
+// On the other hand, gradle says:
+// We do not recommended that plugin authors implement custom setters for properties with these types.
+// So maybe I'll deprecate these once gradle lazy assignment becomes stable (it's incubating).
+// See also: https://blog.gradle.org/simpler-kotlin-dsl-property-assignment
 
 // The name "provides" looks better than "provide", because it's more declarative/lazy overload of Property.set
 infix fun <T> Property<in T>.provides(from: Provider<out T>) = set(from)
