@@ -1610,7 +1610,7 @@ object Org {
     }
     object JetBrains {
         object Compose {
-            val gradle_plugin = Dep("org.jetbrains.compose", "compose-gradle-plugin", Ver("1.4.1", 0), Ver("1.5.0-dev1094", 320))
+            val gradle_plugin = Dep("org.jetbrains.compose", "compose-gradle-plugin", Ver("1.4.1", 0), Ver("1.5.0-dev1104", 320))
         }
         object Exposed {
             val core = Dep("org.jetbrains.exposed", "exposed-core", Ver("0.41.1", 0))

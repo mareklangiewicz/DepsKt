@@ -46,7 +46,7 @@ object VersNew {
     // val ComposeCompiler = AndroidX.Compose.Compiler.compiler.verStable!!
 
     /** Selected ComposeMultiplatform version. Should always be kept compatible with the selected Kotlin version. */
-    val Compose = Org.JetBrains.Compose.gradle_plugin.verStable!!
+    val Compose = Org.JetBrains.Compose.gradle_plugin.ver!!
 
     /** Selected ComposeAndroid version. Should always be kept compatible with the selected Kotlin version. */
     val ComposeAndro = AndroidX.Compose.Runtime.runtime.verStable!!
