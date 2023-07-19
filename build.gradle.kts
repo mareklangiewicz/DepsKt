@@ -18,8 +18,7 @@ repositories {
 
 dependencies {
     api(Com.SquareUp.Okio.okio)
-    api(Langiewicz.kommandline.withVer(Ver(0, 0, 18)))
-        // FIXME: remove manual version when published deps catch up
+    api(Langiewicz.kommandline)
     implementation(Io.GitHub.TypeSafeGitHub.github_workflows_kt)
     testImplementation(Langiewicz.uspekx_junit5)
     testImplementation(Org.JUnit.Jupiter.junit_jupiter)
@@ -39,7 +38,7 @@ defaultGroupAndVerAndDescription(
         group = "pl.mareklangiewicz.deps", // important non default ...deps group (as accepted on gradle portal)
         description = "Updated dependencies for typical java/kotlin/android projects (with IDE support).",
         githubUrl = "https://github.com/langara/DepsKt",
-        version = Ver(0, 2, 42),
+        version = Ver(0, 2, 43),
     )
 )
 
