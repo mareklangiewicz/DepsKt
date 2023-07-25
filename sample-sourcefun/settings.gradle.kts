@@ -11,7 +11,7 @@ pluginManagement {
 }
 
 plugins {
-    id("pl.mareklangiewicz.deps.settings") version "0.2.25"
+    id("pl.mareklangiewicz.deps.settings") version "0.2.45"
 }
 
 include(":sample-lib")

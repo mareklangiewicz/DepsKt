@@ -18,7 +18,7 @@ defaultBuildTemplateForComposeMppApp(
     withJs = true,
     withNativeLinux64 = false,
     withKotlinxHtml = true,
-    withComposeCompilerVer = VersNew.ComposeCompiler,
+    // withComposeCompilerVer = VersNew.ComposeCompiler, // UPDATE: Issue is closed but still JS target doesn't work for me :(
     // FIXME: stop using custom andro cimpiler when compose multiplatform supports kotlin 1.9.0
     // https://github.com/JetBrains/compose-multiplatform/issues/3323
 ) {
