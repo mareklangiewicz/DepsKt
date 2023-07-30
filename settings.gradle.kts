@@ -14,7 +14,7 @@ pluginManagement {
 
 plugins {
     id("pl.mareklangiewicz.deps.settings") version "0.2.45" // https://plugins.gradle.org/search?term=mareklangiewicz
-    id("com.gradle.enterprise") version "3.14" // https://docs.gradle.com/enterprise/gradle-plugin/
+    id("com.gradle.enterprise") version "3.14.1" // https://docs.gradle.com/enterprise/gradle-plugin/
 }
 
 //includeAndSubstituteBuild("../KommandLine", Langiewicz.kommandline.mvn, ":kommandline")

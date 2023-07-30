@@ -243,7 +243,7 @@ private fun CliPlatform.download(url: String, to: Path) {
     result.unwrap { err ->
         if (err.isNotEmpty()) {
             println("FAIL: Error stream was not empty:")
-            err.loglns()
+            err.logEach()
             false
         }
         else true

@@ -15,7 +15,7 @@ private val MyGradlewSubProjects =
     listOf("template-mpp", "template-andro", "sample-sourcefun").map { "DepsKt/$it" } +
         listOf("isolatedground1", "isolatedground2", "isolatedground3", "isolatedkamera").map { "kokpit667/isolated/$it" }
 
-private val MyGradlewProjects = MyKotlinProjects - MyNonGradlewProjects + MyGradlewSubProjects
+private val MyGradlewProjects = MyOssKotlinProjects - MyNonGradlewProjects + MyGradlewSubProjects
 
 fun updateGradlewFilesInAllMyProjects(log: (Any?) -> Unit = ::println) =
     updateGradlewFilesInMyProjects(*MyGradlewProjects.toTypedArray(), log = log)

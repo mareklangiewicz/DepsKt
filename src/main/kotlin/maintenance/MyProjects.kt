@@ -11,7 +11,7 @@ import pl.mareklangiewicz.io.writeUtf8
 import pl.mareklangiewicz.ure.*
 
 fun checkAllWorkflowsInAllMyProjects(log: (Any?) -> Unit = ::println) =
-    checkAllWorkflowsInMyProjects(*MyKotlinProjects.toTypedArray(), log = log)
+    checkAllWorkflowsInMyProjects(*MyOssKotlinProjects.toTypedArray(), log = log)
 fun checkAllWorkflowsInMyProjects(vararg names: String, log: (Any?) -> Unit = ::println) =
     checkAllWorkflowsInProjects(*names.map { PathToMyKotlinProjects / it }.toTypedArray(), log = log)
 
@@ -59,7 +59,7 @@ fun FileSystem.checkAllWorkflowsInProject(
 
 
 fun injectDefaultWorkflowsToAllMyProjects(log: (Any?) -> Unit = ::println) =
-    injectDefaultWorkflowsToMyProjects(*MyKotlinProjects.toTypedArray(), log = log)
+    injectDefaultWorkflowsToMyProjects(*MyOssKotlinProjects.toTypedArray(), log = log)
 fun injectDefaultWorkflowsToMyProjects(vararg names: String, log: (Any?) -> Unit = ::println) =
     injectDefaultWorkflowsToProjects(*names.map { PathToMyKotlinProjects / it }.toTypedArray(), log = log)
 
@@ -89,7 +89,7 @@ fun FileSystem.injectDefaultWorkflowsToProject(
 
 
 fun checkAllKnownRegionsInAllMyProjects(log: (Any?) -> Unit = ::println) =
-    checkAllKnownRegionsInMyProjects(*MyKotlinProjects.toTypedArray(), log = log)
+    checkAllKnownRegionsInMyProjects(*MyOssKotlinProjects.toTypedArray(), log = log)
 fun checkAllKnownRegionsInMyProjects(vararg names: String, log: (Any?) -> Unit = ::println) =
     checkAllKnownRegionsInProjects(*names.map { PathToMyKotlinProjects / it }.toTypedArray(), log = log)
 
@@ -99,7 +99,7 @@ fun checkAllKnownRegionsInProjects(vararg projects: Path, log: (Any?) -> Unit = 
 }
 
 fun injectAllKnownRegionsToAllMyProjects(log: (Any?) -> Unit = ::println) =
-    injectAllKnownRegionsToMyProjects(*MyKotlinProjects.toTypedArray(), log = log)
+    injectAllKnownRegionsToMyProjects(*MyOssKotlinProjects.toTypedArray(), log = log)
 fun injectAllKnownRegionsToMyProjects(vararg names: String, log: (Any?) -> Unit = ::println) =
     injectAllKnownRegionsToProjects(*names.map { PathToMyKotlinProjects / it }.toTypedArray(), log = log)
 
@@ -109,16 +109,15 @@ fun injectAllKnownRegionsToProjects(vararg projects: Path, log: (Any?) -> Unit =
 }
 
 internal val PathToMyKotlinProjects = "/home/marek/code/kotlin".toPath()
+internal val PathToMyAndroProjects = "/home/marek/code/android".toPath()
 
-internal val MyKotlinProjects = listOf(
+@Deprecated("Use KommandLine instead of hardcoding different lists or projects/repos")
+internal val MyOssKotlinProjects = listOf(
     "AbcdK",
-    "AreaKim",
     "AutomateK",
     "CoEdges",
     "dbus-kotlin",
-    "IPShareK",
     "Koder",
-    "kokpit667",
     "KommandLine",
     "kthreelhu",
     "KWSocket",

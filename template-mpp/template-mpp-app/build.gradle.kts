@@ -372,6 +372,12 @@ fun Project.defaultBuildTemplateForMppApp(
             println("MPP App ${project.name}: Generating general jvm executables with kotlin multiplatform plugin is not supported (without compose).")
             // TODO_someday: Will they support multiplatform way of declaring jvm app?
             // binaries.executable()
+            // UPDATE:TODO_later: analyze experimental: mainRun {  } it doesn't work yet (compilation fails) even though IDE recognizes it
+            // for now workaround is: kotlin { jvm { withJava() } }; application { mainClass.set("...") }
+            // but I don't want to include such old dsl in this default fun.
+            // see also:
+            // https://youtrack.jetbrains.com/issue/KT-45038
+            // https://youtrack.jetbrains.com/issue/KT-31424
         }
         if (withJs) js(IR) {
             binaries.executable()

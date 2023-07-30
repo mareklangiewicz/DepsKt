@@ -74,11 +74,11 @@ object VersNew {
 
     /**
      * Android Gradle Plugin
+     * - [andro gradle api releases](https://developer.android.com/reference/tools/gradle-api)
      * - [maven](https://maven.google.com/web/index.html#com.android.tools.build:gradle)
      * - [releases](https://developer.android.com/studio/releases/gradle-plugin)
-     * - [andro gradle dsl](https://google.github.io/android-gradle-dsl/)
      */
-    val AndroPlug = Ver("8.2.0-alpha10")
+    val AndroPlug = Ver("8.2.0-alpha14")
 
     /**
      * Dokka Gradle Plugin
@@ -100,7 +100,7 @@ object VersNew {
      * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
      * [github](https://github.com/Kotlin/kotlin-jupyter)
      */
-    val KotlinJupyterPlug = Ver("0.12.0-7")
+    val KotlinJupyterPlug = Ver("0.12.0-33")
 
     /**
      * Osacky Doctor Gradle Plugin
@@ -115,7 +115,7 @@ object VersNew {
      * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
      * - [github](https://github.com/langara/DepsKt)
      */
-    val DepsPlug = Ver("0.2.38")
+    val DepsPlug = Ver("0.2.45")
 
     val JvmDefaultVer = "17" // I had terrible issues with "16" (andro compose project)
 
@@ -123,7 +123,7 @@ object VersNew {
     val Gradle5 = Ver("5.6.4", 0)
     val Gradle6 = Ver("6.8.3", 0)
     val Gradle7 = Ver("7.6.1", 0)
-    val Gradle8 = Ver("8.1.1", 0)
+    val Gradle8 = Ver("8.2.1", 0)
 
     /**
      * Gradle - just a reference - not so useful in typical usecases
