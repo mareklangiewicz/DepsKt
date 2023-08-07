@@ -1,38 +1,53 @@
 package pl.mareklangiewicz.maintenance
 
+import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.*
 import okio.*
 import okio.FileSystem.Companion.RESOURCES
 import okio.FileSystem.Companion.SYSTEM
 import okio.Path.Companion.toPath
 import pl.mareklangiewicz.io.*
+import pl.mareklangiewicz.kommand.*
+import pl.mareklangiewicz.kommand.CliPlatform.Companion.SYS
+import pl.mareklangiewicz.kommand.find.*
+
+
+suspend fun updateGradlewFilesInMyProjects(onlyPublic: Boolean, log: (Any?) -> Unit = ::println) =
+    getMyGradleProjectS(onlyPublic).collect {
+        updateGradlewFilesInProject(it, log)
+    }
+
+fun updateGradlewFilesInProject(fullPath: Path, log: (Any?) -> Unit = ::println) =
+    gradlewRelPaths.forEach { gradlewRelPath ->
+        val targetPath = fullPath / gradlewRelPath
+        val content = RESOURCES.readByteString(gradlewRelPath.withName { "$it.tmpl" })
+        val message =
+            if (SYSTEM.exists(targetPath)) "Updating gradlew file: $targetPath"
+            else "Creating gradlew file: $targetPath"
+        log(message)
+        SYSTEM.writeByteString(targetPath, content)
+    }
+
+
+@OptIn(DelicateKommandApi::class)
+private suspend fun findGradleRootProjectS(path: Path): Flow<Path> =
+    findTypeRegex(path.toString(), "f", ".*/settings.gradle\\(.kts\\)?")
+        .reduced {
+            // $ at the end of regex is important to avoid matching generated resource like: settings.gradle.kts.tmpl
+            val regex = Regex("/settings\\.gradle(\\.kts)?\$")
+            stdout.map { regex.replace(it, "").toPath() }
+        }
+        .exec(SYS)
 
 val gradlewRelPaths =
     listOf("", ".bat").map { "gradlew$it".toPath() } +
-        listOf("jar", "properties").map { "gradle/wrapper/gradle-wrapper.$it".toPath() }
+            listOf("jar", "properties").map { "gradle/wrapper/gradle-wrapper.$it".toPath() }
 
-private val MyNonGradlewProjects = listOf("MyScripts", "uspek-js-playground", "uspek-painters")
-private val MyGradlewSubProjects =
-    listOf("template-mpp", "template-andro", "sample-sourcefun").map { "DepsKt/$it" } +
-        listOf("isolatedground1", "isolatedground2", "isolatedground3", "isolatedkamera").map { "kokpit667/isolated/$it" }
-
-private val MyGradlewProjects = MyOssKotlinProjects - MyNonGradlewProjects + MyGradlewSubProjects
-
-fun updateGradlewFilesInAllMyProjects(log: (Any?) -> Unit = ::println) =
-    updateGradlewFilesInMyProjects(*MyGradlewProjects.toTypedArray(), log = log)
-fun updateGradlewFilesInMyProjects(vararg names: String, log: (Any?) -> Unit = ::println) =
-    updateGradlewFilesInProjects(*names.map { PathToMyKotlinProjects / it }.toTypedArray(), log = log)
-
-fun updateGradlewFilesInProjects(vararg projects: Path, log: (Any?) -> Unit = ::println) = projects.forEach { projectPath ->
-    gradlewRelPaths.forEach { gradlewRelPath ->
-        val targetPath = projectPath / gradlewRelPath
-        check(SYSTEM.exists(targetPath)) { "Gradlew file does not exist: $targetPath" }
-        val content = RESOURCES.readByteString(gradlewRelPath.withName { "$it.tmpl" })
-        log("Updating gradlew file: $targetPath")
-        SYSTEM.writeByteString(targetPath, content)
-    }
-}
-
-
-
+/** @return Full pathS of my gradle rootProjectS (dirs with settings.gradle[.kts] files) */
+@OptIn(ExperimentalCoroutinesApi::class)
+private suspend fun getMyGradleProjectS(onlyPublic: Boolean = true): Flow<Path> =
+    getMyProjectS(onlyPublic)
+        .filterLocalKotlinProjectS()
+        .flatMapConcat { findGradleRootProjectS((PathToMyKotlinProjects / it)) }
 
 

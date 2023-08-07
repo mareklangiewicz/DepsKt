@@ -2,21 +2,14 @@
 
 package pl.mareklangiewicz.maintenance
 
-import okio.FileSystem.Companion.SYSTEM
-import okio.Path
+import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.*
 import okio.Path.Companion.toPath
 import org.junit.jupiter.api.*
 import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable
-import pl.mareklangiewicz.io.readUtf8
-import pl.mareklangiewicz.kommand.CliPlatform.Companion.SYS
-import pl.mareklangiewicz.kommand.kommand
-import pl.mareklangiewicz.ure.checkAllKnownRegionsSynced
+import pl.mareklangiewicz.kommand.*
 import pl.mareklangiewicz.ure.downloadAndInjectFileToSpecialRegion
-import pl.mareklangiewicz.ure.injectAllKnownRegionsToSync
-import pl.mareklangiewicz.ure.injectCustomRegion
 import pl.mareklangiewicz.uspek.*
-import kotlin.math.absoluteValue
-import kotlin.random.Random
 
 // TODO_later: move the whole maintenance stuff to separate cli app, but inside deps.kt repo (but separate gradle and all)
 
@@ -48,7 +41,7 @@ class MaintenanceTests {
 //        "DANGEROUS inject default workflows to Some Proj" o { injectDefaultWorkflowsToMyProjects("KommandLine") }
 //
 //        "DANGEROUS updateDepsKtResourcesSymLinks" o { updateDepsKtResourcesSymLinks() }
-//        "DANGEROUS updateGradlewFilesInAllMyProjects" o { updateGradlewFilesInAllMyProjects() }
+//        "DANGEROUS updateGradlewFilesInMyProjects" o { runBlocking { updateGradlewFilesInMyProjects(onlyPublic = false) } }
 //
 //        "DANGEROUS someIgnoredStuff" o { someIgnoredStuff() }
 //

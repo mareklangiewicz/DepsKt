@@ -10,6 +10,7 @@ import org.gradle.api.file.*
 import org.gradle.api.provider.*
 import org.gradle.api.tasks.*
 import pl.mareklangiewicz.io.*
+import pl.mareklangiewicz.kommand.*
 import pl.mareklangiewicz.kommand.CliPlatform.Companion.SYS
 import pl.mareklangiewicz.kommand.git.*
 import java.time.*
@@ -141,7 +142,7 @@ abstract class VersionDetailsTask : DefaultTask() {
 
     @TaskAction
     fun execute() {
-        val commit = SYS.run { gitHash().exec().single() }
+        val commit = gitHash().execBlocking(SYS).single()
         val time = LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME)
         generatedAssetsDir.dir("version-details").get().run {
             project.mkdir(this)

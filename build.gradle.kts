@@ -18,7 +18,10 @@ repositories {
 
 dependencies {
     api(Com.SquareUp.Okio.okio)
-    api(Langiewicz.kommandline.withVer("0.0.24"))
+    val kl = Langiewicz.kommandline.withVer("0.0.27")
+    val ks = kl.copy(name = "kommandsamples")
+    api(kl)
+    api(ks)
     implementation(Io.GitHub.TypeSafeGitHub.github_workflows_kt)
     testImplementation(Langiewicz.uspekx_junit5)
     testImplementation(Org.JUnit.Jupiter.junit_jupiter)
@@ -38,7 +41,8 @@ defaultGroupAndVerAndDescription(
         group = "pl.mareklangiewicz.deps", // important non default ...deps group (as accepted on gradle portal)
         description = "Updated dependencies for typical java/kotlin/android projects (with IDE support).",
         githubUrl = "https://github.com/langara/DepsKt",
-        version = Ver(0, 2, 46),
+        version = Ver(0, 2, 47),
+        // https://plugins.gradle.org/search?term=pl.mareklangiewicz
     )
 )
 
