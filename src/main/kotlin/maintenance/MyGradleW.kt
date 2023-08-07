@@ -21,10 +21,8 @@ fun updateGradlewFilesInProject(fullPath: Path, log: (Any?) -> Unit = ::println)
     gradlewRelPaths.forEach { gradlewRelPath ->
         val targetPath = fullPath / gradlewRelPath
         val content = RESOURCES.readByteString(gradlewRelPath.withName { "$it.tmpl" })
-        val message =
-            if (SYSTEM.exists(targetPath)) "Updating gradlew file: $targetPath"
-            else "Creating gradlew file: $targetPath"
-        log(message)
+        val action = if (SYSTEM.exists(targetPath)) "Updating" else "Creating new"
+        log("$action gradlew file: $targetPath")
         SYSTEM.writeByteString(targetPath, content)
     }
 
