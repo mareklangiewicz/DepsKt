@@ -114,16 +114,17 @@ fun injectAllKnownRegionsToProjects(vararg projects: Path, log: (Any?) -> Unit =
 
 internal val PathToMyKotlinProjects = "/home/marek/code/kotlin".toPath()
 
-internal suspend fun getMyProjectS(onlyPublic: Boolean = true): Flow<String> =
+@Suppress("IdentifierGrammar")
+internal suspend fun fetchMyProjectsNameS(onlyPublic: Boolean = true): Flow<String> =
     ghLangaraRepoList(onlyPublic = onlyPublic)
         .outputFields("name")
         .reduced { stdout }
         .exec(SYS)
 
-internal suspend fun getMyProjects(onlyPublic: Boolean = true, sorted: Boolean = true): List<String> =
-    getMyProjectS(onlyPublic).toList().let { if (sorted) it.sorted() else it }
+internal suspend fun fetchMyProjectsNames(onlyPublic: Boolean = true, sorted: Boolean = true): List<String> =
+    fetchMyProjectsNameS(onlyPublic).toList().let { if (sorted) it.sorted() else it }
 
-internal fun Flow<String>.filterLocalKotlinProjectS() = filter {
+internal fun Flow<String>.filterLocalKotlinProjectsNameS() = filter {
     SYSTEM.exists(PathToMyKotlinProjects / it)
 }
 

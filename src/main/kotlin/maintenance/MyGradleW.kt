@@ -13,7 +13,7 @@ import pl.mareklangiewicz.kommand.find.*
 
 
 suspend fun updateGradlewFilesInMyProjects(onlyPublic: Boolean, log: (Any?) -> Unit = ::println) =
-    getMyGradleProjectS(onlyPublic).collect {
+    getMyGradleProjectsPathS(onlyPublic).collect {
         updateGradlewFilesInProject(it, log)
     }
 
@@ -45,9 +45,9 @@ val gradlewRelPaths =
 
 /** @return Full pathS of my gradle rootProjectS (dirs with settings.gradle[.kts] files) */
 @OptIn(ExperimentalCoroutinesApi::class)
-private suspend fun getMyGradleProjectS(onlyPublic: Boolean = true): Flow<Path> =
-    getMyProjectS(onlyPublic)
-        .filterLocalKotlinProjectS()
+private suspend fun getMyGradleProjectsPathS(onlyPublic: Boolean = true): Flow<Path> =
+    fetchMyProjectsNameS(onlyPublic)
+        .filterLocalKotlinProjectsNameS()
         .flatMapConcat { findGradleRootProjectS((PathToMyKotlinProjects / it)) }
 
 
