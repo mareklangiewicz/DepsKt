@@ -4,15 +4,17 @@ import io.github.typesafegithub.workflows.actions.actions.CheckoutV3
 import io.github.typesafegithub.workflows.actions.actions.SetupJavaV3
 import io.github.typesafegithub.workflows.actions.endbug.AddAndCommitV9
 import io.github.typesafegithub.workflows.actions.gradle.GradleBuildActionV2
-import io.github.typesafegithub.workflows.actions.reposync.PullRequestV2
 import io.github.typesafegithub.workflows.domain.JobOutputs
 import io.github.typesafegithub.workflows.domain.RunnerType
 import io.github.typesafegithub.workflows.domain.triggers.*
 import io.github.typesafegithub.workflows.dsl.JobBuilder
 import io.github.typesafegithub.workflows.dsl.expressions.expr
 import io.github.typesafegithub.workflows.dsl.workflow
-import io.github.typesafegithub.workflows.yaml.writeToFile
+import io.github.typesafegithub.workflows.yaml.*
+import okio.*
+import okio.FileSystem.Companion.SYSTEM
 import okio.Path.Companion.toPath
+import pl.mareklangiewicz.io.*
 
 private val myFork = expr { "${github.repository_owner} == 'langara'" }
 
@@ -92,7 +94,66 @@ fun injectUpdateGeneratedDepsWorkflowToDepsKtRepo() {
 }
 
 
-internal val MyWorkflowDNames = listOf("dbuild", "drelease")
+private val MyDWorkflowNames = listOf("dbuild", "drelease")
+
+
+fun FileSystem.checkMyDWorkflowsInProject(
+    projectPath: Path,
+    yamlFilesPath: Path = projectPath / ".github" / "workflows",
+    yamlFilesExt: String = "yml",
+    failIfUnknownWorkflowFound: Boolean = false,
+    failIfKnownWorkflowNotFound: Boolean = false,
+    verbose: Boolean = false,
+    log: (Any?) -> Unit = ::println,
+) {
+    if (verbose) log("Check my dworkflows in project: $projectPath")
+    val yamlFiles = findAllFiles(yamlFilesPath, maxDepth = 1).filterExt(yamlFilesExt)
+    val yamlNames = yamlFiles.map { it.name.substringBeforeLast('.') }
+    for (dname in MyDWorkflowNames) {
+        if (dname !in yamlNames) {
+            val summary = "Workflow $dname not found."
+            if (verbose) log("ERR project:${projectPath.name}: $summary")
+            if (failIfKnownWorkflowNotFound) error(summary)
+        }
+    }
+
+    for (file in yamlFiles) {
+        val dname = file.name.substringBeforeLast('.')
+        val contentExpected = try { defaultWorkflow(dname).toYaml() }
+        catch (e: IllegalStateException) {
+            if (failIfUnknownWorkflowFound) throw e
+            else { if (verbose) log(e.message); continue }
+        }
+        val contentActual = readUtf8(file)
+        check(contentExpected == contentActual) {
+            val summary = "Workflow $dname was modified."
+            if (verbose) log("ERR project:${projectPath.name}: $summary")
+            summary
+        }
+        if (verbose) log("OK project:${projectPath.name} workflow:$dname")
+    }
+}
+
+
+fun FileSystem.injectDefaultWorkflowsToProject(
+    projectPath: Path,
+    yamlFilesPath: Path = projectPath / ".github" / "workflows",
+    yamlFilesExt: String = "yml",
+    log: (Any?) -> Unit = ::println,
+) {
+    log("Inject default workflows to project: $projectPath")
+    for (dname in MyDWorkflowNames) {
+        val file = yamlFilesPath / "$dname.$yamlFilesExt"
+        val contentOld = try { readUtf8(file) } catch (e: FileNotFoundException) { "" }
+        val contentNew = defaultWorkflow(dname).toYaml()
+        SYSTEM.writeUtf8(file, contentNew, createParentDir = true)
+        val summary =
+            if (contentNew == contentOld) "No changes."
+            else "Changes detected (len ${contentOld.length}->${contentNew.length})"
+        log("Inject workflow to project:${projectPath.name} dname:$dname - $summary")
+    }
+}
+
 
 /**
  * @dname name of both: workflow, and file name in .github/workflows (without .yml extension)

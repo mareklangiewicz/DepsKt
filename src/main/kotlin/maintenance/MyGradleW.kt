@@ -47,7 +47,7 @@ val gradlewRelPaths =
 @OptIn(ExperimentalCoroutinesApi::class)
 private suspend fun getMyGradleProjectsPathS(onlyPublic: Boolean = true): Flow<Path> =
     fetchMyProjectsNameS(onlyPublic)
-        .filterLocalKotlinProjectsNameS()
-        .flatMapConcat { findGradleRootProjectS((PathToMyKotlinProjects / it)) }
+        .mapFilterLocalKotlinProjectsPathS()
+        .flatMapConcat(::findGradleRootProjectS)
 
 

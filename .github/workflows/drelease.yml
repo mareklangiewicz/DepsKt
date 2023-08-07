@@ -2,13 +2,11 @@
 # If you want to modify the workflow, please change the Kotlin source and regenerate this YAML file.
 # Generated with https://github.com/typesafegithub/github-workflows-kt
 
-name: 'dbuild'
+name: 'drelease'
 on:
   push:
-    branches:
-    - 'master'
-    - 'main'
-  pull_request: {}
+    tags:
+    - 'v*.*.*'
 env:
   MYKOTLIBS_signing_keyId: '${{ secrets.MYKOTLIBS_signing_keyId }}'
   MYKOTLIBS_signing_password: '${{ secrets.MYKOTLIBS_signing_password }}'
@@ -17,7 +15,7 @@ env:
   MYKOTLIBS_ossrhPassword: '${{ secrets.MYKOTLIBS_ossrhPassword }}'
   MYKOTLIBS_sonatypeStagingProfileId: '${{ secrets.MYKOTLIBS_sonatypeStagingProfileId }}'
 jobs:
-  build-for-UbuntuLatest:
+  release:
     runs-on: 'ubuntu-latest'
     steps:
     - id: 'step-0'
@@ -33,3 +31,8 @@ jobs:
       uses: 'gradle/gradle-build-action@v2'
       with:
         arguments: 'build'
+    - id: 'step-3'
+      name: 'Publish to Sonatype'
+      uses: 'gradle/gradle-build-action@v2'
+      with:
+        arguments: 'publishToSonatype closeAndReleaseSonatypeStagingRepository'

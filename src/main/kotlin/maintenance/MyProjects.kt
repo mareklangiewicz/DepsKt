@@ -14,81 +14,34 @@ import pl.mareklangiewicz.kommand.CliPlatform.Companion.SYS
 import pl.mareklangiewicz.kommand.github.*
 import pl.mareklangiewicz.ure.*
 
-fun checkAllWorkflowsInAllMyProjects(log: (Any?) -> Unit = ::println) =
-    checkAllWorkflowsInMyProjects(*MyOssKotlinProjects.toTypedArray(), log = log)
-fun checkAllWorkflowsInMyProjects(vararg names: String, log: (Any?) -> Unit = ::println) =
-    checkAllWorkflowsInProjects(*names.map { PathToMyKotlinProjects / it }.toTypedArray(), log = log)
+suspend fun checkMyDWorkflowsInMyProjects(onlyPublic: Boolean, log: (Any?) -> Unit = ::println) =
+    fetchMyProjectsNameS(onlyPublic)
+        .mapFilterLocalDWorkflowsProjectsPathS()
+        .collect { SYSTEM.checkMyDWorkflowsInProject(it, verbose = true, log = log) }
 
-fun checkAllWorkflowsInProjects(vararg projects: Path, log: (Any?) -> Unit = ::println) = projects.forEach {
-    log("Check all workflows in project: $it")
-    SYSTEM.checkAllWorkflowsInProject(it, verbose = true, log = log)
-}
 
-fun FileSystem.checkAllWorkflowsInProject(
-    projectPath: Path,
-    yamlFilesPath: Path = projectPath / ".github" / "workflows",
-    yamlFilesExt: String = "yml",
-    failIfUnknownWorkflowFound: Boolean = false,
-    failIfKnownWorkflowNotFound: Boolean = false,
-    verbose: Boolean = false,
+suspend fun injectMyDWorkflowsToMyProjects(onlyPublic: Boolean, log: (Any?) -> Unit = ::println) =
+    fetchMyProjectsNameS(onlyPublic)
+        .mapFilterLocalDWorkflowsProjectsPathS(log = log)
+        .collect { SYSTEM.injectDefaultWorkflowsToProject(it, log = log) }
+
+private fun Flow<String>.mapFilterLocalDWorkflowsProjectsPathS(
+    localSystem: FileSystem = SYSTEM,
     log: (Any?) -> Unit = ::println,
-) {
-    val yamlFiles = findAllFiles(yamlFilesPath, maxDepth = 1).filterExt(yamlFilesExt)
-    val yamlNames = yamlFiles.map { it.name.substringBeforeLast('.') }
-    for (dname in MyWorkflowDNames) {
-        if (dname !in yamlNames) {
-            val summary = "Workflow $dname not found."
-            if (verbose) log("ERR project:${projectPath.name}: $summary")
-            if (failIfKnownWorkflowNotFound) error(summary)
-        }
-    }
-
-    for (file in yamlFiles) {
-        val dname = file.name.substringBeforeLast('.')
-        val contentExpected = try { defaultWorkflow(dname).toYaml() }
-        catch (e: IllegalStateException) {
-            if (failIfUnknownWorkflowFound) throw e
-            else { if (verbose) log(e.message); continue }
-        }
-        val contentActual = readUtf8(file)
-        check(contentExpected == contentActual) {
-            val summary = "Workflow $dname was modified."
-            if (verbose) log("ERR project:${projectPath.name}: $summary")
-            summary
-        }
-        if (verbose) log("OK project:${projectPath.name} workflow:$dname")
-    }
+) = mapFilterLocalKotlinProjectsPathS(localSystem) {
+    val isGradleRootProject = exists(it / "settings.gradle.kts") || exists(it / "settings.gradle")
+    if (!isGradleRootProject) log("Ignoring dworkflows in non-gradle project: $it")
+    // FIXME_maybe: Change when I have dworkflows for non-gradle projects
+    isGradleRootProject
 }
 
-
-
-fun injectDefaultWorkflowsToAllMyProjects(log: (Any?) -> Unit = ::println) =
-    injectDefaultWorkflowsToMyProjects(*MyOssKotlinProjects.toTypedArray(), log = log)
-fun injectDefaultWorkflowsToMyProjects(vararg names: String, log: (Any?) -> Unit = ::println) =
-    injectDefaultWorkflowsToProjects(*names.map { PathToMyKotlinProjects / it }.toTypedArray(), log = log)
-
-fun injectDefaultWorkflowsToProjects(vararg projects: Path, log: (Any?) -> Unit = ::println) = projects.forEach {
-    log("Inject default workflows to project: $it")
-    SYSTEM.injectDefaultWorkflowsToProject(it, log = log)
-}
-
-fun FileSystem.injectDefaultWorkflowsToProject(
-    projectPath: Path,
-    yamlFilesPath: Path = projectPath / ".github" / "workflows",
-    yamlFilesExt: String = "yml",
-    log: (Any?) -> Unit = ::println,
-) {
-    for (dname in MyWorkflowDNames) {
-        val file = yamlFilesPath / "$dname.$yamlFilesExt"
-        val contentOld = try { readUtf8(file) } catch (e: FileNotFoundException) { "" }
-        val contentNew = defaultWorkflow(dname).toYaml()
-        SYSTEM.writeUtf8(file, contentNew, createParentDir = true)
-        val summary =
-            if (contentNew == contentOld) "No changes."
-            else "Changes detected (len ${contentOld.length}->${contentNew.length})"
-        log("Inject workflow to project:${projectPath.name} dname:$dname - $summary")
-    }
-}
+/** @receiver Flow of projects names. */
+internal fun Flow<String>.mapFilterLocalKotlinProjectsPathS(
+    localSystem: FileSystem = SYSTEM,
+    alsoFilter: suspend FileSystem.(Path) -> Boolean = { true }
+) = map { PathToMyKotlinProjects / it }
+    .filter { localSystem.exists(it) }
+    .filter { localSystem.alsoFilter(it) }
 
 
 
@@ -123,10 +76,6 @@ internal suspend fun fetchMyProjectsNameS(onlyPublic: Boolean = true): Flow<Stri
 
 internal suspend fun fetchMyProjectsNames(onlyPublic: Boolean = true, sorted: Boolean = true): List<String> =
     fetchMyProjectsNameS(onlyPublic).toList().let { if (sorted) it.sorted() else it }
-
-internal fun Flow<String>.filterLocalKotlinProjectsNameS() = filter {
-    SYSTEM.exists(PathToMyKotlinProjects / it)
-}
 
 
 @Deprecated("Use KommandLine instead of hardcoding different lists or projects/repos")

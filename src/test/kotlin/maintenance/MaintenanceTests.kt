@@ -3,11 +3,9 @@
 package pl.mareklangiewicz.maintenance
 
 import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.*
 import okio.Path.Companion.toPath
 import org.junit.jupiter.api.*
 import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable
-import pl.mareklangiewicz.kommand.*
 import pl.mareklangiewicz.ure.downloadAndInjectFileToSpecialRegion
 import pl.mareklangiewicz.uspek.*
 
@@ -33,11 +31,11 @@ class MaintenanceTests {
     fun maintenanceTestFactory() = uspekTestFactory {
 //        "check all known regions synced" o { checkAllKnownRegionsSynced() }
 //        "check all known regions in all my kotlin projects" o { checkAllKnownRegionsInAllMyProjects() }
-//        "check all workflows in all my kotlin projects" o { checkAllWorkflowsInAllMyProjects() }
+//        "check my dworkflows in my projects" o { runBlocking { checkMyDWorkflowsInMyProjects(onlyPublic = true) } }
 //
 //        "DANGEROUS inject all known regions to sync" o { injectAllKnownRegionsToSync() }
 //        "DANGEROUS inject all known regions to all my projects" o { injectAllKnownRegionsToAllMyProjects() }
-//        "DANGEROUS inject default workflows to all my projects" o { injectDefaultWorkflowsToAllMyProjects() }
+//        "DANGEROUS inject default workflows to all my projects" o { runBlocking { injectMyDWorkflowsToMyProjects(onlyPublic = true) } }
 //        "DANGEROUS inject default workflows to Some Proj" o { injectDefaultWorkflowsToMyProjects("KommandLine") }
 //
 //        "DANGEROUS updateDepsKtResourcesSymLinks" o { updateDepsKtResourcesSymLinks() }
