@@ -134,8 +134,12 @@ fun FileSystem.checkMyDWorkflowsInProject(
     }
 }
 
+fun injectDWorkflowsToKotlinProject(
+    projectName: String,
+    log: (Any?) -> Unit = ::println,
+) = SYSTEM.injectDWorkflowsToProject(PathToMyKotlinProjects / projectName, log = log)
 
-fun FileSystem.injectDefaultWorkflowsToProject(
+fun FileSystem.injectDWorkflowsToProject(
     projectPath: Path,
     yamlFilesPath: Path = projectPath / ".github" / "workflows",
     yamlFilesExt: String = "yml",

@@ -18,7 +18,7 @@ suspend fun checkMyDWorkflowsInMyProjects(onlyPublic: Boolean, log: (Any?) -> Un
 suspend fun injectMyDWorkflowsToMyProjects(onlyPublic: Boolean, log: (Any?) -> Unit = ::println) =
     fetchMyProjectsNameS(onlyPublic)
         .mapFilterLocalDWorkflowsProjectsPathS(log = log)
-        .collect { SYSTEM.injectDefaultWorkflowsToProject(it, log = log) }
+        .collect { SYSTEM.injectDWorkflowsToProject(it, log = log) }
 
 private fun Flow<String>.mapFilterLocalDWorkflowsProjectsPathS(
     localSystem: FileSystem = SYSTEM,
