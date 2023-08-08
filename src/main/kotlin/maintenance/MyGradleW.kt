@@ -17,9 +17,9 @@ suspend fun updateGradlewFilesInMyProjects(onlyPublic: Boolean, log: (Any?) -> U
         updateGradlewFilesInProject(it, log)
     }
 
-fun updateGradlewFilesInProject(fullPath: Path, log: (Any?) -> Unit = ::println) =
+fun updateGradlewFilesInProject(path: Path, log: (Any?) -> Unit = ::println) =
     gradlewRelPaths.forEach { gradlewRelPath ->
-        val targetPath = fullPath / gradlewRelPath
+        val targetPath = path / gradlewRelPath
         val content = RESOURCES.readByteString(gradlewRelPath.withName { "$it.tmpl" })
         val action = if (SYSTEM.exists(targetPath)) "Updating" else "Creating new"
         log("$action gradlew file: $targetPath")
