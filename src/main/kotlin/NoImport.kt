@@ -5,17 +5,12 @@ import pl.mareklangiewicz.deps.Ver
 
 // package has to be default - to be available even in buildscript blocks, like: plugins {...}
 
-@Deprecated("Use DepsNew")
-val libsOld get() = pl.mareklangiewicz.deps.LibsDetails
-@Deprecated("Use DepsNew")
-val depsOld get() = pl.mareklangiewicz.deps.DepsOld
-
 val repos get() = pl.mareklangiewicz.deps.Repos
-@Deprecated("Use versNew")
-val versOld = pl.mareklangiewicz.deps.VersOld
 
 val plugs get() = pl.mareklangiewicz.deps.Plugs
 
+// TODO: remove all "New" suffixes from different names
+//  ("Old" versions already deleted)
 val versNew get() = pl.mareklangiewicz.deps.VersNew
 
 infix fun PluginDependencySpec.ver(v: Ver) = version(v.ver)
