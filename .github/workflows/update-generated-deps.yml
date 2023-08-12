@@ -2,41 +2,39 @@
 # If you want to modify the workflow, please change the Kotlin source and regenerate this YAML file.
 # Generated with https://github.com/typesafegithub/github-workflows-kt
 
-name: Update Generated Deps
+name: 'Update Generated Deps'
 on:
   schedule:
-  - cron: 0 8 * * 1
+  - cron: '0 8 * * 1'
   workflow_dispatch: {}
 env:
-  MYKOTLIBS_signing_keyId: ${{ secrets.MYKOTLIBS_signing_keyId }}
-  MYKOTLIBS_signing_password: ${{ secrets.MYKOTLIBS_signing_password }}
-  MYKOTLIBS_signing_key: ${{ secrets.MYKOTLIBS_signing_key }}
-  MYKOTLIBS_ossrhUsername: ${{ secrets.MYKOTLIBS_ossrhUsername }}
-  MYKOTLIBS_ossrhPassword: ${{ secrets.MYKOTLIBS_ossrhPassword }}
-  MYKOTLIBS_sonatypeStagingProfileId: ${{ secrets.MYKOTLIBS_sonatypeStagingProfileId }}
+  MYKOTLIBS_signing_keyId: '${{ secrets.MYKOTLIBS_signing_keyId }}'
+  MYKOTLIBS_signing_password: '${{ secrets.MYKOTLIBS_signing_password }}'
+  MYKOTLIBS_signing_key: '${{ secrets.MYKOTLIBS_signing_key }}'
+  MYKOTLIBS_ossrhUsername: '${{ secrets.MYKOTLIBS_ossrhUsername }}'
+  MYKOTLIBS_ossrhPassword: '${{ secrets.MYKOTLIBS_ossrhPassword }}'
+  MYKOTLIBS_sonatypeStagingProfileId: '${{ secrets.MYKOTLIBS_sonatypeStagingProfileId }}'
 jobs:
   update-generated-deps:
-    runs-on: ubuntu-latest
+    runs-on: 'ubuntu-latest'
     permissions:
-      contents: write
+      contents: 'write'
     steps:
-    - id: step-0
-      uses: actions/checkout@v3
-    - id: step-1
-      name: Set up JDK
-      uses: actions/setup-java@v3
+    - id: 'step-0'
+      uses: 'actions/checkout@v3'
+    - id: 'step-1'
+      name: 'Set up JDK'
+      uses: 'actions/setup-java@v3'
       with:
-        java-version: 17
-        distribution: zulu
-    - id: step-2
-      name: MaintenanceTests.updateGeneratedDeps
-      uses: gradle/gradle-build-action@v2
+        java-version: '17'
+        distribution: 'zulu'
+    - id: 'step-2'
+      name: 'updateGeneratedDeps'
+      uses: 'gradle/gradle-build-action@v2'
       with:
-        arguments: test --tests MaintenanceTests.updateGeneratedDeps
-      env:
-        UPDATE_GENERATED_DEPS: true
-    - id: step-3
-      name: Commit
-      uses: EndBug/add-and-commit@v9
+        arguments: 'updateGeneratedDeps'
+    - id: 'step-3'
+      name: 'Commit'
+      uses: 'EndBug/add-and-commit@v9'
       with:
-        add: src/main/kotlin/deps/DepsNew.kt
+        add: 'src/main/kotlin/deps/DepsNew.kt'

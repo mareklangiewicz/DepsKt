@@ -1,12 +1,25 @@
 @file:Suppress("UnstableApiUsage")
 
+import okio.Path.Companion.toPath
 import org.jetbrains.kotlin.gradle.plugin.KotlinDependencyHandler
 import pl.mareklangiewicz.defaults.defaultGroupAndVerAndDescription
 import pl.mareklangiewicz.deps.*
+import pl.mareklangiewicz.ure.*
 import pl.mareklangiewicz.utils.*
 
 plugins {
     plugAll(plugs.KotlinJvm, plugs.NexusPublish, plugs.GradlePublish, plugs.Signing)
+}
+
+tasks.register("updateGeneratedDeps") {
+    group = "maintenance"
+    doLast {
+        downloadAndInjectFileToSpecialRegion(
+            inFileUrl = "https://raw.githubusercontent.com/langara/refreshDeps/main/plugins/dependencies/src/test/resources/objects-for-deps.txt",
+            outFilePath = "src/main/kotlin/deps/DepsNew.kt".toPath(),
+            outFileRegionLabel = "Deps Generated"
+        )
+    }
 }
 
 repositories {
@@ -17,7 +30,7 @@ repositories {
 }
 
 dependencies {
-    api("pl.mareklangiewicz:kgroundx-maintenance:0.0.05") // FIXME
+    api("pl.mareklangiewicz:kgroundx-maintenance:0.0.06") // FIXME https://repo1.maven.org/maven2/pl/mareklangiewicz/kground/
     testImplementation(Langiewicz.uspekx_junit5)
     testImplementation(Org.JUnit.Jupiter.junit_jupiter)
     testImplementation(Org.JUnit.Jupiter.junit_jupiter_engine)
