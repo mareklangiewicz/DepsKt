@@ -14,9 +14,11 @@ plugins {
 tasks.register("updateGeneratedDeps") {
     group = "maintenance"
     doLast {
+        val pathToDepsNew = rootProjectPath / "src/main/kotlin/deps/DepsNew.kt"
+        val urlToObjs = "https://raw.githubusercontent.com/langara/refreshDeps/main/plugins/dependencies/src/test/resources/objects-for-deps.txt"
         downloadAndInjectFileToSpecialRegion(
-            inFileUrl = "https://raw.githubusercontent.com/langara/refreshDeps/main/plugins/dependencies/src/test/resources/objects-for-deps.txt",
-            outFilePath = "src/main/kotlin/deps/DepsNew.kt".toPath(),
+            inFileUrl = urlToObjs,
+            outFilePath = pathToDepsNew,
             outFileRegionLabel = "Deps Generated"
         )
     }
