@@ -1,11 +1,17 @@
 @file:Suppress("UnstableApiUsage")
 
+import okio.*
+import okio.Path
 import okio.Path.Companion.toPath
 import org.jetbrains.kotlin.gradle.plugin.KotlinDependencyHandler
 import pl.mareklangiewicz.defaults.defaultGroupAndVerAndDescription
 import pl.mareklangiewicz.deps.*
+import pl.mareklangiewicz.io.*
+import pl.mareklangiewicz.kommand.*
 import pl.mareklangiewicz.ure.*
 import pl.mareklangiewicz.utils.*
+import kotlin.math.*
+import kotlin.random.*
 
 plugins {
     plugAll(plugs.KotlinJvm, plugs.NexusPublish, plugs.GradlePublish, plugs.Signing)
@@ -21,6 +27,48 @@ tasks.register("updateGeneratedDeps") {
             outFilePath = pathToDepsNew,
             outFileRegionLabel = "Deps Generated"
         )
+    }
+}
+
+
+// FIXME NOW: remove experiment1
+
+tasks.register("experiment1") {
+    group = "maintenance"
+    doLast {
+        val pathToDepsNew = rootProjectPath / "src/main/kotlin/deps/DepsNew.kt"
+        val inFileUrl = "https://raw.githubusercontent.com/langara/refreshDeps/main/plugins/dependencies/src/test/resources/objects-for-deps.txt"
+        val inFilePath = downloadTmpFileVerbose(inFileUrl)
+        val regionContent = FileSystem.SYSTEM.readUtf8(inFilePath)
+        println(regionContent)
+    }
+}
+
+
+fun downloadTmpFileVerbose(
+    url: String,
+    name: String = "tmp${Random.nextLong().absoluteValue}.txt",
+    dir: Path = (CliPlatform.SYS.pathToUserTmp ?: CliPlatform.SYS.pathToSystemTmp ?: "/tmp").toPath()
+): Path {
+    val path = dir / name
+    CliPlatform.SYS.downloadVerbose(url, path)
+    return path
+}
+
+fun CliPlatform.downloadVerbose(url: String, to: Path) {
+    println("downloading $url -> $path")
+    // TODO: Add curl to KommandLine library, then use it here
+    // -s so no progress bars on error stream; -S to report actual errors on error stream
+//    val k = kommand("curl", "-s", "-S", "-o", to.toString(), url)
+    val k = kommand("curl", "-o", to.toString(), url)
+    val result = start(k).waitForResult()
+    result.unwrap { err ->
+        if (err.isNotEmpty()) {
+            println("FAIL: Error stream was not empty:")
+            err.logEach()
+            false
+        }
+        else true
     }
 }
 
