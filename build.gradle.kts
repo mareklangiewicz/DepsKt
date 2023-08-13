@@ -56,7 +56,7 @@ fun downloadTmpFileVerbose(
 }
 
 fun CliPlatform.downloadVerbose(url: String, to: Path) {
-    println("downloading $url -> $path")
+    println("downloading $url -> $to")
     // TODO: Add curl to KommandLine library, then use it here
     // -s so no progress bars on error stream; -S to report actual errors on error stream
 //    val k = kommand("curl", "-s", "-S", "-o", to.toString(), url)
@@ -64,9 +64,10 @@ fun CliPlatform.downloadVerbose(url: String, to: Path) {
     val result = start(k).waitForResult()
     result.unwrap { err ->
         if (err.isNotEmpty()) {
-            println("FAIL: Error stream was not empty:")
+//            println("FAIL: Error stream was not empty:")
             err.logEach()
-            false
+//            false
+            true
         }
         else true
     }

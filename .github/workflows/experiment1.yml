@@ -30,4 +30,4 @@ jobs:
       name: 'experiment1'
       uses: 'gradle/gradle-build-action@v2'
       with:
-        arguments: 'experiment1'
+        arguments: 'experiment1 --info'
