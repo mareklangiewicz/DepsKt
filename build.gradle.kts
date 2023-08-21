@@ -8,6 +8,7 @@ import pl.mareklangiewicz.defaults.defaultGroupAndVerAndDescription
 import pl.mareklangiewicz.deps.*
 import pl.mareklangiewicz.io.*
 import pl.mareklangiewicz.kommand.*
+import pl.mareklangiewicz.kommand.core.*
 import pl.mareklangiewicz.ure.*
 import pl.mareklangiewicz.utils.*
 import kotlin.math.*
@@ -43,6 +44,7 @@ tasks.register("experiment1") {
                 ?.let { it .toPath() / "build" }
                 ?: "build".toPath()
         println(workspaceBuildDir)
+        pl.mareklangiewicz.kommand.core.mkdir { -MkDir.Option.parents; +workspaceBuildDir.name }
         val inFilePath = downloadTmpFileVerbose(inFileUrl, dir = workspaceBuildDir)
         val regionContent = FileSystem.SYSTEM.readUtf8(inFilePath)
         println(regionContent)
