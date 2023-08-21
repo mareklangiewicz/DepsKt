@@ -44,7 +44,7 @@ tasks.register("experiment1") {
                 ?.let { it .toPath() / "build" }
                 ?: "build".toPath()
         println(workspaceBuildDir)
-        pl.mareklangiewicz.kommand.core.mkdir { -MkDir.Option.parents; +workspaceBuildDir.name }
+        pl.mareklangiewicz.kommand.core.mkdir { -MkDir.Option.parents; +workspaceBuildDir.name }.execb(CliPlatform.SYS)
         val inFilePath = downloadTmpFileVerbose(inFileUrl, dir = workspaceBuildDir)
         val regionContent = FileSystem.SYSTEM.readUtf8(inFilePath)
         println(regionContent)
