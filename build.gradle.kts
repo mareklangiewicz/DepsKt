@@ -38,7 +38,12 @@ tasks.register("experiment1") {
     doLast {
         val pathToDepsNew = rootProjectPath / "src/main/kotlin/deps/DepsNew.kt"
         val inFileUrl = "https://raw.githubusercontent.com/langara/refreshDeps/main/plugins/dependencies/src/test/resources/objects-for-deps.txt"
-        val inFilePath = downloadTmpFileVerbose(inFileUrl)
+        val workspaceBuildDir =
+            System.getenv("GITHUB_WORKSPACE")
+                ?.let { it .toPath() / "build" }
+                ?: "build".toPath()
+        println(workspaceBuildDir)
+        val inFilePath = downloadTmpFileVerbose(inFileUrl, dir = workspaceBuildDir)
         val regionContent = FileSystem.SYSTEM.readUtf8(inFilePath)
         println(regionContent)
     }
@@ -48,7 +53,7 @@ tasks.register("experiment1") {
 fun downloadTmpFileVerbose(
     url: String,
     name: String = "tmp${Random.nextLong().absoluteValue}.txt",
-    dir: Path = (CliPlatform.SYS.pathToUserTmp ?: CliPlatform.SYS.pathToSystemTmp ?: "/tmp").toPath()
+    dir: Path,
 ): Path {
     val path = dir / name
     CliPlatform.SYS.downloadVerbose(url, path)
