@@ -24,6 +24,7 @@ import java.util.*
 sealed class GradleEvt {
     sealed class BuildEvt : GradleEvt() {
         data class BeforeSettings(val settings: Settings) : BuildEvt()
+        @Deprecated("This method is not supported when configuration caching is enabled.")
         data class BuildFinished(val result: BuildResult) : BuildEvt()
         data class ProjectsEvaluated(val gradle: Gradle) : BuildEvt()
         data class ProjectsLoaded(val gradle: Gradle) : BuildEvt()
@@ -75,6 +76,7 @@ class GradleListener(val pushee: (GradleEvt) -> Unit) : BuildListener, ProjectEv
     TestOutputListener, DependencyResolutionListener {
 
     override fun beforeSettings(settings: Settings) = pushee(BeforeSettings(settings))
+    @Deprecated("This method is not supported when configuration caching is enabled.")
     override fun buildFinished(result: BuildResult) = pushee(BuildFinished(result))
     override fun projectsEvaluated(gradle: Gradle) = pushee(ProjectsEvaluated(gradle))
     override fun projectsLoaded(gradle: Gradle) = pushee(ProjectsLoaded(gradle))
