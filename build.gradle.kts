@@ -31,55 +31,6 @@ tasks.register("updateGeneratedDeps") {
     }
 }
 
-
-// FIXME NOW: remove experiment1
-
-tasks.register("experiment1") {
-    group = "maintenance"
-    doLast {
-        val pathToDepsNew = rootProjectPath / "src/main/kotlin/deps/DepsNew.kt"
-        val inFileUrl = "https://raw.githubusercontent.com/langara/refreshDeps/main/plugins/dependencies/src/test/resources/objects-for-deps.txt"
-        val workspaceBuildDir =
-            System.getenv("GITHUB_WORKSPACE")
-                ?.let { it .toPath() / "build" }
-                ?: "build".toPath()
-        println(workspaceBuildDir)
-        pl.mareklangiewicz.kommand.core.mkdir { -MkDir.Option.parents; +workspaceBuildDir.name }.execb(CliPlatform.SYS)
-        val inFilePath = downloadTmpFileVerbose(inFileUrl, dir = workspaceBuildDir)
-        val regionContent = FileSystem.SYSTEM.readUtf8(inFilePath)
-        println(regionContent)
-    }
-}
-
-
-fun downloadTmpFileVerbose(
-    url: String,
-    name: String = "tmp${Random.nextLong().absoluteValue}.txt",
-    dir: Path,
-): Path {
-    val path = dir / name
-    CliPlatform.SYS.downloadVerbose(url, path)
-    return path
-}
-
-fun CliPlatform.downloadVerbose(url: String, to: Path) {
-    println("downloading $url -> $to")
-    // TODO: Add curl to KommandLine library, then use it here
-    // -s so no progress bars on error stream; -S to report actual errors on error stream
-//    val k = kommand("curl", "-s", "-S", "-o", to.toString(), url)
-    val k = kommand("curl", "-o", to.toString(), url)
-    val result = start(k).waitForResult()
-    result.unwrap { err ->
-        if (err.isNotEmpty()) {
-//            println("FAIL: Error stream was not empty:")
-            err.logEach()
-//            false
-            true
-        }
-        else true
-    }
-}
-
 repositories {
     mavenLocal()
     google()
@@ -88,7 +39,7 @@ repositories {
 }
 
 dependencies {
-    api("pl.mareklangiewicz:kgroundx-maintenance:0.0.07") // FIXME https://repo1.maven.org/maven2/pl/mareklangiewicz/kground/
+    api("pl.mareklangiewicz:kgroundx-maintenance:0.0.08") // FIXME https://repo1.maven.org/maven2/pl/mareklangiewicz/kground/
     testImplementation(Langiewicz.uspekx_junit5)
     testImplementation(Org.JUnit.Jupiter.junit_jupiter)
     testImplementation(Org.JUnit.Jupiter.junit_jupiter_engine)
@@ -107,7 +58,7 @@ defaultGroupAndVerAndDescription(
         group = "pl.mareklangiewicz.deps", // important non default ...deps group (as accepted on gradle portal)
         description = "Updated dependencies for typical java/kotlin/android projects (with IDE support).",
         githubUrl = "https://github.com/langara/DepsKt",
-        version = Ver(0, 2, 51),
+        version = Ver(0, 2, 52),
         // https://plugins.gradle.org/search?term=pl.mareklangiewicz
     )
 )
