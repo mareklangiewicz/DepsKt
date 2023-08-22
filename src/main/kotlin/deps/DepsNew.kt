@@ -776,7 +776,7 @@ object Com {
             val desugar_jdk_libs = Dep("com.android.tools", "desugar_jdk_libs", Ver("2.0.3", 0))
             val r8 = Dep("com.android.tools", "r8", Ver("8.1.56", 0))
             object Build {
-                val gradle = Dep("com.android.tools.build", "gradle", Ver("2.3.0", 0), Ver("2.3.3", 0), Ver("2.4.0-alpha7", 300), Ver("2.5.0-alpha-preview-02", 400), Ver("8.1.0", 0), Ver("8.2.0-alpha16", 300))
+                val gradle = Dep("com.android.tools.build", "gradle", Ver("2.3.0", 0), Ver("2.3.3", 0), Ver("2.4.0-alpha7", 300), Ver("2.5.0-alpha-preview-02", 400), Ver("8.1.1", 0), Ver("8.2.0-alpha16", 300))
             }
         }
     }
@@ -804,25 +804,25 @@ object Com {
     }
     object Google {
         object Accompanist {
-            val appcompat_theme = Dep("com.google.accompanist", "accompanist-appcompat-theme", Ver("0.30.1", 0), Ver("0.31.6-rc", 100), Ver("0.33.0-alpha", 300))
+            val appcompat_theme = Dep("com.google.accompanist", "accompanist-appcompat-theme", Ver("0.32.0", 0), Ver("0.33.0-alpha", 300))
             val coil = Dep("com.google.accompanist", "accompanist-coil", Ver("0.15.0", 0))
-            val drawablepainter = Dep("com.google.accompanist", "accompanist-drawablepainter", Ver("0.30.1", 0), Ver("0.31.6-rc", 100), Ver("0.33.0-alpha", 300))
-            val flowlayout = Dep("com.google.accompanist", "accompanist-flowlayout", Ver("0.30.1", 0), Ver("0.31.6-rc", 100), Ver("0.33.0-alpha", 300))
+            val drawablepainter = Dep("com.google.accompanist", "accompanist-drawablepainter", Ver("0.32.0", 0), Ver("0.33.0-alpha", 300))
+            val flowlayout = Dep("com.google.accompanist", "accompanist-flowlayout", Ver("0.32.0", 0), Ver("0.33.0-alpha", 300))
             val glide = Dep("com.google.accompanist", "accompanist-glide", Ver("0.15.0", 0))
             val imageloading_core = Dep("com.google.accompanist", "accompanist-imageloading-core", Ver("0.15.0", 0))
             val insets = Dep("com.google.accompanist", "accompanist-insets", Ver("0.30.1", 0), Ver("0.31.5-beta", 200))
-            val insets_ui = Dep("com.google.accompanist", "accompanist-insets-ui", Ver("0.30.1", 0), Ver("0.31.6-rc", 100), Ver("0.33.0-alpha", 300))
-            val navigation_animation = Dep("com.google.accompanist", "accompanist-navigation-animation", Ver("0.30.1", 0), Ver("0.31.6-rc", 100), Ver("0.33.0-alpha", 300))
-            val navigation_material = Dep("com.google.accompanist", "accompanist-navigation-material", Ver("0.30.1", 0), Ver("0.31.6-rc", 100), Ver("0.33.0-alpha", 300))
-            val pager = Dep("com.google.accompanist", "accompanist-pager", Ver("0.30.1", 0), Ver("0.31.6-rc", 100), Ver("0.33.0-alpha", 300))
-            val pager_indicators = Dep("com.google.accompanist", "accompanist-pager-indicators", Ver("0.30.1", 0), Ver("0.31.6-rc", 100), Ver("0.33.0-alpha", 300))
-            val permissions = Dep("com.google.accompanist", "accompanist-permissions", Ver("0.30.1", 0), Ver("0.31.6-rc", 100), Ver("0.33.0-alpha", 300))
+            val insets_ui = Dep("com.google.accompanist", "accompanist-insets-ui", Ver("0.32.0", 0), Ver("0.33.0-alpha", 300))
+            val navigation_animation = Dep("com.google.accompanist", "accompanist-navigation-animation", Ver("0.32.0", 0), Ver("0.33.0-alpha", 300))
+            val navigation_material = Dep("com.google.accompanist", "accompanist-navigation-material", Ver("0.32.0", 0), Ver("0.33.0-alpha", 300))
+            val pager = Dep("com.google.accompanist", "accompanist-pager", Ver("0.32.0", 0), Ver("0.33.0-alpha", 300))
+            val pager_indicators = Dep("com.google.accompanist", "accompanist-pager-indicators", Ver("0.32.0", 0), Ver("0.33.0-alpha", 300))
+            val permissions = Dep("com.google.accompanist", "accompanist-permissions", Ver("0.32.0", 0), Ver("0.33.0-alpha", 300))
             val picasso = Dep("com.google.accompanist", "accompanist-picasso", Ver("0.6.2", 0))
-            val placeholder = Dep("com.google.accompanist", "accompanist-placeholder", Ver("0.30.1", 0), Ver("0.31.6-rc", 100), Ver("0.33.0-alpha", 300))
-            val placeholder_material = Dep("com.google.accompanist", "accompanist-placeholder-material", Ver("0.30.1", 0), Ver("0.31.6-rc", 100), Ver("0.33.0-alpha", 300))
-            val swiperefresh = Dep("com.google.accompanist", "accompanist-swiperefresh", Ver("0.30.1", 0), Ver("0.31.6-rc", 100), Ver("0.33.0-alpha", 300))
-            val systemuicontroller = Dep("com.google.accompanist", "accompanist-systemuicontroller", Ver("0.30.1", 0), Ver("0.31.6-rc", 100), Ver("0.33.0-alpha", 300))
-            val webview = Dep("com.google.accompanist", "accompanist-webview", Ver("0.30.1", 0), Ver("0.31.6-rc", 100), Ver("0.33.0-alpha", 300))
+            val placeholder = Dep("com.google.accompanist", "accompanist-placeholder", Ver("0.32.0", 0), Ver("0.33.0-alpha", 300))
+            val placeholder_material = Dep("com.google.accompanist", "accompanist-placeholder-material", Ver("0.32.0", 0), Ver("0.33.0-alpha", 300))
+            val swiperefresh = Dep("com.google.accompanist", "accompanist-swiperefresh", Ver("0.32.0", 0), Ver("0.33.0-alpha", 300))
+            val systemuicontroller = Dep("com.google.accompanist", "accompanist-systemuicontroller", Ver("0.32.0", 0), Ver("0.33.0-alpha", 300))
+            val webview = Dep("com.google.accompanist", "accompanist-webview", Ver("0.32.0", 0), Ver("0.33.0-alpha", 300))
         }
         object Ambient {
             object Crossdevice {
@@ -1611,12 +1611,12 @@ object Org {
     }
     object JetBrains {
         object Compose {
-            val gradle_plugin = Dep("org.jetbrains.compose", "compose-gradle-plugin", Ver("1.4.3", 0), Ver("1.5.0-beta02", 200), Ver("1.5.0-rc01", 100))
+            val gradle_plugin = Dep("org.jetbrains.compose", "compose-gradle-plugin", Ver("1.4.3", 0), Ver("1.5.0-beta02", 200), Ver("1.5.0-rc02", 100))
         }
         object Exposed {
-            val core = Dep("org.jetbrains.exposed", "exposed-core", Ver("0.42.0", 0))
-            val dao = Dep("org.jetbrains.exposed", "exposed-dao", Ver("0.42.0", 0))
-            val jdbc = Dep("org.jetbrains.exposed", "exposed-jdbc", Ver("0.42.0", 0))
+            val core = Dep("org.jetbrains.exposed", "exposed-core", Ver("0.42.1", 0))
+            val dao = Dep("org.jetbrains.exposed", "exposed-dao", Ver("0.42.1", 0))
+            val jdbc = Dep("org.jetbrains.exposed", "exposed-jdbc", Ver("0.42.1", 0))
         }
         object Kotlin {
             val script_runtime = Dep("org.jetbrains.kotlin", "kotlin-script-runtime", Ver("1.9.0", 0))
@@ -1766,7 +1766,7 @@ object Org {
     }
     object SpringFramework {
         object Amqp {
-            val spring_rabbit_test = Dep("org.springframework.amqp", "spring-rabbit-test", Ver("3.0.7", 0))
+            val spring_rabbit_test = Dep("org.springframework.amqp", "spring-rabbit-test", Ver("3.0.7", 0), Ver("3.0.8", 0))
         }
         object Batch {
             val spring_batch_test = Dep("org.springframework.batch", "spring-batch-test", Ver("5.0.2", 0))
@@ -1890,16 +1890,16 @@ object Org {
             val spring_integration_ws = Dep("org.springframework.integration", "spring-integration-ws", Ver("6.1.2", 0))
         }
         object Kafka {
-            val spring_kafka = Dep("org.springframework.kafka", "spring-kafka", Ver("3.0.9", 0))
-            val spring_kafka_test = Dep("org.springframework.kafka", "spring-kafka-test", Ver("3.0.9", 0))
+            val spring_kafka = Dep("org.springframework.kafka", "spring-kafka", Ver("3.0.10", 0))
+            val spring_kafka_test = Dep("org.springframework.kafka", "spring-kafka-test", Ver("3.0.10", 0))
         }
         object Restdocs {
             val spring_restdocs_webtestclient = Dep("org.springframework.restdocs", "spring-restdocs-webtestclient", Ver("3.0.0", 0))
         }
         object Security {
-            val spring_security_messaging = Dep("org.springframework.security", "spring-security-messaging", Ver("6.1.2", 0))
-            val spring_security_rsocket = Dep("org.springframework.security", "spring-security-rsocket", Ver("6.1.2", 0))
-            val spring_security_test = Dep("org.springframework.security", "spring-security-test", Ver("6.1.2", 0))
+            val spring_security_messaging = Dep("org.springframework.security", "spring-security-messaging", Ver("6.1.3", 0))
+            val spring_security_rsocket = Dep("org.springframework.security", "spring-security-rsocket", Ver("6.1.3", 0))
+            val spring_security_test = Dep("org.springframework.security", "spring-security-test", Ver("6.1.3", 0))
         }
         object Session {
             val spring_session_data_redis = Dep("org.springframework.session", "spring-session-data-redis", Ver("3.1.2", 0))
