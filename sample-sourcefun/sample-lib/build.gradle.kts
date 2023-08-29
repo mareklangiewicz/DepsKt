@@ -91,7 +91,12 @@ fun Project.defaultSigning(
     sign(extensions.getByType<PublishingExtension>().publications)
 }
 
-fun Project.defaultPublishing(lib: LibDetails, readmeFile: File = File(rootDir, "README.md"), withSignErrorWorkaround: Boolean = true) {
+fun Project.defaultPublishing(
+    lib: LibDetails,
+    readmeFile: File = File(rootDir, "README.md"),
+    withSignErrorWorkaround: Boolean = true,
+    withPublishingPrintln: Boolean = true,
+) {
 
     val readmeJavadocJar by tasks.registering(Jar::class) {
         from(readmeFile) // TODO_maybe: use dokka to create real docs? (but it's not even java..)
@@ -126,6 +131,7 @@ fun Project.defaultPublishing(lib: LibDetails, readmeFile: File = File(rootDir, 
         }
     }
     if (withSignErrorWorkaround) tasks.withSignErrorWorkaround() //very much related to comments above too
+    if (withPublishingPrintln) tasks.withPublishingPrintln()
 }
 
 /*
@@ -150,6 +156,19 @@ A problem was found with the configuration of task ':template-mpp-lib:signJvmPub
 fun TaskContainer.withSignErrorWorkaround() =
     withType<AbstractPublishToMaven>().configureEach { dependsOn(withType<Sign>()) }
 
+fun TaskContainer.withPublishingPrintln() = withType<AbstractPublishToMaven>().configureEach {
+    val coordinates = publication.run { "$groupId:$artifactId:$version" }
+    when (this) {
+        is PublishToMavenRepository -> doFirst {
+            println("Publishing $coordinates to ${repository.url}")
+        }
+        is PublishToMavenLocal -> doFirst {
+            val localRepo = System.getenv("HOME")!! + "/.m2/repository"
+            val localPath = localRepo + publication.run { "/$groupId/$artifactId".replace('.', '/') }
+            println("Publishing $coordinates to $localPath")
+        }
+    }
+}
 
 @Suppress("UNUSED_VARIABLE")
 fun Project.defaultBuildTemplateForJvmLib(
