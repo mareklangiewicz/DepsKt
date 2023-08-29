@@ -60,8 +60,8 @@ object Plugs {
      */
     val AndroApp = DepP("com.android.application", versNew.AndroPlug)
 
-//    val Compose = Org.JetBrains.Compose.gradle_plugin.withVer(versNew.Compose)
-    val Compose = ComposeEdgeGradlePlugin
+    val Compose = Org.JetBrains.Compose.gradle_plugin.withVer(versNew.Compose)
+//    val Compose = ComposeEdgeGradlePlugin
 
     /**
      * Dokka Gradle Plugin
