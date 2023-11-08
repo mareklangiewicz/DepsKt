@@ -39,11 +39,11 @@ object VersNew {
      * - [releases github](https://github.com/JetBrains/kotlin/releases)
      * - [compiler dev repo table](https://androidx.dev/storage/compose-compiler/repository)
      */
-    val Kotlin = Ver("1.9.0")
+    val Kotlin = Ver("1.9.20")
 
     /** Selected Compose Compiler version. Should always be kept compatible with the selected Kotlin version. */
-    val ComposeCompiler = Ver("1.5.0-dev-k1.9.0-6a60475e07f")
-    // val ComposeCompiler = AndroidX.Compose.Compiler.compiler.verStable!!
+    val ComposeCompiler = Ver("1.5.4-dev-k1.9.20-50f08dfa4b4") // this ver is prepared for 1.9.20
+//     val ComposeCompiler = AndroidX.Compose.Compiler.compiler.verStable!!
 
     /** Selected ComposeMultiplatform version. Should always be kept compatible with the selected Kotlin version. */
     val Compose = Org.JetBrains.Compose.gradle_plugin.ver!!
@@ -63,14 +63,14 @@ object VersNew {
      * - [plugins gradle org](https://plugins.gradle.org/plugin/com.gradle.plugin-publish)
      * - [plugins gradle org docs](https://plugins.gradle.org/docs/publish-plugin)
      */
-    val GradlePublishPlug = Ver("1.2.0", 0)
+    val GradlePublishPlug = Ver("1.2.1", 0)
 
     /**
      * Gradle Enterprise Plugin (enables integration with Gradle Enterprise and scans.gradle.com)
      * - [gradle org docs](https://docs.gradle.com/enterprise/gradle-plugin/)
      * - [gradle portal](https://plugins.gradle.org/plugin/com.gradle.enterprise)
      */
-    val GradleEnterprisePlug = Ver("3.13.4", 0)
+    val GradleEnterprisePlug = Ver("3.15.1", 0)
 
     /**
      * Android Gradle Plugin
@@ -78,7 +78,7 @@ object VersNew {
      * - [maven](https://maven.google.com/web/index.html#com.android.tools.build:gradle)
      * - [releases](https://developer.android.com/studio/releases/gradle-plugin)
      */
-    val AndroPlug = Ver("8.2.0-alpha14")
+    val AndroPlug = Ver("8.3.0-alpha12")
 
     /**
      * Dokka Gradle Plugin
@@ -86,7 +86,7 @@ object VersNew {
      * - [github](https://github.com/Kotlin/dokka)
      * - [github releases](https://github.com/Kotlin/dokka/releases)
      */
-    val DokkaPlug = Ver("1.8.20", 0)
+    val DokkaPlug = Ver("1.9.10", 0)
 
 
     /**
@@ -100,7 +100,7 @@ object VersNew {
      * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
      * [github](https://github.com/Kotlin/kotlin-jupyter)
      */
-    val KotlinJupyterPlug = Ver("0.12.0-33")
+    val KotlinJupyterPlug = Ver("0.12.0-84")
 
     /**
      * Osacky Doctor Gradle Plugin
@@ -108,14 +108,14 @@ object VersNew {
      * - [github](https://github.com/runningcode/gradle-doctor)
      * - [docs](https://runningcode.github.io/gradle-doctor/)
      */
-    val OsackyDoctorPlug = Ver("0.8.1", 0)
+    val OsackyDoctorPlug = Ver("0.9.0", 0)
 
     /**
      * DepsKt Gradle Plugin
      * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
      * - [github](https://github.com/langara/DepsKt)
      */
-    val DepsPlug = Ver("0.2.45")
+    val DepsPlug = Ver("0.2.57")
 
     val JvmDefaultVer = "17" // I had terrible issues with "16" (andro compose project)
 
@@ -123,7 +123,7 @@ object VersNew {
     val Gradle5 = Ver("5.6.4", 0)
     val Gradle6 = Ver("6.8.3", 0)
     val Gradle7 = Ver("7.6.1", 0)
-    val Gradle8 = Ver("8.2.1", 0)
+    val Gradle8 = Ver("8.4", 0)
 
     /**
      * Gradle - just a reference - not so useful in typical usecases
