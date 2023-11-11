@@ -78,7 +78,7 @@ object VersNew {
      * - [maven](https://maven.google.com/web/index.html#com.android.tools.build:gradle)
      * - [releases](https://developer.android.com/studio/releases/gradle-plugin)
      */
-    val AndroPlug = Ver("8.3.0-alpha12")
+    val AndroPlug = Ver("8.3.0-alpha13")
 
     /**
      * Dokka Gradle Plugin
@@ -115,7 +115,7 @@ object VersNew {
      * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
      * - [github](https://github.com/langara/DepsKt)
      */
-    val DepsPlug = Ver("0.2.57")
+    val DepsPlug = Ver("0.2.58")
 
     val JvmDefaultVer = "17" // I had terrible issues with "16" (andro compose project)
 
