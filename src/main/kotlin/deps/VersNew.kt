@@ -35,21 +35,21 @@ object VersNew {
 
     /**
      * Manually selected kotlin version. Have to be working with current compose multiplatform and compose andro.
-     * - [compose kotlin compatibility](https://github.com/JetBrains/compose-multiplatform/blob/master/VERSIONING.md#kotlin-compatibility)
+     * - [compose kotlin compatibility](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-compatibility-and-versioning.html#kotlin-compatibility)
      * - [releases github](https://github.com/JetBrains/kotlin/releases)
      * - [compiler dev repo table](https://androidx.dev/storage/compose-compiler/repository)
      */
-    val Kotlin = Ver("1.9.20")
+    val Kotlin = Ver("2.0.0-Beta1")
 
     /** Selected Compose Compiler version. Should always be kept compatible with the selected Kotlin version. */
-    val ComposeCompiler = Ver("1.5.4-dev-k1.9.20-50f08dfa4b4") // this ver is prepared for 1.9.20
+    val ComposeCompiler = Ver("1.5.5-dev-k2.0.0-Beta1-06b8ae672a4") // this ver is prepared for 2.0.0-Beta1
 //     val ComposeCompiler = AndroidX.Compose.Compiler.compiler.verStable!!
 
     /** Selected ComposeMultiplatform version. Should always be kept compatible with the selected Kotlin version. */
     val Compose = Org.JetBrains.Compose.gradle_plugin.ver!!
 
     /** Selected ComposeAndroid version. Should always be kept compatible with the selected Kotlin version. */
-    val ComposeAndro = AndroidX.Compose.Runtime.runtime.verStable!!
+    val ComposeAndro = AndroidX.Compose.Runtime.runtime.ver!!
 
     /**
      * Gradle-Nexus Publish Plugin (turnkey plugin for publishing libs to maven central / sonatype)
@@ -78,7 +78,7 @@ object VersNew {
      * - [maven](https://maven.google.com/web/index.html#com.android.tools.build:gradle)
      * - [releases](https://developer.android.com/studio/releases/gradle-plugin)
      */
-    val AndroPlug = Ver("8.3.0-alpha13")
+    val AndroPlug = Ver("8.3.0-alpha14")
 
     /**
      * Dokka Gradle Plugin
@@ -108,14 +108,14 @@ object VersNew {
      * - [github](https://github.com/runningcode/gradle-doctor)
      * - [docs](https://runningcode.github.io/gradle-doctor/)
      */
-    val OsackyDoctorPlug = Ver("0.9.0", 0)
+    val OsackyDoctorPlug = Ver("0.9.1", 0)
 
     /**
      * DepsKt Gradle Plugin
      * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
      * - [github](https://github.com/langara/DepsKt)
      */
-    val DepsPlug = Ver("0.2.58")
+    val DepsPlug = Ver("0.2.61")
 
     val JvmDefaultVer = "17" // I had terrible issues with "16" (andro compose project)
 
