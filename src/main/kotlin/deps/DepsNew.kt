@@ -617,34 +617,34 @@ object AndroidX {
         val swiperefreshlayout = Dep("androidx.swiperefreshlayout", "swiperefreshlayout", Ver("1.1.0", 0), Ver("1.2.0-alpha01", 300))
     }
     object Test {
-        val core = Dep("androidx.test", "core", Ver("1.5.0", 0), Ver("1.6.0-alpha02", 300))
-        val core_ktx = Dep("androidx.test", "core-ktx", Ver("1.5.0", 0), Ver("1.6.0-alpha02", 300))
-        val monitor = Dep("androidx.test", "monitor", Ver("1.6.1", 0), Ver("1.7.0-alpha02", 300))
-        val orchestrator = Dep("androidx.test", "orchestrator", Ver("1.4.2", 0), Ver("1.5.0-alpha01", 300))
-        val rules = Dep("androidx.test", "rules", Ver("1.5.0", 0), Ver("1.6.0-alpha01", 300))
-        val runner = Dep("androidx.test", "runner", Ver("1.5.2", 0), Ver("1.6.0-alpha04", 300))
+        val core = Dep("androidx.test", "core", Ver("1.5.0", 0), Ver("1.6.0-alpha03", 300))
+        val core_ktx = Dep("androidx.test", "core-ktx", Ver("1.5.0", 0), Ver("1.6.0-alpha03", 300))
+        val monitor = Dep("androidx.test", "monitor", Ver("1.6.1", 0), Ver("1.7.0-alpha03", 300))
+        val orchestrator = Dep("androidx.test", "orchestrator", Ver("1.4.2", 0), Ver("1.5.0-alpha02", 300))
+        val rules = Dep("androidx.test", "rules", Ver("1.5.0", 0), Ver("1.6.0-alpha02", 300))
+        val runner = Dep("androidx.test", "runner", Ver("1.5.2", 0), Ver("1.6.0-alpha05", 300))
         object Espresso {
-            val accessibility = Dep("androidx.test.espresso", "espresso-accessibility", Ver("3.5.1", 0), Ver("3.6.0-alpha01", 300))
-            val contrib = Dep("androidx.test.espresso", "espresso-contrib", Ver("3.5.1", 0), Ver("3.6.0-alpha01", 300))
-            val core = Dep("androidx.test.espresso", "espresso-core", Ver("3.5.1", 0), Ver("3.6.0-alpha01", 300))
-            val device = Dep("androidx.test.espresso", "espresso-device", Ver("1.0.0-alpha06", 300))
-            val idling_resource = Dep("androidx.test.espresso", "espresso-idling-resource", Ver("3.5.1", 0), Ver("3.6.0-alpha01", 300))
-            val intents = Dep("androidx.test.espresso", "espresso-intents", Ver("3.5.1", 0), Ver("3.6.0-alpha01", 300))
-            val remote = Dep("androidx.test.espresso", "espresso-remote", Ver("3.5.1", 0), Ver("3.6.0-alpha01", 300))
-            val web = Dep("androidx.test.espresso", "espresso-web", Ver("3.5.1", 0), Ver("3.6.0-alpha01", 300))
+            val accessibility = Dep("androidx.test.espresso", "espresso-accessibility", Ver("3.5.1", 0), Ver("3.6.0-alpha02", 300))
+            val contrib = Dep("androidx.test.espresso", "espresso-contrib", Ver("3.5.1", 0), Ver("3.6.0-alpha02", 300))
+            val core = Dep("androidx.test.espresso", "espresso-core", Ver("3.5.1", 0), Ver("3.6.0-alpha02", 300))
+            val device = Dep("androidx.test.espresso", "espresso-device", Ver("1.0.0-alpha07", 300))
+            val idling_resource = Dep("androidx.test.espresso", "espresso-idling-resource", Ver("3.5.1", 0), Ver("3.6.0-alpha02", 300))
+            val intents = Dep("androidx.test.espresso", "espresso-intents", Ver("3.5.1", 0), Ver("3.6.0-alpha02", 300))
+            val remote = Dep("androidx.test.espresso", "espresso-remote", Ver("3.5.1", 0), Ver("3.6.0-alpha02", 300))
+            val web = Dep("androidx.test.espresso", "espresso-web", Ver("3.5.1", 0), Ver("3.6.0-alpha02", 300))
             object Idling {
-                val concurrent = Dep("androidx.test.espresso.idling", "idling-concurrent", Ver("3.5.1", 0), Ver("3.6.0-alpha01", 300))
-                val net = Dep("androidx.test.espresso.idling", "idling-net", Ver("3.5.1", 0), Ver("3.6.0-alpha01", 300))
+                val concurrent = Dep("androidx.test.espresso.idling", "idling-concurrent", Ver("3.5.1", 0), Ver("3.6.0-alpha02", 300))
+                val net = Dep("androidx.test.espresso.idling", "idling-net", Ver("3.5.1", 0), Ver("3.6.0-alpha02", 300))
             }
         }
         object Ext {
-            val junit = Dep("androidx.test.ext", "junit", Ver("1.1.5", 0), Ver("1.2.0-alpha01", 300))
+            val junit = Dep("androidx.test.ext", "junit", Ver("1.1.5", 0), Ver("1.2.0-alpha02", 300))
             val junit_gtest = Dep("androidx.test.ext", "junit-gtest", Ver("1.0.0-alpha02", 300))
-            val junit_ktx = Dep("androidx.test.ext", "junit-ktx", Ver("1.1.5", 0), Ver("1.2.0-alpha01", 300))
-            val truth = Dep("androidx.test.ext", "truth", Ver("1.5.0", 0), Ver("1.6.0-alpha01", 300))
+            val junit_ktx = Dep("androidx.test.ext", "junit-ktx", Ver("1.1.5", 0), Ver("1.2.0-alpha02", 300))
+            val truth = Dep("androidx.test.ext", "truth", Ver("1.5.0", 0), Ver("1.6.0-alpha02", 300))
         }
         object Services {
-            val test_services = Dep("androidx.test.services", "test-services", Ver("1.4.2", 0), Ver("1.5.0-alpha01", 300))
+            val test_services = Dep("androidx.test.services", "test-services", Ver("1.4.2", 0), Ver("1.5.0-alpha02", 300))
         }
         object UiAutoMator {
             val uiautomator = Dep("androidx.test.uiautomator", "uiautomator", Ver("2.2.0", 0), Ver("2.3.0-alpha05", 300))
@@ -776,7 +776,7 @@ object Com {
             val desugar_jdk_libs = Dep("com.android.tools", "desugar_jdk_libs", Ver("2.0.4", 0))
             val r8 = Dep("com.android.tools", "r8", Ver("8.1.72", 0))
             object Build {
-                val gradle = Dep("com.android.tools.build", "gradle", Ver("2.3.0", 0), Ver("2.3.3", 0), Ver("2.4.0-alpha7", 300), Ver("2.5.0-alpha-preview-02", 400), Ver("8.1.4", 0), Ver("8.2.0-rc03", 100), Ver("8.3.0-alpha15", 300))
+                val gradle = Dep("com.android.tools.build", "gradle", Ver("2.3.0", 0), Ver("2.3.3", 0), Ver("2.4.0-alpha7", 300), Ver("2.5.0-alpha-preview-02", 400), Ver("8.2.0", 0), Ver("8.3.0-alpha15", 300))
             }
         }
     }
@@ -1156,11 +1156,11 @@ object Com {
     }
     object Rickclephas {
         object Kmp {
-            val nativecoroutines_annotations = Dep("com.rickclephas.kmp", "kmp-nativecoroutines-annotations", Ver("0.13.3", 0), Ver("1.0.0-ALPHA-22", 300))
-            val nativecoroutines_compiler = Dep("com.rickclephas.kmp", "kmp-nativecoroutines-compiler", Ver("0.13.3", 0), Ver("1.0.0-ALPHA-22", 300))
-            val nativecoroutines_compiler_embeddable = Dep("com.rickclephas.kmp", "kmp-nativecoroutines-compiler-embeddable", Ver("0.13.3", 0), Ver("1.0.0-ALPHA-22", 300))
-            val nativecoroutines_core = Dep("com.rickclephas.kmp", "kmp-nativecoroutines-core", Ver("0.13.3", 0), Ver("1.0.0-ALPHA-22", 300))
-            val nativecoroutines_gradle_plugin = Dep("com.rickclephas.kmp", "kmp-nativecoroutines-gradle-plugin", Ver("0.13.3", 0), Ver("1.0.0-ALPHA-22", 300))
+            val nativecoroutines_annotations = Dep("com.rickclephas.kmp", "kmp-nativecoroutines-annotations", Ver("0.13.3", 0), Ver("1.0.0-ALPHA-22-kotlin-2.0.0-Beta1", 300))
+            val nativecoroutines_compiler = Dep("com.rickclephas.kmp", "kmp-nativecoroutines-compiler", Ver("0.13.3", 0), Ver("1.0.0-ALPHA-22-kotlin-2.0.0-Beta1", 300))
+            val nativecoroutines_compiler_embeddable = Dep("com.rickclephas.kmp", "kmp-nativecoroutines-compiler-embeddable", Ver("0.13.3", 0), Ver("1.0.0-ALPHA-22-kotlin-2.0.0-Beta1", 300))
+            val nativecoroutines_core = Dep("com.rickclephas.kmp", "kmp-nativecoroutines-core", Ver("0.13.3", 0), Ver("1.0.0-ALPHA-22-kotlin-2.0.0-Beta1", 300))
+            val nativecoroutines_gradle_plugin = Dep("com.rickclephas.kmp", "kmp-nativecoroutines-gradle-plugin", Ver("0.13.3", 0), Ver("1.0.0-ALPHA-22-kotlin-2.0.0-Beta1", 300))
         }
     }
     object Russhwolf {
@@ -1173,8 +1173,8 @@ object Com {
         val multiplatform_settings_test = Dep("com.russhwolf", "multiplatform-settings-test", Ver("1.1.1", 0))
     }
     object SquareUp {
-        val kotlinpoet = Dep("com.squareup", "kotlinpoet", Ver("1.15.1", 0))
-        val kotlinpoet_metadata = Dep("com.squareup", "kotlinpoet-metadata", Ver("1.15.1", 0))
+        val kotlinpoet = Dep("com.squareup", "kotlinpoet", Ver("1.15.1", 0), Ver("1.15.2", 0))
+        val kotlinpoet_metadata = Dep("com.squareup", "kotlinpoet-metadata", Ver("1.15.1", 0), Ver("1.15.2", 0))
         val kotlinpoet_metadata_specs = Dep("com.squareup", "kotlinpoet-metadata-specs", Ver("1.9.0", 0))
         object LeakCanary {
             val android = Dep("com.squareup.leakcanary", "leakcanary-android", Ver("2.12", 0))
@@ -1611,7 +1611,7 @@ object Org {
     }
     object JetBrains {
         object Compose {
-            val gradle_plugin = Dep("org.jetbrains.compose", "compose-gradle-plugin", Ver("1.5.11", 0), Ver("1.6.0-dev1291", 320))
+            val gradle_plugin = Dep("org.jetbrains.compose", "compose-gradle-plugin", Ver("1.5.11", 0), Ver("1.6.0-dev1296", 320))
         }
         object Exposed {
             val core = Dep("org.jetbrains.exposed", "exposed-core", Ver("0.45.0", 0))
@@ -1660,7 +1660,7 @@ object Org {
             val dataframe_core = Dep("org.jetbrains.kotlinx", "dataframe-core", Ver("1727", 0))
             val dataframe_excel = Dep("org.jetbrains.kotlinx", "dataframe-excel", Ver("1727", 0))
             val datetime = Dep("org.jetbrains.kotlinx", "kotlinx-datetime", Ver("0.4.1", 0))
-            val html = Dep("org.jetbrains.kotlinx", "kotlinx-html", Ver("0.9.1", 0))
+            val html = Dep("org.jetbrains.kotlinx", "kotlinx-html", Ver("0.10.1", 0))
             val io_jvm = Dep("org.jetbrains.kotlinx", "kotlinx-io-jvm", Ver("0.1.16", 0))
             val kotlin_deeplearning_api = Dep("org.jetbrains.kotlinx", "kotlin-deeplearning-api", Ver("0.5.2", 0), Ver("0.6.0-alpha-1", 300))
             val kotlin_deeplearning_onnx = Dep("org.jetbrains.kotlinx", "kotlin-deeplearning-onnx", Ver("0.5.2", 0), Ver("0.6.0-alpha-1", 300))
@@ -1673,14 +1673,14 @@ object Org {
             val multik_native = Dep("org.jetbrains.kotlinx", "multik-native", Ver("0.1.1", 0))
             val nodejs = Dep("org.jetbrains.kotlinx", "kotlinx-nodejs", Ver("0.0.7", 0))
             val reflect_lite = Dep("org.jetbrains.kotlinx", "kotlinx.reflect.lite", Ver("1.1.0", 0))
-            val serialization_bom = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-bom", Ver("1.6.1", 0))
-            val serialization_cbor = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-cbor", Ver("1.6.1", 0))
-            val serialization_core = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-core", Ver("1.6.1", 0))
-            val serialization_hocon = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-hocon", Ver("1.6.1", 0))
-            val serialization_json = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-json", Ver("1.6.1", 0))
-            val serialization_json_okio = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-json-okio", Ver("1.6.1", 0))
-            val serialization_properties = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-properties", Ver("1.6.1", 0))
-            val serialization_protobuf = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-protobuf", Ver("1.6.1", 0))
+            val serialization_bom = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-bom", Ver("1.6.2", 0))
+            val serialization_cbor = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-cbor", Ver("1.6.2", 0))
+            val serialization_core = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-core", Ver("1.6.1", 0), Ver("1.6.2", 0))
+            val serialization_hocon = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-hocon", Ver("1.6.2", 0))
+            val serialization_json = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-json", Ver("1.6.1", 0), Ver("1.6.2", 0))
+            val serialization_json_okio = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-json-okio", Ver("1.6.2", 0))
+            val serialization_properties = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-properties", Ver("1.6.2", 0))
+            val serialization_protobuf = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-protobuf", Ver("1.6.1", 0), Ver("1.6.2", 0))
         }
         object Kotlin_Wrappers {
             val bom = Dep("org.jetbrains.kotlin-wrappers", "kotlin-wrappers-bom", Ver("1.0.0-pre.651", 0))
@@ -1913,30 +1913,30 @@ object Pl {
         val abcdk_js = Dep("pl.mareklangiewicz", "abcdk-js", Ver("0.0.17", 0))
         val abcdk_jvm = Dep("pl.mareklangiewicz", "abcdk-jvm", Ver("0.0.17", 0))
         val abcdk_linuxx64 = Dep("pl.mareklangiewicz", "abcdk-linuxx64", Ver("0.0.17", 0))
-        val kground = Dep("pl.mareklangiewicz", "kground", Ver("0.0.21", 0))
-        val kground_io = Dep("pl.mareklangiewicz", "kground-io", Ver("0.0.21", 0))
-        val kground_io_js = Dep("pl.mareklangiewicz", "kground-io-js", Ver("0.0.21", 0))
-        val kground_io_jvm = Dep("pl.mareklangiewicz", "kground-io-jvm", Ver("0.0.21", 0))
-        val kground_js = Dep("pl.mareklangiewicz", "kground-js", Ver("0.0.21", 0))
-        val kground_jvm = Dep("pl.mareklangiewicz", "kground-jvm", Ver("0.0.21", 0))
-        val kgroundx = Dep("pl.mareklangiewicz", "kgroundx", Ver("0.0.21", 0))
-        val kgroundx_io = Dep("pl.mareklangiewicz", "kgroundx-io", Ver("0.0.21", 0))
-        val kgroundx_io_js = Dep("pl.mareklangiewicz", "kgroundx-io-js", Ver("0.0.21", 0))
-        val kgroundx_io_jvm = Dep("pl.mareklangiewicz", "kgroundx-io-jvm", Ver("0.0.21", 0))
-        val kgroundx_js = Dep("pl.mareklangiewicz", "kgroundx-js", Ver("0.0.21", 0))
-        val kgroundx_jvm = Dep("pl.mareklangiewicz", "kgroundx-jvm", Ver("0.0.21", 0))
-        val kgroundx_maintenance = Dep("pl.mareklangiewicz", "kgroundx-maintenance", Ver("0.0.21", 0))
-        val kgroundx_maintenance_jvm = Dep("pl.mareklangiewicz", "kgroundx-maintenance-jvm", Ver("0.0.21", 0))
-        val kommandjupyter = Dep("pl.mareklangiewicz", "kommandjupyter", Ver("0.0.31", 0))
-        val kommandjupyter_jvm = Dep("pl.mareklangiewicz", "kommandjupyter-jvm", Ver("0.0.31", 0))
-        val kommandline = Dep("pl.mareklangiewicz", "kommandline", Ver("0.0.31", 0))
-        val kommandline_js = Dep("pl.mareklangiewicz", "kommandline-js", Ver("0.0.31", 0))
-        val kommandline_jvm = Dep("pl.mareklangiewicz", "kommandline-jvm", Ver("0.0.31", 0))
-        val kommandsamples = Dep("pl.mareklangiewicz", "kommandsamples", Ver("0.0.31", 0))
-        val kommandsamples_js = Dep("pl.mareklangiewicz", "kommandsamples-js", Ver("0.0.31", 0))
-        val kommandsamples_jvm = Dep("pl.mareklangiewicz", "kommandsamples-jvm", Ver("0.0.31", 0))
-        val rxmock = Dep("pl.mareklangiewicz", "rxmock", Ver("0.0.03", 0))
-        val rxmock_jvm = Dep("pl.mareklangiewicz", "rxmock-jvm", Ver("0.0.03", 0))
+        val kground = Dep("pl.mareklangiewicz", "kground", Ver("0.0.27", 0))
+        val kground_io = Dep("pl.mareklangiewicz", "kground-io", Ver("0.0.27", 0))
+        val kground_io_js = Dep("pl.mareklangiewicz", "kground-io-js", Ver("0.0.27", 0))
+        val kground_io_jvm = Dep("pl.mareklangiewicz", "kground-io-jvm", Ver("0.0.27", 0))
+        val kground_js = Dep("pl.mareklangiewicz", "kground-js", Ver("0.0.27", 0))
+        val kground_jvm = Dep("pl.mareklangiewicz", "kground-jvm", Ver("0.0.27", 0))
+        val kgroundx = Dep("pl.mareklangiewicz", "kgroundx", Ver("0.0.27", 0))
+        val kgroundx_io = Dep("pl.mareklangiewicz", "kgroundx-io", Ver("0.0.27", 0))
+        val kgroundx_io_js = Dep("pl.mareklangiewicz", "kgroundx-io-js", Ver("0.0.27", 0))
+        val kgroundx_io_jvm = Dep("pl.mareklangiewicz", "kgroundx-io-jvm", Ver("0.0.27", 0))
+        val kgroundx_js = Dep("pl.mareklangiewicz", "kgroundx-js", Ver("0.0.27", 0))
+        val kgroundx_jvm = Dep("pl.mareklangiewicz", "kgroundx-jvm", Ver("0.0.27", 0))
+        val kgroundx_maintenance = Dep("pl.mareklangiewicz", "kgroundx-maintenance", Ver("0.0.27", 0))
+        val kgroundx_maintenance_jvm = Dep("pl.mareklangiewicz", "kgroundx-maintenance-jvm", Ver("0.0.27", 0))
+        val kommandjupyter = Dep("pl.mareklangiewicz", "kommandjupyter", Ver("0.0.36", 0))
+        val kommandjupyter_jvm = Dep("pl.mareklangiewicz", "kommandjupyter-jvm", Ver("0.0.36", 0))
+        val kommandline = Dep("pl.mareklangiewicz", "kommandline", Ver("0.0.36", 0))
+        val kommandline_js = Dep("pl.mareklangiewicz", "kommandline-js", Ver("0.0.36", 0))
+        val kommandline_jvm = Dep("pl.mareklangiewicz", "kommandline-jvm", Ver("0.0.36", 0))
+        val kommandsamples = Dep("pl.mareklangiewicz", "kommandsamples", Ver("0.0.36", 0))
+        val kommandsamples_js = Dep("pl.mareklangiewicz", "kommandsamples-js", Ver("0.0.36", 0))
+        val kommandsamples_jvm = Dep("pl.mareklangiewicz", "kommandsamples-jvm", Ver("0.0.36", 0))
+        val rxmock = Dep("pl.mareklangiewicz", "rxmock", Ver("0.0.24", 0))
+        val rxmock_jvm = Dep("pl.mareklangiewicz", "rxmock-jvm", Ver("0.0.24", 0))
         val smokk = Dep("pl.mareklangiewicz", "smokk", Ver("0.0.08", 0))
         val smokk_jvm = Dep("pl.mareklangiewicz", "smokk-jvm", Ver("0.0.08", 0))
         val smokkx = Dep("pl.mareklangiewicz", "smokkx", Ver("0.0.08", 0))
