@@ -10,6 +10,13 @@ on:
 jobs:
   update-generated-deps:
     runs-on: 'ubuntu-latest'
+    env:
+      MYKOTLIBS_signing_keyId: '${{ secrets.MYKOTLIBS_signing_keyId }}'
+      MYKOTLIBS_signing_password: '${{ secrets.MYKOTLIBS_signing_password }}'
+      MYKOTLIBS_signing_key: '${{ secrets.MYKOTLIBS_signing_key }}'
+      MYKOTLIBS_ossrhUsername: '${{ secrets.MYKOTLIBS_ossrhUsername }}'
+      MYKOTLIBS_ossrhPassword: '${{ secrets.MYKOTLIBS_ossrhPassword }}'
+      MYKOTLIBS_sonatypeStagingProfileId: '${{ secrets.MYKOTLIBS_sonatypeStagingProfileId }}'
     permissions:
       contents: 'write'
     steps:
