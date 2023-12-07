@@ -1,18 +1,10 @@
 @file:Suppress("UnstableApiUsage")
 
-import okio.*
-import okio.Path
-import okio.Path.Companion.toPath
-import org.jetbrains.kotlin.gradle.plugin.KotlinDependencyHandler
-import pl.mareklangiewicz.defaults.defaultGroupAndVerAndDescription
+import org.jetbrains.kotlin.gradle.plugin.*
+import pl.mareklangiewicz.defaults.*
 import pl.mareklangiewicz.deps.*
-import pl.mareklangiewicz.io.*
-import pl.mareklangiewicz.kommand.*
-import pl.mareklangiewicz.kommand.core.*
 import pl.mareklangiewicz.ure.*
 import pl.mareklangiewicz.utils.*
-import kotlin.math.*
-import kotlin.random.*
 
 plugins {
     plugAll(plugs.KotlinJvm, plugs.NexusPublish, plugs.GradlePublish, plugs.Signing)
@@ -58,7 +50,7 @@ defaultGroupAndVerAndDescription(
         group = "pl.mareklangiewicz.deps", // important non default ...deps group (as accepted on gradle portal)
         description = "Updated dependencies for typical java/kotlin/android projects (with IDE support).",
         githubUrl = "https://github.com/langara/DepsKt",
-        version = Ver(0, 2, 62),
+        version = Ver(0, 2, 63),
         // https://plugins.gradle.org/search?term=pl.mareklangiewicz
     )
 )
