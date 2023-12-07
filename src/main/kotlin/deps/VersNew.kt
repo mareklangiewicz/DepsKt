@@ -42,8 +42,9 @@ object VersNew {
     val Kotlin = Ver("2.0.0-Beta1")
 
     /** Selected Compose Compiler version. Should always be kept compatible with the selected Kotlin version. */
-    val ComposeCompiler = Ver("1.5.5-dev-k2.0.0-Beta1-06b8ae672a4") // this ver is prepared for 2.0.0-Beta1
-//     val ComposeCompiler = AndroidX.Compose.Compiler.compiler.verStable!!
+    // val ComposeCompiler = Ver("1.5.6-dev-k1.9.21-3eed341308a") // this ver is prepared for 1.9.21
+    val ComposeCompiler = Ver("1.5.6-dev-k2.0.0-Beta1-06a03be2b42") // this ver is prepared for 2.0.0-Beta1
+    // val ComposeCompiler = AndroidX.Compose.Compiler.compiler.verStable!!
 
     /** Selected ComposeMultiplatform version. Should always be kept compatible with the selected Kotlin version. */
     val Compose = Org.JetBrains.Compose.gradle_plugin.ver!!
@@ -70,7 +71,7 @@ object VersNew {
      * - [gradle org docs](https://docs.gradle.com/enterprise/gradle-plugin/)
      * - [gradle portal](https://plugins.gradle.org/plugin/com.gradle.enterprise)
      */
-    val GradleEnterprisePlug = Ver("3.15.1", 0)
+    val GradleEnterprisePlug = Ver("3.16", 0)
 
     /**
      * Android Gradle Plugin
@@ -78,7 +79,7 @@ object VersNew {
      * - [maven](https://maven.google.com/web/index.html#com.android.tools.build:gradle)
      * - [releases](https://developer.android.com/studio/releases/gradle-plugin)
      */
-    val AndroPlug = Ver("8.3.0-alpha15")
+    val AndroPlug = Ver("8.3.0-alpha17")
 
     /**
      * Dokka Gradle Plugin
@@ -100,7 +101,7 @@ object VersNew {
      * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
      * [github](https://github.com/Kotlin/kotlin-jupyter)
      */
-    val KotlinJupyterPlug = Ver("0.12.0-96")
+    val KotlinJupyterPlug = Ver("0.12.0-97")
 
     /**
      * Osacky Doctor Gradle Plugin
@@ -115,7 +116,7 @@ object VersNew {
      * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
      * - [github](https://github.com/langara/DepsKt)
      */
-    val DepsPlug = Ver("0.2.62")
+    val DepsPlug = Ver("0.2.64")
 
     val JvmDefaultVer = "21" // I had terrible issues with "16" (andro compose project)
 
@@ -141,7 +142,7 @@ object VersNew {
      */
     val AndroSdkMin = 26
     val AndroSdkCompile = 34
-    val AndroSdkTarget = 33
+    val AndroSdkTarget = 34
 
     /**
      * This runner looks like working correctly these years (with "gradle unified test platform).
