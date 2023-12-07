@@ -7,13 +7,6 @@ on:
   schedule:
   - cron: '0 8 * * 1'
   workflow_dispatch: {}
-env:
-  MYKOTLIBS_signing_keyId: '${{ secrets.MYKOTLIBS_signing_keyId }}'
-  MYKOTLIBS_signing_password: '${{ secrets.MYKOTLIBS_signing_password }}'
-  MYKOTLIBS_signing_key: '${{ secrets.MYKOTLIBS_signing_key }}'
-  MYKOTLIBS_ossrhUsername: '${{ secrets.MYKOTLIBS_ossrhUsername }}'
-  MYKOTLIBS_ossrhPassword: '${{ secrets.MYKOTLIBS_ossrhPassword }}'
-  MYKOTLIBS_sonatypeStagingProfileId: '${{ secrets.MYKOTLIBS_sonatypeStagingProfileId }}'
 jobs:
   update-generated-deps:
     runs-on: 'ubuntu-latest'
@@ -21,12 +14,12 @@ jobs:
       contents: 'write'
     steps:
     - id: 'step-0'
-      uses: 'actions/checkout@v3'
+      uses: 'actions/checkout@v4'
     - id: 'step-1'
       name: 'Set up JDK'
       uses: 'actions/setup-java@v3'
       with:
-        java-version: '17'
+        java-version: '21'
         distribution: 'zulu'
     - id: 'step-2'
       name: 'updateGeneratedDeps'
