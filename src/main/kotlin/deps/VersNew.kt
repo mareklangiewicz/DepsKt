@@ -41,13 +41,20 @@ object VersNew {
      */
     val Kotlin = Ver("2.0.0-Beta1")
 
+    val ComposeCompilerFromAXStable = AndroidX.Compose.Compiler.compiler.verStable!!
+    val ComposeCompilerFor1921 = Ver("1.5.6-dev-k1.9.21-3eed341308a") // this ver is prepared for 1.9.21
+    val ComposeCompilerFor200B1 = Ver("1.5.6-dev-k2.0.0-Beta1-06a03be2b42") // this ver is prepared for 2.0.0-Beta1
+
     /** Selected Compose Compiler version. Should always be kept compatible with the selected Kotlin version. */
-    // val ComposeCompiler = Ver("1.5.6-dev-k1.9.21-3eed341308a") // this ver is prepared for 1.9.21
-    val ComposeCompiler = Ver("1.5.6-dev-k2.0.0-Beta1-06a03be2b42") // this ver is prepared for 2.0.0-Beta1
-    // val ComposeCompiler = AndroidX.Compose.Compiler.compiler.verStable!!
+    val ComposeCompiler = ComposeCompilerFor200B1
+
+    // https://github.com/JetBrains/compose-multiplatform/releases
+    val ComposeEdge = Ver("1.6.0-dev1323")
 
     /** Selected ComposeMultiplatform version. Should always be kept compatible with the selected Kotlin version. */
-    val Compose = Org.JetBrains.Compose.gradle_plugin.ver!!
+    // val Compose = Org.JetBrains.Compose.gradle_plugin.ver!!
+    val Compose = ComposeEdge
+
 
     /** Selected ComposeAndroid version. Should always be kept compatible with the selected Kotlin version. */
     val ComposeAndro = AndroidX.Compose.Runtime.runtime.ver!!

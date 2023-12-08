@@ -35,6 +35,7 @@ infix fun Instability?.moreStableThan(other: Instability?): Boolean {
     return left < right
 }
 
+@Suppress("UNUSED_PARAMETER")
 private fun detectInstability(version: String): Instability? = null // FIXME
 
 data class Ver(val ver: String, val instability: Instability? = detectInstability(ver)) {
@@ -106,8 +107,6 @@ typealias Langiewicz = Pl.MarekLangiewicz
  * - [maven space plugin](https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/compose-gradle-plugin/)
  */
 typealias Compose = Org.JetBrains.Compose
-val ComposeEdgeGradlePlugin get() = Compose.gradle_plugin.withVer(Ver("1.5.10-dev1177")) // FIXME: auto generate from jetbrains space or deprecate?
-//val ComposeEdgeGradlePlugin get() = Compose.gradle_plugin
 
 val ComposeCompiler get() = AndroidX.Compose.Compiler.compiler.withVer(versNew.ComposeCompiler)
 
