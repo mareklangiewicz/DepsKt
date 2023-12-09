@@ -86,7 +86,9 @@ object VersNew {
      * - [maven](https://maven.google.com/web/index.html#com.android.tools.build:gradle)
      * - [releases](https://developer.android.com/studio/releases/gradle-plugin)
      */
-    val AndroPlug = Ver("8.3.0-alpha17")
+    val AndroPlugStable = Ver("8.2.0")
+    val AndroPlugEdge = Ver("8.3.0-alpha17")
+    val AndroPlug = AndroPlugEdge
 
     /**
      * Dokka Gradle Plugin
