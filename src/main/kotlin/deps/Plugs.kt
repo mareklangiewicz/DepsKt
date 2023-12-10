@@ -1,4 +1,4 @@
-@file:Suppress("unused")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate")
 
 package pl.mareklangiewicz.deps
 
@@ -50,7 +50,10 @@ object Plugs {
      * - [releases](https://developer.android.com/studio/releases/gradle-plugin)
      * - [andro gradle dsl](https://google.github.io/android-gradle-dsl/)
      */
-    val AndroLib = DepP("com.android.library", versNew.AndroPlug)
+    val AndroLibNoVer = DepP("com.android.library") // needed because .withNoVer() doesn't work in plugins {..}
+    val AndroLibStable = AndroLibNoVer.withVers(versNew.AndroPlugStable)
+    val AndroLibEdge = AndroLibNoVer.withVers(versNew.AndroPlugEdge)
+    val AndroLib = AndroLibStable
 
     /**
      * Android Gradle Plugin
@@ -58,7 +61,10 @@ object Plugs {
      * - [releases](https://developer.android.com/studio/releases/gradle-plugin)
      * - [andro gradle dsl](https://google.github.io/android-gradle-dsl/)
      */
-    val AndroApp = DepP("com.android.application", versNew.AndroPlug)
+    val AndroAppNoVer = DepP("com.android.application") // needed because .withNoVer() doesn't work in plugins {..}
+    val AndroAppStable = AndroAppNoVer.withVers(versNew.AndroPlugStable)
+    val AndroAppEdge = AndroAppNoVer.withVers(versNew.AndroPlugEdge)
+    val AndroApp = AndroAppStable
 
     val Compose = Org.JetBrains.Compose.gradle_plugin.withVer(versNew.Compose)
 
