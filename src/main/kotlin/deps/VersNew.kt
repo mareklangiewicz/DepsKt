@@ -49,7 +49,7 @@ object VersNew {
     val ComposeCompiler = ComposeCompilerFor200B1
 
     // https://github.com/JetBrains/compose-multiplatform/releases
-    val ComposeEdge = Ver("1.6.0-dev1323")
+    val ComposeEdge = Ver("1.6.0-dev1334")
 
     /** Selected ComposeMultiplatform version. Should always be kept compatible with the selected Kotlin version. */
     // val Compose = Org.JetBrains.Compose.gradle_plugin.ver!!
@@ -125,7 +125,7 @@ object VersNew {
      * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
      * - [github](https://github.com/langara/DepsKt)
      */
-    val DepsPlug = Ver("0.2.64")
+    val DepsPlug = Ver("0.2.68")
 
     val JvmDefaultVer = "21" // I had terrible issues with "16" (andro compose project)
 
