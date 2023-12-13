@@ -13,11 +13,11 @@ plugins {
 tasks.register("updateGeneratedDeps") {
     group = "maintenance"
     doLast {
-        val pathToDepsNew = rootProjectPath / "src/main/kotlin/deps/DepsNew.kt"
+        val pathToDeps = rootProjectPath / "src/main/kotlin/deps/Deps.kt"
         val urlToObjs = "https://raw.githubusercontent.com/langara/refreshDeps/main/plugins/dependencies/src/test/resources/objects-for-deps.txt"
         downloadAndInjectFileToSpecialRegion(
             inFileUrl = urlToObjs,
-            outFilePath = pathToDepsNew,
+            outFilePath = pathToDeps,
             outFileRegionLabel = "Deps Generated"
         )
     }
@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    api("pl.mareklangiewicz:kgroundx-maintenance:0.0.27") // FIXME https://repo1.maven.org/maven2/pl/mareklangiewicz/kground/
+    api("pl.mareklangiewicz:kgroundx-maintenance:0.0.30") // FIXME https://repo1.maven.org/maven2/pl/mareklangiewicz/kground/
     testImplementation(Langiewicz.uspekx_junit5)
     testImplementation(Org.JUnit.Jupiter.junit_jupiter)
     testImplementation(Org.JUnit.Jupiter.junit_jupiter_engine)
@@ -50,7 +50,7 @@ defaultGroupAndVerAndDescription(
         group = "pl.mareklangiewicz.deps", // important non default ...deps group (as accepted on gradle portal)
         description = "Updated dependencies for typical java/kotlin/android projects (with IDE support).",
         githubUrl = "https://github.com/langara/DepsKt",
-        version = Ver(0, 2, 69),
+        version = Ver(0, 2, 70),
         // https://plugins.gradle.org/search?term=pl.mareklangiewicz
     )
 )
