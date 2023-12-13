@@ -9,9 +9,7 @@ val repos get() = pl.mareklangiewicz.deps.Repos
 
 val plugs get() = pl.mareklangiewicz.deps.Plugs
 
-// TODO: remove all "New" suffixes from different names
-//  ("Old" versions already deleted)
-val versNew get() = pl.mareklangiewicz.deps.VersNew
+val vers get() = pl.mareklangiewicz.deps.Vers
 
 infix fun PluginDependencySpec.ver(v: Ver) = version(v.ver)
 

@@ -2,7 +2,7 @@
 
 package pl.mareklangiewicz.deps
 
-import versNew
+import vers
 import org.gradle.api.artifacts.*
 
 
@@ -11,14 +11,14 @@ fun Configuration.checkVerSync(warnOnly: Boolean = false) { withDependencies { i
 fun DependencySet.checkVerSync(warnOnly: Boolean = false) = configureEach { it.checkVerSync(warnOnly) }
 fun Dependency.checkVerSync(warnOnly: Boolean = false) {
     when (group) {
-        "org.jetbrains.kotlin" -> checkWith(versNew.Kotlin, warnOnly)
-        "androidx.compose.compiler" -> checkWith(versNew.ComposeCompiler, warnOnly)
+        "org.jetbrains.kotlin" -> checkWith(vers.Kotlin, warnOnly)
+        "androidx.compose.compiler" -> checkWith(vers.ComposeCompiler, warnOnly)
         "androidx.compose.ui", "androidx.compose.animation", "androidx.compose.foundation",
-        "androidx.compose.material" -> checkWith(versNew.ComposeAndro, warnOnly)
+        "androidx.compose.material" -> checkWith(vers.ComposeAndro, warnOnly)
 
         "androidx.compose.runtime" -> when (name) {
             "runtime-livedata", "runtime", "runtime-rxjava2", "runtime-rxjava3",
-            "runtime-saveable" -> checkWith(versNew.ComposeAndro, warnOnly)
+            "runtime-saveable" -> checkWith(vers.ComposeAndro, warnOnly)
         }
     }
 }
@@ -31,7 +31,7 @@ private fun Dependency.checkWith(expectedVer: Ver, warnOnly: Boolean) {
     }
 }
 
-object VersNew {
+object Vers {
 
     /**
      * Manually selected kotlin version. Have to be working with current compose multiplatform and compose andro.

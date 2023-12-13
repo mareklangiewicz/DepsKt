@@ -2,7 +2,7 @@
 
 package pl.mareklangiewicz.deps
 
-import versNew
+import vers
 
 object Plugs {
 
@@ -11,12 +11,12 @@ object Plugs {
      * - [github](https://github.com/gradle-nexus/publish-plugin/)
      * - [github releases](https://github.com/gradle-nexus/publish-plugin/releases)
      */
-    val NexusPublish = DepP("io.github.gradle-nexus.publish-plugin", versNew.NexusPublishPlug)
+    val NexusPublish = DepP("io.github.gradle-nexus.publish-plugin", vers.NexusPublishPlug)
 
-    val KotlinMulti = DepP("org.jetbrains.kotlin.multiplatform", versNew.Kotlin)
-    val KotlinJvm = DepP("org.jetbrains.kotlin.jvm", versNew.Kotlin)
-    val KotlinJs = DepP("org.jetbrains.kotlin.js", versNew.Kotlin)
-    val KotlinAndro = DepP("org.jetbrains.kotlin.android", versNew.Kotlin)
+    val KotlinMulti = DepP("org.jetbrains.kotlin.multiplatform", vers.Kotlin)
+    val KotlinJvm = DepP("org.jetbrains.kotlin.jvm", vers.Kotlin)
+    val KotlinJs = DepP("org.jetbrains.kotlin.js", vers.Kotlin)
+    val KotlinAndro = DepP("org.jetbrains.kotlin.android", vers.Kotlin)
 
     val MavenPublish = DepP("maven-publish")
 
@@ -28,14 +28,14 @@ object Plugs {
      * - [plugins gradle org](https://plugins.gradle.org/plugin/com.gradle.plugin-publish)
      * - [plugins gradle org docs](https://plugins.gradle.org/docs/publish-plugin)
      */
-    val GradlePublish = DepP("com.gradle.plugin-publish", versNew.GradlePublishPlug)
+    val GradlePublish = DepP("com.gradle.plugin-publish", vers.GradlePublishPlug)
 
     /**
      * Gradle Enterprise Plugin (enables integration with Gradle Enterprise and scans.gradle.com)
      * - [gradle org docs](https://docs.gradle.com/enterprise/gradle-plugin/)
      * - [gradle portal](https://plugins.gradle.org/plugin/com.gradle.enterprise)
      */
-    val GradleEnterprise = DepP("com.gradle.enterprise", versNew.GradleEnterprisePlug)
+    val GradleEnterprise = DepP("com.gradle.enterprise", vers.GradleEnterprisePlug)
 
     /**
      * The builtin Gradle plugin implemented by [org.gradle.api.plugins.ApplicationPlugin].
@@ -51,8 +51,8 @@ object Plugs {
      * - [andro gradle dsl](https://google.github.io/android-gradle-dsl/)
      */
     val AndroLibNoVer = DepP("com.android.library") // needed because .withNoVer() doesn't work in plugins {..}
-    val AndroLibStable = AndroLibNoVer.withVers(versNew.AndroPlugStable)
-    val AndroLibEdge = AndroLibNoVer.withVers(versNew.AndroPlugEdge)
+    val AndroLibStable = AndroLibNoVer.withVers(vers.AndroPlugStable)
+    val AndroLibEdge = AndroLibNoVer.withVers(vers.AndroPlugEdge)
     val AndroLib = AndroLibStable
 
     /**
@@ -62,13 +62,13 @@ object Plugs {
      * - [andro gradle dsl](https://google.github.io/android-gradle-dsl/)
      */
     val AndroAppNoVer = DepP("com.android.application") // needed because .withNoVer() doesn't work in plugins {..}
-    val AndroAppStable = AndroAppNoVer.withVers(versNew.AndroPlugStable)
-    val AndroAppEdge = AndroAppNoVer.withVers(versNew.AndroPlugEdge)
+    val AndroAppStable = AndroAppNoVer.withVers(vers.AndroPlugStable)
+    val AndroAppEdge = AndroAppNoVer.withVers(vers.AndroPlugEdge)
     val AndroApp = AndroAppStable
 
-    val Compose = Org.JetBrains.Compose.gradle_plugin.withVer(versNew.Compose)
+    val Compose = Org.JetBrains.Compose.gradle_plugin.withVer(vers.Compose)
 
-    val ComposeEdge = Compose.withVer(versNew.ComposeEdge)
+    val ComposeEdge = Compose.withVer(vers.ComposeEdge)
 
     /**
      * Dokka Gradle Plugin
@@ -76,20 +76,20 @@ object Plugs {
      * - [github](https://github.com/Kotlin/dokka)
      * - [github releases](https://github.com/Kotlin/dokka/releases)
      */
-    val Dokka = DepP("org.jetbrains.dokka", versNew.DokkaPlug)
+    val Dokka = DepP("org.jetbrains.dokka", vers.DokkaPlug)
 
     /**
      * Ktor Gradle Plugin
      * [github](https://github.com/ktorio/ktor-build-plugins)
      */
-    val Ktor = DepP("io.ktor.plugin", versNew.KtorPlug)
+    val Ktor = DepP("io.ktor.plugin", vers.KtorPlug)
 
     /**
      * Kotlin Jupyter Gradle Plugin
      * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
      * [github](https://github.com/Kotlin/kotlin-jupyter)
      */
-    val KotlinJupyter = DepP("org.jetbrains.kotlin.jupyter.api", versNew.KotlinJupyterPlug)
+    val KotlinJupyter = DepP("org.jetbrains.kotlin.jupyter.api", vers.KotlinJupyterPlug)
 
     /**
      * Osacky Doctor Gradle Plugin
@@ -97,26 +97,26 @@ object Plugs {
      * - [github](https://github.com/runningcode/gradle-doctor)
      * - [docs](https://runningcode.github.io/gradle-doctor/)
      */
-    val Doctor = DepP("com.osacky.doctor", versNew.OsackyDoctorPlug)
+    val Doctor = DepP("com.osacky.doctor", vers.OsackyDoctorPlug)
 
     /**
      * DepsKt Gradle Plugin
      * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
      * - [github](https://github.com/langara/DepsKt)
      */
-    val Deps = DepP("pl.mareklangiewicz.deps", versNew.DepsPlug)
+    val Deps = DepP("pl.mareklangiewicz.deps", vers.DepsPlug)
 
     /**
      * DepsKt Gradle Settings Plugin
      * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
      * - [github](https://github.com/langara/DepsKt)
      */
-    val DepsSettings = DepP("pl.mareklangiewicz.deps.settings", versNew.DepsPlug)
+    val DepsSettings = DepP("pl.mareklangiewicz.deps.settings", vers.DepsPlug)
 
     /**
      * SourceFun Gradle Plugin
      * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
      * - [github](https://github.com/langara/DepsKt)
      */
-    val SourceFun = DepP("pl.mareklangiewicz.sourcefun", versNew.DepsPlug)
+    val SourceFun = DepP("pl.mareklangiewicz.sourcefun", vers.DepsPlug)
 }

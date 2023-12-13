@@ -9,7 +9,7 @@
 
 package pl.mareklangiewicz.deps
 
-import versNew
+import vers
 
 // region [Deps Data Structures]
 
@@ -108,7 +108,7 @@ typealias Langiewicz = Pl.MarekLangiewicz
  */
 typealias Compose = Org.JetBrains.Compose
 
-val ComposeCompiler get() = AndroidX.Compose.Compiler.compiler.withVer(versNew.ComposeCompiler)
+val ComposeCompiler get() = AndroidX.Compose.Compiler.compiler.withVer(vers.ComposeCompiler)
 
 
 /**
