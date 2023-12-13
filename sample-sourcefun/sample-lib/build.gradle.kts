@@ -1,9 +1,10 @@
+import org.jetbrains.kotlin.gradle.plugin.*
 import pl.mareklangiewicz.defaults.*
 import pl.mareklangiewicz.deps.*
 import pl.mareklangiewicz.utils.*
 
 plugins {
-    kotlin("jvm") version vers.kotlin
+    plug(plugs.KotlinJvm)
 }
 
 repositories { defaultRepos() }
@@ -36,7 +37,7 @@ fun RepositoryHandler.defaultRepos(
 }
 
 fun TaskCollection<Task>.defaultKotlinCompileOptions(
-    jvmTargetVer: String = versNew.JvmDefaultVer,
+    jvmTargetVer: String = vers.JvmDefaultVer,
     renderInternalDiagnosticNames: Boolean = false,
 ) = withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
     kotlinOptions {
@@ -95,7 +96,7 @@ fun Project.defaultPublishing(
     lib: LibDetails,
     readmeFile: File = File(rootDir, "README.md"),
     withSignErrorWorkaround: Boolean = true,
-    withPublishingPrintln: Boolean = true,
+    withPublishingPrintln: Boolean = false, // FIXME_later: enabling brakes gradle android publications
 ) {
 
     val readmeJavadocJar by tasks.registering(Jar::class) {
