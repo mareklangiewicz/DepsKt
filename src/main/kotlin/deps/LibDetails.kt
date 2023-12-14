@@ -50,7 +50,7 @@ data class LibSettings(
 
 /** In [LibSettings.compose] the defaults are adjusted depending on platforms. */
 data class LibComposeSettings(
-    val withComposeCompilerVer: Ver? = null,
+    val withComposeCompilerVer: Ver? = Vers.ComposeCompiler,
     val withComposeUi: Boolean = true,
     val withComposeFoundation: Boolean = true,
     val withComposeMaterial2: Boolean = true,
