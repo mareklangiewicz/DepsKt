@@ -21,6 +21,7 @@ data class LibDetails(
 
 data class LibSettings(
     val withJvm: Boolean = true,
+    val withJvmVer: String? = Vers.JvmDefaultVer.takeIf { withJvm },
     val withJs: Boolean = true,
     val withNativeLinux64: Boolean = false,
     val withKotlinxHtml: Boolean = false,
