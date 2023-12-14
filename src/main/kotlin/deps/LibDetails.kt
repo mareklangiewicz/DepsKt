@@ -2,6 +2,8 @@
 
 package pl.mareklangiewicz.deps
 
+import pl.mareklangiewicz.defaults.v
+
 data class LibDetails(
     val name: String,
     val group: String,
@@ -29,7 +31,6 @@ data class LibSettings(
     val withTestJUnit5: Boolean = withJvm,
     val withTestUSpekX: Boolean = true,
 
-    /** null means this lib is not using [compose] at all; defaults here are adjusted depending on platforms */
     val compose: LibComposeSettings? = LibComposeSettings(
         withComposeMaterial2 = withJvm,
         withComposeMaterial3 = withJvm,
@@ -42,12 +43,18 @@ data class LibSettings(
         withComposeTestWebUtils = withJs,
     ),
 
+    val andro: LibAndroSettings? = null,
+
     val repos: LibReposSettings = LibReposSettings(
         withKotlinxHtml = withKotlinxHtml,
         withComposeJbDev = compose != null,
         withComposeCompilerAndroidxDev = compose?.withComposeCompilerVer != null
     )
-)
+) {
+    val withCompose get() = compose != null
+    val withAndro get() = andro != null
+    val withAndroApp get() = andro?.app != null
+}
 
 /** In [LibSettings.compose] the defaults are adjusted depending on platforms. */
 data class LibComposeSettings(
@@ -73,6 +80,23 @@ data class LibComposeSettings(
     // https://github.com/JetBrains/compose-multiplatform/issues/2371
 
     val withComposeTestWebUtils: Boolean = false,
+)
+
+data class LibAndroSettings(
+    val namespace: String,
+    val sdkCompile: Int = Vers.AndroSdkCompile,
+    val sdkTarget: Int = Vers.AndroSdkTarget,
+    val sdkMin: Int = Vers.AndroSdkMin,
+    val withMDC: Boolean = false,
+    val withTestRunner: String? = Vers.AndroTestRunner,
+    val publishVariant: String? = null, // null means disable publishing to maven repo
+    val app: AppAndroSettings? = null,
+)
+
+data class AppAndroSettings(
+    val appId: String,
+    val appVerCode: Int = 1,
+    val appVerName: String = v(patch = appVerCode),
 )
 
 data class LibReposSettings(
