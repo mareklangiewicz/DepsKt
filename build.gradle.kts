@@ -31,7 +31,9 @@ repositories {
 }
 
 dependencies {
-    api("pl.mareklangiewicz:kgroundx-maintenance:0.0.30") // FIXME https://repo1.maven.org/maven2/pl/mareklangiewicz/kground/
+    api("pl.mareklangiewicz:kgroundx-maintenance:0.0.31")
+    // FIXME https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kground/
+
     testImplementation(Langiewicz.uspekx_junit5)
     testImplementation(Org.JUnit.Jupiter.junit_jupiter)
     testImplementation(Org.JUnit.Jupiter.junit_jupiter_engine)
@@ -50,8 +52,9 @@ defaultGroupAndVerAndDescription(
         group = "pl.mareklangiewicz.deps", // important non default ...deps group (as accepted on gradle portal)
         description = "Updated dependencies for typical java/kotlin/android projects (with IDE support).",
         githubUrl = "https://github.com/langara/DepsKt",
-        version = Ver(0, 2, 70),
+        version = Ver(0, 2, 71),
         // https://plugins.gradle.org/search?term=pl.mareklangiewicz
+        // compose = null, // FIXME: set it explicitly on null when switching to new DepsKt to compile DepsKt :-)
     )
 )
 
