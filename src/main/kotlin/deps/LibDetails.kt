@@ -89,9 +89,15 @@ data class LibAndroSettings(
     val sdkMin: Int = Vers.AndroSdkMin,
     val withMDC: Boolean = false,
     val withTestRunner: String? = Vers.AndroTestRunner,
-    val publishVariant: String? = null, // null means disable publishing to maven repo
+    val publishVariant: String = "", // for now only single variant or all variants can be published.
     val app: AppAndroSettings? = null,
-)
+) {
+    val publishAllVariants get() = publishVariant == AllVariants
+    val publishNoVariants get() = publishVariant == NoVariants
+    val publishOneVariant get() = !publishNoVariants && !publishNoVariants
+    val AllVariants get() = "*"
+    val NoVariants get() = ""
+}
 
 data class AppAndroSettings(
     val appId: String,
