@@ -2,8 +2,6 @@
 
 package pl.mareklangiewicz.deps
 
-import pl.mareklangiewicz.defaults.v
-
 data class LibDetails(
     val name: String,
     val group: String,
@@ -16,10 +14,22 @@ data class LibDetails(
     val licenceUrl: String,
     val version: Ver,
 
+    val namespace: String = "$group.${name.lowercase()}", // currently used in andro libs and apps
+    val appId: String = namespace, // currently used in andro apps
+    val appMainPackage: String = namespace,
+    val appMainClass: String = "App_jvmKt", // for compose jvm
+    val appMainFun: String = "main", // for native
+    val appVerCode: Int = version.code, // currently used in andro apps
+    val appVerName: String = version.ver, // currently used in andro apps
+
     val settings: LibSettings = LibSettings()
 ) {
     fun withVer(version: Ver) = copy(version = version)
 }
+
+// TODO_someday: this impl ignores patches for simplicity.
+// Write better impl with patches parsing, but it has to consider weird suffixes and has to be monotonically increasing!
+private val Ver.code: Int get() = ver.split(".").run { this[0].toInt() * 10000 + this[1].toInt() } + 1 // zero is incorrect
 
 data class LibSettings(
     val withJvm: Boolean = true,
@@ -30,6 +40,8 @@ data class LibSettings(
     val withTestJUnit4: Boolean = false,
     val withTestJUnit5: Boolean = withJvm,
     val withTestUSpekX: Boolean = true,
+
+    val withSonatypeOssPublishing: Boolean = false,
 
     val compose: LibComposeSettings? = LibComposeSettings(
         withComposeMaterial2 = withJvm,
@@ -53,7 +65,6 @@ data class LibSettings(
 ) {
     val withCompose get() = compose != null
     val withAndro get() = andro != null
-    val withAndroApp get() = andro?.app != null
 }
 
 /** In [LibSettings.compose] the defaults are adjusted depending on platforms. */
@@ -83,14 +94,12 @@ data class LibComposeSettings(
 )
 
 data class LibAndroSettings(
-    val namespace: String,
     val sdkCompile: Int = Vers.AndroSdkCompile,
     val sdkTarget: Int = Vers.AndroSdkTarget,
     val sdkMin: Int = Vers.AndroSdkMin,
     val withMDC: Boolean = false,
     val withTestRunner: String? = Vers.AndroTestRunner,
     val publishVariant: String = "", // for now only single variant or all variants can be published.
-    val app: AppAndroSettings? = null,
 ) {
     val publishAllVariants get() = publishVariant == AllVariants
     val publishNoVariants get() = publishVariant == NoVariants
@@ -98,12 +107,6 @@ data class LibAndroSettings(
     val AllVariants get() = "*"
     val NoVariants get() = ""
 }
-
-data class AppAndroSettings(
-    val appId: String,
-    val appVerCode: Int = 1,
-    val appVerName: String = v(patch = appVerCode),
-)
 
 data class LibReposSettings(
     val withMavenLocal: Boolean = true,
@@ -130,4 +133,16 @@ fun langaraLibDetails(
     licenceUrl: String = "https://opensource.org/licenses/Apache-2.0",
     version: Ver = Ver(0, 0, 1),
     settings: LibSettings = LibSettings(),
-) = LibDetails(name, group, description, authorId, authorName, authorEmail, githubUrl, licenceName, licenceUrl, version, settings)
+) = LibDetails(
+    name = name,
+    group = group,
+    description = description,
+    authorId = authorId,
+    authorName = authorName,
+    authorEmail = authorEmail,
+    githubUrl = githubUrl,
+    licenceName = licenceName,
+    licenceUrl = licenceUrl,
+    version = version,
+    settings = settings,
+)

@@ -11,7 +11,7 @@ pluginManagement {
 }
 
 plugins {
-    id("pl.mareklangiewicz.deps.settings") version "0.2.69" // https://plugins.gradle.org/search?term=mareklangiewicz
+    id("pl.mareklangiewicz.deps.settings") version "0.2.73" // https://plugins.gradle.org/search?term=mareklangiewicz
 }
 
 include(":sample-lib")
