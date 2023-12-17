@@ -82,16 +82,16 @@ fun Settings.includeAndSubstituteBuild(rootProject: Any, substituteModule: Strin
 }
 
 
-fun DependencyHandler.addAll(configuration: String, vararg deps: Dep) {
-    for (dep in deps) add(configuration, dep)
+fun DependencyHandler.addAll(configuration: String, vararg deps: Dep?) {
+    for (dep in deps) if (dep != null) add(configuration, dep)
 }
 
-fun DependencyHandler.addAllWithVer(configuration: String, ver: Ver, vararg deps: Dep) {
-    for (dep in deps) add(configuration, dep.withVer(ver))
+fun DependencyHandler.addAllWithVer(configuration: String, ver: Ver, vararg deps: Dep?) {
+    for (dep in deps) if (dep != null) add(configuration, dep.withVer(ver))
 }
 
-fun DependencyHandler.addAllWithNoVer(configuration: String, vararg deps: Dep) {
-    for (dep in deps) add(configuration, dep.withNoVer())
+fun DependencyHandler.addAllWithNoVer(configuration: String, vararg deps: Dep?) {
+    for (dep in deps) if (dep != null) add(configuration, dep.withNoVer())
 }
 
 

@@ -40,6 +40,8 @@ data class LibSettings(
     val withTestJUnit4: Boolean = false,
     val withTestJUnit5: Boolean = withJvm,
     val withTestUSpekX: Boolean = true,
+    val withTestGoogleTruth: Boolean = false,
+    val withTestMockitoKotlin: Boolean = false,
 
     val withSonatypeOssPublishing: Boolean = false,
 
@@ -97,8 +99,14 @@ data class LibAndroSettings(
     val sdkCompile: Int = Vers.AndroSdkCompile,
     val sdkTarget: Int = Vers.AndroSdkTarget,
     val sdkMin: Int = Vers.AndroSdkMin,
+
+    val withAppCompat: Boolean = true,
+    val withLifecycle: Boolean = true,
+    val withActivityCompose: Boolean = true, // only used when compose is also present
     val withMDC: Boolean = false,
+    val withTestEspresso: Boolean = true,
     val withTestRunner: String? = Vers.AndroTestRunner,
+
     val publishVariant: String = "", // for now only single variant or all variants can be published.
 ) {
     val publishAllVariants get() = publishVariant == AllVariants
