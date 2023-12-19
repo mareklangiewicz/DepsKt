@@ -1331,12 +1331,12 @@ object Io {
         val koin_androidx_compose = Dep("io.insert-koin", "koin-androidx-compose", Ver("3.5.0", 0), Ver("3.5.2-RC1", 100))
         val koin_androidx_navigation = Dep("io.insert-koin", "koin-androidx-navigation", Ver("3.5.0", 0), Ver("3.5.2-RC1", 100))
         val koin_androidx_workmanager = Dep("io.insert-koin", "koin-androidx-workmanager", Ver("3.5.0", 0), Ver("3.5.2-RC1", 100))
-        val koin_core = Dep("io.insert-koin", "koin-core", Ver("3.5.0", 0), Ver("3.5.2-RC1", 100))
+        val koin_core = Dep("io.insert-koin", "koin-core", Ver("3.5.2", 0))
         val koin_ktor = Dep("io.insert-koin", "koin-ktor", Ver("3.5.1", 0), Ver("3.5.2-RC1", 100))
         val koin_logger_slf4j = Dep("io.insert-koin", "koin-logger-slf4j", Ver("3.5.1", 0), Ver("3.5.2-RC1", 100))
-        val koin_test = Dep("io.insert-koin", "koin-test", Ver("3.5.0", 0), Ver("3.5.2-RC1", 100))
-        val koin_test_junit4 = Dep("io.insert-koin", "koin-test-junit4", Ver("3.5.0", 0), Ver("3.5.2-RC1", 100))
-        val koin_test_junit5 = Dep("io.insert-koin", "koin-test-junit5", Ver("3.5.0", 0), Ver("3.5.2-RC1", 100))
+        val koin_test = Dep("io.insert-koin", "koin-test", Ver("3.5.2", 0))
+        val koin_test_junit4 = Dep("io.insert-koin", "koin-test-junit4", Ver("3.5.2", 0))
+        val koin_test_junit5 = Dep("io.insert-koin", "koin-test-junit5", Ver("3.5.2", 0))
     }
     object Kotest {
         val assertions_arrow = Dep("io.kotest", "kotest-assertions-arrow", Ver("4.4.3", 0))
@@ -1682,7 +1682,7 @@ object Org {
             val serialization_protobuf = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-protobuf", Ver("1.6.2", 0))
         }
         object Kotlin_Wrappers {
-            val bom = Dep("org.jetbrains.kotlin-wrappers", "kotlin-wrappers-bom", Ver("1.0.0-pre.667", 0), Ver("1.0.0-pre.668", 0))
+            val bom = Dep("org.jetbrains.kotlin-wrappers", "kotlin-wrappers-bom", Ver("1.0.0-pre.668", 0))
             val kotlin_actions_toolkit = Dep("org.jetbrains.kotlin-wrappers", "kotlin-actions-toolkit", Ver("0.0.1-pre.668", 0))
             val kotlin_browser = Dep("org.jetbrains.kotlin-wrappers", "kotlin-browser", Ver("1.0.0-pre.668", 0))
             val kotlin_cesium = Dep("org.jetbrains.kotlin-wrappers", "kotlin-cesium", Ver("1.112.0-pre.668", 0))
@@ -1765,7 +1765,7 @@ object Org {
     }
     object SpringFramework {
         object Amqp {
-            val spring_rabbit_test = Dep("org.springframework.amqp", "spring-rabbit-test", Ver("3.1.0", 0))
+            val spring_rabbit_test = Dep("org.springframework.amqp", "spring-rabbit-test", Ver("3.1.1", 0))
         }
         object Batch {
             val spring_batch_test = Dep("org.springframework.batch", "spring-batch-test", Ver("5.1.0", 0))
@@ -1820,7 +1820,7 @@ object Org {
         }
         object Cloud {
             val spring_cloud_bus = Dep("org.springframework.cloud", "spring-cloud-bus", Ver("4.1.0", 0))
-            val spring_cloud_cloudfoundry_discovery = Dep("org.springframework.cloud", "spring-cloud-cloudfoundry-discovery", Ver("3.1.3", 0))
+            val spring_cloud_cloudfoundry_discovery = Dep("org.springframework.cloud", "spring-cloud-cloudfoundry-discovery", Ver("3.1.3", 0), Ver("3.1.4", 0))
             val spring_cloud_config_server = Dep("org.springframework.cloud", "spring-cloud-config-server", Ver("4.1.0", 0))
             val spring_cloud_dependencies = Dep("org.springframework.cloud", "spring-cloud-dependencies", Ver("2023.0.0", 0))
             val spring_cloud_function_web = Dep("org.springframework.cloud", "spring-cloud-function-web", Ver("4.1.0", 0))
@@ -1851,7 +1851,7 @@ object Org {
             val spring_cloud_starter_open_service_broker = Dep("org.springframework.cloud", "spring-cloud-starter-open-service-broker", Ver("4.1.0", 0))
             val spring_cloud_starter_openfeign = Dep("org.springframework.cloud", "spring-cloud-starter-openfeign", Ver("4.1.0", 0))
             val spring_cloud_starter_security = Dep("org.springframework.cloud", "spring-cloud-starter-security", Ver("2.2.5.RELEASE", 0))
-            val spring_cloud_starter_sleuth = Dep("org.springframework.cloud", "spring-cloud-starter-sleuth", Ver("3.1.9", 0))
+            val spring_cloud_starter_sleuth = Dep("org.springframework.cloud", "spring-cloud-starter-sleuth", Ver("3.1.10", 0))
             val spring_cloud_starter_task = Dep("org.springframework.cloud", "spring-cloud-starter-task", Ver("3.1.0", 0))
             val spring_cloud_starter_vault_config = Dep("org.springframework.cloud", "spring-cloud-starter-vault-config", Ver("4.1.0", 0))
             val spring_cloud_starter_zipkin = Dep("org.springframework.cloud", "spring-cloud-starter-zipkin", Ver("2.2.8.RELEASE", 0))
@@ -1889,16 +1889,16 @@ object Org {
             val spring_integration_ws = Dep("org.springframework.integration", "spring-integration-ws", Ver("6.2.0", 0))
         }
         object Kafka {
-            val spring_kafka = Dep("org.springframework.kafka", "spring-kafka", Ver("3.1.0", 0))
-            val spring_kafka_test = Dep("org.springframework.kafka", "spring-kafka-test", Ver("3.1.0", 0))
+            val spring_kafka = Dep("org.springframework.kafka", "spring-kafka", Ver("3.1.1", 0))
+            val spring_kafka_test = Dep("org.springframework.kafka", "spring-kafka-test", Ver("3.1.1", 0))
         }
         object Restdocs {
             val spring_restdocs_webtestclient = Dep("org.springframework.restdocs", "spring-restdocs-webtestclient", Ver("3.0.1", 0))
         }
         object Security {
-            val spring_security_messaging = Dep("org.springframework.security", "spring-security-messaging", Ver("6.2.0", 0))
-            val spring_security_rsocket = Dep("org.springframework.security", "spring-security-rsocket", Ver("6.2.0", 0))
-            val spring_security_test = Dep("org.springframework.security", "spring-security-test", Ver("6.2.0", 0))
+            val spring_security_messaging = Dep("org.springframework.security", "spring-security-messaging", Ver("6.2.1", 0))
+            val spring_security_rsocket = Dep("org.springframework.security", "spring-security-rsocket", Ver("6.2.1", 0))
+            val spring_security_test = Dep("org.springframework.security", "spring-security-test", Ver("6.2.1", 0))
         }
         object Session {
             val spring_session_data_redis = Dep("org.springframework.session", "spring-session-data-redis", Ver("3.2.0", 0))
