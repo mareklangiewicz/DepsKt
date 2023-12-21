@@ -4,12 +4,12 @@
     "GrazieInspection",
     "ClassName",
     "PackageDirectoryMismatch",
-    "MemberVisibilityCanBePrivate",
+    "MemberVisibilityCanBePrivate", "FunctionName",
 )
 
 package pl.mareklangiewicz.deps
 
-import vers
+import pl.mareklangiewicz.utils.*
 
 // region [Deps Data Structures]
 
@@ -43,6 +43,8 @@ data class Ver(val ver: String, val instability: Instability? = detectInstabilit
     constructor(ver: String, instability: Int): this(ver, Instability(instability))
     constructor(major: Int, minor: Int, patch: Int, patchLength: Int = 2, suffix: String = ""):
             this("$major.$minor.${patch.toString().padStart(patchLength, '0')}$suffix")
+
+    val verIntCode get() = ver.toVersionIntCode()
 }
 
 /** versions should always be sorted from oldest to newest */
@@ -108,7 +110,11 @@ typealias Langiewicz = Pl.MarekLangiewicz
  */
 typealias Compose = Org.JetBrains.Compose
 
-val ComposeCompiler get() = AndroidX.Compose.Compiler.compiler.withVer(vers.ComposeCompiler)
+@Deprecated("Usually it's better to let compose plugin (mpp or andro) select default compose compiler.")
+val ComposeCompilerAX get() = AndroidX.Compose.Compiler.compiler.withVer(Vers.ComposeCompilerAX)
+
+@Deprecated("Usually it's better to let compose plugin (mpp or andro) select default compose compiler.")
+val ComposeCompilerJB get() = Org.JetBrains.Compose.Compiler.compiler.withVer(Vers.ComposeCompilerJB)
 
 
 /**

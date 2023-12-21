@@ -19,17 +19,13 @@ data class LibDetails(
     val appMainPackage: String = namespace,
     val appMainClass: String = "App_jvmKt", // for compose jvm
     val appMainFun: String = "main", // for native
-    val appVerCode: Int = version.code, // currently used in andro apps
+    val appVerCode: Int = version.verIntCode, // currently used in andro apps
     val appVerName: String = version.ver, // currently used in andro apps
 
     val settings: LibSettings = LibSettings()
 ) {
     fun withVer(version: Ver) = copy(version = version)
 }
-
-// TODO_someday: this impl ignores patches for simplicity.
-// Write better impl with patches parsing, but it has to consider weird suffixes and has to be monotonically increasing!
-private val Ver.code: Int get() = ver.split(".").run { this[0].toInt() * 10000 + this[1].toInt() } + 1 // zero is incorrect
 
 data class LibSettings(
     val withJvm: Boolean = true,
@@ -71,7 +67,7 @@ data class LibSettings(
 
 /** In [LibSettings.compose] the defaults are adjusted depending on platforms. */
 data class LibComposeSettings(
-    val withComposeCompilerVer: Ver? = Vers.ComposeCompiler,
+    val withComposeCompilerVer: Ver? = null,
     val withComposeUi: Boolean = true,
     val withComposeFoundation: Boolean = true,
     val withComposeMaterial2: Boolean = true,

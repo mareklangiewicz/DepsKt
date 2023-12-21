@@ -2,7 +2,6 @@
 
 package pl.mareklangiewicz.deps
 
-import vers
 import org.gradle.api.artifacts.*
 
 
@@ -11,14 +10,15 @@ fun Configuration.checkVerSync(warnOnly: Boolean = false) { withDependencies { i
 fun DependencySet.checkVerSync(warnOnly: Boolean = false) = configureEach { it.checkVerSync(warnOnly) }
 fun Dependency.checkVerSync(warnOnly: Boolean = false) {
     when (group) {
-        "org.jetbrains.kotlin" -> checkWith(vers.Kotlin, warnOnly)
-        "androidx.compose.compiler" -> checkWith(vers.ComposeCompiler, warnOnly)
+        "org.jetbrains.kotlin" -> checkWith(Vers.Kotlin, warnOnly)
+        AndroidX.Compose.Compiler.compiler.group -> checkWith(Vers.ComposeCompilerAX, warnOnly)
+        Org.JetBrains.Compose.Compiler.compiler.group -> checkWith(Vers.ComposeCompilerJB, warnOnly)
         "androidx.compose.ui", "androidx.compose.animation", "androidx.compose.foundation",
-        "androidx.compose.material" -> checkWith(vers.ComposeAndro, warnOnly)
+        "androidx.compose.material" -> checkWith(Vers.ComposeAndro, warnOnly)
 
         "androidx.compose.runtime" -> when (name) {
             "runtime-livedata", "runtime", "runtime-rxjava2", "runtime-rxjava3",
-            "runtime-saveable" -> checkWith(vers.ComposeAndro, warnOnly)
+            "runtime-saveable" -> checkWith(Vers.ComposeAndro, warnOnly)
         }
     }
 }
@@ -37,19 +37,36 @@ object Vers {
      * Manually selected kotlin version. Have to be working with current compose multiplatform and compose andro.
      * - [compose kotlin compatibility](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-compatibility-and-versioning.html#kotlin-compatibility)
      * - [releases github](https://github.com/JetBrains/kotlin/releases)
-     * - [compiler dev repo table](https://androidx.dev/storage/compose-compiler/repository)
+     * - [compiler AX dev repo table](https://androidx.dev/storage/compose-compiler/repository)
+     * - [compiler JB space maven](https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/compiler/compiler/)
      */
-    val Kotlin = Ver("2.0.0-Beta1")
+    val Kotlin = Ver("2.0.0-Beta2")
 
-    val ComposeCompilerFromAXStable = AndroidX.Compose.Compiler.compiler.verStable!!
-    val ComposeCompilerFor1921 = Ver("1.5.6-dev-k1.9.21-3eed341308a") // this ver is prepared for 1.9.21
-    val ComposeCompilerFor200B1 = Ver("1.5.6-dev-k2.0.0-Beta1-06a03be2b42") // this ver is prepared for 2.0.0-Beta1
+
+    // Compose compilers build by Google (AndroidX "AX", aka Jetpack Compiler)
+
+    val ComposeCompilerAXStable = AndroidX.Compose.Compiler.compiler.verStable!!
+    val ComposeCompilerAXFor1920 = Ver("1.5.4-dev-k1.9.20-50f08dfa4b4") // this ver is prepared for 1.9.20
+    val ComposeCompilerAXFor1921 = Ver("1.5.6-dev-k1.9.21-3eed341308a") // this ver is prepared for 1.9.21
+    val ComposeCompilerAXFor200B1 = Ver("1.5.6-dev-k2.0.0-Beta1-06a03be2b42") // this ver is prepared for 2.0.0-Beta1
 
     /** Selected Compose Compiler version. Should always be kept compatible with the selected Kotlin version. */
-    val ComposeCompiler = ComposeCompilerFor200B1
+    @Deprecated("Usually it's better to let compose plugin (mpp or andro) select default compose compiler.")
+    val ComposeCompilerAX = ComposeCompilerAXFor200B1
+
+    // Compose compilers built by JetBrains ("JB")
+
+    // https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/compiler/compiler/
+    val ComposeCompilerJBStable = Org.JetBrains.Compose.Compiler.compiler.verStable!!
+    val ComposeCompilerJBFor200B1 = Ver("1.5.4-dev1-kt2.0.0-Beta1")
+    val ComposeCompilerJBFor200B2 = Ver("1.5.6-dev1-kt2.0.0-Beta2")
+
+    @Deprecated("Usually it's better to let compose plugin (mpp or andro) select default compose compiler.")
+    val ComposeCompilerJB = ComposeCompilerJBFor200B2
+
 
     // https://github.com/JetBrains/compose-multiplatform/releases
-    val ComposeEdge = Ver("1.6.0-dev1334")
+    val ComposeEdge = Ver("1.6.0-dev1340")
 
     /** Selected ComposeMultiplatform version. Should always be kept compatible with the selected Kotlin version. */
     // val Compose = Org.JetBrains.Compose.gradle_plugin.ver!!

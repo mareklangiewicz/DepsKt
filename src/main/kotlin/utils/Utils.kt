@@ -12,8 +12,34 @@ import org.gradle.api.provider.*
 import org.gradle.api.tasks.*
 import pl.mareklangiewicz.deps.*
 import pl.mareklangiewicz.io.*
+import pl.mareklangiewicz.ure.*
 import kotlin.properties.*
 import kotlin.reflect.*
+
+
+
+fun String.toVersionIntCode() = split(".").let { 0 +
+        it[0].toVersionPartIntCode() * 10_000 * 10_000 +
+        it[1].toVersionPartIntCode() * 10_000 +
+        it[2].toVersionPartIntCode() * 1
+}
+
+/**
+ * We don't want any fancy interpretation of suffixes, because the result has to be monotonically increasing!
+ * We also don't want to accept weird suffixes, just accept and ignore reasonable suffixes.
+ */
+fun String.toVersionPartIntCode(): Int = matchEntire(
+    ure {
+        0..MAX of ch('0') // have to ignore leading zeros because these confuse parser later (potentially octal)
+        1 of ure {
+            1..4 of chDigit
+        }.withName("VersionPart")
+        val chWoH = chWord or ch("-")
+        0..MAX of chWoH
+    }
+)?.named["VersionPart"]?.value?.toInt() ?: error("Can't parse version part: '$this'.")
+
+
 
 
 // Overloads for setting properties in more typesafe and explicit ways (and fewer parentheses)

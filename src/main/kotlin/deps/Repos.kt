@@ -16,8 +16,8 @@ object Repos {
     val kotlinxHtml = URI("https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven")
 
     val composeJbDev = URI("https://maven.pkg.jetbrains.space/public/p/compose/dev")
-
-    val composeCompilerAndroidxDev = URI("https://androidx.dev/storage/compose-compiler/repository/")
+    val composeCompilerJbDev = composeJbDev
+    val composeCompilerAXDev = URI("https://androidx.dev/storage/compose-compiler/repository/")
 
     val jitpack = URI("https://jitpack.io")
 
