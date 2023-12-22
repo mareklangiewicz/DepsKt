@@ -20,7 +20,7 @@ fun RepositoryHandler.addRepos(settings: LibReposSettings) = with(settings) {
     if (withKotlinx) maven(repos.kotlinx)
     if (withKotlinxHtml) maven(repos.kotlinxHtml)
     if (withComposeJbDev) maven(repos.composeJbDev)
-    if (withComposeCompilerAndroidxDev) maven(repos.composeCompilerAndroidxDev)
+    if (withComposeCompilerAxDev) maven(repos.composeCompilerAxDev)
     if (withKtorEap) maven(repos.ktorEap)
     if (withJitpack) maven(repos.jitpack)
 }
