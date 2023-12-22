@@ -46,19 +46,19 @@ data class LibSettings(
         withComposeMaterial3 = withJvm,
         withComposeFullAnimation = withJvm,
         withComposeDesktop = withJvm,
-        withComposeWebCore = withJs,
-        withComposeWebSvg = withJs,
+        withComposeHtmlCore = withJs,
+        withComposeHtmlSvg = withJs,
         withComposeTestUiJUnit4 = withTestJUnit4,
         withComposeTestUiJUnit5 = withTestJUnit5,
-        withComposeTestWebUtils = withJs,
+        withComposeTestHtmlUtils = withJs,
     ),
 
     val andro: LibAndroSettings? = null,
 
     val repos: LibReposSettings = LibReposSettings(
         withKotlinxHtml = withKotlinxHtml,
-        withComposeJbDev = compose != null,
-        withComposeCompilerAndroidxDev = compose?.withComposeCompilerVer != null
+        withComposeJbDev = compose != null, // it also contains Jb compose compilers
+        withComposeCompilerAxDev = compose?.withComposeCompiler?.group == AndroidX.Compose.Compiler.compiler.group
     )
 ) {
     val withCompose get() = compose != null
@@ -67,7 +67,13 @@ data class LibSettings(
 
 /** In [LibSettings.compose] the defaults are adjusted depending on platforms. */
 data class LibComposeSettings(
-    val withComposeCompilerVer: Ver? = null,
+    /**
+     * The null means plugin should select the compiler by itself (usually depending on the current kotlin version).
+     * In "android only" case we only accept compilers built by Google ("androidx.compose.compiler...")
+     * In mpp case we will accept any compiler, but compose mp plugin currently complains if JS is enabled,
+     * and compiler is not "org.jetbrains.compose.compiler..."
+     */
+    val withComposeCompiler: Dep? = null,
     val withComposeUi: Boolean = true,
     val withComposeFoundation: Boolean = true,
     val withComposeMaterial2: Boolean = true,
@@ -78,8 +84,8 @@ data class LibComposeSettings(
     val withComposeDesktop: Boolean = true,
     val withComposeDesktopComponents: Boolean = false,
     // https://mvnrepository.com/artifact/org.jetbrains.compose.components/components-splitpane?repo=space-public-compose-dev
-    val withComposeWebCore: Boolean = false,
-    val withComposeWebSvg: Boolean = false,
+    val withComposeHtmlCore: Boolean = false,
+    val withComposeHtmlSvg: Boolean = false,
     val withComposeTestUiJUnit4: Boolean = false,
     val withComposeTestUiJUnit5: Boolean = false,
     // Not yet supported, but let's use this flag to use when I want to experiment with junit5 anyway.
@@ -88,7 +94,7 @@ data class LibComposeSettings(
     // https://github.com/android/android-test/issues/224
     // https://github.com/JetBrains/compose-multiplatform/issues/2371
 
-    val withComposeTestWebUtils: Boolean = false,
+    val withComposeTestHtmlUtils: Boolean = false,
 )
 
 data class LibAndroSettings(
@@ -119,8 +125,8 @@ data class LibReposSettings(
     val withGoogle: Boolean = true,
     val withKotlinx: Boolean = true,
     val withKotlinxHtml: Boolean = false,
-    val withComposeJbDev: Boolean = false,
-    val withComposeCompilerAndroidxDev: Boolean = false,
+    val withComposeJbDev: Boolean = false, // Repos.composeCompilerJbDev == Repos.composeJbDev
+    val withComposeCompilerAxDev: Boolean = false,
     val withKtorEap: Boolean = false,
     val withJitpack: Boolean = false,
 )

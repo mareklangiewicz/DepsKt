@@ -111,10 +111,10 @@ typealias Langiewicz = Pl.MarekLangiewicz
 typealias Compose = Org.JetBrains.Compose
 
 @Deprecated("Usually it's better to let compose plugin (mpp or andro) select default compose compiler.")
-val ComposeCompilerAX get() = AndroidX.Compose.Compiler.compiler.withVer(Vers.ComposeCompilerAX)
+val ComposeCompilerAx get() = AndroidX.Compose.Compiler.compiler.withVer(Vers.ComposeCompilerAx)
 
 @Deprecated("Usually it's better to let compose plugin (mpp or andro) select default compose compiler.")
-val ComposeCompilerJB get() = Org.JetBrains.Compose.Compiler.compiler.withVer(Vers.ComposeCompilerJB)
+val ComposeCompilerJb get() = Org.JetBrains.Compose.Compiler.compiler.withVer(Vers.ComposeCompilerJb)
 
 
 /**
