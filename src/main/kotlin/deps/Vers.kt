@@ -66,7 +66,7 @@ object Vers {
 
 
     // https://github.com/JetBrains/compose-multiplatform/releases
-    val ComposeEdge = Ver("1.6.0-dev1340")
+    val ComposeEdge = Ver("1.6.0-dev1350")
 
     /** Selected ComposeMultiplatform version. Should always be kept compatible with the selected Kotlin version. */
     // val Compose = Org.JetBrains.Compose.gradle_plugin.ver!!
