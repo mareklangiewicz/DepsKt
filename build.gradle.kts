@@ -51,7 +51,7 @@ defaultGroupAndVerAndDescription(
         group = "pl.mareklangiewicz.deps", // important non default ...deps group (as accepted on gradle portal)
         description = "Updated dependencies for typical java/kotlin/android projects (with IDE support).",
         githubUrl = "https://github.com/langara/DepsKt",
-        version = Ver(0, 2, 77),
+        version = Ver(0, 2, 78),
         // https://plugins.gradle.org/search?term=pl.mareklangiewicz
         settings = LibSettings(
             withJs = false,

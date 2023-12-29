@@ -95,7 +95,7 @@ object Vers {
      * - [gradle org docs](https://docs.gradle.com/enterprise/gradle-plugin/)
      * - [gradle portal](https://plugins.gradle.org/plugin/com.gradle.enterprise)
      */
-    val GradleEnterprisePlug = Ver("3.16", 0)
+    val GradleEnterprisePlug = Ver("3.16.1", 0)
 
     /**
      * Android Gradle Plugin
@@ -104,7 +104,7 @@ object Vers {
      * - [releases](https://developer.android.com/studio/releases/gradle-plugin)
      */
     val AndroPlugStable = Ver("8.2.0")
-    val AndroPlugEdge = Ver("8.3.0-alpha17")
+    val AndroPlugEdge = Ver("8.4.0-alpha01")
     val AndroPlug = AndroPlugEdge
 
     /**
@@ -127,7 +127,7 @@ object Vers {
      * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
      * [github](https://github.com/Kotlin/kotlin-jupyter)
      */
-    val KotlinJupyterPlug = Ver("0.12.0-97")
+    val KotlinJupyterPlug = Ver("0.12.0-103")
 
     /**
      * Osacky Doctor Gradle Plugin
@@ -142,7 +142,7 @@ object Vers {
      * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
      * - [github](https://github.com/langara/DepsKt)
      */
-    val DepsPlug = Ver("0.2.68")
+    val DepsPlug = Ver("0.2.78")
 
     val JvmDefaultVer = "21" // I had terrible issues with "16" (andro compose project)
 
