@@ -781,7 +781,7 @@ object Com {
             val desugar_jdk_libs = Dep("com.android.tools", "desugar_jdk_libs", Ver("2.0.4", 0))
             val r8 = Dep("com.android.tools", "r8", Ver("8.2.33", 0))
             object Build {
-                val gradle = Dep("com.android.tools.build", "gradle", Ver("2.3.0", 0), Ver("2.3.3", 0), Ver("2.4.0-alpha7", 300), Ver("2.5.0-alpha-preview-02", 400), Ver("8.2.0", 0), Ver("8.3.0-beta01", 200))
+                val gradle = Dep("com.android.tools.build", "gradle", Ver("2.3.0", 0), Ver("2.3.3", 0), Ver("2.4.0-alpha7", 300), Ver("2.5.0-alpha-preview-02", 400), Ver("8.2.0", 0), Ver("8.3.0-beta01", 200), Ver("8.4.0-alpha01", 300))
             }
         }
     }
@@ -1161,11 +1161,11 @@ object Com {
     }
     object Rickclephas {
         object Kmp {
-            val nativecoroutines_annotations = Dep("com.rickclephas.kmp", "kmp-nativecoroutines-annotations", Ver("0.13.3", 0), Ver("1.0.0-ALPHA-23-kotlin-2.0.0-Beta2", 300), Ver("1.0.0-ALPHA-24", 300))
-            val nativecoroutines_compiler = Dep("com.rickclephas.kmp", "kmp-nativecoroutines-compiler", Ver("0.13.3", 0), Ver("1.0.0-ALPHA-23-kotlin-2.0.0-Beta2", 300), Ver("1.0.0-ALPHA-24", 300))
-            val nativecoroutines_compiler_embeddable = Dep("com.rickclephas.kmp", "kmp-nativecoroutines-compiler-embeddable", Ver("0.13.3", 0), Ver("1.0.0-ALPHA-23-kotlin-2.0.0-Beta2", 300), Ver("1.0.0-ALPHA-24", 300))
-            val nativecoroutines_core = Dep("com.rickclephas.kmp", "kmp-nativecoroutines-core", Ver("0.13.3", 0), Ver("1.0.0-ALPHA-24", 300))
-            val nativecoroutines_gradle_plugin = Dep("com.rickclephas.kmp", "kmp-nativecoroutines-gradle-plugin", Ver("0.13.3", 0), Ver("1.0.0-ALPHA-24", 300))
+            val nativecoroutines_annotations = Dep("com.rickclephas.kmp", "kmp-nativecoroutines-annotations", Ver("0.13.3", 0), Ver("1.0.0-ALPHA-24-kotlin-2.0.0-Beta2", 300))
+            val nativecoroutines_compiler = Dep("com.rickclephas.kmp", "kmp-nativecoroutines-compiler", Ver("0.13.3", 0), Ver("1.0.0-ALPHA-24-kotlin-2.0.0-Beta2", 300))
+            val nativecoroutines_compiler_embeddable = Dep("com.rickclephas.kmp", "kmp-nativecoroutines-compiler-embeddable", Ver("0.13.3", 0), Ver("1.0.0-ALPHA-24-kotlin-2.0.0-Beta2", 300))
+            val nativecoroutines_core = Dep("com.rickclephas.kmp", "kmp-nativecoroutines-core", Ver("0.13.3", 0), Ver("1.0.0-ALPHA-24-kotlin-2.0.0-Beta2", 300))
+            val nativecoroutines_gradle_plugin = Dep("com.rickclephas.kmp", "kmp-nativecoroutines-gradle-plugin", Ver("0.13.3", 0), Ver("1.0.0-ALPHA-24-kotlin-2.0.0-Beta2", 300))
         }
     }
     object Russhwolf {
