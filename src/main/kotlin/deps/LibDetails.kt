@@ -15,7 +15,7 @@ data class LibDetails(
     val version: Ver,
 
     val namespace: String = "$group.${name.lowercase()}", // currently used in andro libs and apps
-    val appId: String = namespace, // currently used in andro apps
+    val appId: String = "$namespace.app", // currently used in andro apps
     val appMainPackage: String = namespace,
     val appMainClass: String = "App_jvmKt", // for compose jvm
     val appMainFun: String = "main", // for native
