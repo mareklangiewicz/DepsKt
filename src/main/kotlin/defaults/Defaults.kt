@@ -19,7 +19,7 @@ fun Project.defaultGroupAndVer(dep: String) {
 
 fun Project.defaultGroupAndVerAndDescription(lib: LibDetails = rootExtLibDetails) {
     group = lib.group
-    version = lib.version?.ver ?: error("No version for ${lib.name} provided.")
+    version = lib.version.ver
     description = lib.description
 }
 

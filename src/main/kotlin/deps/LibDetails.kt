@@ -14,7 +14,7 @@ data class LibDetails(
     val licenceUrl: String,
     val version: Ver,
 
-    val namespace: String = "$group.${name.lowercase()}", // currently used in andro libs and apps
+    val namespace: String = "$group.$name".lowercase(), // currently used in andro libs and apps
     val appId: String = "$namespace.app", // currently used in andro apps
     val appMainPackage: String = namespace,
     val appMainClass: String = "App_jvmKt", // for compose jvm
@@ -135,10 +135,10 @@ fun langaraLibDetails(
     name: String,
     group: String = "pl.mareklangiewicz",
     description: String = "",
-    authorId: String = "langara",
+    authorId: String = "mareklangiewicz",
     authorName: String = "Marek Langiewicz",
     authorEmail: String = "marek.langiewicz@gmail.com",
-    githubUrl: String = "https://github.com/langara",
+    githubUrl: String = "https://github.com/mareklangiewicz",
     licenceName: String = "Apache-2.0",
     licenceUrl: String = "https://opensource.org/licenses/Apache-2.0",
     version: Ver = Ver(0, 0, 1),
