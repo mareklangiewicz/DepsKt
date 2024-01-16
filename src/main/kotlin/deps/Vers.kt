@@ -142,7 +142,7 @@ object Vers {
      * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
      * - [github](https://github.com/langara/DepsKt)
      */
-    val DepsPlug = Ver("0.2.80")
+    val DepsPlug = Ver("0.2.81")
 
     val JvmDefaultVer = "21" // I had terrible issues with "16" (andro compose project)
 
