@@ -489,27 +489,27 @@ object AndroidX {
         val widget = Dep("androidx.media2", "media2-widget", Ver("1.3.0", 0))
     }
     object Media3 {
-        val cast = Dep("androidx.media3", "media3-cast", Ver("1.2.1", 0))
-        val common = Dep("androidx.media3", "media3-common", Ver("1.2.1", 0))
-        val database = Dep("androidx.media3", "media3-database", Ver("1.2.1", 0))
-        val datasource = Dep("androidx.media3", "media3-datasource", Ver("1.2.1", 0))
-        val datasource_cronet = Dep("androidx.media3", "media3-datasource-cronet", Ver("1.2.1", 0))
-        val datasource_okhttp = Dep("androidx.media3", "media3-datasource-okhttp", Ver("1.2.1", 0))
-        val datasource_rtmp = Dep("androidx.media3", "media3-datasource-rtmp", Ver("1.2.1", 0))
-        val decoder = Dep("androidx.media3", "media3-decoder", Ver("1.2.1", 0))
-        val exoplayer = Dep("androidx.media3", "media3-exoplayer", Ver("1.2.1", 0))
-        val exoplayer_dash = Dep("androidx.media3", "media3-exoplayer-dash", Ver("1.2.1", 0))
-        val exoplayer_hls = Dep("androidx.media3", "media3-exoplayer-hls", Ver("1.2.1", 0))
-        val exoplayer_ima = Dep("androidx.media3", "media3-exoplayer-ima", Ver("1.2.1", 0))
-        val exoplayer_rtsp = Dep("androidx.media3", "media3-exoplayer-rtsp", Ver("1.2.1", 0))
-        val exoplayer_workmanager = Dep("androidx.media3", "media3-exoplayer-workmanager", Ver("1.2.1", 0))
-        val extractor = Dep("androidx.media3", "media3-extractor", Ver("1.2.1", 0))
-        val session = Dep("androidx.media3", "media3-session", Ver("1.2.1", 0))
-        val test_utils = Dep("androidx.media3", "media3-test-utils", Ver("1.2.1", 0))
-        val test_utils_robolectric = Dep("androidx.media3", "media3-test-utils-robolectric", Ver("1.2.1", 0))
-        val transformer = Dep("androidx.media3", "media3-transformer", Ver("1.2.1", 0))
-        val ui = Dep("androidx.media3", "media3-ui", Ver("1.2.1", 0))
-        val ui_leanback = Dep("androidx.media3", "media3-ui-leanback", Ver("1.2.1", 0))
+        val cast = Dep("androidx.media3", "media3-cast", Ver("1.2.1", 0), Ver("1.3.0-alpha01", 300))
+        val common = Dep("androidx.media3", "media3-common", Ver("1.2.1", 0), Ver("1.3.0-alpha01", 300))
+        val database = Dep("androidx.media3", "media3-database", Ver("1.2.1", 0), Ver("1.3.0-alpha01", 300))
+        val datasource = Dep("androidx.media3", "media3-datasource", Ver("1.2.1", 0), Ver("1.3.0-alpha01", 300))
+        val datasource_cronet = Dep("androidx.media3", "media3-datasource-cronet", Ver("1.2.1", 0), Ver("1.3.0-alpha01", 300))
+        val datasource_okhttp = Dep("androidx.media3", "media3-datasource-okhttp", Ver("1.2.1", 0), Ver("1.3.0-alpha01", 300))
+        val datasource_rtmp = Dep("androidx.media3", "media3-datasource-rtmp", Ver("1.2.1", 0), Ver("1.3.0-alpha01", 300))
+        val decoder = Dep("androidx.media3", "media3-decoder", Ver("1.2.1", 0), Ver("1.3.0-alpha01", 300))
+        val exoplayer = Dep("androidx.media3", "media3-exoplayer", Ver("1.2.1", 0), Ver("1.3.0-alpha01", 300))
+        val exoplayer_dash = Dep("androidx.media3", "media3-exoplayer-dash", Ver("1.2.1", 0), Ver("1.3.0-alpha01", 300))
+        val exoplayer_hls = Dep("androidx.media3", "media3-exoplayer-hls", Ver("1.2.1", 0), Ver("1.3.0-alpha01", 300))
+        val exoplayer_ima = Dep("androidx.media3", "media3-exoplayer-ima", Ver("1.2.1", 0), Ver("1.3.0-alpha01", 300))
+        val exoplayer_rtsp = Dep("androidx.media3", "media3-exoplayer-rtsp", Ver("1.2.1", 0), Ver("1.3.0-alpha01", 300))
+        val exoplayer_workmanager = Dep("androidx.media3", "media3-exoplayer-workmanager", Ver("1.2.1", 0), Ver("1.3.0-alpha01", 300))
+        val extractor = Dep("androidx.media3", "media3-extractor", Ver("1.2.1", 0), Ver("1.3.0-alpha01", 300))
+        val session = Dep("androidx.media3", "media3-session", Ver("1.2.1", 0), Ver("1.3.0-alpha01", 300))
+        val test_utils = Dep("androidx.media3", "media3-test-utils", Ver("1.2.1", 0), Ver("1.3.0-alpha01", 300))
+        val test_utils_robolectric = Dep("androidx.media3", "media3-test-utils-robolectric", Ver("1.2.1", 0), Ver("1.3.0-alpha01", 300))
+        val transformer = Dep("androidx.media3", "media3-transformer", Ver("1.2.1", 0), Ver("1.3.0-alpha01", 300))
+        val ui = Dep("androidx.media3", "media3-ui", Ver("1.2.1", 0), Ver("1.3.0-alpha01", 300))
+        val ui_leanback = Dep("androidx.media3", "media3-ui-leanback", Ver("1.2.1", 0), Ver("1.3.0-alpha01", 300))
     }
     object MediaRouter {
         val mediarouter = Dep("androidx.mediarouter", "mediarouter", Ver("1.6.0", 0), Ver("1.7.0-alpha01", 300))
@@ -892,18 +892,18 @@ object Com {
                 val strict_version_matcher_plugin = Dep("com.google.android.gms", "strict-version-matcher-plugin", Ver("1.2.4", 0))
             }
             object Horologist {
-                val audio = Dep("com.google.android.horologist", "horologist-audio", Ver("0.5.18", 0), Ver("0.5.19", 0))
+                val audio = Dep("com.google.android.horologist", "horologist-audio", Ver("0.5.19", 0))
                 val audio_ui = Dep("com.google.android.horologist", "horologist-audio-ui", Ver("0.5.19", 0))
-                val composables = Dep("com.google.android.horologist", "horologist-composables", Ver("0.5.18", 0), Ver("0.5.19", 0))
+                val composables = Dep("com.google.android.horologist", "horologist-composables", Ver("0.5.19", 0))
                 val compose_layout = Dep("com.google.android.horologist", "horologist-compose-layout", Ver("0.5.19", 0))
                 val compose_tools = Dep("com.google.android.horologist", "horologist-compose-tools", Ver("0.5.19", 0))
                 val datalayer = Dep("com.google.android.horologist", "horologist-datalayer", Ver("0.5.19", 0))
                 val media = Dep("com.google.android.horologist", "horologist-media", Ver("0.5.19", 0))
-                val media3_backend = Dep("com.google.android.horologist", "horologist-media3-backend", Ver("0.5.18", 0), Ver("0.5.19", 0))
-                val media_data = Dep("com.google.android.horologist", "horologist-media-data", Ver("0.5.18", 0), Ver("0.5.19", 0))
+                val media3_backend = Dep("com.google.android.horologist", "horologist-media3-backend", Ver("0.5.19", 0))
+                val media_data = Dep("com.google.android.horologist", "horologist-media-data", Ver("0.5.19", 0))
                 val media_ui = Dep("com.google.android.horologist", "horologist-media-ui", Ver("0.5.19", 0))
                 val network_awareness = Dep("com.google.android.horologist", "horologist-network-awareness", Ver("0.5.19", 0))
-                val tiles = Dep("com.google.android.horologist", "horologist-tiles", Ver("0.5.18", 0), Ver("0.5.19", 0))
+                val tiles = Dep("com.google.android.horologist", "horologist-tiles", Ver("0.5.19", 0))
             }
             object Libraries {
                 object Places {
@@ -1623,7 +1623,7 @@ object Org {
         object Compose {
             val gradle_plugin = Dep("org.jetbrains.compose", "compose-gradle-plugin", Ver("1.5.11", 0), Ver("1.6.0-alpha01", 300))
             object Compiler {
-                val compiler = Dep("org.jetbrains.compose.compiler", "compiler", Ver("1.5.7.1", 0))
+                val compiler = Dep("org.jetbrains.compose.compiler", "compiler", Ver("1.5.7.1", 0), Ver("1.5.8-beta01", 200))
             }
         }
         object Exposed {
@@ -1937,8 +1937,11 @@ object Pl {
         val kgroundx_io_js = Dep("pl.mareklangiewicz", "kgroundx-io-js", Ver("0.0.35", 0))
         val kgroundx_io_jvm = Dep("pl.mareklangiewicz", "kgroundx-io-jvm", Ver("0.0.35", 0))
         val kgroundx_js = Dep("pl.mareklangiewicz", "kgroundx-js", Ver("0.0.35", 0))
+        val kgroundx_jupyter = Dep("pl.mareklangiewicz", "kgroundx-jupyter", Ver("0.0.35", 0))
+        val kgroundx_jupyter_jvm = Dep("pl.mareklangiewicz", "kgroundx-jupyter-jvm", Ver("0.0.35", 0))
         val kgroundx_jvm = Dep("pl.mareklangiewicz", "kgroundx-jvm", Ver("0.0.35", 0))
         val kgroundx_maintenance = Dep("pl.mareklangiewicz", "kgroundx-maintenance", Ver("0.0.35", 0))
+        val kgroundx_maintenance_js = Dep("pl.mareklangiewicz", "kgroundx-maintenance-js")
         val kgroundx_maintenance_jvm = Dep("pl.mareklangiewicz", "kgroundx-maintenance-jvm", Ver("0.0.35", 0))
         val kommandjupyter = Dep("pl.mareklangiewicz", "kommandjupyter", Ver("0.0.41", 0))
         val kommandjupyter_jvm = Dep("pl.mareklangiewicz", "kommandjupyter-jvm", Ver("0.0.41", 0))
