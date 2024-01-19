@@ -58,6 +58,7 @@ object Vers {
 
     // https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/compiler/compiler/
     val ComposeCompilerJbStable = Org.JetBrains.Compose.Compiler.compiler.verStable!!
+    val ComposeCompilerJbFor1922 = Ver("1.5.8-beta01")
     val ComposeCompilerJbFor200B1 = Ver("1.5.4-dev1-kt2.0.0-Beta1")
     val ComposeCompilerJbFor200B2 = Ver("1.5.6-dev1-kt2.0.0-Beta2")
 
