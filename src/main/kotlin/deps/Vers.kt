@@ -40,7 +40,7 @@ object Vers {
      * - [compiler Ax dev repo table](https://androidx.dev/storage/compose-compiler/repository)
      * - [compiler Jb space maven](https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/compiler/compiler/)
      */
-    val Kotlin = Ver("2.0.0-Beta2")
+    val Kotlin = Ver("2.0.0-Beta3")
 
 
     // Compose compilers build by Google (AndroidX "Ax", aka Jetpack Compiler)

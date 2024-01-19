@@ -74,6 +74,7 @@ data class LibComposeSettings(
      * and compiler is not "org.jetbrains.compose.compiler..."
      */
     val withComposeCompiler: Dep? = null,
+    val withComposeCompilerAllowWrongKotlinVer: Ver? = null,
     val withComposeUi: Boolean = true,
     val withComposeFoundation: Boolean = true,
     val withComposeMaterial2: Boolean = true,
