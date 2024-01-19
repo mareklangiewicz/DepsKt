@@ -30,7 +30,7 @@ repositories {
 }
 
 dependencies {
-    api("pl.mareklangiewicz:kgroundx-maintenance:0.0.34")
+    api("pl.mareklangiewicz:kgroundx-maintenance:0.0.35")
     // FIXME https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kground/
 
     testImplementation(Langiewicz.uspekx_junit5)
@@ -51,7 +51,7 @@ defaultGroupAndVerAndDescription(
         group = "pl.mareklangiewicz.deps", // important non default ...deps group (as accepted on gradle portal)
         description = "Updated dependencies for typical java/kotlin/android projects (with IDE support).",
         githubUrl = "https://github.com/langara/DepsKt",
-        version = Ver(0, 2, 81),
+        version = Ver(0, 2, 82),
         // https://plugins.gradle.org/search?term=pl.mareklangiewicz
         settings = LibSettings(
             withJs = false,
