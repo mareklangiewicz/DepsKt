@@ -1536,9 +1536,9 @@ object JUnit {
 }
 object Org {
     object AssertJ {
-        val core = Dep("org.assertj", "assertj-core", Ver("3.25.2", 0))
+        val core = Dep("org.assertj", "assertj-core", Ver("3.25.3", 0))
         val db = Dep("org.assertj", "assertj-db", Ver("2.0.2", 0))
-        val guava = Dep("org.assertj", "assertj-guava", Ver("3.25.2", 0))
+        val guava = Dep("org.assertj", "assertj-guava", Ver("3.25.2", 0), Ver("3.25.3", 0))
         val joda_time = Dep("org.assertj", "assertj-joda-time", Ver("2.2.0", 0))
         val swing = Dep("org.assertj", "assertj-swing", Ver("3.17.1", 0))
     }
@@ -1610,13 +1610,13 @@ object Org {
         val testing_webdriver = Dep("org.http4k", "http4k-testing-webdriver", Ver("5.13.2.0", 0))
     }
     object JUnit {
-        val bom = Dep("org.junit", "junit-bom", Ver("5.10.1", 0), Ver("5.10.2", 0))
+        val bom = Dep("org.junit", "junit-bom", Ver("5.10.2", 0))
         object Jupiter {
             val junit_jupiter = Dep("org.junit.jupiter", "junit-jupiter", Ver("5.10.2", 0))
-            val junit_jupiter_api = Dep("org.junit.jupiter", "junit-jupiter-api", Ver("5.10.1", 0), Ver("5.10.2", 0))
-            val junit_jupiter_engine = Dep("org.junit.jupiter", "junit-jupiter-engine", Ver("5.10.1", 0), Ver("5.10.2", 0))
+            val junit_jupiter_api = Dep("org.junit.jupiter", "junit-jupiter-api", Ver("5.10.2", 0))
+            val junit_jupiter_engine = Dep("org.junit.jupiter", "junit-jupiter-engine", Ver("5.10.2", 0))
             val junit_jupiter_migrationsupport = Dep("org.junit.jupiter", "junit-jupiter-migrationsupport", Ver("5.10.2", 0))
-            val junit_jupiter_params = Dep("org.junit.jupiter", "junit-jupiter-params", Ver("5.10.1", 0), Ver("5.10.2", 0))
+            val junit_jupiter_params = Dep("org.junit.jupiter", "junit-jupiter-params", Ver("5.10.2", 0))
         }
     }
     object JetBrains {
