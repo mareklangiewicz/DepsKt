@@ -40,7 +40,7 @@ object Vers {
      * - [compiler Ax dev repo table](https://androidx.dev/storage/compose-compiler/repository)
      * - [compiler Jb space maven](https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/compiler/compiler/)
      */
-    val Kotlin = Ver("2.0.0-Beta3")
+    val Kotlin = Ver("2.0.0-Beta4") // TODO: update compose compilers versions, when some compatible with B4 are available
 
 
     // Compose compilers build by Google (AndroidX "Ax", aka Jetpack Compiler)
@@ -50,9 +50,10 @@ object Vers {
     val ComposeCompilerAxFor1921 = Ver("1.5.6-dev-k1.9.21-3eed341308a") // this ver is prepared for 1.9.21
     val ComposeCompilerAxFor200B1 = Ver("1.5.6-dev-k2.0.0-Beta1-06a03be2b42") // this ver is prepared for 2.0.0-Beta1
     val ComposeCompilerAxFor200B2 = Ver("1.5.8-dev-k2.0.0-Beta2-99ed868a0f8") // this ver is prepared for 2.0.0-Beta2
+    val ComposeCompilerAxFor200B3 = Ver("1.5.9-dev-k2.0.0-Beta3-7c5ec6895a0") // this ver is prepared for 2.0.0-Beta3
     /** Selected Compose Compiler version. Should always be kept compatible with the selected Kotlin version. */
     @Deprecated("Usually it's better to let compose plugin (mpp or andro) select default compose compiler.")
-    val ComposeCompilerAx = ComposeCompilerAxFor200B2
+    val ComposeCompilerAx = ComposeCompilerAxFor200B3
 
     // Compose compilers built by JetBrains ("Jb")
 
@@ -61,13 +62,14 @@ object Vers {
     val ComposeCompilerJbFor1922 = Ver("1.5.8-beta01")
     val ComposeCompilerJbFor200B1 = Ver("1.5.4-dev1-kt2.0.0-Beta1")
     val ComposeCompilerJbFor200B2 = Ver("1.5.6-dev1-kt2.0.0-Beta2")
+    val ComposeCompilerJbFor200B3 = Ver("1.5.6-dev2-kt2.0.0-Beta3")
 
     @Deprecated("Usually it's better to let compose plugin (mpp or andro) select default compose compiler.")
-    val ComposeCompilerJb = ComposeCompilerJbFor200B2
+    val ComposeCompilerJb = ComposeCompilerJbFor200B3
 
 
     // https://github.com/JetBrains/compose-multiplatform/releases
-    val ComposeEdge = Ver("1.6.0-dev1378")
+    val ComposeEdge = Ver("1.6.0-dev1419")
 
     /** Selected ComposeMultiplatform version. Should always be kept compatible with the selected Kotlin version. */
     // val Compose = Org.JetBrains.Compose.gradle_plugin.ver!!
@@ -96,7 +98,7 @@ object Vers {
      * - [gradle org docs](https://docs.gradle.com/enterprise/gradle-plugin/)
      * - [gradle portal](https://plugins.gradle.org/plugin/com.gradle.enterprise)
      */
-    val GradleEnterprisePlug = Ver("3.16.1", 0)
+    val GradleEnterprisePlug = Ver("3.16.2", 0)
 
     /**
      * Android Gradle Plugin
@@ -104,8 +106,8 @@ object Vers {
      * - [maven](https://maven.google.com/web/index.html#com.android.tools.build:gradle)
      * - [releases](https://developer.android.com/studio/releases/gradle-plugin)
      */
-    val AndroPlugStable = Ver("8.2.0")
-    val AndroPlugEdge = Ver("8.4.0-alpha04")
+    val AndroPlugStable = Ver("8.2.2")
+    val AndroPlugEdge = Ver("8.4.0-alpha09")
     val AndroPlug = AndroPlugEdge
 
     /**
@@ -128,7 +130,7 @@ object Vers {
      * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
      * [github](https://github.com/Kotlin/kotlin-jupyter)
      */
-    val KotlinJupyterPlug = Ver("0.12.0-110")
+    val KotlinJupyterPlug = Ver("0.12.0-132")
 
     /**
      * Osacky Doctor Gradle Plugin
@@ -143,15 +145,15 @@ object Vers {
      * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
      * - [github](https://github.com/langara/DepsKt)
      */
-    val DepsPlug = Ver("0.2.81")
+    val DepsPlug = Ver("0.2.84")
 
-    val JvmDefaultVer = "21" // I had terrible issues with "16" (andro compose project)
+    val JvmDefaultVer = "21"
 
 
     val Gradle5 = Ver("5.6.4", 0)
     val Gradle6 = Ver("6.8.3", 0)
-    val Gradle7 = Ver("7.6.1", 0)
-    val Gradle8 = Ver("8.5", 0)
+    val Gradle7 = Ver("7.6.4", 0)
+    val Gradle8 = Ver("8.6", 0)
 
     /**
      * Gradle - just a reference - not so useful in typical usecases
