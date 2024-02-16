@@ -852,7 +852,7 @@ object Com {
                 val oss_licenses_plugin = Dep("com.google.android.gms", "oss-licenses-plugin", Ver("0.10.6", 0))
                 val play_services_analytics = Dep("com.google.android.gms", "play-services-analytics", Ver("18.0.4", 0))
                 val play_services_appset = Dep("com.google.android.gms", "play-services-appset", Ver("16.0.2", 0))
-                val play_services_auth = Dep("com.google.android.gms", "play-services-auth", Ver("20.7.0", 0))
+                val play_services_auth = Dep("com.google.android.gms", "play-services-auth", Ver("21.0.0", 0))
                 val play_services_auth_api_phone = Dep("com.google.android.gms", "play-services-auth-api-phone", Ver("18.0.2", 0))
                 val play_services_auth_blockstore = Dep("com.google.android.gms", "play-services-auth-blockstore", Ver("16.2.0", 0))
                 val play_services_awareness = Dep("com.google.android.gms", "play-services-awareness", Ver("19.0.1", 0))
@@ -892,18 +892,18 @@ object Com {
                 val strict_version_matcher_plugin = Dep("com.google.android.gms", "strict-version-matcher-plugin", Ver("1.2.4", 0))
             }
             object Horologist {
-                val audio = Dep("com.google.android.horologist", "horologist-audio", Ver("0.5.21", 0))
-                val audio_ui = Dep("com.google.android.horologist", "horologist-audio-ui", Ver("0.5.21", 0))
-                val composables = Dep("com.google.android.horologist", "horologist-composables", Ver("0.5.21", 0))
-                val compose_layout = Dep("com.google.android.horologist", "horologist-compose-layout", Ver("0.5.21", 0))
-                val compose_tools = Dep("com.google.android.horologist", "horologist-compose-tools", Ver("0.5.21", 0))
-                val datalayer = Dep("com.google.android.horologist", "horologist-datalayer", Ver("0.5.21", 0))
-                val media = Dep("com.google.android.horologist", "horologist-media", Ver("0.5.21", 0))
-                val media3_backend = Dep("com.google.android.horologist", "horologist-media3-backend", Ver("0.5.21", 0))
-                val media_data = Dep("com.google.android.horologist", "horologist-media-data", Ver("0.5.21", 0))
-                val media_ui = Dep("com.google.android.horologist", "horologist-media-ui", Ver("0.5.21", 0))
-                val network_awareness = Dep("com.google.android.horologist", "horologist-network-awareness", Ver("0.5.21", 0))
-                val tiles = Dep("com.google.android.horologist", "horologist-tiles", Ver("0.5.21", 0))
+                val audio = Dep("com.google.android.horologist", "horologist-audio", Ver("0.5.22", 0))
+                val audio_ui = Dep("com.google.android.horologist", "horologist-audio-ui", Ver("0.5.22", 0))
+                val composables = Dep("com.google.android.horologist", "horologist-composables", Ver("0.5.22", 0))
+                val compose_layout = Dep("com.google.android.horologist", "horologist-compose-layout", Ver("0.5.22", 0))
+                val compose_tools = Dep("com.google.android.horologist", "horologist-compose-tools", Ver("0.5.22", 0))
+                val datalayer = Dep("com.google.android.horologist", "horologist-datalayer", Ver("0.5.22", 0))
+                val media = Dep("com.google.android.horologist", "horologist-media", Ver("0.5.22", 0))
+                val media3_backend = Dep("com.google.android.horologist", "horologist-media3-backend", Ver("0.5.22", 0))
+                val media_data = Dep("com.google.android.horologist", "horologist-media-data", Ver("0.5.22", 0))
+                val media_ui = Dep("com.google.android.horologist", "horologist-media-ui", Ver("0.5.22", 0))
+                val network_awareness = Dep("com.google.android.horologist", "horologist-network-awareness", Ver("0.5.22", 0))
+                val tiles = Dep("com.google.android.horologist", "horologist-tiles", Ver("0.5.22", 0))
             }
             object Libraries {
                 object Places {
@@ -1549,7 +1549,7 @@ object Org {
     }
     object Http4k {
         val aws = Dep("org.http4k", "http4k-aws", Ver("5.13.7.0", 0))
-        val bom = Dep("org.http4k", "http4k-bom", Ver("5.13.6.1", 0), Ver("5.13.7.0", 0))
+        val bom = Dep("org.http4k", "http4k-bom", Ver("5.13.7.0", 0))
         val client_apache = Dep("org.http4k", "http4k-client-apache", Ver("5.13.7.0", 0))
         val client_apache4 = Dep("org.http4k", "http4k-client-apache4", Ver("5.13.7.0", 0))
         val client_apache4_async = Dep("org.http4k", "http4k-client-apache4-async", Ver("5.13.7.0", 0))
@@ -1621,9 +1621,9 @@ object Org {
     }
     object JetBrains {
         object Compose {
-            val gradle_plugin = Dep("org.jetbrains.compose", "compose-gradle-plugin", Ver("1.5.12", 0), Ver("1.6.0-rc01", 100))
+            val gradle_plugin = Dep("org.jetbrains.compose", "compose-gradle-plugin", Ver("1.5.12", 0), Ver("1.6.0-rc01", 100), Ver("1.6.0-rc02", 100))
             object Compiler {
-                val compiler = Dep("org.jetbrains.compose.compiler", "compiler", Ver("1.5.8", 0), Ver("1.5.8.1-beta01", 200), Ver("1.5.8.1-beta02", 200))
+                val compiler = Dep("org.jetbrains.compose.compiler", "compiler", Ver("1.5.8.1-beta02", 200), Ver("1.5.8.1", 0))
             }
         }
         object Exposed {
@@ -1652,22 +1652,22 @@ object Org {
             val cli = Dep("org.jetbrains.kotlinx", "kotlinx-cli", Ver("0.3.6", 0))
             val collections_immutable = Dep("org.jetbrains.kotlinx", "kotlinx-collections-immutable", Ver("0.3.7", 0))
             val collections_immutable_jvm = Dep("org.jetbrains.kotlinx", "kotlinx-collections-immutable-jvm", Ver("0.3.7", 0))
-            val coroutines_android = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-android", Ver("1.7.3", 0), Ver("1.8.0-RC2", 100))
-            val coroutines_bom = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-bom", Ver("1.7.3", 0), Ver("1.8.0-RC2", 100))
-            val coroutines_core = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-core", Ver("1.7.3", 0), Ver("1.8.0-RC2", 100))
-            val coroutines_debug = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-debug", Ver("1.7.3", 0), Ver("1.8.0-RC2", 100))
-            val coroutines_guava = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-guava", Ver("1.7.3", 0), Ver("1.8.0-RC2", 100))
-            val coroutines_javafx = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-javafx", Ver("1.7.3", 0), Ver("1.8.0-RC2", 100))
-            val coroutines_jdk8 = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-jdk8", Ver("1.7.3", 0), Ver("1.8.0-RC2", 100))
-            val coroutines_jdk9 = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-jdk9", Ver("1.7.3", 0), Ver("1.8.0-RC2", 100))
-            val coroutines_play_services = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-play-services", Ver("1.7.3", 0), Ver("1.8.0-RC2", 100))
-            val coroutines_reactive = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-reactive", Ver("1.7.3", 0), Ver("1.8.0-RC2", 100))
-            val coroutines_reactor = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-reactor", Ver("1.7.3", 0), Ver("1.8.0-RC2", 100))
-            val coroutines_rx2 = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-rx2", Ver("1.7.3", 0), Ver("1.8.0-RC2", 100))
-            val coroutines_rx3 = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-rx3", Ver("1.7.3", 0), Ver("1.8.0-RC2", 100))
-            val coroutines_slf4j = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-slf4j", Ver("1.7.3", 0), Ver("1.8.0-RC2", 100))
-            val coroutines_swing = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-swing", Ver("1.7.3", 0), Ver("1.8.0-RC2", 100))
-            val coroutines_test = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-test", Ver("1.7.3", 0), Ver("1.8.0-RC2", 100))
+            val coroutines_android = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-android", Ver("1.8.0", 0))
+            val coroutines_bom = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-bom", Ver("1.8.0", 0))
+            val coroutines_core = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-core", Ver("1.8.0", 0))
+            val coroutines_debug = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-debug", Ver("1.8.0", 0))
+            val coroutines_guava = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-guava", Ver("1.8.0", 0))
+            val coroutines_javafx = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-javafx", Ver("1.8.0", 0))
+            val coroutines_jdk8 = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-jdk8", Ver("1.8.0", 0))
+            val coroutines_jdk9 = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-jdk9", Ver("1.8.0", 0))
+            val coroutines_play_services = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-play-services", Ver("1.8.0", 0))
+            val coroutines_reactive = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-reactive", Ver("1.8.0", 0))
+            val coroutines_reactor = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-reactor", Ver("1.8.0", 0))
+            val coroutines_rx2 = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-rx2", Ver("1.8.0", 0))
+            val coroutines_rx3 = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-rx3", Ver("1.8.0", 0))
+            val coroutines_slf4j = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-slf4j", Ver("1.8.0", 0))
+            val coroutines_swing = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-swing", Ver("1.8.0", 0))
+            val coroutines_test = Dep("org.jetbrains.kotlinx", "kotlinx-coroutines-test", Ver("1.8.0", 0))
             val dataframe = Dep("org.jetbrains.kotlinx", "dataframe", Ver("0.12.1", 0), Ver("0.13.0-dev-2820", 320))
             val dataframe_arrow = Dep("org.jetbrains.kotlinx", "dataframe-arrow", Ver("0.12.1", 0), Ver("0.13.0-dev-2820", 320))
             val dataframe_core = Dep("org.jetbrains.kotlinx", "dataframe-core", Ver("0.12.1", 0), Ver("0.13.0-dev-2820", 320))
@@ -1877,7 +1877,7 @@ object Org {
             val spring_cloud_stream_binder_rabbit = Dep("org.springframework.cloud", "spring-cloud-stream-binder-rabbit", Ver("4.1.0", 0))
         }
         object Data {
-            val spring_data_rest_hal_explorer = Dep("org.springframework.data", "spring-data-rest-hal-explorer", Ver("4.2.2", 0))
+            val spring_data_rest_hal_explorer = Dep("org.springframework.data", "spring-data-rest-hal-explorer", Ver("4.2.2", 0), Ver("4.2.3", 0))
         }
         object Geode {
             val spring_geode_bom = Dep("org.springframework.geode", "spring-geode-bom", Ver("1.7.5", 0))
