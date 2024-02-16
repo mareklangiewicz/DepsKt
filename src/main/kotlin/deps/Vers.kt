@@ -51,9 +51,10 @@ object Vers {
     val ComposeCompilerAxFor200B1 = Ver("1.5.6-dev-k2.0.0-Beta1-06a03be2b42") // this ver is prepared for 2.0.0-Beta1
     val ComposeCompilerAxFor200B2 = Ver("1.5.8-dev-k2.0.0-Beta2-99ed868a0f8") // this ver is prepared for 2.0.0-Beta2
     val ComposeCompilerAxFor200B3 = Ver("1.5.9-dev-k2.0.0-Beta3-7c5ec6895a0") // this ver is prepared for 2.0.0-Beta3
+    val ComposeCompilerAxFor200B4 = Ver("1.5.11-dev-k2.0.0-Beta4-21f5e479a96") // this ver is prepared for 2.0.0-Beta4
     /** Selected Compose Compiler version. Should always be kept compatible with the selected Kotlin version. */
     @Deprecated("Usually it's better to let compose plugin (mpp or andro) select default compose compiler.")
-    val ComposeCompilerAx = ComposeCompilerAxFor200B3
+    val ComposeCompilerAx = ComposeCompilerAxFor200B4
 
     // Compose compilers built by JetBrains ("Jb")
 
@@ -69,7 +70,8 @@ object Vers {
 
 
     // https://github.com/JetBrains/compose-multiplatform/releases
-    val ComposeEdge = Ver("1.6.0-dev1419")
+    // val ComposeEdge = Ver("1.6.0-dev1419")
+    val ComposeEdge = Ver("1.6.0-rc02")
 
     /** Selected ComposeMultiplatform version. Should always be kept compatible with the selected Kotlin version. */
     // val Compose = Org.JetBrains.Compose.gradle_plugin.ver!!
