@@ -781,7 +781,7 @@ object Com {
             val desugar_jdk_libs = Dep("com.android.tools", "desugar_jdk_libs", Ver("2.0.4", 0))
             val r8 = Dep("com.android.tools", "r8", Ver("8.2.42", 0))
             object Build {
-                val gradle = Dep("com.android.tools.build", "gradle", Ver("2.3.0", 0), Ver("2.3.3", 0), Ver("2.4.0-alpha7", 300), Ver("2.5.0-alpha-preview-02", 400), Ver("8.2.2", 0), Ver("8.3.0-rc02", 100), Ver("8.4.0-alpha09", 300))
+                val gradle = Dep("com.android.tools.build", "gradle", Ver("2.3.0", 0), Ver("2.3.3", 0), Ver("2.4.0-alpha7", 300), Ver("2.5.0-alpha-preview-02", 400), Ver("8.2.2", 0), Ver("8.3.0-rc02", 100), Ver("8.4.0-alpha10", 300))
             }
         }
     }
@@ -1045,8 +1045,8 @@ object Com {
             val oboe = Dep("com.google.oboe", "oboe", Ver("1.8.1", 0))
         }
         object Truth {
-            val parent = Dep("com.google.truth", "truth-parent", Ver("1.4.0", 0))
-            val truth = Dep("com.google.truth", "truth", Ver("1.4.0", 0))
+            val parent = Dep("com.google.truth", "truth-parent", Ver("1.4.1", 0))
+            val truth = Dep("com.google.truth", "truth", Ver("1.4.1", 0))
         }
     }
     object JakeWharton {
@@ -1621,7 +1621,7 @@ object Org {
     }
     object JetBrains {
         object Compose {
-            val gradle_plugin = Dep("org.jetbrains.compose", "compose-gradle-plugin", Ver("1.5.12", 0), Ver("1.6.0-rc01", 100), Ver("1.6.0-rc02", 100))
+            val gradle_plugin = Dep("org.jetbrains.compose", "compose-gradle-plugin", Ver("1.5.12", 0), Ver("1.6.0-rc02", 100))
             object Compiler {
                 val compiler = Dep("org.jetbrains.compose.compiler", "compiler", Ver("1.5.8.1-beta02", 200), Ver("1.5.8.1", 0))
             }
@@ -1686,14 +1686,14 @@ object Org {
             val multik_native = Dep("org.jetbrains.kotlinx", "multik-native", Ver("0.1.1", 0))
             val nodejs = Dep("org.jetbrains.kotlinx", "kotlinx-nodejs", Ver("0.0.7", 0))
             val reflect_lite = Dep("org.jetbrains.kotlinx", "kotlinx.reflect.lite", Ver("1.1.0", 0))
-            val serialization_bom = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-bom", Ver("1.6.2", 0))
-            val serialization_cbor = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-cbor", Ver("1.6.2", 0))
-            val serialization_core = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-core", Ver("1.6.2", 0))
-            val serialization_hocon = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-hocon", Ver("1.6.2", 0))
-            val serialization_json = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-json", Ver("1.6.2", 0))
-            val serialization_json_okio = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-json-okio", Ver("1.6.2", 0))
-            val serialization_properties = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-properties", Ver("1.6.2", 0))
-            val serialization_protobuf = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-protobuf", Ver("1.6.2", 0))
+            val serialization_bom = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-bom", Ver("1.6.3", 0))
+            val serialization_cbor = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-cbor", Ver("1.6.3", 0))
+            val serialization_core = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-core", Ver("1.6.3", 0))
+            val serialization_hocon = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-hocon", Ver("1.6.3", 0))
+            val serialization_json = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-json", Ver("1.6.3", 0))
+            val serialization_json_okio = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-json-okio", Ver("1.6.3", 0))
+            val serialization_properties = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-properties", Ver("1.6.3", 0))
+            val serialization_protobuf = Dep("org.jetbrains.kotlinx", "kotlinx-serialization-protobuf", Ver("1.6.3", 0))
         }
         object Kotlin_Wrappers {
             val bom = Dep("org.jetbrains.kotlin-wrappers", "kotlin-wrappers-bom", Ver("1.0.0-pre.697", 0))
@@ -1877,7 +1877,7 @@ object Org {
             val spring_cloud_stream_binder_rabbit = Dep("org.springframework.cloud", "spring-cloud-stream-binder-rabbit", Ver("4.1.0", 0))
         }
         object Data {
-            val spring_data_rest_hal_explorer = Dep("org.springframework.data", "spring-data-rest-hal-explorer", Ver("4.2.2", 0), Ver("4.2.3", 0))
+            val spring_data_rest_hal_explorer = Dep("org.springframework.data", "spring-data-rest-hal-explorer", Ver("4.2.3", 0))
         }
         object Geode {
             val spring_geode_bom = Dep("org.springframework.geode", "spring-geode-bom", Ver("1.7.5", 0))
@@ -1910,9 +1910,9 @@ object Org {
             val spring_restdocs_webtestclient = Dep("org.springframework.restdocs", "spring-restdocs-webtestclient", Ver("3.0.1", 0))
         }
         object Security {
-            val spring_security_messaging = Dep("org.springframework.security", "spring-security-messaging", Ver("6.2.1", 0))
-            val spring_security_rsocket = Dep("org.springframework.security", "spring-security-rsocket", Ver("6.2.1", 0))
-            val spring_security_test = Dep("org.springframework.security", "spring-security-test", Ver("6.2.1", 0))
+            val spring_security_messaging = Dep("org.springframework.security", "spring-security-messaging", Ver("6.2.2", 0))
+            val spring_security_rsocket = Dep("org.springframework.security", "spring-security-rsocket", Ver("6.2.2", 0))
+            val spring_security_test = Dep("org.springframework.security", "spring-security-test", Ver("6.2.2", 0))
         }
         object Session {
             val spring_session_data_redis = Dep("org.springframework.session", "spring-session-data-redis", Ver("3.2.1", 0))
@@ -1926,23 +1926,23 @@ object Pl {
         val abcdk_js = Dep("pl.mareklangiewicz", "abcdk-js", Ver("0.0.18", 0))
         val abcdk_jvm = Dep("pl.mareklangiewicz", "abcdk-jvm", Ver("0.0.18", 0))
         val abcdk_linuxx64 = Dep("pl.mareklangiewicz", "abcdk-linuxx64", Ver("0.0.18", 0))
-        val kground = Dep("pl.mareklangiewicz", "kground", Ver("0.0.35", 0))
-        val kground_io = Dep("pl.mareklangiewicz", "kground-io", Ver("0.0.35", 0))
-        val kground_io_js = Dep("pl.mareklangiewicz", "kground-io-js", Ver("0.0.35", 0))
-        val kground_io_jvm = Dep("pl.mareklangiewicz", "kground-io-jvm", Ver("0.0.35", 0))
-        val kground_js = Dep("pl.mareklangiewicz", "kground-js", Ver("0.0.35", 0))
-        val kground_jvm = Dep("pl.mareklangiewicz", "kground-jvm", Ver("0.0.35", 0))
-        val kgroundx = Dep("pl.mareklangiewicz", "kgroundx", Ver("0.0.35", 0))
-        val kgroundx_io = Dep("pl.mareklangiewicz", "kgroundx-io", Ver("0.0.35", 0))
-        val kgroundx_io_js = Dep("pl.mareklangiewicz", "kgroundx-io-js", Ver("0.0.35", 0))
-        val kgroundx_io_jvm = Dep("pl.mareklangiewicz", "kgroundx-io-jvm", Ver("0.0.35", 0))
-        val kgroundx_js = Dep("pl.mareklangiewicz", "kgroundx-js", Ver("0.0.35", 0))
-        val kgroundx_jupyter = Dep("pl.mareklangiewicz", "kgroundx-jupyter", Ver("0.0.35", 0))
-        val kgroundx_jupyter_jvm = Dep("pl.mareklangiewicz", "kgroundx-jupyter-jvm", Ver("0.0.35", 0))
-        val kgroundx_jvm = Dep("pl.mareklangiewicz", "kgroundx-jvm", Ver("0.0.35", 0))
-        val kgroundx_maintenance = Dep("pl.mareklangiewicz", "kgroundx-maintenance", Ver("0.0.35", 0))
+        val kground = Dep("pl.mareklangiewicz", "kground", Ver("0.0.35", 0), Ver("0.0.37", 0))
+        val kground_io = Dep("pl.mareklangiewicz", "kground-io", Ver("0.0.37", 0))
+        val kground_io_js = Dep("pl.mareklangiewicz", "kground-io-js", Ver("0.0.37", 0))
+        val kground_io_jvm = Dep("pl.mareklangiewicz", "kground-io-jvm", Ver("0.0.37", 0))
+        val kground_js = Dep("pl.mareklangiewicz", "kground-js", Ver("0.0.35", 0), Ver("0.0.37", 0))
+        val kground_jvm = Dep("pl.mareklangiewicz", "kground-jvm", Ver("0.0.37", 0))
+        val kgroundx = Dep("pl.mareklangiewicz", "kgroundx", Ver("0.0.37", 0))
+        val kgroundx_io = Dep("pl.mareklangiewicz", "kgroundx-io", Ver("0.0.37", 0))
+        val kgroundx_io_js = Dep("pl.mareklangiewicz", "kgroundx-io-js", Ver("0.0.37", 0))
+        val kgroundx_io_jvm = Dep("pl.mareklangiewicz", "kgroundx-io-jvm", Ver("0.0.37", 0))
+        val kgroundx_js = Dep("pl.mareklangiewicz", "kgroundx-js", Ver("0.0.37", 0))
+        val kgroundx_jupyter = Dep("pl.mareklangiewicz", "kgroundx-jupyter", Ver("0.0.35", 0), Ver("0.0.37", 0))
+        val kgroundx_jupyter_jvm = Dep("pl.mareklangiewicz", "kgroundx-jupyter-jvm", Ver("0.0.37", 0))
+        val kgroundx_jvm = Dep("pl.mareklangiewicz", "kgroundx-jvm", Ver("0.0.37", 0))
+        val kgroundx_maintenance = Dep("pl.mareklangiewicz", "kgroundx-maintenance", Ver("0.0.37", 0))
         val kgroundx_maintenance_js = Dep("pl.mareklangiewicz", "kgroundx-maintenance-js")
-        val kgroundx_maintenance_jvm = Dep("pl.mareklangiewicz", "kgroundx-maintenance-jvm", Ver("0.0.35", 0))
+        val kgroundx_maintenance_jvm = Dep("pl.mareklangiewicz", "kgroundx-maintenance-jvm", Ver("0.0.37", 0))
         val kommandjupyter = Dep("pl.mareklangiewicz", "kommandjupyter", Ver("0.0.43", 0))
         val kommandjupyter_jvm = Dep("pl.mareklangiewicz", "kommandjupyter-jvm", Ver("0.0.43", 0))
         val kommandline = Dep("pl.mareklangiewicz", "kommandline", Ver("0.0.43", 0))
