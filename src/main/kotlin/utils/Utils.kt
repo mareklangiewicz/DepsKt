@@ -1,3 +1,5 @@
+@file:OptIn(NotPortableApi::class)
+
 package pl.mareklangiewicz.utils
 
 import okio.*
@@ -10,6 +12,7 @@ import org.gradle.api.initialization.*
 import org.gradle.api.plugins.*
 import org.gradle.api.provider.*
 import org.gradle.api.tasks.*
+import pl.mareklangiewicz.annotations.NotPortableApi
 import pl.mareklangiewicz.deps.*
 import pl.mareklangiewicz.io.*
 import pl.mareklangiewicz.ure.*
@@ -28,7 +31,7 @@ fun String.toVersionIntCode() = split(".").let { 0 +
  * We don't want any fancy interpretation of suffixes, because the result has to be monotonically increasing!
  * We also don't want to accept weird suffixes, just accept and ignore reasonable suffixes.
  */
-fun String.toVersionPartIntCode(): Int = matchEntire(
+fun String.toVersionPartIntCode(): Int = matchEntireOrNull(
     ure {
         0..MAX of ch('0') // have to ignore leading zeros because these confuse parser later (potentially octal)
         1 of ure {
