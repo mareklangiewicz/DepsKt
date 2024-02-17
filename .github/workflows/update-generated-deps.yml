@@ -24,13 +24,13 @@ jobs:
       uses: 'actions/checkout@v4'
     - id: 'step-1'
       name: 'Set up JDK'
-      uses: 'actions/setup-java@v3'
+      uses: 'actions/setup-java@v4'
       with:
         java-version: '21'
         distribution: 'zulu'
     - id: 'step-2'
       name: 'updateGeneratedDeps'
-      uses: 'gradle/gradle-build-action@v2'
+      uses: 'gradle/gradle-build-action@v3'
       with:
         arguments: 'updateGeneratedDeps'
     - id: 'step-3'
