@@ -9,6 +9,7 @@ import org.gradle.api.*
 import org.gradle.api.file.*
 import org.gradle.api.provider.*
 import org.gradle.api.tasks.*
+import pl.mareklangiewicz.annotations.DelicateApi
 import pl.mareklangiewicz.io.*
 import pl.mareklangiewicz.kommand.*
 import pl.mareklangiewicz.kommand.CliPlatform.Companion.SYS
@@ -140,6 +141,7 @@ abstract class VersionDetailsTask : DefaultTask() {
     @get:OutputDirectory
     abstract val generatedAssetsDir: DirectoryProperty
 
+    @OptIn(DelicateApi::class)
     @TaskAction
     fun execute() {
         val commit = gitHash().execBlocking(SYS).single()
