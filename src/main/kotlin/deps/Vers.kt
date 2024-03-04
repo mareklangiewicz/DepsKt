@@ -64,14 +64,14 @@ object Vers {
     val ComposeCompilerJbFor200B1 = Ver("1.5.4-dev1-kt2.0.0-Beta1")
     val ComposeCompilerJbFor200B2 = Ver("1.5.6-dev1-kt2.0.0-Beta2")
     val ComposeCompilerJbFor200B3 = Ver("1.5.6-dev2-kt2.0.0-Beta3")
+    val ComposeCompilerJbFor200B4 = Ver("1.5.9-kt-2.0.0-Beta4")
 
     @Deprecated("Usually it's better to let compose plugin (mpp or andro) select default compose compiler.")
-    val ComposeCompilerJb = ComposeCompilerJbFor200B3
+    val ComposeCompilerJb = ComposeCompilerJbFor200B4
 
 
     // https://github.com/JetBrains/compose-multiplatform/releases
-    // val ComposeEdge = Ver("1.6.0-dev1419")
-    val ComposeEdge = Ver("1.6.0-rc02")
+    val ComposeEdge = Ver("1.6.10-dev1457")
 
     /** Selected ComposeMultiplatform version. Should always be kept compatible with the selected Kotlin version. */
     // val Compose = Org.JetBrains.Compose.gradle_plugin.ver!!
@@ -108,8 +108,8 @@ object Vers {
      * - [maven](https://maven.google.com/web/index.html#com.android.tools.build:gradle)
      * - [releases](https://developer.android.com/studio/releases/gradle-plugin)
      */
-    val AndroPlugStable = Ver("8.2.2")
-    val AndroPlugEdge = Ver("8.4.0-alpha09")
+    val AndroPlugStable = Ver("8.3.0")
+    val AndroPlugEdge = Ver("8.4.0-alpha12")
     val AndroPlug = AndroPlugEdge
 
     /**
@@ -118,7 +118,7 @@ object Vers {
      * - [github](https://github.com/Kotlin/dokka)
      * - [github releases](https://github.com/Kotlin/dokka/releases)
      */
-    val DokkaPlug = Ver("1.9.10", 0)
+    val DokkaPlug = Ver("1.9.20", 0)
 
 
     /**
@@ -132,7 +132,7 @@ object Vers {
      * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
      * [github](https://github.com/Kotlin/kotlin-jupyter)
      */
-    val KotlinJupyterPlug = Ver("0.12.0-132")
+    val KotlinJupyterPlug = Ver("0.12.0-145")
 
     /**
      * Osacky Doctor Gradle Plugin
@@ -147,7 +147,7 @@ object Vers {
      * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
      * - [github](https://github.com/langara/DepsKt)
      */
-    val DepsPlug = Ver("0.2.84")
+    val DepsPlug = Ver("0.2.89")
 
     val JvmDefaultVer = "21"
 
