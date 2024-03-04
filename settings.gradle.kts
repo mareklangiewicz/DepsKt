@@ -13,7 +13,7 @@ pluginManagement {
 }
 
 plugins {
-    id("pl.mareklangiewicz.deps.settings") version "0.2.89" // https://plugins.gradle.org/search?term=mareklangiewicz
+    id("pl.mareklangiewicz.deps.settings") version "0.2.90" // https://plugins.gradle.org/search?term=mareklangiewicz
     id("com.gradle.enterprise") version "3.16.2" // https://docs.gradle.com/enterprise/gradle-plugin/
 }
 
