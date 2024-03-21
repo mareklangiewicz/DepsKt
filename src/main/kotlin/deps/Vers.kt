@@ -40,7 +40,7 @@ object Vers {
      * - [compiler Ax dev repo table](https://androidx.dev/storage/compose-compiler/repository)
      * - [compiler Jb space maven](https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/compiler/compiler/)
      */
-    val Kotlin = Ver("2.0.0-Beta4") // TODO: update compose compilers versions, when some compatible with B4 are available
+    val Kotlin = Ver("2.0.0-Beta5") // TODO: update compose compilers versions, when some compatible with B5 are available
 
 
     // Compose compilers build by Google (AndroidX "Ax", aka Jetpack Compiler)
@@ -71,7 +71,7 @@ object Vers {
 
 
     // https://github.com/JetBrains/compose-multiplatform/releases
-    val ComposeEdge = Ver("1.6.10-dev1498")
+    val ComposeEdge = Ver("1.6.10-dev1523")
 
     /** Selected ComposeMultiplatform version. Should always be kept compatible with the selected Kotlin version. */
     // val Compose = Org.JetBrains.Compose.gradle_plugin.ver!!
@@ -108,8 +108,8 @@ object Vers {
      * - [maven](https://maven.google.com/web/index.html#com.android.tools.build:gradle)
      * - [releases](https://developer.android.com/studio/releases/gradle-plugin)
      */
-    val AndroPlugStable = Ver("8.3.0")
-    val AndroPlugEdge = Ver("8.4.0-alpha13")
+    val AndroPlugStable = Ver("8.4.0-beta01")
+    val AndroPlugEdge = Ver("8.5.0-alpha01")
     val AndroPlug = AndroPlugEdge
 
     /**
@@ -132,7 +132,7 @@ object Vers {
      * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
      * [github](https://github.com/Kotlin/kotlin-jupyter)
      */
-    val KotlinJupyterPlug = Ver("0.12.0-149")
+    val KotlinJupyterPlug = Ver("0.12.0-152")
 
     /**
      * Osacky Doctor Gradle Plugin
@@ -140,14 +140,14 @@ object Vers {
      * - [github](https://github.com/runningcode/gradle-doctor)
      * - [docs](https://runningcode.github.io/gradle-doctor/)
      */
-    val OsackyDoctorPlug = Ver("0.9.1", 0)
+    val OsackyDoctorPlug = Ver("0.9.2", 0)
 
     /**
      * DepsKt Gradle Plugin
      * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
      * - [github](https://github.com/langara/DepsKt)
      */
-    val DepsPlug = Ver("0.2.89")
+    val DepsPlug = Ver("0.2.91")
 
     val JvmDefaultVer = "21"
 
@@ -155,7 +155,7 @@ object Vers {
     val Gradle5 = Ver("5.6.4", 0)
     val Gradle6 = Ver("6.8.3", 0)
     val Gradle7 = Ver("7.6.4", 0)
-    val Gradle8 = Ver("8.7-rc-2", 0)
+    val Gradle8 = Ver("8.7-rc-4", 0)
 
     /**
      * Gradle - just a reference - not so useful in typical usecases
