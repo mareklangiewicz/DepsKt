@@ -52,9 +52,10 @@ object Vers {
     val ComposeCompilerAxFor200B2 = Ver("1.5.8-dev-k2.0.0-Beta2-99ed868a0f8") // this ver is prepared for 2.0.0-Beta2
     val ComposeCompilerAxFor200B3 = Ver("1.5.9-dev-k2.0.0-Beta3-7c5ec6895a0") // this ver is prepared for 2.0.0-Beta3
     val ComposeCompilerAxFor200B4 = Ver("1.5.11-dev-k2.0.0-Beta4-21f5e479a96") // this ver is prepared for 2.0.0-Beta4
+    val ComposeCompilerAxFor200B5 = Ver("1.5.11-dev-k2.0.0-Beta5-b5a216d0ac6") // this ver is prepared for 2.0.0-Beta5
     /** Selected Compose Compiler version. Should always be kept compatible with the selected Kotlin version. */
     @Deprecated("Usually it's better to let compose plugin (mpp or andro) select default compose compiler.")
-    val ComposeCompilerAx = ComposeCompilerAxFor200B4
+    val ComposeCompilerAx = ComposeCompilerAxFor200B5
 
     // Compose compilers built by JetBrains ("Jb")
 
@@ -71,7 +72,7 @@ object Vers {
 
 
     // https://github.com/JetBrains/compose-multiplatform/releases
-    val ComposeEdge = Ver("1.6.10-dev1523")
+    val ComposeEdge = Ver("1.6.10-dev1551")
 
     /** Selected ComposeMultiplatform version. Should always be kept compatible with the selected Kotlin version. */
     // val Compose = Org.JetBrains.Compose.gradle_plugin.ver!!
@@ -109,7 +110,7 @@ object Vers {
      * - [releases](https://developer.android.com/studio/releases/gradle-plugin)
      */
     val AndroPlugStable = Ver("8.4.0-beta01")
-    val AndroPlugEdge = Ver("8.5.0-alpha01")
+    val AndroPlugEdge = Ver("8.5.0-alpha02")
     val AndroPlug = AndroPlugEdge
 
     /**
@@ -132,7 +133,7 @@ object Vers {
      * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
      * [github](https://github.com/Kotlin/kotlin-jupyter)
      */
-    val KotlinJupyterPlug = Ver("0.12.0-152")
+    val KotlinJupyterPlug = Ver("0.12.0-154")
 
     /**
      * Osacky Doctor Gradle Plugin
@@ -147,7 +148,7 @@ object Vers {
      * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
      * - [github](https://github.com/langara/DepsKt)
      */
-    val DepsPlug = Ver("0.2.91")
+    val DepsPlug = Ver("0.2.92")
 
     val JvmDefaultVer = "21"
 
@@ -155,7 +156,7 @@ object Vers {
     val Gradle5 = Ver("5.6.4", 0)
     val Gradle6 = Ver("6.8.3", 0)
     val Gradle7 = Ver("7.6.4", 0)
-    val Gradle8 = Ver("8.7-rc-4", 0)
+    val Gradle8 = Ver("8.7", 0)
 
     /**
      * Gradle - just a reference - not so useful in typical usecases
