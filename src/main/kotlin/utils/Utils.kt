@@ -70,7 +70,7 @@ fun <T> Property<T>.properting() = object : ReadWriteProperty<Any?, T> {
     override fun setValue(thisRef: Any?, property: KProperty<*>, value: T) = set(value)
 }
 
-// Wrapper for extra properties to have better map-like DSL in kotlin (in groove they have something similar)
+// Wrapper for extra properties to have better map-like DSL in kotlin (in groovy they have something similar)
 @Suppress("UNCHECKED_CAST")
 @JvmInline value class UExt<T>(private val extraProperties: ExtraPropertiesExtension) {
     operator fun get(name: String): T = extraProperties.get(name) as T
