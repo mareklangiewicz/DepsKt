@@ -133,7 +133,7 @@ object Vers {
      * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
      * [github](https://github.com/Kotlin/kotlin-jupyter)
      */
-    val KotlinJupyterPlug = Ver("0.12.0-154")
+    val KotlinJupyterPlug = Ver("0.12.0-163")
 
     /**
      * Osacky Doctor Gradle Plugin
