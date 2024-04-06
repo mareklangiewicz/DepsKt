@@ -72,7 +72,7 @@ object Vers {
 
 
     // https://github.com/JetBrains/compose-multiplatform/releases
-    val ComposeEdge = Ver("1.6.10-dev1551")
+    val ComposeEdge = Ver("1.6.10-dev1561")
 
     /** Selected ComposeMultiplatform version. Should always be kept compatible with the selected Kotlin version. */
     // val Compose = Org.JetBrains.Compose.gradle_plugin.ver!!
@@ -109,8 +109,8 @@ object Vers {
      * - [maven](https://maven.google.com/web/index.html#com.android.tools.build:gradle)
      * - [releases](https://developer.android.com/studio/releases/gradle-plugin)
      */
-    val AndroPlugStable = Ver("8.4.0-beta01")
-    val AndroPlugEdge = Ver("8.5.0-alpha02")
+    val AndroPlugStable = Ver("8.4.0-rc01")
+    val AndroPlugEdge = Ver("8.5.0-alpha03")
     val AndroPlug = AndroPlugEdge
 
     /**
@@ -133,7 +133,7 @@ object Vers {
      * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
      * [github](https://github.com/Kotlin/kotlin-jupyter)
      */
-    val KotlinJupyterPlug = Ver("0.12.0-163")
+    val KotlinJupyterPlug = Ver("0.12.0-184")
 
     /**
      * Osacky Doctor Gradle Plugin
@@ -148,7 +148,7 @@ object Vers {
      * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
      * - [github](https://github.com/langara/DepsKt)
      */
-    val DepsPlug = Ver("0.2.92")
+    val DepsPlug = Ver("0.2.93")
 
     val JvmDefaultVer = "21"
 
