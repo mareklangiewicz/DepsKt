@@ -1,10 +1,10 @@
 @file:Suppress(
-    "unused",
-    "SpellCheckingInspection",
-    "GrazieInspection",
-    "ClassName",
-    "PackageDirectoryMismatch",
-    "MemberVisibilityCanBePrivate", "FunctionName",
+  "unused",
+  "SpellCheckingInspection",
+  "GrazieInspection",
+  "ClassName",
+  "PackageDirectoryMismatch",
+  "MemberVisibilityCanBePrivate", "FunctionName",
 )
 
 package pl.mareklangiewicz.deps
@@ -30,41 +30,46 @@ import pl.mareklangiewicz.utils.*
 value class Instability(val instability: Int)
 
 infix fun Instability?.moreStableThan(other: Instability?): Boolean {
-    val left = this?.instability ?: Int.MAX_VALUE
-    val right = other?.instability ?: Int.MAX_VALUE
-    return left < right
+  val left = this?.instability ?: Int.MAX_VALUE
+  val right = other?.instability ?: Int.MAX_VALUE
+  return left < right
 }
 
 @Suppress("UNUSED_PARAMETER")
 private fun detectInstability(version: String): Instability? = null // FIXME
 
 data class Ver(val ver: String, val instability: Instability? = detectInstability(ver)) {
-    // TODO: instability detection
-    constructor(ver: String, instability: Int): this(ver, Instability(instability))
-    constructor(major: Int, minor: Int, patch: Int, patchLength: Int = 2, suffix: String = ""):
-            this("$major.$minor.${patch.toString().padStart(patchLength, '0')}$suffix")
+  // TODO: instability detection
+  constructor(ver: String, instability: Int) : this(ver, Instability(instability))
+  constructor(major: Int, minor: Int, patch: Int, patchLength: Int = 2, suffix: String = "") :
+    this("$major.$minor.${patch.toString().padStart(patchLength, '0')}$suffix")
 
-    val verIntCode get() = ver.toVersionIntCode()
+  val verIntCode get() = ver.toVersionIntCode()
 }
 
 /** versions should always be sorted from oldest to newest */
-data class Dep(val group: String, val name: String, val vers: List<Ver>): CharSequence {
-    constructor(group: String, name: String, vararg vers: Ver): this(group, name, vers.toList())
-    val ver: Ver? get() = vers.lastOrNull()
-    val mvn: String get() = ver?.ver?.let { "$group:$name:$it" } ?: "$group:$name"
-    override fun toString() = mvn
-    override val length get() = mvn.length
-    override fun get(index: Int) = mvn[index]
-    override fun subSequence(startIndex: Int, endIndex: Int) = mvn.subSequence(startIndex, endIndex)
+data class Dep(val group: String, val name: String, val vers: List<Ver>) : CharSequence {
+  constructor(group: String, name: String, vararg vers: Ver) : this(group, name, vers.toList())
+
+  val ver: Ver? get() = vers.lastOrNull()
+  val mvn: String get() = ver?.ver?.let { "$group:$name:$it" } ?: "$group:$name"
+  override fun toString() = mvn
+  override val length get() = mvn.length
+  override fun get(index: Int) = mvn[index]
+  override fun subSequence(startIndex: Int, endIndex: Int) = mvn.subSequence(startIndex, endIndex)
 }
 
 fun DepP(pluginId: String, vararg vers: Ver) = Dep(pluginId, "$pluginId.gradle.plugin", *vers)
 
 fun Dep.withNoVer() = copy(vers = emptyList())
 fun Dep.withVer(ver: Ver) = copy(vers = listOf(ver))
-fun Dep.withVer(verName: String, verInstability: Int? = null) = withVer(Ver(verName, verInstability?.let(::Instability)))
+fun Dep.withVer(verName: String, verInstability: Int? = null) =
+  withVer(Ver(verName, verInstability?.let(::Instability)))
+
 fun Dep.withVers(vararg vers: Ver) = copy(vers = vers.toList())
-fun Dep.withVers(maxInstability: Instability) = copy(vers = vers.filter { !(maxInstability moreStableThan it.instability) })
+fun Dep.withVers(maxInstability: Instability) =
+  copy(vers = vers.filter { !(maxInstability moreStableThan it.instability) })
+
 val Dep.verStable get() = vers.lastOrNull { it.instability?.instability == 0 }
 
 // endregion [Deps Data Structures]
@@ -194,7 +199,9 @@ val OtherLinks: Nothing get() = error("Don't use OtherLinks in code. It's only f
 
 // endregion [Deps Selected]
 
-
+// @formatter:off
+// TODO_later: generate 2 spaces indents instead of 4
+// TODO_later: micro syntax/dsl (maybe local/private syntax sugar) so diffs can be understood at glance.
 // region [Deps Generated]
 
 object AndroidX {
@@ -1996,3 +2003,4 @@ object Pl {
 }
 
 // endregion [Deps Generated]
+// @formatter:on
