@@ -2,6 +2,10 @@
 
 package pl.mareklangiewicz.sourcefun
 
+import java.time.*
+import java.time.format.*
+import kotlin.properties.*
+import kotlin.reflect.*
 import okio.*
 import okio.FileSystem.Companion.SYSTEM
 import okio.Path.Companion.toOkioPath
@@ -14,10 +18,6 @@ import pl.mareklangiewicz.io.*
 import pl.mareklangiewicz.kommand.*
 import pl.mareklangiewicz.kommand.CLI.Companion.SYS
 import pl.mareklangiewicz.kommand.git.*
-import java.time.*
-import java.time.format.*
-import kotlin.properties.*
-import kotlin.reflect.*
 
 internal data class SourceFunDefinition(
   val taskName: String,

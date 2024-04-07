@@ -2,6 +2,8 @@
 
 package pl.mareklangiewicz.utils
 
+import kotlin.properties.*
+import kotlin.reflect.*
 import okio.*
 import okio.FileSystem.Companion.SYSTEM
 import okio.Path.Companion.toOkioPath
@@ -16,8 +18,6 @@ import pl.mareklangiewicz.annotations.NotPortableApi
 import pl.mareklangiewicz.deps.*
 import pl.mareklangiewicz.io.*
 import pl.mareklangiewicz.ure.*
-import kotlin.properties.*
-import kotlin.reflect.*
 
 
 fun String.toVersionIntCode() = split(".").let {

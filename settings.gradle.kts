@@ -1,6 +1,3 @@
-import pl.mareklangiewicz.deps.*
-import pl.mareklangiewicz.utils.includeAndSubstituteBuild
-
 rootProject.name = "DepsKt"
 
 pluginManagement {

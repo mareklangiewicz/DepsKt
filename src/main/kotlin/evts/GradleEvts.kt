@@ -1,5 +1,6 @@
 package pl.mareklangiewicz.evts
 
+import java.util.*
 import okio.*
 import org.gradle.*
 import org.gradle.api.*
@@ -19,7 +20,6 @@ import pl.mareklangiewicz.evts.GradleEvt.TaskExecutionEvt.*
 import pl.mareklangiewicz.evts.GradleEvt.TaskExecutionGraphEvt.*
 import pl.mareklangiewicz.evts.GradleEvt.TestEvt.*
 import pl.mareklangiewicz.evts.GradleEvt.TestOutEvt.*
-import java.util.*
 
 sealed class GradleEvt {
   sealed class BuildEvt : GradleEvt() {
