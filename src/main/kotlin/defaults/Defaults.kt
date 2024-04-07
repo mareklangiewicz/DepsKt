@@ -7,19 +7,22 @@ import pl.mareklangiewicz.deps.*
 import pl.mareklangiewicz.utils.rootExtLibDetails
 
 fun v(major: Int = 0, minor: Int = 0, patch: Int = 1, patchLength: Int = 2, suffix: String = "") =
-    "$major.$minor.${patch.toString().padStart(patchLength, '0')}$suffix"
+  "$major.$minor.${patch.toString().padStart(patchLength, '0')}$suffix"
 
 
-@Deprecated("Use defaultGroupAndVerAndDescription", replaceWith = ReplaceWith("defaultGroupAndVerAndDescription(libs.name)"))
+@Deprecated(
+  "Use defaultGroupAndVerAndDescription",
+  replaceWith = ReplaceWith("defaultGroupAndVerAndDescription(libs.name)"),
+)
 fun Project.defaultGroupAndVer(dep: String) {
-    val (g, _, v) = dep.split(":")
-    group = g
-    version = v
+  val (g, _, v) = dep.split(":")
+  group = g
+  version = v
 }
 
 fun Project.defaultGroupAndVerAndDescription(lib: LibDetails = rootExtLibDetails) {
-    group = lib.group
-    version = lib.version.ver
-    description = lib.description
+  group = lib.group
+  version = lib.version.ver
+  description = lib.description
 }
 

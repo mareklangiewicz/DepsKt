@@ -14,18 +14,20 @@ val vers get() = pl.mareklangiewicz.deps.Vers
 infix fun PluginDependencySpec.ver(v: Ver) = version(v.ver)
 
 fun PluginDependenciesSpec.plug(dep: Dep): PluginDependencySpec {
-    check(dep.name.endsWith("plugin")) { "It doesn't look like a gradle plugin: $dep" }
-    val v = dep.ver?.ver ?: return id(dep.group)
-    return id(dep.group).version(v)
+  check(dep.name.endsWith("plugin")) { "It doesn't look like a gradle plugin: $dep" }
+  val v = dep.ver?.ver ?: return id(dep.group)
+  return id(dep.group).version(v)
 }
 
-fun PluginDependenciesSpec.plugAll(vararg deps: Dep) { for (d in deps) plug(d) }
+fun PluginDependenciesSpec.plugAll(vararg deps: Dep) {
+  for (d in deps) plug(d)
+}
 
 fun PluginDependenciesSpec.plugDefaultForRoot() {
-    plug(plugs.NexusPublish)
-    plug(plugs.KotlinMulti).apply(false)
+  plug(plugs.NexusPublish)
+  plug(plugs.KotlinMulti).apply(false)
 }
 
 fun PluginDependenciesSpec.plugDefaultForMppModule() {
-    plugAll(plugs.KotlinMulti, plugs.MavenPublish, plugs.Signing)
+  plugAll(plugs.KotlinMulti, plugs.MavenPublish, plugs.Signing)
 }

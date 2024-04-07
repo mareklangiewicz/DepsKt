@@ -3,15 +3,15 @@
 rootProject.name = "sample-sourcefun"
 
 pluginManagement {
-    repositories {
-        mavenLocal()
-        gradlePluginPortal()
-    }
+  repositories {
+    mavenLocal()
+    gradlePluginPortal()
+  }
 //    includeBuild("..") // DepsKt
 }
 
 plugins {
-    id("pl.mareklangiewicz.deps.settings") version "0.2.93" // https://plugins.gradle.org/search?term=mareklangiewicz
+  id("pl.mareklangiewicz.deps.settings") version "0.2.94" // https://plugins.gradle.org/search?term=mareklangiewicz
 }
 
 include(":sample-lib")

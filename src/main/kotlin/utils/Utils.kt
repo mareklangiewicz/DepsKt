@@ -20,11 +20,11 @@ import kotlin.properties.*
 import kotlin.reflect.*
 
 
-
-fun String.toVersionIntCode() = split(".").let { 0 +
-        it[0].toVersionPartIntCode() * 10_000 * 10_000 +
-        it[1].toVersionPartIntCode() * 10_000 +
-        it[2].toVersionPartIntCode() * 1
+fun String.toVersionIntCode() = split(".").let {
+  0 +
+    it[0].toVersionPartIntCode() * 10_000 * 10_000 +
+    it[1].toVersionPartIntCode() * 10_000 +
+    it[2].toVersionPartIntCode() * 1
 }
 
 /**
@@ -32,16 +32,15 @@ fun String.toVersionIntCode() = split(".").let { 0 +
  * We also don't want to accept weird suffixes, just accept and ignore reasonable suffixes.
  */
 fun String.toVersionPartIntCode(): Int = matchEntireOrNull(
-    ure {
-        0..MAX of ch('0') // have to ignore leading zeros because these confuse parser later (potentially octal)
-        1 of ure {
-            1..4 of chDigit
-        }.withName("VersionPart")
-        val chWoH = chWord or ch("-")
-        0..MAX of chWoH
-    }
+  ure {
+    0..MAX of ch('0') // have to ignore leading zeros because these confuse parser later (potentially octal)
+    1 of ure {
+      1..4 of chDigit
+    }.withName("VersionPart")
+    val chWoH = chWord or ch("-")
+    0..MAX of chWoH
+  },
 )?.named["VersionPart"]?.value?.toInt() ?: error("Can't parse version part: '$this'.")
-
 
 
 
@@ -62,19 +61,22 @@ infix fun <T> Property<in T>.provides(from: Provider<out T>) = set(from)
 infix fun <T> Property<in T>.put(value: T) = set(value)
 
 fun <T, R> Provider<T>.providing(compute: (T) -> R) =
-    ReadOnlyProperty<Any?, R> { _, _ -> compute(get()) }
+  ReadOnlyProperty<Any?, R> { _, _ -> compute(get()) }
 
 // yes, this name is stupid :)
 fun <T> Property<T>.properting() = object : ReadWriteProperty<Any?, T> {
-    override fun getValue(thisRef: Any?, property: KProperty<*>): T = get()
-    override fun setValue(thisRef: Any?, property: KProperty<*>, value: T) = set(value)
+  override fun getValue(thisRef: Any?, property: KProperty<*>): T = get()
+  override fun setValue(thisRef: Any?, property: KProperty<*>, value: T) = set(value)
 }
 
 // Wrapper for extra properties to have better map-like DSL in kotlin (in groovy they have something similar)
 @Suppress("UNCHECKED_CAST")
-@JvmInline value class UExt<T>(private val extraProperties: ExtraPropertiesExtension) {
-    operator fun get(name: String): T = extraProperties.get(name) as T
-    operator fun set(name: String, value: T) { extraProperties.set(name, value) }
+@JvmInline
+value class UExt<T>(private val extraProperties: ExtraPropertiesExtension) {
+  operator fun get(name: String): T = extraProperties.get(name) as T
+  operator fun set(name: String, value: T) {
+    extraProperties.set(name, value)
+  }
 }
 
 fun <T> ExtensionAware.ext(): UExt<T> = UExt(extensions.extraProperties)
@@ -83,7 +85,11 @@ val ExtensionAware.extString get() = ext<String>()
 val Project.rootExtString get() = rootProject.extString
 fun Project.rootExtReadFileUtf8(name: String) = SYSTEM.readUtf8(rootExtString[name].toPath())
 fun Project.rootExtReadFileUtf8TryOrNull(name: String) =
-    try { rootExtReadFileUtf8(name) } catch (e: Exception) { null }
+  try {
+    rootExtReadFileUtf8(name)
+  } catch (e: Exception) {
+    null
+  }
 
 val Project.projectPath get() = rootDir.toOkioPath()
 val Project.rootProjectPath get() = rootProject.projectPath
@@ -93,44 +99,48 @@ val Project.buildPath: Path get() = layout.buildDirectory.get().asFile.toOkioPat
 
 // Kinda hack to attach some lib details to some global project or sth
 var ExtensionAware.extLibDetails: LibDetails
-    get() = ext<LibDetails>()["LibDetails"]
-    set(value) { ext<LibDetails>()["LibDetails"] = value }
+  get() = ext<LibDetails>()["LibDetails"]
+  set(value) {
+    ext<LibDetails>()["LibDetails"] = value
+  }
 
 var Project.rootExtLibDetails
-    get() = rootProject.extLibDetails
-    set(value) { rootProject.extLibDetails = value }
+  get() = rootProject.extLibDetails
+  set(value) {
+    rootProject.extLibDetails = value
+  }
 
 // https://publicobject.com/2021/03/11/includebuild/
 fun Settings.includeAndSubstituteBuild(rootProject: Any, substituteModule: String, withProject: String) {
-    includeBuild(rootProject) {
-        it.dependencySubstitution {
-            it.substitute(it.module(substituteModule))
-                .using(it.project(withProject))
-        }
+  includeBuild(rootProject) {
+    it.dependencySubstitution {
+      it.substitute(it.module(substituteModule))
+        .using(it.project(withProject))
     }
+  }
 }
 
 
 fun DependencyHandler.addAll(configuration: String, vararg deps: Dep?) {
-    for (dep in deps) if (dep != null) add(configuration, dep)
+  for (dep in deps) if (dep != null) add(configuration, dep)
 }
 
 fun DependencyHandler.addAllWithVer(configuration: String, ver: Ver, vararg deps: Dep?) {
-    for (dep in deps) if (dep != null) add(configuration, dep.withVer(ver))
+  for (dep in deps) if (dep != null) add(configuration, dep.withVer(ver))
 }
 
 fun DependencyHandler.addAllWithNoVer(configuration: String, vararg deps: Dep?) {
-    for (dep in deps) if (dep != null) add(configuration, dep.withNoVer())
+  for (dep in deps) if (dep != null) add(configuration, dep.withNoVer())
 }
 
 
 fun TaskContainer.registerAllThatGroupFun(group: String, vararg afun: KCallable<Unit>) {
-    val pairs: List<Pair<String, () -> Unit>> = afun.map { it.name to { it.call() } }
-    registerAllThatGroupFun(group, *pairs.toTypedArray())
+  val pairs: List<Pair<String, () -> Unit>> = afun.map { it.name to { it.call() } }
+  registerAllThatGroupFun(group, *pairs.toTypedArray())
 }
 
 fun TaskContainer.registerAllThatGroupFun(group: String, vararg afun: Pair<String, () -> Unit>) {
-    for ((name, code) in afun) register(name) { it.group = group; it.doLast { code() } }
+  for ((name, code) in afun) register(name) { it.group = group; it.doLast { code() } }
 }
 
 /**
@@ -139,10 +149,10 @@ fun TaskContainer.registerAllThatGroupFun(group: String, vararg afun: Pair<Strin
  * @param envKeyReplace Default implementation drops prefix and changes all "_" to ".".
  */
 fun ExtraPropertiesExtension.addAllFromSystemEnvs(
-    envKeyMatchPrefix: String,
-    envKeyReplace: (envKey: String) -> String = { it.removePrefix(envKeyMatchPrefix).replace('_', '.') },
+  envKeyMatchPrefix: String,
+  envKeyReplace: (envKey: String) -> String = { it.removePrefix(envKeyMatchPrefix).replace('_', '.') },
 ) {
-    val envs = System.getenv()
-    val keys = envs.keys.filter { it.startsWith(envKeyMatchPrefix) }
-    for (key in keys) this[envKeyReplace(key)] = envs[key]
+  val envs = System.getenv()
+  val keys = envs.keys.filter { it.startsWith(envKeyMatchPrefix) }
+  for (key in keys) this[envKeyReplace(key)] = envs[key]
 }
