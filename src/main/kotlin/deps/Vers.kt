@@ -93,21 +93,21 @@ object Vers {
    * - [github](https://github.com/gradle-nexus/publish-plugin/)
    * - [github releases](https://github.com/gradle-nexus/publish-plugin/releases)
    */
-  val NexusPublishPlug = Ver("1.3.0", 0)
+  val NexusPublishPlug = Ver("1.3.0")
 
   /**
    * Gradle Publish Plugin (gradle plugin for publishing gradle plugins)
    * - [plugins gradle org](https://plugins.gradle.org/plugin/com.gradle.plugin-publish)
    * - [plugins gradle org docs](https://plugins.gradle.org/docs/publish-plugin)
    */
-  val GradlePublishPlug = Ver("1.2.1", 0)
+  val GradlePublishPlug = Ver("1.2.1")
 
   /**
    * Gradle Enterprise Plugin (enables integration with Gradle Enterprise and scans.gradle.com)
    * - [gradle org docs](https://docs.gradle.com/enterprise/gradle-plugin/)
    * - [gradle portal](https://plugins.gradle.org/plugin/com.gradle.enterprise)
    */
-  val GradleEnterprisePlug = Ver("3.16.2", 0)
+  val GradleEnterprisePlug = Ver("3.16.2")
 
   /**
    * Android Gradle Plugin
@@ -125,7 +125,7 @@ object Vers {
    * - [github](https://github.com/Kotlin/dokka)
    * - [github releases](https://github.com/Kotlin/dokka/releases)
    */
-  val DokkaPlug = Ver("1.9.20", 0)
+  val DokkaPlug = Ver("1.9.20")
 
 
   /**
@@ -147,7 +147,7 @@ object Vers {
    * - [github](https://github.com/runningcode/gradle-doctor)
    * - [docs](https://runningcode.github.io/gradle-doctor/)
    */
-  val OsackyDoctorPlug = Ver("0.9.2", 0)
+  val OsackyDoctorPlug = Ver("0.9.2")
 
   /**
    * DepsKt Gradle Plugin
@@ -159,10 +159,10 @@ object Vers {
   val JvmDefaultVer = "21"
 
 
-  val Gradle5 = Ver("5.6.4", 0)
-  val Gradle6 = Ver("6.8.3", 0)
-  val Gradle7 = Ver("7.6.4", 0)
-  val Gradle8 = Ver("8.7", 0)
+  val Gradle5 = Ver("5.6.4")
+  val Gradle6 = Ver("6.8.3")
+  val Gradle7 = Ver("7.6.4")
+  val Gradle8 = Ver("8.7")
 
   /**
    * Gradle - just a reference - not so useful in typical usecases
@@ -194,12 +194,12 @@ object Vers {
    * - [releases](https://developer.android.com/tools/releases/build-tools)
    */
   @Deprecated("Deprecated with android gradle plugin 3.0.0 or higher")
-  val AndroBuildTools = Ver("34.0.0", 0)
+  val AndroBuildTools = Ver("34.0.0")
 
   /**
    * - [revisions](https://developer.android.com/topic/libraries/support-library/revisions.html)
    */
   @Deprecated("Use androidx")
-  val AndroSupportLibrary = Ver("28.0.0", 0)
+  val AndroSupportLibrary = Ver("28.0.0")
 
 }

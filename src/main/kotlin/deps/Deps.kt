@@ -67,7 +67,6 @@ infix fun Instability?.moreStableThan(other: Instability?): Boolean {
 }
 
 data class Ver(val ver: String, val instability: Instability? = detectInstability(ver)) {
-  // TODO: instability detection
   constructor(ver: String, instability: Int) : this(ver, Instability(instability))
   constructor(major: Int, minor: Int, patch: Int, patchLength: Int = 2, suffix: String = "") :
     this("$major.$minor.${patch.toString().padStart(patchLength, '0')}$suffix")
