@@ -9,6 +9,10 @@
 
 package pl.mareklangiewicz.deps
 
+import pl.mareklangiewicz.annotations.DelicateApi
+import pl.mareklangiewicz.annotations.NotPortableApi
+import pl.mareklangiewicz.ure.core.Ure
+import pl.mareklangiewicz.ure.*
 import pl.mareklangiewicz.utils.*
 
 // region [Deps Data Structures]
@@ -26,17 +30,41 @@ import pl.mareklangiewicz.utils.*
  *
  * Other positive numbers are allowed if really necessary.
  */
-@JvmInline
-value class Instability(val instability: Int)
+@JvmInline value class Instability(val instability: Int)
+
+@OptIn(DelicateApi::class, NotPortableApi::class)
+private fun ureTextIC(text: String) = ureText(text).withOptionsEnabled(RegexOption.IGNORE_CASE)
+
+private val ureStable = ure {
+  1..3 of chDigit; +chDot
+  1..8 of chDigit; +chDot
+  1..8 of chDigit
+}
+
+private val instabilities = linkedMapOf<Ure, Int>(
+  // order of keys/ures matters (potentially more stable only if not matched as less stable)
+  ureTextIC("snapshot") to 500,
+  ureTextIC("preview") to 400,
+  ureTextIC("dev") to 320,
+  ureTextIC("alpha") to 300,
+  ureTextIC("beta") to 200,
+  ureTextIC("eap") to 140,
+  ureStable then ureText("M") then chDigit to 140,
+  ureStable to 100,
+)
+
+fun detectInstability(version: String): Instability? {
+  for (ure in instabilities.keys)
+    if (ure.findFirstOrNull(version) != null)
+      return Instability(instabilities[ure]!!)
+  return null
+}
 
 infix fun Instability?.moreStableThan(other: Instability?): Boolean {
   val left = this?.instability ?: Int.MAX_VALUE
   val right = other?.instability ?: Int.MAX_VALUE
   return left < right
 }
-
-@Suppress("UNUSED_PARAMETER")
-private fun detectInstability(version: String): Instability? = null // FIXME
 
 data class Ver(val ver: String, val instability: Instability? = detectInstability(ver)) {
   // TODO: instability detection
@@ -199,17 +227,21 @@ val OtherLinks: Nothing get() = error("Don't use OtherLinks in code. It's only f
 
 // endregion [Deps Selected]
 
+
+
+// Micro syntax/dsl (private syntax sugar) so diffs can be understood at glance.
+private infix fun String.d(name: String) = Dep(this, name)
+private infix fun Dep.w(verName: String) = copy(vers = vers + Ver(verName))
+
 // @formatter:off
-// TODO_later: generate 2 spaces indents instead of 4
-// TODO_later: micro syntax/dsl (maybe local/private syntax sugar) so diffs can be understood at glance.
 // region [Deps Generated]
 
 object AndroidX {
-    object Activity {
-        val activity = Dep("androidx.activity", "activity", Ver("1.3.0-beta01", 200), Ver("1.8.2", 0), Ver("1.9.0-rc01", 100))
-        val compose = Dep("androidx.activity", "activity-compose", Ver("1.3.0-beta01", 200), Ver("1.8.2", 0), Ver("1.9.0-rc01", 100))
-        val ktx = Dep("androidx.activity", "activity-ktx", Ver("1.3.0-beta01", 200), Ver("1.8.2", 0), Ver("1.9.0-rc01", 100))
-    }
+  object Activity {
+    val activity = "androidx.activity" d "activity" w "1.3.0-beta01" w "1.8.2" w "1.9.0-rc01"
+    val compose = Dep("androidx.activity", "activity-compose", Ver("1.3.0-beta01", 200), Ver("1.8.2", 0), Ver("1.9.0-rc01", 100))
+    val ktx = Dep("androidx.activity", "activity-ktx", Ver("1.3.0-beta01", 200), Ver("1.8.2", 0), Ver("1.9.0-rc01", 100))
+  }
     object Annotation {
         val annotation = Dep("androidx.annotation", "annotation", Ver("1.3.0-alpha01", 300), Ver("1.7.1", 0), Ver("1.8.0-beta01", 200))
         val experimental = Dep("androidx.annotation", "annotation-experimental", Ver("1.2.0-alpha01", 300), Ver("1.4.1", 0))
