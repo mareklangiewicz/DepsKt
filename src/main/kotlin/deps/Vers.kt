@@ -115,7 +115,7 @@ object Vers {
    * - [maven](https://maven.google.com/web/index.html#com.android.tools.build:gradle)
    * - [releases](https://developer.android.com/studio/releases/gradle-plugin)
    */
-  val AndroPlugStable = Ver("8.4.0-rc01")
+  val AndroPlugStable = Ver("8.4.0-rc02")
   val AndroPlugEdge = Ver("8.5.0-alpha03")
   val AndroPlug = AndroPlugEdge
 
@@ -139,7 +139,7 @@ object Vers {
    * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
    * [github](https://github.com/Kotlin/kotlin-jupyter)
    */
-  val KotlinJupyterPlug = Ver("0.12.0-184")
+  val KotlinJupyterPlug = Ver("0.12.0-186")
 
   /**
    * Osacky Doctor Gradle Plugin
@@ -154,7 +154,7 @@ object Vers {
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    * - [github](https://github.com/langara/DepsKt)
    */
-  val DepsPlug = Ver("0.2.93")
+  val DepsPlug = Ver("0.2.94")
 
   val JvmDefaultVer = "21"
 

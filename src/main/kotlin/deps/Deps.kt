@@ -27,6 +27,7 @@ import pl.mareklangiewicz.utils.*
  * Development -> 320
  * Preview -> 400
  * Snapshot -> 500
+ * Unknown -> 900
  *
  * Other positive numbers are allowed if really necessary.
  */
@@ -49,15 +50,16 @@ private val instabilities = linkedMapOf<Ure, Int>(
   ureTextIC("alpha") to 300,
   ureTextIC("beta") to 200,
   ureTextIC("eap") to 140,
-  ureStable then ureText("M") then chDigit to 140,
-  ureStable to 100,
+  ureStable then ureWhatevaInLine() then ureText("M") then chDigit to 140,
+  ureStable then ureWhatevaInLine() then ureTextIC("rc") to 100,
+  ureStable to 0,
 )
 
-fun detectInstability(version: String): Instability? {
+fun detectInstability(version: String): Instability {
   for (ure in instabilities.keys)
     if (ure.findFirstOrNull(version) != null)
       return Instability(instabilities[ure]!!)
-  return null
+  return Instability(900) // Unknown (so assume very unstable)
 }
 
 infix fun Instability?.moreStableThan(other: Instability?): Boolean {
