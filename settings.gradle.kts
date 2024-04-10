@@ -20,7 +20,12 @@ gradleEnterprise {
   buildScan {
     termsOfServiceUrl = "https://gradle.com/terms-of-service"
     termsOfServiceAgree = "yes"
-    publishAlwaysIf(System.getenv("GITHUB_ACTIONS") == "true")
-    publishOnFailure()
+
+    val scanPublishEnabled: Boolean =
+      System.getenv("GITHUB_ACTIONS") == "true"
+    // true // careful with publishing fails especially from my machine (privacy)
+
+    publishOnFailureIf(scanPublishEnabled)
+    // publishAlwaysIf(scanPublishEnabled)
   }
 }
