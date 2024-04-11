@@ -16,16 +16,18 @@ plugins {
 
 // includeAndSubstituteBuild("../KommandLine", Langiewicz.kommandline.mvn, ":kommandline")
 
-gradleEnterprise {
+develocity {
   buildScan {
-    termsOfServiceUrl = "https://gradle.com/terms-of-service"
-    termsOfServiceAgree = "yes"
-
-    val scanPublishEnabled: Boolean =
-      System.getenv("GITHUB_ACTIONS") == "true"
-    // true // careful with publishing fails especially from my machine (privacy)
-
-    publishOnFailureIf(scanPublishEnabled)
-    // publishAlwaysIf(scanPublishEnabled)
+    termsOfUseUrl = "https://gradle.com/terms-of-service"
+    termsOfUseAgree = "yes"
+    publishing.onlyIf { // careful with publishing fails especially from my machine (privacy)
+      true &&
+        it.buildResult.failures.isNotEmpty() &&
+        // it.buildResult.failures.isEmpty() &&
+        System.getenv("GITHUB_ACTIONS") == "true" &&
+        // System.getenv("GITHUB_ACTIONS") != "true" &&
+        true
+      // false
+    }
   }
 }
