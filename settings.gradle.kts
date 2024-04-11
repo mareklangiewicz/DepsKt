@@ -27,7 +27,7 @@ develocity {
         System.getenv("GITHUB_ACTIONS") == "true" &&
         // System.getenv("GITHUB_ACTIONS") != "true" &&
         true
-      // false
+        // false
     }
   }
 }
