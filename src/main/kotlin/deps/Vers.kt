@@ -79,7 +79,7 @@ object Vers {
 
 
   // https://github.com/JetBrains/compose-multiplatform/releases
-  val ComposeEdge = Ver("1.6.10-dev1575")
+  val ComposeEdge = Ver("1.6.10-dev1578")
 
   /** Selected ComposeMultiplatform version. Should always be kept compatible with the selected Kotlin version. */
   // val Compose = Org.JetBrains.Compose.gradle_plugin.ver!!
@@ -140,7 +140,7 @@ object Vers {
    * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
    * [github](https://github.com/Kotlin/kotlin-jupyter)
    */
-  val KotlinJupyterPlug = Ver("0.12.0-186")
+  val KotlinJupyterPlug = Ver("0.12.0-188")
 
   /**
    * Osacky Doctor Gradle Plugin
