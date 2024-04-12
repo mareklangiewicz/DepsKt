@@ -31,13 +31,22 @@ repositories {
 }
 
 dependencies {
-  api("pl.mareklangiewicz:kgroundx-maintenance:0.0.45")
-  // FIXME https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kground/
-
+  implementation(Langiewicz.kgroundx_maintenance)
   testImplementation(Langiewicz.uspekx_junit5)
   testImplementation(Org.JUnit.Jupiter.junit_jupiter)
   testImplementation(Org.JUnit.Jupiter.junit_jupiter_engine)
   // TODO: check separation between api and engine - so I can do similar in ULog (with separate bridges to CLog etc.)
+}
+
+configurations.all {
+  resolutionStrategy.dependencySubstitution {
+    substitute(module("pl.mareklangiewicz:uspek")).using(module("pl.mareklangiewicz:uspek:0.0.33"))
+    substitute(module("pl.mareklangiewicz:uspekx-junit5")).using(module("pl.mareklangiewicz:uspekx-junit5:0.0.33"))
+    substitute(module("pl.mareklangiewicz:kgroundx-maintenance")).using(module("pl.mareklangiewicz:kgroundx-maintenance:0.0.47"))
+    substitute(module("pl.mareklangiewicz:kommandline")).using(module("pl.mareklangiewicz:kommandline:0.0.53"))
+    // FIXME https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kommandline/
+    // FIXME https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kground/
+  }
 }
 
 tasks.defaultKotlinCompileOptions()
@@ -52,7 +61,7 @@ defaultGroupAndVerAndDescription(
     group = "pl.mareklangiewicz.deps", // important non default ...deps group (as accepted on gradle portal)
     description = "Updated dependencies for typical java/kotlin/android projects (with IDE support).",
     githubUrl = "https://github.com/langara/DepsKt",
-    version = Ver(0, 2, 97),
+    version = Ver(0, 2, 98),
     // https://plugins.gradle.org/search?term=pl.mareklangiewicz
     settings = LibSettings(
       withJs = false,
