@@ -58,7 +58,7 @@ tasks.defaultTestsOptions()
 ext.addDefaultStuffFromSystemEnvs()
 
 defaultGroupAndVerAndDescription(
-  langaraLibDetails(
+  myLibDetails(
     name = "DepsKt",
     group = "pl.mareklangiewicz.deps", // important non default ...deps group (as accepted on gradle portal)
     description = "Updated dependencies for typical java/kotlin/android projects (with IDE support).",
