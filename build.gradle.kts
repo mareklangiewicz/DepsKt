@@ -4,6 +4,8 @@ import pl.mareklangiewicz.defaults.*
 import pl.mareklangiewicz.deps.*
 import pl.mareklangiewicz.kgroundx.maintenance.*
 import pl.mareklangiewicz.utils.*
+import org.jetbrains.kotlin.gradle.dsl.*
+import org.jetbrains.kotlin.gradle.plugin.*
 
 plugins {
   plugAll(plugs.KotlinJvm, plugs.NexusPublish, plugs.GradlePublish, plugs.Signing)
@@ -14,7 +16,7 @@ tasks.register("updateGeneratedDeps") {
   doLast {
     val pathToDeps = rootProjectPath / "src/main/kotlin/deps/Deps.kt"
     val urlToObjs =
-      "https://raw.githubusercontent.com/langara/refreshDeps/main/plugins/dependencies/src/test/resources/objects-for-deps.txt"
+      "https://raw.githubusercontent.com/mareklangiewicz/refreshDeps/main/plugins/dependencies/src/test/resources/objects-for-deps.txt"
     downloadAndInjectFileToSpecialRegion(
       inFileUrl = urlToObjs,
       outFilePath = pathToDeps,
@@ -42,7 +44,7 @@ configurations.all {
   resolutionStrategy.dependencySubstitution {
     substitute(module("pl.mareklangiewicz:uspek")).using(module("pl.mareklangiewicz:uspek:0.0.33"))
     substitute(module("pl.mareklangiewicz:uspekx-junit5")).using(module("pl.mareklangiewicz:uspekx-junit5:0.0.33"))
-    substitute(module("pl.mareklangiewicz:kgroundx-maintenance")).using(module("pl.mareklangiewicz:kgroundx-maintenance:0.0.47"))
+    substitute(module("pl.mareklangiewicz:kgroundx-maintenance")).using(module("pl.mareklangiewicz:kgroundx-maintenance:0.0.49"))
     substitute(module("pl.mareklangiewicz:kommandline")).using(module("pl.mareklangiewicz:kommandline:0.0.53"))
     // FIXME https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kommandline/
     // FIXME https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kground/
@@ -60,8 +62,8 @@ defaultGroupAndVerAndDescription(
     name = "DepsKt",
     group = "pl.mareklangiewicz.deps", // important non default ...deps group (as accepted on gradle portal)
     description = "Updated dependencies for typical java/kotlin/android projects (with IDE support).",
-    githubUrl = "https://github.com/langara/DepsKt",
-    version = Ver(0, 2, 98),
+    githubUrl = "https://github.com/mareklangiewicz/DepsKt",
+    version = Ver(0, 2, 99),
     // https://plugins.gradle.org/search?term=pl.mareklangiewicz
     settings = LibSettings(
       withJs = false,
@@ -73,8 +75,8 @@ defaultGroupAndVerAndDescription(
 defaultSigning()
 
 gradlePlugin {
-  website.set("https://github.com/langara/DepsKt")
-  vcsUrl.set("https://github.com/langara/DepsKt")
+  website.set("https://github.com/mareklangiewicz/DepsKt")
+  vcsUrl.set("https://github.com/mareklangiewicz/DepsKt")
   plugins {
     create("depsPlugin") {
       id = "pl.mareklangiewicz.deps"
@@ -154,6 +156,30 @@ fun Project.defaultSonatypeOssNexusPublishing(
 
 // region [Kotlin Module Build Template]
 
+// Kind of experimental/temporary.. not sure how it will evolve yet,
+// but currently I need these kind of substitutions/locals often enough
+// especially when updating kground <-> kommandline (trans deps issues)
+fun Project.setMyWeirdSubstitutions(
+  vararg rules: Pair<String, String>,
+  myProjectsGroup: String = "pl.mareklangiewicz",
+  tryToUseLocalProjects: Boolean = true,
+) {
+  val foundLocalProjects: Map<String, Project?> =
+    if (tryToUseLocalProjects) rules.associate { it.first to findProject(":${it.first}") }
+    else emptyMap()
+  configurations.all {
+    resolutionStrategy.dependencySubstitution {
+      for ((projName, projVer) in rules)
+        substitute(module("$myProjectsGroup:$projName"))
+          .using(
+            // Note: there are different fun in gradle: Project.project; DependencySubstitution.project
+            if (foundLocalProjects[projName] != null) project(":$projName")
+            else module("$myProjectsGroup:$projName:$projVer")
+          )
+    }
+  }
+}
+
 fun RepositoryHandler.addRepos(settings: LibReposSettings) = with(settings) {
   if (withMavenLocal) mavenLocal()
   if (withMavenCentral) mavenCentral()
@@ -167,19 +193,25 @@ fun RepositoryHandler.addRepos(settings: LibReposSettings) = with(settings) {
   if (withJitpack) maven(repos.jitpack)
 }
 
+// FIXME: doc says it could be now also applied globally instead for each task (and it works for andro too)
+// https://kotlinlang.org/docs/gradle-compiler-options.html#target-the-jvm
+//   But it's only for jvm+andro, so probably this is better:
+//   https://kotlinlang.org/docs/gradle-compiler-options.html#for-all-kotlin-compilation-tasks
 fun TaskCollection<Task>.defaultKotlinCompileOptions(
-  jvmTargetVer: String? = vers.JvmDefaultVer,
+  jvmTargetVer: String? = vers.JvmDefaultVer, // FIXME_later: use JvmTarget.JVM_XX enum
   renderInternalDiagnosticNames: Boolean = false,
   suppressComposeCheckKotlinVer: Ver? = null,
 ) = withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
-  kotlinOptions {
-    jvmTargetVer?.let { jvmTarget = it }
-    if (renderInternalDiagnosticNames) freeCompilerArgs = freeCompilerArgs + "-Xrender-internal-diagnostic-names"
+  compilerOptions {
+    apiVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_0) // FIXME_later: add param.
+    jvmTargetVer?.let { jvmTarget = JvmTarget.fromTarget(it) }
+    if (renderInternalDiagnosticNames) freeCompilerArgs.add("-Xrender-internal-diagnostic-names")
     // useful, for example, to suppress some errors when accessing internal code from some library, like:
     // @file:Suppress("INVISIBLE_MEMBER", "INVISIBLE_REFERENCE", "EXPOSED_PARAMETER_TYPE", "EXPOSED_PROPERTY_TYPE", "CANNOT_OVERRIDE_INVISIBLE_MEMBER")
     suppressComposeCheckKotlinVer?.ver?.let {
-      freeCompilerArgs =
-        freeCompilerArgs + "-P" + "plugin:androidx.compose.compiler.plugins.kotlin:suppressKotlinVersionCompatibilityCheck=$it"
+      freeCompilerArgs.add(
+        "-Pplugin:androidx.compose.compiler.plugins.kotlin:suppressKotlinVersionCompatibilityCheck=$it",
+      )
     }
   }
 }

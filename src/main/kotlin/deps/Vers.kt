@@ -58,10 +58,11 @@ object Vers {
   val ComposeCompilerAxFor200B3 = Ver("1.5.9-dev-k2.0.0-Beta3-7c5ec6895a0") // this ver is prepared for 2.0.0-Beta3
   val ComposeCompilerAxFor200B4 = Ver("1.5.11-dev-k2.0.0-Beta4-21f5e479a96") // this ver is prepared for 2.0.0-Beta4
   val ComposeCompilerAxFor200B5 = Ver("1.5.11-dev-k2.0.0-Beta5-b5a216d0ac6") // this ver is prepared for 2.0.0-Beta5
+  val ComposeCompilerAxFor200RC1 = Ver("1.5.13-dev-k2.0.0-RC1-50f08dfa4b4"	) // this ver is prepared for 2.0.0-RC1
 
   /** Selected Compose Compiler version. Should always be kept compatible with the selected Kotlin version. */
   @Deprecated("Usually it's better to let compose plugin (mpp or andro) select default compose compiler.")
-  val ComposeCompilerAx = ComposeCompilerAxFor200B5
+  val ComposeCompilerAx = ComposeCompilerAxFor200RC1
 
   // Compose compilers built by JetBrains ("Jb")
 
@@ -79,7 +80,7 @@ object Vers {
 
 
   // https://github.com/JetBrains/compose-multiplatform/releases
-  val ComposeEdge = Ver("1.6.10-dev1578")
+  val ComposeEdge = Ver("1.6.10-dev1584")
 
   /** Selected ComposeMultiplatform version. Should always be kept compatible with the selected Kotlin version. */
   // val Compose = Org.JetBrains.Compose.gradle_plugin.ver!!
@@ -140,7 +141,7 @@ object Vers {
    * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
    * [github](https://github.com/Kotlin/kotlin-jupyter)
    */
-  val KotlinJupyterPlug = Ver("0.12.0-188")
+  val KotlinJupyterPlug = Ver("0.12.0-192")
 
   /**
    * Osacky Doctor Gradle Plugin
@@ -153,9 +154,9 @@ object Vers {
   /**
    * DepsKt Gradle Plugin
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
-   * - [github](https://github.com/langara/DepsKt)
+   * - [github](https://github.com/mareklangiewicz/DepsKt)
    */
-  val DepsPlug = Ver("0.2.96")
+  val DepsPlug = Ver("0.2.98")
 
   val JvmDefaultVer = "21"
 

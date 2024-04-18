@@ -129,8 +129,8 @@ typealias Kotlin = Org.JetBrains.Kotlin
 typealias KotlinX = Org.JetBrains.KotlinX
 
 /**
- * - [github](https://github.com/langara)
- * - [github repositories](https://github.com/langara?tab=repositories)
+ * - [github](https://github.com/mareklangiewicz)
+ * - [github repositories](https://github.com/mareklangiewicz?tab=repositories)
  * - [repo1 maven](https://repo1.maven.org/maven2/pl/mareklangiewicz/)
  */
 typealias Langiewicz = Pl.MarekLangiewicz

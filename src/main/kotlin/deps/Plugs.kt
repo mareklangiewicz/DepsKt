@@ -102,21 +102,21 @@ object Plugs {
   /**
    * DepsKt Gradle Plugin
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
-   * - [github](https://github.com/langara/DepsKt)
+   * - [github](https://github.com/mareklangiewicz/DepsKt)
    */
   val Deps = DepP("pl.mareklangiewicz.deps", vers.DepsPlug)
 
   /**
    * DepsKt Gradle Settings Plugin
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
-   * - [github](https://github.com/langara/DepsKt)
+   * - [github](https://github.com/mareklangiewicz/DepsKt)
    */
   val DepsSettings = DepP("pl.mareklangiewicz.deps.settings", vers.DepsPlug)
 
   /**
    * SourceFun Gradle Plugin
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
-   * - [github](https://github.com/langara/DepsKt)
+   * - [github](https://github.com/mareklangiewicz/DepsKt)
    */
   val SourceFun = DepP("pl.mareklangiewicz.sourcefun", vers.DepsPlug)
 }

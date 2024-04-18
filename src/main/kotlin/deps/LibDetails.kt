@@ -132,7 +132,7 @@ data class LibReposSettings(
   val withJitpack: Boolean = false,
 )
 
-fun langaraLibDetails(
+fun myLibDetails(
   name: String,
   group: String = "pl.mareklangiewicz",
   description: String = "",
