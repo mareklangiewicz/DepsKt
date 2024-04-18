@@ -108,7 +108,7 @@ object Vers {
    * - [gradle org docs](https://docs.gradle.com/enterprise/gradle-plugin/)
    * - [gradle portal](https://plugins.gradle.org/plugin/com.gradle.enterprise)
    */
-  val GradleEnterprisePlug = Ver("3.17.1")
+  val GradleEnterprisePlug = Ver("3.17.2")
 
   /**
    * Android Gradle Plugin
@@ -117,7 +117,7 @@ object Vers {
    * - [releases](https://developer.android.com/studio/releases/gradle-plugin)
    */
   val AndroPlugStable = Ver("8.4.0-rc02")
-  val AndroPlugEdge = Ver("8.5.0-alpha04")
+  val AndroPlugEdge = Ver("8.5.0-alpha05")
   val AndroPlug = AndroPlugEdge
 
   /**
