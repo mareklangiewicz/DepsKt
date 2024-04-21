@@ -1,11 +1,31 @@
 rootProject.name = "DepsKt"
 
+
+// Careful with auto publishing fails/stack traces
+val buildScanPublishingAllowed =
+  System.getenv("GITHUB_ACTIONS") == "true"
+  // true
+  // false
+
+// region [My Settings Stuff <~~]
+// ~~>".*/Deps\.kt"~~>"../DepsKt"<~~
+// endregion [My Settings Stuff <~~]
+// region [My Settings Stuff]
+
 pluginManagement {
   repositories {
-    mavenLocal()
+    gradlePluginPortal()
     google()
     mavenCentral()
-    gradlePluginPortal()
+  }
+
+  val depsDir = File(rootDir, "../DepsKt").normalize()
+  val depsInclude =
+    // depsDir.exists()
+    false
+  if (depsInclude) {
+    logger.warn("Including local build $depsDir")
+    includeBuild(depsDir)
   }
 }
 
@@ -14,20 +34,12 @@ plugins {
   id("com.gradle.develocity") version "3.17.2" // https://docs.gradle.com/enterprise/gradle-plugin/
 }
 
-// includeAndSubstituteBuild("../KommandLine", Langiewicz.kommandline.mvn, ":kommandline")
-
 develocity {
   buildScan {
     termsOfUseUrl = "https://gradle.com/terms-of-service"
     termsOfUseAgree = "yes"
-    publishing.onlyIf { // careful with publishing fails especially from my machine (privacy)
-      true &&
-        it.buildResult.failures.isNotEmpty() &&
-        // it.buildResult.failures.isEmpty() &&
-        System.getenv("GITHUB_ACTIONS") == "true" &&
-        // System.getenv("GITHUB_ACTIONS") != "true" &&
-        true
-        // false
-    }
+    publishing.onlyIf { buildScanPublishingAllowed && it.buildResult.failures.isNotEmpty() }
   }
 }
+
+// endregion [My Settings Stuff]
