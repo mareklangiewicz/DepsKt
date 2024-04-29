@@ -6,6 +6,7 @@ import java.time.*
 import java.time.format.*
 import kotlin.properties.*
 import kotlin.reflect.*
+import kotlinx.coroutines.runBlocking
 import okio.*
 import okio.FileSystem.Companion.SYSTEM
 import okio.Path.Companion.toOkioPath
@@ -16,7 +17,6 @@ import org.gradle.api.tasks.*
 import pl.mareklangiewicz.annotations.DelicateApi
 import pl.mareklangiewicz.io.*
 import pl.mareklangiewicz.kommand.*
-import pl.mareklangiewicz.kommand.CLI.Companion.SYS
 import pl.mareklangiewicz.kommand.git.*
 
 internal data class SourceFunDefinition(
@@ -144,8 +144,8 @@ abstract class VersionDetailsTask : DefaultTask() {
 
   @OptIn(DelicateApi::class)
   @TaskAction
-  fun execute() {
-    val commit = gitHash().axb(SYS).single()
+  fun execute() = runBlocking {
+    val commit = gitHash().ax().single()
     val time = LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME)
     generatedAssetsDir.dir("version-details").get().run {
       project.mkdir(this)
