@@ -33,6 +33,10 @@ repositories {
 }
 
 dependencies {
+  api(Langiewicz.kground)
+  api(Langiewicz.kgroundx)
+  api(Langiewicz.kground_io)
+  api(Langiewicz.kgroundx_io)
   api(Langiewicz.kgroundx_maintenance)
   testImplementation(Langiewicz.uspekx_junit5)
   testImplementation(Org.JUnit.Jupiter.junit_jupiter)
@@ -40,11 +44,18 @@ dependencies {
   // TODO: check separation between api and engine - so I can do similar in ULog (with separate bridges to CLog etc.)
 }
 
+val usVer = "0.0.33" // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/uspek/
+val klVer = "0.0.58" // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kommandline/
+val kgVer = "0.0.52" // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kground/
 setMyWeirdSubstitutions(
-  "uspek" to "0.0.33", // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/uspek/
-  "uspek-junit5" to "0.0.33",
-  "kommandline" to "0.0.58", // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kommandline/
-  "kgroundx-maintenance" to "0.0.52", // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kground/
+  "uspek" to usVer,
+  "uspek-junit5" to usVer,
+  "kommandline" to klVer,
+  "kground" to kgVer,
+  "kground-io" to kgVer,
+  "kgroundx" to kgVer,
+  "kgroundx-io" to kgVer,
+  "kgroundx-maintenance" to kgVer,
 )
 
 tasks.defaultKotlinCompileOptions()
