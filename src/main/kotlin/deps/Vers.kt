@@ -45,7 +45,7 @@ object Vers {
    * - [compiler Ax dev repo table](https://androidx.dev/storage/compose-compiler/repository)
    * - [compiler Jb space maven](https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/compiler/compiler/)
    */
-  val Kotlin = Ver("2.0.0-RC1") // TODO: update compose compilers versions, when some compatible with B5 are available
+  val Kotlin = Ver("2.0.0-RC2") // TODO: update compose compilers versions, when some compatible with B5 are available
 
 
   // Compose compilers build by Google (AndroidX "Ax", aka Jetpack Compiler)
@@ -80,7 +80,7 @@ object Vers {
 
 
   // https://github.com/JetBrains/compose-multiplatform/releases
-  val ComposeEdge = Ver("1.6.10-dev1584")
+  val ComposeEdge = Ver("1.6.10-dev1613")
 
   /** Selected ComposeMultiplatform version. Should always be kept compatible with the selected Kotlin version. */
   // val Compose = Org.JetBrains.Compose.gradle_plugin.ver!!
@@ -95,7 +95,7 @@ object Vers {
    * - [github](https://github.com/gradle-nexus/publish-plugin/)
    * - [github releases](https://github.com/gradle-nexus/publish-plugin/releases)
    */
-  val NexusPublishPlug = Ver("1.3.0")
+  val NexusPublishPlug = Ver("2.0.0")
 
   /**
    * Gradle Publish Plugin (gradle plugin for publishing gradle plugins)
@@ -118,7 +118,7 @@ object Vers {
    * - [releases](https://developer.android.com/studio/releases/gradle-plugin)
    */
   val AndroPlugStable = Ver("8.4.0-rc02")
-  val AndroPlugEdge = Ver("8.5.0-alpha05")
+  val AndroPlugEdge = Ver("8.5.0-alpha07")
   val AndroPlug = AndroPlugEdge
 
   /**
@@ -141,7 +141,7 @@ object Vers {
    * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
    * [github](https://github.com/Kotlin/kotlin-jupyter)
    */
-  val KotlinJupyterPlug = Ver("0.12.0-192")
+  val KotlinJupyterPlug = Ver("0.12.0-215")
 
   /**
    * Osacky Doctor Gradle Plugin
@@ -156,7 +156,7 @@ object Vers {
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    * - [github](https://github.com/mareklangiewicz/DepsKt)
    */
-  val DepsPlug = Ver("0.2.98")
+  val DepsPlug = Ver("0.3.02")
 
   val JvmDefaultVer = "21"
 

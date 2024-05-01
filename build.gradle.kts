@@ -44,7 +44,7 @@ setMyWeirdSubstitutions(
   "uspek" to "0.0.33", // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/uspek/
   "uspek-junit5" to "0.0.33",
   "kommandline" to "0.0.58", // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kommandline/
-  "kgroundx-maintenance" to "0.0.51", // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kground/
+  "kgroundx-maintenance" to "0.0.52", // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kground/
 )
 
 tasks.defaultKotlinCompileOptions()
@@ -59,7 +59,7 @@ defaultGroupAndVerAndDescription(
     group = "pl.mareklangiewicz.deps", // important non default ...deps group (as accepted on gradle portal)
     description = "Updated dependencies for typical java/kotlin/android projects (with IDE support).",
     githubUrl = "https://github.com/mareklangiewicz/DepsKt",
-    version = Ver(0, 3, 2),
+    version = Ver(0, 3, 3),
     // https://plugins.gradle.org/search?term=pl.mareklangiewicz
     settings = LibSettings(
       withJs = false,
