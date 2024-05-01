@@ -33,7 +33,7 @@ repositories {
 }
 
 dependencies {
-  implementation(Langiewicz.kgroundx_maintenance)
+  api(Langiewicz.kgroundx_maintenance)
   testImplementation(Langiewicz.uspekx_junit5)
   testImplementation(Org.JUnit.Jupiter.junit_jupiter)
   testImplementation(Org.JUnit.Jupiter.junit_jupiter_engine)
@@ -59,7 +59,7 @@ defaultGroupAndVerAndDescription(
     group = "pl.mareklangiewicz.deps", // important non default ...deps group (as accepted on gradle portal)
     description = "Updated dependencies for typical java/kotlin/android projects (with IDE support).",
     githubUrl = "https://github.com/mareklangiewicz/DepsKt",
-    version = Ver(0, 3, 3),
+    version = Ver(0, 3, 4),
     // https://plugins.gradle.org/search?term=pl.mareklangiewicz
     settings = LibSettings(
       withJs = false,
