@@ -104,12 +104,15 @@ object Vers {
    */
   val GradlePublishPlug = Ver("1.2.1")
 
-  /**
-   * Gradle Enterprise Plugin (enables integration with Gradle Enterprise and scans.gradle.com)
-   * - [gradle org docs](https://docs.gradle.com/enterprise/gradle-plugin/)
-   * - [gradle portal](https://plugins.gradle.org/plugin/com.gradle.enterprise)
-   */
+  @Deprecated("Use GradleDevelocityPlug")
   val GradleEnterprisePlug = Ver("3.17.2")
+
+  /**
+   * Gradle Develocity Plugin (enables integration with Gradle Develocity and scans.gradle.com)
+   * - [gradle org docs](https://docs.gradle.com/develocity/gradle-plugin/)
+   * - [gradle portal](https://plugins.gradle.org/plugin/com.gradle.develocity)
+   */
+  val GradleDevelocityPlug = Ver("3.17.2")
 
   /**
    * Android Gradle Plugin

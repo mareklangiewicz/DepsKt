@@ -30,12 +30,15 @@ object Plugs {
    */
   val GradlePublish = DepP("com.gradle.plugin-publish", vers.GradlePublishPlug)
 
-  /**
-   * Gradle Enterprise Plugin (enables integration with Gradle Enterprise and scans.gradle.com)
-   * - [gradle org docs](https://docs.gradle.com/enterprise/gradle-plugin/)
-   * - [gradle portal](https://plugins.gradle.org/plugin/com.gradle.enterprise)
-   */
+  @Deprecated("Use GradleDevelocity")
   val GradleEnterprise = DepP("com.gradle.enterprise", vers.GradleEnterprisePlug)
+
+  /**
+   * Gradle Develocity Plugin (enables integration with Gradle Develocity and scans.gradle.com)
+   * - [gradle org docs](https://docs.gradle.com/develocity/gradle-plugin/)
+   * - [gradle portal](https://plugins.gradle.org/plugin/com.gradle.develocity)
+   */
+  val GradleDevelocity = DepP("com.gradle.develocity", vers.GradleDevelocityPlug)
 
   /**
    * The builtin Gradle plugin implemented by [org.gradle.api.plugins.ApplicationPlugin].
