@@ -18,12 +18,10 @@ plugins {
   plugAll(plugs.KotlinJvm, plugs.NexusPublish, plugs.GradlePublish, plugs.Signing)
 }
 
-val usVer = "0.0.33" // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/uspek/
-val kgVer = "0.0.52" // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kground/
-
 buildscript {
   dependencies {
-    classpath("pl.mareklangiewicz:kgroundx-maintenance:0.0.52")
+    classpath("pl.mareklangiewicz:kgroundx-maintenance:0.0.52") // FIXME_later: remove and use new SourceFun??
+      // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kground/
   }
 }
 
@@ -75,20 +73,8 @@ repositories {
 }
 
 dependencies {
-  api(Com.SquareUp.Okio.okio)
-  compileOnly(Langiewicz.kgroundx_maintenance) // temporarily needed for sourcefun??
-  testImplementation(Langiewicz.kgroundx_maintenance)
-  testImplementation(Langiewicz.uspekx_junit5)
-  testImplementation(Org.JUnit.Jupiter.junit_jupiter)
-  testImplementation(Org.JUnit.Jupiter.junit_jupiter_engine)
-  // TODO: check separation between api and engine - so I can do similar in ULog (with separate bridges to CLog etc.)
+  api(Com.SquareUp.Okio.okio) // FIXME_later: remove and use new SourceFun? (DepsKt utils should not depend on okio)
 }
-
-setMyWeirdSubstitutions(
-  "uspek" to usVer,
-  "uspek-junit5" to usVer,
-  "kgroundx-maintenance" to kgVer,
-)
 
 tasks.defaultKotlinCompileOptions()
 
@@ -102,7 +88,7 @@ defaultGroupAndVerAndDescription(
     group = "pl.mareklangiewicz.deps", // important non default ...deps group (as accepted on gradle portal)
     description = "Updated dependencies for typical java/kotlin/android projects (with IDE support).",
     githubUrl = "https://github.com/mareklangiewicz/DepsKt",
-    version = Ver(0, 3, 8),
+    version = Ver(0, 3, 9),
     // https://plugins.gradle.org/search?term=pl.mareklangiewicz
     settings = LibSettings(
       withJs = false,
@@ -131,13 +117,6 @@ gradlePlugin {
       description =
         "Updated dependencies for typical java/kotlin/android projects (with IDE support) (settings plugin)."
       tags.set(listOf("bom", "dependencies"))
-    }
-    create("sourceFunPlugin") {
-      id = "pl.mareklangiewicz.sourcefun"
-      implementationClass = "pl.mareklangiewicz.sourcefun.SourceFunPlugin"
-      displayName = "SourceFun plugin"
-      description = "Updated dependencies for typical java/kotlin/android projects (with IDE support) (source fun)."
-      tags.set(listOf("SourceTask", "DSL"))
     }
   }
 }
