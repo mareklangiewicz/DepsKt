@@ -69,10 +69,8 @@ fun <T> ExtensionAware.ext(): UExt<T> = UExt(extensions.extraProperties)
 val ExtensionAware.extString get() = ext<String>()
 val Project.rootExtString get() = rootProject.extString
 
-@Deprecated("Do I really need it? I'd like to avoid dependencies in DepsKt (and this fun uses Okio)")
 fun Project.rootExtReadFileUtf8(name: String) = SYSTEM.read(rootExtString[name].toPath()) { readUtf8() }
 
-@Deprecated("Do I really need it? I'd like to avoid dependencies in DepsKt (and this fun uses Okio)")
 fun Project.rootExtReadFileUtf8TryOrNull(name: String) =
   try {
     rootExtReadFileUtf8(name)

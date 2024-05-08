@@ -7,10 +7,17 @@ import pl.mareklangiewicz.utils.*
 import pl.mareklangiewicz.ure.*
 import pl.mareklangiewicz.annotations.*
 import org.jetbrains.kotlin.gradle.dsl.*
+import kotlinx.coroutines.runBlocking
 import org.jetbrains.kotlin.gradle.plugin.*
 
 plugins {
   plugAll(plugs.KotlinJvm, plugs.NexusPublish, plugs.GradlePublish, plugs.Signing)
+}
+
+buildscript {
+  dependencies {
+    classpath("pl.mareklangiewicz:kgroundx-maintenance:0.0.52")
+  }
 }
 
 tasks.register("updateGeneratedDeps") {
@@ -19,18 +26,20 @@ tasks.register("updateGeneratedDeps") {
     val pathToDeps = rootProjectPath / "src/main/kotlin/deps/Deps.kt"
     val urlToObjs =
       "https://raw.githubusercontent.com/mareklangiewicz/refreshDeps/main/plugins/dependencies/src/test/resources/objects-for-deps.txt"
-    downloadAndInjectFileToSpecialRegion(
-      inFileUrl = urlToObjs,
-      outFilePath = pathToDeps,
-      outFileRegionLabel = "Deps Generated",
-    )
+    runBlocking {
+      downloadAndInjectFileToSpecialRegion(
+        inFileUrl = urlToObjs,
+        outFilePath = pathToDeps,
+        outFileRegionLabel = "Deps Generated",
+      )
+    }
   }
 }
 
 @OptIn(NotPortableApi::class)
 tasks.register("updateSomeRegexesExperiment") {
   // The idea is: I want to avoid DepsKt having unnecessary runtime dependencies,
-  // but no harm in having nice kgroundXXX (and okio) at compile time,
+  // but no harm in having nice kgroundx-maintenance at buildscript time,
   // so in tasks like here I can automate regex generation and other fun with sources
   group = "maintenance"
   doLast {
@@ -55,7 +64,8 @@ repositories {
 }
 
 dependencies {
-  compileOnly(Langiewicz.kgroundx_maintenance)
+  api(Com.SquareUp.Okio.okio)
+  compileOnly(Langiewicz.kgroundx_maintenance) // temporarily needed for sourcefun??
   testImplementation(Langiewicz.kgroundx_maintenance)
   testImplementation(Langiewicz.uspekx_junit5)
   testImplementation(Org.JUnit.Jupiter.junit_jupiter)
@@ -83,7 +93,7 @@ defaultGroupAndVerAndDescription(
     group = "pl.mareklangiewicz.deps", // important non default ...deps group (as accepted on gradle portal)
     description = "Updated dependencies for typical java/kotlin/android projects (with IDE support).",
     githubUrl = "https://github.com/mareklangiewicz/DepsKt",
-    version = Ver(0, 3, 7),
+    version = Ver(0, 3, 8),
     // https://plugins.gradle.org/search?term=pl.mareklangiewicz
     settings = LibSettings(
       withJs = false,
