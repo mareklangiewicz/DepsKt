@@ -4,6 +4,8 @@ import pl.mareklangiewicz.defaults.*
 import pl.mareklangiewicz.deps.*
 import pl.mareklangiewicz.kgroundx.maintenance.*
 import pl.mareklangiewicz.utils.*
+import pl.mareklangiewicz.ure.*
+import pl.mareklangiewicz.annotations.*
 import org.jetbrains.kotlin.gradle.dsl.*
 import org.jetbrains.kotlin.gradle.plugin.*
 
@@ -25,6 +27,26 @@ tasks.register("updateGeneratedDeps") {
   }
 }
 
+@OptIn(NotPortableApi::class)
+tasks.register("updateSomeRegexesExperiment") {
+  // The idea is: I want to avoid DepsKt having unnecessary runtime dependencies,
+  // but no harm in having nice kgroundXXX (and okio) at compile time,
+  // so in tasks like here I can automate regex generation and other fun with sources
+  group = "maintenance"
+  doLast {
+    val ureVersionPart = ure {
+      0..MAX of ch('0') // have to ignore leading zeros because these confuse parser later (potentially octal)
+      1 of ure {
+        1..4 of chDigit
+      }.withName("VersionPart")
+      0..MAX of chWordOrDash
+    }
+    val reStr = ureVersionPart.compile().toString()
+    println("TODO_later: Update Regex in Utils.kt:fun String.toVersionPartIntCode:")
+    println("Regex(\"\"\"$reStr\"\"\")") // TODO_later: use my fancy kground utils to do it automatically
+  }
+}
+
 repositories {
   mavenLocal()
   google()
@@ -33,11 +55,8 @@ repositories {
 }
 
 dependencies {
-  api(Langiewicz.kground)
-  api(Langiewicz.kgroundx)
-  api(Langiewicz.kground_io)
-  api(Langiewicz.kgroundx_io)
-  api(Langiewicz.kgroundx_maintenance)
+  compileOnly(Langiewicz.kgroundx_maintenance)
+  testImplementation(Langiewicz.kgroundx_maintenance)
   testImplementation(Langiewicz.uspekx_junit5)
   testImplementation(Org.JUnit.Jupiter.junit_jupiter)
   testImplementation(Org.JUnit.Jupiter.junit_jupiter_engine)

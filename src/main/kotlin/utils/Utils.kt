@@ -1,5 +1,3 @@
-@file:OptIn(NotPortableApi::class)
-
 package pl.mareklangiewicz.utils
 
 import kotlin.properties.*
@@ -14,10 +12,7 @@ import org.gradle.api.initialization.*
 import org.gradle.api.plugins.*
 import org.gradle.api.provider.*
 import org.gradle.api.tasks.*
-import pl.mareklangiewicz.annotations.NotPortableApi
 import pl.mareklangiewicz.deps.*
-import pl.mareklangiewicz.io.*
-import pl.mareklangiewicz.ure.*
 
 
 fun String.toVersionIntCode() = split(".").let {
@@ -31,18 +26,8 @@ fun String.toVersionIntCode() = split(".").let {
  * We don't want any fancy interpretation of suffixes, because the result has to be monotonically increasing!
  * We also don't want to accept weird suffixes, just accept and ignore reasonable suffixes.
  */
-fun String.toVersionPartIntCode(): Int = matchEntireOrNull(
-  ure {
-    0..MAX of ch('0') // have to ignore leading zeros because these confuse parser later (potentially octal)
-    1 of ure {
-      1..4 of chDigit
-    }.withName("VersionPart")
-    val chWoH = chWord or ch("-")
-    0..MAX of chWoH
-  },
-)?.named["VersionPart"]?.value?.toInt() ?: error("Can't parse version part: '$this'.")
-
-
+fun String.toVersionPartIntCode(): Int = Regex("""0*(?<VersionPart>\d{1,4})[\w\-]*""").matchEntire(this)
+    ?.groups["VersionPart"]?.value?.toInt() ?: error("Can't parse version part: '$this'.")
 
 // Overloads for setting properties in more typesafe and explicit ways (and fewer parentheses)
 // (Property.set usage in gradle kotlin dsl doesn't look great, so we need to fix it with some infix fun)
@@ -83,7 +68,11 @@ fun <T> ExtensionAware.ext(): UExt<T> = UExt(extensions.extraProperties)
 
 val ExtensionAware.extString get() = ext<String>()
 val Project.rootExtString get() = rootProject.extString
-fun Project.rootExtReadFileUtf8(name: String) = SYSTEM.readUtf8(rootExtString[name].toPath())
+
+@Deprecated("Do I really need it? I'd like to avoid dependencies in DepsKt (and this fun uses Okio)")
+fun Project.rootExtReadFileUtf8(name: String) = SYSTEM.read(rootExtString[name].toPath()) { readUtf8() }
+
+@Deprecated("Do I really need it? I'd like to avoid dependencies in DepsKt (and this fun uses Okio)")
 fun Project.rootExtReadFileUtf8TryOrNull(name: String) =
   try {
     rootExtReadFileUtf8(name)

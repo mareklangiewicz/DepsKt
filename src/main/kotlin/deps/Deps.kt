@@ -9,10 +9,6 @@
 
 package pl.mareklangiewicz.deps
 
-import pl.mareklangiewicz.annotations.DelicateApi
-import pl.mareklangiewicz.annotations.NotPortableApi
-import pl.mareklangiewicz.ure.core.Ure
-import pl.mareklangiewicz.ure.*
 import pl.mareklangiewicz.utils.*
 
 // region [Deps Data Structures]
@@ -33,32 +29,24 @@ import pl.mareklangiewicz.utils.*
  */
 @JvmInline value class Instability(val instability: Int)
 
-@OptIn(DelicateApi::class, NotPortableApi::class)
-private fun ureTextIC(text: String) = ureText(text).withOptionsEnabled(RegexOption.IGNORE_CASE)
-
-private val ureStable = ure {
-  1..3 of chDigit; +chDot
-  1..8 of chDigit; +chDot
-  1..8 of chDigit
-}
-
-private val instabilities = linkedMapOf<Ure, Int>(
-  // order of keys/ures matters (potentially more stable only if not matched as less stable)
-  ureTextIC("snapshot") to 500,
-  ureTextIC("preview") to 400,
-  ureTextIC("dev") to 320,
-  ureTextIC("alpha") to 300,
-  ureTextIC("beta") to 200,
-  ureTextIC("eap") to 140,
-  ureStable then ureWhatevaInLine() then ureText("M") then chDigit to 140,
-  ureStable then ureWhatevaInLine() then ureTextIC("rc") to 100,
-  ureStable to 0,
+private val reStableStr = """d{1,3}\.\d{1,8}\.\d{1,8}"""
+private val instabilities = linkedMapOf<Regex, Int>(
+  // order of keys/regexes matters (potentially more stable only if not matched as less stable)
+  Regex("(?i:snapshot)") to 500,
+  Regex("(?i:preview)") to 400,
+  Regex("(?i:dev)") to 320,
+  Regex("(?i:alpha)") to 300,
+  Regex("(?i:beta)") to 200,
+  Regex("(?i:eap)") to 140,
+  Regex("$reStableStr.*?M\\d") to 120,
+  Regex("$reStableStr.*?(?i:rc)") to 100,
+  Regex(reStableStr) to 0,
 )
 
 fun detectInstability(version: String): Instability {
-  for (ure in instabilities.keys)
-    if (ure.findFirstOrNull(version) != null)
-      return Instability(instabilities[ure]!!)
+  for (re in instabilities.keys)
+    if (re.find(version) != null)
+      return Instability(instabilities[re]!!)
   return Instability(900) // Unknown (so assume very unstable)
 }
 

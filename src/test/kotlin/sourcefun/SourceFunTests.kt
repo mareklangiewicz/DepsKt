@@ -7,6 +7,7 @@ import org.gradle.testfixtures.*
 import org.gradle.testkit.runner.*
 import org.gradle.testkit.runner.TaskOutcome.*
 import org.junit.jupiter.api.*
+import pl.mareklangiewicz.bad.chkEq
 import pl.mareklangiewicz.io.*
 import pl.mareklangiewicz.uspek.*
 
@@ -26,7 +27,7 @@ private fun onExampleWithProjectBuilder() {
     val project = ProjectBuilder.builder().build()
     project.pluginManager.apply(SourceFunPlugin::class.java)
     // TODO_maybe: how to configure my plugin in such test? (so I can assert it creates appropriate tasks)
-    project.plugins.any { it is SourceFunPlugin } eq true
+    project.plugins.any { it is SourceFunPlugin } chkEq true
   }
 }
 
@@ -70,8 +71,8 @@ private fun onSingleHelloWorldProject() {
           "On gradle build" o {
             val result = runner.build()
 
-            "task helloWorld ends successfully" o { result.task(":helloWorld")?.outcome eq SUCCESS }
-            "output contains hello world message" o { result.output.contains("Hello world!") eq true }
+            "task helloWorld ends successfully" o { result.task(":helloWorld")?.outcome chkEq SUCCESS }
+            "output contains hello world message" o { result.output.contains("Hello world!") chkEq true }
           }
         }
 
@@ -86,8 +87,8 @@ private fun onSingleHelloWorldProject() {
           "On gradle failing build" o {
             val result = runner.buildAndFail()
 
-            "task helloFail ends with failure" o { result.task(":helloFail")?.outcome eq FAILED }
-            "output contains hello fail message" o { result.output.contains("The exception is coming!") eq true }
+            "task helloFail ends with failure" o { result.task(":helloFail")?.outcome chkEq FAILED }
+            "output contains hello fail message" o { result.output.contains("The exception is coming!") chkEq true }
           }
         }
       }
@@ -112,10 +113,10 @@ private fun onSampleSourceFunProject() {
         val lines = result.output.lines()
         val idx = lines.indexOf("Awesome tasks")
         check(idx > 0)
-        lines[idx + 2] eq "processExtensions1"
-        lines[idx + 3] eq "processExtensions2deprecated"
-        lines[idx + 4] eq "reportStuff1"
-        lines[idx + 5] eq "reportStuff2"
+        lines[idx + 2] chkEq "processExtensions1"
+        lines[idx + 3] chkEq "processExtensions2deprecated"
+        lines[idx + 4] chkEq "reportStuff1"
+        lines[idx + 5] chkEq "reportStuff2"
       }
     }
 
@@ -127,7 +128,7 @@ private fun onSampleSourceFunProject() {
         runner.withArguments("processExtensions1")
         val result = runner.build()
 
-        "task processExtensions1 ends with SUCCESS" o { result.task(":processExtensions1")?.outcome eq SUCCESS }
+        "task processExtensions1 ends with SUCCESS" o { result.task(":processExtensions1")?.outcome chkEq SUCCESS }
 
         // TODO_later: mess with generated source code and check if processExtensions1 fixes it.
       }
@@ -136,25 +137,25 @@ private fun onSampleSourceFunProject() {
         runner.withArguments("reportStuff1")
         val result = runner.build()
 
-        "task reportStuff1 ends with SUCCESS" o { result.task(":reportStuff1")?.outcome eq SUCCESS }
+        "task reportStuff1 ends with SUCCESS" o { result.task(":reportStuff1")?.outcome chkEq SUCCESS }
       }
 
       "On task reportStuff2" o {
         runner.withArguments("reportStuff2")
         val result = runner.build()
 
-        "task reportStuff2 ends with SUCCESS" o { result.task(":reportStuff2")?.outcome eq SUCCESS }
+        "task reportStuff2 ends with SUCCESS" o { result.task(":reportStuff2")?.outcome chkEq SUCCESS }
 
         "On generated reports" o {
           val reportsPaths = SYSTEM.list(sampleSourceFunProjectPath / "build/awesome-reports")
           val reportsNames = reportsPaths.map { it.name }
 
-          "generated two files" o { reportsNames eq listOf("GenericExtensions.kt", "SpecialExtensions.kt") }
+          "generated two files" o { reportsNames chkEq listOf("GenericExtensions.kt", "SpecialExtensions.kt") }
 
           for (reportPath in reportsPaths) "On report file ${reportPath.name}" o {
             val content = SYSTEM.readUtf8(reportPath)
 
-            "no Array word in it" o { Regex("Array").containsMatchIn(content) eq false }
+            "no Array word in it" o { Regex("Array").containsMatchIn(content) chkEq false }
             "some XXX words instead" o { check(Regex("XXX").findAll(content).count() > 2) }
           }
         }
