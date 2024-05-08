@@ -50,7 +50,7 @@ object Vers {
 
   // Compose compilers build by Google (AndroidX "Ax", aka Jetpack Compiler)
 
-  val ComposeCompilerAxStable = AndroidX.Compose.Compiler.compiler.verStable!!
+  val ComposeCompilerAxStable = AndroidX.Compose.Compiler.compiler.verStable
   val ComposeCompilerAxFor1920 = Ver("1.5.4-dev-k1.9.20-50f08dfa4b4") // this ver is prepared for 1.9.20
   val ComposeCompilerAxFor1921 = Ver("1.5.6-dev-k1.9.21-3eed341308a") // this ver is prepared for 1.9.21
   val ComposeCompilerAxFor200B1 = Ver("1.5.6-dev-k2.0.0-Beta1-06a03be2b42") // this ver is prepared for 2.0.0-Beta1
@@ -67,7 +67,7 @@ object Vers {
   // Compose compilers built by JetBrains ("Jb")
 
   // https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/compiler/compiler/
-  val ComposeCompilerJbStable = Org.JetBrains.Compose.Compiler.compiler.verStable!!
+  val ComposeCompilerJbStable = Org.JetBrains.Compose.Compiler.compiler.verStable
   val ComposeCompilerJbFor1922 = Ver("1.5.8-beta01")
   val ComposeCompilerJbFor200B1 = Ver("1.5.4-dev1-kt2.0.0-Beta1")
   val ComposeCompilerJbFor200B2 = Ver("1.5.6-dev1-kt2.0.0-Beta2")

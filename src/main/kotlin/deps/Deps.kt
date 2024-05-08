@@ -27,7 +27,7 @@ import pl.mareklangiewicz.utils.*
  *
  * Other positive numbers are allowed if really necessary.
  */
-@JvmInline value class Instability(val instability: Int)
+data class Instability(val instability: Int)
 
 private val reStableStr = """d{1,3}\.\d{1,8}\.\d{1,8}"""
 private val instabilities = linkedMapOf<Regex, Int>(
@@ -56,7 +56,7 @@ infix fun Instability?.moreStableThan(other: Instability?): Boolean {
   return left < right
 }
 
-data class Ver(val ver: String, val instability: Instability? = detectInstability(ver)) {
+data class Ver(val ver: String, val instability: Instability = detectInstability(ver)) {
   constructor(ver: String, instability: Int) : this(ver, Instability(instability))
   constructor(major: Int, minor: Int, patch: Int, patchLength: Int = 2, suffix: String = "") :
     this("$major.$minor.${patch.toString().padStart(patchLength, '0')}$suffix")
@@ -80,14 +80,14 @@ fun DepP(pluginId: String, vararg vers: Ver) = Dep(pluginId, "$pluginId.gradle.p
 
 fun Dep.withNoVer() = copy(vers = emptyList())
 fun Dep.withVer(ver: Ver) = copy(vers = listOf(ver))
-fun Dep.withVer(verName: String, verInstability: Int? = null) =
-  withVer(Ver(verName, verInstability?.let(::Instability)))
+fun Dep.withVer(verName: String, verInstability: Instability = detectInstability(verName)) =
+  withVer(Ver(verName, verInstability))
 
 fun Dep.withVers(vararg vers: Ver) = copy(vers = vers.toList())
 fun Dep.withVers(maxInstability: Instability) =
   copy(vers = vers.filter { !(maxInstability moreStableThan it.instability) })
 
-val Dep.verStable get() = vers.lastOrNull { it.instability?.instability == 0 }
+val Dep.verStable get() = vers.lastOrNull { it.instability.instability == 0 }
 
 // endregion [Deps Data Structures]
 
