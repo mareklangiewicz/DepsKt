@@ -2,7 +2,11 @@
 
 import pl.mareklangiewicz.defaults.*
 import pl.mareklangiewicz.deps.*
+import pl.mareklangiewicz.kground.io.*
+import pl.mareklangiewicz.udata.str
 import pl.mareklangiewicz.kgroundx.maintenance.*
+import pl.mareklangiewicz.kommand.*
+import pl.mareklangiewicz.ulog.hack.UHackySharedFlowLog
 import pl.mareklangiewicz.utils.*
 import pl.mareklangiewicz.ure.*
 import pl.mareklangiewicz.annotations.*
@@ -13,6 +17,9 @@ import org.jetbrains.kotlin.gradle.plugin.*
 plugins {
   plugAll(plugs.KotlinJvm, plugs.NexusPublish, plugs.GradlePublish, plugs.Signing)
 }
+
+val usVer = "0.0.33" // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/uspek/
+val kgVer = "0.0.52" // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kground/
 
 buildscript {
   dependencies {
@@ -27,11 +34,15 @@ tasks.register("updateGeneratedDeps") {
     val urlToObjs =
       "https://raw.githubusercontent.com/mareklangiewicz/refreshDeps/main/plugins/dependencies/src/test/resources/objects-for-deps.txt"
     runBlocking {
-      downloadAndInjectFileToSpecialRegion(
-        inFileUrl = urlToObjs,
-        outFilePath = pathToDeps,
-        outFileRegionLabel = "Deps Generated",
-      )
+      val log = UHackySharedFlowLog { level, data -> "L ${level.symbol} ${data.str(maxLength = 512)}" }
+      val cli = provideSysCLI()
+      uctxWithIO(log + cli) {
+        downloadAndInjectFileToSpecialRegion(
+          inFileUrl = urlToObjs,
+          outFilePath = pathToDeps,
+          outFileRegionLabel = "Deps Generated",
+        )
+      }
     }
   }
 }
@@ -73,8 +84,6 @@ dependencies {
   // TODO: check separation between api and engine - so I can do similar in ULog (with separate bridges to CLog etc.)
 }
 
-val usVer = "0.0.33" // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/uspek/
-val kgVer = "0.0.52" // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kground/
 setMyWeirdSubstitutions(
   "uspek" to usVer,
   "uspek-junit5" to usVer,
