@@ -64,16 +64,10 @@ dependencies {
 }
 
 val usVer = "0.0.33" // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/uspek/
-val klVer = "0.0.58" // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kommandline/
 val kgVer = "0.0.52" // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kground/
 setMyWeirdSubstitutions(
   "uspek" to usVer,
   "uspek-junit5" to usVer,
-  "kommandline" to klVer,
-  "kground" to kgVer,
-  "kground-io" to kgVer,
-  "kgroundx" to kgVer,
-  "kgroundx-io" to kgVer,
   "kgroundx-maintenance" to kgVer,
 )
 
@@ -89,7 +83,7 @@ defaultGroupAndVerAndDescription(
     group = "pl.mareklangiewicz.deps", // important non default ...deps group (as accepted on gradle portal)
     description = "Updated dependencies for typical java/kotlin/android projects (with IDE support).",
     githubUrl = "https://github.com/mareklangiewicz/DepsKt",
-    version = Ver(0, 3, 5),
+    version = Ver(0, 3, 6),
     // https://plugins.gradle.org/search?term=pl.mareklangiewicz
     settings = LibSettings(
       withJs = false,
