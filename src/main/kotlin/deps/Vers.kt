@@ -45,7 +45,9 @@ object Vers {
    * - [compiler Ax dev repo table](https://androidx.dev/storage/compose-compiler/repository)
    * - [compiler Jb space maven](https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/compiler/compiler/)
    */
-  val Kotlin = Ver("2.0.0-RC2") // TODO: update compose compilers versions, when some compatible with B5 are available
+  val Kotlin20 = Ver("2.0.0-RC3") // TODO: update compose compilers versions, when some compatible with B5 are available
+  val Kotlin19 = Ver("1.9.24")
+  val Kotlin = Kotlin20
 
 
   // Compose compilers build by Google (AndroidX "Ax", aka Jetpack Compiler)
@@ -53,6 +55,7 @@ object Vers {
   val ComposeCompilerAxStable = AndroidX.Compose.Compiler.compiler.verStable
   val ComposeCompilerAxFor1920 = Ver("1.5.4-dev-k1.9.20-50f08dfa4b4") // this ver is prepared for 1.9.20
   val ComposeCompilerAxFor1921 = Ver("1.5.6-dev-k1.9.21-3eed341308a") // this ver is prepared for 1.9.21
+  val ComposeCompilerAxFor1924 = Ver("1.5.14-dev-k1.9.24-50022def4af") // this ver is prepared for 1.9.24
   val ComposeCompilerAxFor200B1 = Ver("1.5.6-dev-k2.0.0-Beta1-06a03be2b42") // this ver is prepared for 2.0.0-Beta1
   val ComposeCompilerAxFor200B2 = Ver("1.5.8-dev-k2.0.0-Beta2-99ed868a0f8") // this ver is prepared for 2.0.0-Beta2
   val ComposeCompilerAxFor200B3 = Ver("1.5.9-dev-k2.0.0-Beta3-7c5ec6895a0") // this ver is prepared for 2.0.0-Beta3
@@ -104,15 +107,16 @@ object Vers {
    */
   val GradlePublishPlug = Ver("1.2.1")
 
-  @Deprecated("Use GradleDevelocityPlug")
-  val GradleEnterprisePlug = Ver("3.17.2")
-
   /**
    * Gradle Develocity Plugin (enables integration with Gradle Develocity and scans.gradle.com)
    * - [gradle org docs](https://docs.gradle.com/develocity/gradle-plugin/)
    * - [gradle portal](https://plugins.gradle.org/plugin/com.gradle.develocity)
    */
-  val GradleDevelocityPlug = Ver("3.17.2")
+  val GradleDevelocityPlug = Ver("3.17.3")
+
+  @Deprecated("Use GradleDevelocityPlug")
+  val GradleEnterprisePlug = GradleDevelocityPlug
+
 
   /**
    * Android Gradle Plugin
@@ -120,8 +124,8 @@ object Vers {
    * - [maven](https://maven.google.com/web/index.html#com.android.tools.build:gradle)
    * - [releases](https://developer.android.com/studio/releases/gradle-plugin)
    */
-  val AndroPlugStable = Ver("8.4.0-rc02")
-  val AndroPlugEdge = Ver("8.5.0-alpha07")
+  val AndroPlugStable = Ver("8.4.0")
+  val AndroPlugEdge = Ver("8.5.0-beta01")
   val AndroPlug = AndroPlugEdge
 
   /**
@@ -144,7 +148,7 @@ object Vers {
    * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
    * [github](https://github.com/Kotlin/kotlin-jupyter)
    */
-  val KotlinJupyterPlug = Ver("0.12.0-215")
+  val KotlinJupyterPlug = Ver("0.12.0-222")
 
   /**
    * Osacky Doctor Gradle Plugin
@@ -152,14 +156,20 @@ object Vers {
    * - [github](https://github.com/runningcode/gradle-doctor)
    * - [docs](https://runningcode.github.io/gradle-doctor/)
    */
-  val OsackyDoctorPlug = Ver("0.9.2")
+  val OsackyDoctorPlug = Ver("0.10.0")
 
   /**
    * DepsKt Gradle Plugin
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    * - [github](https://github.com/mareklangiewicz/DepsKt)
    */
-  val DepsPlug = Ver("0.3.02")
+  val DepsPlug = Ver("0.3.09")
+
+  /**
+   * - [plugins gradle portal](https://plugins.gradle.org/plugin/pl.mareklangiewicz.sourcefun)
+   * - [github](https://github.com/mareklangiewicz/SourceFun)
+   */
+  val SourceFunPlug = Ver("0.4.01")
 
   val JvmDefaultVer = "21"
 
