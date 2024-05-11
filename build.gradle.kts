@@ -16,13 +16,7 @@ import org.jetbrains.kotlin.gradle.plugin.*
 
 plugins {
   plugAll(plugs.KotlinJvm, plugs.NexusPublish, plugs.GradlePublish, plugs.Signing)
-}
-
-buildscript {
-  dependencies {
-    classpath("pl.mareklangiewicz:kgroundx-maintenance:0.0.52") // FIXME_later: remove and use new SourceFun??
-      // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kground/
-  }
+  id("pl.mareklangiewicz.sourcefun") version "0.4.01"
 }
 
 tasks.register("updateGeneratedDeps") {
