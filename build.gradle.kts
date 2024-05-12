@@ -7,9 +7,11 @@ import pl.mareklangiewicz.udata.str
 import pl.mareklangiewicz.kgroundx.maintenance.*
 import pl.mareklangiewicz.kommand.*
 import pl.mareklangiewicz.ulog.hack.UHackySharedFlowLog
+import pl.mareklangiewicz.ulog.*
 import pl.mareklangiewicz.utils.*
 import pl.mareklangiewicz.ure.*
 import pl.mareklangiewicz.annotations.*
+import pl.mareklangiewicz.sourcefun.*
 import org.jetbrains.kotlin.gradle.dsl.*
 import kotlinx.coroutines.runBlocking
 import org.jetbrains.kotlin.gradle.plugin.*
@@ -17,35 +19,47 @@ import org.jetbrains.kotlin.gradle.plugin.*
 plugins {
   plugAll(plugs.KotlinJvm, plugs.NexusPublish, plugs.GradlePublish, plugs.Signing)
   id("pl.mareklangiewicz.sourcefun") version "0.4.01"
+  id("pl.mareklangiewicz.sourcefun") version "0.4.02" // FIXME_later: add to plugAll after updating deps
 }
 
-tasks.register("updateGeneratedDeps") {
+// FIXME: temporarily needed block because renamed provideSysCLI -> getSysCLI (also used inside sourcefun plugin)
+buildscript {
+  dependencies {
+    classpath("pl.mareklangiewicz:kommandline:0.0.59")
+    // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kommandline/
+  }
+}
+
+val updateGeneratedDeps by tasks.registering {
   group = "maintenance"
-  doLast {
+  doLastWithUCtxForTask {
     val pathToDeps = rootProjectPath / "src/main/kotlin/deps/Deps.kt"
-    val urlToObjs =
-      "https://raw.githubusercontent.com/mareklangiewicz/refreshDeps/main/plugins/dependencies/src/test/resources/objects-for-deps.txt"
-    runBlocking {
-      val log = UHackySharedFlowLog { level, data -> "L ${level.symbol} ${data.str(maxLength = 512)}" }
-      val cli = provideSysCLI()
-      uctxWithIO(log + cli) {
-        downloadAndInjectFileToSpecialRegion(
-          inFileUrl = urlToObjs,
-          outFilePath = pathToDeps,
-          outFileRegionLabel = "Deps Generated",
-        )
-      }
-    }
+    val urlToRefreshDepsRepoRaw = "https://raw.githubusercontent.com/mareklangiewicz/refreshDeps"
+    val urlToObjs = "$urlToRefreshDepsRepoRaw/main/plugins/dependencies/src/test/resources/objects-for-deps.txt"
+    downloadAndInjectFileToSpecialRegion(
+      inFileUrl = urlToObjs,
+      outFilePath = pathToDeps,
+      outFileRegionLabel = "Deps Generated",
+    )
+  }
+}
+
+val updateSomeRegexes by tasks.registering {
+  group = "maintenance"
+  doLastWithUCtxForTask {
+    val log = implictx<ULog>()
+    log.e("TODO later: implement this instead of printSomeRegexes task")
   }
 }
 
 @OptIn(NotPortableApi::class)
-tasks.register("updateSomeRegexesExperiment") {
+val printSomeRegexes by tasks.registering {
   // The idea is: I want to avoid DepsKt having unnecessary runtime dependencies,
   // but no harm in having nice kgroundx-maintenance at buildscript time,
   // so in tasks like here I can automate regex generation and other fun with sources
   group = "maintenance"
-  doLast {
+  doLastWithUCtxForTask {
+    val log = implictx<ULog>()
     val ureVersionPart = ure {
       0..MAX of ch('0') // have to ignore leading zeros because these confuse parser later (potentially octal)
       1 of ure {
@@ -54,8 +68,8 @@ tasks.register("updateSomeRegexesExperiment") {
       0..MAX of chWordOrDash
     }
     val reStr = ureVersionPart.compile().toString()
-    println("TODO_later: Update Regex in Utils.kt:fun String.toVersionPartIntCode:")
-    println("Regex(\"\"\"$reStr\"\"\")") // TODO_later: use my fancy kground utils to do it automatically
+    log.w("TODO_later: Update Regex in Utils.kt:fun String.toVersionPartIntCode:")
+    log.w("Regex(\"\"\"$reStr\"\"\")") // TODO_later: use my fancy kground utils to do it automatically
   }
 }
 
