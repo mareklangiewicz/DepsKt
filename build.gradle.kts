@@ -18,7 +18,6 @@ import org.jetbrains.kotlin.gradle.plugin.*
 
 plugins {
   plugAll(plugs.KotlinJvm, plugs.NexusPublish, plugs.GradlePublish, plugs.Signing)
-  id("pl.mareklangiewicz.sourcefun") version "0.4.01"
   id("pl.mareklangiewicz.sourcefun") version "0.4.02" // FIXME_later: add to plugAll after updating deps
 }
 
