@@ -2,7 +2,10 @@
 
 import pl.mareklangiewicz.defaults.*
 import pl.mareklangiewicz.deps.*
+import okio.Path.Companion.toOkioPath
+import okio.FileSystem.Companion.SYSTEM
 import pl.mareklangiewicz.kground.io.*
+import pl.mareklangiewicz.io.*
 import pl.mareklangiewicz.udata.str
 import pl.mareklangiewicz.kgroundx.maintenance.*
 import pl.mareklangiewicz.kommand.*
@@ -18,10 +21,11 @@ import org.jetbrains.kotlin.gradle.plugin.*
 
 plugins {
   plugAll(plugs.KotlinJvm, plugs.NexusPublish, plugs.GradlePublish, plugs.Signing)
-  id("pl.mareklangiewicz.sourcefun") version "0.4.02" // FIXME_later: add to plugAll after updating deps
+  id("pl.mareklangiewicz.sourcefun") version "0.4.05" // FIXME_later: add to plugAll after updating deps
 }
 
 // FIXME: temporarily needed block because renamed provideSysCLI -> getSysCLI (also used inside sourcefun plugin)
+//   Without it I get runtime error when executing task that uses getSysCLI (even though everything compiles fine)
 buildscript {
   dependencies {
     classpath("pl.mareklangiewicz:kommandline:0.0.59")
@@ -29,7 +33,34 @@ buildscript {
   }
 }
 
-val updateGeneratedDeps by tasks.registering {
+val downloadGeneratedDeps by tasks.registering(DownloadFile::class) {
+  group = "maintenance"
+  val pathToDeps = rootProjectPath / "src/main/kotlin/deps/Deps.kt"
+  val urlToRefreshDepsRepoRaw = "https://raw.githubusercontent.com/mareklangiewicz/refreshDeps"
+  val urlToObjs = "$urlToRefreshDepsRepoRaw/main/plugins/dependencies/src/test/resources/objects-for-deps.txt"
+  inputUrl.set(urlToObjs)
+  outputFile.set(layout.buildDirectory.file("objects-for-deps.txt"))
+}
+
+
+@OptIn(DelicateApi::class)
+sourceFun {
+  grp = "maintenance"
+  val updateGeneratedDeps by reg {
+    doNotTrackState("Injecting to Deps.kt file which belong to other (compilation) task(s).")
+    setSource(downloadGeneratedDeps)
+    setOutput(layout.projectDirectory.dir("src/main/kotlin/deps").asFile.toOkioPath())
+    setVisitFun { outDir ->
+      if (isDirectory) return@setVisitFun
+      val inPath = file.toOkioPath()
+      val outPath = outDir.file("Deps.kt").asFile.toOkioPath()
+      runWithUCtxForTask { outPath.injectSpecialRegionContentFromFile("Deps Generated", inPath) }
+    }
+  }
+}
+
+// Note: Leaving here older version to document and play with different approaches
+val updateGeneratedDepsAlternative by tasks.registering {
   group = "maintenance"
   doLastWithUCtxForTask {
     val pathToDeps = rootProjectPath / "src/main/kotlin/deps/Deps.kt"
