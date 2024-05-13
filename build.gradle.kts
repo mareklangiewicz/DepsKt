@@ -3,42 +3,39 @@
 import pl.mareklangiewicz.defaults.*
 import pl.mareklangiewicz.deps.*
 import okio.Path.Companion.toOkioPath
-import okio.FileSystem.Companion.SYSTEM
-import pl.mareklangiewicz.kground.io.*
-import pl.mareklangiewicz.io.*
-import pl.mareklangiewicz.udata.str
 import pl.mareklangiewicz.kgroundx.maintenance.*
-import pl.mareklangiewicz.kommand.*
-import pl.mareklangiewicz.ulog.hack.UHackySharedFlowLog
 import pl.mareklangiewicz.ulog.*
 import pl.mareklangiewicz.utils.*
 import pl.mareklangiewicz.ure.*
 import pl.mareklangiewicz.annotations.*
 import pl.mareklangiewicz.sourcefun.*
 import org.jetbrains.kotlin.gradle.dsl.*
-import kotlinx.coroutines.runBlocking
-import org.jetbrains.kotlin.gradle.plugin.*
 
 plugins {
   plugAll(plugs.KotlinJvm, plugs.NexusPublish, plugs.GradlePublish, plugs.Signing)
-  id("pl.mareklangiewicz.sourcefun") version "0.4.05" // FIXME_later: add to plugAll after updating deps
+  id("pl.mareklangiewicz.sourcefun") version "0.4.06" // FIXME_later: add to plugAll after updating deps
 }
 
-// FIXME: temporarily needed block because renamed provideSysCLI -> getSysCLI (also used inside sourcefun plugin)
-//   Without it I get runtime error when executing task that uses getSysCLI (even though everything compiles fine)
 buildscript {
+  // Important: It's temporarily needed workaround block because changed api in kotlinx-maintenance
+  //   BTW this issue fails on sync, but try running tasks before removing this workaround,
+  //   because similar issue before (when api of related kground/kommand/etc changed) was compiling fine
+  //   and only failing when I was executing specific custom task.
   dependencies {
-    classpath("pl.mareklangiewicz:kommandline:0.0.59")
+    classpath("pl.mareklangiewicz:kommandline:0.0.60")
+    classpath("pl.mareklangiewicz:kgroundx-maintenance:0.0.53")
     // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kommandline/
+    // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kground/
   }
 }
 
-val downloadGeneratedDeps by tasks.registering(DownloadFile::class) {
+val pathToDepsDir = rootProjectPath / "src/main/kotlin/deps"
+val urlToRefreshDeps = "https://raw.githubusercontent.com/mareklangiewicz/refreshDeps"
+val urlToObjectsFile = "$urlToRefreshDeps/main/plugins/dependencies/src/test/resources/objects-for-deps.txt"
+
+val downloadGeneratedDeps by tasks.registering(DownloadFileTask::class) {
   group = "maintenance"
-  val pathToDeps = rootProjectPath / "src/main/kotlin/deps/Deps.kt"
-  val urlToRefreshDepsRepoRaw = "https://raw.githubusercontent.com/mareklangiewicz/refreshDeps"
-  val urlToObjs = "$urlToRefreshDepsRepoRaw/main/plugins/dependencies/src/test/resources/objects-for-deps.txt"
-  inputUrl.set(urlToObjs)
+  inputUrl.set(urlToObjectsFile)
   outputFile.set(layout.buildDirectory.file("objects-for-deps.txt"))
 }
 
@@ -49,26 +46,23 @@ sourceFun {
   val updateGeneratedDeps by reg {
     doNotTrackState("Injecting to Deps.kt file which belong to other (compilation) task(s).")
     setSource(downloadGeneratedDeps)
-    setOutput(layout.projectDirectory.dir("src/main/kotlin/deps").asFile.toOkioPath())
-    setVisitFun { outDir ->
-      if (isDirectory) return@setVisitFun
-      val inPath = file.toOkioPath()
+    setOutput(pathToDepsDir)
+    setTaskAction { srcTree, outDir ->
+      val inPath = srcTree.files.single().toOkioPath()
       val outPath = outDir.file("Deps.kt").asFile.toOkioPath()
       runWithUCtxForTask { outPath.injectSpecialRegionContentFromFile("Deps Generated", inPath) }
     }
   }
 }
 
-// Note: Leaving here older version to document and play with different approaches
+// Note: Leaving here older version to document and experiment with different approaches more
+// (this one uses temp file in home dir not managed by gradle - see downloadAndInjectfileToSpecialRegion)
 val updateGeneratedDepsAlternative by tasks.registering {
   group = "maintenance"
   doLastWithUCtxForTask {
-    val pathToDeps = rootProjectPath / "src/main/kotlin/deps/Deps.kt"
-    val urlToRefreshDepsRepoRaw = "https://raw.githubusercontent.com/mareklangiewicz/refreshDeps"
-    val urlToObjs = "$urlToRefreshDepsRepoRaw/main/plugins/dependencies/src/test/resources/objects-for-deps.txt"
     downloadAndInjectFileToSpecialRegion(
-      inFileUrl = urlToObjs,
-      outFilePath = pathToDeps,
+      inFileUrl = urlToObjectsFile,
+      outFilePath = pathToDepsDir / "Deps.kt",
       outFileRegionLabel = "Deps Generated",
     )
   }
@@ -126,7 +120,7 @@ defaultGroupAndVerAndDescription(
     group = "pl.mareklangiewicz.deps", // important non default ...deps group (as accepted on gradle portal)
     description = "Updated dependencies for typical java/kotlin/android projects (with IDE support).",
     githubUrl = "https://github.com/mareklangiewicz/DepsKt",
-    version = Ver(0, 3, 10),
+    version = Ver(0, 3, 11),
     // https://plugins.gradle.org/search?term=pl.mareklangiewicz
     settings = LibSettings(
       withJs = false,
@@ -222,7 +216,7 @@ fun Project.setMyWeirdSubstitutions(
 ) {
   val foundLocalProjects: Map<String, Project?> =
     if (tryToUseLocalProjects) rules.associate { it.first to findProject(":${it.first}") }
-      else emptyMap()
+    else emptyMap()
   configurations.all {
     resolutionStrategy.dependencySubstitution {
       for ((projName, projVer) in rules)
