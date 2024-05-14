@@ -8,6 +8,7 @@ import pl.mareklangiewicz.ulog.*
 import pl.mareklangiewicz.io.*
 import pl.mareklangiewicz.utils.*
 import pl.mareklangiewicz.ure.*
+import kotlin.text.Regex.Companion.escapeReplacement
 import pl.mareklangiewicz.annotations.*
 import pl.mareklangiewicz.sourcefun.*
 import org.jetbrains.kotlin.gradle.dsl.*
@@ -94,7 +95,13 @@ val updateSomeRegexes by tasks.registering {
     val log = implictx<ULog>()
     val path = pathToSrcKotlin / "utils/Utils.kt"
     processFile(path, path) {
-      it.replaceSingle(ureWithTheOldThing, "\\k<beforeTheThing>$theNewThing\\k<afterTheThing>")
+      // FIXME: Workaround for bug in kground (flag allowGroupRefs etc is wrong) use new UReplacement class in kground
+      val theNewThingSafer = escapeReplacement(theNewThing)
+      it.replaceSingle(
+        ure = ureWithTheOldThing,
+        replacement = "\${beforeTheThing}$theNewThingSafer\${afterTheThing}",
+        allowGroupRefs = true,
+      )
     }
   }
 }
