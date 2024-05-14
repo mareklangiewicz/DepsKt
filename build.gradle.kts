@@ -106,27 +106,6 @@ val updateSomeRegexes by tasks.registering {
   }
 }
 
-@OptIn(NotPortableApi::class)
-val printSomeRegexes by tasks.registering {
-  // The idea is: I want to avoid DepsKt having unnecessary runtime dependencies,
-  // but no harm in having nice kgroundx-maintenance at buildscript time,
-  // so in tasks like here I can automate regex generation and other fun with sources
-  group = "maintenance"
-  doLastWithUCtxForTask {
-    val log = implictx<ULog>()
-    val ureVersionPart = ure {
-      0..MAX of ch('0') // have to ignore leading zeros because these confuse parser later (potentially octal)
-      1 of ure {
-        1..4 of chDigit
-      }.withName("VersionPart")
-      0..MAX of chWordOrDash
-    }
-    val reStr = ureVersionPart.compile().toString()
-    log.w("TODO_later: Update Regex in Utils.kt:fun String.toVersionPartIntCode:")
-    log.w("Regex(\"\"\"$reStr\"\"\")") // TODO_later: use my fancy kground utils to do it automatically
-  }
-}
-
 repositories {
   mavenLocal()
   google()
