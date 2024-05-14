@@ -5,6 +5,7 @@ import pl.mareklangiewicz.deps.*
 import okio.Path.Companion.toOkioPath
 import pl.mareklangiewicz.kgroundx.maintenance.*
 import pl.mareklangiewicz.ulog.*
+import pl.mareklangiewicz.io.*
 import pl.mareklangiewicz.utils.*
 import pl.mareklangiewicz.ure.*
 import pl.mareklangiewicz.annotations.*
@@ -29,7 +30,7 @@ buildscript {
   }
 }
 
-val pathToDepsDir = rootProjectPath / "src/main/kotlin/deps"
+val pathToSrcKotlin = rootProjectPath / "src/main/kotlin"
 val urlToRefreshDeps = "https://raw.githubusercontent.com/mareklangiewicz/refreshDeps"
 val urlToObjectsFile = "$urlToRefreshDeps/main/plugins/dependencies/src/test/resources/objects-for-deps.txt"
 
@@ -46,7 +47,7 @@ sourceFun {
   val updateGeneratedDeps by reg {
     doNotTrackState("Injecting to Deps.kt file which belong to other (compilation) task(s).")
     setSource(downloadGeneratedDeps)
-    setOutput(pathToDepsDir)
+    setOutput(pathToSrcKotlin / "deps")
     setTaskAction { srcTree, outDir ->
       val inPath = srcTree.files.single().toOkioPath()
       val outPath = outDir.file("Deps.kt").asFile.toOkioPath()
@@ -62,17 +63,39 @@ val updateGeneratedDepsAlternative by tasks.registering {
   doLastWithUCtxForTask {
     downloadAndInjectFileToSpecialRegion(
       inFileUrl = urlToObjectsFile,
-      outFilePath = pathToDepsDir / "Deps.kt",
+      outFilePath = pathToSrcKotlin / "deps/Deps.kt",
       outFileRegionLabel = "Deps Generated",
     )
   }
 }
 
 val updateSomeRegexes by tasks.registering {
+
   group = "maintenance"
+
+  val ureNewVersionPart = ure {
+    0..MAX of ch('0') // have to ignore leading zeros because these confuse parser later (potentially octal)
+    1 of ure {
+      1..4 of chDigit
+    }.withName("VersionPart")
+    0..MAX of chWordOrDash
+  }
+  val theNewThing = "Regex(\"\"\"${ureNewVersionPart.compile()}\"\"\")"
+  val ureWithTheOldThing = ure {
+    +ureText("fun String.toVersionPartIntCode(): Int = ").withName("beforeTheThing")
+    +ure("theOldThing") {
+      +ureText("Regex")
+      +ureWhatevaInLine()
+    }
+    +ureText(".matchEntire(this)").withName("afterTheThing")
+  }
+
   doLastWithUCtxForTask {
     val log = implictx<ULog>()
-    log.e("TODO later: implement this instead of printSomeRegexes task")
+    val path = pathToSrcKotlin / "utils/Utils.kt"
+    processFile(path, path) {
+      it.replaceSingle(ureWithTheOldThing, "\\k<beforeTheThing>$theNewThing\\k<afterTheThing>")
+    }
   }
 }
 
