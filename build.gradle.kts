@@ -5,9 +5,12 @@ import pl.mareklangiewicz.deps.*
 import okio.Path.Companion.toOkioPath
 import pl.mareklangiewicz.kgroundx.maintenance.*
 import pl.mareklangiewicz.ulog.*
+import pl.mareklangiewicz.bad.*
 import pl.mareklangiewicz.io.*
 import pl.mareklangiewicz.utils.*
 import pl.mareklangiewicz.ure.*
+import pl.mareklangiewicz.ure.UReplacement.Companion.Group
+import pl.mareklangiewicz.ure.UReplacement.Companion.Literal
 import kotlin.text.Regex.Companion.escapeReplacement
 import pl.mareklangiewicz.annotations.*
 import pl.mareklangiewicz.sourcefun.*
@@ -25,7 +28,7 @@ buildscript {
   //   and only failing when I was executing specific custom task.
   dependencies {
     classpath("pl.mareklangiewicz:kommandline:0.0.60")
-    classpath("pl.mareklangiewicz:kgroundx-maintenance:0.0.53")
+    classpath("pl.mareklangiewicz:kgroundx-maintenance:0.0.54")
     // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kommandline/
     // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kground/
   }
@@ -70,6 +73,7 @@ val updateGeneratedDepsAlternative by tasks.registering {
   }
 }
 
+@OptIn(ExperimentalApi::class)
 val updateSomeRegexes by tasks.registering {
 
   group = "maintenance"
@@ -95,15 +99,17 @@ val updateSomeRegexes by tasks.registering {
     val log = implictx<ULog>()
     val path = pathToSrcKotlin / "utils/Utils.kt"
     processFile(path, path) {
-      // FIXME: Workaround for bug in kground (flag allowGroupRefs etc is wrong) use new UReplacement class in kground
-      val theNewThingSafer = escapeReplacement(theNewThing)
-      it.replaceSingle(
-        ure = ureWithTheOldThing,
-        replacement = "\${beforeTheThing}$theNewThingSafer\${afterTheThing}",
-        allowGroupRefs = true,
-      )
+      it.replaceSingle(ureWithTheOldThing, Group("beforeTheThing") + Literal(theNewThing) + Group("afterTheThing"))
     }
   }
+}
+
+// FIXME: It's temporarily copied from unpublished kground version. Remove when updating kground again.
+@ExperimentalApi("TODO: Implement correct checks for all edge cases (with less false positives)")
+@OptIn(DelicateApi::class)
+operator fun UReplacement.plus(that: UReplacement) = UReplacement.Advanced(raw + that.raw).also {
+  req(raw.last() !in "$\\") { "Concatenation with first part ending with \"${raw.last()}\" is not safe." }
+  req(!raw.last().isDigit() || !that.raw.first().isDigit()) { "Concatenation with numbers in the middle is not safe." }
 }
 
 repositories {
