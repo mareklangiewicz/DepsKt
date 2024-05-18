@@ -95,6 +95,14 @@ object Plugs {
   val KotlinJupyter = DepP("org.jetbrains.kotlin.jupyter.api", vers.KotlinJupyterPlug)
 
   /**
+   * Gradle Shadow Gradle Plugin
+   * - [gradle portal](https://github.com/johnrengelman/shadow)
+   * - [github john rengelman shadow](https://github.com/johnrengelman/shadow)
+   * - [docs](https://github.com/johnrengelman/shadow)
+   */
+  val GradleShadow = DepP("com.github.johnrengelman.shadow", vers.GradleShadowPlug)
+
+  /**
    * Osacky Doctor Gradle Plugin
    * - [gradle portal](https://plugins.gradle.org/plugin/com.osacky.doctor)
    * - [github](https://github.com/runningcode/gradle-doctor)

@@ -151,6 +151,14 @@ object Vers {
   val KotlinJupyterPlug = Ver("0.12.0-222")
 
   /**
+   * Gradle Shadow Gradle Plugin
+   * - [gradle portal](https://github.com/johnrengelman/shadow)
+   * - [github john rengelman shadow](https://github.com/johnrengelman/shadow)
+   * - [docs](https://github.com/johnrengelman/shadow)
+   */
+  val GradleShadowPlug = Ver("8.1.1")
+
+  /**
    * Osacky Doctor Gradle Plugin
    * - [gradle portal](https://plugins.gradle.org/plugin/com.osacky.doctor)
    * - [github](https://github.com/runningcode/gradle-doctor)
@@ -160,16 +168,20 @@ object Vers {
 
   /**
    * DepsKt Gradle Plugin
-   * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    * - [github](https://github.com/mareklangiewicz/DepsKt)
+   * - [plugins gradle deps](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps)
+   * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
+   * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
   val DepsPlug = Ver("0.3.09")
 
   /**
-   * - [plugins gradle portal](https://plugins.gradle.org/plugin/pl.mareklangiewicz.sourcefun)
+   * SourceFun Gradle Plugin
    * - [github](https://github.com/mareklangiewicz/SourceFun)
+   * - [plugins gradle sourcefun](https://plugins.gradle.org/plugin/pl.mareklangiewicz.sourcefun)
+   * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val SourceFunPlug = Ver("0.4.01")
+  val SourceFunPlug = Ver("0.4.07")
 
   val JvmDefaultVer = "21"
 
