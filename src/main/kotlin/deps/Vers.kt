@@ -173,7 +173,7 @@ object Vers {
    * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val DepsPlug = Ver("0.3.09")
+  val DepsPlug = Ver("0.3.12")
 
   /**
    * SourceFun Gradle Plugin
