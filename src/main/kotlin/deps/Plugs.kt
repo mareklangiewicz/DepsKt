@@ -14,8 +14,14 @@ object Plugs {
   val NexusPublish = DepP("io.github.gradle-nexus.publish-plugin", vers.NexusPublishPlug)
 
   val KotlinMulti = DepP("org.jetbrains.kotlin.multiplatform", vers.Kotlin)
+
+  /** https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-compiler.html#migrating-a-compose-multiplatform-project */
+  val KotlinMultiCompose = DepP("org.jetbrains.kotlin.plugin.compose", vers.Kotlin)
+
   val KotlinJvm = DepP("org.jetbrains.kotlin.jvm", vers.Kotlin)
+
   val KotlinJs = DepP("org.jetbrains.kotlin.js", vers.Kotlin)
+
   val KotlinAndro = DepP("org.jetbrains.kotlin.android", vers.Kotlin)
 
   val MavenPublish = DepP("maven-publish")

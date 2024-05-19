@@ -83,7 +83,7 @@ object Vers {
 
 
   // https://github.com/JetBrains/compose-multiplatform/releases
-  val ComposeEdge = Ver("1.6.10-dev1613")
+  val ComposeEdge = Ver("1.6.10-dev1640")
 
   /** Selected ComposeMultiplatform version. Should always be kept compatible with the selected Kotlin version. */
   // val Compose = Org.JetBrains.Compose.gradle_plugin.ver!!
@@ -112,7 +112,7 @@ object Vers {
    * - [gradle org docs](https://docs.gradle.com/develocity/gradle-plugin/)
    * - [gradle portal](https://plugins.gradle.org/plugin/com.gradle.develocity)
    */
-  val GradleDevelocityPlug = Ver("3.17.3")
+  val GradleDevelocityPlug = Ver("3.17.4")
 
   @Deprecated("Use GradleDevelocityPlug")
   val GradleEnterprisePlug = GradleDevelocityPlug
@@ -124,8 +124,8 @@ object Vers {
    * - [maven](https://maven.google.com/web/index.html#com.android.tools.build:gradle)
    * - [releases](https://developer.android.com/studio/releases/gradle-plugin)
    */
-  val AndroPlugStable = Ver("8.4.0")
-  val AndroPlugEdge = Ver("8.5.0-beta01")
+  val AndroPlugStable = Ver("8.5.0-beta02")
+  val AndroPlugEdge = Ver("8.6.0-alpha02")
   val AndroPlug = AndroPlugEdge
 
   /**
@@ -148,7 +148,7 @@ object Vers {
    * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
    * [github](https://github.com/Kotlin/kotlin-jupyter)
    */
-  val KotlinJupyterPlug = Ver("0.12.0-222")
+  val KotlinJupyterPlug = Ver("0.12.0-226")
 
   /**
    * Gradle Shadow Gradle Plugin
