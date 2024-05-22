@@ -45,7 +45,7 @@ object Vers {
    * - [compiler Ax dev repo table](https://androidx.dev/storage/compose-compiler/repository)
    * - [compiler Jb space maven](https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/compiler/compiler/)
    */
-  val Kotlin20 = Ver("2.0.0-RC3") // TODO: update compose compilers versions, when some compatible with B5 are available
+  val Kotlin20 = Ver("2.0.0")
   val Kotlin19 = Ver("1.9.24")
   val Kotlin = Kotlin20
 
@@ -77,13 +77,14 @@ object Vers {
   val ComposeCompilerJbFor200B3 = Ver("1.5.6-dev2-kt2.0.0-Beta3")
   val ComposeCompilerJbFor200B4 = Ver("1.5.9-kt-2.0.0-Beta4")
   val ComposeCompilerJbFor200RC1 = Ver("1.5.11-kt-2.0.0-RC1")
+  val ComposeCompilerJbFor200 = Ver("1.5.14")
 
   @Deprecated("Usually it's better to let compose plugin (mpp or andro) select default compose compiler.")
-  val ComposeCompilerJb = ComposeCompilerJbFor200RC1
+  val ComposeCompilerJb = ComposeCompilerJbFor200
 
 
   // https://github.com/JetBrains/compose-multiplatform/releases
-  val ComposeEdge = Ver("1.6.10-dev1640")
+  val ComposeEdge = Ver("1.6.10-dev1646")
 
   /** Selected ComposeMultiplatform version. Should always be kept compatible with the selected Kotlin version. */
   // val Compose = Org.JetBrains.Compose.gradle_plugin.ver!!
