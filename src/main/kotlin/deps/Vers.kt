@@ -84,7 +84,7 @@ object Vers {
 
 
   // https://github.com/JetBrains/compose-multiplatform/releases
-  val ComposeEdge = Ver("1.6.10-dev1646")
+  val ComposeEdge = Ver("1.6.20-dev1667")
 
   /** Selected ComposeMultiplatform version. Should always be kept compatible with the selected Kotlin version. */
   // val Compose = Org.JetBrains.Compose.gradle_plugin.ver!!
@@ -125,8 +125,8 @@ object Vers {
    * - [maven](https://maven.google.com/web/index.html#com.android.tools.build:gradle)
    * - [releases](https://developer.android.com/studio/releases/gradle-plugin)
    */
-  val AndroPlugStable = Ver("8.5.0-beta02")
-  val AndroPlugEdge = Ver("8.6.0-alpha02")
+  val AndroPlugStable = Ver("8.5.0-rc01")
+  val AndroPlugEdge = Ver("8.6.0-alpha04")
   val AndroPlug = AndroPlugEdge
 
   /**
@@ -149,7 +149,7 @@ object Vers {
    * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
    * [github](https://github.com/Kotlin/kotlin-jupyter)
    */
-  val KotlinJupyterPlug = Ver("0.12.0-226")
+  val KotlinJupyterPlug = Ver("0.12.0-232")
 
   /**
    * Gradle Shadow Gradle Plugin
@@ -174,7 +174,7 @@ object Vers {
    * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val DepsPlug = Ver("0.3.13")
+  val DepsPlug = Ver("0.3.15")
 
   /**
    * SourceFun Gradle Plugin
@@ -182,7 +182,7 @@ object Vers {
    * - [plugins gradle sourcefun](https://plugins.gradle.org/plugin/pl.mareklangiewicz.sourcefun)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val SourceFunPlug = Ver("0.4.07")
+  val SourceFunPlug = Ver("0.4.08")
 
   val JvmDefaultVer = "21"
 
@@ -190,7 +190,7 @@ object Vers {
   val Gradle5 = Ver("5.6.4")
   val Gradle6 = Ver("6.8.3")
   val Gradle7 = Ver("7.6.4")
-  val Gradle8 = Ver("8.7")
+  val Gradle8 = Ver("8.8")
 
   /**
    * Gradle - just a reference - not so useful in typical usecases
