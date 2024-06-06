@@ -11,7 +11,7 @@ package pl.mareklangiewicz.deps
 
 import pl.mareklangiewicz.utils.*
 
-// region [Deps Data Structures]
+// region [[Deps Data Structures]]
 
 /**
  * Stable -> 0
@@ -89,10 +89,10 @@ fun Dep.withVers(maxInstability: Instability) =
 
 val Dep.verStable get() = vers.lastOrNull { it.instability.instability == 0 }
 
-// endregion [Deps Data Structures]
+// endregion [[Deps Data Structures]]
 
 
-// region [Deps Selected]
+// region [[Deps Selected]]
 
 /**
  * - [releases](https://github.com/JetBrains/kotlin/releases)
@@ -214,7 +214,7 @@ val AndroLinks: Nothing get() = error("Dont' use AndroLinks in code. It's only f
  */
 val OtherLinks: Nothing get() = error("Don't use OtherLinks in code. It's only for links in kdoc comment.")
 
-// endregion [Deps Selected]
+// endregion [[Deps Selected]]
 
 
 
@@ -223,7 +223,7 @@ private infix fun String.d(name: String) = Dep(this, name)
 private infix fun Dep.w(verName: String) = copy(vers = vers + Ver(verName))
 
 // @formatter:off
-// region [Deps Generated]
+// region [[Deps Generated]]
 
 object AndroidX {
   object Activity {
@@ -2023,7 +2023,7 @@ object Pl {
   }
 }
 
-// endregion [Deps Generated]
+// endregion [[Deps Generated]]
 // @formatter:on
 
 
