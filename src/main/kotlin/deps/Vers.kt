@@ -84,7 +84,7 @@ object Vers {
 
 
   // https://github.com/JetBrains/compose-multiplatform/releases
-  val ComposeEdge = Ver("1.6.20-dev1667")
+  val ComposeEdge = Ver("1.6.20-dev1673")
 
   /** Selected ComposeMultiplatform version. Should always be kept compatible with the selected Kotlin version. */
   // val Compose = Org.JetBrains.Compose.gradle_plugin.ver!!
@@ -126,7 +126,7 @@ object Vers {
    * - [releases](https://developer.android.com/studio/releases/gradle-plugin)
    */
   val AndroPlugStable = Ver("8.5.0-rc01")
-  val AndroPlugEdge = Ver("8.6.0-alpha04")
+  val AndroPlugEdge = Ver("8.6.0-alpha05")
   val AndroPlug = AndroPlugEdge
 
   /**
@@ -149,7 +149,7 @@ object Vers {
    * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
    * [github](https://github.com/Kotlin/kotlin-jupyter)
    */
-  val KotlinJupyterPlug = Ver("0.12.0-232")
+  val KotlinJupyterPlug = Ver("0.12.0-235")
 
   /**
    * Gradle Shadow Gradle Plugin
@@ -174,7 +174,7 @@ object Vers {
    * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val DepsPlug = Ver("0.3.15")
+  val DepsPlug = Ver("0.3.17")
 
   /**
    * SourceFun Gradle Plugin
@@ -182,7 +182,7 @@ object Vers {
    * - [plugins gradle sourcefun](https://plugins.gradle.org/plugin/pl.mareklangiewicz.sourcefun)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val SourceFunPlug = Ver("0.4.08")
+  val SourceFunPlug = Ver("0.4.09")
 
   val JvmDefaultVer = "21"
 

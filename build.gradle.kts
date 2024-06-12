@@ -27,8 +27,8 @@ buildscript {
   //   because similar issue before (when api of related kground/kommand/etc changed) was compiling fine
   //   and only failing when I was executing specific custom task.
   dependencies {
-    classpath("pl.mareklangiewicz:kommandline:0.0.61")
-    classpath("pl.mareklangiewicz:kgroundx-maintenance:0.0.55")
+    classpath("pl.mareklangiewicz:kommandline:0.0.63")
+    classpath("pl.mareklangiewicz:kgroundx-maintenance:0.0.57")
     // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kommandline/
     // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kground/
   }
@@ -135,7 +135,7 @@ defaultGroupAndVerAndDescription(
     group = "pl.mareklangiewicz.deps", // important non default ...deps group (as accepted on gradle portal)
     description = "Updated dependencies for typical java/kotlin/android projects (with IDE support).",
     githubUrl = "https://github.com/mareklangiewicz/DepsKt",
-    version = Ver(0, 3, 17),
+    version = Ver(0, 3, 18),
     // https://plugins.gradle.org/search?term=pl.mareklangiewicz
     settings = LibSettings(
       withJs = false,
@@ -258,12 +258,11 @@ fun RepositoryHandler.addRepos(settings: LibReposSettings) = with(settings) {
   if (withJitpack) maven(repos.jitpack)
 }
 
-// FIXME: doc says it could be now also applied globally instead for each task (and it works for andro too)
-// https://kotlinlang.org/docs/gradle-compiler-options.html#target-the-jvm
+// TODO_maybe: doc says it could be now also applied globally instead for each task (and it works for andro too)
 //   But it's only for jvm+andro, so probably this is better:
 //   https://kotlinlang.org/docs/gradle-compiler-options.html#for-all-kotlin-compilation-tasks
 fun TaskCollection<Task>.defaultKotlinCompileOptions(
-  jvmTargetVer: String? = vers.JvmDefaultVer, // FIXME_later: use JvmTarget.JVM_XX enum
+  jvmTargetVer: String? = null, // it's better to use jvmToolchain (normally done in fun allDefault)
   renderInternalDiagnosticNames: Boolean = false,
   suppressComposeCheckKotlinVer: Ver? = null,
 ) = withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
