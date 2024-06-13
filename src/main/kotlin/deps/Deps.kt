@@ -98,10 +98,6 @@ val Dep.verStable get() = vers.lastOrNull { it.instability.instability == 0 }
  * - [releases](https://github.com/JetBrains/kotlin/releases)
  * - [release details](https://kotlinlang.org/docs/releases.html#release-details)
  * - [changelog](https://github.com/JetBrains/kotlin/blob/master/ChangeLog.md)
- * - compatibility with compose
- *     - [developer android com](https://developer.android.com/jetpack/androidx/releases/compose-kotlin)
- *     - [androidx dev compose compiler compatibility](https://androidx.dev/storage/compose-compiler/repository)
- *     - [jetbrains/compose/ComposeCompilerCompatibility.kt](https://github.com/JetBrains/compose-multiplatform/blob/master/gradle-plugins/compose/src/main/kotlin/org/jetbrains/compose/ComposeCompilerCompatibility.kt)
  */
 typealias Kotlin = Org.JetBrains.Kotlin
 
@@ -131,12 +127,6 @@ typealias Langiewicz = Pl.MarekLangiewicz
  * - [maven space plugin](https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/compose-gradle-plugin/)
  */
 typealias Compose = Org.JetBrains.Compose
-
-@Deprecated("Usually it's better to let compose plugin (mpp or andro) select default compose compiler.")
-val ComposeCompilerAx get() = AndroidX.Compose.Compiler.compiler.withVer(Vers.ComposeCompilerAx)
-
-@Deprecated("Usually it's better to let compose plugin (mpp or andro) select default compose compiler.")
-val ComposeCompilerJb get() = Org.JetBrains.Compose.Compiler.compiler.withVer(Vers.ComposeCompilerJb)
 
 
 /**
