@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "unused")
+@file:Suppress("PackageDirectoryMismatch", "unused", "PropertyName")
 
 package pl.mareklangiewicz.deps
 
@@ -57,8 +57,7 @@ data class LibSettings(
 
   val repos: LibReposSettings = LibReposSettings(
     withKotlinxHtml = withKotlinxHtml,
-    withComposeJbDev = compose != null, // it also contains Jb compose compilers
-    withComposeCompilerAxDev = compose?.withComposeCompiler?.group == AndroidX.Compose.Compiler.compiler.group,
+    withComposeJbDev = false,
   ),
 ) {
   val withCompose get() = compose != null
@@ -67,14 +66,6 @@ data class LibSettings(
 
 /** In [LibSettings.compose] the defaults are adjusted depending on platforms. */
 data class LibComposeSettings(
-  /**
-   * The null means plugin should select the compiler by itself (usually depending on the current kotlin version).
-   * In "android only" case we only accept compilers built by Google ("androidx.compose.compiler...")
-   * In mpp case we will accept any compiler, but compose mp plugin currently complains if JS is enabled,
-   * and compiler is not "org.jetbrains.compose.compiler..."
-   */
-  val withComposeCompiler: Dep? = null,
-  val withComposeCompilerAllowWrongKotlinVer: Ver? = null,
   val withComposeUi: Boolean = true,
   val withComposeFoundation: Boolean = true,
   val withComposeMaterial2: Boolean = true,
@@ -126,8 +117,7 @@ data class LibReposSettings(
   val withGoogle: Boolean = true,
   val withKotlinx: Boolean = true,
   val withKotlinxHtml: Boolean = false,
-  val withComposeJbDev: Boolean = false, // Repos.composeCompilerJbDev == Repos.composeJbDev
-  val withComposeCompilerAxDev: Boolean = false,
+  val withComposeJbDev: Boolean = false,
   val withKtorEap: Boolean = false,
   val withJitpack: Boolean = false,
 )

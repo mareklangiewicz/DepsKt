@@ -1,4 +1,4 @@
-@file:Suppress("unused")
+@file:Suppress("unused", "ConstPropertyName", "PackageDirectoryMismatch")
 
 package pl.mareklangiewicz.deps
 
@@ -14,8 +14,6 @@ fun DependencySet.checkVerSync(warnOnly: Boolean = false) = configureEach { it.c
 fun Dependency.checkVerSync(warnOnly: Boolean = false) {
   when (group) {
     "org.jetbrains.kotlin" -> checkWith(Vers.Kotlin, warnOnly)
-    AndroidX.Compose.Compiler.compiler.group -> checkWith(Vers.ComposeCompilerAx, warnOnly)
-    Org.JetBrains.Compose.Compiler.compiler.group -> checkWith(Vers.ComposeCompilerJb, warnOnly)
     "androidx.compose.ui", "androidx.compose.animation", "androidx.compose.foundation",
     "androidx.compose.material",
     -> checkWith(Vers.ComposeAndro, warnOnly)
@@ -38,57 +36,20 @@ private fun Dependency.checkWith(expectedVer: Ver, warnOnly: Boolean) {
 
 object Vers {
 
-  /**
-   * Manually selected kotlin version. Have to be working with current compose multiplatform and compose andro.
-   * - [compose kotlin compatibility](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-compatibility-and-versioning.html#kotlin-compatibility)
-   * - [releases github](https://github.com/JetBrains/kotlin/releases)
-   * - [compiler Ax dev repo table](https://androidx.dev/storage/compose-compiler/repository)
-   * - [compiler Jb space maven](https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/compiler/compiler/)
-   */
+  /** [releases github](https://github.com/JetBrains/kotlin/releases) */
   val Kotlin20 = Ver("2.0.0")
   val Kotlin19 = Ver("1.9.24")
   val Kotlin = Kotlin20
 
 
-  // Compose compilers build by Google (AndroidX "Ax", aka Jetpack Compiler)
-
-  val ComposeCompilerAxStable = AndroidX.Compose.Compiler.compiler.verStable
-  val ComposeCompilerAxFor1920 = Ver("1.5.4-dev-k1.9.20-50f08dfa4b4") // this ver is prepared for 1.9.20
-  val ComposeCompilerAxFor1921 = Ver("1.5.6-dev-k1.9.21-3eed341308a") // this ver is prepared for 1.9.21
-  val ComposeCompilerAxFor1924 = Ver("1.5.14-dev-k1.9.24-50022def4af") // this ver is prepared for 1.9.24
-  val ComposeCompilerAxFor200B1 = Ver("1.5.6-dev-k2.0.0-Beta1-06a03be2b42") // this ver is prepared for 2.0.0-Beta1
-  val ComposeCompilerAxFor200B2 = Ver("1.5.8-dev-k2.0.0-Beta2-99ed868a0f8") // this ver is prepared for 2.0.0-Beta2
-  val ComposeCompilerAxFor200B3 = Ver("1.5.9-dev-k2.0.0-Beta3-7c5ec6895a0") // this ver is prepared for 2.0.0-Beta3
-  val ComposeCompilerAxFor200B4 = Ver("1.5.11-dev-k2.0.0-Beta4-21f5e479a96") // this ver is prepared for 2.0.0-Beta4
-  val ComposeCompilerAxFor200B5 = Ver("1.5.11-dev-k2.0.0-Beta5-b5a216d0ac6") // this ver is prepared for 2.0.0-Beta5
-  val ComposeCompilerAxFor200RC1 = Ver("1.5.13-dev-k2.0.0-RC1-50f08dfa4b4"	) // this ver is prepared for 2.0.0-RC1
-
-  /** Selected Compose Compiler version. Should always be kept compatible with the selected Kotlin version. */
-  @Deprecated("Usually it's better to let compose plugin (mpp or andro) select default compose compiler.")
-  val ComposeCompilerAx = ComposeCompilerAxFor200RC1
-
-  // Compose compilers built by JetBrains ("Jb")
-
-  // https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/compiler/compiler/
-  val ComposeCompilerJbStable = Org.JetBrains.Compose.Compiler.compiler.verStable
-  val ComposeCompilerJbFor1922 = Ver("1.5.8-beta01")
-  val ComposeCompilerJbFor200B1 = Ver("1.5.4-dev1-kt2.0.0-Beta1")
-  val ComposeCompilerJbFor200B2 = Ver("1.5.6-dev1-kt2.0.0-Beta2")
-  val ComposeCompilerJbFor200B3 = Ver("1.5.6-dev2-kt2.0.0-Beta3")
-  val ComposeCompilerJbFor200B4 = Ver("1.5.9-kt-2.0.0-Beta4")
-  val ComposeCompilerJbFor200RC1 = Ver("1.5.11-kt-2.0.0-RC1")
-  val ComposeCompilerJbFor200 = Ver("1.5.14")
-
-  @Deprecated("Usually it's better to let compose plugin (mpp or andro) select default compose compiler.")
-  val ComposeCompilerJb = ComposeCompilerJbFor200
-
-
   // https://github.com/JetBrains/compose-multiplatform/releases
-  val ComposeEdge = Ver("1.6.20-dev1673")
+  // val ComposeJbEdge = Ver("1.6.20-dev1673")
+  val ComposeJbEdge = Org.JetBrains.Compose.gradle_plugin.ver!!
+  val ComposeJbStable = Org.JetBrains.Compose.gradle_plugin.verStable!!
 
   /** Selected ComposeMultiplatform version. Should always be kept compatible with the selected Kotlin version. */
-  // val Compose = Org.JetBrains.Compose.gradle_plugin.ver!!
-  val Compose = ComposeEdge
+  val Compose = ComposeJbStable
+  // val Compose = ComposeEdge
 
 
   /** Selected ComposeAndroid version. Should always be kept compatible with the selected Kotlin version. */
@@ -184,7 +145,7 @@ object Vers {
    */
   val SourceFunPlug = Ver("0.4.09")
 
-  val JvmDefaultVer = "21"
+  const val JvmDefaultVer = "21"
 
 
   val Gradle5 = Ver("5.6.4")
@@ -193,7 +154,7 @@ object Vers {
   val Gradle8 = Ver("8.8")
 
   /**
-   * Gradle - just a reference - not so useful in typical usecases
+   * Gradle - just a reference - not so useful in typical use cases
    * - [gradle releases](https://gradle.org/releases/)
    * - [gradle versions](https://services.gradle.org/versions)
    * - [gradle versions current](https://services.gradle.org/versions/current)
@@ -206,17 +167,17 @@ object Vers {
    * - [dashboards](https://developer.android.com/about/dashboards/index.html)
    * - [build numbers](https://source.android.com/setup/start/build-numbers)
    */
-  val AndroSdkMin = 26
-  val AndroSdkCompile = 34
-  val AndroSdkTarget = 34
+  const val AndroSdkMin = 26
+  const val AndroSdkCompile = 34
+  const val AndroSdkTarget = 34
 
   /**
-   * This runner looks like working correctly these years (with "gradle unified test platform).
+   * This runner looks like working correctly these years (with gradle unified test platform).
    * I had many crazy issues with instrumented testing, so better not to change too much.
    * Make sure gradle.properties DOESN'T change this to false: android.experimental.androidTest.useUnifiedTestPlatform=true
    * [andro testing docs](https://developer.android.com/training/testing/instrumented-tests#set-testing)
    */
-  val AndroTestRunner = "androidx.test.runner.AndroidJUnitRunner"
+  const val AndroTestRunner = "androidx.test.runner.AndroidJUnitRunner"
 
   /**
    * - [releases](https://developer.android.com/tools/releases/build-tools)

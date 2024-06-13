@@ -77,7 +77,7 @@ object Plugs {
 
   val Compose = Org.JetBrains.Compose.gradle_plugin.withVer(vers.Compose)
 
-  val ComposeEdge = Compose.withVer(vers.ComposeEdge)
+  val ComposeEdge = Compose.withVer(vers.ComposeJbEdge)
 
   /**
    * Dokka Gradle Plugin
