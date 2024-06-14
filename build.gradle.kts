@@ -18,7 +18,7 @@ import org.jetbrains.kotlin.gradle.dsl.*
 
 plugins {
   plugAll(plugs.KotlinJvm, plugs.NexusPublish, plugs.GradlePublish, plugs.Signing)
-  id("pl.mareklangiewicz.sourcefun") version "0.4.08" // FIXME_later: add to plugAll after updating deps
+  id("pl.mareklangiewicz.sourcefun") version "0.4.09" // FIXME_later: add to plugAll after updating deps
 }
 
 buildscript {
@@ -27,8 +27,8 @@ buildscript {
   //   because similar issue before (when api of related kground/kommand/etc changed) was compiling fine
   //   and only failing when I was executing specific custom task.
   dependencies {
-    classpath("pl.mareklangiewicz:kommandline:0.0.63")
-    classpath("pl.mareklangiewicz:kgroundx-maintenance:0.0.57")
+    classpath("pl.mareklangiewicz:kommandline:0.0.64")
+    classpath("pl.mareklangiewicz:kgroundx-maintenance:0.0.58")
     // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kommandline/
     // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kground/
   }
@@ -104,14 +104,6 @@ val updateSomeRegexes by tasks.registering {
   }
 }
 
-// FIXME: It's temporarily copied from unpublished kground version. Remove when updating kground again.
-@ExperimentalApi("TODO: Implement correct checks for all edge cases (with less false positives)")
-@OptIn(DelicateApi::class)
-operator fun UReplacement.plus(that: UReplacement) = UReplacement.Advanced(raw + that.raw).also {
-  req(raw.last() !in "$\\") { "Concatenation with first part ending with \"${raw.last()}\" is not safe." }
-  req(!raw.last().isDigit() || !that.raw.first().isDigit()) { "Concatenation with numbers in the middle is not safe." }
-}
-
 repositories {
   mavenLocal()
   google()
@@ -121,6 +113,8 @@ repositories {
 
 dependencies {
   api(Com.SquareUp.Okio.okio) // FIXME_later: remove and use new SourceFun? (DepsKt utils should not depend on okio)
+  testImplementation(kotlin("test"))
+  testImplementation(Org.JUnit.Jupiter.junit_jupiter_engine)
 }
 
 tasks.defaultKotlinCompileOptions()
@@ -135,7 +129,9 @@ defaultGroupAndVerAndDescription(
     group = "pl.mareklangiewicz.deps", // important non default ...deps group (as accepted on gradle portal)
     description = "Updated dependencies for typical java/kotlin/android projects (with IDE support).",
     githubUrl = "https://github.com/mareklangiewicz/DepsKt",
-    version = Ver(0, 3, 19),
+    version = Ver(0, 3, 20),
+    // TODO use some SourceFun task to make sure it's synced with Vers.DepsPlug
+    // (we println it when applying plugin so have to be synced not to confuse users)
     // https://plugins.gradle.org/search?term=pl.mareklangiewicz
     settings = LibSettings(
       withJs = false,

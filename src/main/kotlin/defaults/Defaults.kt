@@ -22,7 +22,7 @@ fun Project.defaultGroupAndVer(dep: String) {
 
 fun Project.defaultGroupAndVerAndDescription(lib: LibDetails = rootExtLibDetails) {
   group = lib.group
-  version = lib.version.ver
+  version = lib.version.str
   description = lib.description
 }
 

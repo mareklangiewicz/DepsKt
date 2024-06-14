@@ -1,4 +1,4 @@
-@file:Suppress("unused", "MemberVisibilityCanBePrivate")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate", "PackageDirectoryMismatch")
 
 package pl.mareklangiewicz.deps
 
@@ -36,9 +36,6 @@ object Plugs {
    */
   val GradlePublish = DepP("com.gradle.plugin-publish", vers.GradlePublishPlug)
 
-  @Deprecated("Use GradleDevelocity")
-  val GradleEnterprise = DepP("com.gradle.enterprise", vers.GradleEnterprisePlug)
-
   /**
    * Gradle Develocity Plugin (enables integration with Gradle Develocity and scans.gradle.com)
    * - [gradle org docs](https://docs.gradle.com/develocity/gradle-plugin/)
@@ -75,9 +72,10 @@ object Plugs {
   val AndroAppEdge = AndroAppNoVer.withVers(vers.AndroPlugEdge)
   val AndroApp = AndroAppStable
 
-  val Compose = Org.JetBrains.Compose.gradle_plugin.withVer(vers.Compose)
+  val ComposeJb = Org.JetBrains.Compose.gradle_plugin.withVer(vers.ComposeJb)
+  val ComposeJbStable = ComposeJb.withVer(vers.ComposeJbStable)
+  val ComposeJbEdge = ComposeJb.withVer(vers.ComposeJbEdge)
 
-  val ComposeEdge = Compose.withVer(vers.ComposeJbEdge)
 
   /**
    * Dokka Gradle Plugin

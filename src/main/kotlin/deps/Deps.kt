@@ -29,7 +29,7 @@ import pl.mareklangiewicz.utils.*
  */
 data class Instability(val instability: Int)
 
-private val reStableStr = """d{1,3}\.\d{1,8}\.\d{1,8}"""
+private val reStableStr = """\d{1,3}\.\d{1,8}\.\d{1,8}"""
 private val instabilities = linkedMapOf<Regex, Int>(
   // order of keys/regexes matters (potentially more stable only if not matched as less stable)
   Regex("(?i:snapshot)") to 500,
@@ -43,9 +43,9 @@ private val instabilities = linkedMapOf<Regex, Int>(
   Regex(reStableStr) to 0,
 )
 
-fun detectInstability(version: String): Instability {
+fun detectInstability(verStr: String): Instability {
   for (re in instabilities.keys)
-    if (re.find(version) != null)
+    if (re.find(verStr) != null)
       return Instability(instabilities[re]!!)
   return Instability(900) // Unknown (so assume very unstable)
 }
@@ -56,20 +56,23 @@ infix fun Instability?.moreStableThan(other: Instability?): Boolean {
   return left < right
 }
 
-data class Ver(val ver: String, val instability: Instability = detectInstability(ver)) {
+data class Ver(val str: String, val instability: Instability = detectInstability(str)) {
   constructor(ver: String, instability: Int) : this(ver, Instability(instability))
   constructor(major: Int, minor: Int, patch: Int, patchLength: Int = 2, suffix: String = "") :
     this("$major.$minor.${patch.toString().padStart(patchLength, '0')}$suffix")
 
-  val verIntCode get() = ver.toVersionIntCode()
+  val code get() = str.toVerIntCode()
 }
+
+class NoSuchVerException(val dep: Dep, override val message: String = "No such ver.") : NoSuchElementException()
 
 /** versions should always be sorted from oldest to newest */
 data class Dep(val group: String, val name: String, val vers: List<Ver>) : CharSequence {
   constructor(group: String, name: String, vararg vers: Ver) : this(group, name, vers.toList())
 
-  val ver: Ver? get() = vers.lastOrNull()
-  val mvn: String get() = ver?.ver?.let { "$group:$name:$it" } ?: "$group:$name"
+  val verLast: Ver get() = verLastOrNull ?: throw NoSuchVerException(this, "No vers at all.")
+  val verLastOrNull: Ver? get() = vers.lastOrNull()
+  val mvn: String get() = verLastOrNull?.str?.let { "$group:$name:$it" } ?: "$group:$name"
   override fun toString() = mvn
   override val length get() = mvn.length
   override fun get(index: Int) = mvn[index]
@@ -80,14 +83,14 @@ fun DepP(pluginId: String, vararg vers: Ver) = Dep(pluginId, "$pluginId.gradle.p
 
 fun Dep.withNoVer() = copy(vers = emptyList())
 fun Dep.withVer(ver: Ver) = copy(vers = listOf(ver))
-fun Dep.withVer(verName: String, verInstability: Instability = detectInstability(verName)) =
-  withVer(Ver(verName, verInstability))
+fun Dep.withVer(verStr: String, verInstability: Instability = detectInstability(verStr)) =
+  withVer(Ver(verStr, verInstability))
 
 fun Dep.withVers(vararg vers: Ver) = copy(vers = vers.toList())
 fun Dep.withVers(maxInstability: Instability) =
   copy(vers = vers.filter { !(maxInstability moreStableThan it.instability) })
 
-val Dep.verStable get() = vers.lastOrNull { it.instability.instability == 0 }
+val Dep.verLastStable get() = vers.lastOrNull { it.instability.instability == 0 } ?: throw NoSuchVerException(this, "No stable vers.")
 
 // endregion [[Deps Data Structures]]
 
@@ -210,7 +213,7 @@ val OtherLinks: Nothing get() = error("Don't use OtherLinks in code. It's only f
 
 // Micro syntax/dsl (private syntax sugar) so diffs can be understood at glance.
 private infix fun String.d(name: String) = Dep(this, name)
-private infix fun Dep.w(verName: String) = copy(vers = vers + Ver(verName))
+private infix fun Dep.w(verStr: String) = copy(vers = vers + Ver(verStr))
 
 // @formatter:off
 // region [[Deps Generated]]
@@ -799,7 +802,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.0.4"
       val r8 = "com.android.tools" d "r8" w "8.3.37"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "2.3.3" w "2.4.0-alpha7" w "2.5.0-alpha-preview-02" w "8.4.2" w "8.5.0-rc02" w "8.6.0-alpha05"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "2.3.3" w "2.4.0-alpha7" w "2.5.0-alpha-preview-02" w "8.5.0" w "8.6.0-alpha05"
       }
     }
   }
@@ -1687,10 +1690,10 @@ object Org {
       val coroutines_slf4j = "org.jetbrains.kotlinx" d "kotlinx-coroutines-slf4j" w "1.8.1" w "1.9.0-RC"
       val coroutines_swing = "org.jetbrains.kotlinx" d "kotlinx-coroutines-swing" w "1.8.1" w "1.9.0-RC"
       val coroutines_test = "org.jetbrains.kotlinx" d "kotlinx-coroutines-test" w "1.8.1" w "1.9.0-RC"
-      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.13.1" w "0.14.0-dev-3295"
-      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.13.1" w "0.14.0-dev-3295"
-      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.13.1" w "0.14.0-dev-3295"
-      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.13.1" w "0.14.0-dev-3295"
+      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.13.1" w "0.14.0-dev-3303"
+      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.13.1" w "0.14.0-dev-3303"
+      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.13.1" w "0.14.0-dev-3303"
+      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.13.1" w "0.14.0-dev-3303"
       val datetime = "org.jetbrains.kotlinx" d "kotlinx-datetime" w "0.6.0"
       val html = "org.jetbrains.kotlinx" d "kotlinx-html" w "0.11.0"
       val io_jvm = "org.jetbrains.kotlinx" d "kotlinx-io-jvm" w "0.1.16"

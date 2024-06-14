@@ -19,8 +19,8 @@ data class LibDetails(
   val appMainPackage: String = namespace,
   val appMainClass: String = "App_jvmKt", // for compose jvm
   val appMainFun: String = "main", // for native
-  val appVerCode: Int = version.verIntCode, // currently used in andro apps
-  val appVerName: String = version.ver, // currently used in andro apps
+  val appVerCode: Int = version.code, // currently used in andro apps
+  val appVerName: String = version.str, // currently used in andro apps
 
   val settings: LibSettings = LibSettings(),
 ) {

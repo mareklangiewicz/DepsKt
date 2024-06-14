@@ -27,7 +27,7 @@ fun Dependency.checkVerSync(warnOnly: Boolean = false) {
 }
 
 private fun Dependency.checkWith(expectedVer: Ver, warnOnly: Boolean) {
-  if (version != expectedVer.ver) {
+  if (version != expectedVer.str) {
     val msg = "Dependency $group:$name:$version not synced with $expectedVer"
     if (warnOnly) println("WARNING: $msg") else error(msg)
     // TODO_someday: better warning? But we don't have access to gradle logger here?
@@ -43,17 +43,14 @@ object Vers {
 
 
   // https://github.com/JetBrains/compose-multiplatform/releases
-  // val ComposeJbEdge = Ver("1.6.20-dev1673")
-  val ComposeJbEdge = Org.JetBrains.Compose.gradle_plugin.ver!!
-  val ComposeJbStable = Org.JetBrains.Compose.gradle_plugin.verStable!!
+  val ComposeJbEdge = Org.JetBrains.Compose.gradle_plugin.verLast
+  val ComposeJbStable = Org.JetBrains.Compose.gradle_plugin.verLastStable
 
-  /** Selected ComposeMultiplatform version. Should always be kept compatible with the selected Kotlin version. */
-  val Compose = ComposeJbStable
-  // val Compose = ComposeEdge
+  val ComposeJb = ComposeJbEdge
 
 
   /** Selected ComposeAndroid version. Should always be kept compatible with the selected Kotlin version. */
-  val ComposeAndro = AndroidX.Compose.Runtime.runtime.ver!!
+  val ComposeAndro = AndroidX.Compose.Runtime.runtime.verLast
 
   /**
    * Gradle-Nexus Publish Plugin (turnkey plugin for publishing libs to maven central / sonatype)
@@ -74,10 +71,7 @@ object Vers {
    * - [gradle org docs](https://docs.gradle.com/develocity/gradle-plugin/)
    * - [gradle portal](https://plugins.gradle.org/plugin/com.gradle.develocity)
    */
-  val GradleDevelocityPlug = Ver("3.17.4")
-
-  @Deprecated("Use GradleDevelocityPlug")
-  val GradleEnterprisePlug = GradleDevelocityPlug
+  val GradleDevelocityPlug = Ver("3.17.5")
 
 
   /**
@@ -103,14 +97,14 @@ object Vers {
    * Ktor Gradle Plugin
    * [github](https://github.com/ktorio/ktor-build-plugins)
    */
-  val KtorPlug = Io.Ktor.server.ver!! // version will probably always be synced with the server version.
+  val KtorPlug = Io.Ktor.server.verLast // version will probably always be synced with the server version.
 
   /**
    * Kotlin Jupyter Gradle Plugin
    * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
    * [github](https://github.com/Kotlin/kotlin-jupyter)
    */
-  val KotlinJupyterPlug = Ver("0.12.0-235")
+  val KotlinJupyterPlug = Ver("0.12.0-236")
 
   /**
    * Gradle Shadow Gradle Plugin
@@ -135,7 +129,7 @@ object Vers {
    * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val DepsPlug = Ver("0.3.17")
+  val DepsPlug = Ver(0, 3, 20) // TODO make sure it's always synced with myLibDetails(version)
 
   /**
    * SourceFun Gradle Plugin

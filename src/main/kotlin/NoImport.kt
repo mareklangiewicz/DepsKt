@@ -11,11 +11,11 @@ val plugs get() = pl.mareklangiewicz.deps.Plugs
 
 val vers get() = pl.mareklangiewicz.deps.Vers
 
-infix fun PluginDependencySpec.ver(v: Ver) = version(v.ver)
+infix fun PluginDependencySpec.ver(v: Ver) = version(v.str)
 
 fun PluginDependenciesSpec.plug(dep: Dep): PluginDependencySpec {
   check(dep.name.endsWith("plugin")) { "It doesn't look like a gradle plugin: $dep" }
-  val v = dep.ver?.ver ?: return id(dep.group)
+  val v = dep.verLastOrNull?.str ?: return id(dep.group)
   return id(dep.group).version(v)
 }
 

@@ -15,7 +15,7 @@ import org.gradle.api.tasks.*
 import pl.mareklangiewicz.deps.*
 
 
-fun String.toVersionIntCode() = split(".").let {
+fun String.toVerIntCode() = split(".").let {
   0 +
     it[0].toVersionPartIntCode() * 10_000 * 10_000 +
     it[1].toVersionPartIntCode() * 10_000 +
