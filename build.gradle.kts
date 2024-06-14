@@ -249,7 +249,6 @@ fun RepositoryHandler.addRepos(settings: LibReposSettings) = with(settings) {
   if (withKotlinx) maven(repos.kotlinx)
   if (withKotlinxHtml) maven(repos.kotlinxHtml)
   if (withComposeJbDev) maven(repos.composeJbDev)
-  if (withComposeCompilerAxDev) maven(repos.composeCompilerAxDev)
   if (withKtorEap) maven(repos.ktorEap)
   if (withJitpack) maven(repos.jitpack)
 }
@@ -268,11 +267,6 @@ fun TaskCollection<Task>.defaultKotlinCompileOptions(
     if (renderInternalDiagnosticNames) freeCompilerArgs.add("-Xrender-internal-diagnostic-names")
     // useful, for example, to suppress some errors when accessing internal code from some library, like:
     // @file:Suppress("INVISIBLE_MEMBER", "INVISIBLE_REFERENCE", "EXPOSED_PARAMETER_TYPE", "EXPOSED_PROPERTY_TYPE", "CANNOT_OVERRIDE_INVISIBLE_MEMBER")
-    suppressComposeCheckKotlinVer?.ver?.let {
-      freeCompilerArgs.add(
-        "-Pplugin:androidx.compose.compiler.plugins.kotlin:suppressKotlinVersionCompatibilityCheck=$it",
-      )
-    }
   }
 }
 
