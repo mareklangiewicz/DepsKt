@@ -913,18 +913,18 @@ object Com {
         val strict_version_matcher_plugin = "com.google.android.gms" d "strict-version-matcher-plugin" w "1.2.4"
       }
       object Horologist {
-        val audio = "com.google.android.horologist" d "horologist-audio" w "0.6.13"
-        val audio_ui = "com.google.android.horologist" d "horologist-audio-ui" w "0.6.13"
-        val composables = "com.google.android.horologist" d "horologist-composables" w "0.6.13"
-        val compose_layout = "com.google.android.horologist" d "horologist-compose-layout" w "0.6.13"
-        val compose_tools = "com.google.android.horologist" d "horologist-compose-tools" w "0.6.13"
-        val datalayer = "com.google.android.horologist" d "horologist-datalayer" w "0.6.13"
-        val media = "com.google.android.horologist" d "horologist-media" w "0.6.13"
-        val media3_backend = "com.google.android.horologist" d "horologist-media3-backend" w "0.6.13"
-        val media_data = "com.google.android.horologist" d "horologist-media-data" w "0.6.13"
-        val media_ui = "com.google.android.horologist" d "horologist-media-ui" w "0.6.13"
-        val network_awareness = "com.google.android.horologist" d "horologist-network-awareness" w "0.6.13"
-        val tiles = "com.google.android.horologist" d "horologist-tiles" w "0.6.13"
+        val audio = "com.google.android.horologist" d "horologist-audio" w "0.6.14"
+        val audio_ui = "com.google.android.horologist" d "horologist-audio-ui" w "0.6.14"
+        val composables = "com.google.android.horologist" d "horologist-composables" w "0.6.14"
+        val compose_layout = "com.google.android.horologist" d "horologist-compose-layout" w "0.6.14"
+        val compose_tools = "com.google.android.horologist" d "horologist-compose-tools" w "0.6.14"
+        val datalayer = "com.google.android.horologist" d "horologist-datalayer" w "0.6.14"
+        val media = "com.google.android.horologist" d "horologist-media" w "0.6.14"
+        val media3_backend = "com.google.android.horologist" d "horologist-media3-backend" w "0.6.14"
+        val media_data = "com.google.android.horologist" d "horologist-media-data" w "0.6.14"
+        val media_ui = "com.google.android.horologist" d "horologist-media-ui" w "0.6.14"
+        val network_awareness = "com.google.android.horologist" d "horologist-network-awareness" w "0.6.14"
+        val tiles = "com.google.android.horologist" d "horologist-tiles" w "0.6.14"
       }
       object Libraries {
         object Places {
@@ -1690,10 +1690,10 @@ object Org {
       val coroutines_slf4j = "org.jetbrains.kotlinx" d "kotlinx-coroutines-slf4j" w "1.8.1" w "1.9.0-RC"
       val coroutines_swing = "org.jetbrains.kotlinx" d "kotlinx-coroutines-swing" w "1.8.1" w "1.9.0-RC"
       val coroutines_test = "org.jetbrains.kotlinx" d "kotlinx-coroutines-test" w "1.8.1" w "1.9.0-RC"
-      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.13.1" w "0.14.0-dev-3303"
-      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.13.1" w "0.14.0-dev-3303"
-      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.13.1" w "0.14.0-dev-3303"
-      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.13.1" w "0.14.0-dev-3303"
+      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.13.1" w "0.14.0-dev-3321"
+      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.13.1" w "0.14.0-dev-3321"
+      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.13.1" w "0.14.0-dev-3321"
+      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.13.1" w "0.14.0-dev-3321"
       val datetime = "org.jetbrains.kotlinx" d "kotlinx-datetime" w "0.6.0"
       val html = "org.jetbrains.kotlinx" d "kotlinx-html" w "0.11.0"
       val io_jvm = "org.jetbrains.kotlinx" d "kotlinx-io-jvm" w "0.1.16"
@@ -1899,7 +1899,7 @@ object Org {
       val spring_cloud_stream_binder_rabbit = "org.springframework.cloud" d "spring-cloud-stream-binder-rabbit" w "4.1.2"
     }
     object Data {
-      val spring_data_rest_hal_explorer = "org.springframework.data" d "spring-data-rest-hal-explorer" w "4.3.0"
+      val spring_data_rest_hal_explorer = "org.springframework.data" d "spring-data-rest-hal-explorer" w "4.3.1"
     }
     object Geode {
       val spring_geode_bom = "org.springframework.geode" d "spring-geode-bom" w "1.7.5"
