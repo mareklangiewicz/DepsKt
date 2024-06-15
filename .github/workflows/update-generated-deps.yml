@@ -5,7 +5,7 @@
 name: 'Update Generated Deps'
 on:
   schedule:
-  - cron: '0 8 * * 1'
+  - cron: '30 6 * * *'
   workflow_dispatch: {}
 jobs:
   update-generated-deps:
@@ -30,7 +30,7 @@ jobs:
         distribution: 'zulu'
     - id: 'step-2'
       name: 'updateGeneratedDeps'
-      uses: 'gradle/gradle-build-action@v3'
+      uses: 'gradle/actions/setup-gradle@v3'
       with:
         arguments: 'updateGeneratedDeps'
     - id: 'step-3'
