@@ -802,7 +802,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.0.4"
       val r8 = "com.android.tools" d "r8" w "8.3.37"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "2.3.3" w "2.4.0-alpha7" w "2.5.0-alpha-preview-02" w "8.5.0" w "8.6.0-alpha05"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "2.3.3" w "2.4.0-alpha7" w "2.5.0-alpha-preview-02" w "8.5.0" w "8.6.0-alpha06"
       }
     }
   }
@@ -1281,9 +1281,9 @@ object Com {
       val sqljs_driver = "com.squareup.sqldelight" d "sqljs-driver" w "1.5.5"
     }
     object Wire {
-      val gradle_plugin = "com.squareup.wire" d "wire-gradle-plugin" w "4.9.9" w "5.0.0-alpha01"
-      val grpc_client = "com.squareup.wire" d "wire-grpc-client" w "4.9.9" w "5.0.0-alpha01"
-      val runtime = "com.squareup.wire" d "wire-runtime" w "4.9.9" w "5.0.0-alpha01"
+      val gradle_plugin = "com.squareup.wire" d "wire-gradle-plugin" w "4.9.9" w "5.0.0-alpha02"
+      val grpc_client = "com.squareup.wire" d "wire-grpc-client" w "4.9.9" w "5.0.0-alpha02"
+      val runtime = "com.squareup.wire" d "wire-runtime" w "4.9.9" w "5.0.0-alpha01" w "5.0.0-alpha02"
     }
   }
 }
@@ -1642,7 +1642,7 @@ object Org {
   }
   object JetBrains {
     object Compose {
-      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.6.11" w "1.6.20-dev1673"
+      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.6.11" w "1.7.0-dev1686"
       object Compiler {
         val compiler = "org.jetbrains.compose.compiler" d "compiler" w "1.5.14"
       }
@@ -1690,10 +1690,10 @@ object Org {
       val coroutines_slf4j = "org.jetbrains.kotlinx" d "kotlinx-coroutines-slf4j" w "1.8.1" w "1.9.0-RC"
       val coroutines_swing = "org.jetbrains.kotlinx" d "kotlinx-coroutines-swing" w "1.8.1" w "1.9.0-RC"
       val coroutines_test = "org.jetbrains.kotlinx" d "kotlinx-coroutines-test" w "1.8.1" w "1.9.0-RC"
-      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.13.1" w "0.14.0-dev-3321"
-      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.13.1" w "0.14.0-dev-3321"
-      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.13.1" w "0.14.0-dev-3321"
-      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.13.1" w "0.14.0-dev-3321"
+      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.13.1" w "0.14.0-dev-3331"
+      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.13.1" w "0.14.0-dev-3331"
+      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.13.1" w "0.14.0-dev-3331"
+      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.13.1" w "0.14.0-dev-3331"
       val datetime = "org.jetbrains.kotlinx" d "kotlinx-datetime" w "0.6.0"
       val html = "org.jetbrains.kotlinx" d "kotlinx-html" w "0.11.0"
       val io_jvm = "org.jetbrains.kotlinx" d "kotlinx-io-jvm" w "0.1.16"
@@ -1720,7 +1720,7 @@ object Org {
     object Kotlin_Wrappers {
       val bom = "org.jetbrains.kotlin-wrappers" d "kotlin-wrappers-bom" w "1.0.0-pre.758"
       val kotlin_actions_toolkit = "org.jetbrains.kotlin-wrappers" d "kotlin-actions-toolkit" w "0.0.1-pre.758"
-      val kotlin_browser = "org.jetbrains.kotlin-wrappers" d "kotlin-browser" w "1.0.0-pre.757" w "1.0.0-pre.758"
+      val kotlin_browser = "org.jetbrains.kotlin-wrappers" d "kotlin-browser" w "1.0.0-pre.758"
       val kotlin_cesium = "org.jetbrains.kotlin-wrappers" d "kotlin-cesium" w "1.115.0-pre.711"
       val kotlin_css = "org.jetbrains.kotlin-wrappers" d "kotlin-css" w "1.0.0-pre.758"
       val kotlin_csstype = "org.jetbrains.kotlin-wrappers" d "kotlin-csstype" w "3.1.3-pre.758"
@@ -1731,7 +1731,7 @@ object Org {
       val kotlin_mui_icons = "org.jetbrains.kotlin-wrappers" d "kotlin-mui-icons" w "5.14.12-pre.638"
       val kotlin_node = "org.jetbrains.kotlin-wrappers" d "kotlin-node" w "20.11.30-pre.758"
       val kotlin_popper = "org.jetbrains.kotlin-wrappers" d "kotlin-popper" w "2.11.8-pre.758"
-      val kotlin_react = "org.jetbrains.kotlin-wrappers" d "kotlin-react" w "18.3.1-pre.757" w "18.3.1-pre.758"
+      val kotlin_react = "org.jetbrains.kotlin-wrappers" d "kotlin-react" w "18.3.1-pre.758"
       val kotlin_react_beautiful_dnd = "org.jetbrains.kotlin-wrappers" d "kotlin-react-beautiful-dnd" w "13.1.1-pre.758"
       val kotlin_react_core = "org.jetbrains.kotlin-wrappers" d "kotlin-react-core" w "18.3.1-pre.758"
       val kotlin_react_dom = "org.jetbrains.kotlin-wrappers" d "kotlin-react-dom" w "18.3.1-pre.758"
@@ -1801,7 +1801,7 @@ object Org {
   }
   object SpringFramework {
     object Amqp {
-      val spring_rabbit_test = "org.springframework.amqp" d "spring-rabbit-test" w "3.1.5"
+      val spring_rabbit_test = "org.springframework.amqp" d "spring-rabbit-test" w "3.1.5" w "3.1.6"
     }
     object Batch {
       val spring_batch_test = "org.springframework.batch" d "spring-batch-test" w "5.1.2"
@@ -1925,16 +1925,16 @@ object Org {
       val spring_integration_ws = "org.springframework.integration" d "spring-integration-ws" w "6.3.0"
     }
     object Kafka {
-      val spring_kafka = "org.springframework.kafka" d "spring-kafka" w "3.2.0"
-      val spring_kafka_test = "org.springframework.kafka" d "spring-kafka-test" w "3.2.0"
+      val spring_kafka = "org.springframework.kafka" d "spring-kafka" w "3.2.1"
+      val spring_kafka_test = "org.springframework.kafka" d "spring-kafka-test" w "3.2.1"
     }
     object Restdocs {
       val spring_restdocs_webtestclient = "org.springframework.restdocs" d "spring-restdocs-webtestclient" w "3.0.1"
     }
     object Security {
-      val spring_security_messaging = "org.springframework.security" d "spring-security-messaging" w "6.3.0"
-      val spring_security_rsocket = "org.springframework.security" d "spring-security-rsocket" w "6.3.0"
-      val spring_security_test = "org.springframework.security" d "spring-security-test" w "6.3.0"
+      val spring_security_messaging = "org.springframework.security" d "spring-security-messaging" w "6.3.1"
+      val spring_security_rsocket = "org.springframework.security" d "spring-security-rsocket" w "6.3.1"
+      val spring_security_test = "org.springframework.security" d "spring-security-test" w "6.3.1"
     }
     object Session {
       val spring_session_data_redis = "org.springframework.session" d "spring-session-data-redis" w "3.3.0"
@@ -1944,9 +1944,9 @@ object Org {
 }
 object Pl {
   object MarekLangiewicz {
-    val abcdk = "pl.mareklangiewicz" d "abcdk" w "0.0.18"
+    val abcdk = "pl.mareklangiewicz" d "abcdk" w "0.0.22"
     val abcdk_js = "pl.mareklangiewicz" d "abcdk-js" w "0.0.18"
-    val abcdk_jvm = "pl.mareklangiewicz" d "abcdk-jvm" w "0.0.18"
+    val abcdk_jvm = "pl.mareklangiewicz" d "abcdk-jvm" w "0.0.22"
     val abcdk_linuxx64 = "pl.mareklangiewicz" d "abcdk-linuxx64" w "0.0.18"
     val kground = "pl.mareklangiewicz" d "kground" w "0.0.58"
     val kground_io = "pl.mareklangiewicz" d "kground-io" w "0.0.58"
@@ -2007,12 +2007,12 @@ object Pl {
     val uspekx_junit5_jvm = "pl.mareklangiewicz" d "uspekx-junit5-jvm" w "0.0.35"
     val uspekx_jvm = "pl.mareklangiewicz" d "uspekx-jvm" w "0.0.35"
     val uspekx_linuxx64 = "pl.mareklangiewicz" d "uspekx-linuxx64" w "0.0.35"
-    val uwidgets = "pl.mareklangiewicz" d "uwidgets" w "0.0.15"
+    val uwidgets = "pl.mareklangiewicz" d "uwidgets" w "0.0.17"
     val uwidgets_js = "pl.mareklangiewicz" d "uwidgets-js" w "0.0.15"
-    val uwidgets_jvm = "pl.mareklangiewicz" d "uwidgets-jvm" w "0.0.15"
-    val uwidgets_udemo = "pl.mareklangiewicz" d "uwidgets-udemo" w "0.0.15"
+    val uwidgets_jvm = "pl.mareklangiewicz" d "uwidgets-jvm" w "0.0.17"
+    val uwidgets_udemo = "pl.mareklangiewicz" d "uwidgets-udemo" w "0.0.17"
     val uwidgets_udemo_js = "pl.mareklangiewicz" d "uwidgets-udemo-js" w "0.0.15"
-    val uwidgets_udemo_jvm = "pl.mareklangiewicz" d "uwidgets-udemo-jvm" w "0.0.15"
+    val uwidgets_udemo_jvm = "pl.mareklangiewicz" d "uwidgets-udemo-jvm" w "0.0.17"
   }
 }
 
