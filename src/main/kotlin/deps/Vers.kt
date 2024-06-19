@@ -37,7 +37,7 @@ private fun Dependency.checkWith(expectedVer: Ver, warnOnly: Boolean) {
 object Vers {
 
   /** [releases github](https://github.com/JetBrains/kotlin/releases) */
-  val Kotlin20 = Ver("2.0.0")
+  val Kotlin20 = Org.JetBrains.Kotlin.stdlib.verLast
   val Kotlin19 = Ver("1.9.24")
   val Kotlin = Kotlin20
 
@@ -80,8 +80,8 @@ object Vers {
    * - [maven](https://maven.google.com/web/index.html#com.android.tools.build:gradle)
    * - [releases](https://developer.android.com/studio/releases/gradle-plugin)
    */
-  val AndroPlugStable = Ver("8.5.0-rc01")
-  val AndroPlugEdge = Ver("8.6.0-alpha05")
+  val AndroPlugEdge = Com.Android.Tools.Build.gradle.verLast
+  val AndroPlugStable = Com.Android.Tools.Build.gradle.verLastStable
   val AndroPlug = AndroPlugEdge
 
   /**
@@ -129,7 +129,7 @@ object Vers {
    * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val DepsPlug = Ver(0, 3, 20) // TODO make sure it's always synced with myLibDetails(version)
+  val DepsPlug = Ver(0, 3, 21) // TODO make sure it's always synced with myLibDetails(version)
 
   /**
    * SourceFun Gradle Plugin
