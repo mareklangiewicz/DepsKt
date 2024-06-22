@@ -1281,9 +1281,9 @@ object Com {
       val sqljs_driver = "com.squareup.sqldelight" d "sqljs-driver" w "1.5.5"
     }
     object Wire {
-      val gradle_plugin = "com.squareup.wire" d "wire-gradle-plugin" w "4.9.9" w "5.0.0-alpha03"
-      val grpc_client = "com.squareup.wire" d "wire-grpc-client" w "4.9.9" w "5.0.0-alpha03"
-      val runtime = "com.squareup.wire" d "wire-runtime" w "4.9.9" w "5.0.0-alpha03"
+      val gradle_plugin = "com.squareup.wire" d "wire-gradle-plugin" w "4.9.9" w "5.0.0-alpha04"
+      val grpc_client = "com.squareup.wire" d "wire-grpc-client" w "4.9.9" w "5.0.0-alpha04"
+      val runtime = "com.squareup.wire" d "wire-runtime" w "4.9.9" w "5.0.0-alpha04"
     }
   }
 }
@@ -1411,7 +1411,7 @@ object Io {
     val client_cio = "io.ktor" d "ktor-client-cio" w "2.3.12" w "3.0.0-beta-1"
     val client_content_negotiation = "io.ktor" d "ktor-client-content-negotiation" w "2.3.12" w "3.0.0-beta-1"
     val client_content_negotiation_tests = "io.ktor" d "ktor-client-content-negotiation-tests" w "2.3.12" w "3.0.0-beta-1"
-    val client_core = "io.ktor" d "ktor-client-core" w "2.3.11" w "2.3.12" w "3.0.0-beta-1"
+    val client_core = "io.ktor" d "ktor-client-core" w "2.3.12" w "3.0.0-beta-1"
     val client_curl = "io.ktor" d "ktor-client-curl" w "2.3.12" w "3.0.0-beta-1"
     val client_darwin = "io.ktor" d "ktor-client-darwin" w "2.3.12" w "3.0.0-beta-1"
     val client_encoding = "io.ktor" d "ktor-client-encoding" w "2.3.12" w "3.0.0-beta-1"
@@ -1429,7 +1429,7 @@ object Io {
     val client_tests = "io.ktor" d "ktor-client-tests" w "2.3.12" w "3.0.0-beta-1"
     val events = "io.ktor" d "ktor-events" w "2.3.12" w "3.0.0-beta-1"
     val http = "io.ktor" d "ktor-http" w "2.3.12" w "3.0.0-beta-1"
-    val http_cio = "io.ktor" d "ktor-http-cio" w "2.3.11" w "2.3.12" w "3.0.0-beta-1"
+    val http_cio = "io.ktor" d "ktor-http-cio" w "2.3.12" w "3.0.0-beta-1"
     val io = "io.ktor" d "ktor-io" w "2.3.12" w "3.0.0-beta-1"
     val network = "io.ktor" d "ktor-network" w "2.3.12" w "3.0.0-beta-1"
     val network_tls = "io.ktor" d "ktor-network-tls" w "2.3.12" w "3.0.0-beta-1"
@@ -1442,8 +1442,8 @@ object Io {
     val serialization_kotlinx_cbor = "io.ktor" d "ktor-serialization-kotlinx-cbor" w "2.3.12" w "3.0.0-beta-1"
     val serialization_kotlinx_json = "io.ktor" d "ktor-serialization-kotlinx-json" w "2.3.12" w "3.0.0-beta-1"
     val serialization_kotlinx_tests = "io.ktor" d "ktor-serialization-kotlinx-tests" w "2.3.12" w "3.0.0-beta-1"
-    val serialization_kotlinx_xml = "io.ktor" d "ktor-serialization-kotlinx-xml" w "2.3.11" w "2.3.12" w "3.0.0-beta-1"
-    val server = "io.ktor" d "ktor-server" w "2.3.11" w "2.3.12" w "3.0.0-beta-1"
+    val serialization_kotlinx_xml = "io.ktor" d "ktor-serialization-kotlinx-xml" w "2.3.12" w "3.0.0-beta-1"
+    val server = "io.ktor" d "ktor-server" w "2.3.12" w "3.0.0-beta-1"
     val server_auth = "io.ktor" d "ktor-server-auth" w "2.3.12" w "3.0.0-beta-1"
     val server_auth_jwt = "io.ktor" d "ktor-server-auth-jwt" w "2.3.12" w "3.0.0-beta-1"
     val server_auth_ldap = "io.ktor" d "ktor-server-auth-ldap" w "2.3.12" w "3.0.0-beta-1"
@@ -1462,7 +1462,7 @@ object Io {
     val server_double_receive = "io.ktor" d "ktor-server-double-receive" w "2.3.12" w "3.0.0-beta-1"
     val server_forwarded_header = "io.ktor" d "ktor-server-forwarded-header" w "2.3.12" w "3.0.0-beta-1"
     val server_freemarker = "io.ktor" d "ktor-server-freemarker" w "2.3.12" w "3.0.0-beta-1"
-    val server_host_common = "io.ktor" d "ktor-server-host-common" w "2.3.11" w "2.3.12" w "3.0.0-beta-1"
+    val server_host_common = "io.ktor" d "ktor-server-host-common" w "2.3.12" w "3.0.0-beta-1"
     val server_hsts = "io.ktor" d "ktor-server-hsts" w "2.3.12" w "3.0.0-beta-1"
     val server_html_builder = "io.ktor" d "ktor-server-html-builder" w "2.3.12" w "3.0.0-beta-1"
     val server_http_redirect = "io.ktor" d "ktor-server-http-redirect" w "2.3.12" w "3.0.0-beta-1"
@@ -1642,7 +1642,7 @@ object Org {
   }
   object JetBrains {
     object Compose {
-      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.6.11" w "1.7.0-dev1686" w "1.7.0-dev1690"
+      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.6.11" w "1.7.0-dev1686" w "1.7.0-dev1692"
       object Compiler {
         val compiler = "org.jetbrains.compose.compiler" d "compiler" w "1.5.14" w "1.5.14.1-beta02"
       }
@@ -1690,10 +1690,10 @@ object Org {
       val coroutines_slf4j = "org.jetbrains.kotlinx" d "kotlinx-coroutines-slf4j" w "1.8.1" w "1.9.0-RC"
       val coroutines_swing = "org.jetbrains.kotlinx" d "kotlinx-coroutines-swing" w "1.8.1" w "1.9.0-RC"
       val coroutines_test = "org.jetbrains.kotlinx" d "kotlinx-coroutines-test" w "1.8.1" w "1.9.0-RC"
-      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.13.1" w "0.14.0-dev-3383"
-      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.13.1" w "0.14.0-dev-3383"
-      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.13.1" w "0.14.0-dev-3383"
-      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.13.1" w "0.14.0-dev-3383"
+      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.13.1" w "0.14.0-dev-3386"
+      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.13.1" w "0.14.0-dev-3386"
+      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.13.1" w "0.14.0-dev-3386"
+      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.13.1" w "0.14.0-dev-3386"
       val datetime = "org.jetbrains.kotlinx" d "kotlinx-datetime" w "0.6.0"
       val html = "org.jetbrains.kotlinx" d "kotlinx-html" w "0.11.0"
       val io_jvm = "org.jetbrains.kotlinx" d "kotlinx-io-jvm" w "0.1.16"
