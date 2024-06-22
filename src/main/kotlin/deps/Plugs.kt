@@ -72,7 +72,16 @@ object Plugs {
   val AndroAppEdge = AndroAppNoVer.withVers(vers.AndroPlugEdge)
   val AndroApp = AndroAppStable
 
+  /**
+   * Compose Multiplatform Gradle Plugin
+   * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.compose)
+   * [github](https://github.com/JetBrains/compose-multiplatform/releases)
+   * [maven runtime](https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/runtime/)
+   * [maven runtime](https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/runtime/runtime/)
+   * [maven ui-js](https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/ui/ui-js/)
+   */
   val ComposeJb = Org.JetBrains.Compose.gradle_plugin.withVer(vers.ComposeJb)
+  val ComposeJbNoVer = ComposeJb.withNoVer() // needed because .withNoVer() doesn't work in plugins {..}
   val ComposeJbStable = ComposeJb.withVer(vers.ComposeJbStable)
   val ComposeJbEdge = ComposeJb.withVer(vers.ComposeJbEdge)
 

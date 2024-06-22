@@ -42,10 +42,26 @@ object Vers {
   val Kotlin = Kotlin20
 
 
+
+  // Before update: Make sure not only plugin is already published, but other artifacts too (like ui-js).
   // https://github.com/JetBrains/compose-multiplatform/releases
-  val ComposeJbEdge = Org.JetBrains.Compose.gradle_plugin.verLast
+  // https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/runtime/runtime/
+  // https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/ui/ui-js/
+
+  // val ComposeJbEdge = Org.JetBrains.Compose.gradle_plugin.verLast
+  val ComposeJbEdge = Ver("1.7.0-dev1690")
+  // refreshDeps found newer one but looks like not fully released (tried and error downloading some artifacts)
+
   val ComposeJbStable = Org.JetBrains.Compose.gradle_plugin.verLastStable
 
+  /**
+   * Compose Multiplatform Gradle Plugin
+   * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.compose)
+   * [github](https://github.com/JetBrains/compose-multiplatform/releases)
+   * [maven runtime](https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/runtime/)
+   * [maven runtime](https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/runtime/runtime/)
+   * [maven ui-js](https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/ui/ui-js/)
+   */
   val ComposeJb = ComposeJbEdge
 
 
@@ -129,7 +145,7 @@ object Vers {
    * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val DepsPlug = Ver(0, 3, 23) // TODO make sure it's always synced with myLibDetails(version)
+  val DepsPlug = Ver(0, 3, 24) // TODO make sure it's always synced with myLibDetails(version)
 
   /**
    * SourceFun Gradle Plugin
