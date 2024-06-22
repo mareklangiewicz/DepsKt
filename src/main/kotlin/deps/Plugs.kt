@@ -57,9 +57,9 @@ object Plugs {
    * - [andro gradle dsl](https://google.github.io/android-gradle-dsl/)
    */
   val AndroLibNoVer = DepP("com.android.library") // needed because .withNoVer() doesn't work in plugins {..}
-  val AndroLibStable = AndroLibNoVer.withVers(vers.AndroPlugStable)
-  val AndroLibEdge = AndroLibNoVer.withVers(vers.AndroPlugEdge)
-  val AndroLib = AndroLibStable
+  val AndroLibStable = AndroLibNoVer.withVer(vers.AndroPlugStable)
+  val AndroLibEdge = AndroLibNoVer.withVer(vers.AndroPlugEdge)
+  val AndroLib = AndroLibNoVer.withVer(vers.AndroPlug)
 
   /**
    * Android Gradle Plugin
@@ -68,9 +68,9 @@ object Plugs {
    * - [andro gradle dsl](https://google.github.io/android-gradle-dsl/)
    */
   val AndroAppNoVer = DepP("com.android.application") // needed because .withNoVer() doesn't work in plugins {..}
-  val AndroAppStable = AndroAppNoVer.withVers(vers.AndroPlugStable)
-  val AndroAppEdge = AndroAppNoVer.withVers(vers.AndroPlugEdge)
-  val AndroApp = AndroAppStable
+  val AndroAppStable = AndroAppNoVer.withVer(vers.AndroPlugStable)
+  val AndroAppEdge = AndroAppNoVer.withVer(vers.AndroPlugEdge)
+  val AndroApp = AndroAppNoVer.withVer(vers.AndroPlug)
 
   /**
    * Compose Multiplatform Gradle Plugin
@@ -142,5 +142,5 @@ object Plugs {
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    * - [github](https://github.com/mareklangiewicz/DepsKt)
    */
-  val SourceFun = DepP("pl.mareklangiewicz.sourcefun", vers.DepsPlug)
+  val SourceFun = DepP("pl.mareklangiewicz.sourcefun", vers.SourceFunPlug)
 }
