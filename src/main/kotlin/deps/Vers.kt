@@ -49,8 +49,9 @@ object Vers {
   // https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/ui/ui-js/
 
   // val ComposeJbEdge = Org.JetBrains.Compose.gradle_plugin.verLast
-  val ComposeJbEdge = Ver("1.7.0-dev1690")
-  // refreshDeps found newer one but looks like not fully released (tried and error downloading some artifacts)
+  val ComposeJbEdge = Ver("1.7.0-dev1686") // Check with not only template-mpp but also uwidgets, before updating.
+  // The refreshDeps found 1692 one but looks like not fully released (tried and error downloading some artifacts)
+  // I tried 1690 which worked for template-mpp but not for uwidgets (js), so falling back to 1686
 
   val ComposeJbStable = Org.JetBrains.Compose.gradle_plugin.verLastStable
 
