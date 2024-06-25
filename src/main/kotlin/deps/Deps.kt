@@ -643,34 +643,34 @@ object AndroidX {
     val swiperefreshlayout = "androidx.swiperefreshlayout" d "swiperefreshlayout" w "1.1.0" w "1.2.0-alpha01"
   }
   object Test {
-    val core = "androidx.test" d "core" w "1.5.0" w "1.6.0-rc01"
-    val core_ktx = "androidx.test" d "core-ktx" w "1.5.0" w "1.6.0-rc01"
-    val monitor = "androidx.test" d "monitor" w "1.6.1" w "1.7.0-rc01"
-    val orchestrator = "androidx.test" d "orchestrator" w "1.4.2" w "1.5.0-rc01"
-    val rules = "androidx.test" d "rules" w "1.5.0" w "1.6.0-rc01"
-    val runner = "androidx.test" d "runner" w "1.5.2" w "1.6.0-rc01"
+    val core = "androidx.test" d "core" w "1.6.0"
+    val core_ktx = "androidx.test" d "core-ktx" w "1.6.0"
+    val monitor = "androidx.test" d "monitor" w "1.7.0"
+    val orchestrator = "androidx.test" d "orchestrator" w "1.5.0"
+    val rules = "androidx.test" d "rules" w "1.6.0"
+    val runner = "androidx.test" d "runner" w "1.6.0"
     object Espresso {
-      val accessibility = "androidx.test.espresso" d "espresso-accessibility" w "3.5.1" w "3.6.0-rc01"
-      val contrib = "androidx.test.espresso" d "espresso-contrib" w "3.5.1" w "3.6.0-rc01"
-      val core = "androidx.test.espresso" d "espresso-core" w "3.5.1" w "3.6.0-rc01"
-      val device = "androidx.test.espresso" d "espresso-device" w "1.0.0-rc01"
-      val idling_resource = "androidx.test.espresso" d "espresso-idling-resource" w "3.5.1" w "3.6.0-rc01"
-      val intents = "androidx.test.espresso" d "espresso-intents" w "3.5.1" w "3.6.0-rc01"
-      val remote = "androidx.test.espresso" d "espresso-remote" w "3.5.1" w "3.6.0-rc01"
-      val web = "androidx.test.espresso" d "espresso-web" w "3.5.1" w "3.6.0-rc01"
+      val accessibility = "androidx.test.espresso" d "espresso-accessibility" w "3.6.0"
+      val contrib = "androidx.test.espresso" d "espresso-contrib" w "3.6.0"
+      val core = "androidx.test.espresso" d "espresso-core" w "3.6.0"
+      val device = "androidx.test.espresso" d "espresso-device" w "1.0.0"
+      val idling_resource = "androidx.test.espresso" d "espresso-idling-resource" w "3.6.0"
+      val intents = "androidx.test.espresso" d "espresso-intents" w "3.6.0"
+      val remote = "androidx.test.espresso" d "espresso-remote" w "3.6.0"
+      val web = "androidx.test.espresso" d "espresso-web" w "3.6.0"
       object Idling {
-        val concurrent = "androidx.test.espresso.idling" d "idling-concurrent" w "3.5.1" w "3.6.0-rc01"
-        val net = "androidx.test.espresso.idling" d "idling-net" w "3.5.1" w "3.6.0-rc01"
+        val concurrent = "androidx.test.espresso.idling" d "idling-concurrent" w "3.6.0"
+        val net = "androidx.test.espresso.idling" d "idling-net" w "3.6.0"
       }
     }
     object Ext {
-      val junit = "androidx.test.ext" d "junit" w "1.1.5" w "1.2.0-rc01"
+      val junit = "androidx.test.ext" d "junit" w "1.2.0"
       val junit_gtest = "androidx.test.ext" d "junit-gtest" w "1.0.0-alpha02"
-      val junit_ktx = "androidx.test.ext" d "junit-ktx" w "1.1.5" w "1.2.0-rc01"
-      val truth = "androidx.test.ext" d "truth" w "1.5.0" w "1.6.0-rc01"
+      val junit_ktx = "androidx.test.ext" d "junit-ktx" w "1.2.0"
+      val truth = "androidx.test.ext" d "truth" w "1.6.0"
     }
     object Services {
-      val test_services = "androidx.test.services" d "test-services" w "1.4.2" w "1.5.0-rc01"
+      val test_services = "androidx.test.services" d "test-services" w "1.5.0"
     }
     object UiAutoMator {
       val uiautomator = "androidx.test.uiautomator" d "uiautomator" w "2.3.0"
@@ -875,7 +875,7 @@ object Com {
         val play_services_appset = "com.google.android.gms" d "play-services-appset" w "16.1.0"
         val play_services_auth = "com.google.android.gms" d "play-services-auth" w "21.2.0"
         val play_services_auth_api_phone = "com.google.android.gms" d "play-services-auth-api-phone" w "18.1.0"
-        val play_services_auth_blockstore = "com.google.android.gms" d "play-services-auth-blockstore" w "16.2.0"
+        val play_services_auth_blockstore = "com.google.android.gms" d "play-services-auth-blockstore" w "16.3.0"
         val play_services_awareness = "com.google.android.gms" d "play-services-awareness" w "19.1.0"
         val play_services_base = "com.google.android.gms" d "play-services-base" w "18.5.0"
         val play_services_basement = "com.google.android.gms" d "play-services-basement" w "18.4.0"
@@ -1026,7 +1026,7 @@ object Com {
     }
     object Maps {
       object Android {
-        val maps_compose = "com.google.maps.android" d "maps-compose" w "5.0.3"
+        val maps_compose = "com.google.maps.android" d "maps-compose" w "5.0.4"
         val maps_ktx = "com.google.maps.android" d "maps-ktx" w "5.0.0"
         val maps_rx = "com.google.maps.android" d "maps-rx" w "1.0.0"
         val maps_utils = "com.google.maps.android" d "android-maps-utils" w "3.8.2"
@@ -1642,7 +1642,7 @@ object Org {
   }
   object JetBrains {
     object Compose {
-      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.6.11" w "1.7.0-dev1686" w "1.7.0-dev1692"
+      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.6.11" w "1.7.0-dev1686" w "1.7.0-dev1698"
       object Compiler {
         val compiler = "org.jetbrains.compose.compiler" d "compiler" w "1.5.14" w "1.5.14.1-beta02"
       }
@@ -1690,10 +1690,10 @@ object Org {
       val coroutines_slf4j = "org.jetbrains.kotlinx" d "kotlinx-coroutines-slf4j" w "1.8.1" w "1.9.0-RC"
       val coroutines_swing = "org.jetbrains.kotlinx" d "kotlinx-coroutines-swing" w "1.8.1" w "1.9.0-RC"
       val coroutines_test = "org.jetbrains.kotlinx" d "kotlinx-coroutines-test" w "1.8.1" w "1.9.0-RC"
-      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.13.1" w "0.14.0-dev-3386"
-      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.13.1" w "0.14.0-dev-3386"
-      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.13.1" w "0.14.0-dev-3386"
-      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.13.1" w "0.14.0-dev-3386"
+      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.13.1" w "0.14.0-dev-3391"
+      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.13.1" w "0.14.0-dev-3391"
+      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.13.1" w "0.14.0-dev-3391"
+      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.13.1" w "0.14.0-dev-3391"
       val datetime = "org.jetbrains.kotlinx" d "kotlinx-datetime" w "0.6.0"
       val html = "org.jetbrains.kotlinx" d "kotlinx-html" w "0.11.0"
       val io_jvm = "org.jetbrains.kotlinx" d "kotlinx-io-jvm" w "0.1.16"
@@ -2007,12 +2007,12 @@ object Pl {
     val uspekx_junit5_jvm = "pl.mareklangiewicz" d "uspekx-junit5-jvm" w "0.0.35"
     val uspekx_jvm = "pl.mareklangiewicz" d "uspekx-jvm" w "0.0.35"
     val uspekx_linuxx64 = "pl.mareklangiewicz" d "uspekx-linuxx64" w "0.0.35"
-    val uwidgets = "pl.mareklangiewicz" d "uwidgets" w "0.0.22"
-    val uwidgets_js = "pl.mareklangiewicz" d "uwidgets-js" w "0.0.22"
-    val uwidgets_jvm = "pl.mareklangiewicz" d "uwidgets-jvm" w "0.0.22"
-    val uwidgets_udemo = "pl.mareklangiewicz" d "uwidgets-udemo" w "0.0.22"
-    val uwidgets_udemo_js = "pl.mareklangiewicz" d "uwidgets-udemo-js" w "0.0.22"
-    val uwidgets_udemo_jvm = "pl.mareklangiewicz" d "uwidgets-udemo-jvm" w "0.0.22"
+    val uwidgets = "pl.mareklangiewicz" d "uwidgets" w "0.0.23"
+    val uwidgets_js = "pl.mareklangiewicz" d "uwidgets-js" w "0.0.23"
+    val uwidgets_jvm = "pl.mareklangiewicz" d "uwidgets-jvm" w "0.0.23"
+    val uwidgets_udemo = "pl.mareklangiewicz" d "uwidgets-udemo" w "0.0.23"
+    val uwidgets_udemo_js = "pl.mareklangiewicz" d "uwidgets-udemo-js" w "0.0.23"
+    val uwidgets_udemo_jvm = "pl.mareklangiewicz" d "uwidgets-udemo-jvm" w "0.0.23"
   }
 }
 
