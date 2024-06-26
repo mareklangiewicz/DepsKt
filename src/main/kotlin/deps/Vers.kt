@@ -52,6 +52,8 @@ object Vers {
   val ComposeJbEdge = Ver("1.7.0-dev1686") // Check with not only template-mpp but also uwidgets, before updating.
   // The refreshDeps found 1692 one but looks like not fully released (tried and error downloading some artifacts)
   // I tried 1690 which worked for template-mpp but not for uwidgets (js), so falling back to 1686
+  // UPDATE: I reported bug with 1698 with reproducer:
+  // https://youtrack.jetbrains.com/issue/CMP-1583/K2-JS-1.7.0-dev1698-in-browser-TypeError-content-is-not-a-function
 
   val ComposeJbStable = Org.JetBrains.Compose.gradle_plugin.verLastStable
 
@@ -146,7 +148,7 @@ object Vers {
    * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val DepsPlug = Ver(0, 3, 26) // TODO make sure it's always synced with myLibDetails(version)
+  val DepsPlug = Ver(0, 3, 27) // TODO make sure it's always synced with myLibDetails(version)
 
   /**
    * SourceFun Gradle Plugin
