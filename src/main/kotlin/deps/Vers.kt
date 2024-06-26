@@ -156,7 +156,7 @@ object Vers {
    * - [plugins gradle sourcefun](https://plugins.gradle.org/plugin/pl.mareklangiewicz.sourcefun)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val SourceFunPlug = Ver("0.4.10")
+  val SourceFunPlug = Ver("0.4.11")
 
   const val JvmDefaultVer = "21"
 

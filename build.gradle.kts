@@ -18,7 +18,7 @@ import org.jetbrains.kotlin.gradle.dsl.*
 
 plugins {
   plugAll(plugs.KotlinJvm, plugs.NexusPublish, plugs.GradlePublish, plugs.Signing)
-  id("pl.mareklangiewicz.sourcefun") version "0.4.10" // FIXME_later: add to plugAll after updating deps
+  id("pl.mareklangiewicz.sourcefun") version "0.4.11" // FIXME_later: add to plugAll after updating deps
 }
 
 buildscript {
@@ -27,8 +27,8 @@ buildscript {
   //   because similar issue before (when api of related kground/kommand/etc changed) was compiling fine
   //   and only failing when I was executing specific custom task.
   dependencies {
-    classpath("pl.mareklangiewicz:kommandline:0.0.67")
-    classpath("pl.mareklangiewicz:kgroundx-maintenance:0.0.60")
+    // classpath("pl.mareklangiewicz:kommandline:0.0.67")
+    // classpath("pl.mareklangiewicz:kgroundx-maintenance:0.0.60")
     // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kommandline/
     // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kground/
   }
