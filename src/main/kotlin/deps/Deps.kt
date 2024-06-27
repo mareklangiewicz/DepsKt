@@ -510,27 +510,27 @@ object AndroidX {
     val widget = "androidx.media2" d "media2-widget" w "1.3.0"
   }
   object Media3 {
-    val cast = "androidx.media3" d "media3-cast" w "1.3.1" w "1.4.0-alpha02"
-    val common = "androidx.media3" d "media3-common" w "1.3.1" w "1.4.0-alpha02"
-    val database = "androidx.media3" d "media3-database" w "1.3.1" w "1.4.0-alpha02"
-    val datasource = "androidx.media3" d "media3-datasource" w "1.3.1" w "1.4.0-alpha02"
-    val datasource_cronet = "androidx.media3" d "media3-datasource-cronet" w "1.3.1" w "1.4.0-alpha02"
-    val datasource_okhttp = "androidx.media3" d "media3-datasource-okhttp" w "1.3.1" w "1.4.0-alpha02"
-    val datasource_rtmp = "androidx.media3" d "media3-datasource-rtmp" w "1.3.1" w "1.4.0-alpha02"
-    val decoder = "androidx.media3" d "media3-decoder" w "1.3.1" w "1.4.0-alpha02"
-    val exoplayer = "androidx.media3" d "media3-exoplayer" w "1.3.1" w "1.4.0-alpha02"
-    val exoplayer_dash = "androidx.media3" d "media3-exoplayer-dash" w "1.3.1" w "1.4.0-alpha02"
-    val exoplayer_hls = "androidx.media3" d "media3-exoplayer-hls" w "1.3.1" w "1.4.0-alpha02"
-    val exoplayer_ima = "androidx.media3" d "media3-exoplayer-ima" w "1.3.1" w "1.4.0-alpha02"
-    val exoplayer_rtsp = "androidx.media3" d "media3-exoplayer-rtsp" w "1.3.1" w "1.4.0-alpha02"
-    val exoplayer_workmanager = "androidx.media3" d "media3-exoplayer-workmanager" w "1.3.1" w "1.4.0-alpha02"
-    val extractor = "androidx.media3" d "media3-extractor" w "1.3.1" w "1.4.0-alpha02"
-    val session = "androidx.media3" d "media3-session" w "1.3.1" w "1.4.0-alpha02"
-    val test_utils = "androidx.media3" d "media3-test-utils" w "1.3.1" w "1.4.0-alpha02"
-    val test_utils_robolectric = "androidx.media3" d "media3-test-utils-robolectric" w "1.3.1" w "1.4.0-alpha02"
-    val transformer = "androidx.media3" d "media3-transformer" w "1.3.1" w "1.4.0-alpha02"
-    val ui = "androidx.media3" d "media3-ui" w "1.3.1" w "1.4.0-alpha02"
-    val ui_leanback = "androidx.media3" d "media3-ui-leanback" w "1.3.1" w "1.4.0-alpha02"
+    val cast = "androidx.media3" d "media3-cast" w "1.3.1" w "1.4.0-beta01"
+    val common = "androidx.media3" d "media3-common" w "1.3.1" w "1.4.0-beta01"
+    val database = "androidx.media3" d "media3-database" w "1.3.1" w "1.4.0-beta01"
+    val datasource = "androidx.media3" d "media3-datasource" w "1.3.1" w "1.4.0-beta01"
+    val datasource_cronet = "androidx.media3" d "media3-datasource-cronet" w "1.3.1" w "1.4.0-beta01"
+    val datasource_okhttp = "androidx.media3" d "media3-datasource-okhttp" w "1.3.1" w "1.4.0-beta01"
+    val datasource_rtmp = "androidx.media3" d "media3-datasource-rtmp" w "1.3.1" w "1.4.0-beta01"
+    val decoder = "androidx.media3" d "media3-decoder" w "1.3.1" w "1.4.0-beta01"
+    val exoplayer = "androidx.media3" d "media3-exoplayer" w "1.3.1" w "1.4.0-beta01"
+    val exoplayer_dash = "androidx.media3" d "media3-exoplayer-dash" w "1.3.1" w "1.4.0-beta01"
+    val exoplayer_hls = "androidx.media3" d "media3-exoplayer-hls" w "1.3.1" w "1.4.0-beta01"
+    val exoplayer_ima = "androidx.media3" d "media3-exoplayer-ima" w "1.3.1" w "1.4.0-beta01"
+    val exoplayer_rtsp = "androidx.media3" d "media3-exoplayer-rtsp" w "1.3.1" w "1.4.0-beta01"
+    val exoplayer_workmanager = "androidx.media3" d "media3-exoplayer-workmanager" w "1.3.1" w "1.4.0-beta01"
+    val extractor = "androidx.media3" d "media3-extractor" w "1.3.1" w "1.4.0-beta01"
+    val session = "androidx.media3" d "media3-session" w "1.3.1" w "1.4.0-beta01"
+    val test_utils = "androidx.media3" d "media3-test-utils" w "1.3.1" w "1.4.0-beta01"
+    val test_utils_robolectric = "androidx.media3" d "media3-test-utils-robolectric" w "1.3.1" w "1.4.0-beta01"
+    val transformer = "androidx.media3" d "media3-transformer" w "1.3.1" w "1.4.0-beta01"
+    val ui = "androidx.media3" d "media3-ui" w "1.3.1" w "1.4.0-beta01"
+    val ui_leanback = "androidx.media3" d "media3-ui-leanback" w "1.3.1" w "1.4.0-beta01"
   }
   object MediaRouter {
     val mediarouter = "androidx.mediarouter" d "mediarouter" w "1.7.0"
@@ -1354,7 +1354,7 @@ object Io {
       }
     }
     object TypeSafeGitHub {
-      val github_workflows_kt = "io.github.typesafegithub" d "github-workflows-kt" w "2.1.1"
+      val github_workflows_kt = "io.github.typesafegithub" d "github-workflows-kt" w "2.1.1" w "2.2.0"
     }
   }
   object Insert_koin {
@@ -1746,7 +1746,7 @@ object Org {
       val kotlin_react_use = "org.jetbrains.kotlin-wrappers" d "kotlin-react-use" w "17.4.0-pre.763"
       val kotlin_redux = "org.jetbrains.kotlin-wrappers" d "kotlin-redux" w "4.1.2-pre.763"
       val kotlin_remix_run_router = "org.jetbrains.kotlin-wrappers" d "kotlin-remix-run-router" w "1.16.1-pre.763"
-      val kotlin_ring_ui = "org.jetbrains.kotlin-wrappers" d "kotlin-ring-ui" w "4.1.5-pre.761" w "4.1.5-pre.763"
+      val kotlin_ring_ui = "org.jetbrains.kotlin-wrappers" d "kotlin-ring-ui" w "4.1.5-pre.763"
       val kotlin_styled = "org.jetbrains.kotlin-wrappers" d "kotlin-styled" w "5.3.11-pre.717"
       val kotlin_styled_next = "org.jetbrains.kotlin-wrappers" d "kotlin-styled-next" w "1.2.4-pre.763"
       val kotlin_tanstack_query_core = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-query-core" w "5.48.0-pre.763"
@@ -1755,9 +1755,9 @@ object Org {
       val kotlin_tanstack_react_table = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-react-table" w "8.17.3-pre.763"
       val kotlin_tanstack_react_virtual = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-react-virtual" w "3.7.0-pre.763"
       val kotlin_tanstack_table_core = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-table-core" w "8.17.3-pre.763"
-      val kotlin_tanstack_virtual_core = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-virtual-core" w "3.7.0-pre.761" w "3.7.0-pre.763"
+      val kotlin_tanstack_virtual_core = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-virtual-core" w "3.7.0-pre.763"
       val kotlin_typescript = "org.jetbrains.kotlin-wrappers" d "kotlin-typescript" w "5.4.5-pre.763"
-      val kotlin_web = "org.jetbrains.kotlin-wrappers" d "kotlin-web" w "1.0.0-pre.761" w "1.0.0-pre.763"
+      val kotlin_web = "org.jetbrains.kotlin-wrappers" d "kotlin-web" w "1.0.0-pre.763"
     }
   }
   object Kodein {
