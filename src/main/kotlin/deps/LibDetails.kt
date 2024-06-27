@@ -90,7 +90,14 @@ data class LibComposeSettings(
 )
 
 data class LibAndroSettings(
+
+  /** Should override [sdkCompile] when not null */
+  val sdkCompilePreview: String? = null,
+  /** Should be ignored when [sdkCompilePreview] is not null */
   val sdkCompile: Int = Vers.AndroSdkCompile,
+  /** Should override [sdkTarget] when not null */
+  val sdkTargetPreview: String? = null,
+  /** Should be ignored when [sdkTargetPreview] is not null */
   val sdkTarget: Int = Vers.AndroSdkTarget,
   val sdkMin: Int = Vers.AndroSdkMin,
 

@@ -148,7 +148,7 @@ object Vers {
    * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val DepsPlug = Ver(0, 3, 28) // TODO make sure it's always synced with myLibDetails(version)
+  val DepsPlug = Ver(0, 3, 29) // TODO make sure it's always synced with myLibDetails(version)
 
   /**
    * SourceFun Gradle Plugin
@@ -180,9 +180,10 @@ object Vers {
    * - [dashboards](https://developer.android.com/about/dashboards/index.html)
    * - [build numbers](https://source.android.com/setup/start/build-numbers)
    */
-  const val AndroSdkMin = 26
-  const val AndroSdkCompile = 35
+  val AndroSdkPreview: String? = "VanillaIceCream"
+  const val AndroSdkCompile: Int = 35
   const val AndroSdkTarget = 35
+  const val AndroSdkMin = 26
 
   /**
    * This runner looks like working correctly these years (with gradle unified test platform).
