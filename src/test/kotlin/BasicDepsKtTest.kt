@@ -7,6 +7,8 @@ class BasicDepsKtTest {
 
   @Test
   fun printSomStuff() {
+    println(vers.DepsPlug)
+    println(plugs.Deps)
     println(vers.ComposeJb)
     println(plugs.ComposeJb)
     println(repos.composeJbDev)

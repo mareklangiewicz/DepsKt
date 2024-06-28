@@ -802,7 +802,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.0.4"
       val r8 = "com.android.tools" d "r8" w "8.3.37"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "2.3.3" w "2.4.0-alpha7" w "2.5.0-alpha-preview-02" w "8.5.0" w "8.6.0-alpha07"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "2.3.3" w "2.4.0-alpha7" w "2.5.0-alpha-preview-02" w "8.5.0" w "8.6.0-alpha08"
       }
     }
   }
@@ -1066,8 +1066,8 @@ object Com {
       val oboe = "com.google.oboe" d "oboe" w "1.9.0"
     }
     object Truth {
-      val parent = "com.google.truth" d "truth-parent" w "1.4.2"
-      val truth = "com.google.truth" d "truth" w "1.4.2"
+      val parent = "com.google.truth" d "truth-parent" w "1.4.3"
+      val truth = "com.google.truth" d "truth" w "1.4.3"
     }
   }
   object JakeWharton {
@@ -1354,7 +1354,7 @@ object Io {
       }
     }
     object TypeSafeGitHub {
-      val github_workflows_kt = "io.github.typesafegithub" d "github-workflows-kt" w "2.1.1" w "2.2.0"
+      val github_workflows_kt = "io.github.typesafegithub" d "github-workflows-kt" w "2.2.0"
     }
   }
   object Insert_koin {
@@ -1631,13 +1631,13 @@ object Org {
     val testing_webdriver = "org.http4k" d "http4k-testing-webdriver" w "5.24.0.0"
   }
   object JUnit {
-    val bom = "org.junit" d "junit-bom" w "5.10.2" w "5.11.0-M2"
+    val bom = "org.junit" d "junit-bom" w "5.10.3" w "5.11.0-M2"
     object Jupiter {
-      val junit_jupiter = "org.junit.jupiter" d "junit-jupiter" w "5.10.2" w "5.11.0-M2"
-      val junit_jupiter_api = "org.junit.jupiter" d "junit-jupiter-api" w "5.10.2" w "5.11.0-M2"
-      val junit_jupiter_engine = "org.junit.jupiter" d "junit-jupiter-engine" w "5.10.2" w "5.11.0-M2"
-      val junit_jupiter_migrationsupport = "org.junit.jupiter" d "junit-jupiter-migrationsupport" w "5.10.2" w "5.11.0-M2"
-      val junit_jupiter_params = "org.junit.jupiter" d "junit-jupiter-params" w "5.10.2" w "5.11.0-M2"
+      val junit_jupiter = "org.junit.jupiter" d "junit-jupiter" w "5.10.3" w "5.11.0-M2"
+      val junit_jupiter_api = "org.junit.jupiter" d "junit-jupiter-api" w "5.10.3" w "5.11.0-M2"
+      val junit_jupiter_engine = "org.junit.jupiter" d "junit-jupiter-engine" w "5.10.3" w "5.11.0-M2"
+      val junit_jupiter_migrationsupport = "org.junit.jupiter" d "junit-jupiter-migrationsupport" w "5.10.3" w "5.11.0-M2"
+      val junit_jupiter_params = "org.junit.jupiter" d "junit-jupiter-params" w "5.10.3" w "5.11.0-M2"
     }
   }
   object JetBrains {
@@ -1690,10 +1690,10 @@ object Org {
       val coroutines_slf4j = "org.jetbrains.kotlinx" d "kotlinx-coroutines-slf4j" w "1.8.1" w "1.9.0-RC"
       val coroutines_swing = "org.jetbrains.kotlinx" d "kotlinx-coroutines-swing" w "1.8.1" w "1.9.0-RC"
       val coroutines_test = "org.jetbrains.kotlinx" d "kotlinx-coroutines-test" w "1.8.1" w "1.9.0-RC"
-      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.13.1" w "0.14.0-dev-3395"
-      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.13.1" w "0.14.0-dev-3395"
-      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.13.1" w "0.14.0-dev-3395"
-      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.13.1" w "0.14.0-dev-3395"
+      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.13.1" w "0.14.0-dev-3467"
+      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.13.1" w "0.14.0-dev-3395" w "0.14.0-dev-3467"
+      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.13.1" w "0.14.0-dev-3467"
+      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.13.1" w "0.14.0-dev-3467"
       val datetime = "org.jetbrains.kotlinx" d "kotlinx-datetime" w "0.6.0"
       val html = "org.jetbrains.kotlinx" d "kotlinx-html" w "0.11.0"
       val io_jvm = "org.jetbrains.kotlinx" d "kotlinx-io-jvm" w "0.1.16"
@@ -1948,23 +1948,23 @@ object Pl {
     val abcdk_js = "pl.mareklangiewicz" d "abcdk-js" w "0.0.23"
     val abcdk_jvm = "pl.mareklangiewicz" d "abcdk-jvm" w "0.0.23"
     val abcdk_linuxx64 = "pl.mareklangiewicz" d "abcdk-linuxx64" w "0.0.23"
-    val kground = "pl.mareklangiewicz" d "kground" w "0.0.60"
-    val kground_io = "pl.mareklangiewicz" d "kground-io" w "0.0.60"
-    val kground_io_js = "pl.mareklangiewicz" d "kground-io-js" w "0.0.60"
-    val kground_io_jvm = "pl.mareklangiewicz" d "kground-io-jvm" w "0.0.60"
-    val kground_js = "pl.mareklangiewicz" d "kground-js" w "0.0.60"
-    val kground_jvm = "pl.mareklangiewicz" d "kground-jvm" w "0.0.60"
-    val kgroundx = "pl.mareklangiewicz" d "kgroundx" w "0.0.60"
-    val kgroundx_io = "pl.mareklangiewicz" d "kgroundx-io" w "0.0.60"
-    val kgroundx_io_js = "pl.mareklangiewicz" d "kgroundx-io-js" w "0.0.60"
-    val kgroundx_io_jvm = "pl.mareklangiewicz" d "kgroundx-io-jvm" w "0.0.60"
-    val kgroundx_js = "pl.mareklangiewicz" d "kgroundx-js" w "0.0.60"
-    val kgroundx_jupyter = "pl.mareklangiewicz" d "kgroundx-jupyter" w "0.0.60"
-    val kgroundx_jupyter_jvm = "pl.mareklangiewicz" d "kgroundx-jupyter-jvm" w "0.0.60"
-    val kgroundx_jvm = "pl.mareklangiewicz" d "kgroundx-jvm" w "0.0.60"
-    val kgroundx_maintenance = "pl.mareklangiewicz" d "kgroundx-maintenance" w "0.0.60"
+    val kground = "pl.mareklangiewicz" d "kground" w "0.0.60" w "0.0.61"
+    val kground_io = "pl.mareklangiewicz" d "kground-io" w "0.0.61"
+    val kground_io_js = "pl.mareklangiewicz" d "kground-io-js" w "0.0.60" w "0.0.61"
+    val kground_io_jvm = "pl.mareklangiewicz" d "kground-io-jvm" w "0.0.60" w "0.0.61"
+    val kground_js = "pl.mareklangiewicz" d "kground-js" w "0.0.61"
+    val kground_jvm = "pl.mareklangiewicz" d "kground-jvm" w "0.0.61"
+    val kgroundx = "pl.mareklangiewicz" d "kgroundx" w "0.0.60" w "0.0.61"
+    val kgroundx_io = "pl.mareklangiewicz" d "kgroundx-io" w "0.0.61"
+    val kgroundx_io_js = "pl.mareklangiewicz" d "kgroundx-io-js" w "0.0.61"
+    val kgroundx_io_jvm = "pl.mareklangiewicz" d "kgroundx-io-jvm" w "0.0.60" w "0.0.61"
+    val kgroundx_js = "pl.mareklangiewicz" d "kgroundx-js" w "0.0.60" w "0.0.61"
+    val kgroundx_jupyter = "pl.mareklangiewicz" d "kgroundx-jupyter" w "0.0.61"
+    val kgroundx_jupyter_jvm = "pl.mareklangiewicz" d "kgroundx-jupyter-jvm" w "0.0.60" w "0.0.61"
+    val kgroundx_jvm = "pl.mareklangiewicz" d "kgroundx-jvm" w "0.0.61"
+    val kgroundx_maintenance = "pl.mareklangiewicz" d "kgroundx-maintenance" w "0.0.61"
     val kgroundx_maintenance_js = "pl.mareklangiewicz" d "kgroundx-maintenance-js"
-    val kgroundx_maintenance_jvm = "pl.mareklangiewicz" d "kgroundx-maintenance-jvm" w "0.0.60"
+    val kgroundx_maintenance_jvm = "pl.mareklangiewicz" d "kgroundx-maintenance-jvm" w "0.0.61"
     val kommandjupyter = "pl.mareklangiewicz" d "kommandjupyter" w "0.0.67"
     val kommandjupyter_jvm = "pl.mareklangiewicz" d "kommandjupyter-jvm" w "0.0.67"
     val kommandline = "pl.mareklangiewicz" d "kommandline" w "0.0.67"
@@ -2007,12 +2007,12 @@ object Pl {
     val uspekx_junit5_jvm = "pl.mareklangiewicz" d "uspekx-junit5-jvm" w "0.0.36"
     val uspekx_jvm = "pl.mareklangiewicz" d "uspekx-jvm" w "0.0.36"
     val uspekx_linuxx64 = "pl.mareklangiewicz" d "uspekx-linuxx64" w "0.0.36"
-    val uwidgets = "pl.mareklangiewicz" d "uwidgets" w "0.0.23"
-    val uwidgets_js = "pl.mareklangiewicz" d "uwidgets-js" w "0.0.23"
-    val uwidgets_jvm = "pl.mareklangiewicz" d "uwidgets-jvm" w "0.0.23"
-    val uwidgets_udemo = "pl.mareklangiewicz" d "uwidgets-udemo" w "0.0.23"
-    val uwidgets_udemo_js = "pl.mareklangiewicz" d "uwidgets-udemo-js" w "0.0.23"
-    val uwidgets_udemo_jvm = "pl.mareklangiewicz" d "uwidgets-udemo-jvm" w "0.0.23"
+    val uwidgets = "pl.mareklangiewicz" d "uwidgets" w "0.0.24"
+    val uwidgets_js = "pl.mareklangiewicz" d "uwidgets-js" w "0.0.24"
+    val uwidgets_jvm = "pl.mareklangiewicz" d "uwidgets-jvm" w "0.0.24"
+    val uwidgets_udemo = "pl.mareklangiewicz" d "uwidgets-udemo" w "0.0.23" w "0.0.24"
+    val uwidgets_udemo_js = "pl.mareklangiewicz" d "uwidgets-udemo-js" w "0.0.24"
+    val uwidgets_udemo_jvm = "pl.mareklangiewicz" d "uwidgets-udemo-jvm" w "0.0.24"
   }
 }
 
