@@ -18,7 +18,9 @@ import org.jetbrains.kotlin.gradle.dsl.*
 
 plugins {
   plugAll(plugs.KotlinJvm, plugs.NexusPublish, plugs.GradlePublish, plugs.Signing)
-  id("pl.mareklangiewicz.sourcefun") version "0.4.11" // FIXME_later: add to plugAll after updating deps
+  id("pl.mareklangiewicz.sourcefun") version "0.4.13"
+  // FIXME_later: add to plugAll after updating deps
+  // https://plugins.gradle.org/search?term=pl.mareklangiewicz
 }
 
 buildscript {
@@ -33,6 +35,67 @@ buildscript {
     // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kground/
   }
 }
+
+repositories {
+  mavenLocal()
+  google()
+  mavenCentral()
+  gradlePluginPortal()
+}
+
+dependencies {
+  api(Com.SquareUp.Okio.okio) // FIXME_later: remove and use new SourceFun? (DepsKt utils should not depend on okio)
+  testImplementation(kotlin("test"))
+  testImplementation(Org.JUnit.Jupiter.junit_jupiter_engine)
+}
+
+tasks.defaultKotlinCompileOptions()
+
+tasks.defaultTestsOptions()
+
+ext.addDefaultStuffFromSystemEnvs()
+
+defaultGroupAndVerAndDescription(
+  myLibDetails(
+    name = "DepsKt",
+    group = "pl.mareklangiewicz.deps", // important non default ...deps group (as accepted on gradle portal)
+    description = "Updated dependencies for typical java/kotlin/android projects (with IDE support).",
+    githubUrl = "https://github.com/mareklangiewicz/DepsKt",
+    version = Ver(0, 3, 32),
+    // TODO use some SourceFun task to make sure it's synced with Vers.DepsPlug
+    // (we println it when applying plugin so have to be synced not to confuse users)
+    // https://plugins.gradle.org/search?term=pl.mareklangiewicz
+    settings = LibSettings(
+      withJs = false,
+      compose = null,
+    ),
+  ),
+)
+
+defaultSigning()
+
+gradlePlugin {
+  website.set("https://github.com/mareklangiewicz/DepsKt")
+  vcsUrl.set("https://github.com/mareklangiewicz/DepsKt")
+  plugins {
+    create("depsPlugin") {
+      id = "pl.mareklangiewicz.deps"
+      implementationClass = "pl.mareklangiewicz.deps.DepsPlugin"
+      displayName = "DepsKt plugin"
+      description = "Updated dependencies for typical java/kotlin/android projects (with IDE support)."
+      tags.set(listOf("bom", "dependencies"))
+    }
+    create("depsSettingsPlugin") {
+      id = "pl.mareklangiewicz.deps.settings"
+      implementationClass = "pl.mareklangiewicz.deps.DepsSettingsPlugin"
+      displayName = "DepsKt settings plugin"
+      description =
+        "Updated dependencies for typical java/kotlin/android projects (with IDE support) (settings plugin)."
+      tags.set(listOf("bom", "dependencies"))
+    }
+  }
+}
+
 
 val pathToSrcKotlin = rootProjectPath / "src/main/kotlin"
 val urlToRefreshDeps = "https://raw.githubusercontent.com/mareklangiewicz/refreshDeps"
@@ -104,65 +167,6 @@ val updateSomeRegexes by tasks.registering {
   }
 }
 
-repositories {
-  mavenLocal()
-  google()
-  mavenCentral()
-  gradlePluginPortal()
-}
-
-dependencies {
-  api(Com.SquareUp.Okio.okio) // FIXME_later: remove and use new SourceFun? (DepsKt utils should not depend on okio)
-  testImplementation(kotlin("test"))
-  testImplementation(Org.JUnit.Jupiter.junit_jupiter_engine)
-}
-
-tasks.defaultKotlinCompileOptions()
-
-tasks.defaultTestsOptions()
-
-ext.addDefaultStuffFromSystemEnvs()
-
-defaultGroupAndVerAndDescription(
-  myLibDetails(
-    name = "DepsKt",
-    group = "pl.mareklangiewicz.deps", // important non default ...deps group (as accepted on gradle portal)
-    description = "Updated dependencies for typical java/kotlin/android projects (with IDE support).",
-    githubUrl = "https://github.com/mareklangiewicz/DepsKt",
-    version = Ver(0, 3, 31),
-    // TODO use some SourceFun task to make sure it's synced with Vers.DepsPlug
-    // (we println it when applying plugin so have to be synced not to confuse users)
-    // https://plugins.gradle.org/search?term=pl.mareklangiewicz
-    settings = LibSettings(
-      withJs = false,
-      compose = null,
-    ),
-  ),
-)
-
-defaultSigning()
-
-gradlePlugin {
-  website.set("https://github.com/mareklangiewicz/DepsKt")
-  vcsUrl.set("https://github.com/mareklangiewicz/DepsKt")
-  plugins {
-    create("depsPlugin") {
-      id = "pl.mareklangiewicz.deps"
-      implementationClass = "pl.mareklangiewicz.deps.DepsPlugin"
-      displayName = "DepsKt plugin"
-      description = "Updated dependencies for typical java/kotlin/android projects (with IDE support)."
-      tags.set(listOf("bom", "dependencies"))
-    }
-    create("depsSettingsPlugin") {
-      id = "pl.mareklangiewicz.deps.settings"
-      implementationClass = "pl.mareklangiewicz.deps.DepsSettingsPlugin"
-      displayName = "DepsKt settings plugin"
-      description =
-        "Updated dependencies for typical java/kotlin/android projects (with IDE support) (settings plugin)."
-      tags.set(listOf("bom", "dependencies"))
-    }
-  }
-}
 
 
 // region [[Root Build Template]]
