@@ -33,6 +33,4 @@ jobs:
         arguments: 'build'
     - id: 'step-3'
       name: 'Publish to Sonatype'
-      uses: 'gradle/actions/setup-gradle@v3'
-      with:
-        arguments: 'publishToSonatype closeAndReleaseSonatypeStagingRepository'
+      run: './gradlew publishToSonatype closeAndReleaseSonatypeStagingRepository --no-configuration-cache --no-parallel'
