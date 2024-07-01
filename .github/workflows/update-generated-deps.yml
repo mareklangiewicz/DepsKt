@@ -5,7 +5,7 @@
 name: 'Update Generated Deps'
 on:
   schedule:
-  - cron: '30 6 * * *'
+  - cron: '53 5 * * *'
   workflow_dispatch: {}
 jobs:
   update-generated-deps:
