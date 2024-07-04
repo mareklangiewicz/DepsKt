@@ -1026,7 +1026,7 @@ object Com {
     }
     object Maps {
       object Android {
-        val maps_compose = "com.google.maps.android" d "maps-compose" w "5.0.4"
+        val maps_compose = "com.google.maps.android" d "maps-compose" w "6.0.0"
         val maps_ktx = "com.google.maps.android" d "maps-ktx" w "5.1.0"
         val maps_rx = "com.google.maps.android" d "maps-rx" w "1.0.0"
         val maps_utils = "com.google.maps.android" d "android-maps-utils" w "3.8.2"
@@ -1642,7 +1642,7 @@ object Org {
   }
   object JetBrains {
     object Compose {
-      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.6.11" w "1.7.0-dev1703" w "1.7.0-dev1707"
+      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.6.11" w "1.7.0-alpha01"
       object Compiler {
         val compiler = "org.jetbrains.compose.compiler" d "compiler" w "1.5.14" w "1.5.14.1-beta02"
       }
@@ -1967,7 +1967,7 @@ object Pl {
     val kgroundx_maintenance_jvm = "pl.mareklangiewicz" d "kgroundx-maintenance-jvm" w "0.0.63"
     val kommandjupyter = "pl.mareklangiewicz" d "kommandjupyter" w "0.0.68"
     val kommandjupyter_jvm = "pl.mareklangiewicz" d "kommandjupyter-jvm" w "0.0.68"
-    val kommandline = "pl.mareklangiewicz" d "kommandline" w "0.0.67" w "0.0.68"
+    val kommandline = "pl.mareklangiewicz" d "kommandline" w "0.0.68"
     val kommandline_js = "pl.mareklangiewicz" d "kommandline-js" w "0.0.68"
     val kommandline_jvm = "pl.mareklangiewicz" d "kommandline-jvm" w "0.0.68"
     val kommandsamples = "pl.mareklangiewicz" d "kommandsamples" w "0.0.68"
