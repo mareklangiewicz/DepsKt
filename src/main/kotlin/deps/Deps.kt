@@ -1204,8 +1204,8 @@ object Com {
     val multiplatform_settings_test = "com.russhwolf" d "multiplatform-settings-test" w "1.1.1"
   }
   object SquareUp {
-    val kotlinpoet = "com.squareup" d "kotlinpoet" w "1.17.0"
-    val kotlinpoet_metadata = "com.squareup" d "kotlinpoet-metadata" w "1.17.0"
+    val kotlinpoet = "com.squareup" d "kotlinpoet" w "1.18.0"
+    val kotlinpoet_metadata = "com.squareup" d "kotlinpoet-metadata" w "1.18.0"
     val kotlinpoet_metadata_specs = "com.squareup" d "kotlinpoet-metadata-specs" w "1.9.0"
     object LeakCanary {
       val android = "com.squareup.leakcanary" d "leakcanary-android" w "2.14" w "3.0-alpha-8"
@@ -1583,7 +1583,7 @@ object Org {
     val core = "org.http4k" d "http4k-core" w "5.24.1.0"
     val format_argo = "org.http4k" d "http4k-format-argo" w "5.24.1.0"
     val format_core = "org.http4k" d "http4k-format-core" w "5.24.1.0"
-    val format_gson = "org.http4k" d "http4k-format-gson" w "5.24.0.0" w "5.24.1.0"
+    val format_gson = "org.http4k" d "http4k-format-gson" w "5.24.1.0"
     val format_jackson = "org.http4k" d "http4k-format-jackson" w "5.24.1.0"
     val format_jackson_xml = "org.http4k" d "http4k-format-jackson-xml" w "5.24.1.0"
     val format_jackson_yaml = "org.http4k" d "http4k-format-jackson-yaml" w "5.24.1.0"
@@ -1613,7 +1613,7 @@ object Org {
     val serverless_gcf = "org.http4k" d "http4k-serverless-gcf" w "5.24.1.0"
     val serverless_lambda = "org.http4k" d "http4k-serverless-lambda" w "5.24.1.0"
     val serverless_lambda_runtime = "org.http4k" d "http4k-serverless-lambda-runtime" w "5.24.1.0"
-    val serverless_openwhisk = "org.http4k" d "http4k-serverless-openwhisk" w "5.24.0.0" w "5.24.1.0"
+    val serverless_openwhisk = "org.http4k" d "http4k-serverless-openwhisk" w "5.24.1.0"
     val serverless_tencent = "org.http4k" d "http4k-serverless-tencent" w "5.24.1.0"
     val template_core = "org.http4k" d "http4k-template-core" w "5.24.1.0"
     val template_dust = "org.http4k" d "http4k-template-dust" w "4.48.0.0"
@@ -1628,7 +1628,7 @@ object Org {
     val testing_kotest = "org.http4k" d "http4k-testing-kotest" w "5.24.1.0"
     val testing_servirtium = "org.http4k" d "http4k-testing-servirtium" w "5.24.1.0"
     val testing_strikt = "org.http4k" d "http4k-testing-strikt" w "5.24.1.0"
-    val testing_webdriver = "org.http4k" d "http4k-testing-webdriver" w "5.24.0.0" w "5.24.1.0"
+    val testing_webdriver = "org.http4k" d "http4k-testing-webdriver" w "5.24.1.0"
   }
   object JUnit {
     val bom = "org.junit" d "junit-bom" w "5.10.3" w "5.11.0-M2"
@@ -1690,10 +1690,10 @@ object Org {
       val coroutines_slf4j = "org.jetbrains.kotlinx" d "kotlinx-coroutines-slf4j" w "1.8.1" w "1.9.0-RC"
       val coroutines_swing = "org.jetbrains.kotlinx" d "kotlinx-coroutines-swing" w "1.8.1" w "1.9.0-RC"
       val coroutines_test = "org.jetbrains.kotlinx" d "kotlinx-coroutines-test" w "1.8.1" w "1.9.0-RC"
-      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.13.1" w "0.14.0-dev-3467"
-      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.13.1" w "0.14.0-dev-3467"
-      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.13.1" w "0.14.0-dev-3467"
-      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.13.1" w "0.14.0-dev-3467"
+      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.13.1" w "0.14.0-dev-3594"
+      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.13.1" w "0.14.0-dev-3594"
+      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.13.1" w "0.14.0-dev-3594"
+      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.13.1" w "0.14.0-dev-3594"
       val datetime = "org.jetbrains.kotlinx" d "kotlinx-datetime" w "0.6.0"
       val html = "org.jetbrains.kotlinx" d "kotlinx-html" w "0.11.0"
       val io_jvm = "org.jetbrains.kotlinx" d "kotlinx-io-jvm" w "0.1.16"
