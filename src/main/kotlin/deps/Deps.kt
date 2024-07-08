@@ -1581,7 +1581,7 @@ object Org {
     val cloudnative = "org.http4k" d "http4k-cloudnative" w "5.25.0.0"
     val contract = "org.http4k" d "http4k-contract" w "5.25.0.0"
     val core = "org.http4k" d "http4k-core" w "5.25.0.0"
-    val format_argo = "org.http4k" d "http4k-format-argo" w "5.24.1.0" w "5.25.0.0"
+    val format_argo = "org.http4k" d "http4k-format-argo" w "5.25.0.0"
     val format_core = "org.http4k" d "http4k-format-core" w "5.25.0.0"
     val format_gson = "org.http4k" d "http4k-format-gson" w "5.25.0.0"
     val format_jackson = "org.http4k" d "http4k-format-jackson" w "5.25.0.0"
@@ -1612,7 +1612,7 @@ object Org {
     val serverless_azure = "org.http4k" d "http4k-serverless-azure" w "5.24.1.0" w "5.25.0.0"
     val serverless_gcf = "org.http4k" d "http4k-serverless-gcf" w "5.25.0.0"
     val serverless_lambda = "org.http4k" d "http4k-serverless-lambda" w "5.25.0.0"
-    val serverless_lambda_runtime = "org.http4k" d "http4k-serverless-lambda-runtime" w "5.24.1.0" w "5.25.0.0"
+    val serverless_lambda_runtime = "org.http4k" d "http4k-serverless-lambda-runtime" w "5.25.0.0"
     val serverless_openwhisk = "org.http4k" d "http4k-serverless-openwhisk" w "5.25.0.0"
     val serverless_tencent = "org.http4k" d "http4k-serverless-tencent" w "5.25.0.0"
     val template_core = "org.http4k" d "http4k-template-core" w "5.25.0.0"
@@ -1784,7 +1784,7 @@ object Org {
     }
   }
   object Robolectric {
-    val robolectric = "org.robolectric" d "robolectric" w "4.12.2" w "4.13"
+    val robolectric = "org.robolectric" d "robolectric" w "4.13"
   }
   object SpekFramework {
     object Spek2 {
