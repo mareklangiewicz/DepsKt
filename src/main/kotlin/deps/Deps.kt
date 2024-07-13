@@ -1066,8 +1066,8 @@ object Com {
       val oboe = "com.google.oboe" d "oboe" w "1.9.0"
     }
     object Truth {
-      val parent = "com.google.truth" d "truth-parent" w "1.4.3"
-      val truth = "com.google.truth" d "truth" w "1.4.3"
+      val parent = "com.google.truth" d "truth-parent" w "1.4.4"
+      val truth = "com.google.truth" d "truth" w "1.4.3" w "1.4.4"
     }
   }
   object JakeWharton {
@@ -1740,7 +1740,7 @@ object Org {
       val kotlin_react_legacy = "org.jetbrains.kotlin-wrappers" d "kotlin-react-legacy" w "18.3.1-pre.773"
       val kotlin_react_popper = "org.jetbrains.kotlin-wrappers" d "kotlin-react-popper" w "2.3.0-pre.773"
       val kotlin_react_redux = "org.jetbrains.kotlin-wrappers" d "kotlin-react-redux" w "7.2.6-pre.773"
-      val kotlin_react_router = "org.jetbrains.kotlin-wrappers" d "kotlin-react-router" w "6.23.1-pre.770" w "6.23.1-pre.773"
+      val kotlin_react_router = "org.jetbrains.kotlin-wrappers" d "kotlin-react-router" w "6.23.1-pre.773"
       val kotlin_react_router_dom = "org.jetbrains.kotlin-wrappers" d "kotlin-react-router-dom" w "6.23.1-pre.773"
       val kotlin_react_select = "org.jetbrains.kotlin-wrappers" d "kotlin-react-select" w "5.8.0-pre.773"
       val kotlin_react_use = "org.jetbrains.kotlin-wrappers" d "kotlin-react-use" w "17.4.0-pre.773"
@@ -1884,7 +1884,7 @@ object Org {
       val spring_cloud_starter_netflix_turbine_stream = "org.springframework.cloud" d "spring-cloud-starter-netflix-turbine-stream" w "2.2.10.RELEASE"
       val spring_cloud_starter_netflix_zuul = "org.springframework.cloud" d "spring-cloud-starter-netflix-zuul" w "2.2.10.RELEASE"
       val spring_cloud_starter_oauth2 = "org.springframework.cloud" d "spring-cloud-starter-oauth2" w "2.2.5.RELEASE"
-      val spring_cloud_starter_open_service_broker = "org.springframework.cloud" d "spring-cloud-starter-open-service-broker" w "4.2.0"
+      val spring_cloud_starter_open_service_broker = "org.springframework.cloud" d "spring-cloud-starter-open-service-broker" w "4.3.0"
       val spring_cloud_starter_openfeign = "org.springframework.cloud" d "spring-cloud-starter-openfeign" w "4.1.3"
       val spring_cloud_starter_security = "org.springframework.cloud" d "spring-cloud-starter-security" w "2.2.5.RELEASE"
       val spring_cloud_starter_sleuth = "org.springframework.cloud" d "spring-cloud-starter-sleuth" w "3.1.11"
@@ -1899,7 +1899,7 @@ object Org {
       val spring_cloud_stream_binder_rabbit = "org.springframework.cloud" d "spring-cloud-stream-binder-rabbit" w "4.1.3"
     }
     object Data {
-      val spring_data_rest_hal_explorer = "org.springframework.data" d "spring-data-rest-hal-explorer" w "4.3.1"
+      val spring_data_rest_hal_explorer = "org.springframework.data" d "spring-data-rest-hal-explorer" w "4.3.2"
     }
     object Geode {
       val spring_geode_bom = "org.springframework.geode" d "spring-geode-bom" w "1.7.5"
