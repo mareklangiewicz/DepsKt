@@ -1067,7 +1067,7 @@ object Com {
     }
     object Truth {
       val parent = "com.google.truth" d "truth-parent" w "1.4.4"
-      val truth = "com.google.truth" d "truth" w "1.4.3" w "1.4.4"
+      val truth = "com.google.truth" d "truth" w "1.4.4"
     }
   }
   object JakeWharton {
