@@ -149,7 +149,7 @@ object Vers {
    * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val DepsPlug = Ver(0, 3, 36) // TODO make sure it's always synced with myLibDetails(version)
+  val DepsPlug = Ver(0, 3, 37) // TODO make sure it's always synced with myLibDetails(version)
 
   /**
    * SourceFun Gradle Plugin
@@ -157,7 +157,7 @@ object Vers {
    * - [plugins gradle sourcefun](https://plugins.gradle.org/plugin/pl.mareklangiewicz.sourcefun)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val SourceFunPlug = Ver("0.4.15")
+  val SourceFunPlug = Ver("0.4.17")
 
   const val JvmDefaultVer = "22"
 

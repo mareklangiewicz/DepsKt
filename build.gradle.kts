@@ -18,7 +18,7 @@ import org.jetbrains.kotlin.gradle.dsl.*
 
 plugins {
   plugAll(plugs.KotlinJvm, plugs.NexusPublish, plugs.GradlePublish, plugs.Signing)
-  id("pl.mareklangiewicz.sourcefun") version "0.4.14"
+  id("pl.mareklangiewicz.sourcefun") version "0.4.17"
   // FIXME_later: add to plugAll after updating deps
   // https://plugins.gradle.org/search?term=pl.mareklangiewicz
 }
@@ -29,8 +29,8 @@ buildscript {
   //   because similar issue before (when api of related kground/kommand/etc changed) was compiling fine
   //   and only failing when I was executing specific custom task.
   dependencies {
-    // classpath("pl.mareklangiewicz:kommandline:0.0.67")
-    // classpath("pl.mareklangiewicz:kgroundx-maintenance:0.0.60")
+    classpath("pl.mareklangiewicz:kommandline:0.0.72")
+    classpath("pl.mareklangiewicz:kgroundx-maintenance:0.0.68")
     // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kommandline/
     // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kground/
   }
@@ -49,7 +49,7 @@ dependencies {
   testImplementation(Org.JUnit.Jupiter.junit_jupiter_engine)
 }
 
-tasks.defaultKotlinCompileOptions()
+tasks.defaultKotlinCompileOptions(jvmTargetVer = null) // see jvmToolchain below
 
 tasks.defaultTestsOptions()
 
@@ -61,7 +61,7 @@ defaultGroupAndVerAndDescription(
     group = "pl.mareklangiewicz.deps", // important non default ...deps group (as accepted on gradle portal)
     description = "Updated dependencies for typical java/kotlin/android projects (with IDE support).",
     githubUrl = "https://github.com/mareklangiewicz/DepsKt",
-    version = Ver(0, 3, 36),
+    version = Ver(0, 3, 37),
     // TODO use some SourceFun task to make sure it's synced with Vers.DepsPlug
     // (we println it when applying plugin so have to be synced not to confuse users)
     // https://plugins.gradle.org/search?term=pl.mareklangiewicz
@@ -71,6 +71,10 @@ defaultGroupAndVerAndDescription(
     ),
   ),
 )
+
+kotlin {
+  jvmToolchain(22)
+}
 
 defaultSigning()
 
@@ -159,7 +163,6 @@ val updateSomeRegexes by tasks.registering {
   }
 
   doLastWithUCtxForTask {
-    val log = implictx<ULog>()
     val path = pathToSrcKotlin / "utils/Utils.kt"
     processFile(path, path) {
       it.replaceSingle(ureWithTheOldThing, Group("beforeTheThing") + Literal(theNewThing) + Group("afterTheThing"))
