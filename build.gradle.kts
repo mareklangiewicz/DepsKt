@@ -30,7 +30,7 @@ buildscript {
   //   and only failing when I was executing specific custom task.
   dependencies {
     classpath("pl.mareklangiewicz:kommandline:0.0.73")
-    classpath("pl.mareklangiewicz:kgroundx-maintenance:0.0.68")
+    classpath("pl.mareklangiewicz:kgroundx-maintenance:0.0.69")
     // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kommandline/
     // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kground/
   }
@@ -61,7 +61,7 @@ defaultGroupAndVerAndDescription(
     group = "pl.mareklangiewicz.deps", // important non default ...deps group (as accepted on gradle portal)
     description = "Updated dependencies for typical java/kotlin/android projects (with IDE support).",
     githubUrl = "https://github.com/mareklangiewicz/DepsKt",
-    version = Ver(0, 3, 37),
+    version = Ver(0, 3, 38),
     // TODO use some SourceFun task to make sure it's synced with Vers.DepsPlug
     // (we println it when applying plugin so have to be synced not to confuse users)
     // https://plugins.gradle.org/search?term=pl.mareklangiewicz

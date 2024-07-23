@@ -91,7 +91,7 @@ object Vers {
    * - [gradle org docs](https://docs.gradle.com/develocity/gradle-plugin/)
    * - [gradle portal](https://plugins.gradle.org/plugin/com.gradle.develocity)
    */
-  val GradleDevelocityPlug = Ver("3.17.5")
+  val GradleDevelocityPlug = Ver("3.17.6")
 
 
   /**
@@ -149,7 +149,7 @@ object Vers {
    * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val DepsPlug = Ver(0, 3, 37) // TODO make sure it's always synced with myLibDetails(version)
+  val DepsPlug = Ver(0, 3, 38) // TODO make sure it's always synced with myLibDetails(version)
 
   /**
    * SourceFun Gradle Plugin
@@ -171,8 +171,8 @@ object Vers {
    * Gradle - just a reference - not so useful in typical use cases
    * - [gradle releases](https://gradle.org/releases/)
    * - [gradle versions](https://services.gradle.org/versions)
-   * - [gradle versions current](https://services.gradle.org/versions/current)
    * - [gradle versions rel candidate](https://services.gradle.org/versions/release-candidate)
+   * - [gradle versions current](https://services.gradle.org/versions/current)
    */
   val Gradle = Gradle8
 
