@@ -38,7 +38,7 @@ object Vers {
 
   /** [releases github](https://github.com/JetBrains/kotlin/releases) */
   val Kotlin20 = Org.JetBrains.Kotlin.stdlib.verLast
-  val Kotlin19 = Ver("1.9.24")
+  val Kotlin19 = Ver("1.9.25")
   val Kotlin = Kotlin20
 
 
@@ -124,7 +124,7 @@ object Vers {
    * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
    * [github](https://github.com/Kotlin/kotlin-jupyter)
    */
-  val KotlinJupyterPlug = Ver("0.12.0-236")
+  val KotlinJupyterPlug = Ver("0.12.0-250")
 
   /**
    * Gradle Shadow Gradle Plugin
@@ -149,7 +149,7 @@ object Vers {
    * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val DepsPlug = Ver(0, 3, 39) // TODO make sure it's always synced with myLibDetails(version)
+  val DepsPlug = Ver(0, 3, 40) // TODO make sure it's always synced with myLibDetails(version)
 
   /**
    * SourceFun Gradle Plugin
