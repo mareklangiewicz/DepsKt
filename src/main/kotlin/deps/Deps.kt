@@ -1501,8 +1501,8 @@ object Io {
     object Spring {
       object Cloud {
         val spring_cloud_services_starter_circuit_breaker = "io.pivotal.spring.cloud" d "spring-cloud-services-starter-circuit-breaker" w "2.4.1"
-        val spring_cloud_services_starter_config_client = "io.pivotal.spring.cloud" d "spring-cloud-services-starter-config-client" w "4.1.4"
-        val spring_cloud_services_starter_service_registry = "io.pivotal.spring.cloud" d "spring-cloud-services-starter-service-registry" w "4.1.4"
+        val spring_cloud_services_starter_config_client = "io.pivotal.spring.cloud" d "spring-cloud-services-starter-config-client" w "4.1.5"
+        val spring_cloud_services_starter_service_registry = "io.pivotal.spring.cloud" d "spring-cloud-services-starter-service-registry" w "4.1.5"
       }
     }
   }
@@ -1965,14 +1965,14 @@ object Pl {
     val kgroundx_maintenance = "pl.mareklangiewicz" d "kgroundx-maintenance" w "0.0.69"
     val kgroundx_maintenance_js = "pl.mareklangiewicz" d "kgroundx-maintenance-js"
     val kgroundx_maintenance_jvm = "pl.mareklangiewicz" d "kgroundx-maintenance-jvm" w "0.0.69"
-    val kommandjupyter = "pl.mareklangiewicz" d "kommandjupyter" w "0.0.74"
-    val kommandjupyter_jvm = "pl.mareklangiewicz" d "kommandjupyter-jvm" w "0.0.74"
-    val kommandline = "pl.mareklangiewicz" d "kommandline" w "0.0.74"
-    val kommandline_js = "pl.mareklangiewicz" d "kommandline-js" w "0.0.74"
-    val kommandline_jvm = "pl.mareklangiewicz" d "kommandline-jvm" w "0.0.74"
-    val kommandsamples = "pl.mareklangiewicz" d "kommandsamples" w "0.0.74"
-    val kommandsamples_js = "pl.mareklangiewicz" d "kommandsamples-js" w "0.0.74"
-    val kommandsamples_jvm = "pl.mareklangiewicz" d "kommandsamples-jvm" w "0.0.74"
+    val kommandjupyter = "pl.mareklangiewicz" d "kommandjupyter" w "0.0.77"
+    val kommandjupyter_jvm = "pl.mareklangiewicz" d "kommandjupyter-jvm" w "0.0.77"
+    val kommandline = "pl.mareklangiewicz" d "kommandline" w "0.0.77"
+    val kommandline_js = "pl.mareklangiewicz" d "kommandline-js" w "0.0.77"
+    val kommandline_jvm = "pl.mareklangiewicz" d "kommandline-jvm" w "0.0.77"
+    val kommandsamples = "pl.mareklangiewicz" d "kommandsamples" w "0.0.77"
+    val kommandsamples_js = "pl.mareklangiewicz" d "kommandsamples-js" w "0.0.77"
+    val kommandsamples_jvm = "pl.mareklangiewicz" d "kommandsamples-jvm" w "0.0.77"
     val rxmock = "pl.mareklangiewicz" d "rxmock" w "0.0.24"
     val rxmock_jvm = "pl.mareklangiewicz" d "rxmock-jvm" w "0.0.24"
     val smokk = "pl.mareklangiewicz" d "smokk" w "0.0.09"
