@@ -802,7 +802,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.0.4"
       val r8 = "com.android.tools" d "r8" w "8.3.37"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.5.1" w "8.6.0-rc01" w "8.7.0-alpha04"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.5.2" w "8.6.0-rc01" w "8.7.0-alpha05"
       }
     }
   }
@@ -934,7 +934,7 @@ object Com {
       object Material {
         val compose_theme_adapter = "com.google.android.material" d "compose-theme-adapter" w "1.2.1"
         val compose_theme_adapter_3 = "com.google.android.material" d "compose-theme-adapter-3" w "1.1.1"
-        val material = "com.google.android.material" d "material" w "1.12.0" w "1.13.0-alpha04"
+        val material = "com.google.android.material" d "material" w "1.12.0" w "1.13.0-alpha05"
       }
       object Play {
         val core = "com.google.android.play" d "core" w "1.10.3"
@@ -1965,14 +1965,14 @@ object Pl {
     val kgroundx_maintenance = "pl.mareklangiewicz" d "kgroundx-maintenance" w "0.0.73"
     val kgroundx_maintenance_js = "pl.mareklangiewicz" d "kgroundx-maintenance-js"
     val kgroundx_maintenance_jvm = "pl.mareklangiewicz" d "kgroundx-maintenance-jvm" w "0.0.73"
-    val kommandjupyter = "pl.mareklangiewicz" d "kommandjupyter" w "0.0.80"
-    val kommandjupyter_jvm = "pl.mareklangiewicz" d "kommandjupyter-jvm" w "0.0.80"
-    val kommandline = "pl.mareklangiewicz" d "kommandline" w "0.0.80"
-    val kommandline_js = "pl.mareklangiewicz" d "kommandline-js" w "0.0.80"
-    val kommandline_jvm = "pl.mareklangiewicz" d "kommandline-jvm" w "0.0.80"
-    val kommandsamples = "pl.mareklangiewicz" d "kommandsamples" w "0.0.80"
-    val kommandsamples_js = "pl.mareklangiewicz" d "kommandsamples-js" w "0.0.80"
-    val kommandsamples_jvm = "pl.mareklangiewicz" d "kommandsamples-jvm" w "0.0.80"
+    val kommandjupyter = "pl.mareklangiewicz" d "kommandjupyter" w "0.0.81"
+    val kommandjupyter_jvm = "pl.mareklangiewicz" d "kommandjupyter-jvm" w "0.0.81"
+    val kommandline = "pl.mareklangiewicz" d "kommandline" w "0.0.81"
+    val kommandline_js = "pl.mareklangiewicz" d "kommandline-js" w "0.0.81"
+    val kommandline_jvm = "pl.mareklangiewicz" d "kommandline-jvm" w "0.0.81"
+    val kommandsamples = "pl.mareklangiewicz" d "kommandsamples" w "0.0.81"
+    val kommandsamples_js = "pl.mareklangiewicz" d "kommandsamples-js" w "0.0.81"
+    val kommandsamples_jvm = "pl.mareklangiewicz" d "kommandsamples-jvm" w "0.0.81"
     val rxmock = "pl.mareklangiewicz" d "rxmock" w "0.0.24"
     val rxmock_jvm = "pl.mareklangiewicz" d "rxmock-jvm" w "0.0.24"
     val smokk = "pl.mareklangiewicz" d "smokk" w "0.0.09"
