@@ -30,7 +30,7 @@ buildscript {
   //   and only failing when I was executing specific custom task.
   dependencies {
     classpath("pl.mareklangiewicz:kommandline:0.0.82")
-    classpath("pl.mareklangiewicz:kgroundx-maintenance:0.0.75")
+    classpath("pl.mareklangiewicz:kgroundx-maintenance:0.0.76")
     // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kommandline/
     // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kground/
   }
