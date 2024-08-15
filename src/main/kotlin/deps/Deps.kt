@@ -645,10 +645,10 @@ object AndroidX {
   object Test {
     val core = "androidx.test" d "core" w "1.6.1"
     val core_ktx = "androidx.test" d "core-ktx" w "1.6.1"
-    val monitor = "androidx.test" d "monitor" w "1.7.1"
+    val monitor = "androidx.test" d "monitor" w "1.7.2"
     val orchestrator = "androidx.test" d "orchestrator" w "1.5.0"
     val rules = "androidx.test" d "rules" w "1.6.1"
-    val runner = "androidx.test" d "runner" w "1.6.1"
+    val runner = "androidx.test" d "runner" w "1.6.2"
     object Espresso {
       val accessibility = "androidx.test.espresso" d "espresso-accessibility" w "3.6.1"
       val contrib = "androidx.test.espresso" d "espresso-contrib" w "3.6.1"
@@ -800,7 +800,7 @@ object Com {
     }
     object Tools {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.0.4"
-      val r8 = "com.android.tools" d "r8" w "8.3.37"
+      val r8 = "com.android.tools" d "r8" w "8.5.35"
       object Build {
         val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.5.2" w "8.6.0-rc01" w "8.7.0-alpha06"
       }
@@ -1187,11 +1187,11 @@ object Com {
   }
   object Rickclephas {
     object Kmp {
-      val nativecoroutines_annotations = "com.rickclephas.kmp" d "kmp-nativecoroutines-annotations" w "0.13.3" w "1.0.0-ALPHA-34"
-      val nativecoroutines_compiler = "com.rickclephas.kmp" d "kmp-nativecoroutines-compiler" w "0.13.3" w "1.0.0-ALPHA-34"
-      val nativecoroutines_compiler_embeddable = "com.rickclephas.kmp" d "kmp-nativecoroutines-compiler-embeddable" w "0.13.3" w "1.0.0-ALPHA-34"
-      val nativecoroutines_core = "com.rickclephas.kmp" d "kmp-nativecoroutines-core" w "0.13.3" w "1.0.0-ALPHA-34"
-      val nativecoroutines_gradle_plugin = "com.rickclephas.kmp" d "kmp-nativecoroutines-gradle-plugin" w "0.13.3" w "1.0.0-ALPHA-34"
+      val nativecoroutines_annotations = "com.rickclephas.kmp" d "kmp-nativecoroutines-annotations" w "0.13.3" w "1.0.0-ALPHA-34-kotlin-2.0.20-RC2"
+      val nativecoroutines_compiler = "com.rickclephas.kmp" d "kmp-nativecoroutines-compiler" w "0.13.3" w "1.0.0-ALPHA-34-kotlin-2.0.20-RC2"
+      val nativecoroutines_compiler_embeddable = "com.rickclephas.kmp" d "kmp-nativecoroutines-compiler-embeddable" w "0.13.3" w "1.0.0-ALPHA-34-kotlin-2.0.20-RC2"
+      val nativecoroutines_core = "com.rickclephas.kmp" d "kmp-nativecoroutines-core" w "0.13.3" w "1.0.0-ALPHA-34-kotlin-2.0.20-RC2"
+      val nativecoroutines_gradle_plugin = "com.rickclephas.kmp" d "kmp-nativecoroutines-gradle-plugin" w "0.13.3" w "1.0.0-ALPHA-34-kotlin-2.0.20-RC2"
     }
   }
   object Russhwolf {
@@ -1631,13 +1631,13 @@ object Org {
     val testing_webdriver = "org.http4k" d "http4k-testing-webdriver" w "5.27.0.0"
   }
   object JUnit {
-    val bom = "org.junit" d "junit-bom" w "5.10.3" w "5.11.0-RC1"
+    val bom = "org.junit" d "junit-bom" w "5.11.0"
     object Jupiter {
-      val junit_jupiter = "org.junit.jupiter" d "junit-jupiter" w "5.10.3" w "5.11.0-RC1"
-      val junit_jupiter_api = "org.junit.jupiter" d "junit-jupiter-api" w "5.10.3" w "5.11.0-RC1"
-      val junit_jupiter_engine = "org.junit.jupiter" d "junit-jupiter-engine" w "5.10.3" w "5.11.0-RC1"
-      val junit_jupiter_migrationsupport = "org.junit.jupiter" d "junit-jupiter-migrationsupport" w "5.10.3" w "5.11.0-RC1"
-      val junit_jupiter_params = "org.junit.jupiter" d "junit-jupiter-params" w "5.10.3" w "5.11.0-RC1"
+      val junit_jupiter = "org.junit.jupiter" d "junit-jupiter" w "5.11.0"
+      val junit_jupiter_api = "org.junit.jupiter" d "junit-jupiter-api" w "5.11.0"
+      val junit_jupiter_engine = "org.junit.jupiter" d "junit-jupiter-engine" w "5.11.0"
+      val junit_jupiter_migrationsupport = "org.junit.jupiter" d "junit-jupiter-migrationsupport" w "5.11.0"
+      val junit_jupiter_params = "org.junit.jupiter" d "junit-jupiter-params" w "5.11.0"
     }
   }
   object JetBrains {
