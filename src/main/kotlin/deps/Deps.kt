@@ -913,18 +913,18 @@ object Com {
         val strict_version_matcher_plugin = "com.google.android.gms" d "strict-version-matcher-plugin" w "1.2.4"
       }
       object Horologist {
-        val audio = "com.google.android.horologist" d "horologist-audio" w "0.6.17" w "0.7.0-alpha"
-        val audio_ui = "com.google.android.horologist" d "horologist-audio-ui" w "0.6.17" w "0.7.0-alpha"
-        val composables = "com.google.android.horologist" d "horologist-composables" w "0.6.17" w "0.7.0-alpha"
-        val compose_layout = "com.google.android.horologist" d "horologist-compose-layout" w "0.6.17" w "0.7.0-alpha"
-        val compose_tools = "com.google.android.horologist" d "horologist-compose-tools" w "0.6.17" w "0.7.0-alpha"
-        val datalayer = "com.google.android.horologist" d "horologist-datalayer" w "0.6.17" w "0.7.0-alpha"
-        val media = "com.google.android.horologist" d "horologist-media" w "0.6.17" w "0.7.0-alpha"
-        val media3_backend = "com.google.android.horologist" d "horologist-media3-backend" w "0.6.17" w "0.7.0-alpha"
-        val media_data = "com.google.android.horologist" d "horologist-media-data" w "0.6.17" w "0.7.0-alpha"
-        val media_ui = "com.google.android.horologist" d "horologist-media-ui" w "0.6.17" w "0.7.0-alpha"
-        val network_awareness = "com.google.android.horologist" d "horologist-network-awareness" w "0.6.17" w "0.7.0-alpha"
-        val tiles = "com.google.android.horologist" d "horologist-tiles" w "0.6.17" w "0.7.0-alpha"
+        val audio = "com.google.android.horologist" d "horologist-audio" w "0.6.17" w "0.7.1-alpha"
+        val audio_ui = "com.google.android.horologist" d "horologist-audio-ui" w "0.6.17" w "0.7.1-alpha"
+        val composables = "com.google.android.horologist" d "horologist-composables" w "0.6.17" w "0.7.1-alpha"
+        val compose_layout = "com.google.android.horologist" d "horologist-compose-layout" w "0.6.17" w "0.7.1-alpha"
+        val compose_tools = "com.google.android.horologist" d "horologist-compose-tools" w "0.6.17" w "0.7.1-alpha"
+        val datalayer = "com.google.android.horologist" d "horologist-datalayer" w "0.6.17" w "0.7.1-alpha"
+        val media = "com.google.android.horologist" d "horologist-media" w "0.6.17" w "0.7.1-alpha"
+        val media3_backend = "com.google.android.horologist" d "horologist-media3-backend" w "0.6.17" w "0.7.1-alpha"
+        val media_data = "com.google.android.horologist" d "horologist-media-data" w "0.6.17" w "0.7.1-alpha"
+        val media_ui = "com.google.android.horologist" d "horologist-media-ui" w "0.6.17" w "0.7.1-alpha"
+        val network_awareness = "com.google.android.horologist" d "horologist-network-awareness" w "0.6.17" w "0.7.1-alpha"
+        val tiles = "com.google.android.horologist" d "horologist-tiles" w "0.6.17" w "0.7.1-alpha"
       }
       object Libraries {
         object Places {
@@ -1899,7 +1899,7 @@ object Org {
       val spring_cloud_stream_binder_rabbit = "org.springframework.cloud" d "spring-cloud-stream-binder-rabbit" w "4.1.3"
     }
     object Data {
-      val spring_data_rest_hal_explorer = "org.springframework.data" d "spring-data-rest-hal-explorer" w "4.3.2"
+      val spring_data_rest_hal_explorer = "org.springframework.data" d "spring-data-rest-hal-explorer" w "4.3.3"
     }
     object Geode {
       val spring_geode_bom = "org.springframework.geode" d "spring-geode-bom" w "1.7.5"
