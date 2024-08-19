@@ -10,6 +10,7 @@ import org.gradle.api.*
 import org.gradle.api.artifacts.dsl.*
 import org.gradle.api.initialization.*
 import org.gradle.api.plugins.*
+import org.gradle.api.plugins.ExtraPropertiesExtension.UnknownPropertyException
 import org.gradle.api.provider.*
 import org.gradle.api.tasks.*
 import pl.mareklangiewicz.deps.*
@@ -95,6 +96,13 @@ var Project.rootExtLibDetails
   get() = rootProject.extLibDetails
   set(value) {
     rootProject.extLibDetails = value
+  }
+
+class LibDetailsNotFoundException(msg: String? = null) : RuntimeException(msg)
+
+fun Project.findExtLibDetails(): LibDetails =
+  try { extLibDetails } catch (e: UnknownPropertyException) {
+    parent?.findExtLibDetails() ?: throw LibDetailsNotFoundException("LibDetails ext not found in project hierarchy.")
   }
 
 // https://publicobject.com/2021/03/11/includebuild/
