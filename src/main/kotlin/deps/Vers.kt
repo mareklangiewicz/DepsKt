@@ -91,7 +91,7 @@ object Vers {
    * - [gradle org docs](https://docs.gradle.com/develocity/gradle-plugin/)
    * - [gradle portal](https://plugins.gradle.org/plugin/com.gradle.develocity)
    */
-  val GradleDevelocityPlug = Ver("3.17.6")
+  val GradleDevelocityPlug = Ver("3.18")
 
 
   /**
@@ -124,7 +124,7 @@ object Vers {
    * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
    * [github](https://github.com/Kotlin/kotlin-jupyter)
    */
-  val KotlinJupyterPlug = Ver("0.12.0-257")
+  val KotlinJupyterPlug = Ver("0.12.0-263")
 
   /**
    * Gradle Shadow Gradle Plugin
@@ -149,7 +149,7 @@ object Vers {
    * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val DepsPlug = Ver(0, 3, 44) // TODO make sure it's always synced with myLibDetails(version)
+  val DepsPlug = Ver(0, 3, 45) // TODO make sure it's always synced with myLibDetails(version)
 
   /**
    * SourceFun Gradle Plugin
@@ -157,7 +157,7 @@ object Vers {
    * - [plugins gradle sourcefun](https://plugins.gradle.org/plugin/pl.mareklangiewicz.sourcefun)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val SourceFunPlug = Ver("0.4.17")
+  val SourceFunPlug = Ver("0.4.18")
 
   const val JvmDefaultVer = "22"
 
@@ -165,7 +165,7 @@ object Vers {
   val Gradle5 = Ver("5.6.4")
   val Gradle6 = Ver("6.8.3")
   val Gradle7 = Ver("7.6.4")
-  val Gradle8 = Ver("8.9")
+  val Gradle8 = Ver("8.10")
 
   /**
    * Gradle - just a reference - not so useful in typical use cases
