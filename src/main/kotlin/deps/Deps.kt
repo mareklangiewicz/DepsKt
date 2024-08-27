@@ -799,7 +799,7 @@ object Com {
       val installreferrer = "com.android.installreferrer" d "installreferrer" w "2.2"
     }
     object Tools {
-      val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.0.4"
+      val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.0"
       val r8 = "com.android.tools" d "r8" w "8.5.35"
       object Build {
         val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.5.2" w "8.6.0-rc01" w "8.7.0-alpha07"
@@ -1187,11 +1187,11 @@ object Com {
   }
   object Rickclephas {
     object Kmp {
-      val nativecoroutines_annotations = "com.rickclephas.kmp" d "kmp-nativecoroutines-annotations" w "0.13.3" w "1.0.0-ALPHA-34-kotlin-2.0.20-RC2"
-      val nativecoroutines_compiler = "com.rickclephas.kmp" d "kmp-nativecoroutines-compiler" w "0.13.3" w "1.0.0-ALPHA-34-kotlin-2.0.20-RC2"
-      val nativecoroutines_compiler_embeddable = "com.rickclephas.kmp" d "kmp-nativecoroutines-compiler-embeddable" w "0.13.3" w "1.0.0-ALPHA-34-kotlin-2.0.20-RC2"
-      val nativecoroutines_core = "com.rickclephas.kmp" d "kmp-nativecoroutines-core" w "0.13.3" w "1.0.0-ALPHA-34-kotlin-2.0.20-RC2"
-      val nativecoroutines_gradle_plugin = "com.rickclephas.kmp" d "kmp-nativecoroutines-gradle-plugin" w "0.13.3" w "1.0.0-ALPHA-34-kotlin-2.0.20-RC2"
+      val nativecoroutines_annotations = "com.rickclephas.kmp" d "kmp-nativecoroutines-annotations" w "0.13.3" w "1.0.0-ALPHA-35"
+      val nativecoroutines_compiler = "com.rickclephas.kmp" d "kmp-nativecoroutines-compiler" w "0.13.3" w "1.0.0-ALPHA-35"
+      val nativecoroutines_compiler_embeddable = "com.rickclephas.kmp" d "kmp-nativecoroutines-compiler-embeddable" w "0.13.3" w "1.0.0-ALPHA-35"
+      val nativecoroutines_core = "com.rickclephas.kmp" d "kmp-nativecoroutines-core" w "0.13.3" w "1.0.0-ALPHA-35"
+      val nativecoroutines_gradle_plugin = "com.rickclephas.kmp" d "kmp-nativecoroutines-gradle-plugin" w "0.13.3" w "1.0.0-ALPHA-35"
     }
   }
   object Russhwolf {
