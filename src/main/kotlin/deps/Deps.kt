@@ -802,7 +802,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.1"
       val r8 = "com.android.tools" d "r8" w "8.5.35"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.6.0" w "8.7.0-alpha08"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.6.0" w "8.7.0-alpha09"
       }
     }
   }
@@ -1642,15 +1642,15 @@ object Org {
   }
   object JetBrains {
     object Compose {
-      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.6.11" w "1.7.0-alpha03"
+      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.6.11" w "1.7.0-alpha03" w "1.7.0-beta01+build1784-release-1.7.0-beta01"
       object Compiler {
         val compiler = "org.jetbrains.compose.compiler" d "compiler" w "1.5.14" w "1.5.14.1-beta02"
       }
     }
     object Exposed {
-      val core = "org.jetbrains.exposed" d "exposed-core" w "0.53.0"
-      val dao = "org.jetbrains.exposed" d "exposed-dao" w "0.53.0"
-      val jdbc = "org.jetbrains.exposed" d "exposed-jdbc" w "0.53.0"
+      val core = "org.jetbrains.exposed" d "exposed-core" w "0.54.0"
+      val dao = "org.jetbrains.exposed" d "exposed-dao" w "0.54.0"
+      val jdbc = "org.jetbrains.exposed" d "exposed-jdbc" w "0.54.0"
     }
     object Kotlin {
       val reflect = "org.jetbrains.kotlin" d "kotlin-reflect" w "2.0.20"
