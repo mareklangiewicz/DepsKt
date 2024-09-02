@@ -1195,13 +1195,13 @@ object Com {
     }
   }
   object Russhwolf {
-    val multiplatform_settings = "com.russhwolf" d "multiplatform-settings" w "1.1.1"
-    val multiplatform_settings_coroutines = "com.russhwolf" d "multiplatform-settings-coroutines" w "1.1.1"
+    val multiplatform_settings = "com.russhwolf" d "multiplatform-settings" w "1.2.0"
+    val multiplatform_settings_coroutines = "com.russhwolf" d "multiplatform-settings-coroutines" w "1.2.0"
     val multiplatform_settings_coroutines_native_mt = "com.russhwolf" d "multiplatform-settings-coroutines-native-mt" w "0.9"
-    val multiplatform_settings_datastore = "com.russhwolf" d "multiplatform-settings-datastore" w "1.1.1"
-    val multiplatform_settings_no_arg = "com.russhwolf" d "multiplatform-settings-no-arg" w "1.1.1"
-    val multiplatform_settings_serialization = "com.russhwolf" d "multiplatform-settings-serialization" w "1.1.1"
-    val multiplatform_settings_test = "com.russhwolf" d "multiplatform-settings-test" w "1.1.1"
+    val multiplatform_settings_datastore = "com.russhwolf" d "multiplatform-settings-datastore" w "1.2.0"
+    val multiplatform_settings_no_arg = "com.russhwolf" d "multiplatform-settings-no-arg" w "1.2.0"
+    val multiplatform_settings_serialization = "com.russhwolf" d "multiplatform-settings-serialization" w "1.2.0"
+    val multiplatform_settings_test = "com.russhwolf" d "multiplatform-settings-test" w "1.2.0"
   }
   object SquareUp {
     val kotlinpoet = "com.squareup" d "kotlinpoet" w "1.18.1"
@@ -1354,7 +1354,7 @@ object Io {
       }
     }
     object TypeSafeGitHub {
-      val github_workflows_kt = "io.github.typesafegithub" d "github-workflows-kt" w "2.3.0"
+      val github_workflows_kt = "io.github.typesafegithub" d "github-workflows-kt" w "3.0.0"
     }
   }
   object Insert_koin {
@@ -1642,7 +1642,7 @@ object Org {
   }
   object JetBrains {
     object Compose {
-      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.6.11" w "1.7.0-alpha03" w "1.7.0-beta01+build1784-release-1.7.0-beta01"
+      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.6.11" w "1.7.0-alpha03" w "1.7.0-beta01+build1790-release-1.7.0-beta01"
       object Compiler {
         val compiler = "org.jetbrains.compose.compiler" d "compiler" w "1.5.14" w "1.5.14.1-beta02"
       }
@@ -1718,46 +1718,46 @@ object Org {
       val serialization_protobuf = "org.jetbrains.kotlinx" d "kotlinx-serialization-protobuf" w "1.7.2"
     }
     object Kotlin_Wrappers {
-      val bom = "org.jetbrains.kotlin-wrappers" d "kotlin-wrappers-bom" w "1.0.0-pre.799"
-      val kotlin_actions_toolkit = "org.jetbrains.kotlin-wrappers" d "kotlin-actions-toolkit" w "1.0.0-pre.799"
-      val kotlin_browser = "org.jetbrains.kotlin-wrappers" d "kotlin-browser" w "1.0.0-pre.799"
+      val bom = "org.jetbrains.kotlin-wrappers" d "kotlin-wrappers-bom" w "1.0.0-pre.800"
+      val kotlin_actions_toolkit = "org.jetbrains.kotlin-wrappers" d "kotlin-actions-toolkit" w "1.0.0-pre.800"
+      val kotlin_browser = "org.jetbrains.kotlin-wrappers" d "kotlin-browser" w "1.0.0-pre.800"
       val kotlin_cesium = "org.jetbrains.kotlin-wrappers" d "kotlin-cesium" w "1.115.0-pre.711"
-      val kotlin_css = "org.jetbrains.kotlin-wrappers" d "kotlin-css" w "1.0.0-pre.799"
-      val kotlin_csstype = "org.jetbrains.kotlin-wrappers" d "kotlin-csstype" w "3.1.3-pre.799"
-      val kotlin_emotion = "org.jetbrains.kotlin-wrappers" d "kotlin-emotion" w "11.13.3-pre.799"
+      val kotlin_css = "org.jetbrains.kotlin-wrappers" d "kotlin-css" w "1.0.0-pre.800"
+      val kotlin_csstype = "org.jetbrains.kotlin-wrappers" d "kotlin-csstype" w "3.1.3-pre.800"
+      val kotlin_emotion = "org.jetbrains.kotlin-wrappers" d "kotlin-emotion" w "11.13.3-pre.800"
       val kotlin_history = "org.jetbrains.kotlin-wrappers" d "kotlin-history" w "5.3.0-pre.506-compat"
-      val kotlin_js = "org.jetbrains.kotlin-wrappers" d "kotlin-js" w "1.0.0-pre.799"
+      val kotlin_js = "org.jetbrains.kotlin-wrappers" d "kotlin-js" w "1.0.0-pre.800"
       val kotlin_mui = "org.jetbrains.kotlin-wrappers" d "kotlin-mui" w "5.14.12-pre.638"
       val kotlin_mui_icons = "org.jetbrains.kotlin-wrappers" d "kotlin-mui-icons" w "5.14.12-pre.638"
-      val kotlin_node = "org.jetbrains.kotlin-wrappers" d "kotlin-node" w "20.14.10-pre.799"
+      val kotlin_node = "org.jetbrains.kotlin-wrappers" d "kotlin-node" w "20.14.10-pre.800"
       val kotlin_popper = "org.jetbrains.kotlin-wrappers" d "kotlin-popper" w "2.11.8-pre.792"
-      val kotlin_react = "org.jetbrains.kotlin-wrappers" d "kotlin-react" w "18.3.1-pre.799"
-      val kotlin_react_beautiful_dnd = "org.jetbrains.kotlin-wrappers" d "kotlin-react-beautiful-dnd" w "13.1.1-pre.799"
-      val kotlin_react_core = "org.jetbrains.kotlin-wrappers" d "kotlin-react-core" w "18.3.1-pre.799"
-      val kotlin_react_dom = "org.jetbrains.kotlin-wrappers" d "kotlin-react-dom" w "18.3.1-pre.799"
-      val kotlin_react_dom_legacy = "org.jetbrains.kotlin-wrappers" d "kotlin-react-dom-legacy" w "18.3.1-pre.799"
-      val kotlin_react_dom_test_utils = "org.jetbrains.kotlin-wrappers" d "kotlin-react-dom-test-utils" w "18.3.1-pre.799"
-      val kotlin_react_legacy = "org.jetbrains.kotlin-wrappers" d "kotlin-react-legacy" w "18.3.1-pre.799"
-      val kotlin_react_popper = "org.jetbrains.kotlin-wrappers" d "kotlin-react-popper" w "2.3.0-pre.799"
+      val kotlin_react = "org.jetbrains.kotlin-wrappers" d "kotlin-react" w "18.3.1-pre.800"
+      val kotlin_react_beautiful_dnd = "org.jetbrains.kotlin-wrappers" d "kotlin-react-beautiful-dnd" w "13.1.1-pre.800"
+      val kotlin_react_core = "org.jetbrains.kotlin-wrappers" d "kotlin-react-core" w "18.3.1-pre.800"
+      val kotlin_react_dom = "org.jetbrains.kotlin-wrappers" d "kotlin-react-dom" w "18.3.1-pre.800"
+      val kotlin_react_dom_legacy = "org.jetbrains.kotlin-wrappers" d "kotlin-react-dom-legacy" w "18.3.1-pre.800"
+      val kotlin_react_dom_test_utils = "org.jetbrains.kotlin-wrappers" d "kotlin-react-dom-test-utils" w "18.3.1-pre.800"
+      val kotlin_react_legacy = "org.jetbrains.kotlin-wrappers" d "kotlin-react-legacy" w "18.3.1-pre.800"
+      val kotlin_react_popper = "org.jetbrains.kotlin-wrappers" d "kotlin-react-popper" w "2.3.0-pre.800"
       val kotlin_react_redux = "org.jetbrains.kotlin-wrappers" d "kotlin-react-redux" w "7.2.6-pre.785"
-      val kotlin_react_router = "org.jetbrains.kotlin-wrappers" d "kotlin-react-router" w "6.26.1-pre.799"
-      val kotlin_react_router_dom = "org.jetbrains.kotlin-wrappers" d "kotlin-react-router-dom" w "6.26.1-pre.799"
-      val kotlin_react_select = "org.jetbrains.kotlin-wrappers" d "kotlin-react-select" w "5.8.0-pre.799"
-      val kotlin_react_use = "org.jetbrains.kotlin-wrappers" d "kotlin-react-use" w "17.4.0-pre.799"
+      val kotlin_react_router = "org.jetbrains.kotlin-wrappers" d "kotlin-react-router" w "6.26.1-pre.800"
+      val kotlin_react_router_dom = "org.jetbrains.kotlin-wrappers" d "kotlin-react-router-dom" w "6.26.1-pre.800"
+      val kotlin_react_select = "org.jetbrains.kotlin-wrappers" d "kotlin-react-select" w "5.8.0-pre.800"
+      val kotlin_react_use = "org.jetbrains.kotlin-wrappers" d "kotlin-react-use" w "17.4.0-pre.800"
       val kotlin_redux = "org.jetbrains.kotlin-wrappers" d "kotlin-redux" w "4.1.2-pre.785"
-      val kotlin_remix_run_router = "org.jetbrains.kotlin-wrappers" d "kotlin-remix-run-router" w "1.19.1-pre.799"
+      val kotlin_remix_run_router = "org.jetbrains.kotlin-wrappers" d "kotlin-remix-run-router" w "1.19.1-pre.800"
       val kotlin_ring_ui = "org.jetbrains.kotlin-wrappers" d "kotlin-ring-ui" w "4.1.5-pre.784"
       val kotlin_styled = "org.jetbrains.kotlin-wrappers" d "kotlin-styled" w "5.3.11-pre.717"
-      val kotlin_styled_next = "org.jetbrains.kotlin-wrappers" d "kotlin-styled-next" w "1.2.4-pre.799"
-      val kotlin_tanstack_query_core = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-query-core" w "5.52.2-pre.799"
-      val kotlin_tanstack_react_query = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-react-query" w "5.52.2-pre.799"
-      val kotlin_tanstack_react_query_devtools = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-react-query-devtools" w "5.52.2-pre.799"
-      val kotlin_tanstack_react_table = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-react-table" w "8.20.5-pre.799"
-      val kotlin_tanstack_react_virtual = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-react-virtual" w "3.10.5-pre.799"
-      val kotlin_tanstack_table_core = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-table-core" w "8.20.5-pre.799"
-      val kotlin_tanstack_virtual_core = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-virtual-core" w "3.10.5-pre.799"
-      val kotlin_typescript = "org.jetbrains.kotlin-wrappers" d "kotlin-typescript" w "5.4.5-pre.799"
-      val kotlin_web = "org.jetbrains.kotlin-wrappers" d "kotlin-web" w "1.0.0-pre.799"
+      val kotlin_styled_next = "org.jetbrains.kotlin-wrappers" d "kotlin-styled-next" w "1.2.4-pre.800"
+      val kotlin_tanstack_query_core = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-query-core" w "5.53.1-pre.800"
+      val kotlin_tanstack_react_query = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-react-query" w "5.53.1-pre.800"
+      val kotlin_tanstack_react_query_devtools = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-react-query-devtools" w "5.53.1-pre.800"
+      val kotlin_tanstack_react_table = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-react-table" w "8.20.5-pre.800"
+      val kotlin_tanstack_react_virtual = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-react-virtual" w "3.10.6-pre.800"
+      val kotlin_tanstack_table_core = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-table-core" w "8.20.5-pre.800"
+      val kotlin_tanstack_virtual_core = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-virtual-core" w "3.10.6-pre.800"
+      val kotlin_typescript = "org.jetbrains.kotlin-wrappers" d "kotlin-typescript" w "5.4.5-pre.800"
+      val kotlin_web = "org.jetbrains.kotlin-wrappers" d "kotlin-web" w "1.0.0-pre.800"
     }
   }
   object Kodein {
