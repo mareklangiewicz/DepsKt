@@ -1358,17 +1358,17 @@ object Io {
     }
   }
   object Insert_koin {
-    val koin_android = "io.insert-koin" d "koin-android" w "3.5.6" w "4.0.0-RC1"
-    val koin_android_compat = "io.insert-koin" d "koin-android-compat" w "3.5.6" w "4.0.0-RC1"
-    val koin_androidx_compose = "io.insert-koin" d "koin-androidx-compose" w "3.5.6" w "4.0.0-RC1"
-    val koin_androidx_navigation = "io.insert-koin" d "koin-androidx-navigation" w "3.5.6" w "4.0.0-RC1"
-    val koin_androidx_workmanager = "io.insert-koin" d "koin-androidx-workmanager" w "3.5.6" w "4.0.0-RC1"
-    val koin_core = "io.insert-koin" d "koin-core" w "3.5.6" w "4.0.0-RC1"
-    val koin_ktor = "io.insert-koin" d "koin-ktor" w "3.5.6" w "4.0.0-RC1"
-    val koin_logger_slf4j = "io.insert-koin" d "koin-logger-slf4j" w "3.5.6" w "4.0.0-RC1"
-    val koin_test = "io.insert-koin" d "koin-test" w "3.5.6" w "4.0.0-RC1"
-    val koin_test_junit4 = "io.insert-koin" d "koin-test-junit4" w "3.5.6" w "4.0.0-RC1"
-    val koin_test_junit5 = "io.insert-koin" d "koin-test-junit5" w "3.5.6" w "4.0.0-RC1"
+    val koin_android = "io.insert-koin" d "koin-android" w "3.5.6" w "4.0.0-RC2"
+    val koin_android_compat = "io.insert-koin" d "koin-android-compat" w "3.5.6" w "4.0.0-RC2"
+    val koin_androidx_compose = "io.insert-koin" d "koin-androidx-compose" w "3.5.6" w "4.0.0-RC2"
+    val koin_androidx_navigation = "io.insert-koin" d "koin-androidx-navigation" w "3.5.6" w "4.0.0-RC2"
+    val koin_androidx_workmanager = "io.insert-koin" d "koin-androidx-workmanager" w "3.5.6" w "4.0.0-RC2"
+    val koin_core = "io.insert-koin" d "koin-core" w "3.5.6" w "4.0.0-RC2"
+    val koin_ktor = "io.insert-koin" d "koin-ktor" w "3.5.6" w "4.0.0-RC2"
+    val koin_logger_slf4j = "io.insert-koin" d "koin-logger-slf4j" w "3.5.6" w "4.0.0-RC2"
+    val koin_test = "io.insert-koin" d "koin-test" w "3.5.6" w "4.0.0-RC2"
+    val koin_test_junit4 = "io.insert-koin" d "koin-test-junit4" w "3.5.6" w "4.0.0-RC2"
+    val koin_test_junit5 = "io.insert-koin" d "koin-test-junit5" w "3.5.6" w "4.0.0-RC2"
   }
   object Kotest {
     val assertions_arrow = "io.kotest" d "kotest-assertions-arrow" w "4.4.3"
@@ -1642,7 +1642,7 @@ object Org {
   }
   object JetBrains {
     object Compose {
-      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.6.11" w "1.7.0-alpha03" w "1.7.0-beta01+build1790-release-1.7.0-beta01"
+      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.6.11" w "1.7.0-alpha03" w "1.7.0-beta01+build1791-release-1.7.0-beta01"
       object Compiler {
         val compiler = "org.jetbrains.compose.compiler" d "compiler" w "1.5.14" w "1.5.14.1-beta02"
       }
@@ -1690,10 +1690,10 @@ object Org {
       val coroutines_slf4j = "org.jetbrains.kotlinx" d "kotlinx-coroutines-slf4j" w "1.8.1" w "1.9.0-RC.2"
       val coroutines_swing = "org.jetbrains.kotlinx" d "kotlinx-coroutines-swing" w "1.8.1" w "1.9.0-RC.2"
       val coroutines_test = "org.jetbrains.kotlinx" d "kotlinx-coroutines-test" w "1.8.1" w "1.9.0-RC.2"
-      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.13.1" w "0.14.0-dev-4023"
-      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.13.1" w "0.14.0-dev-4023"
-      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.13.1" w "0.14.0-dev-4023"
-      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.13.1" w "0.14.0-dev-4023"
+      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.13.1" w "0.14.0-dev-4025"
+      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.13.1" w "0.14.0-dev-4025"
+      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.13.1" w "0.14.0-dev-4025"
+      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.13.1" w "0.14.0-dev-4025"
       val datetime = "org.jetbrains.kotlinx" d "kotlinx-datetime" w "0.6.1"
       val html = "org.jetbrains.kotlinx" d "kotlinx-html" w "0.11.0"
       val io_jvm = "org.jetbrains.kotlinx" d "kotlinx-io-jvm" w "0.1.16"
