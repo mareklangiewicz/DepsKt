@@ -823,7 +823,7 @@ object Com {
   object GitHub {
     object Ajalt {
       object Mordant {
-        val mordant = "com.github.ajalt.mordant" d "mordant" w "2.7.2"
+        val mordant = "com.github.ajalt.mordant" d "mordant" w "3.0.0"
       }
     }
     object ChuckerTeam {
