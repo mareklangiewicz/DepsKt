@@ -292,24 +292,24 @@ object AndroidX {
     val ktx = "androidx.collection" d "collection-ktx" w "1.4.3" w "1.5.0-alpha01"
   }
   object Compose {
-    val bom = "androidx.compose" d "compose-bom" w "2024.09.00"
+    val bom = "androidx.compose" d "compose-bom" w "2024.09.01"
     object Animation {
-      val animation = "androidx.compose.animation" d "animation" w "1.0.0-beta06" w "1.7.0" w "1.8.0-alpha01"
-      val core = "androidx.compose.animation" d "animation-core" w "1.0.0-beta06" w "1.7.0" w "1.8.0-alpha01"
-      val graphics = "androidx.compose.animation" d "animation-graphics" w "1.7.0" w "1.8.0-alpha01"
+      val animation = "androidx.compose.animation" d "animation" w "1.0.0-beta06" w "1.7.1" w "1.8.0-alpha01"
+      val core = "androidx.compose.animation" d "animation-core" w "1.0.0-beta06" w "1.7.1" w "1.8.0-alpha01"
+      val graphics = "androidx.compose.animation" d "animation-graphics" w "1.7.1" w "1.8.0-alpha01"
     }
     object Compiler {
       val compiler = "androidx.compose.compiler" d "compiler" w "1.0.0-beta06" w "1.5.15"
     }
     object Foundation {
-      val foundation = "androidx.compose.foundation" d "foundation" w "1.0.0-beta06" w "1.7.0" w "1.8.0-alpha01"
-      val layout = "androidx.compose.foundation" d "foundation-layout" w "1.0.0-beta06" w "1.7.0" w "1.8.0-alpha01"
+      val foundation = "androidx.compose.foundation" d "foundation" w "1.0.0-beta06" w "1.7.1" w "1.8.0-alpha01"
+      val layout = "androidx.compose.foundation" d "foundation-layout" w "1.0.0-beta06" w "1.7.1" w "1.8.0-alpha01"
     }
     object Material {
-      val icons_core = "androidx.compose.material" d "material-icons-core" w "1.0.0-beta06" w "1.7.0"
-      val icons_extended = "androidx.compose.material" d "material-icons-extended" w "1.0.0-beta06" w "1.7.0"
-      val material = "androidx.compose.material" d "material" w "1.0.0-beta06" w "1.7.0" w "1.8.0-alpha01"
-      val ripple = "androidx.compose.material" d "material-ripple" w "1.0.0-beta06" w "1.7.0" w "1.8.0-alpha01"
+      val icons_core = "androidx.compose.material" d "material-icons-core" w "1.0.0-beta06" w "1.7.1"
+      val icons_extended = "androidx.compose.material" d "material-icons-extended" w "1.0.0-beta06" w "1.7.1"
+      val material = "androidx.compose.material" d "material" w "1.0.0-beta06" w "1.7.1" w "1.8.0-alpha01"
+      val ripple = "androidx.compose.material" d "material-ripple" w "1.0.0-beta06" w "1.7.1" w "1.8.0-alpha01"
     }
     object Material3 {
       val material3 = "androidx.compose.material3" d "material3" w "1.3.0"
@@ -317,28 +317,28 @@ object AndroidX {
     }
     object Runtime {
       val dispatch = "androidx.compose.runtime" d "runtime-dispatch" w "1.0.0-alpha12"
-      val livedata = "androidx.compose.runtime" d "runtime-livedata" w "1.7.0" w "1.8.0-alpha01"
-      val runtime = "androidx.compose.runtime" d "runtime" w "1.0.0-beta06" w "1.7.0" w "1.8.0-alpha01"
-      val rxjava2 = "androidx.compose.runtime" d "runtime-rxjava2" w "1.7.0" w "1.8.0-alpha01"
-      val rxjava3 = "androidx.compose.runtime" d "runtime-rxjava3" w "1.7.0" w "1.8.0-alpha01"
-      val saveable = "androidx.compose.runtime" d "runtime-saveable" w "1.0.0-beta06" w "1.7.0" w "1.8.0-alpha01"
+      val livedata = "androidx.compose.runtime" d "runtime-livedata" w "1.7.1" w "1.8.0-alpha01"
+      val runtime = "androidx.compose.runtime" d "runtime" w "1.0.0-beta06" w "1.7.1" w "1.8.0-alpha01"
+      val rxjava2 = "androidx.compose.runtime" d "runtime-rxjava2" w "1.7.1" w "1.8.0-alpha01"
+      val rxjava3 = "androidx.compose.runtime" d "runtime-rxjava3" w "1.7.1" w "1.8.0-alpha01"
+      val saveable = "androidx.compose.runtime" d "runtime-saveable" w "1.0.0-beta06" w "1.7.1" w "1.8.0-alpha01"
       val tracing = "androidx.compose.runtime" d "runtime-tracing" w "1.0.0-beta01"
     }
     object Ui {
-      val geometry = "androidx.compose.ui" d "ui-geometry" w "1.0.0-beta06" w "1.7.0" w "1.8.0-alpha01"
-      val graphics = "androidx.compose.ui" d "ui-graphics" w "1.0.0-beta06" w "1.7.0" w "1.8.0-alpha01"
-      val test = "androidx.compose.ui" d "ui-test" w "1.0.0-beta06" w "1.7.0" w "1.8.0-alpha01"
-      val test_junit4 = "androidx.compose.ui" d "ui-test-junit4" w "1.0.0-beta06" w "1.7.0" w "1.8.0-alpha01"
-      val test_manifest = "androidx.compose.ui" d "ui-test-manifest" w "1.7.0" w "1.8.0-alpha01"
-      val text = "androidx.compose.ui" d "ui-text" w "1.0.0-beta06" w "1.7.0" w "1.8.0-alpha01"
-      val text_google_fonts = "androidx.compose.ui" d "ui-text-google-fonts" w "1.7.0" w "1.8.0-alpha01"
-      val tooling = "androidx.compose.ui" d "ui-tooling" w "1.7.0" w "1.8.0-alpha01"
-      val tooling_data = "androidx.compose.ui" d "ui-tooling-data" w "1.7.0" w "1.8.0-alpha01"
-      val tooling_preview = "androidx.compose.ui" d "ui-tooling-preview" w "1.7.0" w "1.8.0-alpha01"
-      val ui = "androidx.compose.ui" d "ui" w "1.0.0-beta06" w "1.7.0" w "1.8.0-alpha01"
-      val unit = "androidx.compose.ui" d "ui-unit" w "1.0.0-beta06" w "1.7.0" w "1.8.0-alpha01"
-      val util = "androidx.compose.ui" d "ui-util" w "1.0.0-beta06" w "1.7.0" w "1.8.0-alpha01"
-      val viewbinding = "androidx.compose.ui" d "ui-viewbinding" w "1.7.0" w "1.8.0-alpha01"
+      val geometry = "androidx.compose.ui" d "ui-geometry" w "1.0.0-beta06" w "1.7.1" w "1.8.0-alpha01"
+      val graphics = "androidx.compose.ui" d "ui-graphics" w "1.0.0-beta06" w "1.7.1" w "1.8.0-alpha01"
+      val test = "androidx.compose.ui" d "ui-test" w "1.0.0-beta06" w "1.7.1" w "1.8.0-alpha01"
+      val test_junit4 = "androidx.compose.ui" d "ui-test-junit4" w "1.0.0-beta06" w "1.7.1" w "1.8.0-alpha01"
+      val test_manifest = "androidx.compose.ui" d "ui-test-manifest" w "1.7.1" w "1.8.0-alpha01"
+      val text = "androidx.compose.ui" d "ui-text" w "1.0.0-beta06" w "1.7.1" w "1.8.0-alpha01"
+      val text_google_fonts = "androidx.compose.ui" d "ui-text-google-fonts" w "1.7.1" w "1.8.0-alpha01"
+      val tooling = "androidx.compose.ui" d "ui-tooling" w "1.7.1" w "1.8.0-alpha01"
+      val tooling_data = "androidx.compose.ui" d "ui-tooling-data" w "1.7.1" w "1.8.0-alpha01"
+      val tooling_preview = "androidx.compose.ui" d "ui-tooling-preview" w "1.7.1" w "1.8.0-alpha01"
+      val ui = "androidx.compose.ui" d "ui" w "1.0.0-beta06" w "1.7.1" w "1.8.0-alpha01"
+      val unit = "androidx.compose.ui" d "ui-unit" w "1.0.0-beta06" w "1.7.1" w "1.8.0-alpha01"
+      val util = "androidx.compose.ui" d "ui-util" w "1.0.0-beta06" w "1.7.1" w "1.8.0-alpha01"
+      val viewbinding = "androidx.compose.ui" d "ui-viewbinding" w "1.7.1" w "1.8.0-alpha01"
     }
   }
   object Concurrent {
@@ -510,27 +510,27 @@ object AndroidX {
     val widget = "androidx.media2" d "media2-widget" w "1.3.0"
   }
   object Media3 {
-    val cast = "androidx.media3" d "media3-cast" w "1.4.1"
-    val common = "androidx.media3" d "media3-common" w "1.4.1"
-    val database = "androidx.media3" d "media3-database" w "1.4.1"
-    val datasource = "androidx.media3" d "media3-datasource" w "1.4.1"
-    val datasource_cronet = "androidx.media3" d "media3-datasource-cronet" w "1.4.1"
-    val datasource_okhttp = "androidx.media3" d "media3-datasource-okhttp" w "1.4.1"
-    val datasource_rtmp = "androidx.media3" d "media3-datasource-rtmp" w "1.4.1"
-    val decoder = "androidx.media3" d "media3-decoder" w "1.4.1"
-    val exoplayer = "androidx.media3" d "media3-exoplayer" w "1.4.1"
-    val exoplayer_dash = "androidx.media3" d "media3-exoplayer-dash" w "1.4.1"
-    val exoplayer_hls = "androidx.media3" d "media3-exoplayer-hls" w "1.4.1"
-    val exoplayer_ima = "androidx.media3" d "media3-exoplayer-ima" w "1.4.1"
-    val exoplayer_rtsp = "androidx.media3" d "media3-exoplayer-rtsp" w "1.4.1"
-    val exoplayer_workmanager = "androidx.media3" d "media3-exoplayer-workmanager" w "1.4.1"
-    val extractor = "androidx.media3" d "media3-extractor" w "1.4.1"
-    val session = "androidx.media3" d "media3-session" w "1.4.1"
-    val test_utils = "androidx.media3" d "media3-test-utils" w "1.4.1"
-    val test_utils_robolectric = "androidx.media3" d "media3-test-utils-robolectric" w "1.4.1"
-    val transformer = "androidx.media3" d "media3-transformer" w "1.4.1"
-    val ui = "androidx.media3" d "media3-ui" w "1.4.1"
-    val ui_leanback = "androidx.media3" d "media3-ui-leanback" w "1.4.1"
+    val cast = "androidx.media3" d "media3-cast" w "1.4.1" w "1.5.0-alpha01"
+    val common = "androidx.media3" d "media3-common" w "1.4.1" w "1.5.0-alpha01"
+    val database = "androidx.media3" d "media3-database" w "1.4.1" w "1.5.0-alpha01"
+    val datasource = "androidx.media3" d "media3-datasource" w "1.4.1" w "1.5.0-alpha01"
+    val datasource_cronet = "androidx.media3" d "media3-datasource-cronet" w "1.4.1" w "1.5.0-alpha01"
+    val datasource_okhttp = "androidx.media3" d "media3-datasource-okhttp" w "1.4.1" w "1.5.0-alpha01"
+    val datasource_rtmp = "androidx.media3" d "media3-datasource-rtmp" w "1.4.1" w "1.5.0-alpha01"
+    val decoder = "androidx.media3" d "media3-decoder" w "1.4.1" w "1.5.0-alpha01"
+    val exoplayer = "androidx.media3" d "media3-exoplayer" w "1.4.1" w "1.5.0-alpha01"
+    val exoplayer_dash = "androidx.media3" d "media3-exoplayer-dash" w "1.4.1" w "1.5.0-alpha01"
+    val exoplayer_hls = "androidx.media3" d "media3-exoplayer-hls" w "1.4.1" w "1.5.0-alpha01"
+    val exoplayer_ima = "androidx.media3" d "media3-exoplayer-ima" w "1.4.1" w "1.5.0-alpha01"
+    val exoplayer_rtsp = "androidx.media3" d "media3-exoplayer-rtsp" w "1.4.1" w "1.5.0-alpha01"
+    val exoplayer_workmanager = "androidx.media3" d "media3-exoplayer-workmanager" w "1.4.1" w "1.5.0-alpha01"
+    val extractor = "androidx.media3" d "media3-extractor" w "1.4.1" w "1.5.0-alpha01"
+    val session = "androidx.media3" d "media3-session" w "1.4.1" w "1.5.0-alpha01"
+    val test_utils = "androidx.media3" d "media3-test-utils" w "1.4.1" w "1.5.0-alpha01"
+    val test_utils_robolectric = "androidx.media3" d "media3-test-utils-robolectric" w "1.4.1" w "1.5.0-alpha01"
+    val transformer = "androidx.media3" d "media3-transformer" w "1.4.1" w "1.5.0-alpha01"
+    val ui = "androidx.media3" d "media3-ui" w "1.4.1" w "1.5.0-alpha01"
+    val ui_leanback = "androidx.media3" d "media3-ui-leanback" w "1.4.1" w "1.5.0-alpha01"
   }
   object MediaRouter {
     val mediarouter = "androidx.mediarouter" d "mediarouter" w "1.7.0"
@@ -1507,7 +1507,7 @@ object Io {
     }
   }
   object Projectreactor {
-    val reactor_test = "io.projectreactor" d "reactor-test" w "3.6.9"
+    val reactor_test = "io.projectreactor" d "reactor-test" w "3.6.10"
     object Kotlin {
       val reactor_kotlin_extensions = "io.projectreactor.kotlin" d "reactor-kotlin-extensions" w "1.2.3"
     }
@@ -1642,7 +1642,7 @@ object Org {
   }
   object JetBrains {
     object Compose {
-      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.6.11" w "1.7.0-beta01" w "1.7.0-beta02+build1807-release-1.7.0-beta02"
+      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.6.11" w "1.7.0-beta02" w "1.7.0-beta02+build1807-release-1.7.0-beta02"
       object Compiler {
         val compiler = "org.jetbrains.compose.compiler" d "compiler" w "1.5.14" w "1.5.14.1-beta02"
       }
