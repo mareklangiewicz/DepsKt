@@ -913,18 +913,18 @@ object Com {
         val strict_version_matcher_plugin = "com.google.android.gms" d "strict-version-matcher-plugin" w "1.2.4"
       }
       object Horologist {
-        val audio = "com.google.android.horologist" d "horologist-audio" w "0.6.18" w "0.7.1-alpha"
-        val audio_ui = "com.google.android.horologist" d "horologist-audio-ui" w "0.6.18" w "0.7.1-alpha"
-        val composables = "com.google.android.horologist" d "horologist-composables" w "0.6.18" w "0.7.1-alpha"
-        val compose_layout = "com.google.android.horologist" d "horologist-compose-layout" w "0.6.18" w "0.7.1-alpha"
-        val compose_tools = "com.google.android.horologist" d "horologist-compose-tools" w "0.6.18" w "0.7.1-alpha"
-        val datalayer = "com.google.android.horologist" d "horologist-datalayer" w "0.6.18" w "0.7.1-alpha"
-        val media = "com.google.android.horologist" d "horologist-media" w "0.6.18" w "0.7.1-alpha"
-        val media3_backend = "com.google.android.horologist" d "horologist-media3-backend" w "0.6.18" w "0.7.1-alpha"
-        val media_data = "com.google.android.horologist" d "horologist-media-data" w "0.6.18" w "0.7.1-alpha"
-        val media_ui = "com.google.android.horologist" d "horologist-media-ui" w "0.6.18" w "0.7.1-alpha"
-        val network_awareness = "com.google.android.horologist" d "horologist-network-awareness" w "0.6.18" w "0.7.1-alpha"
-        val tiles = "com.google.android.horologist" d "horologist-tiles" w "0.6.18" w "0.7.1-alpha"
+        val audio = "com.google.android.horologist" d "horologist-audio" w "0.6.19" w "0.7.1-alpha"
+        val audio_ui = "com.google.android.horologist" d "horologist-audio-ui" w "0.6.19" w "0.7.1-alpha"
+        val composables = "com.google.android.horologist" d "horologist-composables" w "0.6.19" w "0.7.1-alpha"
+        val compose_layout = "com.google.android.horologist" d "horologist-compose-layout" w "0.6.19" w "0.7.1-alpha"
+        val compose_tools = "com.google.android.horologist" d "horologist-compose-tools" w "0.6.19" w "0.7.1-alpha"
+        val datalayer = "com.google.android.horologist" d "horologist-datalayer" w "0.6.19" w "0.7.1-alpha"
+        val media = "com.google.android.horologist" d "horologist-media" w "0.6.19" w "0.7.1-alpha"
+        val media3_backend = "com.google.android.horologist" d "horologist-media3-backend" w "0.6.19" w "0.7.1-alpha"
+        val media_data = "com.google.android.horologist" d "horologist-media-data" w "0.6.19" w "0.7.1-alpha"
+        val media_ui = "com.google.android.horologist" d "horologist-media-ui" w "0.6.19" w "0.7.1-alpha"
+        val network_awareness = "com.google.android.horologist" d "horologist-network-awareness" w "0.6.19" w "0.7.1-alpha"
+        val tiles = "com.google.android.horologist" d "horologist-tiles" w "0.6.19" w "0.7.1-alpha"
       }
       object Libraries {
         object Places {
@@ -1281,9 +1281,9 @@ object Com {
       val sqljs_driver = "com.squareup.sqldelight" d "sqljs-driver" w "1.5.5"
     }
     object Wire {
-      val gradle_plugin = "com.squareup.wire" d "wire-gradle-plugin" w "5.0.0"
-      val grpc_client = "com.squareup.wire" d "wire-grpc-client" w "5.0.0"
-      val runtime = "com.squareup.wire" d "wire-runtime" w "5.0.0"
+      val gradle_plugin = "com.squareup.wire" d "wire-gradle-plugin" w "5.1.0"
+      val grpc_client = "com.squareup.wire" d "wire-grpc-client" w "5.1.0"
+      val runtime = "com.squareup.wire" d "wire-runtime" w "5.1.0"
     }
   }
 }
