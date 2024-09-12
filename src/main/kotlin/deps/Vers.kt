@@ -48,8 +48,8 @@ object Vers {
   // https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/runtime/runtime/
   // https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/ui/ui-js/
 
-  val ComposeJbEdge = Org.JetBrains.Compose.gradle_plugin.verLast
-  // val ComposeJbEdge = Ver("1.7.0-dev1686") // Check with not only template-mpp but also uwidgets, before updating.
+  // val ComposeJbEdge = Org.JetBrains.Compose.gradle_plugin.verLast
+  val ComposeJbEdge = Ver("1.7.0-dev1809") // Check with not only template-full but also uwidgets, before updating.
   // The refreshDeps found 1692 one but looks like not fully released (tried and error downloading some artifacts)
   // I tried 1690 which worked for template-mpp but not for uwidgets (js), so falling back to 1686
   // UPDATE: I reported bug with 1698 with reproducer:
@@ -84,14 +84,14 @@ object Vers {
    * - [plugins gradle org](https://plugins.gradle.org/plugin/com.gradle.plugin-publish)
    * - [plugins gradle org docs](https://plugins.gradle.org/docs/publish-plugin)
    */
-  val GradlePublishPlug = Ver("1.2.1")
+  val GradlePublishPlug = Ver("1.3.0")
 
   /**
    * Gradle Develocity Plugin (enables integration with Gradle Develocity and scans.gradle.com)
    * - [gradle org docs](https://docs.gradle.com/develocity/gradle-plugin/)
    * - [gradle portal](https://plugins.gradle.org/plugin/com.gradle.develocity)
    */
-  val GradleDevelocityPlug = Ver("3.18")
+  val GradleDevelocityPlug = Ver("3.18.1")
 
 
   /**
@@ -124,7 +124,7 @@ object Vers {
    * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
    * [github](https://github.com/Kotlin/kotlin-jupyter)
    */
-  val KotlinJupyterPlug = Ver("0.12.0-263")
+  val KotlinJupyterPlug = Ver("0.12.0-288")
 
   /**
    * Gradle Shadow Gradle Plugin
@@ -132,7 +132,7 @@ object Vers {
    * - [github john rengelman shadow](https://github.com/johnrengelman/shadow)
    * - [docs](https://github.com/johnrengelman/shadow)
    */
-  val GradleShadowPlug = Ver("8.3.0")
+  val GradleShadowPlug = Ver("8.3.1")
 
   /**
    * Osacky Doctor Gradle Plugin
@@ -149,7 +149,7 @@ object Vers {
    * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val DepsPlug = Ver(0, 3, 46) // TODO make sure it's always synced with myLibDetails(version)
+  val DepsPlug = Ver(0, 3, 47) // TODO make sure it's always synced with myLibDetails(version)
 
   /**
    * SourceFun Gradle Plugin
@@ -165,7 +165,7 @@ object Vers {
   val Gradle5 = Ver("5.6.4")
   val Gradle6 = Ver("6.8.3")
   val Gradle7 = Ver("7.6.4")
-  val Gradle8 = Ver("8.10")
+  val Gradle8 = Ver("8.10.1")
 
   /**
    * Gradle - just a reference - not so useful in typical use cases
