@@ -43,19 +43,16 @@ object Vers {
 
 
 
-  // Before update: Make sure not only plugin is already published, but other artifacts too (like ui-js).
-  // https://github.com/JetBrains/compose-multiplatform/releases
-  // https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/runtime/runtime/
-  // https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/ui/ui-js/
-
   // val ComposeJbEdge = Org.JetBrains.Compose.gradle_plugin.verLast
-  val ComposeJbEdge = Ver("1.7.0-dev1809") // Check with not only template-full but also uwidgets, before updating.
+  val ComposeJbEdge = Ver("1.7.0-dev1809")
+
   // The refreshDeps found 1692 one but looks like not fully released (tried and error downloading some artifacts)
   // I tried 1690 which worked for template-mpp but not for uwidgets (js), so falling back to 1686
   // UPDATE: I reported bug with 1698 with reproducer:
   // https://youtrack.jetbrains.com/issue/CMP-1583/K2-JS-1.7.0-dev1698-in-browser-TypeError-content-is-not-a-function
   // UPDATE2: Looks like it's fixed in kotlin 2.0.20-Beta2!! (works in reproduce-06; let's try in other projects)
 
+  val ComposeJbBeta = Ver("1.7.0-beta02")
   val ComposeJbStable = Org.JetBrains.Compose.gradle_plugin.verLastStable
 
   /**
@@ -66,7 +63,12 @@ object Vers {
    * [maven runtime](https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/runtime/runtime/)
    * [maven ui-js](https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/ui/ui-js/)
    */
-  val ComposeJb = ComposeJbEdge
+  val ComposeJb = ComposeJbBeta
+  // Check with not only template-full but also uwidgets, before updating.
+  // Before update: Make sure not only plugin is already published, but other artifacts too (like ui-js).
+  // https://github.com/JetBrains/compose-multiplatform/releases
+  // https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/runtime/runtime/
+  // https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/ui/ui-js/
 
 
   /** Selected ComposeAndroid version. Should always be kept compatible with the selected Kotlin version. */
@@ -149,7 +151,7 @@ object Vers {
    * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val DepsPlug = Ver(0, 3, 47) // TODO make sure it's always synced with myLibDetails(version)
+  val DepsPlug = Ver(0, 3, 48) // TODO make sure it's always synced with myLibDetails(version)
 
   /**
    * SourceFun Gradle Plugin
