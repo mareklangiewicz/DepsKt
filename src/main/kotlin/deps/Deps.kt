@@ -1538,7 +1538,7 @@ object Io {
     }
   }
   object Realm {
-    val gradle_plugin = "io.realm" d "realm-gradle-plugin" w "10.18.0"
+    val gradle_plugin = "io.realm" d "realm-gradle-plugin" w "10.19.0"
   }
   object Strikt {
     val arrow = "io.strikt" d "strikt-arrow" w "0.35.1"
@@ -1674,22 +1674,22 @@ object Org {
       val cli = "org.jetbrains.kotlinx" d "kotlinx-cli" w "0.3.6"
       val collections_immutable = "org.jetbrains.kotlinx" d "kotlinx-collections-immutable" w "0.3.8"
       val collections_immutable_jvm = "org.jetbrains.kotlinx" d "kotlinx-collections-immutable-jvm" w "0.3.8"
-      val coroutines_android = "org.jetbrains.kotlinx" d "kotlinx-coroutines-android" w "1.8.1" w "1.9.0-RC.2"
-      val coroutines_bom = "org.jetbrains.kotlinx" d "kotlinx-coroutines-bom" w "1.8.1" w "1.9.0-RC.2"
-      val coroutines_core = "org.jetbrains.kotlinx" d "kotlinx-coroutines-core" w "1.8.1" w "1.9.0-RC.2"
-      val coroutines_debug = "org.jetbrains.kotlinx" d "kotlinx-coroutines-debug" w "1.8.1" w "1.9.0-RC.2"
-      val coroutines_guava = "org.jetbrains.kotlinx" d "kotlinx-coroutines-guava" w "1.8.1" w "1.9.0-RC.2"
-      val coroutines_javafx = "org.jetbrains.kotlinx" d "kotlinx-coroutines-javafx" w "1.8.1" w "1.9.0-RC.2"
-      val coroutines_jdk8 = "org.jetbrains.kotlinx" d "kotlinx-coroutines-jdk8" w "1.8.1" w "1.9.0-RC.2"
-      val coroutines_jdk9 = "org.jetbrains.kotlinx" d "kotlinx-coroutines-jdk9" w "1.8.1" w "1.9.0-RC.2"
-      val coroutines_play_services = "org.jetbrains.kotlinx" d "kotlinx-coroutines-play-services" w "1.8.1" w "1.9.0-RC.2"
-      val coroutines_reactive = "org.jetbrains.kotlinx" d "kotlinx-coroutines-reactive" w "1.8.1" w "1.9.0-RC.2"
-      val coroutines_reactor = "org.jetbrains.kotlinx" d "kotlinx-coroutines-reactor" w "1.8.1" w "1.9.0-RC.2"
-      val coroutines_rx2 = "org.jetbrains.kotlinx" d "kotlinx-coroutines-rx2" w "1.8.1" w "1.9.0-RC.2"
-      val coroutines_rx3 = "org.jetbrains.kotlinx" d "kotlinx-coroutines-rx3" w "1.8.1" w "1.9.0-RC.2"
-      val coroutines_slf4j = "org.jetbrains.kotlinx" d "kotlinx-coroutines-slf4j" w "1.8.1" w "1.9.0-RC.2"
-      val coroutines_swing = "org.jetbrains.kotlinx" d "kotlinx-coroutines-swing" w "1.8.1" w "1.9.0-RC.2"
-      val coroutines_test = "org.jetbrains.kotlinx" d "kotlinx-coroutines-test" w "1.8.1" w "1.9.0-RC.2"
+      val coroutines_android = "org.jetbrains.kotlinx" d "kotlinx-coroutines-android" w "1.9.0"
+      val coroutines_bom = "org.jetbrains.kotlinx" d "kotlinx-coroutines-bom" w "1.9.0"
+      val coroutines_core = "org.jetbrains.kotlinx" d "kotlinx-coroutines-core" w "1.9.0"
+      val coroutines_debug = "org.jetbrains.kotlinx" d "kotlinx-coroutines-debug" w "1.9.0"
+      val coroutines_guava = "org.jetbrains.kotlinx" d "kotlinx-coroutines-guava" w "1.9.0"
+      val coroutines_javafx = "org.jetbrains.kotlinx" d "kotlinx-coroutines-javafx" w "1.9.0"
+      val coroutines_jdk8 = "org.jetbrains.kotlinx" d "kotlinx-coroutines-jdk8" w "1.9.0"
+      val coroutines_jdk9 = "org.jetbrains.kotlinx" d "kotlinx-coroutines-jdk9" w "1.9.0"
+      val coroutines_play_services = "org.jetbrains.kotlinx" d "kotlinx-coroutines-play-services" w "1.9.0"
+      val coroutines_reactive = "org.jetbrains.kotlinx" d "kotlinx-coroutines-reactive" w "1.9.0"
+      val coroutines_reactor = "org.jetbrains.kotlinx" d "kotlinx-coroutines-reactor" w "1.9.0"
+      val coroutines_rx2 = "org.jetbrains.kotlinx" d "kotlinx-coroutines-rx2" w "1.9.0"
+      val coroutines_rx3 = "org.jetbrains.kotlinx" d "kotlinx-coroutines-rx3" w "1.9.0"
+      val coroutines_slf4j = "org.jetbrains.kotlinx" d "kotlinx-coroutines-slf4j" w "1.9.0"
+      val coroutines_swing = "org.jetbrains.kotlinx" d "kotlinx-coroutines-swing" w "1.9.0"
+      val coroutines_test = "org.jetbrains.kotlinx" d "kotlinx-coroutines-test" w "1.9.0"
       val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.13.1" w "0.14.0-RC1"
       val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.13.1" w "0.14.0-RC1"
       val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.13.1" w "0.14.0-RC1"
@@ -1899,7 +1899,7 @@ object Org {
       val spring_cloud_stream_binder_rabbit = "org.springframework.cloud" d "spring-cloud-stream-binder-rabbit" w "4.1.3"
     }
     object Data {
-      val spring_data_rest_hal_explorer = "org.springframework.data" d "spring-data-rest-hal-explorer" w "4.3.3"
+      val spring_data_rest_hal_explorer = "org.springframework.data" d "spring-data-rest-hal-explorer" w "4.3.4"
     }
     object Geode {
       val spring_geode_bom = "org.springframework.geode" d "spring-geode-bom" w "1.7.5"
