@@ -1925,8 +1925,8 @@ object Org {
       val spring_integration_ws = "org.springframework.integration" d "spring-integration-ws" w "6.3.3"
     }
     object Kafka {
-      val spring_kafka = "org.springframework.kafka" d "spring-kafka" w "3.2.3"
-      val spring_kafka_test = "org.springframework.kafka" d "spring-kafka-test" w "3.2.3"
+      val spring_kafka = "org.springframework.kafka" d "spring-kafka" w "3.2.4"
+      val spring_kafka_test = "org.springframework.kafka" d "spring-kafka-test" w "3.2.4"
     }
     object Restdocs {
       val spring_restdocs_webtestclient = "org.springframework.restdocs" d "spring-restdocs-webtestclient" w "3.0.1"
