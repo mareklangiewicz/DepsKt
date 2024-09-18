@@ -44,7 +44,7 @@ object Vers {
 
 
   // val ComposeJbEdge = Org.JetBrains.Compose.gradle_plugin.verLast
-  val ComposeJbEdge = Ver("1.7.0-dev1809")
+  val ComposeJbEdge = Ver("1.7.0-dev1840")
 
   // The refreshDeps found 1692 one but looks like not fully released (tried and error downloading some artifacts)
   // I tried 1690 which worked for template-mpp but not for uwidgets (js), so falling back to 1686
@@ -151,7 +151,7 @@ object Vers {
    * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val DepsPlug = Ver(0, 3, 48) // TODO make sure it's always synced with myLibDetails(version)
+  val DepsPlug = Ver(0, 3, 49) // TODO make sure it's always synced with myLibDetails(version)
 
   /**
    * SourceFun Gradle Plugin
