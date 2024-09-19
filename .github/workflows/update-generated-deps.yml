@@ -30,7 +30,7 @@ jobs:
         distribution: 'zulu'
     - id: 'step-2'
       name: 'updateGeneratedDeps'
-      uses: 'gradle/actions/setup-gradle@v3'
+      uses: 'gradle/actions/setup-gradle@v4'
       with:
         arguments: 'updateGeneratedDeps'
     - id: 'step-3'
