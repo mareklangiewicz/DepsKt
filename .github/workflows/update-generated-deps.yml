@@ -29,11 +29,11 @@ jobs:
         java-version: '22'
         distribution: 'zulu'
     - id: 'step-2'
-      name: 'updateGeneratedDeps'
       uses: 'gradle/actions/setup-gradle@v4'
-      with:
-        arguments: 'updateGeneratedDeps'
     - id: 'step-3'
+      name: 'updateGeneratedDeps'
+      run: './gradlew updateGeneratedDeps --no-configuration-cache --no-parallel'
+    - id: 'step-4'
       name: 'Add and commit file'
       uses: 'EndBug/add-and-commit@v9'
       with:
