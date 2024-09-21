@@ -30,7 +30,7 @@ jobs:
         java-version: '22'
         distribution: 'zulu'
     - id: 'step-2'
+      uses: 'gradle/actions/setup-gradle@v4'
+    - id: 'step-3'
       name: 'Build'
-      uses: 'gradle/actions/setup-gradle@v3'
-      with:
-        arguments: 'build'
+      run: './gradlew build --no-configuration-cache --no-parallel'
