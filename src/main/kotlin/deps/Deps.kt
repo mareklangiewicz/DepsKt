@@ -1631,26 +1631,26 @@ object Org {
     val testing_webdriver = "org.http4k" d "http4k-testing-webdriver" w "5.31.1.0"
   }
   object JUnit {
-    val bom = "org.junit" d "junit-bom" w "5.11.0"
+    val bom = "org.junit" d "junit-bom" w "5.11.1"
     object Jupiter {
-      val junit_jupiter = "org.junit.jupiter" d "junit-jupiter" w "5.11.0"
-      val junit_jupiter_api = "org.junit.jupiter" d "junit-jupiter-api" w "5.11.0"
-      val junit_jupiter_engine = "org.junit.jupiter" d "junit-jupiter-engine" w "5.11.0"
-      val junit_jupiter_migrationsupport = "org.junit.jupiter" d "junit-jupiter-migrationsupport" w "5.11.0"
-      val junit_jupiter_params = "org.junit.jupiter" d "junit-jupiter-params" w "5.11.0"
+      val junit_jupiter = "org.junit.jupiter" d "junit-jupiter" w "5.11.1"
+      val junit_jupiter_api = "org.junit.jupiter" d "junit-jupiter-api" w "5.11.1"
+      val junit_jupiter_engine = "org.junit.jupiter" d "junit-jupiter-engine" w "5.11.1"
+      val junit_jupiter_migrationsupport = "org.junit.jupiter" d "junit-jupiter-migrationsupport" w "5.11.1"
+      val junit_jupiter_params = "org.junit.jupiter" d "junit-jupiter-params" w "5.11.1"
     }
   }
   object JetBrains {
     object Compose {
-      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.6.11" w "1.7.0-beta02" w "1.7.0-rc01+build1844-release-1.7"
+      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.6.11" w "1.7.0-beta02" w "1.7.0-rc01+build1854-release-1.7"
       object Compiler {
         val compiler = "org.jetbrains.compose.compiler" d "compiler" w "1.5.8.1" w "1.5.9-kt-2.0.0-Beta4" w "1.5.14"
       }
     }
     object Exposed {
-      val core = "org.jetbrains.exposed" d "exposed-core" w "0.54.0"
-      val dao = "org.jetbrains.exposed" d "exposed-dao" w "0.54.0"
-      val jdbc = "org.jetbrains.exposed" d "exposed-jdbc" w "0.54.0"
+      val core = "org.jetbrains.exposed" d "exposed-core" w "0.55.0"
+      val dao = "org.jetbrains.exposed" d "exposed-dao" w "0.55.0"
+      val jdbc = "org.jetbrains.exposed" d "exposed-jdbc" w "0.55.0"
     }
     object Kotlin {
       val reflect = "org.jetbrains.kotlin" d "kotlin-reflect" w "2.0.20" w "2.1.0-Beta1"
@@ -1690,10 +1690,10 @@ object Org {
       val coroutines_slf4j = "org.jetbrains.kotlinx" d "kotlinx-coroutines-slf4j" w "1.9.0"
       val coroutines_swing = "org.jetbrains.kotlinx" d "kotlinx-coroutines-swing" w "1.9.0"
       val coroutines_test = "org.jetbrains.kotlinx" d "kotlinx-coroutines-test" w "1.9.0"
-      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.14.0"
-      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.14.0"
-      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.14.0"
-      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.14.0"
+      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.14.1"
+      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.14.1"
+      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.14.1"
+      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.14.1"
       val datetime = "org.jetbrains.kotlinx" d "kotlinx-datetime" w "0.6.1"
       val html = "org.jetbrains.kotlinx" d "kotlinx-html" w "0.11.0"
       val io_jvm = "org.jetbrains.kotlinx" d "kotlinx-io-jvm" w "0.1.16"
