@@ -802,7 +802,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.2"
       val r8 = "com.android.tools" d "r8" w "8.5.35"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.6.1" w "8.7.0-rc01" w "8.8.0-alpha03"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.6.1" w "8.7.0-rc01" w "8.8.0-alpha04"
       }
     }
   }
@@ -1719,14 +1719,14 @@ object Org {
     }
     object Kotlin_Wrappers {
       val bom = "org.jetbrains.kotlin-wrappers" d "kotlin-wrappers-bom" w "1.0.0-pre.812"
-      val kotlin_actions_toolkit = "org.jetbrains.kotlin-wrappers" d "kotlin-actions-toolkit" w "1.0.0-pre.812"
-      val kotlin_browser = "org.jetbrains.kotlin-wrappers" d "kotlin-browser" w "1.0.0-pre.812"
+      val kotlin_actions_toolkit = "org.jetbrains.kotlin-wrappers" d "kotlin-actions-toolkit" w "1.0.0-pre.813"
+      val kotlin_browser = "org.jetbrains.kotlin-wrappers" d "kotlin-browser" w "1.0.0-pre.813"
       val kotlin_cesium = "org.jetbrains.kotlin-wrappers" d "kotlin-cesium" w "1.115.0-pre.711"
-      val kotlin_css = "org.jetbrains.kotlin-wrappers" d "kotlin-css" w "1.0.0-pre.812"
-      val kotlin_csstype = "org.jetbrains.kotlin-wrappers" d "kotlin-csstype" w "3.1.3-pre.812"
-      val kotlin_emotion = "org.jetbrains.kotlin-wrappers" d "kotlin-emotion" w "11.13.3-pre.812"
+      val kotlin_css = "org.jetbrains.kotlin-wrappers" d "kotlin-css" w "1.0.0-pre.813"
+      val kotlin_csstype = "org.jetbrains.kotlin-wrappers" d "kotlin-csstype" w "3.1.3-pre.813"
+      val kotlin_emotion = "org.jetbrains.kotlin-wrappers" d "kotlin-emotion" w "11.13.3-pre.813"
       val kotlin_history = "org.jetbrains.kotlin-wrappers" d "kotlin-history" w "5.3.0-pre.506-compat"
-      val kotlin_js = "org.jetbrains.kotlin-wrappers" d "kotlin-js" w "1.0.0-pre.812"
+      val kotlin_js = "org.jetbrains.kotlin-wrappers" d "kotlin-js" w "1.0.0-pre.813"
       val kotlin_mui = "org.jetbrains.kotlin-wrappers" d "kotlin-mui" w "5.14.12-pre.638"
       val kotlin_mui_icons = "org.jetbrains.kotlin-wrappers" d "kotlin-mui-icons" w "5.14.12-pre.638"
       val kotlin_node = "org.jetbrains.kotlin-wrappers" d "kotlin-node" w "22.5.4-pre.812"
