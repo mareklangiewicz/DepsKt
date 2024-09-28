@@ -18,7 +18,7 @@ import org.jetbrains.kotlin.gradle.dsl.*
 
 plugins {
   plugAll(plugs.KotlinJvm, plugs.NexusPublish, plugs.GradlePublish, plugs.Signing)
-  id("pl.mareklangiewicz.sourcefun") version "0.4.18"
+  id("pl.mareklangiewicz.sourcefun") version "0.4.20"
   // FIXME_later: add to plugAll after updating deps
   // https://plugins.gradle.org/search?term=pl.mareklangiewicz
 }
@@ -30,7 +30,7 @@ buildscript {
   //   and only failing when I was executing specific custom task.
   dependencies {
     classpath("pl.mareklangiewicz:kommandline:0.0.83")
-    classpath("pl.mareklangiewicz:kgroundx-maintenance:0.0.80")
+    classpath("pl.mareklangiewicz:kgroundx-maintenance:0.0.81")
     // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kommandline/
     // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kground/
   }
@@ -61,7 +61,7 @@ defaultGroupAndVerAndDescription(
     group = "pl.mareklangiewicz.deps", // important non default ...deps group (as accepted on gradle portal)
     description = "Updated dependencies for typical java/kotlin/android projects (with IDE support).",
     githubUrl = "https://github.com/mareklangiewicz/DepsKt",
-    version = Ver(0, 3, 51),
+    version = Ver(0, 3, 52),
     // TODO use some SourceFun task to make sure it's synced with Vers.DepsPlug
     // (we println it when applying plugin so have to be synced not to confuse users)
     // https://plugins.gradle.org/search?term=pl.mareklangiewicz

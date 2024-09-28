@@ -43,8 +43,8 @@ object Vers {
 
 
 
-  // val ComposeJbEdge = Org.JetBrains.Compose.gradle_plugin.verLast
-  val ComposeJbEdge = Ver("1.7.0-dev1840")
+  val ComposeJbEdge = Org.JetBrains.Compose.gradle_plugin.verLast
+  // val ComposeJbEdge = Ver("1.7.0-dev1852")
 
   // The refreshDeps found 1692 one but looks like not fully released (tried and error downloading some artifacts)
   // I tried 1690 which worked for template-mpp but not for uwidgets (js), so falling back to 1686
@@ -126,7 +126,7 @@ object Vers {
    * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
    * [github](https://github.com/Kotlin/kotlin-jupyter)
    */
-  val KotlinJupyterPlug = Ver("0.12.0-291")
+  val KotlinJupyterPlug = Ver("0.12.0-304")
 
   /**
    * Gradle Shadow Gradle Plugin
@@ -151,13 +151,13 @@ object Vers {
    * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val DepsPlug = Ver(0, 3, 51) // TODO make sure it's always synced with myLibDetails(version)
+  val DepsPlug = Ver(0, 3, 52) // TODO make sure it's always synced with myLibDetails(version)
 
   /**
    * SourceFun Gradle Plugin
    * - [github](https://github.com/mareklangiewicz/SourceFun)
-   * - [plugins gradle sourcefun](https://plugins.gradle.org/plugin/pl.mareklangiewicz.sourcefun)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
+   * - [plugins gradle sourcefun](https://plugins.gradle.org/plugin/pl.mareklangiewicz.sourcefun)
    */
   val SourceFunPlug = Ver("0.4.20")
 
@@ -167,7 +167,7 @@ object Vers {
   val Gradle5 = Ver("5.6.4")
   val Gradle6 = Ver("6.8.3")
   val Gradle7 = Ver("7.6.4")
-  val Gradle8 = Ver("8.10.1")
+  val Gradle8 = Ver("8.10.2")
 
   /**
    * Gradle - just a reference - not so useful in typical use cases
