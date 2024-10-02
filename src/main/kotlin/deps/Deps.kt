@@ -802,7 +802,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.2"
       val r8 = "com.android.tools" d "r8" w "8.5.35"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.6.1" w "8.7.0-rc01" w "8.8.0-alpha04"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.7.0" w "8.8.0-alpha04"
       }
     }
   }
@@ -984,19 +984,19 @@ object Com {
       val spi = "com.google.dagger" d "dagger-spi" w "2.52"
     }
     object Firebase {
-      val analytics = "com.google.firebase" d "firebase-analytics" w "22.1.0"
-      val analytics_ktx = "com.google.firebase" d "firebase-analytics-ktx" w "22.1.0"
+      val analytics = "com.google.firebase" d "firebase-analytics" w "22.1.2"
+      val analytics_ktx = "com.google.firebase" d "firebase-analytics-ktx" w "22.1.2"
       val appdistribution_gradle = "com.google.firebase" d "firebase-appdistribution-gradle" w "5.0.0"
       val appindexing = "com.google.firebase" d "firebase-appindexing" w "20.0.0"
       val auth = "com.google.firebase" d "firebase-auth" w "23.0.0"
       val auth_ktx = "com.google.firebase" d "firebase-auth-ktx" w "23.0.0"
-      val bom = "com.google.firebase" d "firebase-bom" w "33.3.0"
+      val bom = "com.google.firebase" d "firebase-bom" w "33.4.0"
       val config = "com.google.firebase" d "firebase-config" w "22.0.0"
       val config_ktx = "com.google.firebase" d "firebase-config-ktx" w "22.0.0"
-      val crashlytics = "com.google.firebase" d "firebase-crashlytics" w "19.1.0"
+      val crashlytics = "com.google.firebase" d "firebase-crashlytics" w "19.2.0"
       val crashlytics_gradle = "com.google.firebase" d "firebase-crashlytics-gradle" w "3.0.2"
-      val crashlytics_ktx = "com.google.firebase" d "firebase-crashlytics-ktx" w "19.1.0"
-      val crashlytics_ndk = "com.google.firebase" d "firebase-crashlytics-ndk" w "19.1.0"
+      val crashlytics_ktx = "com.google.firebase" d "firebase-crashlytics-ktx" w "19.2.0"
+      val crashlytics_ndk = "com.google.firebase" d "firebase-crashlytics-ndk" w "19.2.0"
       val database = "com.google.firebase" d "firebase-database" w "21.0.0"
       val database_ktx = "com.google.firebase" d "firebase-database-ktx" w "21.0.0"
       val dynamic_links = "com.google.firebase" d "firebase-dynamic-links" w "22.1.0"
@@ -1010,16 +1010,16 @@ object Com {
       val inappmessaging_display = "com.google.firebase" d "firebase-inappmessaging-display" w "21.0.0"
       val inappmessaging_display_ktx = "com.google.firebase" d "firebase-inappmessaging-display-ktx" w "21.0.0"
       val inappmessaging_ktx = "com.google.firebase" d "firebase-inappmessaging-ktx" w "21.0.0"
-      val messaging = "com.google.firebase" d "firebase-messaging" w "24.0.1"
-      val messaging_directboot = "com.google.firebase" d "firebase-messaging-directboot" w "24.0.1"
-      val messaging_ktx = "com.google.firebase" d "firebase-messaging-ktx" w "24.0.1"
+      val messaging = "com.google.firebase" d "firebase-messaging" w "24.0.2"
+      val messaging_directboot = "com.google.firebase" d "firebase-messaging-directboot" w "24.0.2"
+      val messaging_ktx = "com.google.firebase" d "firebase-messaging-ktx" w "24.0.2"
       val ml_modeldownloader = "com.google.firebase" d "firebase-ml-modeldownloader" w "25.0.0"
       val ml_modeldownloader_ktx = "com.google.firebase" d "firebase-ml-modeldownloader-ktx" w "25.0.0"
       val perf = "com.google.firebase" d "firebase-perf" w "21.0.1"
       val perf_ktx = "com.google.firebase" d "firebase-perf-ktx" w "21.0.1"
       val perf_plugin = "com.google.firebase" d "perf-plugin" w "1.4.2"
-      val storage = "com.google.firebase" d "firebase-storage" w "21.0.0"
-      val storage_ktx = "com.google.firebase" d "firebase-storage-ktx" w "21.0.0"
+      val storage = "com.google.firebase" d "firebase-storage" w "21.0.1"
+      val storage_ktx = "com.google.firebase" d "firebase-storage-ktx" w "21.0.1"
     }
     object Gms {
       val google_services = "com.google.gms" d "google-services" w "3.1.1" w "4.4.2"
@@ -1642,7 +1642,7 @@ object Org {
   }
   object JetBrains {
     object Compose {
-      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.6.11" w "1.7.0-beta02" w "1.7.0-rc01+build1854-release-1.7"
+      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.6.11" w "1.7.0-rc01" w "1.7.0-rc01+build1854-release-1.7"
       object Compiler {
         val compiler = "org.jetbrains.compose.compiler" d "compiler" w "1.5.8.1" w "1.5.9-kt-2.0.0-Beta4" w "1.5.14"
       }
@@ -1690,10 +1690,10 @@ object Org {
       val coroutines_slf4j = "org.jetbrains.kotlinx" d "kotlinx-coroutines-slf4j" w "1.9.0"
       val coroutines_swing = "org.jetbrains.kotlinx" d "kotlinx-coroutines-swing" w "1.9.0"
       val coroutines_test = "org.jetbrains.kotlinx" d "kotlinx-coroutines-test" w "1.9.0"
-      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.14.1" w "0.15.0-dev-4321"
-      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.14.1" w "0.15.0-dev-4321"
-      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.14.1" w "0.15.0-dev-4321"
-      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.14.1" w "0.15.0-dev-4321"
+      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.14.1" w "0.15.0-dev-4324"
+      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.14.1" w "0.15.0-dev-4324"
+      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.14.1" w "0.15.0-dev-4324"
+      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.14.1" w "0.15.0-dev-4324"
       val datetime = "org.jetbrains.kotlinx" d "kotlinx-datetime" w "0.6.1"
       val html = "org.jetbrains.kotlinx" d "kotlinx-html" w "0.11.0"
       val io_jvm = "org.jetbrains.kotlinx" d "kotlinx-io-jvm" w "0.1.16"
