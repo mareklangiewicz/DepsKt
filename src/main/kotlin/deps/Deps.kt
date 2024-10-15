@@ -802,7 +802,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.2"
       val r8 = "com.android.tools" d "r8" w "8.5.35"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.7.0" w "8.8.0-alpha05"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.7.1" w "8.8.0-alpha06"
       }
     }
   }
@@ -1642,7 +1642,7 @@ object Org {
   }
   object JetBrains {
     object Compose {
-      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.6.11" w "1.7.0+build1877-release-1.7" w "1.7.0-rc01" w "1.7.0-rc01+build1854-release-1.7" w "1.8.0-dev1875"
+      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.6.11" w "1.7.0+build1877-release-1.7" w "1.7.0-rc01" w "1.7.0-rc01+build1854-release-1.7" w "1.8.0-dev1875" w "1.8.0-dev1883"
       object Compiler {
         val compiler = "org.jetbrains.compose.compiler" d "compiler" w "1.5.8.1" w "1.5.9-kt-2.0.0-Beta4" w "1.5.14"
       }
@@ -1653,21 +1653,21 @@ object Org {
       val jdbc = "org.jetbrains.exposed" d "exposed-jdbc" w "0.55.0"
     }
     object Kotlin {
-      val reflect = "org.jetbrains.kotlin" d "kotlin-reflect" w "2.0.21" w "2.1.0-Beta1"
-      val script_runtime = "org.jetbrains.kotlin" d "kotlin-script-runtime" w "2.0.21" w "2.1.0-Beta1"
-      val stdlib = "org.jetbrains.kotlin" d "kotlin-stdlib" w "2.0.21" w "2.1.0-Beta1"
-      val stdlib_common = "org.jetbrains.kotlin" d "kotlin-stdlib-common" w "2.0.21" w "2.1.0-Beta1"
-      val stdlib_jdk7 = "org.jetbrains.kotlin" d "kotlin-stdlib-jdk7" w "2.0.21" w "2.1.0-Beta1"
-      val stdlib_jdk8 = "org.jetbrains.kotlin" d "kotlin-stdlib-jdk8" w "2.0.21" w "2.1.0-Beta1"
-      val stdlib_js = "org.jetbrains.kotlin" d "kotlin-stdlib-js" w "2.0.21" w "2.1.0-Beta1"
-      val test = "org.jetbrains.kotlin" d "kotlin-test" w "2.0.21" w "2.1.0-Beta1"
-      val test_annotations_common = "org.jetbrains.kotlin" d "kotlin-test-annotations-common" w "2.0.21" w "2.1.0-Beta1"
-      val test_common = "org.jetbrains.kotlin" d "kotlin-test-common" w "2.0.21" w "2.1.0-Beta1"
-      val test_js = "org.jetbrains.kotlin" d "kotlin-test-js" w "2.0.21" w "2.1.0-Beta1"
+      val reflect = "org.jetbrains.kotlin" d "kotlin-reflect" w "2.0.21" w "2.1.0-Beta2"
+      val script_runtime = "org.jetbrains.kotlin" d "kotlin-script-runtime" w "2.0.21" w "2.1.0-Beta2"
+      val stdlib = "org.jetbrains.kotlin" d "kotlin-stdlib" w "2.0.21" w "2.1.0-Beta2"
+      val stdlib_common = "org.jetbrains.kotlin" d "kotlin-stdlib-common" w "2.0.21" w "2.1.0-Beta2"
+      val stdlib_jdk7 = "org.jetbrains.kotlin" d "kotlin-stdlib-jdk7" w "2.0.21" w "2.1.0-Beta2"
+      val stdlib_jdk8 = "org.jetbrains.kotlin" d "kotlin-stdlib-jdk8" w "2.0.21" w "2.1.0-Beta2"
+      val stdlib_js = "org.jetbrains.kotlin" d "kotlin-stdlib-js" w "2.0.21" w "2.1.0-Beta2"
+      val test = "org.jetbrains.kotlin" d "kotlin-test" w "2.0.21" w "2.1.0-Beta2"
+      val test_annotations_common = "org.jetbrains.kotlin" d "kotlin-test-annotations-common" w "2.0.21" w "2.1.0-Beta2"
+      val test_common = "org.jetbrains.kotlin" d "kotlin-test-common" w "2.0.21" w "2.1.0-Beta2"
+      val test_js = "org.jetbrains.kotlin" d "kotlin-test-js" w "2.0.21" w "2.1.0-Beta2"
       val test_js_runner = "org.jetbrains.kotlin" d "kotlin-test-js-runner" w "2.0.21"
-      val test_junit = "org.jetbrains.kotlin" d "kotlin-test-junit" w "2.0.21" w "2.1.0-Beta1"
-      val test_junit5 = "org.jetbrains.kotlin" d "kotlin-test-junit5" w "2.0.21" w "2.1.0-Beta1"
-      val test_testng = "org.jetbrains.kotlin" d "kotlin-test-testng" w "2.0.21" w "2.1.0-Beta1"
+      val test_junit = "org.jetbrains.kotlin" d "kotlin-test-junit" w "2.0.21" w "2.1.0-Beta2"
+      val test_junit5 = "org.jetbrains.kotlin" d "kotlin-test-junit5" w "2.0.21" w "2.1.0-Beta2"
+      val test_testng = "org.jetbrains.kotlin" d "kotlin-test-testng" w "2.0.21" w "2.1.0-Beta2"
     }
     object KotlinX {
       val atomicfu_gradle_plugin = "org.jetbrains.kotlinx" d "atomicfu-gradle-plugin" w "0.25.0"
