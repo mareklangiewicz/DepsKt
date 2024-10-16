@@ -763,7 +763,7 @@ object App {
       val rx3 = "app.cash.copper" d "copper-rx3" w "1.0.0"
     }
     object Licensee {
-      val gradle_plugin = "app.cash.licensee" d "licensee-gradle-plugin" w "1.11.0"
+      val gradle_plugin = "app.cash.licensee" d "licensee-gradle-plugin" w "1.12.0"
     }
     object Molecule {
       val gradle_plugin = "app.cash.molecule" d "molecule-gradle-plugin" w "1.4.3"
@@ -1187,11 +1187,11 @@ object Com {
   }
   object Rickclephas {
     object Kmp {
-      val nativecoroutines_annotations = "com.rickclephas.kmp" d "kmp-nativecoroutines-annotations" w "0.13.3" w "1.0.0-ALPHA-36-kotlin-2.1.0-Beta1"
-      val nativecoroutines_compiler = "com.rickclephas.kmp" d "kmp-nativecoroutines-compiler" w "0.13.3" w "1.0.0-ALPHA-36-kotlin-2.1.0-Beta1"
-      val nativecoroutines_compiler_embeddable = "com.rickclephas.kmp" d "kmp-nativecoroutines-compiler-embeddable" w "0.13.3" w "1.0.0-ALPHA-36-kotlin-2.1.0-Beta1"
-      val nativecoroutines_core = "com.rickclephas.kmp" d "kmp-nativecoroutines-core" w "0.13.3" w "1.0.0-ALPHA-36-kotlin-2.1.0-Beta1"
-      val nativecoroutines_gradle_plugin = "com.rickclephas.kmp" d "kmp-nativecoroutines-gradle-plugin" w "0.13.3" w "1.0.0-ALPHA-36-kotlin-2.1.0-Beta1"
+      val nativecoroutines_annotations = "com.rickclephas.kmp" d "kmp-nativecoroutines-annotations" w "0.13.3" w "1.0.0-ALPHA-37"
+      val nativecoroutines_compiler = "com.rickclephas.kmp" d "kmp-nativecoroutines-compiler" w "0.13.3" w "1.0.0-ALPHA-37"
+      val nativecoroutines_compiler_embeddable = "com.rickclephas.kmp" d "kmp-nativecoroutines-compiler-embeddable" w "0.13.3" w "1.0.0-ALPHA-37"
+      val nativecoroutines_core = "com.rickclephas.kmp" d "kmp-nativecoroutines-core" w "0.13.3" w "1.0.0-ALPHA-37"
+      val nativecoroutines_gradle_plugin = "com.rickclephas.kmp" d "kmp-nativecoroutines-gradle-plugin" w "0.13.3" w "1.0.0-ALPHA-37"
     }
   }
   object Russhwolf {
@@ -1507,7 +1507,7 @@ object Io {
     }
   }
   object Projectreactor {
-    val reactor_test = "io.projectreactor" d "reactor-test" w "3.6.10"
+    val reactor_test = "io.projectreactor" d "reactor-test" w "3.6.11"
     object Kotlin {
       val reactor_kotlin_extensions = "io.projectreactor.kotlin" d "reactor-kotlin-extensions" w "1.2.3"
     }
@@ -1642,7 +1642,7 @@ object Org {
   }
   object JetBrains {
     object Compose {
-      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.6.11" w "1.7.0+build1877-release-1.7" w "1.7.0-rc01" w "1.7.0-rc01+build1854-release-1.7" w "1.8.0-dev1875" w "1.8.0-dev1883"
+      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.7.0" w "1.8.0-dev1875" w "1.8.0-dev1883"
       object Compiler {
         val compiler = "org.jetbrains.compose.compiler" d "compiler" w "1.5.8.1" w "1.5.9-kt-2.0.0-Beta4" w "1.5.14"
       }
@@ -1690,10 +1690,10 @@ object Org {
       val coroutines_slf4j = "org.jetbrains.kotlinx" d "kotlinx-coroutines-slf4j" w "1.9.0"
       val coroutines_swing = "org.jetbrains.kotlinx" d "kotlinx-coroutines-swing" w "1.9.0"
       val coroutines_test = "org.jetbrains.kotlinx" d "kotlinx-coroutines-test" w "1.9.0"
-      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.14.1" w "0.15.0-dev-4455"
-      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.14.1" w "0.15.0-dev-4455"
-      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.14.1" w "0.15.0-dev-4455"
-      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.14.1" w "0.15.0-dev-4455"
+      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.14.1" w "0.15.0-dev-4484"
+      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.14.1" w "0.15.0-dev-4484"
+      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.14.1" w "0.15.0-dev-4484"
+      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.14.1" w "0.15.0-dev-4484"
       val datetime = "org.jetbrains.kotlinx" d "kotlinx-datetime" w "0.6.1"
       val html = "org.jetbrains.kotlinx" d "kotlinx-html" w "0.11.0"
       val io_jvm = "org.jetbrains.kotlinx" d "kotlinx-io-jvm" w "0.1.16"
@@ -1774,11 +1774,11 @@ object Org {
     }
   }
   object Mockito {
-    val android = "org.mockito" d "mockito-android" w "5.14.1"
-    val core = "org.mockito" d "mockito-core" w "5.14.1"
-    val errorprone = "org.mockito" d "mockito-errorprone" w "5.14.1"
+    val android = "org.mockito" d "mockito-android" w "5.14.2"
+    val core = "org.mockito" d "mockito-core" w "5.14.2"
+    val errorprone = "org.mockito" d "mockito-errorprone" w "5.14.2"
     val inline = "org.mockito" d "mockito-inline" w "5.2.0"
-    val junit_jupiter = "org.mockito" d "mockito-junit-jupiter" w "5.14.1"
+    val junit_jupiter = "org.mockito" d "mockito-junit-jupiter" w "5.14.2"
     object Kotlin {
       val mockito_kotlin = "org.mockito.kotlin" d "mockito-kotlin" w "5.4.0"
     }
