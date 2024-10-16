@@ -37,9 +37,10 @@ private fun Dependency.checkWith(expectedVer: Ver, warnOnly: Boolean) {
 object Vers {
 
   /** [releases github](https://github.com/JetBrains/kotlin/releases) */
-  val Kotlin20 = Org.JetBrains.Kotlin.stdlib.verLast
+  val Kotlin21 = Org.JetBrains.Kotlin.stdlib.verLast
+  val Kotlin20 = Ver("2.0.21")
   val Kotlin19 = Ver("1.9.25")
-  val Kotlin = Kotlin20
+  val Kotlin = Kotlin21
 
 
 
@@ -52,7 +53,6 @@ object Vers {
   // https://youtrack.jetbrains.com/issue/CMP-1583/K2-JS-1.7.0-dev1698-in-browser-TypeError-content-is-not-a-function
   // UPDATE2: Looks like it's fixed in kotlin 2.0.20-Beta2!! (works in reproduce-06; let's try in other projects)
 
-  val ComposeJbBeta = Ver("1.7.0-beta02")
   val ComposeJbStable = Org.JetBrains.Compose.gradle_plugin.verLastStable
 
   /**
@@ -63,7 +63,7 @@ object Vers {
    * [maven runtime](https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/runtime/runtime/)
    * [maven ui-js](https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/ui/ui-js/)
    */
-  val ComposeJb = ComposeJbBeta
+  val ComposeJb = ComposeJbEdge
   // Check with not only template-full but also uwidgets, before updating.
   // Before update: Make sure not only plugin is already published, but other artifacts too (like ui-js).
   // https://github.com/JetBrains/compose-multiplatform/releases
@@ -112,7 +112,7 @@ object Vers {
    * - [github](https://github.com/Kotlin/dokka)
    * - [github releases](https://github.com/Kotlin/dokka/releases)
    */
-  val DokkaPlug = Ver("1.9.20")
+  val DokkaPlug = Ver("2.0.0-Beta")
 
 
   /**
@@ -126,7 +126,7 @@ object Vers {
    * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
    * [github](https://github.com/Kotlin/kotlin-jupyter)
    */
-  val KotlinJupyterPlug = Ver("0.12.0-304")
+  val KotlinJupyterPlug = Ver("0.12.0-316")
 
   /**
    * Gradle Shadow Gradle Plugin
@@ -134,7 +134,7 @@ object Vers {
    * - [github john rengelman shadow](https://github.com/johnrengelman/shadow)
    * - [docs](https://github.com/johnrengelman/shadow)
    */
-  val GradleShadowPlug = Ver("8.3.2")
+  val GradleShadowPlug = Ver("8.3.3")
 
   /**
    * Osacky Doctor Gradle Plugin
@@ -151,7 +151,7 @@ object Vers {
    * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val DepsPlug = Ver(0, 3, 52) // TODO make sure it's always synced with myLibDetails(version)
+  val DepsPlug = Ver(0, 3, 54) // TODO make sure it's always synced with myLibDetails(version)
 
   /**
    * SourceFun Gradle Plugin
@@ -159,7 +159,7 @@ object Vers {
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    * - [plugins gradle sourcefun](https://plugins.gradle.org/plugin/pl.mareklangiewicz.sourcefun)
    */
-  val SourceFunPlug = Ver("0.4.20")
+  val SourceFunPlug = Ver("0.4.21")
 
   const val JvmDefaultVer = "22"
 
