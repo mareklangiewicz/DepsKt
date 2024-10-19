@@ -1899,7 +1899,7 @@ object Org {
       val spring_cloud_stream_binder_rabbit = "org.springframework.cloud" d "spring-cloud-stream-binder-rabbit" w "4.1.3"
     }
     object Data {
-      val spring_data_rest_hal_explorer = "org.springframework.data" d "spring-data-rest-hal-explorer" w "4.3.4"
+      val spring_data_rest_hal_explorer = "org.springframework.data" d "spring-data-rest-hal-explorer" w "4.3.5"
     }
     object Geode {
       val spring_geode_bom = "org.springframework.geode" d "spring-geode-bom" w "1.7.5"
