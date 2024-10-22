@@ -382,7 +382,7 @@ object AndroidX {
     val core_okio = "androidx.datastore" d "datastore-core-okio" w "1.1.1"
     val datastore = "androidx.datastore" d "datastore" w "1.1.1"
     val preferences = "androidx.datastore" d "datastore-preferences" w "1.1.1"
-    val preferences_core = "androidx.datastore" d "datastore-preferences-core" w "1.1.1"
+    val preferences_core = "androidx.datastore" d "datastore-preferences-core"
     val preferences_rxjava2 = "androidx.datastore" d "datastore-preferences-rxJava2" w "1.1.1"
     val preferences_rxjava3 = "androidx.datastore" d "datastore-preferences-rxJava3" w "1.1.1"
     val rxjava2 = "androidx.datastore" d "datastore-rxJava2" w "1.1.1"
@@ -552,7 +552,7 @@ object AndroidX {
     val runtime = "androidx.navigation" d "navigation-runtime" w "2.4.0-alpha02" w "2.8.3" w "2.9.0-alpha01"
     val runtime_ktx = "androidx.navigation" d "navigation-runtime-ktx" w "2.4.0-alpha02" w "2.8.3" w "2.9.0-alpha01"
     val safe_args_generator = "androidx.navigation" d "navigation-safe-args-generator" w "2.8.3" w "2.9.0-alpha01"
-    val safe_args_gradle_plugin = "androidx.navigation" d "navigation-safe-args-gradle-plugin" w "2.8.3" w "2.9.0-alpha01"
+    val safe_args_gradle_plugin = "androidx.navigation" d "navigation-safe-args-gradle-plugin"
     val testing = "androidx.navigation" d "navigation-testing" w "2.4.0-alpha02" w "2.8.3" w "2.9.0-alpha01"
     val ui = "androidx.navigation" d "navigation-ui" w "2.8.3" w "2.9.0-alpha01"
     val ui_ktx = "androidx.navigation" d "navigation-ui-ktx" w "2.8.3" w "2.9.0-alpha01"
@@ -871,7 +871,7 @@ object Com {
       }
       object Gms {
         val oss_licenses_plugin = "com.google.android.gms" d "oss-licenses-plugin" w "0.10.6"
-        val play_services_analytics = "com.google.android.gms" d "play-services-analytics" w "18.1.0"
+        val play_services_analytics = "com.google.android.gms" d "play-services-analytics" w "18.1.1"
         val play_services_appset = "com.google.android.gms" d "play-services-appset" w "16.1.0"
         val play_services_auth = "com.google.android.gms" d "play-services-auth" w "21.2.0"
         val play_services_auth_api_phone = "com.google.android.gms" d "play-services-auth-api-phone" w "18.1.0"
@@ -905,7 +905,7 @@ object Com {
         val play_services_pay = "com.google.android.gms" d "play-services-pay" w "16.5.0"
         val play_services_recaptcha = "com.google.android.gms" d "play-services-recaptcha" w "17.1.0"
         val play_services_safetynet = "com.google.android.gms" d "play-services-safetynet" w "18.1.0"
-        val play_services_tagmanager = "com.google.android.gms" d "play-services-tagmanager" w "18.1.0"
+        val play_services_tagmanager = "com.google.android.gms" d "play-services-tagmanager" w "18.1.1"
         val play_services_tasks = "com.google.android.gms" d "play-services-tasks" w "18.2.0"
         val play_services_vision = "com.google.android.gms" d "play-services-vision" w "20.1.3"
         val play_services_wallet = "com.google.android.gms" d "play-services-wallet" w "19.4.0"
@@ -988,35 +988,35 @@ object Com {
       val analytics_ktx = "com.google.firebase" d "firebase-analytics-ktx" w "22.1.2"
       val appdistribution_gradle = "com.google.firebase" d "firebase-appdistribution-gradle" w "5.0.0"
       val appindexing = "com.google.firebase" d "firebase-appindexing" w "20.0.0"
-      val auth = "com.google.firebase" d "firebase-auth" w "23.0.0"
-      val auth_ktx = "com.google.firebase" d "firebase-auth-ktx" w "23.0.0"
-      val bom = "com.google.firebase" d "firebase-bom" w "33.4.0"
-      val config = "com.google.firebase" d "firebase-config" w "22.0.0"
-      val config_ktx = "com.google.firebase" d "firebase-config-ktx" w "22.0.0"
-      val crashlytics = "com.google.firebase" d "firebase-crashlytics" w "19.2.0"
+      val auth = "com.google.firebase" d "firebase-auth" w "23.1.0"
+      val auth_ktx = "com.google.firebase" d "firebase-auth-ktx" w "23.1.0"
+      val bom = "com.google.firebase" d "firebase-bom" w "33.5.0"
+      val config = "com.google.firebase" d "firebase-config" w "22.0.1"
+      val config_ktx = "com.google.firebase" d "firebase-config-ktx" w "22.0.1"
+      val crashlytics = "com.google.firebase" d "firebase-crashlytics" w "19.2.1"
       val crashlytics_gradle = "com.google.firebase" d "firebase-crashlytics-gradle" w "3.0.2"
-      val crashlytics_ktx = "com.google.firebase" d "firebase-crashlytics-ktx" w "19.2.0"
-      val crashlytics_ndk = "com.google.firebase" d "firebase-crashlytics-ndk" w "19.2.0"
+      val crashlytics_ktx = "com.google.firebase" d "firebase-crashlytics-ktx" w "19.2.1"
+      val crashlytics_ndk = "com.google.firebase" d "firebase-crashlytics-ndk" w "19.2.1"
       val database = "com.google.firebase" d "firebase-database" w "21.0.0"
       val database_ktx = "com.google.firebase" d "firebase-database-ktx" w "21.0.0"
       val dynamic_links = "com.google.firebase" d "firebase-dynamic-links" w "22.1.0"
       val dynamic_links_ktx = "com.google.firebase" d "firebase-dynamic-links-ktx" w "22.1.0"
       val dynamic_module_support = "com.google.firebase" d "firebase-dynamic-module-support" w "16.0.0-beta03"
-      val firestore = "com.google.firebase" d "firebase-firestore" w "25.1.0"
-      val firestore_ktx = "com.google.firebase" d "firebase-firestore-ktx" w "25.1.0"
+      val firestore = "com.google.firebase" d "firebase-firestore" w "25.1.1"
+      val firestore_ktx = "com.google.firebase" d "firebase-firestore-ktx" w "25.1.1"
       val functions = "com.google.firebase" d "firebase-functions" w "21.0.0"
       val functions_ktx = "com.google.firebase" d "firebase-functions-ktx" w "21.0.0"
-      val inappmessaging = "com.google.firebase" d "firebase-inappmessaging" w "21.0.0"
-      val inappmessaging_display = "com.google.firebase" d "firebase-inappmessaging-display" w "21.0.0"
-      val inappmessaging_display_ktx = "com.google.firebase" d "firebase-inappmessaging-display-ktx" w "21.0.0"
-      val inappmessaging_ktx = "com.google.firebase" d "firebase-inappmessaging-ktx" w "21.0.0"
-      val messaging = "com.google.firebase" d "firebase-messaging" w "24.0.2"
-      val messaging_directboot = "com.google.firebase" d "firebase-messaging-directboot" w "24.0.2"
-      val messaging_ktx = "com.google.firebase" d "firebase-messaging-ktx" w "24.0.2"
-      val ml_modeldownloader = "com.google.firebase" d "firebase-ml-modeldownloader" w "25.0.0"
-      val ml_modeldownloader_ktx = "com.google.firebase" d "firebase-ml-modeldownloader-ktx" w "25.0.0"
-      val perf = "com.google.firebase" d "firebase-perf" w "21.0.1"
-      val perf_ktx = "com.google.firebase" d "firebase-perf-ktx" w "21.0.1"
+      val inappmessaging = "com.google.firebase" d "firebase-inappmessaging" w "21.0.1"
+      val inappmessaging_display = "com.google.firebase" d "firebase-inappmessaging-display" w "21.0.1"
+      val inappmessaging_display_ktx = "com.google.firebase" d "firebase-inappmessaging-display-ktx" w "21.0.1"
+      val inappmessaging_ktx = "com.google.firebase" d "firebase-inappmessaging-ktx" w "21.0.1"
+      val messaging = "com.google.firebase" d "firebase-messaging" w "24.0.3"
+      val messaging_directboot = "com.google.firebase" d "firebase-messaging-directboot" w "24.0.3"
+      val messaging_ktx = "com.google.firebase" d "firebase-messaging-ktx" w "24.0.3"
+      val ml_modeldownloader = "com.google.firebase" d "firebase-ml-modeldownloader" w "25.0.1"
+      val ml_modeldownloader_ktx = "com.google.firebase" d "firebase-ml-modeldownloader-ktx" w "25.0.1"
+      val perf = "com.google.firebase" d "firebase-perf" w "21.0.2"
+      val perf_ktx = "com.google.firebase" d "firebase-perf-ktx" w "21.0.2"
       val perf_plugin = "com.google.firebase" d "perf-plugin" w "1.4.2"
       val storage = "com.google.firebase" d "firebase-storage" w "21.0.1"
       val storage_ktx = "com.google.firebase" d "firebase-storage-ktx" w "21.0.1"
@@ -1187,11 +1187,11 @@ object Com {
   }
   object Rickclephas {
     object Kmp {
-      val nativecoroutines_annotations = "com.rickclephas.kmp" d "kmp-nativecoroutines-annotations" w "0.13.3" w "1.0.0-ALPHA-37"
-      val nativecoroutines_compiler = "com.rickclephas.kmp" d "kmp-nativecoroutines-compiler" w "0.13.3" w "1.0.0-ALPHA-37"
-      val nativecoroutines_compiler_embeddable = "com.rickclephas.kmp" d "kmp-nativecoroutines-compiler-embeddable" w "0.13.3" w "1.0.0-ALPHA-37"
-      val nativecoroutines_core = "com.rickclephas.kmp" d "kmp-nativecoroutines-core" w "0.13.3" w "1.0.0-ALPHA-37"
-      val nativecoroutines_gradle_plugin = "com.rickclephas.kmp" d "kmp-nativecoroutines-gradle-plugin" w "0.13.3" w "1.0.0-ALPHA-37"
+      val nativecoroutines_annotations = "com.rickclephas.kmp" d "kmp-nativecoroutines-annotations" w "0.13.3" w "1.0.0-ALPHA-37-kotlin-2.1.0-Beta2"
+      val nativecoroutines_compiler = "com.rickclephas.kmp" d "kmp-nativecoroutines-compiler" w "0.13.3" w "1.0.0-ALPHA-37-kotlin-2.1.0-Beta2"
+      val nativecoroutines_compiler_embeddable = "com.rickclephas.kmp" d "kmp-nativecoroutines-compiler-embeddable" w "0.13.3" w "1.0.0-ALPHA-37-kotlin-2.1.0-Beta2"
+      val nativecoroutines_core = "com.rickclephas.kmp" d "kmp-nativecoroutines-core" w "0.13.3" w "1.0.0-ALPHA-37-kotlin-2.1.0-Beta2"
+      val nativecoroutines_gradle_plugin = "com.rickclephas.kmp" d "kmp-nativecoroutines-gradle-plugin" w "0.13.3" w "1.0.0-ALPHA-37-kotlin-2.1.0-Beta2"
     }
   }
   object Russhwolf {
@@ -1631,18 +1631,18 @@ object Org {
     val testing_webdriver = "org.http4k" d "http4k-testing-webdriver" w "5.32.4.0"
   }
   object JUnit {
-    val bom = "org.junit" d "junit-bom" w "5.11.2"
+    val bom = "org.junit" d "junit-bom" w "5.11.3"
     object Jupiter {
-      val junit_jupiter = "org.junit.jupiter" d "junit-jupiter" w "5.11.2"
-      val junit_jupiter_api = "org.junit.jupiter" d "junit-jupiter-api" w "5.11.2"
-      val junit_jupiter_engine = "org.junit.jupiter" d "junit-jupiter-engine" w "5.11.2"
-      val junit_jupiter_migrationsupport = "org.junit.jupiter" d "junit-jupiter-migrationsupport" w "5.11.2"
-      val junit_jupiter_params = "org.junit.jupiter" d "junit-jupiter-params" w "5.11.2"
+      val junit_jupiter = "org.junit.jupiter" d "junit-jupiter" w "5.11.3"
+      val junit_jupiter_api = "org.junit.jupiter" d "junit-jupiter-api" w "5.11.3"
+      val junit_jupiter_engine = "org.junit.jupiter" d "junit-jupiter-engine" w "5.11.3"
+      val junit_jupiter_migrationsupport = "org.junit.jupiter" d "junit-jupiter-migrationsupport" w "5.11.3"
+      val junit_jupiter_params = "org.junit.jupiter" d "junit-jupiter-params" w "5.11.3"
     }
   }
   object JetBrains {
     object Compose {
-      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.7.0" w "1.8.0-dev1875" w "1.8.0-dev1883"
+      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.7.0" w "1.8.0-dev1890"
       object Compiler {
         val compiler = "org.jetbrains.compose.compiler" d "compiler" w "1.5.8.1" w "1.5.9-kt-2.0.0-Beta4" w "1.5.14"
       }
@@ -1670,7 +1670,7 @@ object Org {
       val test_testng = "org.jetbrains.kotlin" d "kotlin-test-testng" w "2.0.21" w "2.1.0-Beta2"
     }
     object KotlinX {
-      val atomicfu_gradle_plugin = "org.jetbrains.kotlinx" d "atomicfu-gradle-plugin" w "0.25.0" w "0.26.0"
+      val atomicfu_gradle_plugin = "org.jetbrains.kotlinx" d "atomicfu-gradle-plugin" w "0.26.0"
       val cli = "org.jetbrains.kotlinx" d "kotlinx-cli" w "0.3.6"
       val collections_immutable = "org.jetbrains.kotlinx" d "kotlinx-collections-immutable" w "0.3.8"
       val collections_immutable_jvm = "org.jetbrains.kotlinx" d "kotlinx-collections-immutable-jvm" w "0.3.8"
@@ -1929,16 +1929,16 @@ object Org {
       val spring_kafka_test = "org.springframework.kafka" d "spring-kafka-test" w "3.2.4"
     }
     object Restdocs {
-      val spring_restdocs_webtestclient = "org.springframework.restdocs" d "spring-restdocs-webtestclient" w "3.0.1"
+      val spring_restdocs_webtestclient = "org.springframework.restdocs" d "spring-restdocs-webtestclient" w "3.0.2"
     }
     object Security {
-      val spring_security_messaging = "org.springframework.security" d "spring-security-messaging" w "6.3.3"
-      val spring_security_rsocket = "org.springframework.security" d "spring-security-rsocket" w "6.3.3"
-      val spring_security_test = "org.springframework.security" d "spring-security-test" w "6.3.3"
+      val spring_security_messaging = "org.springframework.security" d "spring-security-messaging" w "6.3.4"
+      val spring_security_rsocket = "org.springframework.security" d "spring-security-rsocket" w "6.3.4"
+      val spring_security_test = "org.springframework.security" d "spring-security-test" w "6.3.4"
     }
     object Session {
-      val spring_session_data_redis = "org.springframework.session" d "spring-session-data-redis" w "3.3.2"
-      val spring_session_jdbc = "org.springframework.session" d "spring-session-jdbc" w "3.3.2"
+      val spring_session_data_redis = "org.springframework.session" d "spring-session-data-redis" w "3.3.3"
+      val spring_session_jdbc = "org.springframework.session" d "spring-session-jdbc" w "3.3.3"
     }
   }
 }
