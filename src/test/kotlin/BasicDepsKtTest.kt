@@ -6,12 +6,13 @@ import pl.mareklangiewicz.deps.verLastStable
 class BasicDepsKtTest {
 
   @Test
-  fun printSomStuff() {
-    println(vers.DepsPlug)
-    println(plugs.Deps)
-    println(vers.ComposeJb)
-    println(plugs.ComposeJb)
-    println(repos.composeJbDev)
+  fun printSomeStuff() {
+    println("vers.DepsPlug      == ${vers.DepsPlug}")
+    println("plugs.Deps         == ${plugs.Deps}")
+    println("vers.Kotlin        == ${vers.Kotlin}")
+    println("vers.ComposeJb     == ${vers.ComposeJb}")
+    println("plugs.ComposeJb    == ${plugs.ComposeJb}")
+    println("repos.composeJbDev == ${repos.composeJbDev}")
   }
 
   @Test
