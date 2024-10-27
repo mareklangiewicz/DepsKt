@@ -823,7 +823,13 @@ object Com {
   object GitHub {
     object Ajalt {
       object Mordant {
+        val coroutines = "com.github.ajalt.mordant" d "mordant-coroutines" w "3.0.0"
+        val graal_ffi = "com.github.ajalt.mordant" d "mordant-graal-ffi"
+        val jvm_ffm = "com.github.ajalt.mordant" d "mordant-jvm-ffm" w "3.0.0"
+        val jvm_jna = "com.github.ajalt.mordant" d "mordant-jvm-jna" w "3.0.0"
+        val markdown = "com.github.ajalt.mordant" d "mordant-markdown" w "3.0.0"
         val mordant = "com.github.ajalt.mordant" d "mordant" w "3.0.0"
+        val omnibus = "com.github.ajalt.mordant" d "mordant-omnibus"
       }
     }
     object ChuckerTeam {
@@ -1354,7 +1360,10 @@ object Io {
       }
     }
     object TypeSafeGitHub {
+      val action_binding_generator = "io.github.typesafegithub" d "action-binding-generator" w "3.0.1"
+      val action_updates_checker = "io.github.typesafegithub" d "action-updates-checker" w "3.0.1"
       val github_workflows_kt = "io.github.typesafegithub" d "github-workflows-kt" w "3.0.1"
+      val shared_internal = "io.github.typesafegithub" d "shared-internal" w "3.0.1"
     }
   }
   object Insert_koin {
