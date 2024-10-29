@@ -885,9 +885,9 @@ object Com {
         val play_services_awareness = "com.google.android.gms" d "play-services-awareness" w "19.1.0"
         val play_services_base = "com.google.android.gms" d "play-services-base" w "18.5.0"
         val play_services_basement = "com.google.android.gms" d "play-services-basement" w "18.4.0"
-        val play_services_cast = "com.google.android.gms" d "play-services-cast" w "21.5.0"
-        val play_services_cast_framework = "com.google.android.gms" d "play-services-cast-framework" w "21.5.0"
-        val play_services_cast_tv = "com.google.android.gms" d "play-services-cast-tv" w "21.1.0"
+        val play_services_cast = "com.google.android.gms" d "play-services-cast" w "22.0.0"
+        val play_services_cast_framework = "com.google.android.gms" d "play-services-cast-framework" w "22.0.0"
+        val play_services_cast_tv = "com.google.android.gms" d "play-services-cast-tv" w "21.1.1"
         val play_services_cronet = "com.google.android.gms" d "play-services-cronet" w "18.1.0"
         val play_services_drive = "com.google.android.gms" d "play-services-drive" w "17.0.0"
         val play_services_fido = "com.google.android.gms" d "play-services-fido" w "21.1.0"
@@ -1651,7 +1651,7 @@ object Org {
   }
   object JetBrains {
     object Compose {
-      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.7.0" w "1.8.0-dev1890"
+      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.7.0" w "1.8.0-dev1890" w "1.8.0-dev1897"
       object Compiler {
         val compiler = "org.jetbrains.compose.compiler" d "compiler" w "1.5.8.1" w "1.5.9-kt-2.0.0-Beta4" w "1.5.14"
       }
@@ -1699,10 +1699,10 @@ object Org {
       val coroutines_slf4j = "org.jetbrains.kotlinx" d "kotlinx-coroutines-slf4j" w "1.9.0"
       val coroutines_swing = "org.jetbrains.kotlinx" d "kotlinx-coroutines-swing" w "1.9.0"
       val coroutines_test = "org.jetbrains.kotlinx" d "kotlinx-coroutines-test" w "1.9.0"
-      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.14.1" w "0.15.0-dev-4652"
-      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.14.1" w "0.15.0-dev-4652"
-      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.14.1" w "0.15.0-dev-4652"
-      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.14.1" w "0.15.0-dev-4652"
+      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.14.1" w "0.15.0-dev-4669"
+      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.14.1" w "0.15.0-dev-4669"
+      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.14.1" w "0.15.0-dev-4669"
+      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.14.1" w "0.15.0-dev-4669"
       val datetime = "org.jetbrains.kotlinx" d "kotlinx-datetime" w "0.6.1"
       val html = "org.jetbrains.kotlinx" d "kotlinx-html" w "0.11.0"
       val io_jvm = "org.jetbrains.kotlinx" d "kotlinx-io-jvm" w "0.1.16"
