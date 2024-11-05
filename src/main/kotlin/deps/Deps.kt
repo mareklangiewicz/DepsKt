@@ -1651,7 +1651,7 @@ object Org {
   }
   object JetBrains {
     object Compose {
-      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.7.0" w "1.8.0-dev1899"
+      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.7.0" w "1.8.0-dev1905"
       object Compiler {
         val compiler = "org.jetbrains.compose.compiler" d "compiler" w "1.5.8.1" w "1.5.9-kt-2.0.0-Beta4" w "1.5.14"
       }
@@ -1662,21 +1662,21 @@ object Org {
       val jdbc = "org.jetbrains.exposed" d "exposed-jdbc" w "0.56.0"
     }
     object Kotlin {
-      val reflect = "org.jetbrains.kotlin" d "kotlin-reflect" w "2.0.21" w "2.1.0-Beta2"
-      val script_runtime = "org.jetbrains.kotlin" d "kotlin-script-runtime" w "2.0.21" w "2.1.0-Beta2"
-      val stdlib = "org.jetbrains.kotlin" d "kotlin-stdlib" w "2.0.21" w "2.1.0-Beta2"
-      val stdlib_common = "org.jetbrains.kotlin" d "kotlin-stdlib-common" w "2.0.21" w "2.1.0-Beta2"
-      val stdlib_jdk7 = "org.jetbrains.kotlin" d "kotlin-stdlib-jdk7" w "2.0.21" w "2.1.0-Beta2"
-      val stdlib_jdk8 = "org.jetbrains.kotlin" d "kotlin-stdlib-jdk8" w "2.0.21" w "2.1.0-Beta2"
-      val stdlib_js = "org.jetbrains.kotlin" d "kotlin-stdlib-js" w "2.0.21" w "2.1.0-Beta2"
-      val test = "org.jetbrains.kotlin" d "kotlin-test" w "2.0.21" w "2.1.0-Beta2"
-      val test_annotations_common = "org.jetbrains.kotlin" d "kotlin-test-annotations-common" w "2.0.21" w "2.1.0-Beta2"
-      val test_common = "org.jetbrains.kotlin" d "kotlin-test-common" w "2.0.21" w "2.1.0-Beta2"
-      val test_js = "org.jetbrains.kotlin" d "kotlin-test-js" w "2.0.21" w "2.1.0-Beta2"
+      val reflect = "org.jetbrains.kotlin" d "kotlin-reflect" w "2.0.21" w "2.1.0-RC"
+      val script_runtime = "org.jetbrains.kotlin" d "kotlin-script-runtime" w "2.0.21" w "2.1.0-RC"
+      val stdlib = "org.jetbrains.kotlin" d "kotlin-stdlib" w "2.0.21" w "2.1.0-RC"
+      val stdlib_common = "org.jetbrains.kotlin" d "kotlin-stdlib-common" w "2.0.21" w "2.1.0-RC"
+      val stdlib_jdk7 = "org.jetbrains.kotlin" d "kotlin-stdlib-jdk7" w "2.0.21" w "2.1.0-RC"
+      val stdlib_jdk8 = "org.jetbrains.kotlin" d "kotlin-stdlib-jdk8" w "2.0.21" w "2.1.0-RC"
+      val stdlib_js = "org.jetbrains.kotlin" d "kotlin-stdlib-js" w "2.0.21" w "2.1.0-RC"
+      val test = "org.jetbrains.kotlin" d "kotlin-test" w "2.0.21" w "2.1.0-RC"
+      val test_annotations_common = "org.jetbrains.kotlin" d "kotlin-test-annotations-common" w "2.0.21" w "2.1.0-RC"
+      val test_common = "org.jetbrains.kotlin" d "kotlin-test-common" w "2.0.21" w "2.1.0-RC"
+      val test_js = "org.jetbrains.kotlin" d "kotlin-test-js" w "2.0.21" w "2.1.0-RC"
       val test_js_runner = "org.jetbrains.kotlin" d "kotlin-test-js-runner" w "2.0.21"
-      val test_junit = "org.jetbrains.kotlin" d "kotlin-test-junit" w "2.0.21" w "2.1.0-Beta2"
-      val test_junit5 = "org.jetbrains.kotlin" d "kotlin-test-junit5" w "2.0.21" w "2.1.0-Beta2"
-      val test_testng = "org.jetbrains.kotlin" d "kotlin-test-testng" w "2.0.21" w "2.1.0-Beta2"
+      val test_junit = "org.jetbrains.kotlin" d "kotlin-test-junit" w "2.0.21" w "2.1.0-RC"
+      val test_junit5 = "org.jetbrains.kotlin" d "kotlin-test-junit5" w "2.0.21" w "2.1.0-RC"
+      val test_testng = "org.jetbrains.kotlin" d "kotlin-test-testng" w "2.0.21" w "2.1.0-RC"
     }
     object KotlinX {
       val atomicfu_gradle_plugin = "org.jetbrains.kotlinx" d "atomicfu-gradle-plugin" w "0.26.0"
@@ -1699,10 +1699,10 @@ object Org {
       val coroutines_slf4j = "org.jetbrains.kotlinx" d "kotlinx-coroutines-slf4j" w "1.9.0"
       val coroutines_swing = "org.jetbrains.kotlinx" d "kotlinx-coroutines-swing" w "1.9.0"
       val coroutines_test = "org.jetbrains.kotlinx" d "kotlinx-coroutines-test" w "1.9.0"
-      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.14.1" w "0.15.0-dev-4759"
-      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.14.1" w "0.15.0-dev-4759"
-      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.14.1" w "0.15.0-dev-4759"
-      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.14.1" w "0.15.0-dev-4759"
+      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.14.1" w "0.15.0-dev-4803"
+      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.14.1" w "0.15.0-dev-4803"
+      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.14.1" w "0.15.0-dev-4803"
+      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.14.1" w "0.15.0-dev-4803"
       val datetime = "org.jetbrains.kotlinx" d "kotlinx-datetime" w "0.6.1"
       val html = "org.jetbrains.kotlinx" d "kotlinx-html" w "0.11.0"
       val io_jvm = "org.jetbrains.kotlinx" d "kotlinx-io-jvm" w "0.1.16"
