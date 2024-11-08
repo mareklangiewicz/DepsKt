@@ -799,7 +799,7 @@ object Com {
       val installreferrer = "com.android.installreferrer" d "installreferrer" w "2.2"
     }
     object Tools {
-      val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.2"
+      val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.3"
       val r8 = "com.android.tools" d "r8" w "8.5.35"
       object Build {
         val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.7.2" w "8.8.0-alpha09"
@@ -1893,7 +1893,7 @@ object Org {
       val spring_cloud_starter_netflix_turbine_stream = "org.springframework.cloud" d "spring-cloud-starter-netflix-turbine-stream" w "2.2.10.RELEASE"
       val spring_cloud_starter_netflix_zuul = "org.springframework.cloud" d "spring-cloud-starter-netflix-zuul" w "2.2.10.RELEASE"
       val spring_cloud_starter_oauth2 = "org.springframework.cloud" d "spring-cloud-starter-oauth2" w "2.2.5.RELEASE"
-      val spring_cloud_starter_open_service_broker = "org.springframework.cloud" d "spring-cloud-starter-open-service-broker" w "4.3.0"
+      val spring_cloud_starter_open_service_broker = "org.springframework.cloud" d "spring-cloud-starter-open-service-broker" w "4.3.1"
       val spring_cloud_starter_openfeign = "org.springframework.cloud" d "spring-cloud-starter-openfeign" w "4.1.3"
       val spring_cloud_starter_security = "org.springframework.cloud" d "spring-cloud-starter-security" w "2.2.5.RELEASE"
       val spring_cloud_starter_sleuth = "org.springframework.cloud" d "spring-cloud-starter-sleuth" w "3.1.11"
