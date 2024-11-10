@@ -118,7 +118,14 @@ data class LibAndroSettings(
 }
 
 data class LibReposSettings(
-  val withMavenLocal: Boolean = true,
+
+  /**
+   * It's a huge footgun! If REALLY needed, then do it manually with strict repository content filter.
+   * See: https://github.com/typesafegithub/github-workflows-kt/issues/1694#issuecomment-2439799129
+   */
+  @Deprecated("It's a huge footgun! If REALLY needed, then do it manually with strict repository content filter.")
+  val withMavenLocal: Boolean = false,
+
   val withMavenCentral: Boolean = true,
   val withGradle: Boolean = false,
   val withGoogle: Boolean = true,
