@@ -28,7 +28,7 @@ jobs:
       name: 'Set up JDK'
       uses: 'actions/setup-java@v4'
       with:
-        java-version: '22'
+        java-version: '23'
         distribution: 'zulu'
     - id: 'step-2'
       uses: 'gradle/actions/dependency-submission@v4'
