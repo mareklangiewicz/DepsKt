@@ -220,9 +220,9 @@ private infix fun Dep.w(verStr: String) = copy(vers = vers + Ver(verStr))
 
 object AndroidX {
   object Activity {
-    val activity = "androidx.activity" d "activity" w "1.3.0-beta01" w "1.9.3" w "1.10.0-alpha03"
-    val compose = "androidx.activity" d "activity-compose" w "1.3.0-beta01" w "1.9.3" w "1.10.0-alpha03"
-    val ktx = "androidx.activity" d "activity-ktx" w "1.3.0-beta01" w "1.9.3" w "1.10.0-alpha03"
+    val activity = "androidx.activity" d "activity" w "1.3.0-beta01" w "1.9.3" w "1.10.0-beta01"
+    val compose = "androidx.activity" d "activity-compose" w "1.3.0-beta01" w "1.9.3" w "1.10.0-beta01"
+    val ktx = "androidx.activity" d "activity-ktx" w "1.3.0-beta01" w "1.9.3" w "1.10.0-beta01"
   }
   object Annotation {
     val annotation = "androidx.annotation" d "annotation" w "1.3.0-alpha01" w "1.9.1"
@@ -254,11 +254,11 @@ object AndroidX {
     val autofill = "androidx.autofill" d "autofill" w "1.1.0" w "1.3.0-beta01"
   }
   object Benchmark {
-    val common = "androidx.benchmark" d "benchmark-common" w "1.1.0-alpha03" w "1.3.3" w "1.4.0-alpha04"
-    val gradle_plugin = "androidx.benchmark" d "benchmark-gradle-plugin" w "1.3.3" w "1.4.0-alpha04"
-    val junit4 = "androidx.benchmark" d "benchmark-junit4" w "1.1.0-alpha03" w "1.3.3" w "1.4.0-alpha04"
-    val macro = "androidx.benchmark" d "benchmark-macro" w "1.1.0-alpha03" w "1.3.3" w "1.4.0-alpha04"
-    val macro_junit4 = "androidx.benchmark" d "benchmark-macro-junit4" w "1.1.0-alpha03" w "1.3.3" w "1.4.0-alpha04"
+    val common = "androidx.benchmark" d "benchmark-common" w "1.1.0-alpha03" w "1.3.3" w "1.4.0-alpha05"
+    val gradle_plugin = "androidx.benchmark" d "benchmark-gradle-plugin" w "1.3.3" w "1.4.0-alpha05"
+    val junit4 = "androidx.benchmark" d "benchmark-junit4" w "1.1.0-alpha03" w "1.3.3" w "1.4.0-alpha05"
+    val macro = "androidx.benchmark" d "benchmark-macro" w "1.1.0-alpha03" w "1.3.3" w "1.4.0-alpha05"
+    val macro_junit4 = "androidx.benchmark" d "benchmark-macro-junit4" w "1.1.0-alpha03" w "1.3.3" w "1.4.0-alpha05"
   }
   object Biometric {
     val biometric = "androidx.biometric" d "biometric" w "1.1.0" w "1.4.0-alpha02"
@@ -278,67 +278,67 @@ object AndroidX {
   }
   object Car {
     object App {
-      val app = "androidx.car.app" d "app" w "1.4.0" w "1.7.0-beta02"
-      val automotive = "androidx.car.app" d "app-automotive" w "1.4.0" w "1.7.0-beta02"
-      val projected = "androidx.car.app" d "app-projected" w "1.4.0" w "1.7.0-beta02"
-      val testing = "androidx.car.app" d "app-testing" w "1.4.0" w "1.7.0-beta02"
+      val app = "androidx.car.app" d "app" w "1.4.0" w "1.7.0-beta03"
+      val automotive = "androidx.car.app" d "app-automotive" w "1.4.0" w "1.7.0-beta03"
+      val projected = "androidx.car.app" d "app-projected" w "1.4.0" w "1.7.0-beta03"
+      val testing = "androidx.car.app" d "app-testing" w "1.4.0" w "1.7.0-beta03"
     }
   }
   object CardView {
     val cardview = "androidx.cardview" d "cardview" w "1.0.0"
   }
   object Collection {
-    val collection = "androidx.collection" d "collection" w "1.4.5" w "1.5.0-alpha05"
-    val ktx = "androidx.collection" d "collection-ktx" w "1.4.5" w "1.5.0-alpha05"
+    val collection = "androidx.collection" d "collection" w "1.4.5" w "1.5.0-alpha06"
+    val ktx = "androidx.collection" d "collection-ktx" w "1.4.5" w "1.5.0-alpha06"
   }
   object Compose {
-    val bom = "androidx.compose" d "compose-bom" w "2024.10.01"
+    val bom = "androidx.compose" d "compose-bom" w "2024.11.00"
     object Animation {
-      val animation = "androidx.compose.animation" d "animation" w "1.0.0-beta06" w "1.7.5" w "1.8.0-alpha05"
-      val core = "androidx.compose.animation" d "animation-core" w "1.0.0-beta06" w "1.7.5" w "1.8.0-alpha05"
-      val graphics = "androidx.compose.animation" d "animation-graphics" w "1.7.5" w "1.8.0-alpha05"
+      val animation = "androidx.compose.animation" d "animation" w "1.0.0-beta06" w "1.7.5" w "1.8.0-alpha06"
+      val core = "androidx.compose.animation" d "animation-core" w "1.0.0-beta06" w "1.7.5" w "1.8.0-alpha06"
+      val graphics = "androidx.compose.animation" d "animation-graphics" w "1.7.5" w "1.8.0-alpha06"
     }
     object Compiler {
       val compiler = "androidx.compose.compiler" d "compiler" w "1.0.0-beta06" w "1.5.15"
     }
     object Foundation {
-      val foundation = "androidx.compose.foundation" d "foundation" w "1.0.0-beta06" w "1.7.5" w "1.8.0-alpha05"
-      val layout = "androidx.compose.foundation" d "foundation-layout" w "1.0.0-beta06" w "1.7.5" w "1.8.0-alpha05"
+      val foundation = "androidx.compose.foundation" d "foundation" w "1.0.0-beta06" w "1.7.5" w "1.8.0-alpha06"
+      val layout = "androidx.compose.foundation" d "foundation-layout" w "1.0.0-beta06" w "1.7.5" w "1.8.0-alpha06"
     }
     object Material {
       val icons_core = "androidx.compose.material" d "material-icons-core" w "1.0.0-beta06" w "1.7.5"
       val icons_extended = "androidx.compose.material" d "material-icons-extended" w "1.0.0-beta06" w "1.7.5"
-      val material = "androidx.compose.material" d "material" w "1.0.0-beta06" w "1.7.5" w "1.8.0-alpha05"
-      val ripple = "androidx.compose.material" d "material-ripple" w "1.0.0-beta06" w "1.7.5" w "1.8.0-alpha05"
+      val material = "androidx.compose.material" d "material" w "1.0.0-beta06" w "1.7.5" w "1.8.0-alpha06"
+      val ripple = "androidx.compose.material" d "material-ripple" w "1.0.0-beta06" w "1.7.5" w "1.8.0-alpha06"
     }
     object Material3 {
-      val material3 = "androidx.compose.material3" d "material3" w "1.3.1" w "1.4.0-alpha03"
-      val window_size_class = "androidx.compose.material3" d "material3-window-size-class" w "1.3.1" w "1.4.0-alpha03"
+      val material3 = "androidx.compose.material3" d "material3" w "1.3.1" w "1.4.0-alpha04"
+      val window_size_class = "androidx.compose.material3" d "material3-window-size-class" w "1.3.1" w "1.4.0-alpha04"
     }
     object Runtime {
       val dispatch = "androidx.compose.runtime" d "runtime-dispatch" w "1.0.0-alpha12"
-      val livedata = "androidx.compose.runtime" d "runtime-livedata" w "1.7.5" w "1.8.0-alpha05"
-      val runtime = "androidx.compose.runtime" d "runtime" w "1.0.0-beta06" w "1.7.5" w "1.8.0-alpha05"
-      val rxjava2 = "androidx.compose.runtime" d "runtime-rxjava2" w "1.7.5" w "1.8.0-alpha05"
-      val rxjava3 = "androidx.compose.runtime" d "runtime-rxjava3" w "1.7.5" w "1.8.0-alpha05"
-      val saveable = "androidx.compose.runtime" d "runtime-saveable" w "1.0.0-beta06" w "1.7.5" w "1.8.0-alpha05"
-      val tracing = "androidx.compose.runtime" d "runtime-tracing" w "1.7.5" w "1.8.0-alpha05"
+      val livedata = "androidx.compose.runtime" d "runtime-livedata" w "1.7.5" w "1.8.0-alpha06"
+      val runtime = "androidx.compose.runtime" d "runtime" w "1.0.0-beta06" w "1.7.5" w "1.8.0-alpha06"
+      val rxjava2 = "androidx.compose.runtime" d "runtime-rxjava2" w "1.7.5" w "1.8.0-alpha06"
+      val rxjava3 = "androidx.compose.runtime" d "runtime-rxjava3" w "1.7.5" w "1.8.0-alpha06"
+      val saveable = "androidx.compose.runtime" d "runtime-saveable" w "1.0.0-beta06" w "1.7.5" w "1.8.0-alpha06"
+      val tracing = "androidx.compose.runtime" d "runtime-tracing" w "1.7.5" w "1.8.0-alpha06"
     }
     object Ui {
-      val geometry = "androidx.compose.ui" d "ui-geometry" w "1.0.0-beta06" w "1.7.5" w "1.8.0-alpha05"
-      val graphics = "androidx.compose.ui" d "ui-graphics" w "1.0.0-beta06" w "1.7.5" w "1.8.0-alpha05"
-      val test = "androidx.compose.ui" d "ui-test" w "1.0.0-beta06" w "1.7.5" w "1.8.0-alpha05"
-      val test_junit4 = "androidx.compose.ui" d "ui-test-junit4" w "1.0.0-beta06" w "1.7.5" w "1.8.0-alpha05"
-      val test_manifest = "androidx.compose.ui" d "ui-test-manifest" w "1.7.5" w "1.8.0-alpha05"
-      val text = "androidx.compose.ui" d "ui-text" w "1.0.0-beta06" w "1.7.5" w "1.8.0-alpha05"
-      val text_google_fonts = "androidx.compose.ui" d "ui-text-google-fonts" w "1.7.5" w "1.8.0-alpha05"
-      val tooling = "androidx.compose.ui" d "ui-tooling" w "1.7.5" w "1.8.0-alpha05"
-      val tooling_data = "androidx.compose.ui" d "ui-tooling-data" w "1.7.5" w "1.8.0-alpha05"
-      val tooling_preview = "androidx.compose.ui" d "ui-tooling-preview" w "1.7.5" w "1.8.0-alpha05"
-      val ui = "androidx.compose.ui" d "ui" w "1.0.0-beta06" w "1.7.5" w "1.8.0-alpha05"
-      val unit = "androidx.compose.ui" d "ui-unit" w "1.0.0-beta06" w "1.7.5" w "1.8.0-alpha05"
-      val util = "androidx.compose.ui" d "ui-util" w "1.0.0-beta06" w "1.7.5" w "1.8.0-alpha05"
-      val viewbinding = "androidx.compose.ui" d "ui-viewbinding" w "1.7.5" w "1.8.0-alpha05"
+      val geometry = "androidx.compose.ui" d "ui-geometry" w "1.0.0-beta06" w "1.7.5" w "1.8.0-alpha06"
+      val graphics = "androidx.compose.ui" d "ui-graphics" w "1.0.0-beta06" w "1.7.5" w "1.8.0-alpha06"
+      val test = "androidx.compose.ui" d "ui-test" w "1.0.0-beta06" w "1.7.5" w "1.8.0-alpha06"
+      val test_junit4 = "androidx.compose.ui" d "ui-test-junit4" w "1.0.0-beta06" w "1.7.5" w "1.8.0-alpha06"
+      val test_manifest = "androidx.compose.ui" d "ui-test-manifest" w "1.7.5" w "1.8.0-alpha06"
+      val text = "androidx.compose.ui" d "ui-text" w "1.0.0-beta06" w "1.7.5" w "1.8.0-alpha06"
+      val text_google_fonts = "androidx.compose.ui" d "ui-text-google-fonts" w "1.7.5" w "1.8.0-alpha06"
+      val tooling = "androidx.compose.ui" d "ui-tooling" w "1.7.5" w "1.8.0-alpha06"
+      val tooling_data = "androidx.compose.ui" d "ui-tooling-data" w "1.7.5" w "1.8.0-alpha06"
+      val tooling_preview = "androidx.compose.ui" d "ui-tooling-preview" w "1.7.5" w "1.8.0-alpha06"
+      val ui = "androidx.compose.ui" d "ui" w "1.0.0-beta06" w "1.7.5" w "1.8.0-alpha06"
+      val unit = "androidx.compose.ui" d "ui-unit" w "1.0.0-beta06" w "1.7.5" w "1.8.0-alpha06"
+      val util = "androidx.compose.ui" d "ui-util" w "1.0.0-beta06" w "1.7.5" w "1.8.0-alpha06"
+      val viewbinding = "androidx.compose.ui" d "ui-viewbinding" w "1.7.5" w "1.8.0-alpha06"
     }
   }
   object Concurrent {
@@ -417,7 +417,7 @@ object AndroidX {
     val feedback_testing = "androidx.enterprise" d "enterprise-feedback-testing" w "1.1.0"
   }
   object Exifinterface {
-    val exifinterface = "androidx.exifinterface" d "exifinterface" w "1.3.7"
+    val exifinterface = "androidx.exifinterface" d "exifinterface" w "1.3.7" w "1.4.0-alpha01"
   }
   object Fragment {
     val fragment = "androidx.fragment" d "fragment" w "1.8.5"
@@ -474,24 +474,24 @@ object AndroidX {
     val tab = "androidx.leanback" d "leanback-tab" w "1.1.0-beta01"
   }
   object Lifecycle {
-    val common = "androidx.lifecycle" d "lifecycle-common" w "2.8.7" w "2.9.0-alpha06"
-    val common_java8 = "androidx.lifecycle" d "lifecycle-common-java8" w "2.8.7" w "2.9.0-alpha06"
-    val compiler = "androidx.lifecycle" d "lifecycle-compiler" w "2.8.7" w "2.9.0-alpha06"
+    val common = "androidx.lifecycle" d "lifecycle-common" w "2.8.7" w "2.9.0-alpha07"
+    val common_java8 = "androidx.lifecycle" d "lifecycle-common-java8" w "2.8.7" w "2.9.0-alpha07"
+    val compiler = "androidx.lifecycle" d "lifecycle-compiler" w "2.8.7" w "2.9.0-alpha07"
     val extensions = "androidx.lifecycle" d "lifecycle-extensions" w "2.2.0"
-    val livedata = "androidx.lifecycle" d "lifecycle-livedata" w "2.8.7" w "2.9.0-alpha06"
-    val livedata_ktx = "androidx.lifecycle" d "lifecycle-livedata-ktx" w "2.8.7" w "2.9.0-alpha06"
-    val process = "androidx.lifecycle" d "lifecycle-process" w "2.8.7" w "2.9.0-alpha06"
-    val reactivestreams = "androidx.lifecycle" d "lifecycle-reactivestreams" w "2.8.7" w "2.9.0-alpha06"
-    val reactivestreams_ktx = "androidx.lifecycle" d "lifecycle-reactivestreams-ktx" w "2.8.7" w "2.9.0-alpha06"
-    val runtime = "androidx.lifecycle" d "lifecycle-runtime" w "2.8.7" w "2.9.0-alpha06"
-    val runtime_compose = "androidx.lifecycle" d "lifecycle-runtime-compose" w "2.8.7" w "2.9.0-alpha06"
-    val runtime_ktx = "androidx.lifecycle" d "lifecycle-runtime-ktx" w "2.8.7" w "2.9.0-alpha06"
-    val runtime_testing = "androidx.lifecycle" d "lifecycle-runtime-testing" w "2.8.7" w "2.9.0-alpha06"
-    val service = "androidx.lifecycle" d "lifecycle-service" w "2.8.7" w "2.9.0-alpha06"
-    val viewmodel = "androidx.lifecycle" d "lifecycle-viewmodel" w "2.8.7" w "2.9.0-alpha06"
-    val viewmodel_compose = "androidx.lifecycle" d "lifecycle-viewmodel-compose" w "1.0.0-alpha06" w "2.8.7" w "2.9.0-alpha06"
-    val viewmodel_ktx = "androidx.lifecycle" d "lifecycle-viewmodel-ktx" w "2.8.7" w "2.9.0-alpha06"
-    val viewmodel_savedstate = "androidx.lifecycle" d "lifecycle-viewmodel-savedstate" w "2.8.7" w "2.9.0-alpha06"
+    val livedata = "androidx.lifecycle" d "lifecycle-livedata" w "2.8.7" w "2.9.0-alpha07"
+    val livedata_ktx = "androidx.lifecycle" d "lifecycle-livedata-ktx" w "2.8.7" w "2.9.0-alpha07"
+    val process = "androidx.lifecycle" d "lifecycle-process" w "2.8.7" w "2.9.0-alpha07"
+    val reactivestreams = "androidx.lifecycle" d "lifecycle-reactivestreams" w "2.8.7" w "2.9.0-alpha07"
+    val reactivestreams_ktx = "androidx.lifecycle" d "lifecycle-reactivestreams-ktx" w "2.8.7" w "2.9.0-alpha07"
+    val runtime = "androidx.lifecycle" d "lifecycle-runtime" w "2.8.7" w "2.9.0-alpha07"
+    val runtime_compose = "androidx.lifecycle" d "lifecycle-runtime-compose" w "2.8.7" w "2.9.0-alpha07"
+    val runtime_ktx = "androidx.lifecycle" d "lifecycle-runtime-ktx" w "2.8.7" w "2.9.0-alpha07"
+    val runtime_testing = "androidx.lifecycle" d "lifecycle-runtime-testing" w "2.8.7" w "2.9.0-alpha07"
+    val service = "androidx.lifecycle" d "lifecycle-service" w "2.8.7" w "2.9.0-alpha07"
+    val viewmodel = "androidx.lifecycle" d "lifecycle-viewmodel" w "2.8.7" w "2.9.0-alpha07"
+    val viewmodel_compose = "androidx.lifecycle" d "lifecycle-viewmodel-compose" w "1.0.0-alpha06" w "2.8.7" w "2.9.0-alpha07"
+    val viewmodel_ktx = "androidx.lifecycle" d "lifecycle-viewmodel-ktx" w "2.8.7" w "2.9.0-alpha07"
+    val viewmodel_savedstate = "androidx.lifecycle" d "lifecycle-viewmodel-savedstate" w "2.8.7" w "2.9.0-alpha07"
   }
   object Loader {
     val loader = "androidx.loader" d "loader" w "1.1.0"
@@ -543,31 +543,31 @@ object AndroidX {
     val multidex = "androidx.multidex" d "multidex" w "2.0.1"
   }
   object Navigation {
-    val common = "androidx.navigation" d "navigation-common" w "2.4.0-alpha02" w "2.8.3" w "2.9.0-alpha02"
-    val common_ktx = "androidx.navigation" d "navigation-common-ktx" w "2.4.0-alpha02" w "2.8.3" w "2.9.0-alpha02"
-    val compose = "androidx.navigation" d "navigation-compose" w "2.4.0-alpha02" w "2.8.3" w "2.9.0-alpha02"
-    val dynamic_features_fragment = "androidx.navigation" d "navigation-dynamic-features-fragment" w "2.8.3" w "2.9.0-alpha02"
-    val fragment = "androidx.navigation" d "navigation-fragment" w "2.8.3" w "2.9.0-alpha02"
-    val fragment_ktx = "androidx.navigation" d "navigation-fragment-ktx" w "2.8.3" w "2.9.0-alpha02"
-    val runtime = "androidx.navigation" d "navigation-runtime" w "2.4.0-alpha02" w "2.8.3" w "2.9.0-alpha02"
-    val runtime_ktx = "androidx.navigation" d "navigation-runtime-ktx" w "2.4.0-alpha02" w "2.8.3" w "2.9.0-alpha02"
-    val safe_args_generator = "androidx.navigation" d "navigation-safe-args-generator" w "2.8.3" w "2.9.0-alpha02"
-    val safe_args_gradle_plugin = "androidx.navigation" d "navigation-safe-args-gradle-plugin" w "2.8.3" w "2.9.0-alpha02"
-    val testing = "androidx.navigation" d "navigation-testing" w "2.4.0-alpha02" w "2.8.3" w "2.9.0-alpha02"
-    val ui = "androidx.navigation" d "navigation-ui" w "2.8.3" w "2.9.0-alpha02"
-    val ui_ktx = "androidx.navigation" d "navigation-ui-ktx" w "2.8.3" w "2.9.0-alpha02"
+    val common = "androidx.navigation" d "navigation-common" w "2.4.0-alpha02" w "2.8.4" w "2.9.0-alpha03"
+    val common_ktx = "androidx.navigation" d "navigation-common-ktx" w "2.4.0-alpha02" w "2.8.4" w "2.9.0-alpha03"
+    val compose = "androidx.navigation" d "navigation-compose" w "2.4.0-alpha02" w "2.8.4" w "2.9.0-alpha03"
+    val dynamic_features_fragment = "androidx.navigation" d "navigation-dynamic-features-fragment" w "2.8.4" w "2.9.0-alpha03"
+    val fragment = "androidx.navigation" d "navigation-fragment" w "2.8.4" w "2.9.0-alpha03"
+    val fragment_ktx = "androidx.navigation" d "navigation-fragment-ktx" w "2.8.4" w "2.9.0-alpha03"
+    val runtime = "androidx.navigation" d "navigation-runtime" w "2.4.0-alpha02" w "2.8.4" w "2.9.0-alpha03"
+    val runtime_ktx = "androidx.navigation" d "navigation-runtime-ktx" w "2.4.0-alpha02" w "2.8.4" w "2.9.0-alpha03"
+    val safe_args_generator = "androidx.navigation" d "navigation-safe-args-generator" w "2.8.4" w "2.9.0-alpha03"
+    val safe_args_gradle_plugin = "androidx.navigation" d "navigation-safe-args-gradle-plugin" w "2.8.4" w "2.9.0-alpha03"
+    val testing = "androidx.navigation" d "navigation-testing" w "2.4.0-alpha02" w "2.8.4" w "2.9.0-alpha03"
+    val ui = "androidx.navigation" d "navigation-ui" w "2.8.4" w "2.9.0-alpha03"
+    val ui_ktx = "androidx.navigation" d "navigation-ui-ktx" w "2.8.4" w "2.9.0-alpha03"
   }
   object Paging {
-    val common = "androidx.paging" d "paging-common" w "3.1.0-alpha01" w "3.3.2"
-    val common_ktx = "androidx.paging" d "paging-common-ktx" w "3.3.2"
-    val compose = "androidx.paging" d "paging-compose" w "1.0.0-alpha10" w "3.3.2"
-    val guava = "androidx.paging" d "paging-guava" w "3.3.2"
-    val runtime = "androidx.paging" d "paging-runtime" w "3.3.2"
-    val runtime_ktx = "androidx.paging" d "paging-runtime-ktx" w "3.3.2"
-    val rxjava2 = "androidx.paging" d "paging-rxjava2" w "3.3.2"
-    val rxjava2_ktx = "androidx.paging" d "paging-rxjava2-ktx" w "3.3.2"
-    val rxjava3 = "androidx.paging" d "paging-rxjava3" w "3.3.2"
-    val testing = "androidx.paging" d "paging-testing" w "3.3.2"
+    val common = "androidx.paging" d "paging-common" w "3.1.0-alpha01" w "3.3.4"
+    val common_ktx = "androidx.paging" d "paging-common-ktx" w "3.3.4"
+    val compose = "androidx.paging" d "paging-compose" w "1.0.0-alpha10" w "3.3.4"
+    val guava = "androidx.paging" d "paging-guava" w "3.3.4"
+    val runtime = "androidx.paging" d "paging-runtime" w "3.3.4"
+    val runtime_ktx = "androidx.paging" d "paging-runtime-ktx" w "3.3.4"
+    val rxjava2 = "androidx.paging" d "paging-rxjava2" w "3.3.4"
+    val rxjava2_ktx = "androidx.paging" d "paging-rxjava2-ktx" w "3.3.4"
+    val rxjava3 = "androidx.paging" d "paging-rxjava3" w "3.3.4"
+    val testing = "androidx.paging" d "paging-testing" w "3.3.4"
   }
   object Palette {
     val ktx = "androidx.palette" d "palette-ktx" w "1.0.0"
@@ -609,8 +609,8 @@ object AndroidX {
     val testing = "androidx.room" d "room-testing" w "2.6.1" w "2.7.0-alpha11"
   }
   object Savedstate {
-    val ktx = "androidx.savedstate" d "savedstate-ktx" w "1.2.1" w "1.3.0-alpha04"
-    val savedstate = "androidx.savedstate" d "savedstate" w "1.2.1" w "1.3.0-alpha04"
+    val ktx = "androidx.savedstate" d "savedstate-ktx" w "1.2.1" w "1.3.0-alpha05"
+    val savedstate = "androidx.savedstate" d "savedstate" w "1.2.1" w "1.3.0-alpha05"
   }
   object Security {
     val app_authenticator = "androidx.security" d "security-app-authenticator" w "1.0.0-beta01"
@@ -704,7 +704,7 @@ object AndroidX {
     val versionedparcelable = "androidx.versionedparcelable" d "versionedparcelable" w "1.2.0"
   }
   object ViewPager {
-    val viewpager = "androidx.viewpager" d "viewpager" w "1.0.0" w "1.1.0-beta01"
+    val viewpager = "androidx.viewpager" d "viewpager" w "1.0.0" w "1.1.0-rc01"
   }
   object ViewPager2 {
     val viewpager2 = "androidx.viewpager2" d "viewpager2" w "1.1.0"
@@ -717,15 +717,15 @@ object AndroidX {
     val remote_interactions = "androidx.wear" d "wear-remote-interactions" w "1.0.0" w "1.1.0-rc01"
     val wear = "androidx.wear" d "wear" w "1.3.0" w "1.4.0-alpha01"
     object Compose {
-      val foundation = "androidx.wear.compose" d "compose-foundation" w "1.0.0-alpha01" w "1.4.0" w "1.5.0-alpha05"
-      val material = "androidx.wear.compose" d "compose-material" w "1.0.0-alpha01" w "1.4.0" w "1.5.0-alpha05"
-      val navigation = "androidx.wear.compose" d "compose-navigation" w "1.4.0" w "1.5.0-alpha05"
+      val foundation = "androidx.wear.compose" d "compose-foundation" w "1.0.0-alpha01" w "1.4.0" w "1.5.0-alpha06"
+      val material = "androidx.wear.compose" d "compose-material" w "1.0.0-alpha01" w "1.4.0" w "1.5.0-alpha06"
+      val navigation = "androidx.wear.compose" d "compose-navigation" w "1.4.0" w "1.5.0-alpha06"
     }
     object Tiles {
-      val material = "androidx.wear.tiles" d "tiles-material" w "1.4.1" w "1.5.0-alpha03"
-      val renderer = "androidx.wear.tiles" d "tiles-renderer" w "1.4.1" w "1.5.0-alpha03"
-      val testing = "androidx.wear.tiles" d "tiles-testing" w "1.4.1" w "1.5.0-alpha03"
-      val tiles = "androidx.wear.tiles" d "tiles" w "1.4.1" w "1.5.0-alpha03"
+      val material = "androidx.wear.tiles" d "tiles-material" w "1.4.1" w "1.5.0-alpha04"
+      val renderer = "androidx.wear.tiles" d "tiles-renderer" w "1.4.1" w "1.5.0-alpha04"
+      val testing = "androidx.wear.tiles" d "tiles-testing" w "1.4.1" w "1.5.0-alpha04"
+      val tiles = "androidx.wear.tiles" d "tiles" w "1.4.1" w "1.5.0-alpha04"
     }
     object Watchface {
       val complications_data_source = "androidx.wear.watchface" d "watchface-complications-data-source" w "1.2.1" w "1.3.0-alpha04"
@@ -736,7 +736,7 @@ object AndroidX {
     }
   }
   object WebKit {
-    val webkit = "androidx.webkit" d "webkit" w "1.12.1"
+    val webkit = "androidx.webkit" d "webkit" w "1.12.1" w "1.13.0-alpha01"
   }
   object Window {
     val java = "androidx.window" d "window-java" w "1.3.0" w "1.4.0-alpha05"
@@ -1578,66 +1578,66 @@ object Org {
     val library = "org.hamcrest" d "hamcrest-library" w "3.0"
   }
   object Http4k {
-    val aws = "org.http4k" d "http4k-aws" w "5.33.1.0"
-    val bom = "org.http4k" d "http4k-bom" w "5.33.1.0"
-    val client_apache = "org.http4k" d "http4k-client-apache" w "5.33.1.0"
-    val client_apache4 = "org.http4k" d "http4k-client-apache4" w "5.33.1.0"
-    val client_apache4_async = "org.http4k" d "http4k-client-apache4-async" w "5.33.1.0"
-    val client_apache_async = "org.http4k" d "http4k-client-apache-async" w "5.33.1.0"
-    val client_jetty = "org.http4k" d "http4k-client-jetty" w "5.33.1.0"
-    val client_okhttp = "org.http4k" d "http4k-client-okhttp" w "5.33.1.0"
-    val client_websocket = "org.http4k" d "http4k-client-websocket" w "5.33.1.0"
-    val cloudnative = "org.http4k" d "http4k-cloudnative" w "5.33.1.0"
-    val contract = "org.http4k" d "http4k-contract" w "5.33.1.0"
-    val core = "org.http4k" d "http4k-core" w "5.33.1.0"
-    val format_argo = "org.http4k" d "http4k-format-argo" w "5.33.1.0"
-    val format_core = "org.http4k" d "http4k-format-core" w "5.33.1.0"
-    val format_gson = "org.http4k" d "http4k-format-gson" w "5.33.1.0"
-    val format_jackson = "org.http4k" d "http4k-format-jackson" w "5.33.1.0"
-    val format_jackson_xml = "org.http4k" d "http4k-format-jackson-xml" w "5.33.1.0"
-    val format_jackson_yaml = "org.http4k" d "http4k-format-jackson-yaml" w "5.33.1.0"
-    val format_klaxon = "org.http4k" d "http4k-format-klaxon" w "5.33.1.0"
-    val format_kotlinx_serialization = "org.http4k" d "http4k-format-kotlinx-serialization" w "5.33.1.0"
-    val format_moshi = "org.http4k" d "http4k-format-moshi" w "5.33.1.0"
-    val format_xml = "org.http4k" d "http4k-format-xml" w "5.33.1.0"
-    val graphql = "org.http4k" d "http4k-graphql" w "5.33.1.0"
-    val incubator = "org.http4k" d "http4k-incubator" w "5.33.1.0"
-    val jsonrpc = "org.http4k" d "http4k-jsonrpc" w "5.33.1.0"
-    val metrics_micrometer = "org.http4k" d "http4k-metrics-micrometer" w "5.33.1.0"
-    val multipart = "org.http4k" d "http4k-multipart" w "5.33.1.0"
-    val opentelemetry = "org.http4k" d "http4k-opentelemetry" w "5.33.1.0"
-    val realtime_core = "org.http4k" d "http4k-realtime-core" w "5.33.1.0"
-    val resilience4j = "org.http4k" d "http4k-resilience4j" w "5.33.1.0"
-    val security_oauth = "org.http4k" d "http4k-security-oauth" w "5.33.1.0"
-    val server_apache = "org.http4k" d "http4k-server-apache" w "5.33.1.0"
-    val server_apache4 = "org.http4k" d "http4k-server-apache4" w "5.33.1.0"
-    val server_jetty = "org.http4k" d "http4k-server-jetty" w "5.33.1.0"
-    val server_ktorcio = "org.http4k" d "http4k-server-ktorcio" w "5.33.1.0"
-    val server_ktornetty = "org.http4k" d "http4k-server-ktornetty" w "5.33.1.0"
-    val server_netty = "org.http4k" d "http4k-server-netty" w "5.33.1.0"
-    val server_ratpack = "org.http4k" d "http4k-server-ratpack" w "5.33.1.0"
-    val server_undertow = "org.http4k" d "http4k-server-undertow" w "5.33.1.0"
-    val serverless_alibaba = "org.http4k" d "http4k-serverless-alibaba" w "5.33.1.0"
-    val serverless_azure = "org.http4k" d "http4k-serverless-azure" w "5.33.1.0"
-    val serverless_gcf = "org.http4k" d "http4k-serverless-gcf" w "5.33.1.0"
-    val serverless_lambda = "org.http4k" d "http4k-serverless-lambda" w "5.33.1.0"
-    val serverless_lambda_runtime = "org.http4k" d "http4k-serverless-lambda-runtime" w "5.33.1.0"
-    val serverless_openwhisk = "org.http4k" d "http4k-serverless-openwhisk" w "5.33.1.0"
-    val serverless_tencent = "org.http4k" d "http4k-serverless-tencent" w "5.33.1.0"
-    val template_core = "org.http4k" d "http4k-template-core" w "5.33.1.0"
+    val aws = "org.http4k" d "http4k-aws" w "5.34.0.0"
+    val bom = "org.http4k" d "http4k-bom" w "5.34.0.0"
+    val client_apache = "org.http4k" d "http4k-client-apache" w "5.34.0.0"
+    val client_apache4 = "org.http4k" d "http4k-client-apache4" w "5.34.0.0"
+    val client_apache4_async = "org.http4k" d "http4k-client-apache4-async" w "5.34.0.0"
+    val client_apache_async = "org.http4k" d "http4k-client-apache-async" w "5.34.0.0"
+    val client_jetty = "org.http4k" d "http4k-client-jetty" w "5.34.0.0"
+    val client_okhttp = "org.http4k" d "http4k-client-okhttp" w "5.34.0.0"
+    val client_websocket = "org.http4k" d "http4k-client-websocket" w "5.34.0.0"
+    val cloudnative = "org.http4k" d "http4k-cloudnative" w "5.34.0.0"
+    val contract = "org.http4k" d "http4k-contract" w "5.34.0.0"
+    val core = "org.http4k" d "http4k-core" w "5.34.0.0"
+    val format_argo = "org.http4k" d "http4k-format-argo" w "5.34.0.0"
+    val format_core = "org.http4k" d "http4k-format-core" w "5.34.0.0"
+    val format_gson = "org.http4k" d "http4k-format-gson" w "5.34.0.0"
+    val format_jackson = "org.http4k" d "http4k-format-jackson" w "5.34.0.0"
+    val format_jackson_xml = "org.http4k" d "http4k-format-jackson-xml" w "5.34.0.0"
+    val format_jackson_yaml = "org.http4k" d "http4k-format-jackson-yaml" w "5.34.0.0"
+    val format_klaxon = "org.http4k" d "http4k-format-klaxon" w "5.34.0.0"
+    val format_kotlinx_serialization = "org.http4k" d "http4k-format-kotlinx-serialization" w "5.34.0.0"
+    val format_moshi = "org.http4k" d "http4k-format-moshi" w "5.34.0.0"
+    val format_xml = "org.http4k" d "http4k-format-xml" w "5.34.0.0"
+    val graphql = "org.http4k" d "http4k-graphql" w "5.34.0.0"
+    val incubator = "org.http4k" d "http4k-incubator" w "5.34.0.0"
+    val jsonrpc = "org.http4k" d "http4k-jsonrpc" w "5.34.0.0"
+    val metrics_micrometer = "org.http4k" d "http4k-metrics-micrometer" w "5.34.0.0"
+    val multipart = "org.http4k" d "http4k-multipart" w "5.34.0.0"
+    val opentelemetry = "org.http4k" d "http4k-opentelemetry" w "5.34.0.0"
+    val realtime_core = "org.http4k" d "http4k-realtime-core" w "5.34.0.0"
+    val resilience4j = "org.http4k" d "http4k-resilience4j" w "5.34.0.0"
+    val security_oauth = "org.http4k" d "http4k-security-oauth" w "5.34.0.0"
+    val server_apache = "org.http4k" d "http4k-server-apache" w "5.34.0.0"
+    val server_apache4 = "org.http4k" d "http4k-server-apache4" w "5.34.0.0"
+    val server_jetty = "org.http4k" d "http4k-server-jetty" w "5.34.0.0"
+    val server_ktorcio = "org.http4k" d "http4k-server-ktorcio" w "5.34.0.0"
+    val server_ktornetty = "org.http4k" d "http4k-server-ktornetty" w "5.34.0.0"
+    val server_netty = "org.http4k" d "http4k-server-netty" w "5.34.0.0"
+    val server_ratpack = "org.http4k" d "http4k-server-ratpack" w "5.34.0.0"
+    val server_undertow = "org.http4k" d "http4k-server-undertow" w "5.34.0.0"
+    val serverless_alibaba = "org.http4k" d "http4k-serverless-alibaba" w "5.34.0.0"
+    val serverless_azure = "org.http4k" d "http4k-serverless-azure" w "5.34.0.0"
+    val serverless_gcf = "org.http4k" d "http4k-serverless-gcf" w "5.34.0.0"
+    val serverless_lambda = "org.http4k" d "http4k-serverless-lambda" w "5.34.0.0"
+    val serverless_lambda_runtime = "org.http4k" d "http4k-serverless-lambda-runtime" w "5.34.0.0"
+    val serverless_openwhisk = "org.http4k" d "http4k-serverless-openwhisk" w "5.34.0.0"
+    val serverless_tencent = "org.http4k" d "http4k-serverless-tencent" w "5.34.0.0"
+    val template_core = "org.http4k" d "http4k-template-core" w "5.34.0.0"
     val template_dust = "org.http4k" d "http4k-template-dust" w "4.48.0.0"
-    val template_freemarker = "org.http4k" d "http4k-template-freemarker" w "5.33.1.0"
-    val template_handlebars = "org.http4k" d "http4k-template-handlebars" w "5.33.1.0"
+    val template_freemarker = "org.http4k" d "http4k-template-freemarker" w "5.34.0.0"
+    val template_handlebars = "org.http4k" d "http4k-template-handlebars" w "5.34.0.0"
     val template_jade4j = "org.http4k" d "http4k-template-jade4j" w "5.12.2.1"
-    val template_pebble = "org.http4k" d "http4k-template-pebble" w "5.33.1.0"
-    val template_thymeleaf = "org.http4k" d "http4k-template-thymeleaf" w "5.33.1.0"
-    val testing_approval = "org.http4k" d "http4k-testing-approval" w "5.33.1.0"
-    val testing_chaos = "org.http4k" d "http4k-testing-chaos" w "5.33.1.0"
-    val testing_hamkrest = "org.http4k" d "http4k-testing-hamkrest" w "5.33.1.0"
-    val testing_kotest = "org.http4k" d "http4k-testing-kotest" w "5.33.1.0"
-    val testing_servirtium = "org.http4k" d "http4k-testing-servirtium" w "5.33.1.0"
-    val testing_strikt = "org.http4k" d "http4k-testing-strikt" w "5.33.1.0"
-    val testing_webdriver = "org.http4k" d "http4k-testing-webdriver" w "5.33.1.0"
+    val template_pebble = "org.http4k" d "http4k-template-pebble" w "5.34.0.0"
+    val template_thymeleaf = "org.http4k" d "http4k-template-thymeleaf" w "5.34.0.0"
+    val testing_approval = "org.http4k" d "http4k-testing-approval" w "5.34.0.0"
+    val testing_chaos = "org.http4k" d "http4k-testing-chaos" w "5.34.0.0"
+    val testing_hamkrest = "org.http4k" d "http4k-testing-hamkrest" w "5.34.0.0"
+    val testing_kotest = "org.http4k" d "http4k-testing-kotest" w "5.34.0.0"
+    val testing_servirtium = "org.http4k" d "http4k-testing-servirtium" w "5.34.0.0"
+    val testing_strikt = "org.http4k" d "http4k-testing-strikt" w "5.34.0.0"
+    val testing_webdriver = "org.http4k" d "http4k-testing-webdriver" w "5.34.0.0"
   }
   object JUnit {
     val bom = "org.junit" d "junit-bom" w "5.11.3"
@@ -1651,7 +1651,7 @@ object Org {
   }
   object JetBrains {
     object Compose {
-      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.7.1" w "1.8.0-dev1905" w "1.8.0-dev1916"
+      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.7.1" w "1.8.0+check" w "1.8.0-dev1905" w "1.8.0-dev1916"
       object Compiler {
         val compiler = "org.jetbrains.compose.compiler" d "compiler" w "1.5.8.1" w "1.5.9-kt-2.0.0-Beta4" w "1.5.14"
       }
@@ -1699,10 +1699,10 @@ object Org {
       val coroutines_slf4j = "org.jetbrains.kotlinx" d "kotlinx-coroutines-slf4j" w "1.9.0"
       val coroutines_swing = "org.jetbrains.kotlinx" d "kotlinx-coroutines-swing" w "1.9.0"
       val coroutines_test = "org.jetbrains.kotlinx" d "kotlinx-coroutines-test" w "1.9.0"
-      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.14.2" w "0.15.0-dev-4933"
-      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.14.2" w "0.15.0-dev-4933"
-      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.14.2" w "0.15.0-dev-4933"
-      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.14.2" w "0.15.0-dev-4933"
+      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.14.2" w "0.15.0-dev-4939"
+      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.14.2" w "0.15.0-dev-4939"
+      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.14.2" w "0.15.0-dev-4939"
+      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.14.2" w "0.15.0-dev-4939"
       val datetime = "org.jetbrains.kotlinx" d "kotlinx-datetime" w "0.6.1"
       val html = "org.jetbrains.kotlinx" d "kotlinx-html" w "0.11.0"
       val io_jvm = "org.jetbrains.kotlinx" d "kotlinx-io-jvm" w "0.1.16"
