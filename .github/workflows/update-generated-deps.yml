@@ -7,18 +7,18 @@ on:
   schedule:
   - cron: '53 5 * * *'
   workflow_dispatch: {}
+env:
+  MYKOTLIBS_signing_keyId: '${{ secrets.MYKOTLIBS_signing_keyId }}'
+  MYKOTLIBS_signing_password: '${{ secrets.MYKOTLIBS_signing_password }}'
+  MYKOTLIBS_signing_key: '${{ secrets.MYKOTLIBS_signing_key }}'
+  MYKOTLIBS_ossrhUsername: '${{ secrets.MYKOTLIBS_ossrhUsername }}'
+  MYKOTLIBS_ossrhPassword: '${{ secrets.MYKOTLIBS_ossrhPassword }}'
+  MYKOTLIBS_sonatypeStagingProfileId: '${{ secrets.MYKOTLIBS_sonatypeStagingProfileId }}'
 jobs:
   update-generated-deps:
     runs-on: 'ubuntu-latest'
     permissions:
       contents: 'write'
-    env:
-      MYKOTLIBS_signing_keyId: '${{ secrets.MYKOTLIBS_signing_keyId }}'
-      MYKOTLIBS_signing_password: '${{ secrets.MYKOTLIBS_signing_password }}'
-      MYKOTLIBS_signing_key: '${{ secrets.MYKOTLIBS_signing_key }}'
-      MYKOTLIBS_ossrhUsername: '${{ secrets.MYKOTLIBS_ossrhUsername }}'
-      MYKOTLIBS_ossrhPassword: '${{ secrets.MYKOTLIBS_ossrhPassword }}'
-      MYKOTLIBS_sonatypeStagingProfileId: '${{ secrets.MYKOTLIBS_sonatypeStagingProfileId }}'
     steps:
     - id: 'step-0'
       uses: 'actions/checkout@v4'
