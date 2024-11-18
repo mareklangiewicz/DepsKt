@@ -13,7 +13,6 @@ data class LibDetails(
   val licenceName: String,
   val licenceUrl: String,
   val version: Ver,
-
   val namespace: String = "$group.$name".lowercase(), // currently used in andro libs and apps
   val appId: String = "$namespace.app", // currently used in andro apps
   val appMainPackage: String = namespace,
@@ -21,7 +20,6 @@ data class LibDetails(
   val appMainFun: String = "main", // for native
   val appVerCode: Int = version.code, // currently used in andro apps
   val appVerName: String = version.str, // currently used in andro apps
-
   val settings: LibSettings = LibSettings(),
 ) {
   fun withVer(version: Ver) = copy(version = version)
@@ -38,9 +36,7 @@ data class LibSettings(
   val withTestUSpekX: Boolean = true,
   val withTestGoogleTruth: Boolean = false,
   val withTestMockitoKotlin: Boolean = false,
-
   val withSonatypeOssPublishing: Boolean = false,
-
   val compose: LibComposeSettings? = LibComposeSettings(
     withComposeMaterial2 = withJvm,
     withComposeMaterial3 = withJvm,
@@ -52,9 +48,7 @@ data class LibSettings(
     withComposeTestUiJUnit5 = withTestJUnit5,
     withComposeTestHtmlUtils = withJs,
   ),
-
   val andro: LibAndroSettings? = null,
-
   val repos: LibReposSettings = LibReposSettings(
     withKotlinxHtml = withKotlinxHtml,
     withComposeJbDev = false,
@@ -85,12 +79,10 @@ data class LibComposeSettings(
   // https://issuetracker.google.com/issues/127100532?pli=1
   // https://github.com/android/android-test/issues/224
   // https://github.com/JetBrains/compose-multiplatform/issues/2371
-
   val withComposeTestHtmlUtils: Boolean = false,
 )
 
 data class LibAndroSettings(
-
   /** Should override [sdkCompile] when not null */
   val sdkCompilePreview: String? = null,
   /** Should be ignored when [sdkCompilePreview] is not null */
@@ -100,14 +92,12 @@ data class LibAndroSettings(
   /** Should be ignored when [sdkTargetPreview] is not null */
   val sdkTarget: Int = Vers.AndroSdkTarget,
   val sdkMin: Int = Vers.AndroSdkMin,
-
   val withAppCompat: Boolean = true,
   val withLifecycle: Boolean = true,
   val withActivityCompose: Boolean = true, // only used when compose is also present
   val withMDC: Boolean = false,
   val withTestEspresso: Boolean = true,
   val withTestRunner: String? = Vers.AndroTestRunner,
-
   val publishVariant: String = "", // for now only single variant or all variants can be published.
 ) {
   val publishAllVariants get() = publishVariant == AllVariants
@@ -118,14 +108,12 @@ data class LibAndroSettings(
 }
 
 data class LibReposSettings(
-
   /**
    * It's a huge footgun! If REALLY needed, then do it manually with strict repository content filter.
    * See: https://github.com/typesafegithub/github-workflows-kt/issues/1694#issuecomment-2439799129
    */
   @Deprecated("It's a huge footgun! If REALLY needed, then do it manually with strict repository content filter.")
   val withMavenLocal: Boolean = false,
-
   val withMavenCentral: Boolean = true,
   val withGradle: Boolean = false,
   val withGoogle: Boolean = true,
