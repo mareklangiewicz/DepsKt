@@ -2033,9 +2033,15 @@ object Pl {
     val uspekx_jvm = "pl.mareklangiewicz" d "uspekx-jvm" w "0.0.38"
     val uspekx_linuxx64 = "pl.mareklangiewicz" d "uspekx-linuxx64" w "0.0.38"
     val uwidgets = "pl.mareklangiewicz" d "uwidgets" w "0.0.33"
-    val uwidgets_demo = "pl.mareklangiewicz" d "uwidgets-demo"
-    val uwidgets_demo_js = "pl.mareklangiewicz" d "uwidgets-demo-js"
-    val uwidgets_demo_jvm = "pl.mareklangiewicz" d "uwidgets-demo-jvm"
+    val uwidgets_demo = "pl.mareklangiewicz" d "uwidgets-demo" w "0.0.33"
+    val uwidgets_demo_js = "pl.mareklangiewicz" d "uwidgets-demo-js" w "0.0.33"
+    val uwidgets_demo_jvm = "pl.mareklangiewicz" d "uwidgets-demo-jvm" w "0.0.33"
+    @Deprecated("Renaming to demo without u")
+    val uwidgets_udemo = "pl.mareklangiewicz" d "uwidgets-udemo" w "0.0.33"
+    @Deprecated("Renaming to demo without u")
+    val uwidgets_udemo_js = "pl.mareklangiewicz" d "uwidgets-udemo-js" w "0.0.33"
+    @Deprecated("Renaming to demo without u")
+    val uwidgets_udemo_jvm = "pl.mareklangiewicz" d "uwidgets-udemo-jvm" w "0.0.33"
     val uwidgets_js = "pl.mareklangiewicz" d "uwidgets-js" w "0.0.33"
     val uwidgets_jvm = "pl.mareklangiewicz" d "uwidgets-jvm" w "0.0.33"
   }
