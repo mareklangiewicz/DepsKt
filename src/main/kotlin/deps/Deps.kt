@@ -802,7 +802,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.3"
       val r8 = "com.android.tools" d "r8" w "8.5.35"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.7.2" w "8.9.0-alpha02"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.7.2" w "8.8.0-beta01" w "8.9.0-alpha02"
       }
     }
   }
@@ -1367,17 +1367,17 @@ object Io {
     }
   }
   object Insert_koin {
-    val koin_android = "io.insert-koin" d "koin-android" w "4.0.0"
-    val koin_android_compat = "io.insert-koin" d "koin-android-compat" w "4.0.0"
-    val koin_androidx_compose = "io.insert-koin" d "koin-androidx-compose" w "4.0.0"
-    val koin_androidx_navigation = "io.insert-koin" d "koin-androidx-navigation" w "4.0.0"
-    val koin_androidx_workmanager = "io.insert-koin" d "koin-androidx-workmanager" w "4.0.0"
-    val koin_core = "io.insert-koin" d "koin-core" w "4.0.0"
-    val koin_ktor = "io.insert-koin" d "koin-ktor" w "4.0.0"
-    val koin_logger_slf4j = "io.insert-koin" d "koin-logger-slf4j" w "4.0.0"
-    val koin_test = "io.insert-koin" d "koin-test" w "4.0.0"
-    val koin_test_junit4 = "io.insert-koin" d "koin-test-junit4" w "4.0.0"
-    val koin_test_junit5 = "io.insert-koin" d "koin-test-junit5" w "4.0.0"
+    val koin_android = "io.insert-koin" d "koin-android" w "4.0.0" w "4.1.0-Beta1"
+    val koin_android_compat = "io.insert-koin" d "koin-android-compat" w "4.0.0" w "4.1.0-Beta1"
+    val koin_androidx_compose = "io.insert-koin" d "koin-androidx-compose" w "4.0.0" w "4.1.0-Beta1"
+    val koin_androidx_navigation = "io.insert-koin" d "koin-androidx-navigation" w "4.0.0" w "4.1.0-Beta1"
+    val koin_androidx_workmanager = "io.insert-koin" d "koin-androidx-workmanager" w "4.0.0" w "4.1.0-Beta1"
+    val koin_core = "io.insert-koin" d "koin-core" w "4.0.0" w "4.1.0-Beta1"
+    val koin_ktor = "io.insert-koin" d "koin-ktor" w "4.0.0" w "4.1.0-Beta1"
+    val koin_logger_slf4j = "io.insert-koin" d "koin-logger-slf4j" w "4.0.0" w "4.1.0-Beta1"
+    val koin_test = "io.insert-koin" d "koin-test" w "4.0.0" w "4.1.0-Beta1"
+    val koin_test_junit4 = "io.insert-koin" d "koin-test-junit4" w "4.0.0" w "4.1.0-Beta1"
+    val koin_test_junit5 = "io.insert-koin" d "koin-test-junit5" w "4.0.0" w "4.1.0-Beta1"
   }
   object Kotest {
     val assertions_arrow = "io.kotest" d "kotest-assertions-arrow" w "4.4.3"
@@ -1651,7 +1651,7 @@ object Org {
   }
   object JetBrains {
     object Compose {
-      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.7.1" w "1.8.0+check" w "1.8.0-dev1905" w "1.8.0-dev1916"
+      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.7.1" w "1.8.0+check" w "1.8.0-dev1905" w "1.8.0-dev1920"
       object Compiler {
         val compiler = "org.jetbrains.compose.compiler" d "compiler" w "1.5.8.1" w "1.5.9-kt-2.0.0-Beta4" w "1.5.14"
       }
@@ -1699,10 +1699,10 @@ object Org {
       val coroutines_slf4j = "org.jetbrains.kotlinx" d "kotlinx-coroutines-slf4j" w "1.9.0"
       val coroutines_swing = "org.jetbrains.kotlinx" d "kotlinx-coroutines-swing" w "1.9.0"
       val coroutines_test = "org.jetbrains.kotlinx" d "kotlinx-coroutines-test" w "1.9.0"
-      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.14.2" w "0.15.0-dev-4985"
-      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.14.2" w "0.15.0-dev-4985"
-      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.14.2" w "0.15.0-dev-4985"
-      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.14.2" w "0.15.0-dev-4985"
+      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.14.2" w "0.15.0-dev-5014"
+      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.14.2" w "0.15.0-dev-5014"
+      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.14.2" w "0.15.0-dev-5014"
+      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.14.2" w "0.15.0-dev-5014"
       val datetime = "org.jetbrains.kotlinx" d "kotlinx-datetime" w "0.6.1"
       val html = "org.jetbrains.kotlinx" d "kotlinx-html" w "0.11.0"
       val io_jvm = "org.jetbrains.kotlinx" d "kotlinx-io-jvm" w "0.1.16"
@@ -1810,7 +1810,7 @@ object Org {
   }
   object SpringFramework {
     object Amqp {
-      val spring_rabbit_test = "org.springframework.amqp" d "spring-rabbit-test" w "3.1.7"
+      val spring_rabbit_test = "org.springframework.amqp" d "spring-rabbit-test" w "3.2.0"
     }
     object Batch {
       val spring_batch_test = "org.springframework.batch" d "spring-batch-test" w "5.1.2"
@@ -1934,16 +1934,16 @@ object Org {
       val spring_integration_ws = "org.springframework.integration" d "spring-integration-ws" w "6.3.5"
     }
     object Kafka {
-      val spring_kafka = "org.springframework.kafka" d "spring-kafka" w "3.2.4"
-      val spring_kafka_test = "org.springframework.kafka" d "spring-kafka-test" w "3.2.4"
+      val spring_kafka = "org.springframework.kafka" d "spring-kafka" w "3.3.0"
+      val spring_kafka_test = "org.springframework.kafka" d "spring-kafka-test" w "3.3.0"
     }
     object Restdocs {
-      val spring_restdocs_webtestclient = "org.springframework.restdocs" d "spring-restdocs-webtestclient" w "3.0.2"
+      val spring_restdocs_webtestclient = "org.springframework.restdocs" d "spring-restdocs-webtestclient" w "3.0.3"
     }
     object Security {
-      val spring_security_messaging = "org.springframework.security" d "spring-security-messaging" w "6.3.4"
-      val spring_security_rsocket = "org.springframework.security" d "spring-security-rsocket" w "6.3.4"
-      val spring_security_test = "org.springframework.security" d "spring-security-test" w "6.3.4"
+      val spring_security_messaging = "org.springframework.security" d "spring-security-messaging" w "6.4.0"
+      val spring_security_rsocket = "org.springframework.security" d "spring-security-rsocket" w "6.4.0"
+      val spring_security_test = "org.springframework.security" d "spring-security-test" w "6.4.0"
     }
     object Session {
       val spring_session_data_redis = "org.springframework.session" d "spring-session-data-redis" w "3.3.3"
@@ -1957,33 +1957,33 @@ object Pl {
     val abcdk_js = "pl.mareklangiewicz" d "abcdk-js" w "0.0.26"
     val abcdk_jvm = "pl.mareklangiewicz" d "abcdk-jvm" w "0.0.26"
     val abcdk_linuxx64 = "pl.mareklangiewicz" d "abcdk-linuxx64" w "0.0.26"
-    val kground = "pl.mareklangiewicz" d "kground" w "0.0.86"
-    val kground_io = "pl.mareklangiewicz" d "kground-io" w "0.0.86"
-    val kground_io_js = "pl.mareklangiewicz" d "kground-io-js" w "0.0.86"
-    val kground_io_jvm = "pl.mareklangiewicz" d "kground-io-jvm" w "0.0.86"
-    val kground_js = "pl.mareklangiewicz" d "kground-js" w "0.0.86"
-    val kground_jvm = "pl.mareklangiewicz" d "kground-jvm" w "0.0.86"
-    val kgroundx = "pl.mareklangiewicz" d "kgroundx" w "0.0.86"
-    val kgroundx_experiments = "pl.mareklangiewicz" d "kgroundx-experiments" w "0.0.86"
-    val kgroundx_io = "pl.mareklangiewicz" d "kgroundx-io" w "0.0.86"
-    val kgroundx_io_js = "pl.mareklangiewicz" d "kgroundx-io-js" w "0.0.86"
-    val kgroundx_io_jvm = "pl.mareklangiewicz" d "kgroundx-io-jvm" w "0.0.86"
-    val kgroundx_js = "pl.mareklangiewicz" d "kgroundx-js" w "0.0.86"
-    val kgroundx_jupyter = "pl.mareklangiewicz" d "kgroundx-jupyter" w "0.0.86"
-    val kgroundx_jupyter_jvm = "pl.mareklangiewicz" d "kgroundx-jupyter-jvm" w "0.0.86"
-    val kgroundx_jvm = "pl.mareklangiewicz" d "kgroundx-jvm" w "0.0.86"
-    val kgroundx_maintenance = "pl.mareklangiewicz" d "kgroundx-maintenance" w "0.0.86"
+    val kground = "pl.mareklangiewicz" d "kground" w "0.0.87"
+    val kground_io = "pl.mareklangiewicz" d "kground-io" w "0.0.87"
+    val kground_io_js = "pl.mareklangiewicz" d "kground-io-js" w "0.0.87"
+    val kground_io_jvm = "pl.mareklangiewicz" d "kground-io-jvm" w "0.0.87"
+    val kground_js = "pl.mareklangiewicz" d "kground-js" w "0.0.87"
+    val kground_jvm = "pl.mareklangiewicz" d "kground-jvm" w "0.0.87"
+    val kgroundx = "pl.mareklangiewicz" d "kgroundx" w "0.0.87"
+    val kgroundx_experiments = "pl.mareklangiewicz" d "kgroundx-experiments" w "0.0.87"
+    val kgroundx_io = "pl.mareklangiewicz" d "kgroundx-io" w "0.0.87"
+    val kgroundx_io_js = "pl.mareklangiewicz" d "kgroundx-io-js" w "0.0.87"
+    val kgroundx_io_jvm = "pl.mareklangiewicz" d "kgroundx-io-jvm" w "0.0.87"
+    val kgroundx_js = "pl.mareklangiewicz" d "kgroundx-js" w "0.0.87"
+    val kgroundx_jupyter = "pl.mareklangiewicz" d "kgroundx-jupyter" w "0.0.87"
+    val kgroundx_jupyter_jvm = "pl.mareklangiewicz" d "kgroundx-jupyter-jvm" w "0.0.87"
+    val kgroundx_jvm = "pl.mareklangiewicz" d "kgroundx-jvm" w "0.0.87"
+    val kgroundx_maintenance = "pl.mareklangiewicz" d "kgroundx-maintenance" w "0.0.87"
     val kgroundx_maintenance_js = "pl.mareklangiewicz" d "kgroundx-maintenance-js"
-    val kgroundx_maintenance_jvm = "pl.mareklangiewicz" d "kgroundx-maintenance-jvm" w "0.0.86"
-    val kgroundx_workflows = "pl.mareklangiewicz" d "kgroundx-workflows" w "0.0.86"
-    val kommandjupyter = "pl.mareklangiewicz" d "kommandjupyter" w "0.0.87"
-    val kommandjupyter_jvm = "pl.mareklangiewicz" d "kommandjupyter-jvm" w "0.0.87"
-    val kommandline = "pl.mareklangiewicz" d "kommandline" w "0.0.87"
-    val kommandline_js = "pl.mareklangiewicz" d "kommandline-js" w "0.0.87"
-    val kommandline_jvm = "pl.mareklangiewicz" d "kommandline-jvm" w "0.0.87"
-    val kommandsamples = "pl.mareklangiewicz" d "kommandsamples" w "0.0.87"
-    val kommandsamples_js = "pl.mareklangiewicz" d "kommandsamples-js" w "0.0.87"
-    val kommandsamples_jvm = "pl.mareklangiewicz" d "kommandsamples-jvm" w "0.0.87"
+    val kgroundx_maintenance_jvm = "pl.mareklangiewicz" d "kgroundx-maintenance-jvm" w "0.0.87"
+    val kgroundx_workflows = "pl.mareklangiewicz" d "kgroundx-workflows" w "0.0.87"
+    val kommandjupyter = "pl.mareklangiewicz" d "kommandjupyter" w "0.0.88"
+    val kommandjupyter_jvm = "pl.mareklangiewicz" d "kommandjupyter-jvm" w "0.0.88"
+    val kommandline = "pl.mareklangiewicz" d "kommandline" w "0.0.88"
+    val kommandline_js = "pl.mareklangiewicz" d "kommandline-js" w "0.0.88"
+    val kommandline_jvm = "pl.mareklangiewicz" d "kommandline-jvm" w "0.0.88"
+    val kommandsamples = "pl.mareklangiewicz" d "kommandsamples" w "0.0.88"
+    val kommandsamples_js = "pl.mareklangiewicz" d "kommandsamples-js" w "0.0.88"
+    val kommandsamples_jvm = "pl.mareklangiewicz" d "kommandsamples-jvm" w "0.0.88"
     val rxmock = "pl.mareklangiewicz" d "rxmock" w "0.0.24"
     val rxmock_jvm = "pl.mareklangiewicz" d "rxmock-jvm" w "0.0.24"
     val smokk = "pl.mareklangiewicz" d "smokk" w "0.0.09"
