@@ -23,19 +23,6 @@ plugins {
   // https://plugins.gradle.org/search?term=pl.mareklangiewicz
 }
 
-buildscript {
-  // Important: It's temporarily needed workaround block because changed api in kotlinx-maintenance
-  //   BTW this issue fails on sync, but try running tasks before removing this workaround,
-  //   because similar issue before (when api of related kground/kommand/etc changed) was compiling fine
-  //   and only failing when I was executing specific custom task.
-  dependencies {
-    classpath("pl.mareklangiewicz:kommandline:0.0.84")
-    classpath("pl.mareklangiewicz:kgroundx-maintenance:0.0.82")
-    // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kommandline/
-    // https://s01.oss.sonatype.org/content/repositories/releases/pl/mareklangiewicz/kground/
-  }
-}
-
 repositories {
   mavenLocal()
   google()
