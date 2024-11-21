@@ -646,7 +646,7 @@ object AndroidX {
     val core = "androidx.test" d "core" w "1.6.1"
     val core_ktx = "androidx.test" d "core-ktx" w "1.6.1"
     val monitor = "androidx.test" d "monitor" w "1.7.2"
-    val orchestrator = "androidx.test" d "orchestrator" w "1.5.1"
+    val orchestrator = "androidx.test" d "orchestrator" w "1.5.1" w "1.6.0-alpha01"
     val rules = "androidx.test" d "rules" w "1.6.1"
     val runner = "androidx.test" d "runner" w "1.6.2"
     object Espresso {
@@ -670,7 +670,7 @@ object AndroidX {
       val truth = "androidx.test.ext" d "truth" w "1.6.0"
     }
     object Services {
-      val test_services = "androidx.test.services" d "test-services" w "1.5.0"
+      val test_services = "androidx.test.services" d "test-services" w "1.5.0" w "1.6.0-alpha01"
     }
     object UiAutoMator {
       val uiautomator = "androidx.test.uiautomator" d "uiautomator" w "2.3.0" w "2.4.0-alpha01"
@@ -776,13 +776,13 @@ object App {
 }
 object Co {
   object TouchLab {
-    val kermit = "co.touchlab" d "kermit" w "2.0.4"
-    val kermit_bugsnag = "co.touchlab" d "kermit-bugsnag" w "2.0.4"
+    val kermit = "co.touchlab" d "kermit" w "2.0.5"
+    val kermit_bugsnag = "co.touchlab" d "kermit-bugsnag" w "2.0.5"
     val kermit_bugsnag_test = "co.touchlab" d "kermit-bugsnag-test" w "1.1.3" w "1.2.0-M2"
-    val kermit_crashlytics = "co.touchlab" d "kermit-crashlytics" w "2.0.4"
+    val kermit_crashlytics = "co.touchlab" d "kermit-crashlytics" w "2.0.5"
     val kermit_crashlytics_test = "co.touchlab" d "kermit-crashlytics-test" w "1.1.3" w "1.2.0-M2"
     val kermit_gradle_plugin = "co.touchlab" d "kermit-gradle-plugin" w "1.2.3"
-    val kermit_test = "co.touchlab" d "kermit-test" w "2.0.4"
+    val kermit_test = "co.touchlab" d "kermit-test" w "2.0.5"
     val stately_common = "co.touchlab" d "stately-common" w "2.1.0"
     val stately_concurrency = "co.touchlab" d "stately-concurrency" w "2.1.0"
     val stately_iso_collections = "co.touchlab" d "stately-iso-collections" w "2.1.0"
@@ -1429,7 +1429,7 @@ object Io {
     val client_java = "io.ktor" d "ktor-client-java" w "3.0.1"
     val client_jetty = "io.ktor" d "ktor-client-jetty" w "3.0.1"
     val client_json = "io.ktor" d "ktor-client-json" w "3.0.1"
-    val client_json_tests = "io.ktor" d "ktor-client-json-tests" w "2.3.12"
+    val client_json_tests = "io.ktor" d "ktor-client-json-tests" w "2.3.13"
     val client_logging = "io.ktor" d "ktor-client-logging" w "3.0.1"
     val client_mock = "io.ktor" d "ktor-client-mock" w "3.0.1"
     val client_okhttp = "io.ktor" d "ktor-client-okhttp" w "3.0.1"
@@ -1477,7 +1477,7 @@ object Io {
     val server_http_redirect = "io.ktor" d "ktor-server-http-redirect" w "3.0.1"
     val server_jetty = "io.ktor" d "ktor-server-jetty" w "3.0.1"
     val server_jte = "io.ktor" d "ktor-server-jte" w "3.0.1"
-    val server_locations = "io.ktor" d "ktor-server-locations" w "2.3.12"
+    val server_locations = "io.ktor" d "ktor-server-locations" w "2.3.13"
     val server_method_override = "io.ktor" d "ktor-server-method-override" w "3.0.1"
     val server_metrics = "io.ktor" d "ktor-server-metrics" w "3.0.1"
     val server_metrics_micrometer = "io.ktor" d "ktor-server-metrics-micrometer" w "3.0.1"
@@ -1490,7 +1490,7 @@ object Io {
     val server_sessions = "io.ktor" d "ktor-server-sessions" w "3.0.1"
     val server_status_pages = "io.ktor" d "ktor-server-status-pages" w "3.0.1"
     val server_test_host = "io.ktor" d "ktor-server-test-host" w "3.0.1"
-    val server_test_suites = "io.ktor" d "ktor-server-test-suites" w "2.3.12" w "3.0.0-beta-2"
+    val server_test_suites = "io.ktor" d "ktor-server-test-suites" w "2.3.13" w "3.0.0-beta-2"
     val server_thymeleaf = "io.ktor" d "ktor-server-thymeleaf" w "3.0.1"
     val server_tomcat = "io.ktor" d "ktor-server-tomcat" w "3.0.1"
     val server_velocity = "io.ktor" d "ktor-server-velocity" w "3.0.1"
@@ -1567,7 +1567,7 @@ object JUnit {
 object Org {
   object AssertJ {
     val core = "org.assertj" d "assertj-core" w "3.26.3"
-    val db = "org.assertj" d "assertj-db" w "2.0.2"
+    val db = "org.assertj" d "assertj-db" w "3.0.0"
     val guava = "org.assertj" d "assertj-guava" w "3.26.3"
     val joda_time = "org.assertj" d "assertj-joda-time" w "2.2.0"
     val swing = "org.assertj" d "assertj-swing" w "3.17.1"
@@ -1704,10 +1704,10 @@ object Org {
       val coroutines_slf4j = "org.jetbrains.kotlinx" d "kotlinx-coroutines-slf4j" w "1.9.0"
       val coroutines_swing = "org.jetbrains.kotlinx" d "kotlinx-coroutines-swing" w "1.9.0"
       val coroutines_test = "org.jetbrains.kotlinx" d "kotlinx-coroutines-test" w "1.9.0"
-      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.14.2" w "0.15.0-dev-5023"
-      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.14.2" w "0.15.0-dev-5023"
-      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.14.2" w "0.15.0-dev-5023"
-      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.14.2" w "0.15.0-dev-5023"
+      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.14.2" w "0.15.0-dev-5057"
+      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.14.2" w "0.15.0-dev-5057"
+      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.14.2" w "0.15.0-dev-5057"
+      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.14.2" w "0.15.0-dev-5057"
       val datetime = "org.jetbrains.kotlinx" d "kotlinx-datetime" w "0.6.1"
       val html = "org.jetbrains.kotlinx" d "kotlinx-html" w "0.11.0"
       val io_jvm = "org.jetbrains.kotlinx" d "kotlinx-io-jvm" w "0.1.16"
@@ -1798,7 +1798,7 @@ object Org {
     }
   }
   object Robolectric {
-    val robolectric = "org.robolectric" d "robolectric" w "4.14"
+    val robolectric = "org.robolectric" d "robolectric" w "4.14.1"
   }
   object Slf4j {
     val api = "org.slf4j" d "slf4j-api" w "2.0.16" w "2.1.0-alpha1"
@@ -1950,13 +1950,13 @@ object Org {
       val spring_restdocs_webtestclient = "org.springframework.restdocs" d "spring-restdocs-webtestclient" w "3.0.3"
     }
     object Security {
-      val spring_security_messaging = "org.springframework.security" d "spring-security-messaging" w "6.4.0"
-      val spring_security_rsocket = "org.springframework.security" d "spring-security-rsocket" w "6.4.0"
-      val spring_security_test = "org.springframework.security" d "spring-security-test" w "6.4.0"
+      val spring_security_messaging = "org.springframework.security" d "spring-security-messaging" w "6.4.1"
+      val spring_security_rsocket = "org.springframework.security" d "spring-security-rsocket" w "6.4.1"
+      val spring_security_test = "org.springframework.security" d "spring-security-test" w "6.4.1"
     }
     object Session {
-      val spring_session_data_redis = "org.springframework.session" d "spring-session-data-redis" w "3.3.3"
-      val spring_session_jdbc = "org.springframework.session" d "spring-session-jdbc" w "3.3.3"
+      val spring_session_data_redis = "org.springframework.session" d "spring-session-data-redis" w "3.4.0"
+      val spring_session_jdbc = "org.springframework.session" d "spring-session-jdbc" w "3.4.0"
     }
   }
 }
