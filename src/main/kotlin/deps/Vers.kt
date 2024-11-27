@@ -167,7 +167,7 @@ object Vers {
   val Gradle5 = Ver("5.6.4")
   val Gradle6 = Ver("6.8.3")
   val Gradle7 = Ver("7.6.4")
-  val Gradle8 = Ver("8.11")
+  val Gradle8 = Ver("8.11.1")
 
   /**
    * Gradle - just a reference - not so useful in typical use cases
