@@ -874,7 +874,7 @@ object Com {
     object Android {
       object Fhir {
         val data_capture = "com.google.android.fhir" d "data-capture" w "1.2.0"
-        val engine = "com.google.android.fhir" d "engine" w "1.0.0"
+        val engine = "com.google.android.fhir" d "engine" w "1.1.0"
         val workflow = "com.google.android.fhir" d "workflow" w "0.1.0-beta01"
       }
       object Flexbox {
