@@ -802,7 +802,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.3"
       val r8 = "com.android.tools" d "r8" w "8.5.35"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.7.3" w "8.8.0-rc01" w "8.9.0-alpha05"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.7.3" w "8.8.0-rc02" w "8.9.0-alpha06"
       }
     }
   }
@@ -1650,13 +1650,13 @@ object Org {
     val testing_webdriver = "org.http4k" d "http4k-testing-webdriver" w "5.41.0.0"
   }
   object JUnit {
-    val bom = "org.junit" d "junit-bom" w "5.11.3"
+    val bom = "org.junit" d "junit-bom" w "5.11.4"
     object Jupiter {
-      val junit_jupiter = "org.junit.jupiter" d "junit-jupiter" w "5.11.3"
-      val junit_jupiter_api = "org.junit.jupiter" d "junit-jupiter-api" w "5.11.3"
-      val junit_jupiter_engine = "org.junit.jupiter" d "junit-jupiter-engine" w "5.11.3"
-      val junit_jupiter_migrationsupport = "org.junit.jupiter" d "junit-jupiter-migrationsupport" w "5.11.3"
-      val junit_jupiter_params = "org.junit.jupiter" d "junit-jupiter-params" w "5.11.3"
+      val junit_jupiter = "org.junit.jupiter" d "junit-jupiter" w "5.11.4"
+      val junit_jupiter_api = "org.junit.jupiter" d "junit-jupiter-api" w "5.11.4"
+      val junit_jupiter_engine = "org.junit.jupiter" d "junit-jupiter-engine" w "5.11.4"
+      val junit_jupiter_migrationsupport = "org.junit.jupiter" d "junit-jupiter-migrationsupport" w "5.11.4"
+      val junit_jupiter_params = "org.junit.jupiter" d "junit-jupiter-params" w "5.11.4"
     }
   }
   object JetBrains {
@@ -1709,10 +1709,10 @@ object Org {
       val coroutines_slf4j = "org.jetbrains.kotlinx" d "kotlinx-coroutines-slf4j" w "1.9.0"
       val coroutines_swing = "org.jetbrains.kotlinx" d "kotlinx-coroutines-swing" w "1.9.0"
       val coroutines_test = "org.jetbrains.kotlinx" d "kotlinx-coroutines-test" w "1.9.0"
-      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.15.0" w "0.16.0-dev-5302"
-      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.15.0" w "0.16.0-dev-5302"
-      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.15.0" w "0.16.0-dev-5302"
-      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.15.0" w "0.16.0-dev-5302"
+      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.15.0" w "0.16.0-dev-5324"
+      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.15.0" w "0.16.0-dev-5324"
+      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.15.0" w "0.16.0-dev-5324"
+      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.15.0" w "0.16.0-dev-5324"
       val datetime = "org.jetbrains.kotlinx" d "kotlinx-datetime" w "0.6.1"
       val html = "org.jetbrains.kotlinx" d "kotlinx-html" w "0.11.0"
       val io_jvm = "org.jetbrains.kotlinx" d "kotlinx-io-jvm" w "0.1.16"
@@ -1824,7 +1824,7 @@ object Org {
   }
   object SpringFramework {
     object Amqp {
-      val spring_rabbit_test = "org.springframework.amqp" d "spring-rabbit-test" w "3.2.0"
+      val spring_rabbit_test = "org.springframework.amqp" d "spring-rabbit-test" w "3.2.1"
     }
     object Batch {
       val spring_batch_test = "org.springframework.batch" d "spring-batch-test" w "5.2.0"
@@ -1948,16 +1948,16 @@ object Org {
       val spring_integration_ws = "org.springframework.integration" d "spring-integration-ws" w "6.4.0"
     }
     object Kafka {
-      val spring_kafka = "org.springframework.kafka" d "spring-kafka" w "3.3.0"
-      val spring_kafka_test = "org.springframework.kafka" d "spring-kafka-test" w "3.3.0"
+      val spring_kafka = "org.springframework.kafka" d "spring-kafka" w "3.3.1"
+      val spring_kafka_test = "org.springframework.kafka" d "spring-kafka-test" w "3.3.1"
     }
     object Restdocs {
       val spring_restdocs_webtestclient = "org.springframework.restdocs" d "spring-restdocs-webtestclient" w "3.0.3"
     }
     object Security {
-      val spring_security_messaging = "org.springframework.security" d "spring-security-messaging" w "6.4.1"
-      val spring_security_rsocket = "org.springframework.security" d "spring-security-rsocket" w "6.4.1"
-      val spring_security_test = "org.springframework.security" d "spring-security-test" w "6.4.1"
+      val spring_security_messaging = "org.springframework.security" d "spring-security-messaging" w "6.4.2"
+      val spring_security_rsocket = "org.springframework.security" d "spring-security-rsocket" w "6.4.2"
+      val spring_security_test = "org.springframework.security" d "spring-security-test" w "6.4.2"
     }
     object Session {
       val spring_session_data_redis = "org.springframework.session" d "spring-session-data-redis" w "3.4.0"
