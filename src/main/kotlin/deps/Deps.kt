@@ -1365,10 +1365,10 @@ object Io {
       }
     }
     object TypeSafeGitHub {
-      val action_binding_generator = "io.github.typesafegithub" d "action-binding-generator" w "3.0.1"
-      val action_updates_checker = "io.github.typesafegithub" d "action-updates-checker" w "3.0.1"
-      val github_workflows_kt = "io.github.typesafegithub" d "github-workflows-kt" w "3.0.1"
-      val shared_internal = "io.github.typesafegithub" d "shared-internal" w "3.0.1"
+      val action_binding_generator = "io.github.typesafegithub" d "action-binding-generator" w "3.0.2"
+      val action_updates_checker = "io.github.typesafegithub" d "action-updates-checker" w "3.0.2"
+      val github_workflows_kt = "io.github.typesafegithub" d "github-workflows-kt" w "3.0.2"
+      val shared_internal = "io.github.typesafegithub" d "shared-internal" w "3.0.2"
     }
   }
   object Insert_koin {
@@ -1571,9 +1571,9 @@ object JUnit {
 }
 object Org {
   object AssertJ {
-    val core = "org.assertj" d "assertj-core" w "3.27.0"
+    val core = "org.assertj" d "assertj-core" w "3.27.1"
     val db = "org.assertj" d "assertj-db" w "3.0.0"
-    val guava = "org.assertj" d "assertj-guava" w "3.27.0"
+    val guava = "org.assertj" d "assertj-guava" w "3.27.1"
     val joda_time = "org.assertj" d "assertj-joda-time" w "2.2.0"
     val swing = "org.assertj" d "assertj-swing" w "3.17.1"
   }
