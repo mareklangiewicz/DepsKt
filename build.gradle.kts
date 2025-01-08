@@ -18,7 +18,7 @@ import org.jetbrains.kotlin.gradle.dsl.*
 
 plugins {
   plugAll(plugs.KotlinJvm, plugs.NexusPublish, plugs.GradlePublish, plugs.Signing)
-  id("pl.mareklangiewicz.sourcefun") version "0.4.22"
+  id("pl.mareklangiewicz.sourcefun") version "0.4.23"
   // FIXME_later: add to plugAll after updating deps
   // https://plugins.gradle.org/search?term=pl.mareklangiewicz
 }
@@ -48,7 +48,7 @@ defaultGroupAndVerAndDescription(
     group = "pl.mareklangiewicz.deps", // important non default ...deps group (as accepted on gradle portal)
     description = "Updated dependencies for typical java/kotlin/android projects (with IDE support).",
     githubUrl = "https://github.com/mareklangiewicz/DepsKt",
-    version = Ver(0, 3, 65),
+    version = Ver(0, 3, 66),
     // TODO use some SourceFun task to make sure it's synced with Vers.DepsPlug
     // (we println it when applying plugin so have to be synced not to confuse users)
     // https://plugins.gradle.org/search?term=pl.mareklangiewicz
