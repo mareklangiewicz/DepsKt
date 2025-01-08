@@ -93,7 +93,7 @@ object Vers {
    * - [gradle org docs](https://docs.gradle.com/develocity/gradle-plugin/)
    * - [gradle portal](https://plugins.gradle.org/plugin/com.gradle.develocity)
    */
-  val GradleDevelocityPlug = Ver("3.18.2")
+  val GradleDevelocityPlug = Ver("3.19")
 
 
   /**
@@ -112,7 +112,7 @@ object Vers {
    * - [github](https://github.com/Kotlin/dokka)
    * - [github releases](https://github.com/Kotlin/dokka/releases)
    */
-  val DokkaPlug = Ver("2.0.0-Beta")
+  val DokkaPlug = Ver("2.0.0")
 
 
   /**
@@ -126,7 +126,7 @@ object Vers {
    * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
    * [github](https://github.com/Kotlin/kotlin-jupyter)
    */
-  val KotlinJupyterPlug = Ver("0.12.0-339")
+  val KotlinJupyterPlug = Ver("0.12.0-356")
 
   /**
    * Gradle Shadow Gradle Plugin
@@ -151,7 +151,7 @@ object Vers {
    * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val DepsPlug = Ver(0, 3, 64) // TODO make sure it's always synced with myLibDetails(version)
+  val DepsPlug = Ver(0, 3, 65) // TODO make sure it's always synced with myLibDetails(version)
 
   /**
    * SourceFun Gradle Plugin
@@ -167,7 +167,7 @@ object Vers {
   val Gradle5 = Ver("5.6.4")
   val Gradle6 = Ver("6.8.3")
   val Gradle7 = Ver("7.6.4")
-  val Gradle8 = Ver("8.11.1")
+  val Gradle8 = Ver("8.12")
 
   /**
    * Gradle - just a reference - not so useful in typical use cases
