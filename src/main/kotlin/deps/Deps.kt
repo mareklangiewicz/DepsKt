@@ -1258,7 +1258,7 @@ object Com {
       val okhttp_urlconnection = "com.squareup.okhttp3" d "okhttp-urlconnection" w "4.12.0" w "5.0.0-alpha.14"
     }
     object Okio {
-      val okio = "com.squareup.okio" d "okio" w "3.10.1"
+      val okio = "com.squareup.okio" d "okio" w "3.10.2"
     }
     object Picasso {
       val picasso = "com.squareup.picasso" d "picasso" w "2.71828"
@@ -1372,17 +1372,17 @@ object Io {
     }
   }
   object Insert_koin {
-    val koin_android = "io.insert-koin" d "koin-android" w "4.0.1" w "4.1.0-Beta3"
-    val koin_android_compat = "io.insert-koin" d "koin-android-compat" w "4.0.1" w "4.1.0-Beta3"
-    val koin_androidx_compose = "io.insert-koin" d "koin-androidx-compose" w "4.0.1" w "4.1.0-Beta3"
-    val koin_androidx_navigation = "io.insert-koin" d "koin-androidx-navigation" w "4.0.1" w "4.1.0-Beta3"
-    val koin_androidx_workmanager = "io.insert-koin" d "koin-androidx-workmanager" w "4.0.1" w "4.1.0-Beta3"
-    val koin_core = "io.insert-koin" d "koin-core" w "4.0.1" w "4.1.0-Beta3"
-    val koin_ktor = "io.insert-koin" d "koin-ktor" w "4.0.1" w "4.1.0-Beta3"
-    val koin_logger_slf4j = "io.insert-koin" d "koin-logger-slf4j" w "4.0.1" w "4.1.0-Beta3"
-    val koin_test = "io.insert-koin" d "koin-test" w "4.0.1" w "4.1.0-Beta3"
-    val koin_test_junit4 = "io.insert-koin" d "koin-test-junit4" w "4.0.1" w "4.1.0-Beta3"
-    val koin_test_junit5 = "io.insert-koin" d "koin-test-junit5" w "4.0.1" w "4.1.0-Beta3"
+    val koin_android = "io.insert-koin" d "koin-android" w "4.0.1" w "4.0.2-RC1" w "4.1.0-Beta3"
+    val koin_android_compat = "io.insert-koin" d "koin-android-compat" w "4.0.1" w "4.0.2-RC1" w "4.1.0-Beta3"
+    val koin_androidx_compose = "io.insert-koin" d "koin-androidx-compose" w "4.0.1" w "4.0.2-RC1" w "4.1.0-Beta3"
+    val koin_androidx_navigation = "io.insert-koin" d "koin-androidx-navigation" w "4.0.1" w "4.0.2-RC1" w "4.1.0-Beta3"
+    val koin_androidx_workmanager = "io.insert-koin" d "koin-androidx-workmanager" w "4.0.1" w "4.0.2-RC1" w "4.1.0-Beta3"
+    val koin_core = "io.insert-koin" d "koin-core" w "4.0.1" w "4.0.2-RC1" w "4.1.0-Beta3"
+    val koin_ktor = "io.insert-koin" d "koin-ktor" w "4.0.1" w "4.0.2-RC1" w "4.1.0-Beta3"
+    val koin_logger_slf4j = "io.insert-koin" d "koin-logger-slf4j" w "4.0.1" w "4.0.2-RC1" w "4.1.0-Beta3"
+    val koin_test = "io.insert-koin" d "koin-test" w "4.0.1" w "4.0.2-RC1" w "4.1.0-Beta3"
+    val koin_test_junit4 = "io.insert-koin" d "koin-test-junit4" w "4.0.1" w "4.0.2-RC1" w "4.1.0-Beta3"
+    val koin_test_junit5 = "io.insert-koin" d "koin-test-junit5" w "4.0.1" w "4.0.2-RC1" w "4.1.0-Beta3"
   }
   object Kotest {
     val assertions_arrow = "io.kotest" d "kotest-assertions-arrow" w "4.4.3"
