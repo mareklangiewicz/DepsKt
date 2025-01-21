@@ -1661,7 +1661,7 @@ object Org {
   }
   object JetBrains {
     object Compose {
-      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.7.3" w "1.8.0+check" w "1.8.0-alpha01" w "1.8.0-alpha02"
+      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.7.3" w "1.8.0+check" w "1.8.0-alpha02"
       object Compiler {
         val compiler = "org.jetbrains.compose.compiler" d "compiler" w "1.5.14" w "1.5.15"
       }
@@ -1672,21 +1672,21 @@ object Org {
       val jdbc = "org.jetbrains.exposed" d "exposed-jdbc" w "0.58.0"
     }
     object Kotlin {
-      val reflect = "org.jetbrains.kotlin" d "kotlin-reflect" w "2.1.0" w "2.1.10-RC" w "2.1.20-Beta1"
-      val script_runtime = "org.jetbrains.kotlin" d "kotlin-script-runtime" w "2.1.0" w "2.1.10-RC" w "2.1.20-Beta1"
-      val stdlib = "org.jetbrains.kotlin" d "kotlin-stdlib" w "2.1.0" w "2.1.10-RC" w "2.1.20-Beta1"
-      val stdlib_common = "org.jetbrains.kotlin" d "kotlin-stdlib-common" w "2.1.0" w "2.1.10-RC" w "2.1.20-Beta1"
-      val stdlib_jdk7 = "org.jetbrains.kotlin" d "kotlin-stdlib-jdk7" w "2.1.0" w "2.1.10-RC" w "2.1.20-Beta1"
-      val stdlib_jdk8 = "org.jetbrains.kotlin" d "kotlin-stdlib-jdk8" w "2.1.0" w "2.1.10-RC" w "2.1.20-Beta1"
-      val stdlib_js = "org.jetbrains.kotlin" d "kotlin-stdlib-js" w "2.1.0" w "2.1.10-RC" w "2.1.20-Beta1"
-      val test = "org.jetbrains.kotlin" d "kotlin-test" w "2.1.0" w "2.1.10-RC" w "2.1.20-Beta1"
-      val test_annotations_common = "org.jetbrains.kotlin" d "kotlin-test-annotations-common" w "2.1.0" w "2.1.10-RC" w "2.1.20-Beta1"
-      val test_common = "org.jetbrains.kotlin" d "kotlin-test-common" w "2.1.0" w "2.1.10-RC" w "2.1.20-Beta1"
-      val test_js = "org.jetbrains.kotlin" d "kotlin-test-js" w "2.1.0" w "2.1.10-RC" w "2.1.20-Beta1"
+      val reflect = "org.jetbrains.kotlin" d "kotlin-reflect" w "2.1.0" w "2.1.10-RC2" w "2.1.20-Beta1"
+      val script_runtime = "org.jetbrains.kotlin" d "kotlin-script-runtime" w "2.1.0" w "2.1.10-RC2" w "2.1.20-Beta1"
+      val stdlib = "org.jetbrains.kotlin" d "kotlin-stdlib" w "2.1.0" w "2.1.10-RC2" w "2.1.20-Beta1"
+      val stdlib_common = "org.jetbrains.kotlin" d "kotlin-stdlib-common" w "2.1.0" w "2.1.10-RC2" w "2.1.20-Beta1"
+      val stdlib_jdk7 = "org.jetbrains.kotlin" d "kotlin-stdlib-jdk7" w "2.1.0" w "2.1.10-RC2" w "2.1.20-Beta1"
+      val stdlib_jdk8 = "org.jetbrains.kotlin" d "kotlin-stdlib-jdk8" w "2.1.0" w "2.1.10-RC2" w "2.1.20-Beta1"
+      val stdlib_js = "org.jetbrains.kotlin" d "kotlin-stdlib-js" w "2.1.0" w "2.1.10-RC2" w "2.1.20-Beta1"
+      val test = "org.jetbrains.kotlin" d "kotlin-test" w "2.1.0" w "2.1.10-RC2" w "2.1.20-Beta1"
+      val test_annotations_common = "org.jetbrains.kotlin" d "kotlin-test-annotations-common" w "2.1.0" w "2.1.10-RC2" w "2.1.20-Beta1"
+      val test_common = "org.jetbrains.kotlin" d "kotlin-test-common" w "2.1.0" w "2.1.10-RC2" w "2.1.20-Beta1"
+      val test_js = "org.jetbrains.kotlin" d "kotlin-test-js" w "2.1.0" w "2.1.10-RC2" w "2.1.20-Beta1"
       val test_js_runner = "org.jetbrains.kotlin" d "kotlin-test-js-runner" w "2.0.21"
-      val test_junit = "org.jetbrains.kotlin" d "kotlin-test-junit" w "2.1.0" w "2.1.10-RC" w "2.1.20-Beta1"
-      val test_junit5 = "org.jetbrains.kotlin" d "kotlin-test-junit5" w "2.1.0" w "2.1.10-RC" w "2.1.20-Beta1"
-      val test_testng = "org.jetbrains.kotlin" d "kotlin-test-testng" w "2.1.0" w "2.1.10-RC" w "2.1.20-Beta1"
+      val test_junit = "org.jetbrains.kotlin" d "kotlin-test-junit" w "2.1.0" w "2.1.10-RC2" w "2.1.20-Beta1"
+      val test_junit5 = "org.jetbrains.kotlin" d "kotlin-test-junit5" w "2.1.0" w "2.1.10-RC2" w "2.1.20-Beta1"
+      val test_testng = "org.jetbrains.kotlin" d "kotlin-test-testng" w "2.1.0" w "2.1.10-RC2" w "2.1.20-Beta1"
     }
     object KotlinX {
       val atomicfu_gradle_plugin = "org.jetbrains.kotlinx" d "atomicfu-gradle-plugin" w "0.27.0"
