@@ -86,14 +86,14 @@ object Vers {
    * - [plugins gradle org](https://plugins.gradle.org/plugin/com.gradle.plugin-publish)
    * - [plugins gradle org docs](https://plugins.gradle.org/docs/publish-plugin)
    */
-  val GradlePublishPlug = Ver("1.3.0")
+  val GradlePublishPlug = Ver("1.3.1")
 
   /**
    * Gradle Develocity Plugin (enables integration with Gradle Develocity and scans.gradle.com)
    * - [gradle org docs](https://docs.gradle.com/develocity/gradle-plugin/)
    * - [gradle portal](https://plugins.gradle.org/plugin/com.gradle.develocity)
    */
-  val GradleDevelocityPlug = Ver("3.19")
+  val GradleDevelocityPlug = Ver("3.19.1")
 
 
   /**
@@ -134,7 +134,7 @@ object Vers {
    * - [github john rengelman shadow](https://github.com/johnrengelman/shadow)
    * - [docs](https://github.com/johnrengelman/shadow)
    */
-  val GradleShadowPlug = Ver("9.0.0-beta4")
+  val GradleShadowPlug = Ver("9.0.0-beta6")
 
   /**
    * Osacky Doctor Gradle Plugin
@@ -151,7 +151,7 @@ object Vers {
    * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val DepsPlug = Ver(0, 3, 66) // TODO make sure it's always synced with myLibDetails(version)
+  val DepsPlug = Ver(0, 3, 67) // TODO make sure it's always synced with myLibDetails(version)
 
   /**
    * SourceFun Gradle Plugin
@@ -167,7 +167,7 @@ object Vers {
   val Gradle5 = Ver("5.6.4")
   val Gradle6 = Ver("6.8.3")
   val Gradle7 = Ver("7.6.4")
-  val Gradle8 = Ver("8.12")
+  val Gradle8 = Ver("8.12.1")
 
   /**
    * Gradle - just a reference - not so useful in typical use cases
