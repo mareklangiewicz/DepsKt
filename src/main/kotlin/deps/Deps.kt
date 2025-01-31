@@ -873,7 +873,7 @@ object Com {
     }
     object Android {
       object Fhir {
-        val data_capture = "com.google.android.fhir" d "data-capture" w "1.2.0"
+        val data_capture = "com.google.android.fhir" d "data-capture" w "1.3.0"
         val engine = "com.google.android.fhir" d "engine" w "1.2.0"
         val workflow = "com.google.android.fhir" d "workflow" w "0.1.0-beta01"
       }
@@ -1709,10 +1709,10 @@ object Org {
       val coroutines_slf4j = "org.jetbrains.kotlinx" d "kotlinx-coroutines-slf4j" w "1.10.1"
       val coroutines_swing = "org.jetbrains.kotlinx" d "kotlinx-coroutines-swing" w "1.10.1"
       val coroutines_test = "org.jetbrains.kotlinx" d "kotlinx-coroutines-test" w "1.10.1"
-      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.15.0" w "0.16.0-dev-5554"
-      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.15.0" w "0.16.0-dev-5554"
-      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.15.0" w "0.16.0-dev-5554"
-      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.15.0" w "0.16.0-dev-5554"
+      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.15.0" w "0.16.0-dev-5568"
+      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.15.0" w "0.16.0-dev-5568"
+      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.15.0" w "0.16.0-dev-5568"
+      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.15.0" w "0.16.0-dev-5568"
       val datetime = "org.jetbrains.kotlinx" d "kotlinx-datetime" w "0.6.1"
       val html = "org.jetbrains.kotlinx" d "kotlinx-html" w "0.12.0"
       val io_jvm = "org.jetbrains.kotlinx" d "kotlinx-io-jvm" w "0.1.16"
