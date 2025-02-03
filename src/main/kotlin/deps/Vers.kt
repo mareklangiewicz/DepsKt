@@ -126,7 +126,7 @@ object Vers {
    * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
    * [github](https://github.com/Kotlin/kotlin-jupyter)
    */
-  val KotlinJupyterPlug = Ver("0.12.0-356")
+  val KotlinJupyterPlug = Ver("0.12.0-363")
 
   /**
    * Gradle Shadow Gradle Plugin
@@ -134,7 +134,7 @@ object Vers {
    * - [github john rengelman shadow](https://github.com/johnrengelman/shadow)
    * - [docs](https://github.com/johnrengelman/shadow)
    */
-  val GradleShadowPlug = Ver("9.0.0-beta6")
+  val GradleShadowPlug = Ver("9.0.0-beta7")
 
   /**
    * Osacky Doctor Gradle Plugin
@@ -151,7 +151,7 @@ object Vers {
    * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val DepsPlug = Ver(0, 3, 67) // TODO make sure it's always synced with myLibDetails(version)
+  val DepsPlug = Ver(0, 3, 68) // TODO make sure it's always synced with myLibDetails(version)
 
   /**
    * SourceFun Gradle Plugin
@@ -159,7 +159,7 @@ object Vers {
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    * - [plugins gradle sourcefun](https://plugins.gradle.org/plugin/pl.mareklangiewicz.sourcefun)
    */
-  val SourceFunPlug = Ver("0.4.23")
+  val SourceFunPlug = Ver("0.4.24")
 
   const val JvmDefaultVer = "23"
 
