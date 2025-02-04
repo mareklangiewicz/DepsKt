@@ -643,34 +643,34 @@ object AndroidX {
     val swiperefreshlayout = "androidx.swiperefreshlayout" d "swiperefreshlayout" w "1.1.0" w "1.2.0-alpha01"
   }
   object Test {
-    val core = "androidx.test" d "core" w "1.6.1"
-    val core_ktx = "androidx.test" d "core-ktx" w "1.6.1"
-    val monitor = "androidx.test" d "monitor" w "1.7.2"
-    val orchestrator = "androidx.test" d "orchestrator" w "1.5.1" w "1.6.0-alpha01"
-    val rules = "androidx.test" d "rules" w "1.6.1"
-    val runner = "androidx.test" d "runner" w "1.6.2"
+    val core = "androidx.test" d "core" w "1.6.1" w "1.7.0-alpha01"
+    val core_ktx = "androidx.test" d "core-ktx" w "1.6.1" w "1.7.0-alpha01"
+    val monitor = "androidx.test" d "monitor" w "1.7.2" w "1.8.0-alpha01"
+    val orchestrator = "androidx.test" d "orchestrator" w "1.5.1" w "1.6.0-alpha02"
+    val rules = "androidx.test" d "rules" w "1.6.1" w "1.7.0-alpha01"
+    val runner = "androidx.test" d "runner" w "1.6.2" w "1.7.0-alpha01"
     object Espresso {
-      val accessibility = "androidx.test.espresso" d "espresso-accessibility" w "3.6.1"
-      val contrib = "androidx.test.espresso" d "espresso-contrib" w "3.6.1"
-      val core = "androidx.test.espresso" d "espresso-core" w "3.6.1"
-      val device = "androidx.test.espresso" d "espresso-device" w "1.0.1"
-      val idling_resource = "androidx.test.espresso" d "espresso-idling-resource" w "3.6.1"
-      val intents = "androidx.test.espresso" d "espresso-intents" w "3.6.1"
-      val remote = "androidx.test.espresso" d "espresso-remote" w "3.6.1"
-      val web = "androidx.test.espresso" d "espresso-web" w "3.6.1"
+      val accessibility = "androidx.test.espresso" d "espresso-accessibility" w "3.6.1" w "3.7.0-alpha01"
+      val contrib = "androidx.test.espresso" d "espresso-contrib" w "3.6.1" w "3.7.0-alpha01"
+      val core = "androidx.test.espresso" d "espresso-core" w "3.6.1" w "3.7.0-alpha01"
+      val device = "androidx.test.espresso" d "espresso-device" w "1.0.1" w "1.1.0-alpha01"
+      val idling_resource = "androidx.test.espresso" d "espresso-idling-resource" w "3.6.1" w "3.7.0-alpha01"
+      val intents = "androidx.test.espresso" d "espresso-intents" w "3.6.1" w "3.7.0-alpha01"
+      val remote = "androidx.test.espresso" d "espresso-remote" w "3.6.1" w "3.7.0-alpha01"
+      val web = "androidx.test.espresso" d "espresso-web" w "3.6.1" w "3.7.0-alpha01"
       object Idling {
-        val concurrent = "androidx.test.espresso.idling" d "idling-concurrent" w "3.6.1"
-        val net = "androidx.test.espresso.idling" d "idling-net" w "3.6.1"
+        val concurrent = "androidx.test.espresso.idling" d "idling-concurrent" w "3.6.1" w "3.7.0-alpha01"
+        val net = "androidx.test.espresso.idling" d "idling-net" w "3.6.1" w "3.7.0-alpha01"
       }
     }
     object Ext {
-      val junit = "androidx.test.ext" d "junit" w "1.2.1"
+      val junit = "androidx.test.ext" d "junit" w "1.2.1" w "1.3.0-alpha01"
       val junit_gtest = "androidx.test.ext" d "junit-gtest" w "1.0.0-alpha02"
-      val junit_ktx = "androidx.test.ext" d "junit-ktx" w "1.2.1"
-      val truth = "androidx.test.ext" d "truth" w "1.6.0"
+      val junit_ktx = "androidx.test.ext" d "junit-ktx" w "1.2.1" w "1.3.0-alpha01"
+      val truth = "androidx.test.ext" d "truth" w "1.6.0" w "1.7.0-alpha01"
     }
     object Services {
-      val test_services = "androidx.test.services" d "test-services" w "1.5.0" w "1.6.0-alpha01"
+      val test_services = "androidx.test.services" d "test-services" w "1.5.0" w "1.6.0-alpha02"
     }
     object UiAutoMator {
       val uiautomator = "androidx.test.uiautomator" d "uiautomator" w "2.3.0" w "2.4.0-alpha01"
@@ -802,7 +802,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.4"
       val r8 = "com.android.tools" d "r8" w "8.7.18"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.8.0" w "8.9.0-beta01" w "8.10.0-alpha02"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.8.0" w "8.9.0-beta01" w "8.10.0-alpha03"
       }
     }
   }
@@ -1867,10 +1867,10 @@ object Org {
       val coroutines_test = "org.jetbrains.kotlinx" d "kotlinx-coroutines-test" w "1.10.1"
       val coroutines_test_js = "org.jetbrains.kotlinx" d "kotlinx-coroutines-test-js" w "1.10.1"
       val coroutines_test_jvm = "org.jetbrains.kotlinx" d "kotlinx-coroutines-test-jvm" w "1.10.1"
-      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.15.0" w "0.16.0-dev-5568"
-      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.15.0" w "0.16.0-dev-5568"
-      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.15.0" w "0.16.0-dev-5568"
-      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.15.0" w "0.16.0-dev-5568"
+      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.15.0" w "0.16.0-dev-5578"
+      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.15.0" w "0.16.0-dev-5578"
+      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.15.0" w "0.16.0-dev-5578"
+      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.15.0" w "0.16.0-dev-5578"
       val datetime = "org.jetbrains.kotlinx" d "kotlinx-datetime" w "0.6.1"
       val datetime_js = "org.jetbrains.kotlinx" d "kotlinx-datetime-js" w "0.6.1"
       val datetime_jvm = "org.jetbrains.kotlinx" d "kotlinx-datetime-jvm" w "0.6.1"
@@ -1886,8 +1886,8 @@ object Org {
       val kotlin_deeplearning_api = "org.jetbrains.kotlinx" d "kotlin-deeplearning-api" w "0.5.2" w "0.6.0-alpha-1"
       val kotlin_deeplearning_onnx = "org.jetbrains.kotlinx" d "kotlin-deeplearning-onnx" w "0.5.2" w "0.6.0-alpha-1"
       val kotlin_deeplearning_visualization = "org.jetbrains.kotlinx" d "kotlin-deeplearning-visualization" w "0.5.2" w "0.6.0-alpha-1"
-      val lincheck = "org.jetbrains.kotlinx" d "lincheck" w "2.34"
-      val lincheck_jvm = "org.jetbrains.kotlinx" d "lincheck-jvm" w "2.34"
+      val lincheck = "org.jetbrains.kotlinx" d "lincheck" w "2.35"
+      val lincheck_jvm = "org.jetbrains.kotlinx" d "lincheck-jvm" w "2.35"
       val multik_api = "org.jetbrains.kotlinx" d "multik-api" w "0.1.1"
       val multik_default = "org.jetbrains.kotlinx" d "multik-default" w "0.2.3"
       val multik_jvm = "org.jetbrains.kotlinx" d "multik-jvm" w "0.1.1"
