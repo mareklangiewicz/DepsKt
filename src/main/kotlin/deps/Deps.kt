@@ -510,27 +510,27 @@ object AndroidX {
     val widget = "androidx.media2" d "media2-widget" w "1.3.0"
   }
   object Media3 {
-    val cast = "androidx.media3" d "media3-cast" w "1.5.1" w "1.6.0-alpha02"
-    val common = "androidx.media3" d "media3-common" w "1.5.1" w "1.6.0-alpha02"
-    val database = "androidx.media3" d "media3-database" w "1.5.1" w "1.6.0-alpha02"
-    val datasource = "androidx.media3" d "media3-datasource" w "1.5.1" w "1.6.0-alpha02"
-    val datasource_cronet = "androidx.media3" d "media3-datasource-cronet" w "1.5.1" w "1.6.0-alpha02"
-    val datasource_okhttp = "androidx.media3" d "media3-datasource-okhttp" w "1.5.1" w "1.6.0-alpha02"
-    val datasource_rtmp = "androidx.media3" d "media3-datasource-rtmp" w "1.5.1" w "1.6.0-alpha02"
-    val decoder = "androidx.media3" d "media3-decoder" w "1.5.1" w "1.6.0-alpha02"
-    val exoplayer = "androidx.media3" d "media3-exoplayer" w "1.5.1" w "1.6.0-alpha02"
-    val exoplayer_dash = "androidx.media3" d "media3-exoplayer-dash" w "1.5.1" w "1.6.0-alpha02"
-    val exoplayer_hls = "androidx.media3" d "media3-exoplayer-hls" w "1.5.1" w "1.6.0-alpha02"
-    val exoplayer_ima = "androidx.media3" d "media3-exoplayer-ima" w "1.5.1" w "1.6.0-alpha02"
-    val exoplayer_rtsp = "androidx.media3" d "media3-exoplayer-rtsp" w "1.5.1" w "1.6.0-alpha02"
-    val exoplayer_workmanager = "androidx.media3" d "media3-exoplayer-workmanager" w "1.5.1" w "1.6.0-alpha02"
-    val extractor = "androidx.media3" d "media3-extractor" w "1.5.1" w "1.6.0-alpha02"
-    val session = "androidx.media3" d "media3-session" w "1.5.1" w "1.6.0-alpha02"
-    val test_utils = "androidx.media3" d "media3-test-utils" w "1.5.1" w "1.6.0-alpha02"
-    val test_utils_robolectric = "androidx.media3" d "media3-test-utils-robolectric" w "1.5.1" w "1.6.0-alpha02"
-    val transformer = "androidx.media3" d "media3-transformer" w "1.5.1" w "1.6.0-alpha02"
-    val ui = "androidx.media3" d "media3-ui" w "1.5.1" w "1.6.0-alpha02"
-    val ui_leanback = "androidx.media3" d "media3-ui-leanback" w "1.5.1" w "1.6.0-alpha02"
+    val cast = "androidx.media3" d "media3-cast" w "1.5.1" w "1.6.0-alpha03"
+    val common = "androidx.media3" d "media3-common" w "1.5.1" w "1.6.0-alpha03"
+    val database = "androidx.media3" d "media3-database" w "1.5.1" w "1.6.0-alpha03"
+    val datasource = "androidx.media3" d "media3-datasource" w "1.5.1" w "1.6.0-alpha03"
+    val datasource_cronet = "androidx.media3" d "media3-datasource-cronet" w "1.5.1" w "1.6.0-alpha03"
+    val datasource_okhttp = "androidx.media3" d "media3-datasource-okhttp" w "1.5.1" w "1.6.0-alpha03"
+    val datasource_rtmp = "androidx.media3" d "media3-datasource-rtmp" w "1.5.1" w "1.6.0-alpha03"
+    val decoder = "androidx.media3" d "media3-decoder" w "1.5.1" w "1.6.0-alpha03"
+    val exoplayer = "androidx.media3" d "media3-exoplayer" w "1.5.1" w "1.6.0-alpha03"
+    val exoplayer_dash = "androidx.media3" d "media3-exoplayer-dash" w "1.5.1" w "1.6.0-alpha03"
+    val exoplayer_hls = "androidx.media3" d "media3-exoplayer-hls" w "1.5.1" w "1.6.0-alpha03"
+    val exoplayer_ima = "androidx.media3" d "media3-exoplayer-ima" w "1.5.1" w "1.6.0-alpha03"
+    val exoplayer_rtsp = "androidx.media3" d "media3-exoplayer-rtsp" w "1.5.1" w "1.6.0-alpha03"
+    val exoplayer_workmanager = "androidx.media3" d "media3-exoplayer-workmanager" w "1.5.1" w "1.6.0-alpha03"
+    val extractor = "androidx.media3" d "media3-extractor" w "1.5.1" w "1.6.0-alpha03"
+    val session = "androidx.media3" d "media3-session" w "1.5.1" w "1.6.0-alpha03"
+    val test_utils = "androidx.media3" d "media3-test-utils" w "1.5.1" w "1.6.0-alpha03"
+    val test_utils_robolectric = "androidx.media3" d "media3-test-utils-robolectric" w "1.5.1" w "1.6.0-alpha03"
+    val transformer = "androidx.media3" d "media3-transformer" w "1.5.1" w "1.6.0-alpha03"
+    val ui = "androidx.media3" d "media3-ui" w "1.5.1" w "1.6.0-alpha03"
+    val ui_leanback = "androidx.media3" d "media3-ui-leanback" w "1.5.1" w "1.6.0-alpha03"
   }
   object MediaRouter {
     val mediarouter = "androidx.mediarouter" d "mediarouter" w "1.7.0" w "1.8.0-alpha02"
@@ -802,7 +802,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.4"
       val r8 = "com.android.tools" d "r8" w "8.7.18"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.8.0" w "8.9.0-beta01" w "8.10.0-alpha03"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.8.0" w "8.9.0-rc01" w "8.10.0-alpha03"
       }
     }
   }
@@ -1198,11 +1198,11 @@ object Com {
   }
   object Rickclephas {
     object Kmp {
-      val nativecoroutines_annotations = "com.rickclephas.kmp" d "kmp-nativecoroutines-annotations" w "0.13.3" w "1.0.0-ALPHA-38-kotlin-2.1.20-Beta1"
-      val nativecoroutines_compiler = "com.rickclephas.kmp" d "kmp-nativecoroutines-compiler" w "0.13.3" w "1.0.0-ALPHA-38-kotlin-2.1.20-Beta1"
-      val nativecoroutines_compiler_embeddable = "com.rickclephas.kmp" d "kmp-nativecoroutines-compiler-embeddable" w "0.13.3" w "1.0.0-ALPHA-38-kotlin-2.1.20-Beta1"
-      val nativecoroutines_core = "com.rickclephas.kmp" d "kmp-nativecoroutines-core" w "0.13.3" w "1.0.0-ALPHA-38-kotlin-2.1.20-Beta1"
-      val nativecoroutines_gradle_plugin = "com.rickclephas.kmp" d "kmp-nativecoroutines-gradle-plugin" w "0.13.3" w "1.0.0-ALPHA-38-kotlin-2.1.20-Beta1"
+      val nativecoroutines_annotations = "com.rickclephas.kmp" d "kmp-nativecoroutines-annotations" w "0.13.3" w "1.0.0-ALPHA-39-kotlin-2.1.20-Beta2"
+      val nativecoroutines_compiler = "com.rickclephas.kmp" d "kmp-nativecoroutines-compiler" w "0.13.3" w "1.0.0-ALPHA-39-kotlin-2.1.20-Beta2"
+      val nativecoroutines_compiler_embeddable = "com.rickclephas.kmp" d "kmp-nativecoroutines-compiler-embeddable" w "0.13.3" w "1.0.0-ALPHA-39-kotlin-2.1.20-Beta2"
+      val nativecoroutines_core = "com.rickclephas.kmp" d "kmp-nativecoroutines-core" w "0.13.3" w "1.0.0-ALPHA-39-kotlin-2.1.20-Beta2"
+      val nativecoroutines_gradle_plugin = "com.rickclephas.kmp" d "kmp-nativecoroutines-gradle-plugin" w "0.13.3" w "1.0.0-ALPHA-39-kotlin-2.1.20-Beta2"
     }
   }
   object Russhwolf {
