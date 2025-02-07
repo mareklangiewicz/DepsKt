@@ -802,7 +802,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.4"
       val r8 = "com.android.tools" d "r8" w "8.7.18"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.8.0" w "8.9.0-rc01" w "8.10.0-alpha03"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.8.0" w "8.9.0-rc01" w "8.10.0-alpha04"
       }
     }
   }
@@ -997,15 +997,15 @@ object Com {
     object Firebase {
       val analytics = "com.google.firebase" d "firebase-analytics" w "22.2.0"
       val analytics_ktx = "com.google.firebase" d "firebase-analytics-ktx" w "22.2.0"
-      val appdistribution_gradle = "com.google.firebase" d "firebase-appdistribution-gradle" w "5.1.0"
+      val appdistribution_gradle = "com.google.firebase" d "firebase-appdistribution-gradle" w "5.1.1"
       val appindexing = "com.google.firebase" d "firebase-appindexing" w "20.0.0"
-      val auth = "com.google.firebase" d "firebase-auth" w "23.1.0"
-      val auth_ktx = "com.google.firebase" d "firebase-auth-ktx" w "23.1.0"
-      val bom = "com.google.firebase" d "firebase-bom" w "33.8.0"
+      val auth = "com.google.firebase" d "firebase-auth" w "23.2.0"
+      val auth_ktx = "com.google.firebase" d "firebase-auth-ktx" w "23.2.0"
+      val bom = "com.google.firebase" d "firebase-bom" w "33.9.0"
       val config = "com.google.firebase" d "firebase-config" w "22.1.0"
       val config_ktx = "com.google.firebase" d "firebase-config-ktx" w "22.1.0"
       val crashlytics = "com.google.firebase" d "firebase-crashlytics" w "19.4.0"
-      val crashlytics_gradle = "com.google.firebase" d "firebase-crashlytics-gradle" w "3.0.2"
+      val crashlytics_gradle = "com.google.firebase" d "firebase-crashlytics-gradle" w "3.0.3"
       val crashlytics_ktx = "com.google.firebase" d "firebase-crashlytics-ktx" w "19.4.0"
       val crashlytics_ndk = "com.google.firebase" d "firebase-crashlytics-ndk" w "19.4.0"
       val database = "com.google.firebase" d "firebase-database" w "21.0.0"
@@ -1013,8 +1013,8 @@ object Com {
       val dynamic_links = "com.google.firebase" d "firebase-dynamic-links" w "22.1.0"
       val dynamic_links_ktx = "com.google.firebase" d "firebase-dynamic-links-ktx" w "22.1.0"
       val dynamic_module_support = "com.google.firebase" d "firebase-dynamic-module-support" w "16.0.0-beta03"
-      val firestore = "com.google.firebase" d "firebase-firestore" w "25.1.1"
-      val firestore_ktx = "com.google.firebase" d "firebase-firestore-ktx" w "25.1.1"
+      val firestore = "com.google.firebase" d "firebase-firestore" w "25.1.2"
+      val firestore_ktx = "com.google.firebase" d "firebase-firestore-ktx" w "25.1.2"
       val functions = "com.google.firebase" d "firebase-functions" w "21.1.0"
       val functions_ktx = "com.google.firebase" d "firebase-functions-ktx" w "21.1.0"
       val inappmessaging = "com.google.firebase" d "firebase-inappmessaging" w "21.0.1"
