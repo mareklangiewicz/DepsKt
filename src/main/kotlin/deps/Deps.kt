@@ -1037,7 +1037,7 @@ object Com {
     }
     object Maps {
       object Android {
-        val maps_compose = "com.google.maps.android" d "maps-compose" w "6.4.3"
+        val maps_compose = "com.google.maps.android" d "maps-compose" w "6.4.4"
         val maps_ktx = "com.google.maps.android" d "maps-ktx" w "5.1.1"
         val maps_rx = "com.google.maps.android" d "maps-rx" w "1.0.0"
         val maps_utils = "com.google.maps.android" d "android-maps-utils" w "3.10.0"
@@ -1871,10 +1871,10 @@ object Org {
       val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.15.0" w "0.16.0-dev-5599"
       val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.15.0" w "0.16.0-dev-5599"
       val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.15.0" w "0.16.0-dev-5599"
-      val datetime = "org.jetbrains.kotlinx" d "kotlinx-datetime" w "0.6.1"
-      val datetime_js = "org.jetbrains.kotlinx" d "kotlinx-datetime-js" w "0.6.1"
-      val datetime_jvm = "org.jetbrains.kotlinx" d "kotlinx-datetime-jvm" w "0.6.1"
-      val datetime_wasm_js = "org.jetbrains.kotlinx" d "kotlinx-datetime-wasm-js" w "0.6.1"
+      val datetime = "org.jetbrains.kotlinx" d "kotlinx-datetime" w "0.6.2"
+      val datetime_js = "org.jetbrains.kotlinx" d "kotlinx-datetime-js" w "0.6.2"
+      val datetime_jvm = "org.jetbrains.kotlinx" d "kotlinx-datetime-jvm" w "0.6.2"
+      val datetime_wasm_js = "org.jetbrains.kotlinx" d "kotlinx-datetime-wasm-js" w "0.6.2"
       val html = "org.jetbrains.kotlinx" d "kotlinx-html" w "0.12.0"
       val html_js = "org.jetbrains.kotlinx" d "kotlinx-html-js" w "0.12.0"
       val html_jvm = "org.jetbrains.kotlinx" d "kotlinx-html-jvm" w "0.12.0"
