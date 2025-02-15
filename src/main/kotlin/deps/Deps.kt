@@ -1292,9 +1292,9 @@ object Com {
       val sqljs_driver = "com.squareup.sqldelight" d "sqljs-driver" w "1.5.5"
     }
     object Wire {
-      val gradle_plugin = "com.squareup.wire" d "wire-gradle-plugin" w "5.2.1"
-      val grpc_client = "com.squareup.wire" d "wire-grpc-client" w "5.2.1"
-      val runtime = "com.squareup.wire" d "wire-runtime" w "5.2.1"
+      val gradle_plugin = "com.squareup.wire" d "wire-gradle-plugin" w "5.3.0"
+      val grpc_client = "com.squareup.wire" d "wire-grpc-client" w "5.3.0"
+      val runtime = "com.squareup.wire" d "wire-runtime" w "5.3.0"
     }
   }
 }
@@ -2098,7 +2098,7 @@ object Org {
       val spring_cloud_stream_binder_rabbit = "org.springframework.cloud" d "spring-cloud-stream-binder-rabbit" w "4.2.0"
     }
     object Data {
-      val spring_data_rest_hal_explorer = "org.springframework.data" d "spring-data-rest-hal-explorer" w "4.4.2" w "5.0.0-M1"
+      val spring_data_rest_hal_explorer = "org.springframework.data" d "spring-data-rest-hal-explorer" w "4.4.3" w "5.0.0-M1"
     }
     object Geode {
       val spring_geode_bom = "org.springframework.geode" d "spring-geode-bom" w "1.7.5"
