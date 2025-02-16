@@ -828,12 +828,12 @@ object Com {
         val markdown = "com.github.ajalt.clikt" d "clikt-markdown" w "5.0.3"
       }
       object Mordant {
-        val coroutines = "com.github.ajalt.mordant" d "mordant-coroutines" w "3.0.1"
+        val coroutines = "com.github.ajalt.mordant" d "mordant-coroutines" w "3.0.2"
         val graal_ffi = "com.github.ajalt.mordant" d "mordant-graal-ffi"
-        val jvm_ffm = "com.github.ajalt.mordant" d "mordant-jvm-ffm" w "3.0.1"
-        val jvm_jna = "com.github.ajalt.mordant" d "mordant-jvm-jna" w "3.0.1"
-        val markdown = "com.github.ajalt.mordant" d "mordant-markdown" w "3.0.1"
-        val mordant = "com.github.ajalt.mordant" d "mordant" w "3.0.1"
+        val jvm_ffm = "com.github.ajalt.mordant" d "mordant-jvm-ffm" w "3.0.2"
+        val jvm_jna = "com.github.ajalt.mordant" d "mordant-jvm-jna" w "3.0.2"
+        val markdown = "com.github.ajalt.mordant" d "mordant-markdown" w "3.0.2"
+        val mordant = "com.github.ajalt.mordant" d "mordant" w "3.0.2"
         val omnibus = "com.github.ajalt.mordant" d "mordant-omnibus"
       }
     }
