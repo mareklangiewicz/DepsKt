@@ -916,7 +916,7 @@ object Com {
         val play_services_pay = "com.google.android.gms" d "play-services-pay" w "16.5.0"
         val play_services_recaptcha = "com.google.android.gms" d "play-services-recaptcha" w "17.1.0"
         val play_services_safetynet = "com.google.android.gms" d "play-services-safetynet" w "18.1.0"
-        val play_services_tagmanager = "com.google.android.gms" d "play-services-tagmanager" w "18.1.1"
+        val play_services_tagmanager = "com.google.android.gms" d "play-services-tagmanager" w "18.3.0"
         val play_services_tasks = "com.google.android.gms" d "play-services-tasks" w "18.2.0"
         val play_services_vision = "com.google.android.gms" d "play-services-vision" w "20.1.3"
         val play_services_wallet = "com.google.android.gms" d "play-services-wallet" w "19.4.0"
@@ -1521,22 +1521,22 @@ object Io {
     }
   }
   object Projectreactor {
-    val reactor_test = "io.projectreactor" d "reactor-test" w "3.7.3"
+    val reactor_test = "io.projectreactor" d "reactor-test" w "3.7.4" w "3.8.0-M1"
     object Kotlin {
       val reactor_kotlin_extensions = "io.projectreactor.kotlin" d "reactor-kotlin-extensions" w "1.2.3"
     }
   }
   object RSocket {
     object Kotlin {
-      val rsocket_core = "io.rsocket.kotlin" d "rsocket-core" w "0.16.0"
-      val rsocket_ktor_client = "io.rsocket.kotlin" d "rsocket-ktor-client" w "0.16.0"
-      val rsocket_ktor_server = "io.rsocket.kotlin" d "rsocket-ktor-server" w "0.16.0"
+      val rsocket_core = "io.rsocket.kotlin" d "rsocket-core" w "0.20.0"
+      val rsocket_ktor_client = "io.rsocket.kotlin" d "rsocket-ktor-client" w "0.20.0"
+      val rsocket_ktor_server = "io.rsocket.kotlin" d "rsocket-ktor-server" w "0.20.0"
       val rsocket_transport_ktor = "io.rsocket.kotlin" d "rsocket-transport-ktor" w "0.15.4"
-      val rsocket_transport_ktor_tcp = "io.rsocket.kotlin" d "rsocket-transport-ktor-tcp" w "0.16.0"
+      val rsocket_transport_ktor_tcp = "io.rsocket.kotlin" d "rsocket-transport-ktor-tcp" w "0.20.0"
       val rsocket_transport_ktor_websocket = "io.rsocket.kotlin" d "rsocket-transport-ktor-websocket" w "0.15.4"
-      val rsocket_transport_ktor_websocket_client = "io.rsocket.kotlin" d "rsocket-transport-ktor-websocket-client" w "0.16.0"
-      val rsocket_transport_ktor_websocket_server = "io.rsocket.kotlin" d "rsocket-transport-ktor-websocket-server" w "0.16.0"
-      val rsocket_transport_nodejs_tcp = "io.rsocket.kotlin" d "rsocket-transport-nodejs-tcp" w "0.16.0"
+      val rsocket_transport_ktor_websocket_client = "io.rsocket.kotlin" d "rsocket-transport-ktor-websocket-client" w "0.20.0"
+      val rsocket_transport_ktor_websocket_server = "io.rsocket.kotlin" d "rsocket-transport-ktor-websocket-server" w "0.20.0"
+      val rsocket_transport_nodejs_tcp = "io.rsocket.kotlin" d "rsocket-transport-nodejs-tcp" w "0.20.0"
     }
   }
   object ReactiveX {
