@@ -888,8 +888,8 @@ object Com {
         val play_services_auth_api_phone = "com.google.android.gms" d "play-services-auth-api-phone" w "18.1.0"
         val play_services_auth_blockstore = "com.google.android.gms" d "play-services-auth-blockstore" w "16.4.0"
         val play_services_awareness = "com.google.android.gms" d "play-services-awareness" w "19.1.0"
-        val play_services_base = "com.google.android.gms" d "play-services-base" w "18.5.0"
-        val play_services_basement = "com.google.android.gms" d "play-services-basement" w "18.5.0"
+        val play_services_base = "com.google.android.gms" d "play-services-base" w "18.6.0"
+        val play_services_basement = "com.google.android.gms" d "play-services-basement" w "18.6.0"
         val play_services_cast = "com.google.android.gms" d "play-services-cast" w "22.0.0"
         val play_services_cast_framework = "com.google.android.gms" d "play-services-cast-framework" w "22.0.0"
         val play_services_cast_tv = "com.google.android.gms" d "play-services-cast-tv" w "21.1.1"
@@ -917,25 +917,25 @@ object Com {
         val play_services_recaptcha = "com.google.android.gms" d "play-services-recaptcha" w "17.1.0"
         val play_services_safetynet = "com.google.android.gms" d "play-services-safetynet" w "18.1.0"
         val play_services_tagmanager = "com.google.android.gms" d "play-services-tagmanager" w "18.3.0"
-        val play_services_tasks = "com.google.android.gms" d "play-services-tasks" w "18.2.0"
+        val play_services_tasks = "com.google.android.gms" d "play-services-tasks" w "18.2.1"
         val play_services_vision = "com.google.android.gms" d "play-services-vision" w "20.1.3"
         val play_services_wallet = "com.google.android.gms" d "play-services-wallet" w "19.4.0"
         val play_services_wearable = "com.google.android.gms" d "play-services-wearable" w "19.0.0"
         val strict_version_matcher_plugin = "com.google.android.gms" d "strict-version-matcher-plugin" w "1.2.4"
       }
       object Horologist {
-        val audio = "com.google.android.horologist" d "horologist-audio" w "0.6.23" w "0.7.10-alpha"
-        val audio_ui = "com.google.android.horologist" d "horologist-audio-ui" w "0.6.23" w "0.7.10-alpha"
-        val composables = "com.google.android.horologist" d "horologist-composables" w "0.6.23" w "0.7.10-alpha"
-        val compose_layout = "com.google.android.horologist" d "horologist-compose-layout" w "0.6.23" w "0.7.10-alpha"
-        val compose_tools = "com.google.android.horologist" d "horologist-compose-tools" w "0.6.23" w "0.7.10-alpha"
-        val datalayer = "com.google.android.horologist" d "horologist-datalayer" w "0.6.23" w "0.7.10-alpha"
-        val media = "com.google.android.horologist" d "horologist-media" w "0.6.23" w "0.7.10-alpha"
-        val media3_backend = "com.google.android.horologist" d "horologist-media3-backend" w "0.6.23" w "0.7.10-alpha"
-        val media_data = "com.google.android.horologist" d "horologist-media-data" w "0.6.23" w "0.7.10-alpha"
-        val media_ui = "com.google.android.horologist" d "horologist-media-ui" w "0.6.23" w "0.7.10-alpha"
-        val network_awareness = "com.google.android.horologist" d "horologist-network-awareness" w "0.6.23" w "0.7.10-alpha"
-        val tiles = "com.google.android.horologist" d "horologist-tiles" w "0.6.23" w "0.7.10-alpha"
+        val audio = "com.google.android.horologist" d "horologist-audio" w "0.6.23" w "0.7.11-alpha"
+        val audio_ui = "com.google.android.horologist" d "horologist-audio-ui" w "0.6.23" w "0.7.11-alpha"
+        val composables = "com.google.android.horologist" d "horologist-composables" w "0.6.23" w "0.7.11-alpha"
+        val compose_layout = "com.google.android.horologist" d "horologist-compose-layout" w "0.6.23" w "0.7.11-alpha"
+        val compose_tools = "com.google.android.horologist" d "horologist-compose-tools" w "0.6.23" w "0.7.11-alpha"
+        val datalayer = "com.google.android.horologist" d "horologist-datalayer" w "0.6.23" w "0.7.11-alpha"
+        val media = "com.google.android.horologist" d "horologist-media" w "0.6.23" w "0.7.11-alpha"
+        val media3_backend = "com.google.android.horologist" d "horologist-media3-backend" w "0.6.23" w "0.7.11-alpha"
+        val media_data = "com.google.android.horologist" d "horologist-media-data" w "0.6.23" w "0.7.11-alpha"
+        val media_ui = "com.google.android.horologist" d "horologist-media-ui" w "0.6.23" w "0.7.11-alpha"
+        val network_awareness = "com.google.android.horologist" d "horologist-network-awareness" w "0.6.23" w "0.7.11-alpha"
+        val tiles = "com.google.android.horologist" d "horologist-tiles" w "0.6.23" w "0.7.11-alpha"
       }
       object Libraries {
         object Places {
@@ -1037,10 +1037,10 @@ object Com {
     }
     object Maps {
       object Android {
-        val maps_compose = "com.google.maps.android" d "maps-compose" w "6.5.0"
+        val maps_compose = "com.google.maps.android" d "maps-compose" w "6.5.1"
         val maps_ktx = "com.google.maps.android" d "maps-ktx" w "5.1.1"
         val maps_rx = "com.google.maps.android" d "maps-rx" w "1.0.0"
-        val maps_utils = "com.google.maps.android" d "android-maps-utils" w "3.11.1"
+        val maps_utils = "com.google.maps.android" d "android-maps-utils" w "3.11.2"
         val maps_utils_ktx = "com.google.maps.android" d "maps-utils-ktx" w "5.1.1"
       }
     }
@@ -1867,10 +1867,10 @@ object Org {
       val coroutines_test = "org.jetbrains.kotlinx" d "kotlinx-coroutines-test" w "1.10.1"
       val coroutines_test_js = "org.jetbrains.kotlinx" d "kotlinx-coroutines-test-js" w "1.10.1"
       val coroutines_test_jvm = "org.jetbrains.kotlinx" d "kotlinx-coroutines-test-jvm" w "1.10.1"
-      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.15.0" w "0.16.0-dev-6307"
-      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.15.0" w "0.16.0-dev-6307"
-      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.15.0" w "0.16.0-dev-6307"
-      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.15.0" w "0.16.0-dev-6307"
+      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.15.0" w "0.16.0-dev-6361"
+      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.15.0" w "0.16.0-dev-6361"
+      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.15.0" w "0.16.0-dev-6361"
+      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.15.0" w "0.16.0-dev-6361"
       val datetime = "org.jetbrains.kotlinx" d "kotlinx-datetime" w "0.6.2"
       val datetime_js = "org.jetbrains.kotlinx" d "kotlinx-datetime-js" w "0.6.2"
       val datetime_jvm = "org.jetbrains.kotlinx" d "kotlinx-datetime-jvm" w "0.6.2"
@@ -2000,7 +2000,7 @@ object Org {
   }
   object SpringFramework {
     object Amqp {
-      val spring_rabbit_test = "org.springframework.amqp" d "spring-rabbit-test" w "3.2.3" w "4.0.0-M1"
+      val spring_rabbit_test = "org.springframework.amqp" d "spring-rabbit-test" w "3.2.4" w "4.0.0-M2"
     }
     object Batch {
       val spring_batch_test = "org.springframework.batch" d "spring-batch-test" w "5.2.1"
@@ -2124,16 +2124,16 @@ object Org {
       val spring_integration_ws = "org.springframework.integration" d "spring-integration-ws" w "6.4.2"
     }
     object Kafka {
-      val spring_kafka = "org.springframework.kafka" d "spring-kafka" w "3.3.3"
-      val spring_kafka_test = "org.springframework.kafka" d "spring-kafka-test" w "3.3.3"
+      val spring_kafka = "org.springframework.kafka" d "spring-kafka" w "3.3.4" w "4.0.0-M1"
+      val spring_kafka_test = "org.springframework.kafka" d "spring-kafka-test" w "3.3.4" w "4.0.0-M1"
     }
     object Restdocs {
       val spring_restdocs_webtestclient = "org.springframework.restdocs" d "spring-restdocs-webtestclient" w "3.0.3"
     }
     object Security {
-      val spring_security_messaging = "org.springframework.security" d "spring-security-messaging" w "6.4.3"
-      val spring_security_rsocket = "org.springframework.security" d "spring-security-rsocket" w "6.4.3"
-      val spring_security_test = "org.springframework.security" d "spring-security-test" w "6.4.3"
+      val spring_security_messaging = "org.springframework.security" d "spring-security-messaging" w "6.4.4"
+      val spring_security_rsocket = "org.springframework.security" d "spring-security-rsocket" w "6.4.4"
+      val spring_security_test = "org.springframework.security" d "spring-security-test" w "6.4.4"
     }
     object Session {
       val spring_session_data_redis = "org.springframework.session" d "spring-session-data-redis" w "3.4.2"
