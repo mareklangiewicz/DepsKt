@@ -82,6 +82,18 @@ object Vers {
   val NexusPublishPlug = Ver("2.0.0")
 
   /**
+   * Gradle Maven Publish Plugin (reccomended by JetBrains for publishing KMP libs)
+   *
+   * Gradle plugin that creates a publish task to automatically upload all of your Java,
+   * Kotlin or Android libraries to any Maven instance.
+   * - [jetbrains howto](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-publish-libraries.html)
+   * - [github maven central docs](https://vanniktech.github.io/gradle-maven-publish-plugin/central/)
+   * - [github](https://github.com/vanniktech/gradle-maven-publish-plugin)
+   * - [github releases](https://github.com/vanniktech/gradle-maven-publish-plugin/releases)
+   */
+  val GradleMavenPublishPlug = Ver("0.31.0")
+
+  /**
    * Gradle Publish Plugin (gradle plugin for publishing gradle plugins)
    * - [plugins gradle org](https://plugins.gradle.org/plugin/com.gradle.plugin-publish)
    * - [plugins gradle org docs](https://plugins.gradle.org/docs/publish-plugin)
