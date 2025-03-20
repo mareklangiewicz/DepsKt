@@ -29,7 +29,7 @@ object Plugs {
   val Signing = DepP("signing")
 
   /**
-   * Gradle Maven Publish Plugin (reccomended by JetBrains for publishing KMP libs)
+   * Vannik Tech Gradle Maven Publish Plugin (recommended by JetBrains for publishing KMP libs)
    *
    * Gradle plugin that creates a publish task to automatically upload all of your Java,
    * Kotlin or Android libraries to any Maven instance.
@@ -38,7 +38,12 @@ object Plugs {
    * - [github](https://github.com/vanniktech/gradle-maven-publish-plugin)
    * - [github releases](https://github.com/vanniktech/gradle-maven-publish-plugin/releases)
    */
-  val GradleMavenPublish = DepP("com.vanniktech.maven.publish", vers.GradleMavenPublishPlug)
+  val VannikPublish = DepP("com.vanniktech.maven.publish", vers.VannikPublishPlug)
+
+  /**
+   * Vannik Tech Gradle Maven Publish Plugin Base (same as VannikPublish but without default config)
+   */
+  val VannikPublishBase = DepP("com.vanniktech.maven.publish.base", vers.VannikPublishPlug)
 
   /**
    * Gradle Publish Plugin (gradle plugin for publishing gradle plugins)
