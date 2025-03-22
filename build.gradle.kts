@@ -3,8 +3,6 @@
 import pl.mareklangiewicz.defaults.*
 import pl.mareklangiewicz.deps.*
 import com.vanniktech.maven.publish.*
-import okio.Path.Companion.toPath
-import okio.FileSystem.Companion.SYSTEM
 import okio.Path.Companion.toOkioPath
 import pl.mareklangiewicz.kgroundx.maintenance.*
 import pl.mareklangiewicz.ulog.*
@@ -264,19 +262,6 @@ fun MavenPom.defaultPOM(lib: LibDetails) {
   }
   scm { url put lib.githubUrl }
 }
-
-// FIXME TEMPORARY (will be in DepsKt:Utils.kt)
-
-fun Project.extSetFromLazyFile(prop: String, suffix: String = "_LAZY_FILE") {
-  val file = findProperty("$prop$suffix")?.toString() ?: error("Missing $prop$suffix property.")
-  extString[prop] = readFileUtf8(file)
-}
-
-fun readFileUtf8(fileName: String): String = SYSTEM.read(fileName.toPath()) { readUtf8() }
-
-// END TEMPORARY
-
-
 
 fun Project.defaultPublishing(lib: LibDetails) {
   extensions.configure<MavenPublishBaseExtension> {
