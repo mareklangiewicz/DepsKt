@@ -70,14 +70,28 @@ fun <T> ExtensionAware.ext(): UExt<T> = UExt(extensions.extraProperties)
 val ExtensionAware.extString get() = ext<String>()
 val Project.rootExtString get() = rootProject.extString
 
-fun Project.rootExtReadFileUtf8(name: String) = SYSTEM.read(rootExtString[name].toPath()) { readUtf8() }
+fun readFileUtf8(fileName: String): String = SYSTEM.read(fileName.toPath()) { readUtf8() }
 
-fun Project.rootExtReadFileUtf8TryOrNull(name: String) =
+fun readFileUtf8TryOrNull(fileName: String): String? =
+  try {
+    readFileUtf8(fileName)
+  } catch (e: Exception) {
+    null
+  }
+
+fun Project.rootExtReadFileUtf8(extPropName: String): String = readFileUtf8(rootExtString[name])
+
+fun Project.rootExtReadFileUtf8TryOrNull(name: String): String? =
   try {
     rootExtReadFileUtf8(name)
   } catch (e: Exception) {
     null
   }
+
+fun Project.extSetFromLazyFile(prop: String, suffix: String = "_LAZY_FILE") {
+  val file = findProperty("$prop$suffix")?.toString() ?: error("Missing $prop$suffix property.")
+  extString[prop] = readFileUtf8(file)
+}
 
 val Project.projectPath get() = rootDir.toOkioPath()
 val Project.rootProjectPath get() = rootProject.projectPath
