@@ -10,7 +10,7 @@ import org.gradle.api.*
 import org.gradle.api.artifacts.dsl.*
 import org.gradle.api.initialization.*
 import org.gradle.api.plugins.*
-import org.gradle.api.plugins.ExtraPropertiesExtension.UnknownPropertyException
+import org.gradle.api.plugins.ExtraPropertiesExtension.*
 import org.gradle.api.provider.*
 import org.gradle.api.tasks.*
 import pl.mareklangiewicz.deps.*
@@ -165,3 +165,46 @@ fun ExtraPropertiesExtension.addAllFromSystemEnvs(
   val keys = envs.keys.filter { it.startsWith(envKeyMatchPrefix) }
   for (key in keys) this[envKeyReplace(key)] = envs[key]
 }
+
+/**
+ * Tries to override values of given properties by reading files specified in special way.
+ *
+ * Note: Usually have to be called on specific project (not just root),
+ * because looks like gradle sets properties separately for each project from gradle.properties
+ * (and envs like ORG_GRADLE_PROJECT_...), so findProperty (used f.e. in signing) will find property
+ * in every project and will not search in rootProject at all.
+ */
+fun Project.propertiesTryOverride(vararg names: String) {
+  if (names.isEmpty()) logger.debug("No properites to override.")
+  for (name in names) {
+    logger.debug("Trying to override property: $name")
+    val prop = findProperty(name)?.toString()
+    if (prop == null) {
+      logger.debug("Property to override not found.")
+      continue
+    }
+    val parts = prop.split(':')
+    if (parts[0] != "override" || parts.size < 3) {
+      logger.debug("Skipping. Unrecognized value format.")
+      continue
+    }
+    // From now on we don't skip but throw (we expect supported format)
+    logger.debug("Overriding property: $name=$prop")
+    check(parts[1] == "file") { "Unsupported value format" }
+    val content = when (parts[2]) {
+      "full" -> file(parts[3]).readText()
+      "line" -> {
+        val lines = file(parts[4]).readLines()
+        when (parts[3]) {
+          "first" -> lines.first()
+          "last" -> lines.last()
+          else -> error("Unknown override line specifier")
+        }
+      }
+      else -> error("Unknown override specifier")
+    }
+    setProperty(name, content)
+    logger.debug("Overridden. New value length: ${content.length} hash: ${content.hashCode()}")
+  }
+}
+
