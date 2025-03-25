@@ -1658,6 +1658,12 @@ object Org {
       val junit_jupiter_migrationsupport = "org.junit.jupiter" d "junit-jupiter-migrationsupport" w "5.12.1" w "5.13.0-M2"
       val junit_jupiter_params = "org.junit.jupiter" d "junit-jupiter-params" w "5.12.1" w "5.13.0-M2"
     }
+    object Platform {
+      val junit_platform_commons = "org.junit.platform" d "junit-platform-commons" w "1.12.1" w "1.13.0-M2"
+      val junit_platform_engine = "org.junit.platform" d "junit-platform-engine" w "1.12.1" w "1.13.0-M2"
+      val junit_platform_launcher = "org.junit.platform" d "junit-platform-launcher" w "1.12.1" w "1.13.0-M2"
+      val junit_platform_runner = "org.junit.platform" d "junit-platform-runner" w "1.12.1" w "1.13.0-M2"
+    }
   }
   object JetBrains {
     object AndroidX {
@@ -2189,10 +2195,10 @@ object Pl {
     val smokkx_js = "pl.mareklangiewicz" d "smokkx-js" w "0.0.09"
     val smokkx_jvm = "pl.mareklangiewicz" d "smokkx-jvm" w "0.0.09"
     val smokkx_linuxx64 = "pl.mareklangiewicz" d "smokkx-linuxx64" w "0.0.09"
-    val tuplek = "pl.mareklangiewicz" d "tuplek" w "0.0.19"
-    val tuplek_js = "pl.mareklangiewicz" d "tuplek-js" w "0.0.19"
-    val tuplek_jvm = "pl.mareklangiewicz" d "tuplek-jvm" w "0.0.19"
-    val tuplek_linuxx64 = "pl.mareklangiewicz" d "tuplek-linuxx64" w "0.0.19"
+    val tuplek = "pl.mareklangiewicz" d "tuplek" w "0.0.20"
+    val tuplek_js = "pl.mareklangiewicz" d "tuplek-js" w "0.0.20"
+    val tuplek_jvm = "pl.mareklangiewicz" d "tuplek-jvm" w "0.0.20"
+    val tuplek_linuxx64 = "pl.mareklangiewicz" d "tuplek-linuxx64" w "0.0.20"
     val upue = "pl.mareklangiewicz" d "upue" w "0.0.21"
     val upue_js = "pl.mareklangiewicz" d "upue-js" w "0.0.21"
     val upue_jvm = "pl.mareklangiewicz" d "upue-jvm" w "0.0.21"
