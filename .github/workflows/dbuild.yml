@@ -10,12 +10,6 @@ on:
     - 'main'
   pull_request: {}
   workflow_dispatch: {}
-env:
-  ORG_GRADLE_PROJECT_signingInMemoryKeyId: '${{ secrets.KL_SIGNINGINMEMORYKEYID }}'
-  ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: '${{ secrets.KL_SIGNINGINMEMORYKEYPASSWORD }}'
-  ORG_GRADLE_PROJECT_signingInMemoryKey: '${{ secrets.KL_SIGNINGINMEMORYKEY }}'
-  ORG_GRADLE_PROJECT_mavenCentralUsername: '${{ secrets.KL_MAVENCENTRALUSERNAME }}'
-  ORG_GRADLE_PROJECT_mavenCentralPassword: '${{ secrets.KL_MAVENCENTRALPASSWORD }}'
 jobs:
   build-for-UbuntuLatest:
     runs-on: 'ubuntu-latest'

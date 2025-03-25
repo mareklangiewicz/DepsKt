@@ -165,10 +165,6 @@ fun Project.defaultBuildTemplateForRootProject(details: LibDetails? = null) {
     rootExtLibDetails = it
     defaultGroupAndVerAndDescription(it)
   }
-
-  // kinda workaround for kinda issue with kotlin native
-  // https://youtrack.jetbrains.com/issue/KT-48410/Sync-failed.-Could-not-determine-the-dependencies-of-task-commonizeNativeDistribution.#focus=Comments-27-5144160.0-0
-  repositories { mavenCentral() }
 }
 
 // endregion [[Root Build Template]]
@@ -263,16 +259,14 @@ fun MavenPom.defaultPOM(lib: LibDetails) {
   scm { url put lib.githubUrl }
 }
 
-fun Project.defaultPublishing(lib: LibDetails) {
+fun Project.defaultPublishing(lib: LibDetails) = extensions.configure<MavenPublishBaseExtension> {
   propertiesTryOverride("signingInMemoryKey", "signingInMemoryKeyPassword", "mavenCentralPassword")
-  extensions.configure<MavenPublishBaseExtension> {
-    if (lib.settings.withSonatypeOssPublishing)
-      publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL, automaticRelease = false)
-    signAllPublications()
-    // Note: artifactId is not lib.name but current project.name (module name)
-    coordinates(groupId = lib.group, artifactId = name, version = lib.version.str)
-    pom { defaultPOM(lib) }
-  }
+  if (lib.settings.withSonatypeOssPublishing)
+    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL, automaticRelease = false)
+  signAllPublications()
+  // Note: artifactId is not lib.name but current project.name (module name)
+  coordinates(groupId = lib.group, artifactId = name, version = lib.version.str)
+  pom { defaultPOM(lib) }
 }
 
 // endregion [[Kotlin Module Build Template]]
