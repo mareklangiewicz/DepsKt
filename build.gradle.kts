@@ -18,8 +18,9 @@ import pl.mareklangiewicz.sourcefun.*
 import org.jetbrains.kotlin.gradle.dsl.*
 
 plugins {
+  // plugAll(plugs.KotlinJvm, plugs.GradlePublish, plugs.VannikPublish, plugs.SourceFun)
   plugAll(plugs.KotlinJvm, plugs.GradlePublish, plugs.VannikPublish)
-  id("pl.mareklangiewicz.sourcefun") version "0.4.24"
+  id("pl.mareklangiewicz.sourcefun") version "0.4.25"
   // FIXME_later: add to plugAll after updating deps
   // https://plugins.gradle.org/search?term=pl.mareklangiewicz
 }
@@ -37,7 +38,7 @@ dependencies {
   testImplementation(Org.JUnit.Jupiter.junit_jupiter_engine)
 }
 
-tasks.defaultKotlinCompileOptions(jvmTargetVer = null) // see jvmToolchain below
+tasks.defaultKotlinCompileOptions()
 
 tasks.defaultTestsOptions()
 
@@ -46,7 +47,7 @@ val details = myLibDetails(
   group = "pl.mareklangiewicz.deps", // important non default ...deps group (as accepted on gradle portal)
   description = "Updated dependencies for typical java/kotlin/android projects (with IDE support).",
   githubUrl = "https://github.com/mareklangiewicz/DepsKt",
-  version = Ver(0, 3, 74), // also sync it in ./src/main/kotlin/deps/Vers.kt
+  version = Ver(0, 3, 75), // also sync it in ./src/main/kotlin/deps/Vers.kt
   // TODO use some SourceFun task to make sure it's synced with Vers.DepsPlug
   // (we println it when applying plugin so have to be synced not to confuse users)
   // https://plugins.gradle.org/search?term=pl.mareklangiewicz
@@ -56,7 +57,7 @@ val details = myLibDetails(
   ),
 )
 
-defaultGroupAndVerAndDescription(details)
+defaultBuildTemplateForRootProject(details)
 
 kotlin {
   jvmToolchain(23)
