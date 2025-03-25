@@ -2143,10 +2143,10 @@ object Org {
 }
 object Pl {
   object MarekLangiewicz {
-    val abcdk = "pl.mareklangiewicz" d "abcdk" w "0.0.34"
-    val abcdk_js = "pl.mareklangiewicz" d "abcdk-js" w "0.0.34"
-    val abcdk_jvm = "pl.mareklangiewicz" d "abcdk-jvm" w "0.0.34"
-    val abcdk_linuxx64 = "pl.mareklangiewicz" d "abcdk-linuxx64" w "0.0.34"
+    val abcdk = "pl.mareklangiewicz" d "abcdk" w "0.0.35"
+    val abcdk_js = "pl.mareklangiewicz" d "abcdk-js" w "0.0.35"
+    val abcdk_jvm = "pl.mareklangiewicz" d "abcdk-jvm" w "0.0.35"
+    val abcdk_linuxx64 = "pl.mareklangiewicz" d "abcdk-linuxx64" w "0.0.35"
     val kground = "pl.mareklangiewicz" d "kground" w "0.1.07"
     val kground_io = "pl.mareklangiewicz" d "kground-io" w "0.1.07"
     val kground_io_js = "pl.mareklangiewicz" d "kground-io-js" w "0.1.07"
