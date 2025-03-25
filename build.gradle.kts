@@ -37,6 +37,7 @@ dependencies {
   api(Com.SquareUp.Okio.okio) // FIXME_later: remove and use new SourceFun? (DepsKt utils should not depend on okio)
   testImplementation(kotlin("test"))
   testImplementation(Org.JUnit.Jupiter.junit_jupiter_engine)
+  testRuntimeOnly(Org.JUnit.Platform.junit_platform_launcher)
 }
 
 tasks.defaultKotlinCompileOptions()
