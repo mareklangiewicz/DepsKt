@@ -196,10 +196,10 @@ object Vers {
    * - [dashboards](https://developer.android.com/about/dashboards/index.html)
    * - [build numbers](https://source.android.com/setup/start/build-numbers)
    */
-  val AndroSdkPreview: String? = "VanillaIceCream"
+  val AndroSdkPreview: String? = null
   const val AndroSdkCompile: Int = 35
   const val AndroSdkTarget = 35
-  const val AndroSdkMin = 26
+  const val AndroSdkMin = 30
 
   /**
    * This runner looks like working correctly these years (with gradle unified test platform).
