@@ -105,7 +105,7 @@ object Vers {
    * - [gradle org docs](https://docs.gradle.com/develocity/gradle-plugin/)
    * - [gradle portal](https://plugins.gradle.org/plugin/com.gradle.develocity)
    */
-  val GradleDevelocityPlug = Ver("3.19.2")
+  val GradleDevelocityPlug = Ver("4.0")
 
 
   /**
@@ -138,7 +138,7 @@ object Vers {
    * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
    * [github](https://github.com/Kotlin/kotlin-jupyter)
    */
-  val KotlinJupyterPlug = Ver("0.12.0-390")
+  val KotlinJupyterPlug = Ver("0.12.0-393")
 
   /**
    * Gradle Shadow Gradle Plugin
@@ -163,7 +163,7 @@ object Vers {
    * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val DepsPlug = Ver(0, 3, 76) // also sync it in ../../../../build.gradle.kts
+  val DepsPlug = Ver(0, 3, 77) // also sync it in ../../../../build.gradle.kts
   // TODO use sourcefun to make sure it's always synced with myLibDetails(version)
 
   /**
