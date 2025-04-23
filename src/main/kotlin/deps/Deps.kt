@@ -802,7 +802,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.5"
       val r8 = "com.android.tools" d "r8" w "8.7.18"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.9.2" w "8.10.0-rc02" w "8.11.0-alpha07"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.9.2" w "8.10.0-rc03" w "8.11.0-alpha07"
       }
     }
   }
@@ -1037,7 +1037,7 @@ object Com {
     }
     object Maps {
       object Android {
-        val maps_compose = "com.google.maps.android" d "maps-compose" w "6.5.3"
+        val maps_compose = "com.google.maps.android" d "maps-compose" w "6.6.0"
         val maps_ktx = "com.google.maps.android" d "maps-ktx" w "5.2.0"
         val maps_rx = "com.google.maps.android" d "maps-rx" w "1.0.0"
         val maps_utils = "com.google.maps.android" d "android-maps-utils" w "3.13.0"
@@ -1873,10 +1873,10 @@ object Org {
       val coroutines_test = "org.jetbrains.kotlinx" d "kotlinx-coroutines-test" w "1.10.2"
       val coroutines_test_js = "org.jetbrains.kotlinx" d "kotlinx-coroutines-test-js" w "1.10.2"
       val coroutines_test_jvm = "org.jetbrains.kotlinx" d "kotlinx-coroutines-test-jvm" w "1.10.2"
-      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.15.0" w "1.0.0-dev-6656"
-      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.15.0" w "1.0.0-dev-6656"
-      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.15.0" w "1.0.0-dev-6656"
-      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.15.0" w "1.0.0-dev-6656"
+      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.15.0" w "1.0.0-dev-6708"
+      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.15.0" w "1.0.0-dev-6708"
+      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.15.0" w "1.0.0-dev-6708"
+      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.15.0" w "1.0.0-dev-6708"
       val datetime = "org.jetbrains.kotlinx" d "kotlinx-datetime" w "0.6.2"
       val datetime_js = "org.jetbrains.kotlinx" d "kotlinx-datetime-js" w "0.6.2"
       val datetime_jvm = "org.jetbrains.kotlinx" d "kotlinx-datetime-jvm" w "0.6.2"
@@ -2006,7 +2006,7 @@ object Org {
   }
   object SpringFramework {
     object Amqp {
-      val spring_rabbit_test = "org.springframework.amqp" d "spring-rabbit-test" w "3.2.4" w "4.0.0-M2"
+      val spring_rabbit_test = "org.springframework.amqp" d "spring-rabbit-test" w "3.2.5" w "4.0.0-M2"
     }
     object Batch {
       val spring_batch_test = "org.springframework.batch" d "spring-batch-test" w "5.2.2"
@@ -2104,34 +2104,34 @@ object Org {
       val spring_cloud_stream_binder_rabbit = "org.springframework.cloud" d "spring-cloud-stream-binder-rabbit" w "4.2.1"
     }
     object Data {
-      val spring_data_rest_hal_explorer = "org.springframework.data" d "spring-data-rest-hal-explorer" w "4.4.4" w "5.0.0-M1"
+      val spring_data_rest_hal_explorer = "org.springframework.data" d "spring-data-rest-hal-explorer" w "4.4.5" w "5.0.0-M2"
     }
     object Geode {
       val spring_geode_bom = "org.springframework.geode" d "spring-geode-bom" w "1.7.5"
       val spring_geode_starter = "org.springframework.geode" d "spring-geode-starter" w "1.7.5"
     }
     object Integration {
-      val spring_integration_amqp = "org.springframework.integration" d "spring-integration-amqp" w "6.4.3"
+      val spring_integration_amqp = "org.springframework.integration" d "spring-integration-amqp" w "6.4.4"
       val spring_integration_gemfire = "org.springframework.integration" d "spring-integration-gemfire" w "5.5.20"
-      val spring_integration_jdbc = "org.springframework.integration" d "spring-integration-jdbc" w "6.4.3"
-      val spring_integration_jms = "org.springframework.integration" d "spring-integration-jms" w "6.4.3"
-      val spring_integration_jpa = "org.springframework.integration" d "spring-integration-jpa" w "6.4.3"
-      val spring_integration_kafka = "org.springframework.integration" d "spring-integration-kafka" w "6.4.3"
-      val spring_integration_mail = "org.springframework.integration" d "spring-integration-mail" w "6.4.3"
-      val spring_integration_mongodb = "org.springframework.integration" d "spring-integration-mongodb" w "6.4.3"
-      val spring_integration_r2dbc = "org.springframework.integration" d "spring-integration-r2dbc" w "6.4.3"
-      val spring_integration_redis = "org.springframework.integration" d "spring-integration-redis" w "6.4.3"
-      val spring_integration_rsocket = "org.springframework.integration" d "spring-integration-rsocket" w "6.4.3"
+      val spring_integration_jdbc = "org.springframework.integration" d "spring-integration-jdbc" w "6.4.4"
+      val spring_integration_jms = "org.springframework.integration" d "spring-integration-jms" w "6.4.4"
+      val spring_integration_jpa = "org.springframework.integration" d "spring-integration-jpa" w "6.4.4"
+      val spring_integration_kafka = "org.springframework.integration" d "spring-integration-kafka" w "6.4.4"
+      val spring_integration_mail = "org.springframework.integration" d "spring-integration-mail" w "6.4.4"
+      val spring_integration_mongodb = "org.springframework.integration" d "spring-integration-mongodb" w "6.4.4"
+      val spring_integration_r2dbc = "org.springframework.integration" d "spring-integration-r2dbc" w "6.4.4"
+      val spring_integration_redis = "org.springframework.integration" d "spring-integration-redis" w "6.4.4"
+      val spring_integration_rsocket = "org.springframework.integration" d "spring-integration-rsocket" w "6.4.4"
       val spring_integration_security = "org.springframework.integration" d "spring-integration-security" w "6.2.11"
-      val spring_integration_stomp = "org.springframework.integration" d "spring-integration-stomp" w "6.4.3"
-      val spring_integration_test = "org.springframework.integration" d "spring-integration-test" w "6.4.3"
-      val spring_integration_webflux = "org.springframework.integration" d "spring-integration-webflux" w "6.4.3"
-      val spring_integration_websocket = "org.springframework.integration" d "spring-integration-websocket" w "6.4.3"
-      val spring_integration_ws = "org.springframework.integration" d "spring-integration-ws" w "6.4.3"
+      val spring_integration_stomp = "org.springframework.integration" d "spring-integration-stomp" w "6.4.4"
+      val spring_integration_test = "org.springframework.integration" d "spring-integration-test" w "6.4.4"
+      val spring_integration_webflux = "org.springframework.integration" d "spring-integration-webflux" w "6.4.4"
+      val spring_integration_websocket = "org.springframework.integration" d "spring-integration-websocket" w "6.4.4"
+      val spring_integration_ws = "org.springframework.integration" d "spring-integration-ws" w "6.4.4"
     }
     object Kafka {
-      val spring_kafka = "org.springframework.kafka" d "spring-kafka" w "3.3.4" w "4.0.0-M1"
-      val spring_kafka_test = "org.springframework.kafka" d "spring-kafka-test" w "3.3.4" w "4.0.0-M1"
+      val spring_kafka = "org.springframework.kafka" d "spring-kafka" w "3.3.5" w "4.0.0-M2"
+      val spring_kafka_test = "org.springframework.kafka" d "spring-kafka-test" w "3.3.5" w "4.0.0-M2"
     }
     object Restdocs {
       val spring_restdocs_webtestclient = "org.springframework.restdocs" d "spring-restdocs-webtestclient" w "3.0.3"
@@ -2142,8 +2142,8 @@ object Org {
       val spring_security_test = "org.springframework.security" d "spring-security-test" w "6.4.5"
     }
     object Session {
-      val spring_session_data_redis = "org.springframework.session" d "spring-session-data-redis" w "3.4.2"
-      val spring_session_jdbc = "org.springframework.session" d "spring-session-jdbc" w "3.4.2"
+      val spring_session_data_redis = "org.springframework.session" d "spring-session-data-redis" w "3.4.3"
+      val spring_session_jdbc = "org.springframework.session" d "spring-session-jdbc" w "3.4.3"
     }
   }
 }
