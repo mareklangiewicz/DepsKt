@@ -1584,7 +1584,7 @@ object Org {
   }
   object Hildan {
     object Chrome {
-      val devtools_kotlin = "org.hildan.chrome" d "chrome-devtools-kotlin" w "7.1.0-1410712"
+      val devtools_kotlin = "org.hildan.chrome" d "chrome-devtools-kotlin" w "8.0.0-1410712"
     }
   }
   object Http4k {
@@ -1873,10 +1873,10 @@ object Org {
       val coroutines_test = "org.jetbrains.kotlinx" d "kotlinx-coroutines-test" w "1.10.2"
       val coroutines_test_js = "org.jetbrains.kotlinx" d "kotlinx-coroutines-test-js" w "1.10.2"
       val coroutines_test_jvm = "org.jetbrains.kotlinx" d "kotlinx-coroutines-test-jvm" w "1.10.2"
-      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.15.0" w "1.0.0-dev-6731"
-      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.15.0" w "1.0.0-dev-6731"
-      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.15.0" w "1.0.0-dev-6731"
-      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.15.0" w "1.0.0-dev-6731"
+      val dataframe = "org.jetbrains.kotlinx" d "dataframe" w "0.15.0" w "1.0.0-dev-6755"
+      val dataframe_arrow = "org.jetbrains.kotlinx" d "dataframe-arrow" w "0.15.0" w "1.0.0-dev-6755"
+      val dataframe_core = "org.jetbrains.kotlinx" d "dataframe-core" w "0.15.0" w "1.0.0-dev-6755"
+      val dataframe_excel = "org.jetbrains.kotlinx" d "dataframe-excel" w "0.15.0" w "1.0.0-dev-6755"
       val datetime = "org.jetbrains.kotlinx" d "kotlinx-datetime" w "0.6.2"
       val datetime_js = "org.jetbrains.kotlinx" d "kotlinx-datetime-js" w "0.6.2"
       val datetime_jvm = "org.jetbrains.kotlinx" d "kotlinx-datetime-jvm" w "0.6.2"
