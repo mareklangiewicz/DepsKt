@@ -1963,15 +1963,15 @@ object Org {
   }
   object Kodein {
     object Di {
-      val kodein_di_conf_js = "org.kodein.di" d "kodein-di-conf-js" w "7.25.0"
-      val kodein_di_conf_jvm = "org.kodein.di" d "kodein-di-conf-jvm" w "7.25.0"
-      val kodein_di_framework_android_core = "org.kodein.di" d "kodein-di-framework-android-core" w "7.25.0"
-      val kodein_di_framework_android_support = "org.kodein.di" d "kodein-di-framework-android-support" w "7.25.0"
-      val kodein_di_framework_android_x = "org.kodein.di" d "kodein-di-framework-android-x" w "7.25.0"
-      val kodein_di_framework_ktor_server_jvm = "org.kodein.di" d "kodein-di-framework-ktor-server-jvm" w "7.25.0"
-      val kodein_di_framework_tornadofx_jvm = "org.kodein.di" d "kodein-di-framework-tornadofx-jvm" w "7.25.0"
-      val kodein_di_js = "org.kodein.di" d "kodein-di-js" w "7.25.0"
-      val kodein_di_jxinject_jvm = "org.kodein.di" d "kodein-di-jxinject-jvm" w "7.25.0"
+      val kodein_di_conf_js = "org.kodein.di" d "kodein-di-conf-js" w "7.26.0"
+      val kodein_di_conf_jvm = "org.kodein.di" d "kodein-di-conf-jvm" w "7.26.0"
+      val kodein_di_framework_android_core = "org.kodein.di" d "kodein-di-framework-android-core" w "7.26.0"
+      val kodein_di_framework_android_support = "org.kodein.di" d "kodein-di-framework-android-support" w "7.26.0"
+      val kodein_di_framework_android_x = "org.kodein.di" d "kodein-di-framework-android-x" w "7.26.0"
+      val kodein_di_framework_ktor_server_jvm = "org.kodein.di" d "kodein-di-framework-ktor-server-jvm" w "7.26.0"
+      val kodein_di_framework_tornadofx_jvm = "org.kodein.di" d "kodein-di-framework-tornadofx-jvm" w "7.26.0"
+      val kodein_di_js = "org.kodein.di" d "kodein-di-js" w "7.26.0"
+      val kodein_di_jxinject_jvm = "org.kodein.di" d "kodein-di-jxinject-jvm" w "7.26.0"
     }
   }
   object Mockito {
