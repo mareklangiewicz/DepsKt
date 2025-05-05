@@ -37,10 +37,11 @@ private fun Dependency.checkWith(expectedVer: Ver, warnOnly: Boolean) {
 object Vers {
 
   /** [releases github](https://github.com/JetBrains/kotlin/releases) */
-  val Kotlin21 = Org.JetBrains.Kotlin.stdlib.verLast
+  val Kotlin22 = Org.JetBrains.Kotlin.stdlib.verLast
+  val Kotlin21 = Ver("2.1.21-RC2")
   val Kotlin20 = Ver("2.0.21")
   val Kotlin19 = Ver("1.9.25")
-  val Kotlin = Kotlin21
+  val Kotlin = Kotlin22
 
 
 
@@ -105,7 +106,7 @@ object Vers {
    * - [gradle org docs](https://docs.gradle.com/develocity/gradle-plugin/)
    * - [gradle portal](https://plugins.gradle.org/plugin/com.gradle.develocity)
    */
-  val GradleDevelocityPlug = Ver("4.0")
+  val GradleDevelocityPlug = Ver("4.0.1")
 
 
   /**
@@ -138,7 +139,7 @@ object Vers {
    * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
    * [github](https://github.com/Kotlin/kotlin-jupyter)
    */
-  val KotlinJupyterPlug = Ver("0.12.0-398")
+  val KotlinJupyterPlug = Ver("0.12.0-426")
 
   /**
    * Gradle Shadow Gradle Plugin
@@ -163,7 +164,7 @@ object Vers {
    * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val DepsPlug = Ver(0, 3, 78) // also sync it in ../../../../build.gradle.kts
+  val DepsPlug = Ver(0, 3, 79) // also sync it in ../../../../build.gradle.kts
   // TODO use sourcefun to make sure it's always synced with myLibDetails(version)
 
   /**
@@ -180,7 +181,7 @@ object Vers {
   val Gradle5 = Ver("5.6.4")
   val Gradle6 = Ver("6.8.3")
   val Gradle7 = Ver("7.6.4")
-  val Gradle8 = Ver("8.13")
+  val Gradle8 = Ver("8.14")
 
   /**
    * Gradle - just a reference - not so useful in typical use cases
