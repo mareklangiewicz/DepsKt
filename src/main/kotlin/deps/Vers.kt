@@ -38,7 +38,7 @@ object Vers {
 
   /** [releases github](https://github.com/JetBrains/kotlin/releases) */
   val Kotlin22 = Org.JetBrains.Kotlin.stdlib.verLast
-  val Kotlin21 = Ver("2.1.21-RC2")
+  val Kotlin21 = Ver("2.1.21")
   val Kotlin20 = Ver("2.0.21")
   val Kotlin19 = Ver("1.9.25")
   val Kotlin = Kotlin22
@@ -92,7 +92,7 @@ object Vers {
    * - [github](https://github.com/vanniktech/gradle-maven-publish-plugin)
    * - [github releases](https://github.com/vanniktech/gradle-maven-publish-plugin/releases)
    */
-  val VannikPublishPlug = Ver("0.31.0")
+  val VannikPublishPlug = Ver("0.32.0")
 
   /**
    * Gradle Publish Plugin (gradle plugin for publishing gradle plugins)
@@ -139,7 +139,7 @@ object Vers {
    * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
    * [github](https://github.com/Kotlin/kotlin-jupyter)
    */
-  val KotlinJupyterPlug = Ver("0.12.0-426")
+  val KotlinJupyterPlug = Ver("0.12.0-435")
 
   /**
    * Gradle Shadow Gradle Plugin
@@ -164,7 +164,7 @@ object Vers {
    * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val DepsPlug = Ver(0, 3, 79) // also sync it in ../../../../build.gradle.kts
+  val DepsPlug = Ver(0, 3, 80) // also sync it in ../../../../build.gradle.kts
   // TODO use sourcefun to make sure it's always synced with myLibDetails(version)
 
   /**
@@ -173,7 +173,7 @@ object Vers {
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    * - [plugins gradle sourcefun](https://plugins.gradle.org/plugin/pl.mareklangiewicz.sourcefun)
    */
-  val SourceFunPlug = Ver("0.4.25")
+  val SourceFunPlug = Ver("0.4.26")
 
   const val JvmDefaultVer = "23"
 
