@@ -139,7 +139,7 @@ object Vers {
    * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
    * [github](https://github.com/Kotlin/kotlin-jupyter)
    */
-  val KotlinJupyterPlug = Ver("0.12.0-442")
+  val KotlinJupyterPlug = Ver("0.12.0-443")
 
   /**
    * Gradle Shadow Gradle Plugin
@@ -178,11 +178,6 @@ object Vers {
   const val JvmDefaultVer = "23"
 
 
-  val Gradle5 = Ver("5.6.4")
-  val Gradle6 = Ver("6.8.3")
-  val Gradle7 = Ver("7.6.4")
-  val Gradle8 = Ver("8.14")
-
   /**
    * Gradle - just a reference - not so useful in typical use cases
    * - [gradle releases](https://gradle.org/releases/)
@@ -190,6 +185,11 @@ object Vers {
    * - [gradle versions rel candidate](https://services.gradle.org/versions/release-candidate)
    * - [gradle versions current](https://services.gradle.org/versions/current)
    */
+  val Gradle8 = Ver("8.14")
+  val Gradle7 = Ver("7.6.4")
+  val Gradle6 = Ver("6.8.3")
+  val Gradle5 = Ver("5.6.4")
+
   val Gradle = Gradle8
 
 
