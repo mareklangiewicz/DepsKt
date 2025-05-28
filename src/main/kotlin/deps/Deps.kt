@@ -1258,7 +1258,7 @@ object Com {
       val okhttp_urlconnection = "com.squareup.okhttp3" d "okhttp-urlconnection" w "4.12.0" w "5.0.0-alpha.14"
     }
     object Okio {
-      val okio = "com.squareup.okio" d "okio" w "3.11.0"
+      val okio = "com.squareup.okio" d "okio" w "3.12.0"
     }
     object Picasso {
       val picasso = "com.squareup.picasso" d "picasso" w "2.71828"
