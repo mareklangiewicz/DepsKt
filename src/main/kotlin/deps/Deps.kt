@@ -802,7 +802,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.5"
       val r8 = "com.android.tools" d "r8" w "8.9.35"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.10.0" w "8.12.0-alpha02"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.10.1" w "8.12.0-alpha02"
       }
     }
   }
@@ -939,7 +939,7 @@ object Com {
       }
       object Libraries {
         object Places {
-          val places = "com.google.android.libraries.places" d "places" w "4.2.0"
+          val places = "com.google.android.libraries.places" d "places" w "4.3.1"
         }
       }
       object Material {
@@ -2078,7 +2078,7 @@ object Org {
       val spring_cloud_starter_consul_discovery = "org.springframework.cloud" d "spring-cloud-starter-consul-discovery" w "4.2.1"
       val spring_cloud_starter_contract_stub_runner = "org.springframework.cloud" d "spring-cloud-starter-contract-stub-runner" w "4.2.1"
       val spring_cloud_starter_contract_verifier = "org.springframework.cloud" d "spring-cloud-starter-contract-verifier" w "4.2.1"
-      val spring_cloud_starter_gateway = "org.springframework.cloud" d "spring-cloud-starter-gateway" w "4.2.2"
+      val spring_cloud_starter_gateway = "org.springframework.cloud" d "spring-cloud-starter-gateway" w "4.2.3"
       val spring_cloud_starter_loadbalancer = "org.springframework.cloud" d "spring-cloud-starter-loadbalancer" w "4.2.1"
       val spring_cloud_starter_netflix_eureka_client = "org.springframework.cloud" d "spring-cloud-starter-netflix-eureka-client" w "4.2.1"
       val spring_cloud_starter_netflix_eureka_server = "org.springframework.cloud" d "spring-cloud-starter-netflix-eureka-server" w "4.2.1"
