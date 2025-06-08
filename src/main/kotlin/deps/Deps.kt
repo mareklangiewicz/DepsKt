@@ -1650,19 +1650,19 @@ object Org {
     val testing_webdriver = "org.http4k" d "http4k-testing-webdriver" w "6.12.0.0"
   }
   object JUnit {
-    val bom = "org.junit" d "junit-bom" w "5.13.0"
+    val bom = "org.junit" d "junit-bom" w "5.13.1"
     object Jupiter {
-      val junit_jupiter = "org.junit.jupiter" d "junit-jupiter" w "5.13.0"
-      val junit_jupiter_api = "org.junit.jupiter" d "junit-jupiter-api" w "5.13.0"
-      val junit_jupiter_engine = "org.junit.jupiter" d "junit-jupiter-engine" w "5.13.0"
-      val junit_jupiter_migrationsupport = "org.junit.jupiter" d "junit-jupiter-migrationsupport" w "5.13.0"
-      val junit_jupiter_params = "org.junit.jupiter" d "junit-jupiter-params" w "5.13.0"
+      val junit_jupiter = "org.junit.jupiter" d "junit-jupiter" w "5.13.1"
+      val junit_jupiter_api = "org.junit.jupiter" d "junit-jupiter-api" w "5.13.1"
+      val junit_jupiter_engine = "org.junit.jupiter" d "junit-jupiter-engine" w "5.13.1"
+      val junit_jupiter_migrationsupport = "org.junit.jupiter" d "junit-jupiter-migrationsupport" w "5.13.1"
+      val junit_jupiter_params = "org.junit.jupiter" d "junit-jupiter-params" w "5.13.1"
     }
     object Platform {
-      val junit_platform_commons = "org.junit.platform" d "junit-platform-commons" w "1.13.0"
-      val junit_platform_engine = "org.junit.platform" d "junit-platform-engine" w "1.13.0"
-      val junit_platform_launcher = "org.junit.platform" d "junit-platform-launcher" w "1.13.0"
-      val junit_platform_runner = "org.junit.platform" d "junit-platform-runner" w "1.13.0"
+      val junit_platform_commons = "org.junit.platform" d "junit-platform-commons" w "1.13.1"
+      val junit_platform_engine = "org.junit.platform" d "junit-platform-engine" w "1.13.1"
+      val junit_platform_launcher = "org.junit.platform" d "junit-platform-launcher" w "1.13.1"
+      val junit_platform_runner = "org.junit.platform" d "junit-platform-runner" w "1.13.1"
     }
   }
   object JetBrains {
