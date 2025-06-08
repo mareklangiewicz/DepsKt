@@ -46,7 +46,7 @@ object Vers {
 
 
   val ComposeJbEdge = Org.JetBrains.Compose.gradle_plugin.verLast
-  // val ComposeJbEdge = Ver("1.7.0-dev1852")
+  // val ComposeJbEdge = Ver("1.7.0-dev185")
 
   // The refreshDeps found 1692 one but looks like not fully released (tried and error downloading some artifacts)
   // I tried 1690 which worked for template-mpp but not for uwidgets (js), so falling back to 1686
@@ -106,7 +106,7 @@ object Vers {
    * - [gradle org docs](https://docs.gradle.com/develocity/gradle-plugin/)
    * - [gradle portal](https://plugins.gradle.org/plugin/com.gradle.develocity)
    */
-  val GradleDevelocityPlug = Ver("4.0.1")
+  val GradleDevelocityPlug = Ver("4.0.2")
 
 
   /**
@@ -139,7 +139,7 @@ object Vers {
    * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
    * [github](https://github.com/Kotlin/kotlin-jupyter)
    */
-  val KotlinJupyterPlug = Ver("0.12.0-443")
+  val KotlinJupyterPlug = Ver("0.12.0-457")
 
   /**
    * Gradle Shadow Gradle Plugin
@@ -155,7 +155,7 @@ object Vers {
    * - [github](https://github.com/runningcode/gradle-doctor)
    * - [docs](https://runningcode.github.io/gradle-doctor/)
    */
-  val OsackyDoctorPlug = Ver("0.10.0")
+  val OsackyDoctorPlug = Ver("0.11.0")
 
   /**
    * DepsKt Gradle Plugin
@@ -164,7 +164,7 @@ object Vers {
    * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val DepsPlug = Ver(0, 3, 81) // also sync it in ../../../../build.gradle.kts
+  val DepsPlug = Ver(0, 3, 82) // also sync it in ../../../../build.gradle.kts
   // TODO use sourcefun to make sure it's always synced with myLibDetails(version)
 
   /**
@@ -185,7 +185,7 @@ object Vers {
    * - [gradle versions rel candidate](https://services.gradle.org/versions/release-candidate)
    * - [gradle versions current](https://services.gradle.org/versions/current)
    */
-  val Gradle8 = Ver("8.14")
+  val Gradle8 = Ver("8.14.2")
   val Gradle7 = Ver("7.6.4")
   val Gradle6 = Ver("6.8.3")
   val Gradle5 = Ver("5.6.4")
