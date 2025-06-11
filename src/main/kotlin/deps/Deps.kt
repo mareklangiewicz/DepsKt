@@ -1521,7 +1521,7 @@ object Io {
     }
   }
   object Projectreactor {
-    val reactor_test = "io.projectreactor" d "reactor-test" w "3.7.6" w "3.8.0-M3"
+    val reactor_test = "io.projectreactor" d "reactor-test" w "3.7.7" w "3.8.0-M4"
     object Kotlin {
       val reactor_kotlin_extensions = "io.projectreactor.kotlin" d "reactor-kotlin-extensions" w "1.2.3"
     }
