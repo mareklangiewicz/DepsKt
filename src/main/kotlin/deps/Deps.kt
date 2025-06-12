@@ -770,7 +770,7 @@ object App {
       val runtime = "app.cash.molecule" d "molecule-runtime" w "2.1.0"
     }
     object Turbine {
-      val turbine = "app.cash.turbine" d "turbine" w "1.2.0"
+      val turbine = "app.cash.turbine" d "turbine" w "1.2.1"
     }
   }
 }
@@ -1844,11 +1844,11 @@ object Org {
       val test_wasm_js = "org.jetbrains.kotlin" d "kotlin-test-wasm-js" w "2.1.21" w "2.2.0-RC2"
     }
     object KotlinX {
-      val atomicfu = "org.jetbrains.kotlinx" d "atomicfu" w "0.27.0" w "0.28.0-beta"
-      val atomicfu_gradle_plugin = "org.jetbrains.kotlinx" d "atomicfu-gradle-plugin" w "0.27.0" w "0.28.0-beta"
-      val atomicfu_js = "org.jetbrains.kotlinx" d "atomicfu-js" w "0.27.0" w "0.28.0-beta"
-      val atomicfu_jvm = "org.jetbrains.kotlinx" d "atomicfu-jvm" w "0.27.0" w "0.28.0-beta"
-      val atomicfu_wasm_js = "org.jetbrains.kotlinx" d "atomicfu-wasm-js" w "0.27.0" w "0.28.0-beta"
+      val atomicfu = "org.jetbrains.kotlinx" d "atomicfu" w "0.28.0"
+      val atomicfu_gradle_plugin = "org.jetbrains.kotlinx" d "atomicfu-gradle-plugin" w "0.28.0"
+      val atomicfu_js = "org.jetbrains.kotlinx" d "atomicfu-js" w "0.28.0"
+      val atomicfu_jvm = "org.jetbrains.kotlinx" d "atomicfu-jvm" w "0.28.0"
+      val atomicfu_wasm_js = "org.jetbrains.kotlinx" d "atomicfu-wasm-js" w "0.28.0"
       val browser_wasm_js = "org.jetbrains.kotlinx" d "kotlinx-browser-wasm-js" w "0.3"
       val cli = "org.jetbrains.kotlinx" d "kotlinx-cli" w "0.3.6"
       val collections_immutable = "org.jetbrains.kotlinx" d "kotlinx-collections-immutable" w "0.4.0"
