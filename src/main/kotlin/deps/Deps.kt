@@ -650,17 +650,17 @@ object AndroidX {
     val rules = "androidx.test" d "rules" w "1.6.1" w "1.7.0-alpha03"
     val runner = "androidx.test" d "runner" w "1.6.2" w "1.7.0-alpha03"
     object Espresso {
-      val accessibility = "androidx.test.espresso" d "espresso-accessibility" w "3.6.1" w "3.7.0-alpha03"
-      val contrib = "androidx.test.espresso" d "espresso-contrib" w "3.6.1" w "3.7.0-alpha03"
-      val core = "androidx.test.espresso" d "espresso-core" w "3.6.1" w "3.7.0-alpha03"
+      val accessibility = "androidx.test.espresso" d "espresso-accessibility" w "3.6.1" w "3.7.0-alpha04"
+      val contrib = "androidx.test.espresso" d "espresso-contrib" w "3.6.1" w "3.7.0-alpha04"
+      val core = "androidx.test.espresso" d "espresso-core" w "3.6.1" w "3.7.0-alpha04"
       val device = "androidx.test.espresso" d "espresso-device" w "1.0.1" w "1.1.0-alpha03"
-      val idling_resource = "androidx.test.espresso" d "espresso-idling-resource" w "3.6.1" w "3.7.0-alpha03"
-      val intents = "androidx.test.espresso" d "espresso-intents" w "3.6.1" w "3.7.0-alpha03"
-      val remote = "androidx.test.espresso" d "espresso-remote" w "3.6.1" w "3.7.0-alpha03"
-      val web = "androidx.test.espresso" d "espresso-web" w "3.6.1" w "3.7.0-alpha03"
+      val idling_resource = "androidx.test.espresso" d "espresso-idling-resource" w "3.6.1" w "3.7.0-alpha04"
+      val intents = "androidx.test.espresso" d "espresso-intents" w "3.6.1" w "3.7.0-alpha04"
+      val remote = "androidx.test.espresso" d "espresso-remote" w "3.6.1" w "3.7.0-alpha04"
+      val web = "androidx.test.espresso" d "espresso-web" w "3.6.1" w "3.7.0-alpha04"
       object Idling {
-        val concurrent = "androidx.test.espresso.idling" d "idling-concurrent" w "3.6.1" w "3.7.0-alpha03"
-        val net = "androidx.test.espresso.idling" d "idling-net" w "3.6.1" w "3.7.0-alpha03"
+        val concurrent = "androidx.test.espresso.idling" d "idling-concurrent" w "3.6.1" w "3.7.0-alpha04"
+        val net = "androidx.test.espresso.idling" d "idling-net" w "3.6.1" w "3.7.0-alpha04"
       }
     }
     object Ext {
@@ -776,13 +776,13 @@ object App {
 }
 object Co {
   object TouchLab {
-    val kermit = "co.touchlab" d "kermit" w "2.0.5"
-    val kermit_bugsnag = "co.touchlab" d "kermit-bugsnag" w "2.0.5"
+    val kermit = "co.touchlab" d "kermit" w "2.0.6"
+    val kermit_bugsnag = "co.touchlab" d "kermit-bugsnag" w "2.0.6"
     val kermit_bugsnag_test = "co.touchlab" d "kermit-bugsnag-test" w "1.1.3" w "1.2.0-M2"
-    val kermit_crashlytics = "co.touchlab" d "kermit-crashlytics" w "2.0.5"
+    val kermit_crashlytics = "co.touchlab" d "kermit-crashlytics" w "2.0.6"
     val kermit_crashlytics_test = "co.touchlab" d "kermit-crashlytics-test" w "1.1.3" w "1.2.0-M2"
     val kermit_gradle_plugin = "co.touchlab" d "kermit-gradle-plugin" w "1.2.3"
-    val kermit_test = "co.touchlab" d "kermit-test" w "2.0.5"
+    val kermit_test = "co.touchlab" d "kermit-test" w "2.0.6"
     val stately_common = "co.touchlab" d "stately-common" w "2.1.0"
     val stately_concurrency = "co.touchlab" d "stately-concurrency" w "2.1.0"
     val stately_iso_collections = "co.touchlab" d "stately-iso-collections" w "2.1.0"
@@ -802,7 +802,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.5"
       val r8 = "com.android.tools" d "r8" w "8.9.35"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.10.1" w "8.11.0-rc02" w "8.12.0-alpha04"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.10.1" w "8.11.0-rc02" w "8.12.0-alpha05"
       }
     }
   }
@@ -1258,7 +1258,7 @@ object Com {
       val okhttp_urlconnection = "com.squareup.okhttp3" d "okhttp-urlconnection" w "4.12.0" w "5.0.0-alpha.16"
     }
     object Okio {
-      val okio = "com.squareup.okio" d "okio" w "3.12.0"
+      val okio = "com.squareup.okio" d "okio" w "3.13.0"
     }
     object Picasso {
       val picasso = "com.squareup.picasso" d "picasso" w "2.71828"
@@ -2104,7 +2104,7 @@ object Org {
       val spring_cloud_stream_binder_rabbit = "org.springframework.cloud" d "spring-cloud-stream-binder-rabbit" w "4.3.0"
     }
     object Data {
-      val spring_data_rest_hal_explorer = "org.springframework.data" d "spring-data-rest-hal-explorer" w "4.5.0" w "5.0.0-M3"
+      val spring_data_rest_hal_explorer = "org.springframework.data" d "spring-data-rest-hal-explorer" w "4.5.1" w "5.0.0-M3"
     }
     object Geode {
       val spring_geode_bom = "org.springframework.geode" d "spring-geode-bom" w "1.7.5"
