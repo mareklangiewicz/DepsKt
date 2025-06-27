@@ -802,7 +802,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.5"
       val r8 = "com.android.tools" d "r8" w "8.9.35"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.11.0" w "8.12.0-alpha06"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.11.0" w "8.12.0-alpha07"
       }
     }
   }
@@ -995,13 +995,13 @@ object Com {
       val spi = "com.google.dagger" d "dagger-spi" w "2.56.2"
     }
     object Firebase {
-      val analytics = "com.google.firebase" d "firebase-analytics" w "22.4.0"
-      val analytics_ktx = "com.google.firebase" d "firebase-analytics-ktx" w "22.4.0"
+      val analytics = "com.google.firebase" d "firebase-analytics" w "22.5.0"
+      val analytics_ktx = "com.google.firebase" d "firebase-analytics-ktx" w "22.5.0"
       val appdistribution_gradle = "com.google.firebase" d "firebase-appdistribution-gradle" w "5.1.1"
       val appindexing = "com.google.firebase" d "firebase-appindexing" w "20.0.0"
       val auth = "com.google.firebase" d "firebase-auth" w "23.2.1"
       val auth_ktx = "com.google.firebase" d "firebase-auth-ktx" w "23.2.1"
-      val bom = "com.google.firebase" d "firebase-bom" w "33.15.0"
+      val bom = "com.google.firebase" d "firebase-bom" w "33.16.0"
       val config = "com.google.firebase" d "firebase-config" w "22.1.2"
       val config_ktx = "com.google.firebase" d "firebase-config-ktx" w "22.1.2"
       val crashlytics = "com.google.firebase" d "firebase-crashlytics" w "19.4.4"
@@ -1021,9 +1021,9 @@ object Com {
       val inappmessaging_display = "com.google.firebase" d "firebase-inappmessaging-display" w "21.0.2"
       val inappmessaging_display_ktx = "com.google.firebase" d "firebase-inappmessaging-display-ktx" w "21.0.2"
       val inappmessaging_ktx = "com.google.firebase" d "firebase-inappmessaging-ktx" w "21.0.2"
-      val messaging = "com.google.firebase" d "firebase-messaging" w "24.1.1"
-      val messaging_directboot = "com.google.firebase" d "firebase-messaging-directboot" w "24.1.1"
-      val messaging_ktx = "com.google.firebase" d "firebase-messaging-ktx" w "24.1.1"
+      val messaging = "com.google.firebase" d "firebase-messaging" w "24.1.2"
+      val messaging_directboot = "com.google.firebase" d "firebase-messaging-directboot" w "24.1.2"
+      val messaging_ktx = "com.google.firebase" d "firebase-messaging-ktx" w "24.1.2"
       val ml_modeldownloader = "com.google.firebase" d "firebase-ml-modeldownloader" w "25.0.1"
       val ml_modeldownloader_ktx = "com.google.firebase" d "firebase-ml-modeldownloader-ktx" w "25.0.1"
       val perf = "com.google.firebase" d "firebase-perf" w "21.0.5"
@@ -1033,7 +1033,7 @@ object Com {
       val storage_ktx = "com.google.firebase" d "firebase-storage-ktx" w "21.0.2"
     }
     object Gms {
-      val google_services = "com.google.gms" d "google-services" w "3.1.1" w "4.4.2"
+      val google_services = "com.google.gms" d "google-services" w "3.1.1" w "4.4.3"
     }
     object Maps {
       object Android {
