@@ -643,34 +643,34 @@ object AndroidX {
     val swiperefreshlayout = "androidx.swiperefreshlayout" d "swiperefreshlayout" w "1.1.0" w "1.2.0-beta01"
   }
   object Test {
-    val core = "androidx.test" d "core" w "1.6.1" w "1.7.0-alpha03"
-    val core_ktx = "androidx.test" d "core-ktx" w "1.6.1" w "1.7.0-alpha03"
-    val monitor = "androidx.test" d "monitor" w "1.7.2" w "1.8.0-alpha03"
-    val orchestrator = "androidx.test" d "orchestrator" w "1.5.1" w "1.6.0-alpha04"
-    val rules = "androidx.test" d "rules" w "1.6.1" w "1.7.0-alpha03"
-    val runner = "androidx.test" d "runner" w "1.6.2" w "1.7.0-alpha03"
+    val core = "androidx.test" d "core" w "1.6.1" w "1.7.0-beta01"
+    val core_ktx = "androidx.test" d "core-ktx" w "1.6.1" w "1.7.0-beta01"
+    val monitor = "androidx.test" d "monitor" w "1.7.2" w "1.8.0-beta01"
+    val orchestrator = "androidx.test" d "orchestrator" w "1.5.1" w "1.6.0-beta01"
+    val rules = "androidx.test" d "rules" w "1.6.1" w "1.7.0-beta01"
+    val runner = "androidx.test" d "runner" w "1.6.2" w "1.7.0-beta01"
     object Espresso {
-      val accessibility = "androidx.test.espresso" d "espresso-accessibility" w "3.6.1" w "3.7.0-alpha04"
-      val contrib = "androidx.test.espresso" d "espresso-contrib" w "3.6.1" w "3.7.0-alpha04"
-      val core = "androidx.test.espresso" d "espresso-core" w "3.6.1" w "3.7.0-alpha04"
-      val device = "androidx.test.espresso" d "espresso-device" w "1.0.1" w "1.1.0-alpha03"
-      val idling_resource = "androidx.test.espresso" d "espresso-idling-resource" w "3.6.1" w "3.7.0-alpha04"
-      val intents = "androidx.test.espresso" d "espresso-intents" w "3.6.1" w "3.7.0-alpha04"
-      val remote = "androidx.test.espresso" d "espresso-remote" w "3.6.1" w "3.7.0-alpha04"
-      val web = "androidx.test.espresso" d "espresso-web" w "3.6.1" w "3.7.0-alpha04"
+      val accessibility = "androidx.test.espresso" d "espresso-accessibility" w "3.6.1" w "3.7.0-beta01"
+      val contrib = "androidx.test.espresso" d "espresso-contrib" w "3.6.1" w "3.7.0-beta01"
+      val core = "androidx.test.espresso" d "espresso-core" w "3.6.1" w "3.7.0-beta01"
+      val device = "androidx.test.espresso" d "espresso-device" w "1.0.1" w "1.1.0-beta01"
+      val idling_resource = "androidx.test.espresso" d "espresso-idling-resource" w "3.6.1" w "3.7.0-beta01"
+      val intents = "androidx.test.espresso" d "espresso-intents" w "3.6.1" w "3.7.0-beta01"
+      val remote = "androidx.test.espresso" d "espresso-remote" w "3.6.1" w "3.7.0-beta01"
+      val web = "androidx.test.espresso" d "espresso-web" w "3.6.1" w "3.7.0-beta01"
       object Idling {
-        val concurrent = "androidx.test.espresso.idling" d "idling-concurrent" w "3.6.1" w "3.7.0-alpha04"
-        val net = "androidx.test.espresso.idling" d "idling-net" w "3.6.1" w "3.7.0-alpha04"
+        val concurrent = "androidx.test.espresso.idling" d "idling-concurrent" w "3.6.1" w "3.7.0-beta01"
+        val net = "androidx.test.espresso.idling" d "idling-net" w "3.6.1" w "3.7.0-beta01"
       }
     }
     object Ext {
-      val junit = "androidx.test.ext" d "junit" w "1.2.1" w "1.3.0-alpha03"
+      val junit = "androidx.test.ext" d "junit" w "1.2.1" w "1.3.0-beta01"
       val junit_gtest = "androidx.test.ext" d "junit-gtest" w "1.0.0-alpha02"
-      val junit_ktx = "androidx.test.ext" d "junit-ktx" w "1.2.1" w "1.3.0-alpha03"
-      val truth = "androidx.test.ext" d "truth" w "1.6.0" w "1.7.0-alpha03"
+      val junit_ktx = "androidx.test.ext" d "junit-ktx" w "1.2.1" w "1.3.0-beta01"
+      val truth = "androidx.test.ext" d "truth" w "1.6.0" w "1.7.0-beta01"
     }
     object Services {
-      val test_services = "androidx.test.services" d "test-services" w "1.5.0" w "1.6.0-alpha04"
+      val test_services = "androidx.test.services" d "test-services" w "1.5.0" w "1.6.0-beta01"
     }
     object UiAutoMator {
       val uiautomator = "androidx.test.uiautomator" d "uiautomator" w "2.3.0" w "2.4.0-alpha05"
@@ -792,8 +792,8 @@ object Co {
 object Com {
   object Android {
     object Billingclient {
-      val billing = "com.android.billingclient" d "billing" w "7.1.1"
-      val billing_ktx = "com.android.billingclient" d "billing-ktx" w "7.1.1"
+      val billing = "com.android.billingclient" d "billing" w "8.0.0"
+      val billing_ktx = "com.android.billingclient" d "billing-ktx" w "8.0.0"
     }
     object Installreferrer {
       val installreferrer = "com.android.installreferrer" d "installreferrer" w "2.2"
