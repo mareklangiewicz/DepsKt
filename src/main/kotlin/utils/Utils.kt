@@ -40,17 +40,17 @@ fun String.toVersionPartIntCode(): Int = Regex("""0*(?<VersionPart>\d{1,4})[\w\-
 // See also: https://blog.gradle.org/simpler-kotlin-dsl-property-assignment
 
 // The name "provides" looks better than "provide", because it's more declarative/lazy overload of Property.set
-infix fun <T> Property<in T>.provides(from: Provider<out T>) = set(from)
+infix fun <T: Any> Property<in T>.provides(from: Provider<out T>) = set(from)
 
 // The name "put" looks best because we need something short and different from "set",
 // and the property is actually a kind of container we can "put" stuff into.
-infix fun <T> Property<in T>.put(value: T) = set(value)
+infix fun <T: Any> Property<in T>.put(value: T) = set(value)
 
-fun <T, R> Provider<T>.providing(compute: (T) -> R) =
+fun <T: Any, R> Provider<T>.providing(compute: (T) -> R) =
   ReadOnlyProperty<Any?, R> { _, _ -> compute(get()) }
 
 // yes, this name is stupid :)
-fun <T> Property<T>.properting() = object : ReadWriteProperty<Any?, T> {
+fun <T: Any> Property<T>.properting() = object : ReadWriteProperty<Any?, T> {
   override fun getValue(thisRef: Any?, property: KProperty<*>): T = get()
   override fun setValue(thisRef: Any?, property: KProperty<*>, value: T) = set(value)
 }
