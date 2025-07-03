@@ -139,7 +139,7 @@ object Vers {
    * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
    * [github](https://github.com/Kotlin/kotlin-jupyter)
    */
-  val KotlinJupyterPlug = Ver("0.14.1-495-1")
+  val KotlinJupyterPlug = Ver("0.14.1-500")
 
   /**
    * Gradle Shadow Gradle Plugin
@@ -173,7 +173,7 @@ object Vers {
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    * - [plugins gradle sourcefun](https://plugins.gradle.org/plugin/pl.mareklangiewicz.sourcefun)
    */
-  val SourceFunPlug = Ver("0.4.28")
+  val SourceFunPlug = Ver("0.4.29")
 
   const val JvmDefaultVer = "23"
 
