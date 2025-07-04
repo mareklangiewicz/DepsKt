@@ -54,8 +54,6 @@ data class LibSettings(
     withComposeJbDev = false,
   ),
 ) {
-  @Deprecated("Use withCentralPublish")
-  val withSonatypeOssPublishing get() = withCentralPublish
   val withCompose get() = compose != null
   val withAndro get() = andro != null
 }
