@@ -15,12 +15,7 @@ import pl.mareklangiewicz.sourcefun.*
 import org.jetbrains.kotlin.gradle.dsl.*
 
 plugins {
-  // plugAll(plugs.KotlinJvm, plugs.GradlePublish, plugs.VannikPublish, plugs.SourceFun)
-  plugAll(plugs.KotlinJvm, plugs.GradlePublish)
-  id("com.vanniktech.maven.publish") version "0.33.0"
-  id("pl.mareklangiewicz.sourcefun") version "0.4.29"
-  // // FIXME_later: add to plugAll after updating deps (but VannikPublish 0.33.0 fails on signing: INVESTIGATE)
-  // // https://plugins.gradle.org/search?term=pl.mareklangiewicz
+  plugAll(plugs.KotlinJvm, plugs.GradlePublish, plugs.VannikPublish, plugs.SourceFun)
 }
 
 repositories {
@@ -261,8 +256,7 @@ fun MavenPom.defaultPOM(lib: LibDetails) {
 
 fun Project.defaultPublishing(lib: LibDetails) = extensions.configure<MavenPublishBaseExtension> {
   propertiesTryOverride("signingInMemoryKey", "signingInMemoryKeyPassword", "mavenCentralPassword")
-  if (lib.settings.withSonatypeOssPublishing)
-    publishToMavenCentral(automaticRelease = false)
+  if (lib.settings.withCentralPublish) publishToMavenCentral(automaticRelease = false)
   signAllPublications()
   signAllPublicationsFixSignatory()
   // Note: artifactId is not lib.name but current project.name (module name)
@@ -271,23 +265,3 @@ fun Project.defaultPublishing(lib: LibDetails) = extensions.configure<MavenPubli
 }
 
 // endregion [[Kotlin Module Build Template]]
-
-/**
- * VannikPublish ver 0.33.0 introduced bug for my libraries:
- *   Execution failed for task ':signPluginMavenPublication'.
- *     Cannot perform signing task ':signPluginMavenPublication' because it has no configured signatory
- * I figured out it's this change:
- * https://github.com/vanniktech/gradle-maven-publish-plugin/commit/0096c4c25b417ffde5f8b04397ebee942e75bd2a
- * It tries to read signing credentials with gradleProperty(..) and use it in useInMemoryPgpKeys(...)
- * I guess the actual issue is that project.gradleProperty is broken in many ways in gradle.
- * https://github.com/gradle/gradle/issues/24491
- * https://github.com/gradle/gradle/issues/23572
- * https://github.com/gradle/gradle/issues/20354 (generally what a mess is it all)
- * So this function adds a workaround (configuring in memory signing stuff the old way with findProperty)
- */
-fun Project.signAllPublicationsFixSignatory() {
-  val inMemoryKey = findProperty("signingInMemoryKey")!!.toString()
-  val inMemoryKeyId = findProperty("signingInMemoryKeyId")!!.toString()
-  val inMemoryKeyPassword = findProperty("signingInMemoryKeyPassword")!!.toString()
-  project.extensions.getByType<SigningExtension>().useInMemoryPgpKeys(inMemoryKeyId, inMemoryKey, inMemoryKeyPassword)
-}
