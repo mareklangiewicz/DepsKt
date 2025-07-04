@@ -223,10 +223,13 @@ fun Project.propertiesTryOverride(vararg names: String) {
  * So this function adds a workaround (configuring in memory signing stuff the old way with findProperty)
  * So this should use signing properties overridden by [propertiesTryOverride] (which should be called first).
  */
-fun Project.signAllPublicationsFixSignatory() {
-  val inMemoryKey = findProperty("signingInMemoryKey")!!.toString()
-  val inMemoryKeyId = findProperty("signingInMemoryKeyId")!!.toString()
-  val inMemoryKeyPassword = findProperty("signingInMemoryKeyPassword")!!.toString()
-  project.extensions.getByType(SigningExtension::class.java)
-    .useInMemoryPgpKeys(inMemoryKeyId, inMemoryKey, inMemoryKeyPassword)
+fun Project.signAllPublicationsFixSignatoryIfFound() {
+  val signing = project.extensions.getByType(SigningExtension::class.java)
+  val inMemoryKey = findProperty("signingInMemoryKey")?.toString() ?: run {
+    logger.debug("Skipping signAllPublicationsFixSignatoryIfFound: no signingInMemoryKey.")
+    return
+  }
+  val inMemoryKeyId = findProperty("signingInMemoryKeyId")?.toString()
+  val inMemoryKeyPassword = findProperty("signingInMemoryKeyPassword")?.toString()
+  signing.useInMemoryPgpKeys(inMemoryKeyId, inMemoryKey, inMemoryKeyPassword)
 }
