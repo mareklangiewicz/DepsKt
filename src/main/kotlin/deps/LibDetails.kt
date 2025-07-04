@@ -36,7 +36,7 @@ data class LibSettings(
   val withTestUSpekX: Boolean = true,
   val withTestGoogleTruth: Boolean = false,
   val withTestMockitoKotlin: Boolean = false,
-  val withSonatypeOssPublishing: Boolean = false,
+  val withCentralPublish: Boolean = false,
   val compose: LibComposeSettings? = LibComposeSettings(
     withComposeMaterial2 = withJvm,
     withComposeMaterial3 = withJvm,
@@ -54,6 +54,8 @@ data class LibSettings(
     withComposeJbDev = false,
   ),
 ) {
+  @Deprecated("Use withCentralPublish")
+  val withSonatypeOssPublishing get() = withCentralPublish
   val withCompose get() = compose != null
   val withAndro get() = andro != null
 }

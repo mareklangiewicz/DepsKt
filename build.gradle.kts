@@ -5,14 +5,11 @@ import pl.mareklangiewicz.deps.*
 import com.vanniktech.maven.publish.*
 import okio.Path.Companion.toOkioPath
 import pl.mareklangiewicz.kgroundx.maintenance.*
-import pl.mareklangiewicz.ulog.*
-import pl.mareklangiewicz.bad.*
 import pl.mareklangiewicz.io.*
 import pl.mareklangiewicz.utils.*
 import pl.mareklangiewicz.ure.*
 import pl.mareklangiewicz.ure.UReplacement.Companion.Group
 import pl.mareklangiewicz.ure.UReplacement.Companion.Literal
-import kotlin.text.Regex.Companion.escapeReplacement
 import pl.mareklangiewicz.annotations.*
 import pl.mareklangiewicz.sourcefun.*
 import org.jetbrains.kotlin.gradle.dsl.*
@@ -20,7 +17,7 @@ import org.jetbrains.kotlin.gradle.dsl.*
 plugins {
   // plugAll(plugs.KotlinJvm, plugs.GradlePublish, plugs.VannikPublish, plugs.SourceFun)
   plugAll(plugs.KotlinJvm, plugs.GradlePublish)
-  id("com.vanniktech.maven.publish") version "0.32.0"
+  id("com.vanniktech.maven.publish") version "0.33.0"
   id("pl.mareklangiewicz.sourcefun") version "0.4.29"
   // // FIXME_later: add to plugAll after updating deps (but VannikPublish 0.33.0 fails on signing: INVESTIGATE)
   // // https://plugins.gradle.org/search?term=pl.mareklangiewicz
@@ -49,7 +46,7 @@ val details = myLibDetails(
   group = "pl.mareklangiewicz.deps", // important non default ...deps group (as accepted on gradle portal)
   description = "Updated dependencies for typical java/kotlin/android projects (with IDE support).",
   githubUrl = "https://github.com/mareklangiewicz/DepsKt",
-  version = Ver(0, 3, 85), // also sync it in ./src/main/kotlin/deps/Vers.kt
+  version = Ver(0, 3, 86), // also sync it in ./src/main/kotlin/deps/Vers.kt
   // TODO use some SourceFun task to make sure it's synced with Vers.DepsPlug
   // (we println it when applying plugin so have to be synced not to confuse users)
   // https://plugins.gradle.org/search?term=pl.mareklangiewicz
@@ -265,11 +262,32 @@ fun MavenPom.defaultPOM(lib: LibDetails) {
 fun Project.defaultPublishing(lib: LibDetails) = extensions.configure<MavenPublishBaseExtension> {
   propertiesTryOverride("signingInMemoryKey", "signingInMemoryKeyPassword", "mavenCentralPassword")
   if (lib.settings.withSonatypeOssPublishing)
-    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL, automaticRelease = false)
+    publishToMavenCentral(automaticRelease = false)
   signAllPublications()
+  signAllPublicationsFixSignatory()
   // Note: artifactId is not lib.name but current project.name (module name)
   coordinates(groupId = lib.group, artifactId = name, version = lib.version.str)
   pom { defaultPOM(lib) }
 }
 
 // endregion [[Kotlin Module Build Template]]
+
+/**
+ * VannikPublish ver 0.33.0 introduced bug for my libraries:
+ *   Execution failed for task ':signPluginMavenPublication'.
+ *     Cannot perform signing task ':signPluginMavenPublication' because it has no configured signatory
+ * I figured out it's this change:
+ * https://github.com/vanniktech/gradle-maven-publish-plugin/commit/0096c4c25b417ffde5f8b04397ebee942e75bd2a
+ * It tries to read signing credentials with gradleProperty(..) and use it in useInMemoryPgpKeys(...)
+ * I guess the actual issue is that project.gradleProperty is broken in many ways in gradle.
+ * https://github.com/gradle/gradle/issues/24491
+ * https://github.com/gradle/gradle/issues/23572
+ * https://github.com/gradle/gradle/issues/20354 (generally what a mess is it all)
+ * So this function adds a workaround (configuring in memory signing stuff the old way with findProperty)
+ */
+fun Project.signAllPublicationsFixSignatory() {
+  val inMemoryKey = findProperty("signingInMemoryKey")!!.toString()
+  val inMemoryKeyId = findProperty("signingInMemoryKeyId")!!.toString()
+  val inMemoryKeyPassword = findProperty("signingInMemoryKeyPassword")!!.toString()
+  project.extensions.getByType<SigningExtension>().useInMemoryPgpKeys(inMemoryKeyId, inMemoryKey, inMemoryKeyPassword)
+}

@@ -13,6 +13,7 @@ import org.gradle.api.plugins.*
 import org.gradle.api.plugins.ExtraPropertiesExtension.*
 import org.gradle.api.provider.*
 import org.gradle.api.tasks.*
+import org.gradle.plugins.signing.SigningExtension
 import pl.mareklangiewicz.deps.*
 
 
@@ -208,3 +209,24 @@ fun Project.propertiesTryOverride(vararg names: String) {
   }
 }
 
+/**
+ * VannikPublish ver 0.33.0 introduced bug for my libraries:
+ *   Execution failed for task ':signPluginMavenPublication'.
+ *     Cannot perform signing task ':signPluginMavenPublication' because it has no configured signatory
+ * I figured out it's this change:
+ * https://github.com/vanniktech/gradle-maven-publish-plugin/commit/0096c4c25b417ffde5f8b04397ebee942e75bd2a
+ * It tries to read signing credentials with gradleProperty(..) and use it in useInMemoryPgpKeys(...)
+ * I guess the actual issue is that project.gradleProperty is broken in many ways in gradle.
+ * https://github.com/gradle/gradle/issues/24491
+ * https://github.com/gradle/gradle/issues/23572
+ * https://github.com/gradle/gradle/issues/20354 (generally what a mess is it all)
+ * So this function adds a workaround (configuring in memory signing stuff the old way with findProperty)
+ * So this should use signing properties overridden by [propertiesTryOverride] (which should be called first).
+ */
+fun Project.signAllPublicationsFixSignatory() {
+  val inMemoryKey = findProperty("signingInMemoryKey")!!.toString()
+  val inMemoryKeyId = findProperty("signingInMemoryKeyId")!!.toString()
+  val inMemoryKeyPassword = findProperty("signingInMemoryKeyPassword")!!.toString()
+  project.extensions.getByType(SigningExtension::class.java)
+    .useInMemoryPgpKeys(inMemoryKeyId, inMemoryKey, inMemoryKeyPassword)
+}
