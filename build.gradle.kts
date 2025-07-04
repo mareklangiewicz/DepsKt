@@ -15,13 +15,11 @@ import pl.mareklangiewicz.sourcefun.*
 import org.jetbrains.kotlin.gradle.dsl.*
 
 plugins {
-  // plugAll(plugs.KotlinJvm, plugs.GradlePublish, plugs.VannikPublish, plugs.SourceFun)
-  plugAll(plugs.KotlinJvm, plugs.GradlePublish, plugs.VannikPublish)
-  id("pl.mareklangiewicz.sourcefun") version "0.4.30"
+  plugAll(plugs.KotlinJvm, plugs.GradlePublish, plugs.VannikPublish, plugs.SourceFun)
+  // id("pl.mareklangiewicz.sourcefun") version "0.4.30"
 }
 
 repositories {
-  mavenLocal()
   google()
   mavenCentral()
   gradlePluginPortal()
