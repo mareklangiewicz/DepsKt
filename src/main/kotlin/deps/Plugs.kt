@@ -77,6 +77,11 @@ object Plugs {
   val AndroLibEdge = AndroLibNoVer.withVer(vers.AndroPlugEdge)
   val AndroLib = AndroLibNoVer.withVer(vers.AndroPlug)
 
+  val AndroKmpNoVer = DepP("com.android.kotlin.multiplatform.library")
+  val AndroKmpStable = AndroKmpNoVer.withVer(vers.AndroPlugStable)
+  val AndroKmpEdge = AndroKmpNoVer.withVer(vers.AndroPlugEdge)
+  val AndroKmp = AndroKmpNoVer.withVer(vers.AndroPlug)
+
   /**
    * Android Gradle Plugin
    * - [maven](https://maven.google.com/web/index.html#com.android.tools.build:gradle)

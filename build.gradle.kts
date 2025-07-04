@@ -15,7 +15,9 @@ import pl.mareklangiewicz.sourcefun.*
 import org.jetbrains.kotlin.gradle.dsl.*
 
 plugins {
-  plugAll(plugs.KotlinJvm, plugs.GradlePublish, plugs.VannikPublish, plugs.SourceFun)
+  // plugAll(plugs.KotlinJvm, plugs.GradlePublish, plugs.VannikPublish, plugs.SourceFun)
+  plugAll(plugs.KotlinJvm, plugs.GradlePublish, plugs.VannikPublish)
+  id("pl.mareklangiewicz.sourcefun") version "0.4.30"
 }
 
 repositories {
@@ -41,7 +43,7 @@ val details = myLibDetails(
   group = "pl.mareklangiewicz.deps", // important non default ...deps group (as accepted on gradle portal)
   description = "Updated dependencies for typical java/kotlin/android projects (with IDE support).",
   githubUrl = "https://github.com/mareklangiewicz/DepsKt",
-  version = Ver(0, 3, 88), // also sync it in ./src/main/kotlin/deps/Vers.kt
+  version = Ver(0, 3, 89), // also sync it in ./src/main/kotlin/deps/Vers.kt
   // TODO use some SourceFun task to make sure it's synced with Vers.DepsPlug
   // (we println it when applying plugin so have to be synced not to confuse users)
   // https://plugins.gradle.org/search?term=pl.mareklangiewicz
@@ -145,7 +147,7 @@ val updateSomeRegexes by tasks.registering {
 
   doLastWithUCtxForTask {
     val path = pathToSrcKotlin / "utils/Utils.kt"
-    processFile(path, path) {
+    path.processSingleFile(path) {
       it.replaceSingle(ureWithTheOldThing, Group("beforeTheThing") + Literal(theNewThing) + Group("afterTheThing"))
     }
   }
