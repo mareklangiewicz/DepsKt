@@ -2215,12 +2215,12 @@ object Pl {
     val uspekx_junit5_jvm = "pl.mareklangiewicz" d "uspekx-junit5-jvm" w "0.0.42"
     val uspekx_jvm = "pl.mareklangiewicz" d "uspekx-jvm" w "0.0.42"
     val uspekx_linuxx64 = "pl.mareklangiewicz" d "uspekx-linuxx64" w "0.0.42"
-    val uwidgets = "pl.mareklangiewicz" d "uwidgets" w "0.0.39"
-    val uwidgets_demo = "pl.mareklangiewicz" d "uwidgets-demo" w "0.0.39"
-    val uwidgets_demo_js = "pl.mareklangiewicz" d "uwidgets-demo-js" w "0.0.39"
-    val uwidgets_demo_jvm = "pl.mareklangiewicz" d "uwidgets-demo-jvm" w "0.0.39"
-    val uwidgets_js = "pl.mareklangiewicz" d "uwidgets-js" w "0.0.39"
-    val uwidgets_jvm = "pl.mareklangiewicz" d "uwidgets-jvm" w "0.0.39"
+    val uwidgets = "pl.mareklangiewicz" d "uwidgets" w "0.0.41"
+    val uwidgets_demo = "pl.mareklangiewicz" d "uwidgets-demo" w "0.0.41"
+    val uwidgets_demo_js = "pl.mareklangiewicz" d "uwidgets-demo-js" w "0.0.41"
+    val uwidgets_demo_jvm = "pl.mareklangiewicz" d "uwidgets-demo-jvm" w "0.0.41"
+    val uwidgets_js = "pl.mareklangiewicz" d "uwidgets-js" w "0.0.41"
+    val uwidgets_jvm = "pl.mareklangiewicz" d "uwidgets-jvm" w "0.0.41"
   }
 }
 
