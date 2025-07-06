@@ -1528,15 +1528,13 @@ object Io {
   }
   object RSocket {
     object Kotlin {
+      val ktor_client_rsocket = "io.rsocket.kotlin" d "ktor-client-rsocket" w "0.20.0"
+      val ktor_server_rsocket = "io.rsocket.kotlin" d "ktor-server-rsocket" w "0.20.0"
       val rsocket_core = "io.rsocket.kotlin" d "rsocket-core" w "0.20.0"
-      val rsocket_ktor_client = "io.rsocket.kotlin" d "rsocket-ktor-client" w "0.20.0"
-      val rsocket_ktor_server = "io.rsocket.kotlin" d "rsocket-ktor-server" w "0.20.0"
-      val rsocket_transport_ktor = "io.rsocket.kotlin" d "rsocket-transport-ktor" w "0.15.4"
       val rsocket_transport_ktor_tcp = "io.rsocket.kotlin" d "rsocket-transport-ktor-tcp" w "0.20.0"
-      val rsocket_transport_ktor_websocket = "io.rsocket.kotlin" d "rsocket-transport-ktor-websocket" w "0.15.4"
       val rsocket_transport_ktor_websocket_client = "io.rsocket.kotlin" d "rsocket-transport-ktor-websocket-client" w "0.20.0"
       val rsocket_transport_ktor_websocket_server = "io.rsocket.kotlin" d "rsocket-transport-ktor-websocket-server" w "0.20.0"
-      val rsocket_transport_nodejs_tcp = "io.rsocket.kotlin" d "rsocket-transport-nodejs-tcp" w "0.20.0"
+      val rsocket_transport_netty_tcp = "io.rsocket.kotlin" d "rsocket-transport-netty-tcp" w "0.20.0"
     }
   }
   object ReactiveX {
