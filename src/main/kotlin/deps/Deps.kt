@@ -962,7 +962,7 @@ object Com {
       val androidbrowserhelper = "com.google.androidbrowserhelper" d "androidbrowserhelper" w "2.6.2"
     }
     object Ar {
-      val core = "com.google.ar" d "core" w "1.49.0"
+      val core = "com.google.ar" d "core" w "1.50.0"
       object Sceneform {
         val animation = "com.google.ar.sceneform" d "animation" w "1.17.1"
         val assets = "com.google.ar.sceneform" d "assets" w "1.17.1"
