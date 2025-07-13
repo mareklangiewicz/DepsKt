@@ -839,8 +839,8 @@ object Com {
     }
     object ChuckerTeam {
       object Chucker {
-        val library = "com.github.chuckerteam.chucker" d "library" w "4.1.0"
-        val library_no_op = "com.github.chuckerteam.chucker" d "library-no-op" w "4.1.0"
+        val library = "com.github.chuckerteam.chucker" d "library" w "4.2.0"
+        val library_no_op = "com.github.chuckerteam.chucker" d "library-no-op" w "4.2.0"
       }
     }
   }
