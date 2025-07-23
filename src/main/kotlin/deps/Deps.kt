@@ -800,9 +800,9 @@ object Com {
     }
     object Tools {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.5"
-      val r8 = "com.android.tools" d "r8" w "8.9.35"
+      val r8 = "com.android.tools" d "r8" w "8.11.18"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.11.1" w "8.12.0-rc01"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.11.1" w "8.12.0-rc01" w "8.13.0-alpha01"
       }
     }
   }
@@ -900,7 +900,7 @@ object Com {
         val play_services_games = "com.google.android.gms" d "play-services-games" w "23.2.0"
         val play_services_gcm = "com.google.android.gms" d "play-services-gcm" w "17.0.0"
         val play_services_identity = "com.google.android.gms" d "play-services-identity" w "18.1.0"
-        val play_services_instantapps = "com.google.android.gms" d "play-services-instantapps" w "18.1.0"
+        val play_services_instantapps = "com.google.android.gms" d "play-services-instantapps" w "18.2.0"
         val play_services_location = "com.google.android.gms" d "play-services-location" w "21.3.0"
         val play_services_maps = "com.google.android.gms" d "play-services-maps" w "19.2.0"
         val play_services_mlkit_barcode_scanning = "com.google.android.gms" d "play-services-mlkit-barcode-scanning" w "18.3.1"
@@ -945,7 +945,7 @@ object Com {
       object Material {
         val compose_theme_adapter = "com.google.android.material" d "compose-theme-adapter" w "1.2.1"
         val compose_theme_adapter_3 = "com.google.android.material" d "compose-theme-adapter-3" w "1.1.1"
-        val material = "com.google.android.material" d "material" w "1.12.0" w "1.13.0-beta01" w "1.14.0-alpha02"
+        val material = "com.google.android.material" d "material" w "1.12.0" w "1.13.0-beta01" w "1.14.0-alpha03"
       }
       object Play {
         val core = "com.google.android.play" d "core" w "1.10.3"
@@ -995,41 +995,41 @@ object Com {
       val spi = "com.google.dagger" d "dagger-spi" w "2.57"
     }
     object Firebase {
-      val analytics = "com.google.firebase" d "firebase-analytics" w "22.5.0"
+      val analytics = "com.google.firebase" d "firebase-analytics" w "23.0.0"
       val analytics_ktx = "com.google.firebase" d "firebase-analytics-ktx" w "22.5.0"
       val appdistribution_gradle = "com.google.firebase" d "firebase-appdistribution-gradle" w "5.1.1"
       val appindexing = "com.google.firebase" d "firebase-appindexing" w "20.0.0"
-      val auth = "com.google.firebase" d "firebase-auth" w "23.2.1"
+      val auth = "com.google.firebase" d "firebase-auth" w "24.0.0"
       val auth_ktx = "com.google.firebase" d "firebase-auth-ktx" w "23.2.1"
-      val bom = "com.google.firebase" d "firebase-bom" w "33.16.0"
-      val config = "com.google.firebase" d "firebase-config" w "22.1.2"
+      val bom = "com.google.firebase" d "firebase-bom" w "34.0.0"
+      val config = "com.google.firebase" d "firebase-config" w "23.0.0"
       val config_ktx = "com.google.firebase" d "firebase-config-ktx" w "22.1.2"
-      val crashlytics = "com.google.firebase" d "firebase-crashlytics" w "19.4.4"
-      val crashlytics_gradle = "com.google.firebase" d "firebase-crashlytics-gradle" w "3.0.4"
+      val crashlytics = "com.google.firebase" d "firebase-crashlytics" w "20.0.0"
+      val crashlytics_gradle = "com.google.firebase" d "firebase-crashlytics-gradle" w "3.0.5"
       val crashlytics_ktx = "com.google.firebase" d "firebase-crashlytics-ktx" w "19.4.4"
-      val crashlytics_ndk = "com.google.firebase" d "firebase-crashlytics-ndk" w "19.4.4"
-      val database = "com.google.firebase" d "firebase-database" w "21.0.0"
+      val crashlytics_ndk = "com.google.firebase" d "firebase-crashlytics-ndk" w "20.0.0"
+      val database = "com.google.firebase" d "firebase-database" w "22.0.0"
       val database_ktx = "com.google.firebase" d "firebase-database-ktx" w "21.0.0"
       val dynamic_links = "com.google.firebase" d "firebase-dynamic-links" w "22.1.0"
       val dynamic_links_ktx = "com.google.firebase" d "firebase-dynamic-links-ktx" w "22.1.0"
       val dynamic_module_support = "com.google.firebase" d "firebase-dynamic-module-support" w "16.0.0-beta04"
-      val firestore = "com.google.firebase" d "firebase-firestore" w "25.1.4"
+      val firestore = "com.google.firebase" d "firebase-firestore" w "26.0.0"
       val firestore_ktx = "com.google.firebase" d "firebase-firestore-ktx" w "25.1.4"
-      val functions = "com.google.firebase" d "firebase-functions" w "21.2.1"
+      val functions = "com.google.firebase" d "firebase-functions" w "22.0.0"
       val functions_ktx = "com.google.firebase" d "firebase-functions-ktx" w "21.2.1"
-      val inappmessaging = "com.google.firebase" d "firebase-inappmessaging" w "21.0.2"
-      val inappmessaging_display = "com.google.firebase" d "firebase-inappmessaging-display" w "21.0.2"
+      val inappmessaging = "com.google.firebase" d "firebase-inappmessaging" w "22.0.0"
+      val inappmessaging_display = "com.google.firebase" d "firebase-inappmessaging-display" w "22.0.0"
       val inappmessaging_display_ktx = "com.google.firebase" d "firebase-inappmessaging-display-ktx" w "21.0.2"
       val inappmessaging_ktx = "com.google.firebase" d "firebase-inappmessaging-ktx" w "21.0.2"
-      val messaging = "com.google.firebase" d "firebase-messaging" w "24.1.2"
-      val messaging_directboot = "com.google.firebase" d "firebase-messaging-directboot" w "24.1.2"
+      val messaging = "com.google.firebase" d "firebase-messaging" w "25.0.0"
+      val messaging_directboot = "com.google.firebase" d "firebase-messaging-directboot" w "25.0.0"
       val messaging_ktx = "com.google.firebase" d "firebase-messaging-ktx" w "24.1.2"
-      val ml_modeldownloader = "com.google.firebase" d "firebase-ml-modeldownloader" w "25.0.1"
+      val ml_modeldownloader = "com.google.firebase" d "firebase-ml-modeldownloader" w "26.0.0"
       val ml_modeldownloader_ktx = "com.google.firebase" d "firebase-ml-modeldownloader-ktx" w "25.0.1"
-      val perf = "com.google.firebase" d "firebase-perf" w "21.0.5"
+      val perf = "com.google.firebase" d "firebase-perf" w "22.0.0"
       val perf_ktx = "com.google.firebase" d "firebase-perf-ktx" w "21.0.5"
-      val perf_plugin = "com.google.firebase" d "perf-plugin" w "1.4.2"
-      val storage = "com.google.firebase" d "firebase-storage" w "21.0.2"
+      val perf_plugin = "com.google.firebase" d "perf-plugin" w "2.0.0"
+      val storage = "com.google.firebase" d "firebase-storage" w "22.0.0"
       val storage_ktx = "com.google.firebase" d "firebase-storage-ktx" w "21.0.2"
     }
     object Gms {
@@ -1648,19 +1648,19 @@ object Org {
     val testing_webdriver = "org.http4k" d "http4k-testing-webdriver" w "6.15.1.0"
   }
   object JUnit {
-    val bom = "org.junit" d "junit-bom" w "5.13.3" w "6.0.0-M1"
+    val bom = "org.junit" d "junit-bom" w "5.13.4" w "6.0.0-M1"
     object Jupiter {
-      val junit_jupiter = "org.junit.jupiter" d "junit-jupiter" w "5.13.3" w "6.0.0-M1"
-      val junit_jupiter_api = "org.junit.jupiter" d "junit-jupiter-api" w "5.13.3" w "6.0.0-M1"
-      val junit_jupiter_engine = "org.junit.jupiter" d "junit-jupiter-engine" w "5.13.3" w "6.0.0-M1"
-      val junit_jupiter_migrationsupport = "org.junit.jupiter" d "junit-jupiter-migrationsupport" w "5.13.3" w "6.0.0-M1"
-      val junit_jupiter_params = "org.junit.jupiter" d "junit-jupiter-params" w "5.13.3" w "6.0.0-M1"
+      val junit_jupiter = "org.junit.jupiter" d "junit-jupiter" w "5.13.4" w "6.0.0-M1"
+      val junit_jupiter_api = "org.junit.jupiter" d "junit-jupiter-api" w "5.13.4" w "6.0.0-M1"
+      val junit_jupiter_engine = "org.junit.jupiter" d "junit-jupiter-engine" w "5.13.4" w "6.0.0-M1"
+      val junit_jupiter_migrationsupport = "org.junit.jupiter" d "junit-jupiter-migrationsupport" w "5.13.4" w "6.0.0-M1"
+      val junit_jupiter_params = "org.junit.jupiter" d "junit-jupiter-params" w "5.13.4" w "6.0.0-M1"
     }
     object Platform {
-      val junit_platform_commons = "org.junit.platform" d "junit-platform-commons" w "1.13.3" w "6.0.0-M1"
-      val junit_platform_engine = "org.junit.platform" d "junit-platform-engine" w "1.13.3" w "6.0.0-M1"
-      val junit_platform_launcher = "org.junit.platform" d "junit-platform-launcher" w "1.13.3" w "6.0.0-M1"
-      val junit_platform_runner = "org.junit.platform" d "junit-platform-runner" w "1.13.3"
+      val junit_platform_commons = "org.junit.platform" d "junit-platform-commons" w "1.13.4" w "6.0.0-M1"
+      val junit_platform_engine = "org.junit.platform" d "junit-platform-engine" w "1.13.4" w "6.0.0-M1"
+      val junit_platform_launcher = "org.junit.platform" d "junit-platform-launcher" w "1.13.4" w "6.0.0-M1"
+      val junit_platform_runner = "org.junit.platform" d "junit-platform-runner" w "1.13.4"
     }
   }
   object JetBrains {
@@ -1917,46 +1917,46 @@ object Org {
       val serialization_protobuf_jvm = "org.jetbrains.kotlinx" d "kotlinx-serialization-protobuf-jvm" w "1.9.0"
     }
     object Kotlin_Wrappers {
-      val bom = "org.jetbrains.kotlin-wrappers" d "kotlin-wrappers-bom" w "2025.7.9"
+      val bom = "org.jetbrains.kotlin-wrappers" d "kotlin-wrappers-bom" w "2025.7.10"
       val kotlin_actions_toolkit = "org.jetbrains.kotlin-wrappers" d "kotlin-actions-toolkit" w "2025.3.26"
-      val kotlin_browser = "org.jetbrains.kotlin-wrappers" d "kotlin-browser" w "2025.7.9"
+      val kotlin_browser = "org.jetbrains.kotlin-wrappers" d "kotlin-browser" w "2025.7.10"
       val kotlin_cesium = "org.jetbrains.kotlin-wrappers" d "kotlin-cesium" w "1.115.0-pre.711"
-      val kotlin_css = "org.jetbrains.kotlin-wrappers" d "kotlin-css" w "2025.7.9"
-      val kotlin_csstype = "org.jetbrains.kotlin-wrappers" d "kotlin-csstype" w "2025.7.9-3.1.3"
+      val kotlin_css = "org.jetbrains.kotlin-wrappers" d "kotlin-css" w "2025.7.10"
+      val kotlin_csstype = "org.jetbrains.kotlin-wrappers" d "kotlin-csstype" w "2025.7.10-3.1.3"
       val kotlin_emotion = "org.jetbrains.kotlin-wrappers" d "kotlin-emotion" w "2025.3.26"
       val kotlin_history = "org.jetbrains.kotlin-wrappers" d "kotlin-history" w "5.3.0-pre.506-compat"
-      val kotlin_js = "org.jetbrains.kotlin-wrappers" d "kotlin-js" w "2025.7.9"
+      val kotlin_js = "org.jetbrains.kotlin-wrappers" d "kotlin-js" w "2025.7.10"
       val kotlin_mui = "org.jetbrains.kotlin-wrappers" d "kotlin-mui" w "5.14.12-pre.638"
       val kotlin_mui_icons = "org.jetbrains.kotlin-wrappers" d "kotlin-mui-icons" w "5.14.12-pre.638"
-      val kotlin_node = "org.jetbrains.kotlin-wrappers" d "kotlin-node" w "2025.7.9-22.13.10"
+      val kotlin_node = "org.jetbrains.kotlin-wrappers" d "kotlin-node" w "2025.7.10-22.13.10"
       val kotlin_popper = "org.jetbrains.kotlin-wrappers" d "kotlin-popper" w "2.11.8-pre.792"
-      val kotlin_react = "org.jetbrains.kotlin-wrappers" d "kotlin-react" w "2025.7.9-19.1.0"
-      val kotlin_react_beautiful_dnd = "org.jetbrains.kotlin-wrappers" d "kotlin-react-beautiful-dnd" w "2025.7.9-13.1.1"
-      val kotlin_react_core = "org.jetbrains.kotlin-wrappers" d "kotlin-react-core" w "2025.7.9-19.1.0"
-      val kotlin_react_dom = "org.jetbrains.kotlin-wrappers" d "kotlin-react-dom" w "2025.7.9-19.1.0"
-      val kotlin_react_dom_legacy = "org.jetbrains.kotlin-wrappers" d "kotlin-react-dom-legacy" w "2025.7.9-19.1.0"
-      val kotlin_react_dom_test_utils = "org.jetbrains.kotlin-wrappers" d "kotlin-react-dom-test-utils" w "2025.7.9-19.1.0"
-      val kotlin_react_legacy = "org.jetbrains.kotlin-wrappers" d "kotlin-react-legacy" w "2025.7.9-19.1.0"
-      val kotlin_react_popper = "org.jetbrains.kotlin-wrappers" d "kotlin-react-popper" w "2025.7.9-2.3.0"
+      val kotlin_react = "org.jetbrains.kotlin-wrappers" d "kotlin-react" w "2025.7.10-19.1.0"
+      val kotlin_react_beautiful_dnd = "org.jetbrains.kotlin-wrappers" d "kotlin-react-beautiful-dnd" w "2025.7.10-13.1.1"
+      val kotlin_react_core = "org.jetbrains.kotlin-wrappers" d "kotlin-react-core" w "2025.7.10-19.1.0"
+      val kotlin_react_dom = "org.jetbrains.kotlin-wrappers" d "kotlin-react-dom" w "2025.7.10-19.1.0"
+      val kotlin_react_dom_legacy = "org.jetbrains.kotlin-wrappers" d "kotlin-react-dom-legacy" w "2025.7.10-19.1.0"
+      val kotlin_react_dom_test_utils = "org.jetbrains.kotlin-wrappers" d "kotlin-react-dom-test-utils" w "2025.7.10-19.1.0"
+      val kotlin_react_legacy = "org.jetbrains.kotlin-wrappers" d "kotlin-react-legacy" w "2025.7.10-19.1.0"
+      val kotlin_react_popper = "org.jetbrains.kotlin-wrappers" d "kotlin-react-popper" w "2025.7.10-2.3.0"
       val kotlin_react_redux = "org.jetbrains.kotlin-wrappers" d "kotlin-react-redux" w "7.2.6-pre.785"
-      val kotlin_react_router = "org.jetbrains.kotlin-wrappers" d "kotlin-react-router" w "2025.7.9-6.28.2"
+      val kotlin_react_router = "org.jetbrains.kotlin-wrappers" d "kotlin-react-router" w "2025.7.10-6.28.2"
       val kotlin_react_router_dom = "org.jetbrains.kotlin-wrappers" d "kotlin-react-router-dom" w "2025.1.6-6.28.0"
-      val kotlin_react_select = "org.jetbrains.kotlin-wrappers" d "kotlin-react-select" w "2025.7.9-5.10.1"
-      val kotlin_react_use = "org.jetbrains.kotlin-wrappers" d "kotlin-react-use" w "2025.7.9"
+      val kotlin_react_select = "org.jetbrains.kotlin-wrappers" d "kotlin-react-select" w "2025.7.10-5.10.1"
+      val kotlin_react_use = "org.jetbrains.kotlin-wrappers" d "kotlin-react-use" w "2025.7.10"
       val kotlin_redux = "org.jetbrains.kotlin-wrappers" d "kotlin-redux" w "4.1.2-pre.785"
       val kotlin_remix_run_router = "org.jetbrains.kotlin-wrappers" d "kotlin-remix-run-router" w "2025.1.6-1.21.0"
       val kotlin_ring_ui = "org.jetbrains.kotlin-wrappers" d "kotlin-ring-ui" w "4.1.5-pre.784"
       val kotlin_styled = "org.jetbrains.kotlin-wrappers" d "kotlin-styled" w "5.3.11-pre.717"
-      val kotlin_styled_next = "org.jetbrains.kotlin-wrappers" d "kotlin-styled-next" w "2025.7.9"
-      val kotlin_tanstack_query_core = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-query-core" w "2025.7.9-5.83.0"
-      val kotlin_tanstack_react_query = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-react-query" w "2025.7.9-5.83.0"
-      val kotlin_tanstack_react_query_devtools = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-react-query-devtools" w "2025.7.9-5.83.0"
-      val kotlin_tanstack_react_table = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-react-table" w "2025.7.9-8.21.3"
-      val kotlin_tanstack_react_virtual = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-react-virtual" w "2025.7.9-3.13.12"
-      val kotlin_tanstack_table_core = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-table-core" w "2025.7.9-8.21.3"
-      val kotlin_tanstack_virtual_core = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-virtual-core" w "2025.7.9-3.13.12"
-      val kotlin_typescript = "org.jetbrains.kotlin-wrappers" d "kotlin-typescript" w "2025.7.9-5.7.2"
-      val kotlin_web = "org.jetbrains.kotlin-wrappers" d "kotlin-web" w "2025.7.9"
+      val kotlin_styled_next = "org.jetbrains.kotlin-wrappers" d "kotlin-styled-next" w "2025.7.10"
+      val kotlin_tanstack_query_core = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-query-core" w "2025.7.10-5.83.0"
+      val kotlin_tanstack_react_query = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-react-query" w "2025.7.10-5.83.0"
+      val kotlin_tanstack_react_query_devtools = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-react-query-devtools" w "2025.7.10-5.83.0"
+      val kotlin_tanstack_react_table = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-react-table" w "2025.7.10-8.21.3"
+      val kotlin_tanstack_react_virtual = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-react-virtual" w "2025.7.10-3.13.12"
+      val kotlin_tanstack_table_core = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-table-core" w "2025.7.10-8.21.3"
+      val kotlin_tanstack_virtual_core = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-virtual-core" w "2025.7.10-3.13.12"
+      val kotlin_typescript = "org.jetbrains.kotlin-wrappers" d "kotlin-typescript" w "2025.7.10-5.7.2"
+      val kotlin_web = "org.jetbrains.kotlin-wrappers" d "kotlin-web" w "2025.7.10"
     }
   }
   object Kodein {
@@ -2004,7 +2004,7 @@ object Org {
   }
   object SpringFramework {
     object Amqp {
-      val spring_rabbit_test = "org.springframework.amqp" d "spring-rabbit-test" w "3.2.5" w "4.0.0-M2"
+      val spring_rabbit_test = "org.springframework.amqp" d "spring-rabbit-test" w "3.2.6" w "4.0.0-M3"
     }
     object Batch {
       val spring_batch_test = "org.springframework.batch" d "spring-batch-test" w "5.2.2"
@@ -2128,16 +2128,16 @@ object Org {
       val spring_integration_ws = "org.springframework.integration" d "spring-integration-ws" w "6.5.0"
     }
     object Kafka {
-      val spring_kafka = "org.springframework.kafka" d "spring-kafka" w "3.3.7" w "4.0.0-M2"
-      val spring_kafka_test = "org.springframework.kafka" d "spring-kafka-test" w "3.3.7" w "4.0.0-M2"
+      val spring_kafka = "org.springframework.kafka" d "spring-kafka" w "3.3.8" w "4.0.0-M3"
+      val spring_kafka_test = "org.springframework.kafka" d "spring-kafka-test" w "3.3.8" w "4.0.0-M3"
     }
     object Restdocs {
-      val spring_restdocs_webtestclient = "org.springframework.restdocs" d "spring-restdocs-webtestclient" w "3.0.4"
+      val spring_restdocs_webtestclient = "org.springframework.restdocs" d "spring-restdocs-webtestclient" w "3.0.4" w "4.0.0-M1"
     }
     object Security {
-      val spring_security_messaging = "org.springframework.security" d "spring-security-messaging" w "6.5.1"
-      val spring_security_rsocket = "org.springframework.security" d "spring-security-rsocket" w "6.5.1"
-      val spring_security_test = "org.springframework.security" d "spring-security-test" w "6.5.1"
+      val spring_security_messaging = "org.springframework.security" d "spring-security-messaging" w "6.5.2" w "7.0.0-M1"
+      val spring_security_rsocket = "org.springframework.security" d "spring-security-rsocket" w "6.5.2" w "7.0.0-M1"
+      val spring_security_test = "org.springframework.security" d "spring-security-test" w "6.5.2" w "7.0.0-M1"
     }
     object Session {
       val spring_session_data_redis = "org.springframework.session" d "spring-session-data-redis" w "3.5.1"
