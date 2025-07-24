@@ -92,7 +92,7 @@ object Vers {
    * - [github](https://github.com/vanniktech/gradle-maven-publish-plugin)
    * - [github releases](https://github.com/vanniktech/gradle-maven-publish-plugin/releases)
    */
-  val VannikPublishPlug = Ver("0.33.0")
+  val VannikPublishPlug = Ver("0.34.0")
 
   /**
    * Gradle Publish Plugin (gradle plugin for publishing gradle plugins)
@@ -106,7 +106,7 @@ object Vers {
    * - [gradle org docs](https://docs.gradle.com/develocity/gradle-plugin/)
    * - [gradle portal](https://plugins.gradle.org/plugin/com.gradle.develocity)
    */
-  val GradleDevelocityPlug = Ver("4.0.2")
+  val GradleDevelocityPlug = Ver("4.1")
 
 
   /**
@@ -139,7 +139,7 @@ object Vers {
    * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
    * [github](https://github.com/Kotlin/kotlin-jupyter)
    */
-  val KotlinJupyterPlug = Ver("0.14.1-504")
+  val KotlinJupyterPlug = Ver("0.15.0-558")
 
   /**
    * Gradle Shadow Gradle Plugin
@@ -147,7 +147,7 @@ object Vers {
    * - [github john rengelman shadow](https://github.com/johnrengelman/shadow)
    * - [docs](https://github.com/johnrengelman/shadow)
    */
-  val GradleShadowPlug = Ver("9.0.0-rc1")
+  val GradleShadowPlug = Ver("9.0.0-rc2")
 
   /**
    * Osacky Doctor Gradle Plugin
@@ -164,7 +164,7 @@ object Vers {
    * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val DepsPlug = Ver(0, 3, 90) // also sync it in ../../../../build.gradle.kts
+  val DepsPlug = Ver(0, 3, 91) // also sync it in ../../../../build.gradle.kts
   // TODO use sourcefun to make sure it's always synced with myLibDetails(version)
 
   /**
@@ -185,8 +185,8 @@ object Vers {
    * - [gradle versions rel candidate](https://services.gradle.org/versions/release-candidate)
    * - [gradle versions current](https://services.gradle.org/versions/current)
    */
-  val Gradle9 = Ver("9.0.0-rc-1")
-  val Gradle8 = Ver("8.14.2")
+  val Gradle9 = Ver("9.0.0-rc-3")
+  val Gradle8 = Ver("8.14.3")
   val Gradle7 = Ver("7.6.4")
   val Gradle6 = Ver("6.8.3")
   val Gradle5 = Ver("5.6.4")

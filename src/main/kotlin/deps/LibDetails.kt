@@ -110,6 +110,7 @@ data class LibAndroSettings(
 data class LibReposSettings(
   /**
    * It's a huge footgun! If REALLY needed, then do it manually with strict repository content filter.
+   * See: https://docs.gradle.org/current/userguide/supported_repository_types.html#sec:case-for-maven-local
    * See: https://github.com/typesafegithub/github-workflows-kt/issues/1694#issuecomment-2439799129
    */
   @Deprecated("It's a huge footgun! If REALLY needed, then do it manually with strict repository content filter.")
