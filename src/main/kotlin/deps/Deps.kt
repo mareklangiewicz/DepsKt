@@ -802,7 +802,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.5"
       val r8 = "com.android.tools" d "r8" w "8.11.18"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.12.0" w "8.13.0-alpha03"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.12.0" w "8.13.0-alpha04"
       }
     }
   }
@@ -881,7 +881,7 @@ object Com {
         val flexbox = "com.google.android.flexbox" d "flexbox" w "3.0.0"
       }
       object Gms {
-        val oss_licenses_plugin = "com.google.android.gms" d "oss-licenses-plugin" w "0.10.6"
+        val oss_licenses_plugin = "com.google.android.gms" d "oss-licenses-plugin" w "0.10.7"
         val play_services_analytics = "com.google.android.gms" d "play-services-analytics" w "18.1.1"
         val play_services_appset = "com.google.android.gms" d "play-services-appset" w "16.1.0"
         val play_services_auth = "com.google.android.gms" d "play-services-auth" w "21.4.0"
@@ -999,13 +999,13 @@ object Com {
       val analytics_ktx = "com.google.firebase" d "firebase-analytics-ktx" w "22.5.0"
       val appdistribution_gradle = "com.google.firebase" d "firebase-appdistribution-gradle" w "5.1.1"
       val appindexing = "com.google.firebase" d "firebase-appindexing" w "20.0.0"
-      val auth = "com.google.firebase" d "firebase-auth" w "24.0.0"
+      val auth = "com.google.firebase" d "firebase-auth" w "24.0.1"
       val auth_ktx = "com.google.firebase" d "firebase-auth-ktx" w "23.2.1"
-      val bom = "com.google.firebase" d "firebase-bom" w "34.0.0"
+      val bom = "com.google.firebase" d "firebase-bom" w "34.1.0"
       val config = "com.google.firebase" d "firebase-config" w "23.0.0"
       val config_ktx = "com.google.firebase" d "firebase-config-ktx" w "22.1.2"
       val crashlytics = "com.google.firebase" d "firebase-crashlytics" w "20.0.0"
-      val crashlytics_gradle = "com.google.firebase" d "firebase-crashlytics-gradle" w "3.0.5"
+      val crashlytics_gradle = "com.google.firebase" d "firebase-crashlytics-gradle" w "3.0.6"
       val crashlytics_ktx = "com.google.firebase" d "firebase-crashlytics-ktx" w "19.4.4"
       val crashlytics_ndk = "com.google.firebase" d "firebase-crashlytics-ndk" w "20.0.0"
       val database = "com.google.firebase" d "firebase-database" w "22.0.0"
@@ -1028,7 +1028,7 @@ object Com {
       val ml_modeldownloader_ktx = "com.google.firebase" d "firebase-ml-modeldownloader-ktx" w "25.0.1"
       val perf = "com.google.firebase" d "firebase-perf" w "22.0.0"
       val perf_ktx = "com.google.firebase" d "firebase-perf-ktx" w "21.0.5"
-      val perf_plugin = "com.google.firebase" d "perf-plugin" w "2.0.0"
+      val perf_plugin = "com.google.firebase" d "perf-plugin" w "2.0.1"
       val storage = "com.google.firebase" d "firebase-storage" w "22.0.0"
       val storage_ktx = "com.google.firebase" d "firebase-storage-ktx" w "21.0.2"
     }
@@ -1292,9 +1292,9 @@ object Com {
       val sqljs_driver = "com.squareup.sqldelight" d "sqljs-driver" w "1.5.5"
     }
     object Wire {
-      val gradle_plugin = "com.squareup.wire" d "wire-gradle-plugin" w "5.3.6"
-      val grpc_client = "com.squareup.wire" d "wire-grpc-client" w "5.3.6"
-      val runtime = "com.squareup.wire" d "wire-runtime" w "5.3.6"
+      val gradle_plugin = "com.squareup.wire" d "wire-gradle-plugin" w "5.3.7"
+      val grpc_client = "com.squareup.wire" d "wire-grpc-client" w "5.3.7"
+      val runtime = "com.squareup.wire" d "wire-runtime" w "5.3.7"
     }
   }
 }
@@ -1569,9 +1569,9 @@ object JUnit {
 }
 object Org {
   object AssertJ {
-    val core = "org.assertj" d "assertj-core" w "3.27.3" w "4.0.0-M1"
+    val core = "org.assertj" d "assertj-core" w "3.27.4" w "4.0.0-M1"
     val db = "org.assertj" d "assertj-db" w "3.0.0"
-    val guava = "org.assertj" d "assertj-guava" w "3.27.3" w "4.0.0-M1"
+    val guava = "org.assertj" d "assertj-guava" w "3.27.4" w "4.0.0-M1"
     val joda_time = "org.assertj" d "assertj-joda-time" w "2.2.0"
     val swing = "org.assertj" d "assertj-swing" w "3.17.1"
   }
@@ -1670,15 +1670,15 @@ object Org {
         val common_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-common-js" w "2.9.1" w "2.9.10-alpha01"
         val common_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-common-wasm-js" w "2.9.1" w "2.9.10-alpha01"
         val runtime = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime" w "2.9.1" w "2.9.10-alpha01"
-        val runtime_compose = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose" w "2.9.2+dev2755" w "2.9.1" w "2.9.10-alpha01"
-        val runtime_compose_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose-js" w "2.9.2+dev2755" w "2.9.1" w "2.9.10-alpha01"
-        val runtime_compose_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose-wasm-js" w "2.9.2+dev2755" w "2.9.1" w "2.9.10-alpha01"
+        val runtime_compose = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose" w "2.9.1" w "2.9.10-alpha01"
+        val runtime_compose_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose-js" w "2.9.1" w "2.9.10-alpha01"
+        val runtime_compose_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose-wasm-js" w "2.9.1" w "2.9.10-alpha01"
         val runtime_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-js" w "2.9.1" w "2.9.10-alpha01"
         val runtime_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-wasm-js" w "2.9.1" w "2.9.10-alpha01"
         val viewmodel = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel" w "2.9.1" w "2.9.10-alpha01"
-        val viewmodel_compose = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose" w "2.9.2+dev2755" w "2.9.1" w "2.9.10-alpha01"
-        val viewmodel_compose_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose-js" w "2.9.2+dev2755" w "2.9.1" w "2.9.10-alpha01"
-        val viewmodel_compose_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose-wasm-js" w "2.9.2+dev2755" w "2.9.1" w "2.9.10-alpha01"
+        val viewmodel_compose = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose" w "2.9.1" w "2.9.10-alpha01"
+        val viewmodel_compose_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose-js" w "2.9.1" w "2.9.10-alpha01"
+        val viewmodel_compose_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose-wasm-js" w "2.9.1" w "2.9.10-alpha01"
         val viewmodel_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-js" w "2.9.1" w "2.9.10-alpha01"
         val viewmodel_savedstate = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-savedstate" w "2.9.1" w "2.9.10-alpha01"
         val viewmodel_savedstate_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-savedstate-js" w "2.9.1" w "2.9.10-alpha01"
