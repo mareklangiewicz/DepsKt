@@ -1292,9 +1292,9 @@ object Com {
       val sqljs_driver = "com.squareup.sqldelight" d "sqljs-driver" w "1.5.5"
     }
     object Wire {
-      val gradle_plugin = "com.squareup.wire" d "wire-gradle-plugin" w "5.3.7"
-      val grpc_client = "com.squareup.wire" d "wire-grpc-client" w "5.3.7"
-      val runtime = "com.squareup.wire" d "wire-runtime" w "5.3.7"
+      val gradle_plugin = "com.squareup.wire" d "wire-gradle-plugin" w "5.3.8"
+      val grpc_client = "com.squareup.wire" d "wire-grpc-client" w "5.3.8"
+      val runtime = "com.squareup.wire" d "wire-runtime" w "5.3.8"
     }
   }
 }
@@ -1385,24 +1385,24 @@ object Io {
     val koin_test_junit5 = "io.insert-koin" d "koin-test-junit5" w "4.1.0" w "4.1.1-Beta1"
   }
   object Kotest {
-    val assertions_arrow = "io.kotest" d "kotest-assertions-arrow" w "4.4.3" w "6.0.0.M12"
-    val assertions_compiler = "io.kotest" d "kotest-assertions-compiler" w "4.6.4" w "6.0.0.M12"
-    val assertions_core = "io.kotest" d "kotest-assertions-core" w "5.9.1" w "6.0.0.M12"
-    val assertions_json = "io.kotest" d "kotest-assertions-json" w "5.9.1" w "6.0.0.M12"
+    val assertions_arrow = "io.kotest" d "kotest-assertions-arrow" w "4.4.3" w "6.0.0.M13"
+    val assertions_compiler = "io.kotest" d "kotest-assertions-compiler" w "4.6.4" w "6.0.0.M13"
+    val assertions_core = "io.kotest" d "kotest-assertions-core" w "5.9.1" w "6.0.0.M13"
+    val assertions_json = "io.kotest" d "kotest-assertions-json" w "5.9.1" w "6.0.0.M13"
     val assertions_jsoup = "io.kotest" d "kotest-assertions-jsoup" w "4.4.3"
     val assertions_klock = "io.kotest" d "kotest-assertions-klock" w "4.4.3"
-    val assertions_konform = "io.kotest" d "kotest-assertions-konform" w "4.4.3" w "6.0.0.M12"
+    val assertions_konform = "io.kotest" d "kotest-assertions-konform" w "4.4.3" w "6.0.0.M13"
     val assertions_kotlinx_time = "io.kotest" d "kotest-assertions-kotlinx-time" w "4.4.3"
-    val assertions_ktor = "io.kotest" d "kotest-assertions-ktor" w "4.4.3" w "6.0.0.M12"
+    val assertions_ktor = "io.kotest" d "kotest-assertions-ktor" w "4.4.3" w "6.0.0.M13"
     val assertions_sql = "io.kotest" d "kotest-assertions-sql" w "5.9.1"
     val core = "io.kotest" d "kotest-core" w "4.1.3" w "4.2.0.RC2"
     val framework_api = "io.kotest" d "kotest-framework-api" w "5.9.1" w "6.0.0.M1"
     val framework_datatest = "io.kotest" d "kotest-framework-datatest" w "5.9.1"
     val plugins_pitest = "io.kotest" d "kotest-plugins-pitest" w "4.4.3"
-    val property = "io.kotest" d "kotest-property" w "5.9.1" w "6.0.0.M12"
-    val property_arrow = "io.kotest" d "kotest-property-arrow" w "4.4.3" w "6.0.0.M12"
-    val runner_junit4 = "io.kotest" d "kotest-runner-junit4" w "5.9.1" w "6.0.0.M12"
-    val runner_junit5 = "io.kotest" d "kotest-runner-junit5" w "5.9.1" w "6.0.0.M12"
+    val property = "io.kotest" d "kotest-property" w "5.9.1" w "6.0.0.M13"
+    val property_arrow = "io.kotest" d "kotest-property-arrow" w "4.4.3" w "6.0.0.M13"
+    val runner_junit4 = "io.kotest" d "kotest-runner-junit4" w "5.9.1" w "6.0.0.M13"
+    val runner_junit5 = "io.kotest" d "kotest-runner-junit5" w "5.9.1" w "6.0.0.M13"
     object Extensions {
       val kotest_extensions_allure = "io.kotest.extensions" d "kotest-extensions-allure" w "1.4.0"
       val kotest_extensions_embedded_kafka = "io.kotest.extensions" d "kotest-extensions-embedded-kafka" w "2.0.0"
