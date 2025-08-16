@@ -1671,14 +1671,14 @@ object Org {
         val common_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-common-wasm-js" w "2.9.2" w "2.9.10-alpha01"
         val runtime = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime" w "2.9.2" w "2.9.10-alpha01"
         val runtime_compose = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose" w "2.9.2" w "2.9.10-alpha01"
-        val runtime_compose_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose-js" w "2.9.2" w "2.9.10-alpha01"
-        val runtime_compose_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose-wasm-js" w "2.9.2" w "2.9.10-alpha01"
+        val runtime_compose_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose-js" w "2.9.3+dev2790" w "2.9.2"
+        val runtime_compose_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose-wasm-js" w "2.9.3+dev2790" w "2.9.2"
         val runtime_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-js" w "2.9.2" w "2.9.10-alpha01"
         val runtime_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-wasm-js" w "2.9.2" w "2.9.10-alpha01"
         val viewmodel = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel" w "2.9.2" w "2.9.10-alpha01"
         val viewmodel_compose = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose" w "2.9.2" w "2.9.10-alpha01"
-        val viewmodel_compose_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose-js" w "2.9.2" w "2.9.10-alpha01"
-        val viewmodel_compose_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose-wasm-js" w "2.9.2" w "2.9.10-alpha01"
+        val viewmodel_compose_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose-js" w "2.9.3+dev2790" w "2.9.2"
+        val viewmodel_compose_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose-wasm-js" w "2.9.3+dev2790" w "2.9.2"
         val viewmodel_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-js" w "2.9.2" w "2.9.10-alpha01"
         val viewmodel_savedstate = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-savedstate" w "2.9.2" w "2.9.10-alpha01"
         val viewmodel_savedstate_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-savedstate-js" w "2.9.2" w "2.9.10-alpha01"
@@ -1973,17 +1973,17 @@ object Org {
     }
   }
   object Mockito {
-    val android = "org.mockito" d "mockito-android" w "5.18.0"
-    val core = "org.mockito" d "mockito-core" w "5.18.0"
-    val errorprone = "org.mockito" d "mockito-errorprone" w "5.18.0"
+    val android = "org.mockito" d "mockito-android" w "5.19.0"
+    val core = "org.mockito" d "mockito-core" w "5.19.0"
+    val errorprone = "org.mockito" d "mockito-errorprone" w "5.19.0"
     val inline = "org.mockito" d "mockito-inline" w "5.2.0"
-    val junit_jupiter = "org.mockito" d "mockito-junit-jupiter" w "5.18.0"
+    val junit_jupiter = "org.mockito" d "mockito-junit-jupiter" w "5.19.0"
     object Kotlin {
       val mockito_kotlin = "org.mockito.kotlin" d "mockito-kotlin" w "6.0.0"
     }
   }
   object Robolectric {
-    val robolectric = "org.robolectric" d "robolectric" w "4.15.1"
+    val robolectric = "org.robolectric" d "robolectric" w "4.15.1" w "4.16-beta-1"
   }
   object Slf4j {
     val api = "org.slf4j" d "slf4j-api" w "2.0.17" w "2.1.0-alpha1"
@@ -2102,7 +2102,7 @@ object Org {
       val spring_cloud_stream_binder_rabbit = "org.springframework.cloud" d "spring-cloud-stream-binder-rabbit" w "4.3.0" w "5.0.0-M1"
     }
     object Data {
-      val spring_data_rest_hal_explorer = "org.springframework.data" d "spring-data-rest-hal-explorer" w "4.5.2" w "5.0.0-M4"
+      val spring_data_rest_hal_explorer = "org.springframework.data" d "spring-data-rest-hal-explorer" w "4.5.3" w "5.0.0-M5"
     }
     object Geode {
       val spring_geode_bom = "org.springframework.geode" d "spring-geode-bom" w "1.7.5"
