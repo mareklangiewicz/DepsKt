@@ -42,7 +42,7 @@ val details = myLibDetails(
   group = "pl.mareklangiewicz.deps", // important non default ...deps group (as accepted on gradle portal)
   description = "Updated dependencies for typical java/kotlin/android projects (with IDE support).",
   githubUrl = "https://github.com/mareklangiewicz/DepsKt",
-  version = Ver(0, 3, 91), // also sync it in ./src/main/kotlin/deps/Vers.kt
+  version = Ver(0, 3, 92), // also sync it in ./src/main/kotlin/deps/Vers.kt
   // TODO use some SourceFun task to make sure it's synced with Vers.DepsPlug
   // (we println it when applying plugin so have to be synced not to confuse users)
   // https://plugins.gradle.org/search?term=pl.mareklangiewicz
@@ -266,3 +266,4 @@ fun Project.defaultPublishing(lib: LibDetails) = extensions.configure<MavenPubli
 }
 
 // endregion [[Kotlin Module Build Template]]
+
