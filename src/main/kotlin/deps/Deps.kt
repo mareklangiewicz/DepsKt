@@ -1306,7 +1306,7 @@ object Io {
     val arrow_optics = "io.arrow-kt" d "arrow-optics" w "2.1.2"
     val arrow_optics_ksp_plugin = "io.arrow-kt" d "arrow-optics-ksp-plugin" w "2.1.2"
     val arrow_optics_reflect = "io.arrow-kt" d "arrow-optics-reflect" w "2.1.2"
-    val arrow_stack = "io.arrow-kt" d "arrow-stack" w "2.1.2"
+    val arrow_stack = "io.arrow-kt" d "arrow-stack" w "2.1.2" w "2.2.0-beta.2"
     object Analysis {
       object Kotlin {
         val io_arrow_kt_analysis_kotlin_gradle_plugin = "io.arrow-kt.analysis.kotlin" d "io.arrow-kt.analysis.kotlin.gradle.plugin" w "2.0.2" w "2.0.3-alpha.2"
