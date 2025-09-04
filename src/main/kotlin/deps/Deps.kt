@@ -945,7 +945,7 @@ object Com {
       object Material {
         val compose_theme_adapter = "com.google.android.material" d "compose-theme-adapter" w "1.2.1"
         val compose_theme_adapter_3 = "com.google.android.material" d "compose-theme-adapter-3" w "1.1.1"
-        val material = "com.google.android.material" d "material" w "1.12.0" w "1.13.0-rc01" w "1.14.0-alpha04"
+        val material = "com.google.android.material" d "material" w "1.13.0" w "1.14.0-alpha04"
       }
       object Play {
         val core = "com.google.android.play" d "core" w "1.10.3"
@@ -1040,7 +1040,7 @@ object Com {
         val maps_compose = "com.google.maps.android" d "maps-compose" w "6.8.0"
         val maps_ktx = "com.google.maps.android" d "maps-ktx" w "5.2.0"
         val maps_rx = "com.google.maps.android" d "maps-rx" w "1.0.0"
-        val maps_utils = "com.google.maps.android" d "android-maps-utils" w "3.16.0"
+        val maps_utils = "com.google.maps.android" d "android-maps-utils" w "3.16.1"
         val maps_utils_ktx = "com.google.maps.android" d "maps-utils-ktx" w "5.2.0"
       }
     }
@@ -1372,17 +1372,17 @@ object Io {
     }
   }
   object Insert_koin {
-    val koin_android = "io.insert-koin" d "koin-android" w "4.1.0" w "4.1.1-Beta1"
-    val koin_android_compat = "io.insert-koin" d "koin-android-compat" w "4.1.0" w "4.1.1-Beta1"
-    val koin_androidx_compose = "io.insert-koin" d "koin-androidx-compose" w "4.1.0" w "4.1.1-Beta1"
-    val koin_androidx_navigation = "io.insert-koin" d "koin-androidx-navigation" w "4.1.0" w "4.1.1-Beta1"
-    val koin_androidx_workmanager = "io.insert-koin" d "koin-androidx-workmanager" w "4.1.0" w "4.1.1-Beta1"
-    val koin_core = "io.insert-koin" d "koin-core" w "4.1.0" w "4.1.1-Beta1"
-    val koin_ktor = "io.insert-koin" d "koin-ktor" w "4.1.0" w "4.1.1-Beta1"
-    val koin_logger_slf4j = "io.insert-koin" d "koin-logger-slf4j" w "4.1.0" w "4.1.1-Beta1"
-    val koin_test = "io.insert-koin" d "koin-test" w "4.1.0" w "4.1.1-Beta1"
-    val koin_test_junit4 = "io.insert-koin" d "koin-test-junit4" w "4.1.0" w "4.1.1-Beta1"
-    val koin_test_junit5 = "io.insert-koin" d "koin-test-junit5" w "4.1.0" w "4.1.1-Beta1"
+    val koin_android = "io.insert-koin" d "koin-android" w "4.1.1"
+    val koin_android_compat = "io.insert-koin" d "koin-android-compat" w "4.1.1"
+    val koin_androidx_compose = "io.insert-koin" d "koin-androidx-compose" w "4.1.1"
+    val koin_androidx_navigation = "io.insert-koin" d "koin-androidx-navigation" w "4.1.1"
+    val koin_androidx_workmanager = "io.insert-koin" d "koin-androidx-workmanager" w "4.1.1"
+    val koin_core = "io.insert-koin" d "koin-core" w "4.1.1"
+    val koin_ktor = "io.insert-koin" d "koin-ktor" w "4.1.1"
+    val koin_logger_slf4j = "io.insert-koin" d "koin-logger-slf4j" w "4.1.1"
+    val koin_test = "io.insert-koin" d "koin-test" w "4.1.1"
+    val koin_test_junit4 = "io.insert-koin" d "koin-test-junit4" w "4.1.1"
+    val koin_test_junit5 = "io.insert-koin" d "koin-test-junit5" w "4.1.1"
   }
   object Kotest {
     val assertions_arrow = "io.kotest" d "kotest-assertions-arrow" w "6.0.2"
@@ -1671,14 +1671,14 @@ object Org {
         val common_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-common-wasm-js" w "2.9.3" w "2.10.0-alpha01"
         val runtime = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime" w "2.9.3" w "2.10.0-alpha01"
         val runtime_compose = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose" w "2.9.3" w "2.10.0-alpha01"
-        val runtime_compose_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose-js" w "2.9.3" w "2.10.0-alpha01"
-        val runtime_compose_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose-wasm-js" w "2.9.3" w "2.10.0-alpha01"
+        val runtime_compose_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose-js" w "2.9.4+dev2893" w "2.9.3" w "2.10.0-alpha01"
+        val runtime_compose_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose-wasm-js" w "2.9.4+dev2893" w "2.9.3" w "2.10.0-alpha01"
         val runtime_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-js" w "2.9.3" w "2.10.0-alpha01"
         val runtime_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-wasm-js" w "2.9.3" w "2.10.0-alpha01"
         val viewmodel = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel" w "2.9.3" w "2.10.0-alpha01"
         val viewmodel_compose = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose" w "2.9.3" w "2.10.0-alpha01"
-        val viewmodel_compose_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose-js" w "2.9.3" w "2.10.0-alpha01"
-        val viewmodel_compose_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose-wasm-js" w "2.9.3" w "2.10.0-alpha01"
+        val viewmodel_compose_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose-js" w "2.9.4+dev2893" w "2.9.3" w "2.10.0-alpha01"
+        val viewmodel_compose_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose-wasm-js" w "2.9.4+dev2893" w "2.9.3" w "2.10.0-alpha01"
         val viewmodel_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-js" w "2.9.3" w "2.10.0-alpha01"
         val viewmodel_savedstate = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-savedstate" w "2.9.3" w "2.10.0-alpha01"
         val viewmodel_savedstate_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-savedstate-js" w "2.9.3" w "2.10.0-alpha01"
@@ -1797,9 +1797,9 @@ object Org {
       }
     }
     object Exposed {
-      val core = "org.jetbrains.exposed" d "exposed-core" w "0.61.0" w "1.0.0-beta-5"
-      val dao = "org.jetbrains.exposed" d "exposed-dao" w "0.61.0" w "1.0.0-beta-5"
-      val jdbc = "org.jetbrains.exposed" d "exposed-jdbc" w "0.61.0" w "1.0.0-beta-5"
+      val core = "org.jetbrains.exposed" d "exposed-core" w "0.61.0" w "1.0.0-rc-1"
+      val dao = "org.jetbrains.exposed" d "exposed-dao" w "0.61.0" w "1.0.0-rc-1"
+      val jdbc = "org.jetbrains.exposed" d "exposed-jdbc" w "0.61.0" w "1.0.0-rc-1"
     }
     object Kotlin {
       val allopen = "org.jetbrains.kotlin" d "kotlin-allopen" w "2.2.10" w "2.2.20-RC2"
