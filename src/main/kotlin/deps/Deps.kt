@@ -1037,10 +1037,10 @@ object Com {
     }
     object Maps {
       object Android {
-        val maps_compose = "com.google.maps.android" d "maps-compose" w "6.8.0"
+        val maps_compose = "com.google.maps.android" d "maps-compose" w "6.9.0"
         val maps_ktx = "com.google.maps.android" d "maps-ktx" w "5.2.0"
         val maps_rx = "com.google.maps.android" d "maps-rx" w "1.0.0"
-        val maps_utils = "com.google.maps.android" d "android-maps-utils" w "3.16.1"
+        val maps_utils = "com.google.maps.android" d "android-maps-utils" w "3.16.2"
         val maps_utils_ktx = "com.google.maps.android" d "maps-utils-ktx" w "5.2.0"
       }
     }
@@ -1671,14 +1671,14 @@ object Org {
         val common_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-common-wasm-js" w "2.9.3" w "2.10.0-alpha01"
         val runtime = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime" w "2.9.3" w "2.10.0-alpha01"
         val runtime_compose = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose" w "2.9.3" w "2.10.0-alpha01"
-        val runtime_compose_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose-js" w "2.9.4+dev2893" w "2.9.3" w "2.10.0-alpha01"
-        val runtime_compose_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose-wasm-js" w "2.9.4+dev2893" w "2.9.3" w "2.10.0-alpha01"
+        val runtime_compose_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose-js" w "2.9.4+dev2908" w "2.9.3" w "2.10.0-alpha01"
+        val runtime_compose_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose-wasm-js" w "2.9.4+dev2908" w "2.9.3" w "2.10.0-alpha01"
         val runtime_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-js" w "2.9.3" w "2.10.0-alpha01"
         val runtime_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-wasm-js" w "2.9.3" w "2.10.0-alpha01"
         val viewmodel = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel" w "2.9.3" w "2.10.0-alpha01"
         val viewmodel_compose = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose" w "2.9.3" w "2.10.0-alpha01"
-        val viewmodel_compose_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose-js" w "2.9.4+dev2893" w "2.9.3" w "2.10.0-alpha01"
-        val viewmodel_compose_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose-wasm-js" w "2.9.4+dev2893" w "2.9.3" w "2.10.0-alpha01"
+        val viewmodel_compose_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose-js" w "2.9.4+dev2908" w "2.9.3" w "2.10.0-alpha01"
+        val viewmodel_compose_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose-wasm-js" w "2.9.4+dev2908" w "2.9.3" w "2.10.0-alpha01"
         val viewmodel_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-js" w "2.9.3" w "2.10.0-alpha01"
         val viewmodel_savedstate = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-savedstate" w "2.9.3" w "2.10.0-alpha01"
         val viewmodel_savedstate_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-savedstate-js" w "2.9.3" w "2.10.0-alpha01"
