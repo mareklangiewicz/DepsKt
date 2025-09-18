@@ -474,24 +474,24 @@ object AndroidX {
     val tab = "androidx.leanback" d "leanback-tab" w "1.1.0"
   }
   object Lifecycle {
-    val common = "androidx.lifecycle" d "lifecycle-common" w "2.9.3" w "2.10.0-alpha03"
-    val common_java8 = "androidx.lifecycle" d "lifecycle-common-java8" w "2.9.3" w "2.10.0-alpha03"
-    val compiler = "androidx.lifecycle" d "lifecycle-compiler" w "2.9.3" w "2.10.0-alpha03"
+    val common = "androidx.lifecycle" d "lifecycle-common" w "2.9.4" w "2.10.0-alpha03"
+    val common_java8 = "androidx.lifecycle" d "lifecycle-common-java8" w "2.9.4" w "2.10.0-alpha03"
+    val compiler = "androidx.lifecycle" d "lifecycle-compiler" w "2.9.4" w "2.10.0-alpha03"
     val extensions = "androidx.lifecycle" d "lifecycle-extensions" w "2.2.0"
-    val livedata = "androidx.lifecycle" d "lifecycle-livedata" w "2.9.3" w "2.10.0-alpha03"
-    val livedata_ktx = "androidx.lifecycle" d "lifecycle-livedata-ktx" w "2.9.3" w "2.10.0-alpha03"
-    val process = "androidx.lifecycle" d "lifecycle-process" w "2.9.3" w "2.10.0-alpha03"
-    val reactivestreams = "androidx.lifecycle" d "lifecycle-reactivestreams" w "2.9.3" w "2.10.0-alpha03"
-    val reactivestreams_ktx = "androidx.lifecycle" d "lifecycle-reactivestreams-ktx" w "2.9.3" w "2.10.0-alpha03"
-    val runtime = "androidx.lifecycle" d "lifecycle-runtime" w "2.9.3" w "2.10.0-alpha03"
-    val runtime_compose = "androidx.lifecycle" d "lifecycle-runtime-compose" w "2.9.3" w "2.10.0-alpha03"
-    val runtime_ktx = "androidx.lifecycle" d "lifecycle-runtime-ktx" w "2.9.3" w "2.10.0-alpha03"
-    val runtime_testing = "androidx.lifecycle" d "lifecycle-runtime-testing" w "2.9.3" w "2.10.0-alpha03"
-    val service = "androidx.lifecycle" d "lifecycle-service" w "2.9.3" w "2.10.0-alpha03"
-    val viewmodel = "androidx.lifecycle" d "lifecycle-viewmodel" w "2.9.3" w "2.10.0-alpha03"
-    val viewmodel_compose = "androidx.lifecycle" d "lifecycle-viewmodel-compose" w "1.0.0-alpha06" w "2.9.3" w "2.10.0-alpha03"
-    val viewmodel_ktx = "androidx.lifecycle" d "lifecycle-viewmodel-ktx" w "2.9.3" w "2.10.0-alpha03"
-    val viewmodel_savedstate = "androidx.lifecycle" d "lifecycle-viewmodel-savedstate" w "2.9.3" w "2.10.0-alpha03"
+    val livedata = "androidx.lifecycle" d "lifecycle-livedata" w "2.9.4" w "2.10.0-alpha03"
+    val livedata_ktx = "androidx.lifecycle" d "lifecycle-livedata-ktx" w "2.9.4" w "2.10.0-alpha03"
+    val process = "androidx.lifecycle" d "lifecycle-process" w "2.9.4" w "2.10.0-alpha03"
+    val reactivestreams = "androidx.lifecycle" d "lifecycle-reactivestreams" w "2.9.4" w "2.10.0-alpha03"
+    val reactivestreams_ktx = "androidx.lifecycle" d "lifecycle-reactivestreams-ktx" w "2.9.4" w "2.10.0-alpha03"
+    val runtime = "androidx.lifecycle" d "lifecycle-runtime" w "2.9.4" w "2.10.0-alpha03"
+    val runtime_compose = "androidx.lifecycle" d "lifecycle-runtime-compose" w "2.9.4" w "2.10.0-alpha03"
+    val runtime_ktx = "androidx.lifecycle" d "lifecycle-runtime-ktx" w "2.9.4" w "2.10.0-alpha03"
+    val runtime_testing = "androidx.lifecycle" d "lifecycle-runtime-testing" w "2.9.4" w "2.10.0-alpha03"
+    val service = "androidx.lifecycle" d "lifecycle-service" w "2.9.4" w "2.10.0-alpha03"
+    val viewmodel = "androidx.lifecycle" d "lifecycle-viewmodel" w "2.9.4" w "2.10.0-alpha03"
+    val viewmodel_compose = "androidx.lifecycle" d "lifecycle-viewmodel-compose" w "1.0.0-alpha06" w "2.9.4" w "2.10.0-alpha03"
+    val viewmodel_ktx = "androidx.lifecycle" d "lifecycle-viewmodel-ktx" w "2.9.4" w "2.10.0-alpha03"
+    val viewmodel_savedstate = "androidx.lifecycle" d "lifecycle-viewmodel-savedstate" w "2.9.4" w "2.10.0-alpha03"
   }
   object Loader {
     val loader = "androidx.loader" d "loader" w "1.1.0"
@@ -609,8 +609,8 @@ object AndroidX {
     val testing = "androidx.room" d "room-testing" w "2.8.0"
   }
   object Savedstate {
-    val ktx = "androidx.savedstate" d "savedstate-ktx" w "1.3.2" w "1.4.0-alpha03"
-    val savedstate = "androidx.savedstate" d "savedstate" w "1.3.2" w "1.4.0-alpha03"
+    val ktx = "androidx.savedstate" d "savedstate-ktx" w "1.3.3" w "1.4.0-alpha03"
+    val savedstate = "androidx.savedstate" d "savedstate" w "1.3.3" w "1.4.0-alpha03"
   }
   object Security {
     val app_authenticator = "androidx.security" d "security-app-authenticator" w "1.0.0"
@@ -1671,14 +1671,14 @@ object Org {
         val common_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-common-wasm-js" w "2.9.4" w "2.10.0-alpha01"
         val runtime = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime" w "2.9.4" w "2.10.0-alpha01"
         val runtime_compose = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose" w "2.9.4" w "2.10.0-alpha01"
-        val runtime_compose_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose-js" w "2.9.4-rc01" w "2.9.4" w "2.10.0-alpha01"
-        val runtime_compose_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose-wasm-js" w "2.9.4-rc01" w "2.9.4" w "2.10.0-alpha01"
+        val runtime_compose_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose-js" w "2.9.5+dev2970" w "2.9.4-rc01" w "2.9.4" w "2.10.0-alpha01"
+        val runtime_compose_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose-wasm-js" w "2.9.5+dev2970" w "2.9.4-rc01" w "2.9.4" w "2.10.0-alpha01"
         val runtime_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-js" w "2.9.4" w "2.10.0-alpha01"
         val runtime_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-wasm-js" w "2.9.4" w "2.10.0-alpha01"
         val viewmodel = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel" w "2.9.4" w "2.10.0-alpha01"
         val viewmodel_compose = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose" w "2.9.4" w "2.10.0-alpha01"
-        val viewmodel_compose_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose-js" w "2.9.4-rc01" w "2.9.4" w "2.10.0-alpha01"
-        val viewmodel_compose_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose-wasm-js" w "2.9.4-rc01" w "2.9.4" w "2.10.0-alpha01"
+        val viewmodel_compose_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose-js" w "2.9.5+dev2970" w "2.9.4-rc01" w "2.9.4" w "2.10.0-alpha01"
+        val viewmodel_compose_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose-wasm-js" w "2.9.5+dev2970" w "2.9.4-rc01" w "2.9.4" w "2.10.0-alpha01"
         val viewmodel_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-js" w "2.9.4" w "2.10.0-alpha01"
         val viewmodel_savedstate = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-savedstate" w "2.9.4" w "2.10.0-alpha01"
         val viewmodel_savedstate_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-savedstate-js" w "2.9.4" w "2.10.0-alpha01"
@@ -2007,7 +2007,7 @@ object Org {
       val spring_rabbit_test = "org.springframework.amqp" d "spring-rabbit-test" w "3.2.7" w "4.0.0-M5"
     }
     object Batch {
-      val spring_batch_test = "org.springframework.batch" d "spring-batch-test" w "5.2.2" w "6.0.0-M2"
+      val spring_batch_test = "org.springframework.batch" d "spring-batch-test" w "5.2.3" w "6.0.0-M3"
     }
     object Boot {
       val spring_boot_configuration_processor = "org.springframework.boot" d "spring-boot-configuration-processor" w "3.5.5" w "4.0.0-M2"
@@ -2132,12 +2132,12 @@ object Org {
       val spring_kafka_test = "org.springframework.kafka" d "spring-kafka-test" w "3.3.10" w "4.0.0-M5"
     }
     object Restdocs {
-      val spring_restdocs_webtestclient = "org.springframework.restdocs" d "spring-restdocs-webtestclient" w "3.0.5" w "4.0.0-M2"
+      val spring_restdocs_webtestclient = "org.springframework.restdocs" d "spring-restdocs-webtestclient" w "3.0.5" w "4.0.0-M3"
     }
     object Security {
-      val spring_security_messaging = "org.springframework.security" d "spring-security-messaging" w "6.5.4" w "7.0.0-M3"
-      val spring_security_rsocket = "org.springframework.security" d "spring-security-rsocket" w "6.5.4" w "7.0.0-M3"
-      val spring_security_test = "org.springframework.security" d "spring-security-test" w "6.5.4" w "7.0.0-M3"
+      val spring_security_messaging = "org.springframework.security" d "spring-security-messaging" w "6.5.5" w "7.0.0-M3"
+      val spring_security_rsocket = "org.springframework.security" d "spring-security-rsocket" w "6.5.5" w "7.0.0-M3"
+      val spring_security_test = "org.springframework.security" d "spring-security-test" w "6.5.5" w "7.0.0-M3"
     }
     object Session {
       val spring_session_data_redis = "org.springframework.session" d "spring-session-data-redis" w "3.5.2" w "4.0.0-M2"
