@@ -1973,11 +1973,11 @@ object Org {
     }
   }
   object Mockito {
-    val android = "org.mockito" d "mockito-android" w "5.19.0"
-    val core = "org.mockito" d "mockito-core" w "5.19.0"
-    val errorprone = "org.mockito" d "mockito-errorprone" w "5.19.0"
+    val android = "org.mockito" d "mockito-android" w "5.20.0"
+    val core = "org.mockito" d "mockito-core" w "5.20.0"
+    val errorprone = "org.mockito" d "mockito-errorprone" w "5.20.0"
     val inline = "org.mockito" d "mockito-inline" w "5.2.0"
-    val junit_jupiter = "org.mockito" d "mockito-junit-jupiter" w "5.19.0"
+    val junit_jupiter = "org.mockito" d "mockito-junit-jupiter" w "5.20.0"
     object Kotlin {
       val mockito_kotlin = "org.mockito.kotlin" d "mockito-kotlin" w "6.0.0"
     }
