@@ -802,7 +802,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.5"
       val r8 = "com.android.tools" d "r8" w "8.11.18"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.13.0" w "9.0.0-alpha05"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.13.0" w "9.0.0-alpha06"
       }
     }
   }
@@ -1037,7 +1037,7 @@ object Com {
     }
     object Maps {
       object Android {
-        val maps_compose = "com.google.maps.android" d "maps-compose" w "6.10.0"
+        val maps_compose = "com.google.maps.android" d "maps-compose" w "6.11.0"
         val maps_ktx = "com.google.maps.android" d "maps-ktx" w "5.2.0"
         val maps_rx = "com.google.maps.android" d "maps-rx" w "1.0.0"
         val maps_utils = "com.google.maps.android" d "android-maps-utils" w "3.19.0"
@@ -1545,7 +1545,7 @@ object Io {
     }
     object RxJava3 {
       val rxandroid = "io.reactivex.rxjava3" d "rxandroid" w "3.0.2"
-      val rxjava = "io.reactivex.rxjava3" d "rxjava" w "3.1.11"
+      val rxjava = "io.reactivex.rxjava3" d "rxjava" w "3.1.11" w "3.1.12-RC1"
       val rxkotlin = "io.reactivex.rxjava3" d "rxkotlin" w "3.0.1"
     }
   }
@@ -1569,9 +1569,9 @@ object JUnit {
 }
 object Org {
   object AssertJ {
-    val core = "org.assertj" d "assertj-core" w "3.27.5" w "4.0.0-M1"
+    val core = "org.assertj" d "assertj-core" w "3.27.6" w "4.0.0-M1"
     val db = "org.assertj" d "assertj-db" w "3.0.0"
-    val guava = "org.assertj" d "assertj-guava" w "3.27.5" w "4.0.0-M1"
+    val guava = "org.assertj" d "assertj-guava" w "3.27.6" w "4.0.0-M1"
     val joda_time = "org.assertj" d "assertj-joda-time" w "2.2.0"
     val swing = "org.assertj" d "assertj-swing" w "3.17.1"
   }
