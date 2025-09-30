@@ -885,7 +885,7 @@ object Com {
         val play_services_analytics = "com.google.android.gms" d "play-services-analytics" w "18.1.1"
         val play_services_appset = "com.google.android.gms" d "play-services-appset" w "16.1.0"
         val play_services_auth = "com.google.android.gms" d "play-services-auth" w "21.4.0"
-        val play_services_auth_api_phone = "com.google.android.gms" d "play-services-auth-api-phone" w "18.2.0"
+        val play_services_auth_api_phone = "com.google.android.gms" d "play-services-auth-api-phone" w "18.3.0"
         val play_services_auth_blockstore = "com.google.android.gms" d "play-services-auth-blockstore" w "16.4.0"
         val play_services_awareness = "com.google.android.gms" d "play-services-awareness" w "19.1.0"
         val play_services_base = "com.google.android.gms" d "play-services-base" w "18.9.0"
