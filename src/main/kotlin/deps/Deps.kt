@@ -1648,19 +1648,19 @@ object Org {
     val testing_webdriver = "org.http4k" d "http4k-testing-webdriver" w "6.18.1.0"
   }
   object JUnit {
-    val bom = "org.junit" d "junit-bom" w "5.13.4" w "6.0.0-RC3"
+    val bom = "org.junit" d "junit-bom" w "6.0.0"
     object Jupiter {
-      val junit_jupiter = "org.junit.jupiter" d "junit-jupiter" w "5.13.4" w "6.0.0-RC3"
-      val junit_jupiter_api = "org.junit.jupiter" d "junit-jupiter-api" w "5.13.4" w "6.0.0-RC3"
-      val junit_jupiter_engine = "org.junit.jupiter" d "junit-jupiter-engine" w "5.13.4" w "6.0.0-RC3"
-      val junit_jupiter_migrationsupport = "org.junit.jupiter" d "junit-jupiter-migrationsupport" w "5.13.4" w "6.0.0-RC3"
-      val junit_jupiter_params = "org.junit.jupiter" d "junit-jupiter-params" w "5.13.4" w "6.0.0-RC3"
+      val junit_jupiter = "org.junit.jupiter" d "junit-jupiter" w "6.0.0"
+      val junit_jupiter_api = "org.junit.jupiter" d "junit-jupiter-api" w "6.0.0"
+      val junit_jupiter_engine = "org.junit.jupiter" d "junit-jupiter-engine" w "6.0.0"
+      val junit_jupiter_migrationsupport = "org.junit.jupiter" d "junit-jupiter-migrationsupport" w "6.0.0"
+      val junit_jupiter_params = "org.junit.jupiter" d "junit-jupiter-params" w "6.0.0"
     }
     object Platform {
-      val junit_platform_commons = "org.junit.platform" d "junit-platform-commons" w "1.13.4" w "6.0.0-RC3"
-      val junit_platform_engine = "org.junit.platform" d "junit-platform-engine" w "1.13.4" w "6.0.0-RC3"
-      val junit_platform_launcher = "org.junit.platform" d "junit-platform-launcher" w "1.13.4" w "6.0.0-RC3"
-      val junit_platform_runner = "org.junit.platform" d "junit-platform-runner" w "1.13.4" w "1.14.0-RC1"
+      val junit_platform_commons = "org.junit.platform" d "junit-platform-commons" w "6.0.0"
+      val junit_platform_engine = "org.junit.platform" d "junit-platform-engine" w "6.0.0"
+      val junit_platform_launcher = "org.junit.platform" d "junit-platform-launcher" w "6.0.0"
+      val junit_platform_runner = "org.junit.platform" d "junit-platform-runner" w "1.14.0"
     }
   }
   object JetBrains {
@@ -1961,15 +1961,15 @@ object Org {
   }
   object Kodein {
     object Di {
-      val kodein_di_conf_js = "org.kodein.di" d "kodein-di-conf-js" w "7.26.1"
-      val kodein_di_conf_jvm = "org.kodein.di" d "kodein-di-conf-jvm" w "7.26.1"
-      val kodein_di_framework_android_core = "org.kodein.di" d "kodein-di-framework-android-core" w "7.26.1"
-      val kodein_di_framework_android_support = "org.kodein.di" d "kodein-di-framework-android-support" w "7.26.1"
-      val kodein_di_framework_android_x = "org.kodein.di" d "kodein-di-framework-android-x" w "7.26.1"
-      val kodein_di_framework_ktor_server_jvm = "org.kodein.di" d "kodein-di-framework-ktor-server-jvm" w "7.26.1"
-      val kodein_di_framework_tornadofx_jvm = "org.kodein.di" d "kodein-di-framework-tornadofx-jvm" w "7.26.1"
-      val kodein_di_js = "org.kodein.di" d "kodein-di-js" w "7.26.1"
-      val kodein_di_jxinject_jvm = "org.kodein.di" d "kodein-di-jxinject-jvm" w "7.26.1"
+      val kodein_di_conf_js = "org.kodein.di" d "kodein-di-conf-js" w "7.28.0"
+      val kodein_di_conf_jvm = "org.kodein.di" d "kodein-di-conf-jvm" w "7.28.0"
+      val kodein_di_framework_android_core = "org.kodein.di" d "kodein-di-framework-android-core" w "7.28.0"
+      val kodein_di_framework_android_support = "org.kodein.di" d "kodein-di-framework-android-support" w "7.28.0"
+      val kodein_di_framework_android_x = "org.kodein.di" d "kodein-di-framework-android-x" w "7.28.0"
+      val kodein_di_framework_ktor_server_jvm = "org.kodein.di" d "kodein-di-framework-ktor-server-jvm" w "7.28.0"
+      val kodein_di_framework_tornadofx_jvm = "org.kodein.di" d "kodein-di-framework-tornadofx-jvm" w "7.28.0"
+      val kodein_di_js = "org.kodein.di" d "kodein-di-js" w "7.28.0"
+      val kodein_di_jxinject_jvm = "org.kodein.di" d "kodein-di-jxinject-jvm" w "7.28.0"
     }
   }
   object Mockito {
@@ -1979,7 +1979,7 @@ object Org {
     val inline = "org.mockito" d "mockito-inline" w "5.2.0"
     val junit_jupiter = "org.mockito" d "mockito-junit-jupiter" w "5.20.0"
     object Kotlin {
-      val mockito_kotlin = "org.mockito.kotlin" d "mockito-kotlin" w "6.0.0"
+      val mockito_kotlin = "org.mockito.kotlin" d "mockito-kotlin" w "6.1.0"
     }
   }
   object Robolectric {
