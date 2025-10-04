@@ -1372,17 +1372,17 @@ object Io {
     }
   }
   object Insert_koin {
-    val koin_android = "io.insert-koin" d "koin-android" w "4.1.1"
-    val koin_android_compat = "io.insert-koin" d "koin-android-compat" w "4.1.1"
-    val koin_androidx_compose = "io.insert-koin" d "koin-androidx-compose" w "4.1.1"
-    val koin_androidx_navigation = "io.insert-koin" d "koin-androidx-navigation" w "4.1.1"
-    val koin_androidx_workmanager = "io.insert-koin" d "koin-androidx-workmanager" w "4.1.1"
-    val koin_core = "io.insert-koin" d "koin-core" w "4.1.1"
-    val koin_ktor = "io.insert-koin" d "koin-ktor" w "4.1.1"
-    val koin_logger_slf4j = "io.insert-koin" d "koin-logger-slf4j" w "4.1.1"
-    val koin_test = "io.insert-koin" d "koin-test" w "4.1.1"
-    val koin_test_junit4 = "io.insert-koin" d "koin-test-junit4" w "4.1.1"
-    val koin_test_junit5 = "io.insert-koin" d "koin-test-junit5" w "4.1.1"
+    val koin_android = "io.insert-koin" d "koin-android" w "4.1.1" w "4.1.2-Beta1"
+    val koin_android_compat = "io.insert-koin" d "koin-android-compat" w "4.1.1" w "4.1.2-Beta1"
+    val koin_androidx_compose = "io.insert-koin" d "koin-androidx-compose" w "4.1.1" w "4.1.2-Beta1"
+    val koin_androidx_navigation = "io.insert-koin" d "koin-androidx-navigation" w "4.1.1" w "4.1.2-Beta1"
+    val koin_androidx_workmanager = "io.insert-koin" d "koin-androidx-workmanager" w "4.1.1" w "4.1.2-Beta1"
+    val koin_core = "io.insert-koin" d "koin-core" w "4.1.1" w "4.1.2-Beta1"
+    val koin_ktor = "io.insert-koin" d "koin-ktor" w "4.1.1" w "4.1.2-Beta1"
+    val koin_logger_slf4j = "io.insert-koin" d "koin-logger-slf4j" w "4.1.1" w "4.1.2-Beta1"
+    val koin_test = "io.insert-koin" d "koin-test" w "4.1.1" w "4.1.2-Beta1"
+    val koin_test_junit4 = "io.insert-koin" d "koin-test-junit4" w "4.1.1" w "4.1.2-Beta1"
+    val koin_test_junit5 = "io.insert-koin" d "koin-test-junit5" w "4.1.1" w "4.1.2-Beta1"
   }
   object Kotest {
     val assertions_arrow = "io.kotest" d "kotest-assertions-arrow" w "6.0.3"
@@ -1760,7 +1760,7 @@ object Org {
         val js = "org.jetbrains.compose.material3" d "material3-js" w "1.8.2" w "1.9.0-beta06" w "1.10.0-alpha01"
         val material3 = "org.jetbrains.compose.material3" d "material3" w "1.8.2" w "1.9.0-beta06" w "1.10.0-alpha01"
         val wasm_js = "org.jetbrains.compose.material3" d "material3-wasm-js" w "1.8.2" w "1.9.0-beta06" w "1.10.0-alpha01"
-        val window_size_class = "org.jetbrains.compose.material3" d "material3-window-size-class" w "1.8.2" w "1.9.0-beta06" w "1.10.0-alpha01"
+        val window_size_class = "org.jetbrains.compose.material3" d "material3-window-size-class" w "1.8.2" w "1.9.10+dev2818" w "1.9.0-beta06" w "1.9.10-SNAPSHOT+shish-CMP-7505-trigger-test-fail-on-old-compiler-plugin" w "1.10.0-alpha01"
         val window_size_class_js = "org.jetbrains.compose.material3" d "material3-window-size-class-js" w "1.8.2" w "1.9.0-beta06" w "1.10.0-alpha01"
         val window_size_class_wasm_js = "org.jetbrains.compose.material3" d "material3-window-size-class-wasm-js" w "1.8.2" w "1.9.0-beta06" w "1.10.0-alpha01"
       }
