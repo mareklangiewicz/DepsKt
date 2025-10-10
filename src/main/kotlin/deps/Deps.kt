@@ -802,7 +802,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.5"
       val r8 = "com.android.tools" d "r8" w "8.11.18"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.13.0" w "9.0.0-alpha09"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.13.0" w "9.0.0-alpha10"
       }
     }
   }
@@ -893,7 +893,7 @@ object Com {
         val play_services_cast = "com.google.android.gms" d "play-services-cast" w "22.1.0"
         val play_services_cast_framework = "com.google.android.gms" d "play-services-cast-framework" w "22.1.0"
         val play_services_cast_tv = "com.google.android.gms" d "play-services-cast-tv" w "21.1.1"
-        val play_services_cronet = "com.google.android.gms" d "play-services-cronet" w "18.1.0"
+        val play_services_cronet = "com.google.android.gms" d "play-services-cronet" w "18.1.1"
         val play_services_drive = "com.google.android.gms" d "play-services-drive" w "17.0.0"
         val play_services_fido = "com.google.android.gms" d "play-services-fido" w "21.2.0"
         val play_services_fitness = "com.google.android.gms" d "play-services-fitness" w "21.3.0"
@@ -1001,19 +1001,19 @@ object Com {
       val appindexing = "com.google.firebase" d "firebase-appindexing" w "20.0.0"
       val auth = "com.google.firebase" d "firebase-auth" w "24.0.1"
       val auth_ktx = "com.google.firebase" d "firebase-auth-ktx" w "23.2.1"
-      val bom = "com.google.firebase" d "firebase-bom" w "34.3.0"
+      val bom = "com.google.firebase" d "firebase-bom" w "34.4.0"
       val config = "com.google.firebase" d "firebase-config" w "23.0.1"
       val config_ktx = "com.google.firebase" d "firebase-config-ktx" w "22.1.2"
-      val crashlytics = "com.google.firebase" d "firebase-crashlytics" w "20.0.2"
+      val crashlytics = "com.google.firebase" d "firebase-crashlytics" w "20.0.3"
       val crashlytics_gradle = "com.google.firebase" d "firebase-crashlytics-gradle" w "3.0.6"
       val crashlytics_ktx = "com.google.firebase" d "firebase-crashlytics-ktx" w "19.4.4"
-      val crashlytics_ndk = "com.google.firebase" d "firebase-crashlytics-ndk" w "20.0.2"
+      val crashlytics_ndk = "com.google.firebase" d "firebase-crashlytics-ndk" w "20.0.3"
       val database = "com.google.firebase" d "firebase-database" w "22.0.1"
       val database_ktx = "com.google.firebase" d "firebase-database-ktx" w "21.0.0"
       val dynamic_links = "com.google.firebase" d "firebase-dynamic-links" w "22.1.0"
       val dynamic_links_ktx = "com.google.firebase" d "firebase-dynamic-links-ktx" w "22.1.0"
       val dynamic_module_support = "com.google.firebase" d "firebase-dynamic-module-support" w "16.0.0-beta04"
-      val firestore = "com.google.firebase" d "firebase-firestore" w "26.0.1"
+      val firestore = "com.google.firebase" d "firebase-firestore" w "26.0.2"
       val firestore_ktx = "com.google.firebase" d "firebase-firestore-ktx" w "25.1.4"
       val functions = "com.google.firebase" d "firebase-functions" w "22.0.1"
       val functions_ktx = "com.google.firebase" d "firebase-functions-ktx" w "21.2.1"
@@ -1033,7 +1033,7 @@ object Com {
       val storage_ktx = "com.google.firebase" d "firebase-storage-ktx" w "21.0.2"
     }
     object Gms {
-      val google_services = "com.google.gms" d "google-services" w "3.1.1" w "4.4.3"
+      val google_services = "com.google.gms" d "google-services" w "3.1.1" w "4.4.4"
     }
     object Maps {
       object Android {
@@ -1242,23 +1242,23 @@ object Com {
       val moshi = "com.squareup.moshi" d "moshi" w "1.15.2"
     }
     object Okhttp3 {
-      val logging_interceptor = "com.squareup.okhttp3" d "logging-interceptor" w "5.2.0"
-      val mockwebserver = "com.squareup.okhttp3" d "mockwebserver" w "5.2.0"
-      val mockwebserver3 = "com.squareup.okhttp3" d "mockwebserver3" w "5.2.0"
-      val mockwebserver3_junit4 = "com.squareup.okhttp3" d "mockwebserver3-junit4" w "5.2.0"
-      val mockwebserver3_junit5 = "com.squareup.okhttp3" d "mockwebserver3-junit5" w "5.2.0"
-      val okhttp = "com.squareup.okhttp3" d "okhttp" w "5.2.0"
-      val okhttp_android = "com.squareup.okhttp3" d "okhttp-android" w "5.2.0"
-      val okhttp_bom = "com.squareup.okhttp3" d "okhttp-bom" w "5.2.0"
-      val okhttp_brotli = "com.squareup.okhttp3" d "okhttp-brotli" w "5.2.0"
-      val okhttp_coroutines = "com.squareup.okhttp3" d "okhttp-coroutines" w "5.2.0"
-      val okhttp_dnsoverhttps = "com.squareup.okhttp3" d "okhttp-dnsoverhttps" w "5.2.0"
-      val okhttp_sse = "com.squareup.okhttp3" d "okhttp-sse" w "5.2.0"
-      val okhttp_tls = "com.squareup.okhttp3" d "okhttp-tls" w "5.2.0"
-      val okhttp_urlconnection = "com.squareup.okhttp3" d "okhttp-urlconnection" w "5.2.0"
+      val logging_interceptor = "com.squareup.okhttp3" d "logging-interceptor" w "5.2.1"
+      val mockwebserver = "com.squareup.okhttp3" d "mockwebserver" w "5.2.1"
+      val mockwebserver3 = "com.squareup.okhttp3" d "mockwebserver3" w "5.2.1"
+      val mockwebserver3_junit4 = "com.squareup.okhttp3" d "mockwebserver3-junit4" w "5.2.1"
+      val mockwebserver3_junit5 = "com.squareup.okhttp3" d "mockwebserver3-junit5" w "5.2.1"
+      val okhttp = "com.squareup.okhttp3" d "okhttp" w "5.2.1"
+      val okhttp_android = "com.squareup.okhttp3" d "okhttp-android" w "5.2.1"
+      val okhttp_bom = "com.squareup.okhttp3" d "okhttp-bom" w "5.2.1"
+      val okhttp_brotli = "com.squareup.okhttp3" d "okhttp-brotli" w "5.2.1"
+      val okhttp_coroutines = "com.squareup.okhttp3" d "okhttp-coroutines" w "5.2.1"
+      val okhttp_dnsoverhttps = "com.squareup.okhttp3" d "okhttp-dnsoverhttps" w "5.2.1"
+      val okhttp_sse = "com.squareup.okhttp3" d "okhttp-sse" w "5.2.1"
+      val okhttp_tls = "com.squareup.okhttp3" d "okhttp-tls" w "5.2.1"
+      val okhttp_urlconnection = "com.squareup.okhttp3" d "okhttp-urlconnection" w "5.2.1"
     }
     object Okio {
-      val okio = "com.squareup.okio" d "okio" w "3.16.0"
+      val okio = "com.squareup.okio" d "okio" w "3.16.1"
     }
     object Picasso {
       val picasso = "com.squareup.picasso" d "picasso" w "2.71828"
@@ -1797,9 +1797,9 @@ object Org {
       }
     }
     object Exposed {
-      val core = "org.jetbrains.exposed" d "exposed-core" w "0.61.0" w "1.0.0-rc-1"
-      val dao = "org.jetbrains.exposed" d "exposed-dao" w "0.61.0" w "1.0.0-rc-1"
-      val jdbc = "org.jetbrains.exposed" d "exposed-jdbc" w "0.61.0" w "1.0.0-rc-1"
+      val core = "org.jetbrains.exposed" d "exposed-core" w "0.61.0" w "1.0.0-rc-2"
+      val dao = "org.jetbrains.exposed" d "exposed-dao" w "0.61.0" w "1.0.0-rc-2"
+      val jdbc = "org.jetbrains.exposed" d "exposed-jdbc" w "0.61.0" w "1.0.0-rc-2"
     }
     object Kotlin {
       val allopen = "org.jetbrains.kotlin" d "kotlin-allopen" w "2.2.20" w "2.2.21-RC" w "2.3.0-Beta1"
@@ -2007,7 +2007,7 @@ object Org {
       val spring_rabbit_test = "org.springframework.amqp" d "spring-rabbit-test" w "3.2.7" w "4.0.0-M5"
     }
     object Batch {
-      val spring_batch_test = "org.springframework.batch" d "spring-batch-test" w "5.2.3" w "6.0.0-M3"
+      val spring_batch_test = "org.springframework.batch" d "spring-batch-test" w "5.2.3" w "6.0.0-M4"
     }
     object Boot {
       val spring_boot_configuration_processor = "org.springframework.boot" d "spring-boot-configuration-processor" w "3.5.6" w "4.0.0-M3"
