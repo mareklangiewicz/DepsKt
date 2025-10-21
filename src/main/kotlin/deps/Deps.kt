@@ -890,8 +890,8 @@ object Com {
         val play_services_awareness = "com.google.android.gms" d "play-services-awareness" w "19.1.0"
         val play_services_base = "com.google.android.gms" d "play-services-base" w "18.9.0"
         val play_services_basement = "com.google.android.gms" d "play-services-basement" w "18.9.0"
-        val play_services_cast = "com.google.android.gms" d "play-services-cast" w "22.1.0"
-        val play_services_cast_framework = "com.google.android.gms" d "play-services-cast-framework" w "22.1.0"
+        val play_services_cast = "com.google.android.gms" d "play-services-cast" w "22.2.0"
+        val play_services_cast_framework = "com.google.android.gms" d "play-services-cast-framework" w "22.2.0"
         val play_services_cast_tv = "com.google.android.gms" d "play-services-cast-tv" w "21.1.1"
         val play_services_cronet = "com.google.android.gms" d "play-services-cronet" w "18.1.1"
         val play_services_drive = "com.google.android.gms" d "play-services-drive" w "17.0.0"
@@ -2004,7 +2004,7 @@ object Org {
   }
   object SpringFramework {
     object Amqp {
-      val spring_rabbit_test = "org.springframework.amqp" d "spring-rabbit-test" w "3.2.7" w "4.0.0-M5"
+      val spring_rabbit_test = "org.springframework.amqp" d "spring-rabbit-test" w "3.2.8" w "4.0.0-RC1"
     }
     object Batch {
       val spring_batch_test = "org.springframework.batch" d "spring-batch-test" w "5.2.3" w "6.0.0-M4"
@@ -2128,16 +2128,16 @@ object Org {
       val spring_integration_ws = "org.springframework.integration" d "spring-integration-ws" w "6.5.2" w "7.0.0-M3"
     }
     object Kafka {
-      val spring_kafka = "org.springframework.kafka" d "spring-kafka" w "3.3.10" w "4.0.0-M5"
-      val spring_kafka_test = "org.springframework.kafka" d "spring-kafka-test" w "3.3.10" w "4.0.0-M5"
+      val spring_kafka = "org.springframework.kafka" d "spring-kafka" w "3.3.10" w "4.0.0-RC1"
+      val spring_kafka_test = "org.springframework.kafka" d "spring-kafka-test" w "3.3.10" w "4.0.0-RC1"
     }
     object Restdocs {
-      val spring_restdocs_webtestclient = "org.springframework.restdocs" d "spring-restdocs-webtestclient" w "3.0.5" w "4.0.0-M3"
+      val spring_restdocs_webtestclient = "org.springframework.restdocs" d "spring-restdocs-webtestclient" w "3.0.5" w "4.0.0-RC1"
     }
     object Security {
-      val spring_security_messaging = "org.springframework.security" d "spring-security-messaging" w "6.5.5" w "7.0.0-M3"
-      val spring_security_rsocket = "org.springframework.security" d "spring-security-rsocket" w "6.5.5" w "7.0.0-M3"
-      val spring_security_test = "org.springframework.security" d "spring-security-test" w "6.5.5" w "7.0.0-M3"
+      val spring_security_messaging = "org.springframework.security" d "spring-security-messaging" w "6.5.6" w "7.0.0-RC1"
+      val spring_security_rsocket = "org.springframework.security" d "spring-security-rsocket" w "6.5.6" w "7.0.0-RC1"
+      val spring_security_test = "org.springframework.security" d "spring-security-test" w "6.5.6" w "7.0.0-RC1"
     }
     object Session {
       val spring_session_data_redis = "org.springframework.session" d "spring-session-data-redis" w "3.5.2" w "4.0.0-M2"
