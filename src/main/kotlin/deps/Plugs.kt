@@ -22,6 +22,7 @@ object Plugs {
 
   val KotlinJs = DepP("org.jetbrains.kotlin.js", vers.Kotlin)
 
+  @Deprecated("https://developer.android.com/build/migrate-to-built-in-kotlin", ReplaceWith(""))
   val KotlinAndro = DepP("org.jetbrains.kotlin.android", vers.Kotlin)
 
   val MavenPublish = DepP("maven-publish")
