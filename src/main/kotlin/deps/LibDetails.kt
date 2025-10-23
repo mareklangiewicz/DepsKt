@@ -29,7 +29,7 @@ data class LibSettings(
   val withJvm: Boolean = true,
   val withJvmVer: String? = Vers.JvmDefaultVer.takeIf { withJvm },
   val withJs: Boolean = true,
-  val withNativeLinux64: Boolean = false,
+  val withLinuxX64: Boolean = false,
   val withKotlinxHtml: Boolean = false,
   val withTestJUnit4: Boolean = false,
   val withTestJUnit5: Boolean = withJvm,
@@ -54,6 +54,8 @@ data class LibSettings(
     withComposeJbDev = false,
   ),
 ) {
+  @Deprecated("Use withLinuxX64", ReplaceWith("withLinuxX64"))
+  val withNativeLinux64 get() = withLinuxX64
   val withCompose get() = compose != null
   val withAndro get() = andro != null
 }
