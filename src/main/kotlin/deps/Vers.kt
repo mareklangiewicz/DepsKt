@@ -37,11 +37,12 @@ private fun Dependency.checkWith(expectedVer: Ver, warnOnly: Boolean) {
 object Vers {
 
   /** [releases github](https://github.com/JetBrains/kotlin/releases) */
-  val Kotlin22 = Org.JetBrains.Kotlin.stdlib.verLast
+  val Kotlin23 = Org.JetBrains.Kotlin.stdlib.verLast
+  val Kotlin22 = Ver("2.2.21")
   val Kotlin21 = Ver("2.1.21")
   val Kotlin20 = Ver("2.0.21")
   val Kotlin19 = Ver("1.9.25")
-  val Kotlin = Kotlin22
+  val Kotlin = Kotlin23
 
 
 
@@ -139,7 +140,7 @@ object Vers {
    * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
    * [github](https://github.com/Kotlin/kotlin-jupyter)
    */
-  val KotlinJupyterPlug = Ver("0.15.1-669")
+  val KotlinJupyterPlug = Ver("0.15.2-702-1")
 
   /**
    * Gradle Shadow Gradle Plugin
@@ -164,7 +165,7 @@ object Vers {
    * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val DepsPlug = Ver(0, 3, 96) // also sync it in ../../../../build.gradle.kts
+  val DepsPlug = Ver(0, 3, 97) // also sync it in ../../../../build.gradle.kts
   // TODO use sourcefun to make sure it's always synced with myLibDetails(version)
 
   /**
@@ -185,7 +186,7 @@ object Vers {
    * - [gradle versions rel candidate](https://services.gradle.org/versions/release-candidate)
    * - [gradle versions current](https://services.gradle.org/versions/current)
    */
-  val Gradle9 = Ver("9.2.0-rc-2")
+  val Gradle9 = Ver("9.2.0")
   val Gradle8 = Ver("8.14.3")
   val Gradle7 = Ver("7.6.4")
 
