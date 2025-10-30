@@ -139,7 +139,7 @@ object Vers {
    * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
    * [github](https://github.com/Kotlin/kotlin-jupyter)
    */
-  val KotlinJupyterPlug = Ver("0.15.1-659")
+  val KotlinJupyterPlug = Ver("0.15.1-669")
 
   /**
    * Gradle Shadow Gradle Plugin
