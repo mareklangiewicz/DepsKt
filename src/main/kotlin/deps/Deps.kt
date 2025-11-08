@@ -1521,9 +1521,9 @@ object Io {
     }
   }
   object Projectreactor {
-    val reactor_test = "io.projectreactor" d "reactor-test" w "3.7.12" w "3.8.0-RC1"
+    val reactor_test = "io.projectreactor" d "reactor-test" w "3.8.0"
     object Kotlin {
-      val reactor_kotlin_extensions = "io.projectreactor.kotlin" d "reactor-kotlin-extensions" w "1.2.4" w "1.3.0-RC5"
+      val reactor_kotlin_extensions = "io.projectreactor.kotlin" d "reactor-kotlin-extensions" w "1.3.0"
     }
   }
   object RSocket {
