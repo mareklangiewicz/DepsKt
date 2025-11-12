@@ -1372,17 +1372,17 @@ object Io {
     }
   }
   object Insert_koin {
-    val koin_android = "io.insert-koin" d "koin-android" w "4.1.1" w "4.1.2-Beta1" w "4.2.0-alpha1"
-    val koin_android_compat = "io.insert-koin" d "koin-android-compat" w "4.1.1" w "4.1.2-Beta1" w "4.2.0-alpha1"
-    val koin_androidx_compose = "io.insert-koin" d "koin-androidx-compose" w "4.1.1" w "4.1.2-Beta1" w "4.2.0-alpha1"
-    val koin_androidx_navigation = "io.insert-koin" d "koin-androidx-navigation" w "4.1.1" w "4.1.2-Beta1" w "4.2.0-alpha1"
-    val koin_androidx_workmanager = "io.insert-koin" d "koin-androidx-workmanager" w "4.1.1" w "4.1.2-Beta1" w "4.2.0-alpha1"
-    val koin_core = "io.insert-koin" d "koin-core" w "4.1.1" w "4.1.2-Beta1" w "4.2.0-alpha1"
-    val koin_ktor = "io.insert-koin" d "koin-ktor" w "4.1.1" w "4.1.2-Beta1" w "4.2.0-alpha1"
-    val koin_logger_slf4j = "io.insert-koin" d "koin-logger-slf4j" w "4.1.1" w "4.1.2-Beta1" w "4.2.0-alpha1"
-    val koin_test = "io.insert-koin" d "koin-test" w "4.1.1" w "4.1.2-Beta1" w "4.2.0-alpha1"
-    val koin_test_junit4 = "io.insert-koin" d "koin-test-junit4" w "4.1.1" w "4.1.2-Beta1" w "4.2.0-alpha1"
-    val koin_test_junit5 = "io.insert-koin" d "koin-test-junit5" w "4.1.1" w "4.1.2-Beta1" w "4.2.0-alpha1"
+    val koin_android = "io.insert-koin" d "koin-android" w "4.1.1" w "4.1.2-Beta1" w "4.2.0-alpha2"
+    val koin_android_compat = "io.insert-koin" d "koin-android-compat" w "4.1.1" w "4.1.2-Beta1" w "4.2.0-alpha2"
+    val koin_androidx_compose = "io.insert-koin" d "koin-androidx-compose" w "4.1.1" w "4.1.2-Beta1" w "4.2.0-alpha2"
+    val koin_androidx_navigation = "io.insert-koin" d "koin-androidx-navigation" w "4.1.1" w "4.1.2-Beta1" w "4.2.0-alpha2"
+    val koin_androidx_workmanager = "io.insert-koin" d "koin-androidx-workmanager" w "4.1.1" w "4.1.2-Beta1" w "4.2.0-alpha2"
+    val koin_core = "io.insert-koin" d "koin-core" w "4.1.1" w "4.1.2-Beta1" w "4.2.0-alpha2"
+    val koin_ktor = "io.insert-koin" d "koin-ktor" w "4.1.1" w "4.1.2-Beta1" w "4.2.0-alpha2"
+    val koin_logger_slf4j = "io.insert-koin" d "koin-logger-slf4j" w "4.1.1" w "4.1.2-Beta1" w "4.2.0-alpha2"
+    val koin_test = "io.insert-koin" d "koin-test" w "4.1.1" w "4.1.2-Beta1" w "4.2.0-alpha2"
+    val koin_test_junit4 = "io.insert-koin" d "koin-test-junit4" w "4.1.1" w "4.1.2-Beta1" w "4.2.0-alpha2"
+    val koin_test_junit5 = "io.insert-koin" d "koin-test-junit5" w "4.1.1" w "4.1.2-Beta1" w "4.2.0-alpha2"
   }
   object Kotest {
     val assertions_arrow = "io.kotest" d "kotest-assertions-arrow" w "6.0.4"
@@ -1671,14 +1671,14 @@ object Org {
         val common_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-common-wasm-js" w "2.9.6" w "2.10.0-alpha04"
         val runtime = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime" w "2.9.6" w "2.10.0-alpha04"
         val runtime_compose = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose" w "2.9.6" w "2.10.0-alpha04"
-        val runtime_compose_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose-js" w "2.9.6+dev3210" w "2.9.6-SNAPSHOT+release-1-9" w "2.9.6" w "2.10.0-alpha04"
-        val runtime_compose_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose-wasm-js" w "2.9.6+dev3210" w "2.9.6-SNAPSHOT+release-1-9" w "2.9.6" w "2.10.0-alpha04"
+        val runtime_compose_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose-js" w "2.9.6" w "2.10.0-alpha04"
+        val runtime_compose_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose-wasm-js" w "2.9.6" w "2.10.0-alpha04"
         val runtime_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-js" w "2.9.6" w "2.10.0-alpha04"
         val runtime_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-wasm-js" w "2.9.6" w "2.10.0-alpha04"
         val viewmodel = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel" w "2.9.6" w "2.10.0-alpha04"
         val viewmodel_compose = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose" w "2.9.6" w "2.10.0-alpha04"
-        val viewmodel_compose_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose-js" w "2.9.6+dev3210" w "2.9.6-SNAPSHOT+release-1-9" w "2.9.6" w "2.10.0-alpha04"
-        val viewmodel_compose_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose-wasm-js" w "2.9.6+dev3210" w "2.9.6-SNAPSHOT+release-1-9" w "2.9.6" w "2.10.0-alpha04"
+        val viewmodel_compose_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose-js" w "2.9.6" w "2.10.0-alpha04"
+        val viewmodel_compose_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose-wasm-js" w "2.9.6" w "2.10.0-alpha04"
         val viewmodel_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-js" w "2.9.6" w "2.10.0-alpha04"
         val viewmodel_savedstate = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-savedstate" w "2.9.6" w "2.10.0-alpha04"
         val viewmodel_savedstate_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-savedstate-js" w "2.9.6" w "2.10.0-alpha04"
@@ -1961,15 +1961,15 @@ object Org {
   }
   object Kodein {
     object Di {
-      val kodein_di_conf_js = "org.kodein.di" d "kodein-di-conf-js" w "7.28.0"
-      val kodein_di_conf_jvm = "org.kodein.di" d "kodein-di-conf-jvm" w "7.28.0"
-      val kodein_di_framework_android_core = "org.kodein.di" d "kodein-di-framework-android-core" w "7.28.0"
-      val kodein_di_framework_android_support = "org.kodein.di" d "kodein-di-framework-android-support" w "7.28.0"
-      val kodein_di_framework_android_x = "org.kodein.di" d "kodein-di-framework-android-x" w "7.28.0"
-      val kodein_di_framework_ktor_server_jvm = "org.kodein.di" d "kodein-di-framework-ktor-server-jvm" w "7.28.0"
-      val kodein_di_framework_tornadofx_jvm = "org.kodein.di" d "kodein-di-framework-tornadofx-jvm" w "7.28.0"
-      val kodein_di_js = "org.kodein.di" d "kodein-di-js" w "7.28.0"
-      val kodein_di_jxinject_jvm = "org.kodein.di" d "kodein-di-jxinject-jvm" w "7.28.0"
+      val kodein_di_conf_js = "org.kodein.di" d "kodein-di-conf-js" w "7.29.0"
+      val kodein_di_conf_jvm = "org.kodein.di" d "kodein-di-conf-jvm" w "7.29.0"
+      val kodein_di_framework_android_core = "org.kodein.di" d "kodein-di-framework-android-core" w "7.29.0"
+      val kodein_di_framework_android_support = "org.kodein.di" d "kodein-di-framework-android-support" w "7.29.0"
+      val kodein_di_framework_android_x = "org.kodein.di" d "kodein-di-framework-android-x" w "7.29.0"
+      val kodein_di_framework_ktor_server_jvm = "org.kodein.di" d "kodein-di-framework-ktor-server-jvm" w "7.29.0"
+      val kodein_di_framework_tornadofx_jvm = "org.kodein.di" d "kodein-di-framework-tornadofx-jvm" w "7.29.0"
+      val kodein_di_js = "org.kodein.di" d "kodein-di-js" w "7.29.0"
+      val kodein_di_jxinject_jvm = "org.kodein.di" d "kodein-di-jxinject-jvm" w "7.29.0"
     }
   }
   object Mockito {
