@@ -1001,7 +1001,7 @@ object Com {
       val appindexing = "com.google.firebase" d "firebase-appindexing" w "20.0.0"
       val auth = "com.google.firebase" d "firebase-auth" w "24.0.1"
       val auth_ktx = "com.google.firebase" d "firebase-auth-ktx" w "23.2.1"
-      val bom = "com.google.firebase" d "firebase-bom" w "34.5.0"
+      val bom = "com.google.firebase" d "firebase-bom" w "34.6.0"
       val config = "com.google.firebase" d "firebase-config" w "23.0.1"
       val config_ktx = "com.google.firebase" d "firebase-config-ktx" w "22.1.2"
       val crashlytics = "com.google.firebase" d "firebase-crashlytics" w "20.0.3"
@@ -1037,7 +1037,7 @@ object Com {
     }
     object Maps {
       object Android {
-        val maps_compose = "com.google.maps.android" d "maps-compose" w "6.12.1"
+        val maps_compose = "com.google.maps.android" d "maps-compose" w "6.12.2"
         val maps_ktx = "com.google.maps.android" d "maps-ktx" w "5.2.1"
         val maps_rx = "com.google.maps.android" d "maps-rx" w "1.0.0"
         val maps_utils = "com.google.maps.android" d "android-maps-utils" w "3.19.1"
@@ -1258,7 +1258,7 @@ object Com {
       val okhttp_urlconnection = "com.squareup.okhttp3" d "okhttp-urlconnection" w "5.3.0"
     }
     object Okio {
-      val okio = "com.squareup.okio" d "okio" w "3.16.2"
+      val okio = "com.squareup.okio" d "okio" w "3.16.3"
     }
     object Picasso {
       val picasso = "com.squareup.picasso" d "picasso" w "2.71828"
@@ -1671,14 +1671,14 @@ object Org {
         val common_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-common-wasm-js" w "2.9.6" w "2.10.0-alpha04"
         val runtime = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime" w "2.9.6" w "2.10.0-alpha04"
         val runtime_compose = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose" w "2.9.6" w "2.10.0-alpha04"
-        val runtime_compose_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose-js" w "2.9.6+dev3210" w "2.9.6-SNAPSHOT+release-1-9" w "2.9.6" w "2.10.0-alpha04"
-        val runtime_compose_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose-wasm-js" w "2.9.6+dev3210" w "2.9.6-SNAPSHOT+release-1-9" w "2.9.6" w "2.10.0-alpha04"
+        val runtime_compose_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose-js" w "2.9.6" w "2.10.0-alpha04"
+        val runtime_compose_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose-wasm-js" w "2.9.6" w "2.10.0-alpha04"
         val runtime_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-js" w "2.9.6" w "2.10.0-alpha04"
         val runtime_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-wasm-js" w "2.9.6" w "2.10.0-alpha04"
         val viewmodel = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel" w "2.9.6" w "2.10.0-alpha04"
         val viewmodel_compose = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose" w "2.9.6" w "2.10.0-alpha04"
-        val viewmodel_compose_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose-js" w "2.9.6+dev3210" w "2.9.6-SNAPSHOT+release-1-9" w "2.9.6" w "2.10.0-alpha04"
-        val viewmodel_compose_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose-wasm-js" w "2.9.6+dev3210" w "2.9.6-SNAPSHOT+release-1-9" w "2.9.6" w "2.10.0-alpha04"
+        val viewmodel_compose_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose-js" w "2.9.6" w "2.10.0-alpha04"
+        val viewmodel_compose_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose-wasm-js" w "2.9.6" w "2.10.0-alpha04"
         val viewmodel_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-js" w "2.9.6" w "2.10.0-alpha04"
         val viewmodel_savedstate = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-savedstate" w "2.9.6" w "2.10.0-alpha04"
         val viewmodel_savedstate_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-savedstate-js" w "2.9.6" w "2.10.0-alpha04"
@@ -2102,7 +2102,7 @@ object Org {
       val spring_cloud_stream_binder_rabbit = "org.springframework.cloud" d "spring-cloud-stream-binder-rabbit" w "4.3.0" w "5.0.0-RC1"
     }
     object Data {
-      val spring_data_rest_hal_explorer = "org.springframework.data" d "spring-data-rest-hal-explorer" w "4.5.5" w "5.0.0-RC2"
+      val spring_data_rest_hal_explorer = "org.springframework.data" d "spring-data-rest-hal-explorer" w "5.0.0"
     }
     object Geode {
       val spring_geode_bom = "org.springframework.geode" d "spring-geode-bom" w "1.7.5"
