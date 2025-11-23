@@ -1735,7 +1735,7 @@ object Org {
         val core_js = "org.jetbrains.compose.html" d "html-core-js" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3306"
         val core_jvm = "org.jetbrains.compose.html" d "html-core-jvm" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3306"
         val svg = "org.jetbrains.compose.html" d "html-svg" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3306"
-        val svg_js = "org.jetbrains.compose.html" d "html-svg-js" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3306"
+        val svg_js = "org.jetbrains.compose.html" d "html-svg-js" w "1.9.3" w "1.10.0-beta02"
         val test_utils = "org.jetbrains.compose.html" d "html-test-utils" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3306"
         val test_utils_js = "org.jetbrains.compose.html" d "html-test-utils-js" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3306"
       }
@@ -1750,7 +1750,7 @@ object Org {
         val material = "org.jetbrains.compose.material" d "material" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3306"
         val navigation = "org.jetbrains.compose.material" d "material-navigation" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3306"
         val navigation_js = "org.jetbrains.compose.material" d "material-navigation-js" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3306"
-        val navigation_wasm_js = "org.jetbrains.compose.material" d "material-navigation-wasm-js" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3306"
+        val navigation_wasm_js = "org.jetbrains.compose.material" d "material-navigation-wasm-js" w "1.9.3" w "1.10.0-beta02"
         val ripple = "org.jetbrains.compose.material" d "material-ripple" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3306"
         val ripple_js = "org.jetbrains.compose.material" d "material-ripple-js" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3306"
         val ripple_wasm_js = "org.jetbrains.compose.material" d "material-ripple-wasm-js" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3306"
@@ -1770,7 +1770,7 @@ object Org {
         val saveable = "org.jetbrains.compose.runtime" d "runtime-saveable" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3306"
         val saveable_js = "org.jetbrains.compose.runtime" d "runtime-saveable-js" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3306"
         val saveable_wasm_js = "org.jetbrains.compose.runtime" d "runtime-saveable-wasm-js" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3306"
-        val wasm_js = "org.jetbrains.compose.runtime" d "runtime-wasm-js" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3306"
+        val wasm_js = "org.jetbrains.compose.runtime" d "runtime-wasm-js" w "1.9.3" w "1.10.0-beta02"
       }
       object Ui {
         val geometry = "org.jetbrains.compose.ui" d "ui-geometry" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3306"
@@ -1790,8 +1790,8 @@ object Org {
         val tooling = "org.jetbrains.compose.ui" d "ui-tooling" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3306"
         val tooling_preview = "org.jetbrains.compose.ui" d "ui-tooling-preview" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3306"
         val ui = "org.jetbrains.compose.ui" d "ui" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3306"
-        val unit = "org.jetbrains.compose.ui" d "ui-unit" w "1.9.3" w "1.10.0-beta02"
-        val unit_js = "org.jetbrains.compose.ui" d "ui-unit-js" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3306"
+        val unit = "org.jetbrains.compose.ui" d "ui-unit" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3306"
+        val unit_js = "org.jetbrains.compose.ui" d "ui-unit-js" w "1.9.3" w "1.10.0-beta02"
         val unit_wasm_js = "org.jetbrains.compose.ui" d "ui-unit-wasm-js" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3306"
         val wasm_js = "org.jetbrains.compose.ui" d "ui-wasm-js" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3306"
       }
