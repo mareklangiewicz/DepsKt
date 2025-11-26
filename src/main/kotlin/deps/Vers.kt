@@ -93,7 +93,7 @@ object Vers {
    * - [github](https://github.com/vanniktech/gradle-maven-publish-plugin)
    * - [github releases](https://github.com/vanniktech/gradle-maven-publish-plugin/releases)
    */
-  val VannikPublishPlug = Ver("0.34.0")
+  val VannikPublishPlug = Ver("0.35.0")
 
   /**
    * Gradle Publish Plugin (gradle plugin for publishing gradle plugins)
@@ -140,7 +140,7 @@ object Vers {
    * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
    * [github](https://github.com/Kotlin/kotlin-jupyter)
    */
-  val KotlinJupyterPlug = Ver("0.15.2-702-1")
+  val KotlinJupyterPlug = Ver("0.16.0-742")
 
   /**
    * Gradle Shadow Gradle Plugin
@@ -165,7 +165,7 @@ object Vers {
    * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val DepsPlug = Ver(0, 3, 97) // also sync it in ../../../../build.gradle.kts
+  val DepsPlug = Ver(0, 3, 98) // also sync it in ../../../../build.gradle.kts
   // TODO use sourcefun to make sure it's always synced with myLibDetails(version)
 
   /**
@@ -186,7 +186,7 @@ object Vers {
    * - [gradle versions rel candidate](https://services.gradle.org/versions/release-candidate)
    * - [gradle versions current](https://services.gradle.org/versions/current)
    */
-  val Gradle9 = Ver("9.2.0")
+  val Gradle9 = Ver("9.2.1")
   val Gradle8 = Ver("8.14.3")
   val Gradle7 = Ver("7.6.4")
 
