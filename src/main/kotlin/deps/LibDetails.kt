@@ -44,6 +44,7 @@ data class LibSettings(
     withComposeDesktop = withJvm,
     withComposeHtmlCore = withJs,
     withComposeHtmlSvg = withJs,
+    withComposeTestUi = withTestJUnit4 || withTestJUnit5,
     withComposeTestUiJUnit4 = withTestJUnit4,
     withComposeTestUiJUnit5 = withTestJUnit5,
     withComposeTestHtmlUtils = withJs,
@@ -54,8 +55,6 @@ data class LibSettings(
     withComposeJbDev = false,
   ),
 ) {
-  @Deprecated("Use withLinuxX64", ReplaceWith("withLinuxX64"))
-  val withNativeLinux64 get() = withLinuxX64
   val withCompose get() = compose != null
   val withAndro get() = andro != null
 }
@@ -74,6 +73,7 @@ data class LibComposeSettings(
   // https://mvnrepository.com/artifact/org.jetbrains.compose.components/components-splitpane?repo=space-public-compose-dev
   val withComposeHtmlCore: Boolean = false,
   val withComposeHtmlSvg: Boolean = false,
+  val withComposeTestUi: Boolean = false,
   val withComposeTestUiJUnit4: Boolean = false,
   val withComposeTestUiJUnit5: Boolean = false,
   // Not yet supported, but let's use this flag to use when I want to experiment with junit5 anyway.
