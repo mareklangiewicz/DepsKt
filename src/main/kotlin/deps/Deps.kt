@@ -92,6 +92,9 @@ fun Dep.withVers(maxInstability: Instability) =
 
 val Dep.verLastStable get() = vers.lastOrNull { it.instability.instability == 0 } ?: throw NoSuchVerException(this, "No stable vers.")
 
+/** Last beta or more stable than beta */
+val Dep.verLastBeta get() = vers.lastOrNull { it.instability.instability <= 200 } ?: throw NoSuchVerException(this, "No beta vers.")
+
 // endregion [[Deps Data Structures]]
 
 
