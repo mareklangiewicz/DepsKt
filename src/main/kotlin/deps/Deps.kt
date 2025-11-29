@@ -1697,7 +1697,7 @@ object Org {
       object Animation {
         val animation = "org.jetbrains.compose.animation" d "animation" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3335"
         val core = "org.jetbrains.compose.animation" d "animation-core" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3335"
-        val core_js = "org.jetbrains.compose.animation" d "animation-core-js" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3335"
+        val core_js = "org.jetbrains.compose.animation" d "animation-core-js" w "1.9.3" w "1.10.0-beta02"
         val core_wasm_js = "org.jetbrains.compose.animation" d "animation-core-wasm-js" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3335"
         val graphics = "org.jetbrains.compose.animation" d "animation-graphics" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3335"
         val graphics_js = "org.jetbrains.compose.animation" d "animation-graphics-js" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3335"
@@ -1707,7 +1707,7 @@ object Org {
       }
       object Compiler {
         val compiler = "org.jetbrains.compose.compiler" d "compiler" w "1.5.14" w "1.5.15"
-        val hosted = "org.jetbrains.compose.compiler" d "compiler-hosted" w "1.5.14"
+        val hosted = "org.jetbrains.compose.compiler" d "compiler-hosted" w "1.5.14" w "1.5.15"
       }
       object Components {
         val animatedimage = "org.jetbrains.compose.components" d "components-animatedimage" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3335"
@@ -1736,7 +1736,7 @@ object Org {
         val benchmark_core_js = "org.jetbrains.compose.html" d "html-benchmark-core-js" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3335"
         val core = "org.jetbrains.compose.html" d "html-core" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3335"
         val core_js = "org.jetbrains.compose.html" d "html-core-js" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3335"
-        val core_jvm = "org.jetbrains.compose.html" d "html-core-jvm" w "1.9.3" w "1.10.0-beta02"
+        val core_jvm = "org.jetbrains.compose.html" d "html-core-jvm" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3335"
         val svg = "org.jetbrains.compose.html" d "html-svg" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3335"
         val svg_js = "org.jetbrains.compose.html" d "html-svg-js" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3335"
         val test_utils = "org.jetbrains.compose.html" d "html-test-utils" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3335"
@@ -1769,7 +1769,7 @@ object Org {
       }
       object Runtime {
         val js = "org.jetbrains.compose.runtime" d "runtime-js" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3335"
-        val runtime = "org.jetbrains.compose.runtime" d "runtime" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3335"
+        val runtime = "org.jetbrains.compose.runtime" d "runtime" w "1.9.3" w "1.10.0-beta02"
         val saveable = "org.jetbrains.compose.runtime" d "runtime-saveable" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3335"
         val saveable_js = "org.jetbrains.compose.runtime" d "runtime-saveable-js" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3335"
         val saveable_wasm_js = "org.jetbrains.compose.runtime" d "runtime-saveable-wasm-js" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3335"
