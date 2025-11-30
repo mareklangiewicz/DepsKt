@@ -1690,14 +1690,14 @@ object Org {
       }
     }
     object Compose {
-      val full = "org.jetbrains.compose" d "compose-full" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3335"
+      val full = "org.jetbrains.compose" d "compose-full" w "1.9.3" w "1.10.0-beta02"
       val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3335"
       val preview_rpc = "org.jetbrains.compose" d "preview-rpc" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3335"
       val preview_runtime_desktop = "org.jetbrains.compose" d "compose-preview-runtime-desktop" w "0.5.0-build228"
       object Animation {
         val animation = "org.jetbrains.compose.animation" d "animation" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3335"
         val core = "org.jetbrains.compose.animation" d "animation-core" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3335"
-        val core_js = "org.jetbrains.compose.animation" d "animation-core-js" w "1.9.3" w "1.10.0-beta02"
+        val core_js = "org.jetbrains.compose.animation" d "animation-core-js" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3335"
         val core_wasm_js = "org.jetbrains.compose.animation" d "animation-core-wasm-js" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3335"
         val graphics = "org.jetbrains.compose.animation" d "animation-graphics" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3335"
         val graphics_js = "org.jetbrains.compose.animation" d "animation-graphics-js" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3335"
@@ -1769,7 +1769,7 @@ object Org {
       }
       object Runtime {
         val js = "org.jetbrains.compose.runtime" d "runtime-js" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3335"
-        val runtime = "org.jetbrains.compose.runtime" d "runtime" w "1.9.3" w "1.10.0-beta02"
+        val runtime = "org.jetbrains.compose.runtime" d "runtime" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3335"
         val saveable = "org.jetbrains.compose.runtime" d "runtime-saveable" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3335"
         val saveable_js = "org.jetbrains.compose.runtime" d "runtime-saveable-js" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3335"
         val saveable_wasm_js = "org.jetbrains.compose.runtime" d "runtime-saveable-wasm-js" w "1.9.3" w "1.10.0-beta02" w "1.10.10-alpha01+dev3335"
