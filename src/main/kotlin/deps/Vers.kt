@@ -118,8 +118,9 @@ object Vers {
    * - [releases](https://developer.android.com/studio/releases/gradle-plugin)
    */
   val AndroPlugEdge = Com.Android.Tools.Build.gradle.verLast
+  val AndroPlugBeta = Com.Android.Tools.Build.gradle.verLastBeta
   val AndroPlugStable = Com.Android.Tools.Build.gradle.verLastStable
-  val AndroPlug = AndroPlugEdge
+  val AndroPlug = AndroPlugBeta
 
   /**
    * Dokka Gradle Plugin
