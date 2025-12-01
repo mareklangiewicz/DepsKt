@@ -31,8 +31,10 @@ data class LibSettings(
   val withJs: Boolean = true,
   val withLinuxX64: Boolean = false,
   val withKotlinxHtml: Boolean = false,
-  val withTestJUnit4: Boolean = false,
   val withTestJUnit5: Boolean = withJvm,
+  val withTestJUnit4: Boolean = false,
+  /** Needed because JUnit5 is STILL not supported for android on device tests.. */
+  val withTestJUnit4OnAndroidDevice: Boolean = false,
   val withTestUSpekX: Boolean = true,
   val withTestGoogleTruth: Boolean = false,
   val withTestMockitoKotlin: Boolean = false,
