@@ -47,14 +47,6 @@ object Vers {
 
 
   val ComposeJbEdge = Org.JetBrains.Compose.gradle_plugin.verLast
-  // val ComposeJbEdge = Ver("1.7.0-dev185")
-
-  // The refreshDeps found 1692 one but looks like not fully released (tried and error downloading some artifacts)
-  // I tried 1690 which worked for template-mpp but not for uwidgets (js), so falling back to 1686
-  // UPDATE: I reported bug with 1698 with reproducer:
-  // https://youtrack.jetbrains.com/issue/CMP-1583/K2-JS-1.7.0-dev1698-in-browser-TypeError-content-is-not-a-function
-  // UPDATE2: Looks like it's fixed in kotlin 2.0.20-Beta2!! (works in reproduce-06; let's try in other projects)
-
   val ComposeJbBeta = Org.JetBrains.Compose.gradle_plugin.verLastBeta
   val ComposeJbStable = Org.JetBrains.Compose.gradle_plugin.verLastStable
 
@@ -142,7 +134,7 @@ object Vers {
    * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
    * [github](https://github.com/Kotlin/kotlin-jupyter)
    */
-  val KotlinJupyterPlug = Ver("0.17.0-750")
+  val KotlinJupyterPlug = Ver("0.17.0-752")
 
   /**
    * Gradle Shadow Gradle Plugin
@@ -167,7 +159,7 @@ object Vers {
    * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val DepsPlug = Ver(0, 4, 1) // also sync it in ../../../../build.gradle.kts
+  val DepsPlug = Ver(0, 4, 2) // also sync it in ../../../../build.gradle.kts
   // TODO use sourcefun to make sure it's always synced with myLibDetails(version)
 
   /**
