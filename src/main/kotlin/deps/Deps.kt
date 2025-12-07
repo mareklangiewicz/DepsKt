@@ -229,7 +229,7 @@ object AndroidX {
   }
   object Annotation {
     val annotation = "androidx.annotation" d "annotation" w "1.3.0-alpha01" w "1.9.1"
-    val experimental = "androidx.annotation" d "annotation-experimental" w "1.2.0-alpha01" w "1.5.1" w "1.6.0-alpha01"
+    val experimental = "androidx.annotation" d "annotation-experimental" w "1.5.1" w "1.6.0-alpha01"
   }
   object AppCompat {
     val appcompat = "androidx.appcompat" d "appcompat" w "1.7.1"
@@ -1720,7 +1720,7 @@ object Org {
         val ui_tooling_preview_wasmjs = "org.jetbrains.compose.components" d "components-ui-tooling-preview-wasmJs" w "1.9.3" w "1.10.0-rc01" w "1.10.10-alpha01+dev3363"
       }
       object Desktop {
-        val desktop = "org.jetbrains.compose.desktop" d "desktop" w "1.9.3" w "1.10.0-rc01"
+        val desktop = "org.jetbrains.compose.desktop" d "desktop" w "1.9.3" w "1.10.0-rc01" w "1.11.0-alpha01+dev3366"
         val jvm = "org.jetbrains.compose.desktop" d "desktop-jvm" w "1.9.3" w "1.10.0-rc01" w "1.11.0-alpha01+dev3366"
       }
       object Foundation {
@@ -1740,7 +1740,7 @@ object Org {
         val svg = "org.jetbrains.compose.html" d "html-svg" w "1.9.3" w "1.10.0-rc01" w "1.10.10-alpha01+dev3363"
         val svg_js = "org.jetbrains.compose.html" d "html-svg-js" w "1.9.3" w "1.10.0-rc01" w "1.10.10-alpha01+dev3363"
         val test_utils = "org.jetbrains.compose.html" d "html-test-utils" w "1.9.3" w "1.10.0-rc01" w "1.10.10-alpha01+dev3363"
-        val test_utils_js = "org.jetbrains.compose.html" d "html-test-utils-js" w "1.9.3" w "1.10.0-rc01" w "1.10.10-alpha01+dev3363"
+        val test_utils_js = "org.jetbrains.compose.html" d "html-test-utils-js" w "1.9.3" w "1.10.0-rc01"
       }
       object Material {
         val icons_core = "org.jetbrains.compose.material" d "material-icons-core" w "1.7.3"
@@ -1782,7 +1782,7 @@ object Org {
         val graphics = "org.jetbrains.compose.ui" d "ui-graphics" w "1.9.3" w "1.10.0-rc01" w "1.11.0-alpha01+dev3366"
         val graphics_js = "org.jetbrains.compose.ui" d "ui-graphics-js" w "1.9.3" w "1.10.0-rc01" w "1.11.0-alpha01+dev3366"
         val graphics_wasm_js = "org.jetbrains.compose.ui" d "ui-graphics-wasm-js" w "1.9.3" w "1.10.0-rc01" w "1.11.0-alpha01+dev3366"
-        val js = "org.jetbrains.compose.ui" d "ui-js" w "1.9.3" w "1.10.0-rc01" w "1.11.0-alpha01+dev3366"
+        val js = "org.jetbrains.compose.ui" d "ui-js" w "1.9.3" w "1.10.0-rc01"
         val test = "org.jetbrains.compose.ui" d "ui-test" w "1.9.3" w "1.10.0-rc01" w "1.11.0-alpha01+dev3366"
         val test_js = "org.jetbrains.compose.ui" d "ui-test-js" w "1.9.3" w "1.10.0-rc01" w "1.11.0-alpha01+dev3366"
         val test_junit4 = "org.jetbrains.compose.ui" d "ui-test-junit4" w "1.9.3" w "1.10.0-rc01" w "1.11.0-alpha01+dev3366"
