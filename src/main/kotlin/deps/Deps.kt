@@ -546,7 +546,7 @@ object AndroidX {
     val multidex = "androidx.multidex" d "multidex" w "2.0.1"
   }
   object Navigation {
-    val common = "androidx.navigation" d "navigation-common" w "2.9.6"
+    val common = "androidx.navigation" d "navigation-common" w "2.4.0-alpha02" w "2.9.6"
     val common_ktx = "androidx.navigation" d "navigation-common-ktx" w "2.4.0-alpha02" w "2.9.6"
     val compose = "androidx.navigation" d "navigation-compose" w "2.4.0-alpha02" w "2.9.6"
     val dynamic_features_fragment = "androidx.navigation" d "navigation-dynamic-features-fragment" w "2.9.6"
@@ -1510,9 +1510,9 @@ object Io {
     val websockets = "io.ktor" d "ktor-websockets" w "3.3.3"
   }
   object MockK {
-    val android = "io.mockk" d "mockk-android" w "1.14.6"
+    val android = "io.mockk" d "mockk-android" w "1.14.7"
     val common = "io.mockk" d "mockk-common" w "1.12.5"
-    val mockk = "io.mockk" d "mockk" w "1.14.6"
+    val mockk = "io.mockk" d "mockk" w "1.14.7"
   }
   object Pivotal {
     object Spring {
@@ -1703,7 +1703,7 @@ object Org {
         val graphics_js = "org.jetbrains.compose.animation" d "animation-graphics-js" w "1.9.3" w "1.10.0-rc01" w "1.11.0-alpha01+dev3366"
         val graphics_wasm_js = "org.jetbrains.compose.animation" d "animation-graphics-wasm-js" w "1.9.3" w "1.10.0-rc01" w "1.11.0-alpha01+dev3366"
         val js = "org.jetbrains.compose.animation" d "animation-js" w "1.9.3" w "1.10.0-rc01" w "1.11.0-alpha01+dev3366"
-        val wasm_js = "org.jetbrains.compose.animation" d "animation-wasm-js" w "1.9.3" w "1.10.0-rc01"
+        val wasm_js = "org.jetbrains.compose.animation" d "animation-wasm-js" w "1.9.3" w "1.10.0-rc01" w "1.11.0-alpha01+dev3366"
       }
       object Compiler {
         val compiler = "org.jetbrains.compose.compiler" d "compiler" w "1.5.14" w "1.5.15"
@@ -1720,7 +1720,7 @@ object Org {
         val ui_tooling_preview_wasmjs = "org.jetbrains.compose.components" d "components-ui-tooling-preview-wasmJs" w "1.9.3" w "1.10.0-rc01" w "1.10.10-alpha01+dev3363"
       }
       object Desktop {
-        val desktop = "org.jetbrains.compose.desktop" d "desktop" w "1.9.3" w "1.10.0-rc01" w "1.11.0-alpha01+dev3366"
+        val desktop = "org.jetbrains.compose.desktop" d "desktop" w "1.9.3" w "1.10.0-rc01"
         val jvm = "org.jetbrains.compose.desktop" d "desktop-jvm" w "1.9.3" w "1.10.0-rc01" w "1.11.0-alpha01+dev3366"
       }
       object Foundation {
@@ -1771,7 +1771,7 @@ object Org {
         val js = "org.jetbrains.compose.runtime" d "runtime-js" w "1.9.3" w "1.10.0-rc01" w "1.11.0-alpha01+dev3366"
         val runtime = "org.jetbrains.compose.runtime" d "runtime" w "1.9.3" w "1.10.0-rc01" w "1.11.0-alpha01+dev3366"
         val saveable = "org.jetbrains.compose.runtime" d "runtime-saveable" w "1.9.3" w "1.10.0-rc01" w "1.11.0-alpha01+dev3366"
-        val saveable_js = "org.jetbrains.compose.runtime" d "runtime-saveable-js" w "1.9.3" w "1.10.0-rc01"
+        val saveable_js = "org.jetbrains.compose.runtime" d "runtime-saveable-js" w "1.9.3" w "1.10.0-rc01" w "1.11.0-alpha01+dev3366"
         val saveable_wasm_js = "org.jetbrains.compose.runtime" d "runtime-saveable-wasm-js" w "1.9.3" w "1.10.0-rc01" w "1.11.0-alpha01+dev3366"
         val wasm_js = "org.jetbrains.compose.runtime" d "runtime-wasm-js" w "1.9.3" w "1.10.0-rc01" w "1.11.0-alpha01+dev3366"
       }
