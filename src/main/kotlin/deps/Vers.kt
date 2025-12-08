@@ -134,7 +134,7 @@ object Vers {
    * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
    * [github](https://github.com/Kotlin/kotlin-jupyter)
    */
-  val KotlinJupyterPlug = Ver("0.17.0-752")
+  val KotlinJupyterPlug = Ver("0.17.0-755")
 
   /**
    * Gradle Shadow Gradle Plugin
@@ -142,7 +142,7 @@ object Vers {
    * - [github john rengelman shadow](https://github.com/johnrengelman/shadow)
    * - [docs](https://github.com/johnrengelman/shadow)
    */
-  val GradleShadowPlug = Ver("9.2.2")
+  val GradleShadowPlug = Ver("9.3.0")
 
   /**
    * Osacky Doctor Gradle Plugin
@@ -159,7 +159,7 @@ object Vers {
    * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val DepsPlug = Ver(0, 4, 2) // also sync it in ../../../../build.gradle.kts
+  val DepsPlug = Ver(0, 4, 3) // also sync it in ../../../../build.gradle.kts
   // TODO use sourcefun to make sure it's always synced with myLibDetails(version)
 
   /**
@@ -168,7 +168,7 @@ object Vers {
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    * - [plugins gradle sourcefun](https://plugins.gradle.org/plugin/pl.mareklangiewicz.sourcefun)
    */
-  val SourceFunPlug = Ver("0.4.35")
+  val SourceFunPlug = Ver("0.4.36")
 
   const val JvmDefaultVer = "23"
 
@@ -180,7 +180,7 @@ object Vers {
    * - [gradle versions rel candidate](https://services.gradle.org/versions/release-candidate)
    * - [gradle versions current](https://services.gradle.org/versions/current)
    */
-  val Gradle9 = Ver("9.2.1")
+  val Gradle9 = Ver("9.3.0-rc-1")
   val Gradle8 = Ver("8.14.3")
   val Gradle7 = Ver("7.6.4")
 
