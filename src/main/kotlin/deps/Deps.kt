@@ -795,8 +795,8 @@ object Co {
 object Com {
   object Android {
     object Billingclient {
-      val billing = "com.android.billingclient" d "billing" w "8.2.0"
-      val billing_ktx = "com.android.billingclient" d "billing-ktx" w "8.2.0"
+      val billing = "com.android.billingclient" d "billing" w "8.2.1"
+      val billing_ktx = "com.android.billingclient" d "billing-ktx" w "8.2.1"
     }
     object Installreferrer {
       val installreferrer = "com.android.installreferrer" d "installreferrer" w "2.2"
@@ -1690,7 +1690,7 @@ object Org {
       }
     }
     object Compose {
-      val full = "org.jetbrains.compose" d "compose-full" w "1.9.3" w "1.10.0-rc02"
+      val full = "org.jetbrains.compose" d "compose-full" w "1.9.3" w "1.10.0-rc02" w "1.11.0-alpha01"
       val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.9.3" w "1.10.0-rc02" w "1.11.0-alpha01"
       val preview_rpc = "org.jetbrains.compose" d "preview-rpc" w "1.9.3" w "1.10.0-rc02" w "1.11.0-alpha01"
       val preview_runtime_desktop = "org.jetbrains.compose" d "compose-preview-runtime-desktop" w "0.5.0-build228"
@@ -2007,7 +2007,7 @@ object Org {
   }
   object SpringFramework {
     object Amqp {
-      val spring_rabbit_test = "org.springframework.amqp" d "spring-rabbit-test" w "4.0.0"
+      val spring_rabbit_test = "org.springframework.amqp" d "spring-rabbit-test" w "4.0.1"
     }
     object Batch {
       val spring_batch_test = "org.springframework.batch" d "spring-batch-test" w "6.0.0"
@@ -2131,20 +2131,20 @@ object Org {
       val spring_integration_ws = "org.springframework.integration" d "spring-integration-ws" w "7.0.0"
     }
     object Kafka {
-      val spring_kafka = "org.springframework.kafka" d "spring-kafka" w "4.0.0"
-      val spring_kafka_test = "org.springframework.kafka" d "spring-kafka-test" w "4.0.0"
+      val spring_kafka = "org.springframework.kafka" d "spring-kafka" w "4.0.1"
+      val spring_kafka_test = "org.springframework.kafka" d "spring-kafka-test" w "4.0.1"
     }
     object Restdocs {
       val spring_restdocs_webtestclient = "org.springframework.restdocs" d "spring-restdocs-webtestclient" w "4.0.0"
     }
     object Security {
-      val spring_security_messaging = "org.springframework.security" d "spring-security-messaging" w "7.0.0"
-      val spring_security_rsocket = "org.springframework.security" d "spring-security-rsocket" w "7.0.0"
-      val spring_security_test = "org.springframework.security" d "spring-security-test" w "7.0.0"
+      val spring_security_messaging = "org.springframework.security" d "spring-security-messaging" w "7.0.2"
+      val spring_security_rsocket = "org.springframework.security" d "spring-security-rsocket" w "7.0.2"
+      val spring_security_test = "org.springframework.security" d "spring-security-test" w "7.0.2"
     }
     object Session {
-      val spring_session_data_redis = "org.springframework.session" d "spring-session-data-redis" w "4.0.0"
-      val spring_session_jdbc = "org.springframework.session" d "spring-session-jdbc" w "4.0.0"
+      val spring_session_data_redis = "org.springframework.session" d "spring-session-data-redis" w "4.0.1"
+      val spring_session_jdbc = "org.springframework.session" d "spring-session-jdbc" w "4.0.1"
     }
   }
 }
@@ -2154,38 +2154,38 @@ object Pl {
     val abcdk_js = "pl.mareklangiewicz" d "abcdk-js" w "0.0.37"
     val abcdk_jvm = "pl.mareklangiewicz" d "abcdk-jvm" w "0.0.37"
     val abcdk_linuxx64 = "pl.mareklangiewicz" d "abcdk-linuxx64" w "0.0.37"
-    val kground = "pl.mareklangiewicz" d "kground" w "0.1.20"
-    val kground_io = "pl.mareklangiewicz" d "kground-io" w "0.1.20"
-    val kground_io_js = "pl.mareklangiewicz" d "kground-io-js" w "0.1.20"
-    val kground_io_jvm = "pl.mareklangiewicz" d "kground-io-jvm" w "0.1.20"
-    val kground_io_linuxx64 = "pl.mareklangiewicz" d "kground-io-linuxx64" w "0.1.20"
-    val kground_js = "pl.mareklangiewicz" d "kground-js" w "0.1.20"
-    val kground_jvm = "pl.mareklangiewicz" d "kground-jvm" w "0.1.20"
-    val kground_linuxx64 = "pl.mareklangiewicz" d "kground-linuxx64" w "0.1.20"
-    val kgroundx = "pl.mareklangiewicz" d "kgroundx" w "0.1.20"
-    val kgroundx_experiments = "pl.mareklangiewicz" d "kgroundx-experiments" w "0.1.20"
-    val kgroundx_experiments_jvm = "pl.mareklangiewicz" d "kgroundx-experiments-jvm" w "0.1.20"
-    val kgroundx_io = "pl.mareklangiewicz" d "kgroundx-io" w "0.1.20"
-    val kgroundx_io_js = "pl.mareklangiewicz" d "kgroundx-io-js" w "0.1.20"
-    val kgroundx_io_jvm = "pl.mareklangiewicz" d "kgroundx-io-jvm" w "0.1.20"
-    val kgroundx_io_linuxx64 = "pl.mareklangiewicz" d "kgroundx-io-linuxx64" w "0.1.20"
-    val kgroundx_js = "pl.mareklangiewicz" d "kgroundx-js" w "0.1.20"
-    val kgroundx_jupyter = "pl.mareklangiewicz" d "kgroundx-jupyter" w "0.1.20"
-    val kgroundx_jupyter_jvm = "pl.mareklangiewicz" d "kgroundx-jupyter-jvm" w "0.1.20"
-    val kgroundx_jvm = "pl.mareklangiewicz" d "kgroundx-jvm" w "0.1.20"
-    val kgroundx_linuxx64 = "pl.mareklangiewicz" d "kgroundx-linuxx64" w "0.1.20"
-    val kgroundx_maintenance = "pl.mareklangiewicz" d "kgroundx-maintenance" w "0.1.20"
-    val kgroundx_maintenance_jvm = "pl.mareklangiewicz" d "kgroundx-maintenance-jvm" w "0.1.20"
-    val kgroundx_workflows = "pl.mareklangiewicz" d "kgroundx-workflows" w "0.1.20"
-    val kgroundx_workflows_jvm = "pl.mareklangiewicz" d "kgroundx-workflows-jvm" w "0.1.20"
-    val kommand_line = "pl.mareklangiewicz" d "kommand-line" w "0.1.20"
-    val kommand_line_js = "pl.mareklangiewicz" d "kommand-line-js" w "0.1.20"
-    val kommand_line_jvm = "pl.mareklangiewicz" d "kommand-line-jvm" w "0.1.20"
-    val kommand_line_linuxx64 = "pl.mareklangiewicz" d "kommand-line-linuxx64" w "0.1.20"
-    val kommand_samples = "pl.mareklangiewicz" d "kommand-samples" w "0.1.20"
-    val kommand_samples_js = "pl.mareklangiewicz" d "kommand-samples-js" w "0.1.20"
-    val kommand_samples_jvm = "pl.mareklangiewicz" d "kommand-samples-jvm" w "0.1.20"
-    val kommand_samples_linuxx64 = "pl.mareklangiewicz" d "kommand-samples-linuxx64" w "0.1.20"
+    val kground = "pl.mareklangiewicz" d "kground" w "0.1.21"
+    val kground_io = "pl.mareklangiewicz" d "kground-io" w "0.1.21"
+    val kground_io_js = "pl.mareklangiewicz" d "kground-io-js" w "0.1.21"
+    val kground_io_jvm = "pl.mareklangiewicz" d "kground-io-jvm" w "0.1.21"
+    val kground_io_linuxx64 = "pl.mareklangiewicz" d "kground-io-linuxx64" w "0.1.21"
+    val kground_js = "pl.mareklangiewicz" d "kground-js" w "0.1.21"
+    val kground_jvm = "pl.mareklangiewicz" d "kground-jvm" w "0.1.21"
+    val kground_linuxx64 = "pl.mareklangiewicz" d "kground-linuxx64" w "0.1.21"
+    val kgroundx = "pl.mareklangiewicz" d "kgroundx" w "0.1.21"
+    val kgroundx_experiments = "pl.mareklangiewicz" d "kgroundx-experiments" w "0.1.21"
+    val kgroundx_experiments_jvm = "pl.mareklangiewicz" d "kgroundx-experiments-jvm" w "0.1.21"
+    val kgroundx_io = "pl.mareklangiewicz" d "kgroundx-io" w "0.1.21"
+    val kgroundx_io_js = "pl.mareklangiewicz" d "kgroundx-io-js" w "0.1.21"
+    val kgroundx_io_jvm = "pl.mareklangiewicz" d "kgroundx-io-jvm" w "0.1.21"
+    val kgroundx_io_linuxx64 = "pl.mareklangiewicz" d "kgroundx-io-linuxx64" w "0.1.21"
+    val kgroundx_js = "pl.mareklangiewicz" d "kgroundx-js" w "0.1.21"
+    val kgroundx_jupyter = "pl.mareklangiewicz" d "kgroundx-jupyter" w "0.1.21"
+    val kgroundx_jupyter_jvm = "pl.mareklangiewicz" d "kgroundx-jupyter-jvm" w "0.1.21"
+    val kgroundx_jvm = "pl.mareklangiewicz" d "kgroundx-jvm" w "0.1.21"
+    val kgroundx_linuxx64 = "pl.mareklangiewicz" d "kgroundx-linuxx64" w "0.1.21"
+    val kgroundx_maintenance = "pl.mareklangiewicz" d "kgroundx-maintenance" w "0.1.21"
+    val kgroundx_maintenance_jvm = "pl.mareklangiewicz" d "kgroundx-maintenance-jvm" w "0.1.21"
+    val kgroundx_workflows = "pl.mareklangiewicz" d "kgroundx-workflows" w "0.1.21"
+    val kgroundx_workflows_jvm = "pl.mareklangiewicz" d "kgroundx-workflows-jvm" w "0.1.21"
+    val kommand_line = "pl.mareklangiewicz" d "kommand-line" w "0.1.21"
+    val kommand_line_js = "pl.mareklangiewicz" d "kommand-line-js" w "0.1.21"
+    val kommand_line_jvm = "pl.mareklangiewicz" d "kommand-line-jvm" w "0.1.21"
+    val kommand_line_linuxx64 = "pl.mareklangiewicz" d "kommand-line-linuxx64" w "0.1.21"
+    val kommand_samples = "pl.mareklangiewicz" d "kommand-samples" w "0.1.21"
+    val kommand_samples_js = "pl.mareklangiewicz" d "kommand-samples-js" w "0.1.21"
+    val kommand_samples_jvm = "pl.mareklangiewicz" d "kommand-samples-jvm" w "0.1.21"
+    val kommand_samples_linuxx64 = "pl.mareklangiewicz" d "kommand-samples-linuxx64" w "0.1.21"
     val rxmock = "pl.mareklangiewicz" d "rxmock" w "0.0.25"
     val rxmock_jvm = "pl.mareklangiewicz" d "rxmock-jvm" w "0.0.25"
     val smokk = "pl.mareklangiewicz" d "smokk" w "0.0.10"
