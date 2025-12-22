@@ -1573,7 +1573,7 @@ object JUnit {
 object Org {
   object AssertJ {
     val core = "org.assertj" d "assertj-core" w "3.27.6" w "4.0.0-M1"
-    val db = "org.assertj" d "assertj-db" w "3.0.0"
+    val db = "org.assertj" d "assertj-db" w "3.0.1"
     val guava = "org.assertj" d "assertj-guava" w "3.27.6" w "4.0.0-M1"
     val joda_time = "org.assertj" d "assertj-joda-time" w "2.2.0"
     val swing = "org.assertj" d "assertj-swing" w "3.17.1"
@@ -1706,7 +1706,7 @@ object Org {
         val wasm_js = "org.jetbrains.compose.animation" d "animation-wasm-js" w "1.9.3" w "1.10.0-rc02" w "1.11.0-alpha01"
       }
       object Compiler {
-        val compiler = "org.jetbrains.compose.compiler" d "compiler" w "1.5.14" w "1.5.15"
+        val compiler = "org.jetbrains.compose.compiler" d "compiler" w "1.5.14"
         val hosted = "org.jetbrains.compose.compiler" d "compiler-hosted" w "1.5.14" w "1.5.15"
       }
       object Components {
