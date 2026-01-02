@@ -310,7 +310,7 @@ object AndroidX {
     }
     object Material {
       val icons_core = "androidx.compose.material" d "material-icons-core" w "1.0.0-beta06" w "1.7.8"
-      val icons_extended = "androidx.compose.material" d "material-icons-extended" w "1.0.0-beta06" w "1.7.8"
+      val icons_extended = "androidx.compose.material" d "material-icons-extended" w "1.7.8"
       val material = "androidx.compose.material" d "material" w "1.0.0-beta06" w "1.10.0" w "1.11.0-alpha02"
       val ripple = "androidx.compose.material" d "material-ripple" w "1.0.0-beta06" w "1.10.0" w "1.11.0-alpha02"
     }
