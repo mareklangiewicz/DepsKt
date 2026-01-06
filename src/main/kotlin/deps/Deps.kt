@@ -224,7 +224,7 @@ private infix fun Dep.w(verStr: String) = copy(vers = vers + Ver(verStr))
 object AndroidX {
   object Activity {
     val activity = "androidx.activity" d "activity" w "1.3.0-beta01" w "1.12.2"
-    val compose = "androidx.activity" d "activity-compose" w "1.3.0-beta01" w "1.12.2"
+    val compose = "androidx.activity" d "activity-compose" w "1.12.2"
     val ktx = "androidx.activity" d "activity-ktx" w "1.3.0-beta01" w "1.12.2"
   }
   object Annotation {
@@ -305,7 +305,7 @@ object AndroidX {
       val compiler = "androidx.compose.compiler" d "compiler" w "1.0.0-beta06" w "1.5.15"
     }
     object Foundation {
-      val foundation = "androidx.compose.foundation" d "foundation" w "1.10.0" w "1.11.0-alpha02"
+      val foundation = "androidx.compose.foundation" d "foundation" w "1.0.0-beta06" w "1.10.0" w "1.11.0-alpha02"
       val layout = "androidx.compose.foundation" d "foundation-layout" w "1.0.0-beta06" w "1.10.0" w "1.11.0-alpha02"
     }
     object Material {
@@ -805,7 +805,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.5"
       val r8 = "com.android.tools" d "r8" w "8.13.17"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.13.2" w "9.0.0-rc02" w "9.1.0-alpha02"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.13.2" w "9.0.0-rc02" w "9.1.0-alpha03"
       }
     }
   }
