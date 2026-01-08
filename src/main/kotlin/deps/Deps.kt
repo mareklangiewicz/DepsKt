@@ -224,7 +224,7 @@ private infix fun Dep.w(verStr: String) = copy(vers = vers + Ver(verStr))
 object AndroidX {
   object Activity {
     val activity = "androidx.activity" d "activity" w "1.3.0-beta01" w "1.12.2"
-    val compose = "androidx.activity" d "activity-compose" w "1.12.2"
+    val compose = "androidx.activity" d "activity-compose" w "1.3.0-beta01" w "1.12.2"
     val ktx = "androidx.activity" d "activity-ktx" w "1.3.0-beta01" w "1.12.2"
   }
   object Annotation {
@@ -1651,19 +1651,19 @@ object Org {
     val testing_webdriver = "org.http4k" d "http4k-testing-webdriver" w "6.25.1.0"
   }
   object JUnit {
-    val bom = "org.junit" d "junit-bom" w "6.0.1" w "6.1.0-M1"
+    val bom = "org.junit" d "junit-bom" w "6.0.2" w "6.1.0-M1"
     object Jupiter {
-      val junit_jupiter = "org.junit.jupiter" d "junit-jupiter" w "6.0.1" w "6.1.0-M1"
-      val junit_jupiter_api = "org.junit.jupiter" d "junit-jupiter-api" w "6.0.1" w "6.1.0-M1"
-      val junit_jupiter_engine = "org.junit.jupiter" d "junit-jupiter-engine" w "6.0.1" w "6.1.0-M1"
-      val junit_jupiter_migrationsupport = "org.junit.jupiter" d "junit-jupiter-migrationsupport" w "6.0.1" w "6.1.0-M1"
-      val junit_jupiter_params = "org.junit.jupiter" d "junit-jupiter-params" w "6.0.1" w "6.1.0-M1"
+      val junit_jupiter = "org.junit.jupiter" d "junit-jupiter" w "6.0.2" w "6.1.0-M1"
+      val junit_jupiter_api = "org.junit.jupiter" d "junit-jupiter-api" w "6.0.2" w "6.1.0-M1"
+      val junit_jupiter_engine = "org.junit.jupiter" d "junit-jupiter-engine" w "6.0.2" w "6.1.0-M1"
+      val junit_jupiter_migrationsupport = "org.junit.jupiter" d "junit-jupiter-migrationsupport" w "6.0.2" w "6.1.0-M1"
+      val junit_jupiter_params = "org.junit.jupiter" d "junit-jupiter-params" w "6.0.2" w "6.1.0-M1"
     }
     object Platform {
-      val junit_platform_commons = "org.junit.platform" d "junit-platform-commons" w "6.0.1" w "6.1.0-M1"
-      val junit_platform_engine = "org.junit.platform" d "junit-platform-engine" w "6.0.1" w "6.1.0-M1"
-      val junit_platform_launcher = "org.junit.platform" d "junit-platform-launcher" w "6.0.1" w "6.1.0-M1"
-      val junit_platform_runner = "org.junit.platform" d "junit-platform-runner" w "1.14.1"
+      val junit_platform_commons = "org.junit.platform" d "junit-platform-commons" w "6.0.2" w "6.1.0-M1"
+      val junit_platform_engine = "org.junit.platform" d "junit-platform-engine" w "6.0.2" w "6.1.0-M1"
+      val junit_platform_launcher = "org.junit.platform" d "junit-platform-launcher" w "6.0.2" w "6.1.0-M1"
+      val junit_platform_runner = "org.junit.platform" d "junit-platform-runner" w "1.14.2"
     }
   }
   object JetBrains {
