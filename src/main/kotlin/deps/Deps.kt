@@ -328,7 +328,7 @@ object AndroidX {
       val tracing = "androidx.compose.runtime" d "runtime-tracing" w "1.10.0" w "1.11.0-alpha02"
     }
     object Ui {
-      val geometry = "androidx.compose.ui" d "ui-geometry" w "1.0.0-beta06" w "1.10.0" w "1.11.0-alpha02"
+      val geometry = "androidx.compose.ui" d "ui-geometry" w "1.10.0" w "1.11.0-alpha02"
       val graphics = "androidx.compose.ui" d "ui-graphics" w "1.0.0-beta06" w "1.10.0" w "1.11.0-alpha02"
       val test = "androidx.compose.ui" d "ui-test" w "1.0.0-beta06" w "1.10.0" w "1.11.0-alpha02"
       val test_junit4 = "androidx.compose.ui" d "ui-test-junit4" w "1.0.0-beta06" w "1.10.0" w "1.11.0-alpha02"
