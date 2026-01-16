@@ -805,7 +805,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.5"
       val r8 = "com.android.tools" d "r8" w "8.13.19"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.13.2" w "9.0.0-rc03" w "9.1.0-alpha04"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.0.0" w "9.1.0-alpha05"
       }
     }
   }
@@ -826,9 +826,9 @@ object Com {
   object GitHub {
     object Ajalt {
       object Clikt {
-        val clikt = "com.github.ajalt.clikt" d "clikt" w "5.0.3"
-        val core = "com.github.ajalt.clikt" d "clikt-core" w "5.0.3"
-        val markdown = "com.github.ajalt.clikt" d "clikt-markdown" w "5.0.3"
+        val clikt = "com.github.ajalt.clikt" d "clikt" w "5.1.0"
+        val core = "com.github.ajalt.clikt" d "clikt-core" w "5.1.0"
+        val markdown = "com.github.ajalt.clikt" d "clikt-markdown" w "5.1.0"
       }
       object Mordant {
         val coroutines = "com.github.ajalt.mordant" d "mordant-coroutines" w "3.0.2"
@@ -980,22 +980,22 @@ object Com {
       }
     }
     object Dagger {
-      val android = "com.google.dagger" d "dagger-android" w "2.57.2"
-      val android_processor = "com.google.dagger" d "dagger-android-processor" w "2.57.2"
-      val android_support = "com.google.dagger" d "dagger-android-support" w "2.57.2"
-      val compiler = "com.google.dagger" d "dagger-compiler" w "2.57.2"
-      val dagger = "com.google.dagger" d "dagger" w "2.57.2"
-      val grpc_server = "com.google.dagger" d "dagger-grpc-server" w "2.57.2"
-      val grpc_server_annotations = "com.google.dagger" d "dagger-grpc-server-annotations" w "2.57.2"
-      val grpc_server_processor = "com.google.dagger" d "dagger-grpc-server-processor" w "2.57.2"
-      val gwt = "com.google.dagger" d "dagger-gwt" w "2.57.2"
-      val hilt_android = "com.google.dagger" d "hilt-android" w "2.57.2"
-      val hilt_android_compiler = "com.google.dagger" d "hilt-android-compiler" w "2.57.2"
-      val hilt_android_gradle_plugin = "com.google.dagger" d "hilt-android-gradle-plugin" w "2.57.2"
-      val hilt_android_testing = "com.google.dagger" d "hilt-android-testing" w "2.57.2"
-      val hilt_compiler = "com.google.dagger" d "hilt-compiler" w "2.57.2"
-      val producers = "com.google.dagger" d "dagger-producers" w "2.57.2"
-      val spi = "com.google.dagger" d "dagger-spi" w "2.57.2"
+      val android = "com.google.dagger" d "dagger-android" w "2.58"
+      val android_processor = "com.google.dagger" d "dagger-android-processor" w "2.58"
+      val android_support = "com.google.dagger" d "dagger-android-support" w "2.58"
+      val compiler = "com.google.dagger" d "dagger-compiler" w "2.58"
+      val dagger = "com.google.dagger" d "dagger" w "2.58"
+      val grpc_server = "com.google.dagger" d "dagger-grpc-server" w "2.58"
+      val grpc_server_annotations = "com.google.dagger" d "dagger-grpc-server-annotations" w "2.58"
+      val grpc_server_processor = "com.google.dagger" d "dagger-grpc-server-processor" w "2.58"
+      val gwt = "com.google.dagger" d "dagger-gwt" w "2.58"
+      val hilt_android = "com.google.dagger" d "hilt-android" w "2.58"
+      val hilt_android_compiler = "com.google.dagger" d "hilt-android-compiler" w "2.58"
+      val hilt_android_gradle_plugin = "com.google.dagger" d "hilt-android-gradle-plugin" w "2.58"
+      val hilt_android_testing = "com.google.dagger" d "hilt-android-testing" w "2.58"
+      val hilt_compiler = "com.google.dagger" d "hilt-compiler" w "2.58"
+      val producers = "com.google.dagger" d "dagger-producers" w "2.58"
+      val spi = "com.google.dagger" d "dagger-spi" w "2.58"
     }
     object Firebase {
       val analytics = "com.google.firebase" d "firebase-analytics" w "23.0.0"
@@ -1004,19 +1004,19 @@ object Com {
       val appindexing = "com.google.firebase" d "firebase-appindexing" w "20.0.0"
       val auth = "com.google.firebase" d "firebase-auth" w "24.0.1"
       val auth_ktx = "com.google.firebase" d "firebase-auth-ktx" w "23.2.1"
-      val bom = "com.google.firebase" d "firebase-bom" w "34.7.0"
+      val bom = "com.google.firebase" d "firebase-bom" w "34.8.0"
       val config = "com.google.firebase" d "firebase-config" w "23.0.1"
       val config_ktx = "com.google.firebase" d "firebase-config-ktx" w "22.1.2"
-      val crashlytics = "com.google.firebase" d "firebase-crashlytics" w "20.0.3"
+      val crashlytics = "com.google.firebase" d "firebase-crashlytics" w "20.0.4"
       val crashlytics_gradle = "com.google.firebase" d "firebase-crashlytics-gradle" w "3.0.6"
       val crashlytics_ktx = "com.google.firebase" d "firebase-crashlytics-ktx" w "19.4.4"
-      val crashlytics_ndk = "com.google.firebase" d "firebase-crashlytics-ndk" w "20.0.3"
+      val crashlytics_ndk = "com.google.firebase" d "firebase-crashlytics-ndk" w "20.0.4"
       val database = "com.google.firebase" d "firebase-database" w "22.0.1"
       val database_ktx = "com.google.firebase" d "firebase-database-ktx" w "21.0.0"
       val dynamic_links = "com.google.firebase" d "firebase-dynamic-links" w "22.1.0"
       val dynamic_links_ktx = "com.google.firebase" d "firebase-dynamic-links-ktx" w "22.1.0"
       val dynamic_module_support = "com.google.firebase" d "firebase-dynamic-module-support" w "16.0.0-beta04"
-      val firestore = "com.google.firebase" d "firebase-firestore" w "26.0.2"
+      val firestore = "com.google.firebase" d "firebase-firestore" w "26.1.0"
       val firestore_ktx = "com.google.firebase" d "firebase-firestore-ktx" w "25.1.4"
       val functions = "com.google.firebase" d "firebase-functions" w "22.1.0"
       val functions_ktx = "com.google.firebase" d "firebase-functions-ktx" w "21.2.1"
@@ -1375,17 +1375,17 @@ object Io {
     }
   }
   object Insert_koin {
-    val koin_android = "io.insert-koin" d "koin-android" w "4.1.1" w "4.2.0-beta2"
-    val koin_android_compat = "io.insert-koin" d "koin-android-compat" w "4.1.1" w "4.2.0-beta2"
-    val koin_androidx_compose = "io.insert-koin" d "koin-androidx-compose" w "4.1.1" w "4.2.0-beta2"
-    val koin_androidx_navigation = "io.insert-koin" d "koin-androidx-navigation" w "4.1.1" w "4.2.0-beta2"
-    val koin_androidx_workmanager = "io.insert-koin" d "koin-androidx-workmanager" w "4.1.1" w "4.2.0-beta2"
-    val koin_core = "io.insert-koin" d "koin-core" w "4.1.1" w "4.2.0-beta2"
-    val koin_ktor = "io.insert-koin" d "koin-ktor" w "4.1.1" w "4.2.0-beta2"
-    val koin_logger_slf4j = "io.insert-koin" d "koin-logger-slf4j" w "4.1.1" w "4.2.0-beta2"
-    val koin_test = "io.insert-koin" d "koin-test" w "4.1.1" w "4.2.0-beta2"
-    val koin_test_junit4 = "io.insert-koin" d "koin-test-junit4" w "4.1.1" w "4.2.0-beta2"
-    val koin_test_junit5 = "io.insert-koin" d "koin-test-junit5" w "4.1.1" w "4.2.0-beta2"
+    val koin_android = "io.insert-koin" d "koin-android" w "4.1.1" w "4.2.0-beta3"
+    val koin_android_compat = "io.insert-koin" d "koin-android-compat" w "4.1.1" w "4.2.0-beta3"
+    val koin_androidx_compose = "io.insert-koin" d "koin-androidx-compose" w "4.1.1" w "4.2.0-beta3"
+    val koin_androidx_navigation = "io.insert-koin" d "koin-androidx-navigation" w "4.1.1" w "4.2.0-beta3"
+    val koin_androidx_workmanager = "io.insert-koin" d "koin-androidx-workmanager" w "4.1.1" w "4.2.0-beta3"
+    val koin_core = "io.insert-koin" d "koin-core" w "4.1.1" w "4.2.0-beta3"
+    val koin_ktor = "io.insert-koin" d "koin-ktor" w "4.1.1" w "4.2.0-beta3"
+    val koin_logger_slf4j = "io.insert-koin" d "koin-logger-slf4j" w "4.1.1" w "4.2.0-beta3"
+    val koin_test = "io.insert-koin" d "koin-test" w "4.1.1" w "4.2.0-beta3"
+    val koin_test_junit4 = "io.insert-koin" d "koin-test-junit4" w "4.1.1" w "4.2.0-beta3"
+    val koin_test_junit5 = "io.insert-koin" d "koin-test-junit5" w "4.1.1" w "4.2.0-beta3"
   }
   object Kotest {
     val assertions_arrow = "io.kotest" d "kotest-assertions-arrow" w "6.0.7" w "6.1.0-RC4"
@@ -1707,7 +1707,7 @@ object Org {
       }
       object Compiler {
         val compiler = "org.jetbrains.compose.compiler" d "compiler" w "1.5.14" w "1.5.15"
-        val hosted = "org.jetbrains.compose.compiler" d "compiler-hosted" w "1.5.14"
+        val hosted = "org.jetbrains.compose.compiler" d "compiler-hosted" w "1.5.14" w "1.5.15"
       }
       object Components {
         val animatedimage = "org.jetbrains.compose.components" d "components-animatedimage" w "1.10.0" w "1.11.0-alpha01"
@@ -2105,7 +2105,7 @@ object Org {
       val spring_cloud_stream_binder_rabbit = "org.springframework.cloud" d "spring-cloud-stream-binder-rabbit" w "5.0.0"
     }
     object Data {
-      val spring_data_rest_hal_explorer = "org.springframework.data" d "spring-data-rest-hal-explorer" w "5.0.1"
+      val spring_data_rest_hal_explorer = "org.springframework.data" d "spring-data-rest-hal-explorer" w "5.0.2"
     }
     object Geode {
       val spring_geode_bom = "org.springframework.geode" d "spring-geode-bom" w "1.7.5"
