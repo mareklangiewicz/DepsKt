@@ -100,7 +100,7 @@ object Vers {
    * - [gradle org docs](https://docs.gradle.com/develocity/gradle-plugin/)
    * - [gradle portal](https://plugins.gradle.org/plugin/com.gradle.develocity)
    */
-  val GradleDevelocityPlug = Ver("4.3")
+  val GradleDevelocityPlug = Ver("4.3.1")
 
 
   /**
@@ -134,7 +134,7 @@ object Vers {
    * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
    * [github](https://github.com/Kotlin/kotlin-jupyter)
    */
-  val KotlinJupyterPlug = Ver("0.17.0-766")
+  val KotlinJupyterPlug = Ver("0.17.2-781")
 
   /**
    * Gradle Shadow Gradle Plugin
@@ -142,7 +142,7 @@ object Vers {
    * - [github john rengelman shadow](https://github.com/johnrengelman/shadow)
    * - [docs](https://github.com/johnrengelman/shadow)
    */
-  val GradleShadowPlug = Ver("9.3.0")
+  val GradleShadowPlug = Ver("9.3.1")
 
   /**
    * Osacky Doctor Gradle Plugin
@@ -159,7 +159,7 @@ object Vers {
    * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val DepsPlug = Ver(0, 4, 7) // also sync it in ../../../../build.gradle.kts
+  val DepsPlug = Ver(0, 4, 8) // also sync it in ../../../../build.gradle.kts
   // TODO use sourcefun to make sure it's always synced with myLibDetails(version)
 
   /**
@@ -180,7 +180,7 @@ object Vers {
    * - [gradle versions rel candidate](https://services.gradle.org/versions/release-candidate)
    * - [gradle versions current](https://services.gradle.org/versions/current)
    */
-  val Gradle9 = Ver("9.3.0-rc-2")
+  val Gradle9 = Ver("9.3.0")
   val Gradle8 = Ver("8.14.3")
   val Gradle7 = Ver("7.6.4")
 
@@ -208,7 +208,7 @@ object Vers {
    * - [releases](https://developer.android.com/tools/releases/build-tools)
    */
   @Deprecated("Deprecated with android gradle plugin 3.0.0 or higher")
-  val AndroBuildTools = Ver("35.0.0")
+  val AndroBuildTools = Ver("36.0.0")
 
   /**
    * - [revisions](https://developer.android.com/topic/libraries/support-library/revisions.html)
