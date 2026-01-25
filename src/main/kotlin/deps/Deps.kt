@@ -310,7 +310,7 @@ object AndroidX {
     }
     object Material {
       val icons_core = "androidx.compose.material" d "material-icons-core" w "1.0.0-beta06" w "1.7.8"
-      val icons_extended = "androidx.compose.material" d "material-icons-extended" w "1.0.0-beta06" w "1.7.8"
+      val icons_extended = "androidx.compose.material" d "material-icons-extended" w "1.7.8"
       val material = "androidx.compose.material" d "material" w "1.0.0-beta06" w "1.10.1" w "1.11.0-alpha03"
       val ripple = "androidx.compose.material" d "material-ripple" w "1.0.0-beta06" w "1.10.1" w "1.11.0-alpha03"
     }
@@ -1043,7 +1043,7 @@ object Com {
         val maps_compose = "com.google.maps.android" d "maps-compose" w "7.0.0"
         val maps_ktx = "com.google.maps.android" d "maps-ktx" w "5.2.2"
         val maps_rx = "com.google.maps.android" d "maps-rx" w "1.0.1"
-        val maps_utils = "com.google.maps.android" d "android-maps-utils" w "3.20.1"
+        val maps_utils = "com.google.maps.android" d "android-maps-utils" w "4.0.0"
         val maps_utils_ktx = "com.google.maps.android" d "maps-utils-ktx" w "5.2.2"
       }
     }
@@ -1388,24 +1388,24 @@ object Io {
     val koin_test_junit5 = "io.insert-koin" d "koin-test-junit5" w "4.1.1" w "4.2.0-beta4"
   }
   object Kotest {
-    val assertions_arrow = "io.kotest" d "kotest-assertions-arrow" w "6.1.0"
-    val assertions_compiler = "io.kotest" d "kotest-assertions-compiler" w "6.1.0"
-    val assertions_core = "io.kotest" d "kotest-assertions-core" w "6.1.0"
-    val assertions_json = "io.kotest" d "kotest-assertions-json" w "6.1.0"
+    val assertions_arrow = "io.kotest" d "kotest-assertions-arrow" w "6.1.1"
+    val assertions_compiler = "io.kotest" d "kotest-assertions-compiler" w "6.1.1"
+    val assertions_core = "io.kotest" d "kotest-assertions-core" w "6.1.1"
+    val assertions_json = "io.kotest" d "kotest-assertions-json" w "6.1.1"
     val assertions_jsoup = "io.kotest" d "kotest-assertions-jsoup" w "4.4.3"
     val assertions_klock = "io.kotest" d "kotest-assertions-klock" w "4.4.3"
-    val assertions_konform = "io.kotest" d "kotest-assertions-konform" w "6.1.0"
+    val assertions_konform = "io.kotest" d "kotest-assertions-konform" w "6.1.1"
     val assertions_kotlinx_time = "io.kotest" d "kotest-assertions-kotlinx-time" w "4.4.3"
-    val assertions_ktor = "io.kotest" d "kotest-assertions-ktor" w "6.1.0"
+    val assertions_ktor = "io.kotest" d "kotest-assertions-ktor" w "6.1.1"
     val assertions_sql = "io.kotest" d "kotest-assertions-sql" w "5.9.1"
     val core = "io.kotest" d "kotest-core" w "4.1.3" w "4.2.0.RC2"
     val framework_api = "io.kotest" d "kotest-framework-api" w "5.9.1" w "6.0.0.M1"
     val framework_datatest = "io.kotest" d "kotest-framework-datatest" w "5.9.1"
     val plugins_pitest = "io.kotest" d "kotest-plugins-pitest" w "4.4.3"
-    val property = "io.kotest" d "kotest-property" w "6.1.0"
-    val property_arrow = "io.kotest" d "kotest-property-arrow" w "6.1.0"
-    val runner_junit4 = "io.kotest" d "kotest-runner-junit4" w "6.1.0"
-    val runner_junit5 = "io.kotest" d "kotest-runner-junit5" w "6.1.0"
+    val property = "io.kotest" d "kotest-property" w "6.1.1"
+    val property_arrow = "io.kotest" d "kotest-property-arrow" w "6.1.1"
+    val runner_junit4 = "io.kotest" d "kotest-runner-junit4" w "6.1.1"
+    val runner_junit5 = "io.kotest" d "kotest-runner-junit5" w "6.1.1"
     object Extensions {
       val kotest_extensions_allure = "io.kotest.extensions" d "kotest-extensions-allure" w "1.4.0"
       val kotest_extensions_embedded_kafka = "io.kotest.extensions" d "kotest-extensions-embedded-kafka" w "2.0.0"
@@ -1845,11 +1845,11 @@ object Org {
       val test_wasm_js = "org.jetbrains.kotlin" d "kotlin-test-wasm-js" w "2.3.0" w "2.3.10-RC" w "2.3.20-Beta1"
     }
     object KotlinX {
-      val atomicfu = "org.jetbrains.kotlinx" d "atomicfu" w "0.30.0"
-      val atomicfu_gradle_plugin = "org.jetbrains.kotlinx" d "atomicfu-gradle-plugin" w "0.30.0"
-      val atomicfu_js = "org.jetbrains.kotlinx" d "atomicfu-js" w "0.30.0"
-      val atomicfu_jvm = "org.jetbrains.kotlinx" d "atomicfu-jvm" w "0.30.0"
-      val atomicfu_wasm_js = "org.jetbrains.kotlinx" d "atomicfu-wasm-js" w "0.30.0"
+      val atomicfu = "org.jetbrains.kotlinx" d "atomicfu" w "0.31.0"
+      val atomicfu_gradle_plugin = "org.jetbrains.kotlinx" d "atomicfu-gradle-plugin" w "0.31.0"
+      val atomicfu_js = "org.jetbrains.kotlinx" d "atomicfu-js" w "0.31.0"
+      val atomicfu_jvm = "org.jetbrains.kotlinx" d "atomicfu-jvm" w "0.31.0"
+      val atomicfu_wasm_js = "org.jetbrains.kotlinx" d "atomicfu-wasm-js" w "0.31.0"
       val browser_wasm_js = "org.jetbrains.kotlinx" d "kotlinx-browser-wasm-js" w "0.5.0"
       val cli = "org.jetbrains.kotlinx" d "kotlinx-cli" w "0.3.6"
       val collections_immutable = "org.jetbrains.kotlinx" d "kotlinx-collections-immutable" w "0.4.0"
