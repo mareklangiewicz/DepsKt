@@ -980,22 +980,22 @@ object Com {
       }
     }
     object Dagger {
-      val android = "com.google.dagger" d "dagger-android" w "2.59"
-      val android_processor = "com.google.dagger" d "dagger-android-processor" w "2.59"
-      val android_support = "com.google.dagger" d "dagger-android-support" w "2.59"
-      val compiler = "com.google.dagger" d "dagger-compiler" w "2.59"
-      val dagger = "com.google.dagger" d "dagger" w "2.59"
-      val grpc_server = "com.google.dagger" d "dagger-grpc-server" w "2.59"
-      val grpc_server_annotations = "com.google.dagger" d "dagger-grpc-server-annotations" w "2.59"
-      val grpc_server_processor = "com.google.dagger" d "dagger-grpc-server-processor" w "2.59"
-      val gwt = "com.google.dagger" d "dagger-gwt" w "2.59"
-      val hilt_android = "com.google.dagger" d "hilt-android" w "2.59"
-      val hilt_android_compiler = "com.google.dagger" d "hilt-android-compiler" w "2.59"
-      val hilt_android_gradle_plugin = "com.google.dagger" d "hilt-android-gradle-plugin" w "2.59"
-      val hilt_android_testing = "com.google.dagger" d "hilt-android-testing" w "2.59"
-      val hilt_compiler = "com.google.dagger" d "hilt-compiler" w "2.59"
-      val producers = "com.google.dagger" d "dagger-producers" w "2.59"
-      val spi = "com.google.dagger" d "dagger-spi" w "2.59"
+      val android = "com.google.dagger" d "dagger-android" w "2.59.1"
+      val android_processor = "com.google.dagger" d "dagger-android-processor" w "2.59.1"
+      val android_support = "com.google.dagger" d "dagger-android-support" w "2.59.1"
+      val compiler = "com.google.dagger" d "dagger-compiler" w "2.59.1"
+      val dagger = "com.google.dagger" d "dagger" w "2.59.1"
+      val grpc_server = "com.google.dagger" d "dagger-grpc-server" w "2.59.1"
+      val grpc_server_annotations = "com.google.dagger" d "dagger-grpc-server-annotations" w "2.59.1"
+      val grpc_server_processor = "com.google.dagger" d "dagger-grpc-server-processor" w "2.59.1"
+      val gwt = "com.google.dagger" d "dagger-gwt" w "2.59.1"
+      val hilt_android = "com.google.dagger" d "hilt-android" w "2.59.1"
+      val hilt_android_compiler = "com.google.dagger" d "hilt-android-compiler" w "2.59.1"
+      val hilt_android_gradle_plugin = "com.google.dagger" d "hilt-android-gradle-plugin" w "2.59.1"
+      val hilt_android_testing = "com.google.dagger" d "hilt-android-testing" w "2.59.1"
+      val hilt_compiler = "com.google.dagger" d "hilt-compiler" w "2.59.1"
+      val producers = "com.google.dagger" d "dagger-producers" w "2.59.1"
+      val spi = "com.google.dagger" d "dagger-spi" w "2.59.1"
     }
     object Firebase {
       val analytics = "com.google.firebase" d "firebase-analytics" w "23.0.0"
@@ -1040,7 +1040,7 @@ object Com {
     }
     object Maps {
       object Android {
-        val maps_compose = "com.google.maps.android" d "maps-compose" w "8.0.0"
+        val maps_compose = "com.google.maps.android" d "maps-compose" w "8.0.1"
         val maps_ktx = "com.google.maps.android" d "maps-ktx" w "6.0.0"
         val maps_rx = "com.google.maps.android" d "maps-rx" w "1.0.1"
         val maps_utils = "com.google.maps.android" d "android-maps-utils" w "4.0.0"
@@ -1707,7 +1707,7 @@ object Org {
       }
       object Compiler {
         val compiler = "org.jetbrains.compose.compiler" d "compiler" w "1.5.14" w "1.5.15"
-        val hosted = "org.jetbrains.compose.compiler" d "compiler-hosted" w "1.5.14"
+        val hosted = "org.jetbrains.compose.compiler" d "compiler-hosted" w "1.5.14" w "1.5.15"
       }
       object Components {
         val animatedimage = "org.jetbrains.compose.components" d "components-animatedimage" w "1.10.0" w "1.11.0-alpha02"
