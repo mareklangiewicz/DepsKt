@@ -86,7 +86,7 @@ object Vers {
    * - [github](https://github.com/vanniktech/gradle-maven-publish-plugin)
    * - [github releases](https://github.com/vanniktech/gradle-maven-publish-plugin/releases)
    */
-  val VannikPublishPlug = Ver("0.35.0")
+  val VannikPublishPlug = Ver("0.36.0")
 
   /**
    * Gradle Publish Plugin (gradle plugin for publishing gradle plugins)
@@ -100,7 +100,7 @@ object Vers {
    * - [gradle org docs](https://docs.gradle.com/develocity/gradle-plugin/)
    * - [gradle portal](https://plugins.gradle.org/plugin/com.gradle.develocity)
    */
-  val GradleDevelocityPlug = Ver("4.3.1")
+  val GradleDevelocityPlug = Ver("4.3.2")
 
 
   /**
@@ -120,7 +120,7 @@ object Vers {
    * - [github](https://github.com/Kotlin/dokka)
    * - [github releases](https://github.com/Kotlin/dokka/releases)
    */
-  val DokkaPlug = Ver("2.1.0")
+  val DokkaPlug = Ver("2.2.0-Beta")
 
 
   /**
@@ -134,7 +134,7 @@ object Vers {
    * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
    * [github](https://github.com/Kotlin/kotlin-jupyter)
    */
-  val KotlinJupyterPlug = Ver("0.17.2-781")
+  val KotlinJupyterPlug = Ver("0.18.0-841")
 
   /**
    * Gradle Shadow Gradle Plugin
@@ -159,7 +159,7 @@ object Vers {
    * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val DepsPlug = Ver(0, 4, 8) // also sync it in ../../../../build.gradle.kts
+  val DepsPlug = Ver(0, 4, 9) // also sync it in ../../../../build.gradle.kts
   // TODO use sourcefun to make sure it's always synced with myLibDetails(version)
 
   /**
@@ -168,7 +168,7 @@ object Vers {
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    * - [plugins gradle sourcefun](https://plugins.gradle.org/plugin/pl.mareklangiewicz.sourcefun)
    */
-  val SourceFunPlug = Ver("0.4.39")
+  val SourceFunPlug = Ver("0.4.40")
 
   const val JvmDefaultVer = "23"
 
@@ -180,7 +180,7 @@ object Vers {
    * - [gradle versions rel candidate](https://services.gradle.org/versions/release-candidate)
    * - [gradle versions current](https://services.gradle.org/versions/current)
    */
-  val Gradle9 = Ver("9.3.0")
+  val Gradle9 = Ver("9.3.1")
   val Gradle8 = Ver("8.14.3")
   val Gradle7 = Ver("7.6.4")
 
