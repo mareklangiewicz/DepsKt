@@ -159,7 +159,7 @@ object Vers {
    * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val DepsPlug = Ver(0, 4, 9) // also sync it in ../../../../build.gradle.kts
+  val DepsPlug = Ver(0, 4, 10) // also sync it in ../../../../build.gradle.kts
   // TODO use sourcefun to make sure it's always synced with myLibDetails(version)
 
   /**
@@ -168,7 +168,7 @@ object Vers {
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    * - [plugins gradle sourcefun](https://plugins.gradle.org/plugin/pl.mareklangiewicz.sourcefun)
    */
-  val SourceFunPlug = Ver("0.4.40")
+  val SourceFunPlug = Ver("0.4.41")
 
   const val JvmDefaultVer = "23"
 
