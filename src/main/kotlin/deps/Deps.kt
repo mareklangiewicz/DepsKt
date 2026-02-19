@@ -2112,23 +2112,23 @@ object Org {
       val spring_geode_starter = "org.springframework.geode" d "spring-geode-starter" w "1.7.5"
     }
     object Integration {
-      val spring_integration_amqp = "org.springframework.integration" d "spring-integration-amqp" w "7.0.2" w "7.1.0-M1"
+      val spring_integration_amqp = "org.springframework.integration" d "spring-integration-amqp" w "7.0.3" w "7.1.0-M2"
       val spring_integration_gemfire = "org.springframework.integration" d "spring-integration-gemfire" w "5.5.20"
-      val spring_integration_jdbc = "org.springframework.integration" d "spring-integration-jdbc" w "7.0.2" w "7.1.0-M1"
-      val spring_integration_jms = "org.springframework.integration" d "spring-integration-jms" w "7.0.2" w "7.1.0-M1"
-      val spring_integration_jpa = "org.springframework.integration" d "spring-integration-jpa" w "7.0.2" w "7.1.0-M1"
-      val spring_integration_kafka = "org.springframework.integration" d "spring-integration-kafka" w "7.0.2" w "7.1.0-M1"
-      val spring_integration_mail = "org.springframework.integration" d "spring-integration-mail" w "7.0.2" w "7.1.0-M1"
-      val spring_integration_mongodb = "org.springframework.integration" d "spring-integration-mongodb" w "7.0.2" w "7.1.0-M1"
-      val spring_integration_r2dbc = "org.springframework.integration" d "spring-integration-r2dbc" w "7.0.2" w "7.1.0-M1"
-      val spring_integration_redis = "org.springframework.integration" d "spring-integration-redis" w "7.0.2" w "7.1.0-M1"
-      val spring_integration_rsocket = "org.springframework.integration" d "spring-integration-rsocket" w "7.0.2" w "7.1.0-M1"
+      val spring_integration_jdbc = "org.springframework.integration" d "spring-integration-jdbc" w "7.0.3" w "7.1.0-M2"
+      val spring_integration_jms = "org.springframework.integration" d "spring-integration-jms" w "7.0.3" w "7.1.0-M2"
+      val spring_integration_jpa = "org.springframework.integration" d "spring-integration-jpa" w "7.0.3" w "7.1.0-M2"
+      val spring_integration_kafka = "org.springframework.integration" d "spring-integration-kafka" w "7.0.3" w "7.1.0-M2"
+      val spring_integration_mail = "org.springframework.integration" d "spring-integration-mail" w "7.0.3" w "7.1.0-M2"
+      val spring_integration_mongodb = "org.springframework.integration" d "spring-integration-mongodb" w "7.0.3" w "7.1.0-M2"
+      val spring_integration_r2dbc = "org.springframework.integration" d "spring-integration-r2dbc" w "7.0.3" w "7.1.0-M2"
+      val spring_integration_redis = "org.springframework.integration" d "spring-integration-redis" w "7.0.3" w "7.1.0-M2"
+      val spring_integration_rsocket = "org.springframework.integration" d "spring-integration-rsocket" w "7.0.3" w "7.1.0-M2"
       val spring_integration_security = "org.springframework.integration" d "spring-integration-security" w "6.2.11"
-      val spring_integration_stomp = "org.springframework.integration" d "spring-integration-stomp" w "7.0.2" w "7.1.0-M1"
-      val spring_integration_test = "org.springframework.integration" d "spring-integration-test" w "7.0.2" w "7.1.0-M1"
-      val spring_integration_webflux = "org.springframework.integration" d "spring-integration-webflux" w "7.0.2" w "7.1.0-M1"
-      val spring_integration_websocket = "org.springframework.integration" d "spring-integration-websocket" w "7.0.2" w "7.1.0-M1"
-      val spring_integration_ws = "org.springframework.integration" d "spring-integration-ws" w "7.0.2" w "7.1.0-M1"
+      val spring_integration_stomp = "org.springframework.integration" d "spring-integration-stomp" w "7.0.3" w "7.1.0-M2"
+      val spring_integration_test = "org.springframework.integration" d "spring-integration-test" w "7.0.3" w "7.1.0-M2"
+      val spring_integration_webflux = "org.springframework.integration" d "spring-integration-webflux" w "7.0.3" w "7.1.0-M2"
+      val spring_integration_websocket = "org.springframework.integration" d "spring-integration-websocket" w "7.0.3" w "7.1.0-M2"
+      val spring_integration_ws = "org.springframework.integration" d "spring-integration-ws" w "7.0.3" w "7.1.0-M2"
     }
     object Kafka {
       val spring_kafka = "org.springframework.kafka" d "spring-kafka" w "4.0.3" w "4.1.0-M1"
@@ -2143,8 +2143,8 @@ object Org {
       val spring_security_test = "org.springframework.security" d "spring-security-test" w "7.0.3" w "7.1.0-M2"
     }
     object Session {
-      val spring_session_data_redis = "org.springframework.session" d "spring-session-data-redis" w "4.0.1"
-      val spring_session_jdbc = "org.springframework.session" d "spring-session-jdbc" w "4.0.1"
+      val spring_session_data_redis = "org.springframework.session" d "spring-session-data-redis" w "4.0.2" w "4.1.0-M1"
+      val spring_session_jdbc = "org.springframework.session" d "spring-session-jdbc" w "4.0.2" w "4.1.0-M1"
     }
   }
 }
