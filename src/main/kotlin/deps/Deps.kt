@@ -1040,7 +1040,7 @@ object Com {
     }
     object Maps {
       object Android {
-        val maps_compose = "com.google.maps.android" d "maps-compose" w "8.1.0"
+        val maps_compose = "com.google.maps.android" d "maps-compose" w "8.2.0"
         val maps_ktx = "com.google.maps.android" d "maps-ktx" w "6.0.0"
         val maps_rx = "com.google.maps.android" d "maps-rx" w "1.0.1"
         val maps_utils = "com.google.maps.android" d "android-maps-utils" w "4.1.0"
