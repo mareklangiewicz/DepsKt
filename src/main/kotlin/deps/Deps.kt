@@ -223,13 +223,13 @@ private infix fun Dep.w(verStr: String) = copy(vers = vers + Ver(verStr))
 
 object AndroidX {
   object Activity {
-    val activity = "androidx.activity" d "activity" w "1.12.4" w "1.13.0-rc01"
-    val compose = "androidx.activity" d "activity-compose" w "1.12.4" w "1.13.0-rc01"
-    val ktx = "androidx.activity" d "activity-ktx" w "1.12.4" w "1.13.0-rc01"
+    val activity = "androidx.activity" d "activity" w "1.3.0-beta01" w "1.12.4" w "1.13.0-rc01"
+    val compose = "androidx.activity" d "activity-compose" w "1.3.0-beta01" w "1.12.4" w "1.13.0-rc01"
+    val ktx = "androidx.activity" d "activity-ktx" w "1.3.0-beta01" w "1.12.4" w "1.13.0-rc01"
   }
   object Annotation {
-    val annotation = "androidx.annotation" d "annotation" w "1.9.1"
-    val experimental = "androidx.annotation" d "annotation-experimental" w "1.5.1" w "1.6.0-rc01"
+    val annotation = "androidx.annotation" d "annotation" w "1.3.0-alpha01" w "1.9.1"
+    val experimental = "androidx.annotation" d "annotation-experimental" w "1.2.0-alpha01" w "1.5.1" w "1.6.0-rc01"
   }
   object AppCompat {
     val appcompat = "androidx.appcompat" d "appcompat" w "1.7.1"
@@ -257,11 +257,11 @@ object AndroidX {
     val autofill = "androidx.autofill" d "autofill" w "1.3.0"
   }
   object Benchmark {
-    val common = "androidx.benchmark" d "benchmark-common" w "1.4.1" w "1.5.0-alpha03"
+    val common = "androidx.benchmark" d "benchmark-common" w "1.1.0-alpha03" w "1.4.1" w "1.5.0-alpha03"
     val gradle_plugin = "androidx.benchmark" d "benchmark-gradle-plugin" w "1.4.1" w "1.5.0-alpha03"
-    val junit4 = "androidx.benchmark" d "benchmark-junit4" w "1.4.1" w "1.5.0-alpha03"
-    val macro = "androidx.benchmark" d "benchmark-macro" w "1.4.1" w "1.5.0-alpha03"
-    val macro_junit4 = "androidx.benchmark" d "benchmark-macro-junit4" w "1.4.1" w "1.5.0-alpha03"
+    val junit4 = "androidx.benchmark" d "benchmark-junit4" w "1.1.0-alpha03" w "1.4.1" w "1.5.0-alpha03"
+    val macro = "androidx.benchmark" d "benchmark-macro" w "1.1.0-alpha03" w "1.4.1" w "1.5.0-alpha03"
+    val macro_junit4 = "androidx.benchmark" d "benchmark-macro-junit4" w "1.1.0-alpha03" w "1.4.1" w "1.5.0-alpha03"
   }
   object Biometric {
     val biometric = "androidx.biometric" d "biometric" w "1.1.0" w "1.4.0-alpha05"
@@ -295,24 +295,24 @@ object AndroidX {
     val ktx = "androidx.collection" d "collection-ktx" w "1.5.0" w "1.6.0-rc01"
   }
   object Compose {
-    val bom = "androidx.compose" d "compose-bom" w "2026.02.00"
+    val bom = "androidx.compose" d "compose-bom" w "2026.02.01"
     object Animation {
-      val animation = "androidx.compose.animation" d "animation" w "1.10.4" w "1.11.0-alpha06"
-      val core = "androidx.compose.animation" d "animation-core" w "1.10.4" w "1.11.0-alpha06"
+      val animation = "androidx.compose.animation" d "animation" w "1.0.0-beta06" w "1.10.4" w "1.11.0-alpha06"
+      val core = "androidx.compose.animation" d "animation-core" w "1.0.0-beta06" w "1.10.4" w "1.11.0-alpha06"
       val graphics = "androidx.compose.animation" d "animation-graphics" w "1.10.4" w "1.11.0-alpha06"
     }
     object Compiler {
-      val compiler = "androidx.compose.compiler" d "compiler" w "1.5.15"
+      val compiler = "androidx.compose.compiler" d "compiler" w "1.0.0-beta06" w "1.5.15"
     }
     object Foundation {
-      val foundation = "androidx.compose.foundation" d "foundation" w "1.10.4" w "1.11.0-alpha06"
-      val layout = "androidx.compose.foundation" d "foundation-layout" w "1.10.4" w "1.11.0-alpha06"
+      val foundation = "androidx.compose.foundation" d "foundation" w "1.0.0-beta06" w "1.10.4" w "1.11.0-alpha06"
+      val layout = "androidx.compose.foundation" d "foundation-layout" w "1.0.0-beta06" w "1.10.4" w "1.11.0-alpha06"
     }
     object Material {
-      val icons_core = "androidx.compose.material" d "material-icons-core" w "1.7.8"
-      val icons_extended = "androidx.compose.material" d "material-icons-extended" w "1.7.8"
-      val material = "androidx.compose.material" d "material" w "1.10.4" w "1.11.0-alpha06"
-      val ripple = "androidx.compose.material" d "material-ripple" w "1.10.4" w "1.11.0-alpha06"
+      val icons_core = "androidx.compose.material" d "material-icons-core" w "1.0.0-beta06" w "1.7.8"
+      val icons_extended = "androidx.compose.material" d "material-icons-extended" w "1.0.0-beta06" w "1.7.8"
+      val material = "androidx.compose.material" d "material" w "1.0.0-beta06" w "1.10.4" w "1.11.0-alpha06"
+      val ripple = "androidx.compose.material" d "material-ripple" w "1.0.0-beta06" w "1.10.4" w "1.11.0-alpha06"
     }
     object Material3 {
       val material3 = "androidx.compose.material3" d "material3" w "1.4.0" w "1.5.0-alpha15"
@@ -321,26 +321,26 @@ object AndroidX {
     object Runtime {
       val dispatch = "androidx.compose.runtime" d "runtime-dispatch" w "1.0.0-alpha12"
       val livedata = "androidx.compose.runtime" d "runtime-livedata" w "1.10.4" w "1.11.0-alpha06"
-      val runtime = "androidx.compose.runtime" d "runtime" w "1.10.4" w "1.11.0-alpha06"
+      val runtime = "androidx.compose.runtime" d "runtime" w "1.0.0-beta06" w "1.10.4" w "1.11.0-alpha06"
       val rxjava2 = "androidx.compose.runtime" d "runtime-rxjava2" w "1.10.4" w "1.11.0-alpha06"
       val rxjava3 = "androidx.compose.runtime" d "runtime-rxjava3" w "1.10.4" w "1.11.0-alpha06"
-      val saveable = "androidx.compose.runtime" d "runtime-saveable" w "1.10.4" w "1.11.0-alpha06"
+      val saveable = "androidx.compose.runtime" d "runtime-saveable" w "1.0.0-beta06" w "1.10.4" w "1.11.0-alpha06"
       val tracing = "androidx.compose.runtime" d "runtime-tracing" w "1.10.4" w "1.11.0-alpha06"
     }
     object Ui {
-      val geometry = "androidx.compose.ui" d "ui-geometry" w "1.10.4" w "1.11.0-alpha06"
-      val graphics = "androidx.compose.ui" d "ui-graphics" w "1.10.4" w "1.11.0-alpha06"
-      val test = "androidx.compose.ui" d "ui-test" w "1.10.4" w "1.11.0-alpha06"
-      val test_junit4 = "androidx.compose.ui" d "ui-test-junit4" w "1.10.4" w "1.11.0-alpha06"
+      val geometry = "androidx.compose.ui" d "ui-geometry" w "1.0.0-beta06" w "1.10.4" w "1.11.0-alpha06"
+      val graphics = "androidx.compose.ui" d "ui-graphics" w "1.0.0-beta06" w "1.10.4" w "1.11.0-alpha06"
+      val test = "androidx.compose.ui" d "ui-test" w "1.0.0-beta06" w "1.10.4" w "1.11.0-alpha06"
+      val test_junit4 = "androidx.compose.ui" d "ui-test-junit4" w "1.0.0-beta06" w "1.10.4" w "1.11.0-alpha06"
       val test_manifest = "androidx.compose.ui" d "ui-test-manifest" w "1.10.4" w "1.11.0-alpha06"
-      val text = "androidx.compose.ui" d "ui-text" w "1.10.4" w "1.11.0-alpha06"
+      val text = "androidx.compose.ui" d "ui-text" w "1.0.0-beta06" w "1.10.4" w "1.11.0-alpha06"
       val text_google_fonts = "androidx.compose.ui" d "ui-text-google-fonts" w "1.10.4" w "1.11.0-alpha06"
       val tooling = "androidx.compose.ui" d "ui-tooling" w "1.10.4" w "1.11.0-alpha06"
       val tooling_data = "androidx.compose.ui" d "ui-tooling-data" w "1.10.4" w "1.11.0-alpha06"
       val tooling_preview = "androidx.compose.ui" d "ui-tooling-preview" w "1.10.4" w "1.11.0-alpha06"
-      val ui = "androidx.compose.ui" d "ui" w "1.10.4" w "1.11.0-alpha06"
-      val unit = "androidx.compose.ui" d "ui-unit" w "1.10.4" w "1.11.0-alpha06"
-      val util = "androidx.compose.ui" d "ui-util" w "1.10.4" w "1.11.0-alpha06"
+      val ui = "androidx.compose.ui" d "ui" w "1.0.0-beta06" w "1.10.4" w "1.11.0-alpha06"
+      val unit = "androidx.compose.ui" d "ui-unit" w "1.0.0-beta06" w "1.10.4" w "1.11.0-alpha06"
+      val util = "androidx.compose.ui" d "ui-util" w "1.0.0-beta06" w "1.10.4" w "1.11.0-alpha06"
       val viewbinding = "androidx.compose.ui" d "ui-viewbinding" w "1.10.4" w "1.11.0-alpha06"
     }
   }
@@ -456,7 +456,7 @@ object AndroidX {
   }
   object Hilt {
     val compiler = "androidx.hilt" d "hilt-compiler" w "1.3.0"
-    val navigation_compose = "androidx.hilt" d "hilt-navigation-compose" w "1.3.0"
+    val navigation_compose = "androidx.hilt" d "hilt-navigation-compose" w "1.0.0-alpha03" w "1.3.0"
     val navigation_fragment = "androidx.hilt" d "hilt-navigation-fragment" w "1.3.0"
     val work = "androidx.hilt" d "hilt-work" w "1.3.0"
   }
@@ -492,7 +492,7 @@ object AndroidX {
     val runtime_testing = "androidx.lifecycle" d "lifecycle-runtime-testing" w "2.10.0" w "2.11.0-alpha01"
     val service = "androidx.lifecycle" d "lifecycle-service" w "2.10.0" w "2.11.0-alpha01"
     val viewmodel = "androidx.lifecycle" d "lifecycle-viewmodel" w "2.10.0" w "2.11.0-alpha01"
-    val viewmodel_compose = "androidx.lifecycle" d "lifecycle-viewmodel-compose" w "2.10.0" w "2.11.0-alpha01"
+    val viewmodel_compose = "androidx.lifecycle" d "lifecycle-viewmodel-compose" w "1.0.0-alpha06" w "2.10.0" w "2.11.0-alpha01"
     val viewmodel_ktx = "androidx.lifecycle" d "lifecycle-viewmodel-ktx" w "2.10.0" w "2.11.0-alpha01"
     val viewmodel_savedstate = "androidx.lifecycle" d "lifecycle-viewmodel-savedstate" w "2.10.0" w "2.11.0-alpha01"
   }
@@ -546,24 +546,24 @@ object AndroidX {
     val multidex = "androidx.multidex" d "multidex" w "2.0.1"
   }
   object Navigation {
-    val common = "androidx.navigation" d "navigation-common" w "2.9.7"
-    val common_ktx = "androidx.navigation" d "navigation-common-ktx" w "2.9.7"
-    val compose = "androidx.navigation" d "navigation-compose" w "2.9.7"
+    val common = "androidx.navigation" d "navigation-common" w "2.4.0-alpha02" w "2.9.7"
+    val common_ktx = "androidx.navigation" d "navigation-common-ktx" w "2.4.0-alpha02" w "2.9.7"
+    val compose = "androidx.navigation" d "navigation-compose" w "2.4.0-alpha02" w "2.9.7"
     val dynamic_features_fragment = "androidx.navigation" d "navigation-dynamic-features-fragment" w "2.9.7"
     val fragment = "androidx.navigation" d "navigation-fragment" w "2.9.7"
     val fragment_ktx = "androidx.navigation" d "navigation-fragment-ktx" w "2.9.7"
-    val runtime = "androidx.navigation" d "navigation-runtime" w "2.9.7"
-    val runtime_ktx = "androidx.navigation" d "navigation-runtime-ktx" w "2.9.7"
+    val runtime = "androidx.navigation" d "navigation-runtime" w "2.4.0-alpha02" w "2.9.7"
+    val runtime_ktx = "androidx.navigation" d "navigation-runtime-ktx" w "2.4.0-alpha02" w "2.9.7"
     val safe_args_generator = "androidx.navigation" d "navigation-safe-args-generator" w "2.9.7"
     val safe_args_gradle_plugin = "androidx.navigation" d "navigation-safe-args-gradle-plugin" w "2.9.7"
-    val testing = "androidx.navigation" d "navigation-testing" w "2.9.7"
+    val testing = "androidx.navigation" d "navigation-testing" w "2.4.0-alpha02" w "2.9.7"
     val ui = "androidx.navigation" d "navigation-ui" w "2.9.7"
     val ui_ktx = "androidx.navigation" d "navigation-ui-ktx" w "2.9.7"
   }
   object Paging {
-    val common = "androidx.paging" d "paging-common" w "3.4.1"
+    val common = "androidx.paging" d "paging-common" w "3.1.0-alpha01" w "3.4.1"
     val common_ktx = "androidx.paging" d "paging-common-ktx" w "3.4.1"
-    val compose = "androidx.paging" d "paging-compose" w "3.4.1"
+    val compose = "androidx.paging" d "paging-compose" w "1.0.0-alpha10" w "3.4.1"
     val guava = "androidx.paging" d "paging-guava" w "3.4.1"
     val runtime = "androidx.paging" d "paging-runtime" w "3.4.1"
     val runtime_ktx = "androidx.paging" d "paging-runtime-ktx" w "3.4.1"
@@ -683,9 +683,9 @@ object AndroidX {
     val textclassifier = "androidx.textclassifier" d "textclassifier" w "1.0.0-alpha04"
   }
   object Tracing {
-    val ktx = "androidx.tracing" d "tracing-ktx" w "1.3.0" w "2.0.0-alpha02"
+    val ktx = "androidx.tracing" d "tracing-ktx" w "1.1.0-alpha01" w "1.3.0" w "2.0.0-alpha02"
     val perfetto = "androidx.tracing" d "tracing-perfetto" w "1.0.1"
-    val tracing = "androidx.tracing" d "tracing" w "1.3.0" w "2.0.0-alpha02"
+    val tracing = "androidx.tracing" d "tracing" w "1.1.0-alpha01" w "1.3.0" w "2.0.0-alpha02"
   }
   object Transition {
     val ktx = "androidx.transition" d "transition-ktx" w "1.7.0"
@@ -720,8 +720,8 @@ object AndroidX {
     val remote_interactions = "androidx.wear" d "wear-remote-interactions" w "1.2.0"
     val wear = "androidx.wear" d "wear" w "1.4.0"
     object Compose {
-      val foundation = "androidx.wear.compose" d "compose-foundation" w "1.5.6" w "1.6.0-beta01"
-      val material = "androidx.wear.compose" d "compose-material" w "1.5.6" w "1.6.0-beta01"
+      val foundation = "androidx.wear.compose" d "compose-foundation" w "1.0.0-alpha01" w "1.5.6" w "1.6.0-beta01"
+      val material = "androidx.wear.compose" d "compose-material" w "1.0.0-alpha01" w "1.5.6" w "1.6.0-beta01"
       val navigation = "androidx.wear.compose" d "compose-navigation" w "1.5.6" w "1.6.0-beta01"
     }
     object Tiles {
@@ -805,7 +805,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.5"
       val r8 = "com.android.tools" d "r8" w "9.0.32"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.0.1" w "9.1.0-rc01" w "9.2.0-alpha01"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.0.1" w "9.1.0-rc01" w "9.2.0-alpha02"
       }
     }
   }
@@ -1004,7 +1004,7 @@ object Com {
       val appindexing = "com.google.firebase" d "firebase-appindexing" w "20.0.0"
       val auth = "com.google.firebase" d "firebase-auth" w "24.0.1"
       val auth_ktx = "com.google.firebase" d "firebase-auth-ktx" w "23.2.1"
-      val bom = "com.google.firebase" d "firebase-bom" w "34.9.0"
+      val bom = "com.google.firebase" d "firebase-bom" w "34.10.0"
       val config = "com.google.firebase" d "firebase-config" w "23.0.1"
       val config_ktx = "com.google.firebase" d "firebase-config-ktx" w "22.1.2"
       val crashlytics = "com.google.firebase" d "firebase-crashlytics" w "20.0.4"
@@ -1016,7 +1016,7 @@ object Com {
       val dynamic_links = "com.google.firebase" d "firebase-dynamic-links" w "22.1.0"
       val dynamic_links_ktx = "com.google.firebase" d "firebase-dynamic-links-ktx" w "22.1.0"
       val dynamic_module_support = "com.google.firebase" d "firebase-dynamic-module-support" w "16.0.0-beta04"
-      val firestore = "com.google.firebase" d "firebase-firestore" w "26.1.0"
+      val firestore = "com.google.firebase" d "firebase-firestore" w "26.1.1"
       val firestore_ktx = "com.google.firebase" d "firebase-firestore-ktx" w "25.1.4"
       val functions = "com.google.firebase" d "firebase-functions" w "22.1.0"
       val functions_ktx = "com.google.firebase" d "firebase-functions-ktx" w "21.2.1"
@@ -1573,7 +1573,7 @@ object JUnit {
 object Org {
   object AssertJ {
     val core = "org.assertj" d "assertj-core" w "3.27.7" w "4.0.0-M1"
-    val db = "org.assertj" d "assertj-db" w "3.0.1"
+    val db = "org.assertj" d "assertj-db" w "3.0.2"
     val guava = "org.assertj" d "assertj-guava" w "3.27.7" w "4.0.0-M1"
     val joda_time = "org.assertj" d "assertj-joda-time" w "2.2.0"
     val swing = "org.assertj" d "assertj-swing" w "3.17.1"
@@ -1585,7 +1585,7 @@ object Org {
   }
   object Hildan {
     object Chrome {
-      val devtools_kotlin = "org.hildan.chrome" d "chrome-devtools-kotlin" w "8.2.0-1528500"
+      val devtools_kotlin = "org.hildan.chrome" d "chrome-devtools-kotlin" w "8.3.0-1589152"
     }
   }
   object Http4k {
@@ -1669,78 +1669,78 @@ object Org {
   object JetBrains {
     object AndroidX {
       object Lifecycle {
-        val common = "org.jetbrains.androidx.lifecycle" d "lifecycle-common" w "2.9.6" w "2.10.0-alpha09+dev3670" w "2.10.0-alpha08"
-        val common_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-common-js" w "2.9.6" w "2.10.0-alpha09+dev3670" w "2.10.0-alpha08"
-        val common_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-common-wasm-js" w "2.9.6" w "2.10.0-alpha09+dev3670" w "2.10.0-alpha08"
-        val runtime = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime" w "2.9.6" w "2.10.0-alpha09+dev3670" w "2.10.0-alpha08"
-        val runtime_compose = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose" w "2.9.6" w "2.10.0-alpha09+dev3670" w "2.10.0-alpha08"
-        val runtime_compose_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose-js" w "2.9.6" w "2.10.0-alpha09+dev3670" w "2.10.0-alpha08"
-        val runtime_compose_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose-wasm-js" w "2.9.6" w "2.10.0-alpha09+dev3670" w "2.10.0-alpha08"
-        val runtime_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-js" w "2.9.6" w "2.10.0-alpha09+dev3670" w "2.10.0-alpha08"
-        val runtime_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-wasm-js" w "2.9.6" w "2.10.0-alpha09+dev3670" w "2.10.0-alpha08"
-        val viewmodel = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel" w "2.9.6" w "2.10.0-alpha09+dev3670" w "2.10.0-alpha08"
-        val viewmodel_compose = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose" w "2.9.6" w "2.10.0-alpha09+dev3670" w "2.10.0-alpha08"
-        val viewmodel_compose_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose-js" w "2.9.6" w "2.10.0-alpha09+dev3670" w "2.10.0-alpha08"
-        val viewmodel_compose_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose-wasm-js" w "2.9.6" w "2.10.0-alpha09+dev3670" w "2.10.0-alpha08"
-        val viewmodel_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-js" w "2.9.6" w "2.10.0-alpha09+dev3670" w "2.10.0-alpha08"
-        val viewmodel_savedstate = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-savedstate" w "2.9.6" w "2.10.0-alpha09+dev3670" w "2.10.0-alpha08"
-        val viewmodel_savedstate_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-savedstate-js" w "2.9.6" w "2.10.0-alpha09+dev3670" w "2.10.0-alpha08"
-        val viewmodel_savedstate_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-savedstate-wasm-js" w "2.9.6" w "2.10.0-alpha09+dev3670" w "2.10.0-alpha08"
-        val viewmodel_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-wasm-js" w "2.9.6" w "2.10.0-alpha09+dev3670" w "2.10.0-alpha08"
+        val common = "org.jetbrains.androidx.lifecycle" d "lifecycle-common" w "2.9.6" w "2.10.0-alpha08"
+        val common_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-common-js" w "2.9.6" w "2.10.0-alpha08"
+        val common_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-common-wasm-js" w "2.9.6" w "2.10.0-alpha08"
+        val runtime = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime" w "2.9.6" w "2.10.0-alpha08"
+        val runtime_compose = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose" w "2.9.6" w "2.10.0-alpha08"
+        val runtime_compose_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose-js" w "2.9.6" w "2.10.0-alpha08"
+        val runtime_compose_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-compose-wasm-js" w "2.9.6" w "2.10.0-alpha08"
+        val runtime_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-js" w "2.9.6" w "2.10.0-alpha08"
+        val runtime_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime-wasm-js" w "2.9.6" w "2.10.0-alpha08"
+        val viewmodel = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel" w "2.9.6" w "2.10.0-alpha08"
+        val viewmodel_compose = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose" w "2.9.6" w "2.10.0-alpha08"
+        val viewmodel_compose_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose-js" w "2.9.6" w "2.10.0-alpha08"
+        val viewmodel_compose_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-compose-wasm-js" w "2.9.6" w "2.10.0-alpha08"
+        val viewmodel_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-js" w "2.9.6" w "2.10.0-alpha08"
+        val viewmodel_savedstate = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-savedstate" w "2.9.6" w "2.10.0-alpha08"
+        val viewmodel_savedstate_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-savedstate-js" w "2.9.6" w "2.10.0-alpha08"
+        val viewmodel_savedstate_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-savedstate-wasm-js" w "2.9.6" w "2.10.0-alpha08"
+        val viewmodel_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-viewmodel-wasm-js" w "2.9.6" w "2.10.0-alpha08"
       }
     }
     object Compose {
-      val full = "org.jetbrains.compose" d "compose-full" w "1.10.1" w "1.11.0-alpha03"
-      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.10.1" w "1.11.0-alpha03"
-      val preview_rpc = "org.jetbrains.compose" d "preview-rpc" w "1.10.1" w "1.11.0-alpha03"
-      val preview_runtime_desktop = "org.jetbrains.compose" d "compose-preview-runtime-desktop"
+      val full = "org.jetbrains.compose" d "compose-full" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+      val preview_rpc = "org.jetbrains.compose" d "preview-rpc" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+      val preview_runtime_desktop = "org.jetbrains.compose" d "compose-preview-runtime-desktop" w "0.5.0-build228"
       object Animation {
-        val animation = "org.jetbrains.compose.animation" d "animation" w "1.10.1" w "1.11.0-alpha03"
-        val core = "org.jetbrains.compose.animation" d "animation-core" w "1.10.1" w "1.11.0-alpha03"
-        val core_js = "org.jetbrains.compose.animation" d "animation-core-js" w "1.10.1" w "1.11.0-alpha03"
-        val core_wasm_js = "org.jetbrains.compose.animation" d "animation-core-wasm-js" w "1.10.1" w "1.11.0-alpha03"
-        val graphics = "org.jetbrains.compose.animation" d "animation-graphics" w "1.10.1" w "1.11.0-alpha03"
-        val graphics_js = "org.jetbrains.compose.animation" d "animation-graphics-js" w "1.10.1" w "1.11.0-alpha03"
-        val graphics_wasm_js = "org.jetbrains.compose.animation" d "animation-graphics-wasm-js" w "1.10.1" w "1.11.0-alpha03"
-        val js = "org.jetbrains.compose.animation" d "animation-js" w "1.10.1" w "1.11.0-alpha03"
-        val wasm_js = "org.jetbrains.compose.animation" d "animation-wasm-js" w "1.10.1" w "1.11.0-alpha03"
+        val animation = "org.jetbrains.compose.animation" d "animation" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val core = "org.jetbrains.compose.animation" d "animation-core" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val core_js = "org.jetbrains.compose.animation" d "animation-core-js" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val core_wasm_js = "org.jetbrains.compose.animation" d "animation-core-wasm-js" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val graphics = "org.jetbrains.compose.animation" d "animation-graphics" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val graphics_js = "org.jetbrains.compose.animation" d "animation-graphics-js" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val graphics_wasm_js = "org.jetbrains.compose.animation" d "animation-graphics-wasm-js" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val js = "org.jetbrains.compose.animation" d "animation-js" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val wasm_js = "org.jetbrains.compose.animation" d "animation-wasm-js" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
       }
       object Compiler {
-        val compiler = "org.jetbrains.compose.compiler" d "compiler" w "1.5.14"
-        val hosted = "org.jetbrains.compose.compiler" d "compiler-hosted" w "1.5.14"
+        val compiler = "org.jetbrains.compose.compiler" d "compiler" w "1.5.14" w "1.5.15"
+        val hosted = "org.jetbrains.compose.compiler" d "compiler-hosted" w "1.5.14" w "1.5.15"
       }
       object Components {
-        val animatedimage = "org.jetbrains.compose.components" d "components-animatedimage" w "1.10.1" w "1.11.0-alpha03"
-        val resources = "org.jetbrains.compose.components" d "components-resources" w "1.10.1" w "1.11.0-alpha03"
-        val resources_js = "org.jetbrains.compose.components" d "components-resources-js" w "1.10.1" w "1.11.0-alpha03"
-        val resources_wasmjs = "org.jetbrains.compose.components" d "components-resources-wasmJs" w "1.10.1" w "1.11.0-alpha03"
-        val splitpane = "org.jetbrains.compose.components" d "components-splitpane" w "1.10.1" w "1.11.0-alpha03"
-        val ui_tooling_preview = "org.jetbrains.compose.components" d "components-ui-tooling-preview" w "1.10.1" w "1.11.0-alpha03"
-        val ui_tooling_preview_js = "org.jetbrains.compose.components" d "components-ui-tooling-preview-js" w "1.10.1" w "1.11.0-alpha03"
-        val ui_tooling_preview_wasmjs = "org.jetbrains.compose.components" d "components-ui-tooling-preview-wasmJs" w "1.10.1" w "1.11.0-alpha03"
+        val animatedimage = "org.jetbrains.compose.components" d "components-animatedimage" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val resources = "org.jetbrains.compose.components" d "components-resources" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val resources_js = "org.jetbrains.compose.components" d "components-resources-js" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val resources_wasmjs = "org.jetbrains.compose.components" d "components-resources-wasmJs" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val splitpane = "org.jetbrains.compose.components" d "components-splitpane" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val ui_tooling_preview = "org.jetbrains.compose.components" d "components-ui-tooling-preview" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val ui_tooling_preview_js = "org.jetbrains.compose.components" d "components-ui-tooling-preview-js" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val ui_tooling_preview_wasmjs = "org.jetbrains.compose.components" d "components-ui-tooling-preview-wasmJs" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
       }
       object Desktop {
-        val desktop = "org.jetbrains.compose.desktop" d "desktop" w "1.10.1" w "1.11.0-alpha03"
-        val jvm = "org.jetbrains.compose.desktop" d "desktop-jvm" w "1.10.1" w "1.11.0-alpha03"
+        val desktop = "org.jetbrains.compose.desktop" d "desktop" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val jvm = "org.jetbrains.compose.desktop" d "desktop-jvm" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
       }
       object Foundation {
-        val foundation = "org.jetbrains.compose.foundation" d "foundation" w "1.10.1" w "1.11.0-alpha03"
-        val js = "org.jetbrains.compose.foundation" d "foundation-js" w "1.10.1" w "1.11.0-alpha03"
-        val layout = "org.jetbrains.compose.foundation" d "foundation-layout" w "1.10.1" w "1.11.0-alpha03"
-        val layout_js = "org.jetbrains.compose.foundation" d "foundation-layout-js" w "1.10.1" w "1.11.0-alpha03"
-        val layout_wasm_js = "org.jetbrains.compose.foundation" d "foundation-layout-wasm-js" w "1.10.1" w "1.11.0-alpha03"
-        val wasm_js = "org.jetbrains.compose.foundation" d "foundation-wasm-js" w "1.10.1" w "1.11.0-alpha03"
+        val foundation = "org.jetbrains.compose.foundation" d "foundation" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val js = "org.jetbrains.compose.foundation" d "foundation-js" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val layout = "org.jetbrains.compose.foundation" d "foundation-layout" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val layout_js = "org.jetbrains.compose.foundation" d "foundation-layout-js" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val layout_wasm_js = "org.jetbrains.compose.foundation" d "foundation-layout-wasm-js" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val wasm_js = "org.jetbrains.compose.foundation" d "foundation-wasm-js" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
       }
       object Html {
-        val benchmark_core = "org.jetbrains.compose.html" d "html-benchmark-core" w "1.10.1" w "1.11.0-alpha03"
-        val benchmark_core_js = "org.jetbrains.compose.html" d "html-benchmark-core-js" w "1.10.1" w "1.11.0-alpha03"
-        val core = "org.jetbrains.compose.html" d "html-core" w "1.10.1" w "1.11.0-alpha03"
-        val core_js = "org.jetbrains.compose.html" d "html-core-js" w "1.10.1" w "1.11.0-alpha03"
-        val core_jvm = "org.jetbrains.compose.html" d "html-core-jvm" w "1.10.1" w "1.11.0-alpha03"
-        val svg = "org.jetbrains.compose.html" d "html-svg" w "1.10.1" w "1.11.0-alpha03"
-        val svg_js = "org.jetbrains.compose.html" d "html-svg-js" w "1.10.1" w "1.11.0-alpha03"
-        val test_utils = "org.jetbrains.compose.html" d "html-test-utils" w "1.10.1" w "1.11.0-alpha03"
-        val test_utils_js = "org.jetbrains.compose.html" d "html-test-utils-js" w "1.10.1" w "1.11.0-alpha03"
+        val benchmark_core = "org.jetbrains.compose.html" d "html-benchmark-core" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val benchmark_core_js = "org.jetbrains.compose.html" d "html-benchmark-core-js" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val core = "org.jetbrains.compose.html" d "html-core" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val core_js = "org.jetbrains.compose.html" d "html-core-js" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val core_jvm = "org.jetbrains.compose.html" d "html-core-jvm" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val svg = "org.jetbrains.compose.html" d "html-svg" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val svg_js = "org.jetbrains.compose.html" d "html-svg-js" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val test_utils = "org.jetbrains.compose.html" d "html-test-utils" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val test_utils_js = "org.jetbrains.compose.html" d "html-test-utils-js" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
       }
       object Material {
         val icons_core = "org.jetbrains.compose.material" d "material-icons-core" w "1.7.3"
@@ -1749,60 +1749,60 @@ object Org {
         val icons_extended = "org.jetbrains.compose.material" d "material-icons-extended" w "1.7.3"
         val icons_extended_js = "org.jetbrains.compose.material" d "material-icons-extended-js" w "1.7.3"
         val icons_extended_wasm_js = "org.jetbrains.compose.material" d "material-icons-extended-wasm-js" w "1.7.3"
-        val js = "org.jetbrains.compose.material" d "material-js" w "1.10.1" w "1.11.0-alpha03"
-        val material = "org.jetbrains.compose.material" d "material" w "1.10.1" w "1.11.0-alpha03"
-        val navigation = "org.jetbrains.compose.material" d "material-navigation" w "1.10.1" w "1.11.0-alpha03"
-        val navigation_js = "org.jetbrains.compose.material" d "material-navigation-js" w "1.10.1" w "1.11.0-alpha03"
-        val navigation_wasm_js = "org.jetbrains.compose.material" d "material-navigation-wasm-js" w "1.10.1" w "1.11.0-alpha03"
-        val ripple = "org.jetbrains.compose.material" d "material-ripple" w "1.10.1" w "1.11.0-alpha03"
-        val ripple_js = "org.jetbrains.compose.material" d "material-ripple-js" w "1.10.1" w "1.11.0-alpha03"
-        val ripple_wasm_js = "org.jetbrains.compose.material" d "material-ripple-wasm-js" w "1.10.1" w "1.11.0-alpha03"
-        val wasm_js = "org.jetbrains.compose.material" d "material-wasm-js" w "1.10.1" w "1.11.0-alpha03"
+        val js = "org.jetbrains.compose.material" d "material-js" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val material = "org.jetbrains.compose.material" d "material" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val navigation = "org.jetbrains.compose.material" d "material-navigation" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val navigation_js = "org.jetbrains.compose.material" d "material-navigation-js" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val navigation_wasm_js = "org.jetbrains.compose.material" d "material-navigation-wasm-js" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val ripple = "org.jetbrains.compose.material" d "material-ripple" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val ripple_js = "org.jetbrains.compose.material" d "material-ripple-js" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val ripple_wasm_js = "org.jetbrains.compose.material" d "material-ripple-wasm-js" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val wasm_js = "org.jetbrains.compose.material" d "material-wasm-js" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
       }
       object Material3 {
-        val js = "org.jetbrains.compose.material3" d "material3-js" w "1.9.0" w "1.11.0-alpha03"
-        val material3 = "org.jetbrains.compose.material3" d "material3" w "1.9.0" w "1.11.0-alpha03"
-        val wasm_js = "org.jetbrains.compose.material3" d "material3-wasm-js" w "1.9.0" w "1.11.0-alpha03"
-        val window_size_class = "org.jetbrains.compose.material3" d "material3-window-size-class" w "1.9.0" w "1.11.0-alpha03"
-        val window_size_class_js = "org.jetbrains.compose.material3" d "material3-window-size-class-js" w "1.9.0" w "1.11.0-alpha03"
-        val window_size_class_wasm_js = "org.jetbrains.compose.material3" d "material3-window-size-class-wasm-js" w "1.9.0" w "1.11.0-alpha03"
+        val js = "org.jetbrains.compose.material3" d "material3-js" w "1.9.0" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val material3 = "org.jetbrains.compose.material3" d "material3" w "1.9.0" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val wasm_js = "org.jetbrains.compose.material3" d "material3-wasm-js" w "1.9.0" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val window_size_class = "org.jetbrains.compose.material3" d "material3-window-size-class" w "1.9.0" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val window_size_class_js = "org.jetbrains.compose.material3" d "material3-window-size-class-js" w "1.9.0" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val window_size_class_wasm_js = "org.jetbrains.compose.material3" d "material3-window-size-class-wasm-js" w "1.9.0" w "1.11.0-alpha02" w "1.11.0-alpha03"
       }
       object Runtime {
-        val js = "org.jetbrains.compose.runtime" d "runtime-js" w "1.10.1" w "1.11.0-alpha03"
-        val runtime = "org.jetbrains.compose.runtime" d "runtime" w "1.10.1" w "1.11.0-alpha03"
-        val saveable = "org.jetbrains.compose.runtime" d "runtime-saveable" w "1.10.1" w "1.11.0-alpha03"
-        val saveable_js = "org.jetbrains.compose.runtime" d "runtime-saveable-js" w "1.10.1" w "1.11.0-alpha03"
-        val saveable_wasm_js = "org.jetbrains.compose.runtime" d "runtime-saveable-wasm-js" w "1.10.1" w "1.11.0-alpha03"
-        val wasm_js = "org.jetbrains.compose.runtime" d "runtime-wasm-js" w "1.10.1" w "1.11.0-alpha03"
+        val js = "org.jetbrains.compose.runtime" d "runtime-js" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val runtime = "org.jetbrains.compose.runtime" d "runtime" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val saveable = "org.jetbrains.compose.runtime" d "runtime-saveable" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val saveable_js = "org.jetbrains.compose.runtime" d "runtime-saveable-js" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val saveable_wasm_js = "org.jetbrains.compose.runtime" d "runtime-saveable-wasm-js" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val wasm_js = "org.jetbrains.compose.runtime" d "runtime-wasm-js" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
       }
       object Ui {
-        val geometry = "org.jetbrains.compose.ui" d "ui-geometry" w "1.10.1" w "1.11.0-alpha03"
-        val geometry_js = "org.jetbrains.compose.ui" d "ui-geometry-js" w "1.10.1" w "1.11.0-alpha03"
-        val geometry_wasm_js = "org.jetbrains.compose.ui" d "ui-geometry-wasm-js" w "1.10.1" w "1.11.0-alpha03"
-        val graphics = "org.jetbrains.compose.ui" d "ui-graphics" w "1.10.1" w "1.11.0-alpha03"
-        val graphics_js = "org.jetbrains.compose.ui" d "ui-graphics-js" w "1.10.1" w "1.11.0-alpha03"
-        val graphics_wasm_js = "org.jetbrains.compose.ui" d "ui-graphics-wasm-js" w "1.10.1" w "1.11.0-alpha03"
-        val js = "org.jetbrains.compose.ui" d "ui-js" w "1.10.1" w "1.11.0-alpha03"
-        val test = "org.jetbrains.compose.ui" d "ui-test" w "1.10.1" w "1.11.0-alpha03"
-        val test_js = "org.jetbrains.compose.ui" d "ui-test-js" w "1.10.1" w "1.11.0-alpha03"
-        val test_junit4 = "org.jetbrains.compose.ui" d "ui-test-junit4" w "1.10.1" w "1.11.0-alpha03"
-        val test_wasm_js = "org.jetbrains.compose.ui" d "ui-test-wasm-js" w "1.10.1" w "1.11.0-alpha03"
-        val text = "org.jetbrains.compose.ui" d "ui-text" w "1.10.1" w "1.11.0-alpha03"
-        val text_js = "org.jetbrains.compose.ui" d "ui-text-js" w "1.10.1" w "1.11.0-alpha03"
-        val text_wasm_js = "org.jetbrains.compose.ui" d "ui-text-wasm-js" w "1.10.1" w "1.11.0-alpha03"
-        val tooling = "org.jetbrains.compose.ui" d "ui-tooling" w "1.10.1" w "1.11.0-alpha03"
-        val tooling_preview = "org.jetbrains.compose.ui" d "ui-tooling-preview" w "1.10.1" w "1.11.0-alpha03"
-        val ui = "org.jetbrains.compose.ui" d "ui" w "1.10.1" w "1.11.0-alpha03"
-        val unit = "org.jetbrains.compose.ui" d "ui-unit" w "1.10.1" w "1.11.0-alpha03"
-        val unit_js = "org.jetbrains.compose.ui" d "ui-unit-js" w "1.10.1" w "1.11.0-alpha03"
-        val unit_wasm_js = "org.jetbrains.compose.ui" d "ui-unit-wasm-js" w "1.10.1" w "1.11.0-alpha03"
-        val wasm_js = "org.jetbrains.compose.ui" d "ui-wasm-js" w "1.10.1" w "1.11.0-alpha03"
+        val geometry = "org.jetbrains.compose.ui" d "ui-geometry" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val geometry_js = "org.jetbrains.compose.ui" d "ui-geometry-js" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val geometry_wasm_js = "org.jetbrains.compose.ui" d "ui-geometry-wasm-js" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val graphics = "org.jetbrains.compose.ui" d "ui-graphics" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val graphics_js = "org.jetbrains.compose.ui" d "ui-graphics-js" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val graphics_wasm_js = "org.jetbrains.compose.ui" d "ui-graphics-wasm-js" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val js = "org.jetbrains.compose.ui" d "ui-js" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val test = "org.jetbrains.compose.ui" d "ui-test" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val test_js = "org.jetbrains.compose.ui" d "ui-test-js" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val test_junit4 = "org.jetbrains.compose.ui" d "ui-test-junit4" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val test_wasm_js = "org.jetbrains.compose.ui" d "ui-test-wasm-js" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val text = "org.jetbrains.compose.ui" d "ui-text" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val text_js = "org.jetbrains.compose.ui" d "ui-text-js" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val text_wasm_js = "org.jetbrains.compose.ui" d "ui-text-wasm-js" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val tooling = "org.jetbrains.compose.ui" d "ui-tooling" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val tooling_preview = "org.jetbrains.compose.ui" d "ui-tooling-preview" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val ui = "org.jetbrains.compose.ui" d "ui" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val unit = "org.jetbrains.compose.ui" d "ui-unit" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val unit_js = "org.jetbrains.compose.ui" d "ui-unit-js" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val unit_wasm_js = "org.jetbrains.compose.ui" d "ui-unit-wasm-js" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
+        val wasm_js = "org.jetbrains.compose.ui" d "ui-wasm-js" w "1.10.1" w "1.11.0-alpha02" w "1.11.0-alpha03"
       }
     }
     object Exposed {
-      val core = "org.jetbrains.exposed" d "exposed-core" w "1.1.0"
-      val dao = "org.jetbrains.exposed" d "exposed-dao" w "1.1.0"
-      val jdbc = "org.jetbrains.exposed" d "exposed-jdbc" w "1.1.0"
+      val core = "org.jetbrains.exposed" d "exposed-core" w "1.1.1"
+      val dao = "org.jetbrains.exposed" d "exposed-dao" w "1.1.1"
+      val jdbc = "org.jetbrains.exposed" d "exposed-jdbc" w "1.1.1"
     }
     object Kotlin {
       val allopen = "org.jetbrains.kotlin" d "kotlin-allopen" w "2.3.10" w "2.3.20-RC"
@@ -1920,46 +1920,46 @@ object Org {
       val serialization_protobuf_jvm = "org.jetbrains.kotlinx" d "kotlinx-serialization-protobuf-jvm" w "1.10.0"
     }
     object Kotlin_Wrappers {
-      val bom = "org.jetbrains.kotlin-wrappers" d "kotlin-wrappers-bom" w "2026.2.21"
+      val bom = "org.jetbrains.kotlin-wrappers" d "kotlin-wrappers-bom" w "2026.2.22"
       val kotlin_actions_toolkit = "org.jetbrains.kotlin-wrappers" d "kotlin-actions-toolkit" w "2025.3.26"
-      val kotlin_browser = "org.jetbrains.kotlin-wrappers" d "kotlin-browser" w "2026.2.21"
+      val kotlin_browser = "org.jetbrains.kotlin-wrappers" d "kotlin-browser" w "2026.2.22"
       val kotlin_cesium = "org.jetbrains.kotlin-wrappers" d "kotlin-cesium" w "1.115.0-pre.711"
-      val kotlin_css = "org.jetbrains.kotlin-wrappers" d "kotlin-css" w "2026.2.21"
-      val kotlin_csstype = "org.jetbrains.kotlin-wrappers" d "kotlin-csstype" w "2026.2.21-3.2.3"
+      val kotlin_css = "org.jetbrains.kotlin-wrappers" d "kotlin-css" w "2026.2.22"
+      val kotlin_csstype = "org.jetbrains.kotlin-wrappers" d "kotlin-csstype" w "2026.2.22-3.2.3"
       val kotlin_emotion = "org.jetbrains.kotlin-wrappers" d "kotlin-emotion" w "2025.3.26"
       val kotlin_history = "org.jetbrains.kotlin-wrappers" d "kotlin-history" w "5.3.0-pre.506-compat"
-      val kotlin_js = "org.jetbrains.kotlin-wrappers" d "kotlin-js" w "2026.2.21"
+      val kotlin_js = "org.jetbrains.kotlin-wrappers" d "kotlin-js" w "2026.2.22"
       val kotlin_mui = "org.jetbrains.kotlin-wrappers" d "kotlin-mui" w "5.14.12-pre.638"
       val kotlin_mui_icons = "org.jetbrains.kotlin-wrappers" d "kotlin-mui-icons" w "5.14.12-pre.638"
-      val kotlin_node = "org.jetbrains.kotlin-wrappers" d "kotlin-node" w "2026.2.21-24.10.4"
+      val kotlin_node = "org.jetbrains.kotlin-wrappers" d "kotlin-node" w "2026.2.22-24.10.4"
       val kotlin_popper = "org.jetbrains.kotlin-wrappers" d "kotlin-popper" w "2.11.8-pre.792"
-      val kotlin_react = "org.jetbrains.kotlin-wrappers" d "kotlin-react" w "2026.2.21-19.2.4"
-      val kotlin_react_beautiful_dnd = "org.jetbrains.kotlin-wrappers" d "kotlin-react-beautiful-dnd" w "2026.2.21-13.1.1"
+      val kotlin_react = "org.jetbrains.kotlin-wrappers" d "kotlin-react" w "2026.2.22-19.2.4"
+      val kotlin_react_beautiful_dnd = "org.jetbrains.kotlin-wrappers" d "kotlin-react-beautiful-dnd" w "2026.2.22-13.1.1"
       val kotlin_react_core = "org.jetbrains.kotlin-wrappers" d "kotlin-react-core" w "2026.2.20-19.2.4"
-      val kotlin_react_dom = "org.jetbrains.kotlin-wrappers" d "kotlin-react-dom" w "2026.2.21-19.2.4"
+      val kotlin_react_dom = "org.jetbrains.kotlin-wrappers" d "kotlin-react-dom" w "2026.2.22-19.2.4"
       val kotlin_react_dom_legacy = "org.jetbrains.kotlin-wrappers" d "kotlin-react-dom-legacy" w "2026.2.18-19.2.4"
-      val kotlin_react_dom_test_utils = "org.jetbrains.kotlin-wrappers" d "kotlin-react-dom-test-utils" w "2026.2.21-19.2.4"
+      val kotlin_react_dom_test_utils = "org.jetbrains.kotlin-wrappers" d "kotlin-react-dom-test-utils" w "2026.2.22-19.2.4"
       val kotlin_react_legacy = "org.jetbrains.kotlin-wrappers" d "kotlin-react-legacy" w "2026.2.18-19.2.4"
-      val kotlin_react_popper = "org.jetbrains.kotlin-wrappers" d "kotlin-react-popper" w "2026.2.21-2.3.0"
+      val kotlin_react_popper = "org.jetbrains.kotlin-wrappers" d "kotlin-react-popper" w "2026.2.22-2.3.0"
       val kotlin_react_redux = "org.jetbrains.kotlin-wrappers" d "kotlin-react-redux" w "7.2.6-pre.785"
       val kotlin_react_router = "org.jetbrains.kotlin-wrappers" d "kotlin-react-router" w "2025.12.9-6.28.2"
       val kotlin_react_router_dom = "org.jetbrains.kotlin-wrappers" d "kotlin-react-router-dom" w "2025.1.6-6.28.0"
-      val kotlin_react_select = "org.jetbrains.kotlin-wrappers" d "kotlin-react-select" w "2026.2.21-5.10.2"
-      val kotlin_react_use = "org.jetbrains.kotlin-wrappers" d "kotlin-react-use" w "2026.2.21"
+      val kotlin_react_select = "org.jetbrains.kotlin-wrappers" d "kotlin-react-select" w "2026.2.22-5.10.2"
+      val kotlin_react_use = "org.jetbrains.kotlin-wrappers" d "kotlin-react-use" w "2026.2.22"
       val kotlin_redux = "org.jetbrains.kotlin-wrappers" d "kotlin-redux" w "4.1.2-pre.785"
       val kotlin_remix_run_router = "org.jetbrains.kotlin-wrappers" d "kotlin-remix-run-router" w "2025.1.6-1.21.0"
       val kotlin_ring_ui = "org.jetbrains.kotlin-wrappers" d "kotlin-ring-ui" w "4.1.5-pre.784"
       val kotlin_styled = "org.jetbrains.kotlin-wrappers" d "kotlin-styled" w "5.3.11-pre.717"
       val kotlin_styled_next = "org.jetbrains.kotlin-wrappers" d "kotlin-styled-next" w "2026.2.18"
-      val kotlin_tanstack_query_core = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-query-core" w "2026.2.21-5.90.20"
-      val kotlin_tanstack_react_query = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-react-query" w "2026.2.21-5.90.21"
-      val kotlin_tanstack_react_query_devtools = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-react-query-devtools" w "2026.2.21-5.91.3"
-      val kotlin_tanstack_react_table = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-react-table" w "2026.2.21-8.21.3"
-      val kotlin_tanstack_react_virtual = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-react-virtual" w "2026.2.21-3.13.19"
-      val kotlin_tanstack_table_core = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-table-core" w "2026.2.21-8.21.3"
-      val kotlin_tanstack_virtual_core = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-virtual-core" w "2026.2.21-3.13.19"
-      val kotlin_typescript = "org.jetbrains.kotlin-wrappers" d "kotlin-typescript" w "2026.2.11-5.9.3" w "2026.2.21-6.0.0-beta"
-      val kotlin_web = "org.jetbrains.kotlin-wrappers" d "kotlin-web" w "2026.2.21"
+      val kotlin_tanstack_query_core = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-query-core" w "2026.2.22-5.90.20"
+      val kotlin_tanstack_react_query = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-react-query" w "2026.2.22-5.90.21"
+      val kotlin_tanstack_react_query_devtools = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-react-query-devtools" w "2026.2.22-5.91.3"
+      val kotlin_tanstack_react_table = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-react-table" w "2026.2.22-8.21.3"
+      val kotlin_tanstack_react_virtual = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-react-virtual" w "2026.2.22-3.13.19"
+      val kotlin_tanstack_table_core = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-table-core" w "2026.2.22-8.21.3"
+      val kotlin_tanstack_virtual_core = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-virtual-core" w "2026.2.22-3.13.19"
+      val kotlin_typescript = "org.jetbrains.kotlin-wrappers" d "kotlin-typescript" w "2026.2.11-5.9.3" w "2026.2.22-6.0.0-beta"
+      val kotlin_web = "org.jetbrains.kotlin-wrappers" d "kotlin-web" w "2026.2.22"
     }
   }
   object Kodein {
@@ -1976,11 +1976,11 @@ object Org {
     }
   }
   object Mockito {
-    val android = "org.mockito" d "mockito-android" w "5.21.0"
-    val core = "org.mockito" d "mockito-core" w "5.21.0"
-    val errorprone = "org.mockito" d "mockito-errorprone" w "5.21.0"
+    val android = "org.mockito" d "mockito-android" w "5.22.0"
+    val core = "org.mockito" d "mockito-core" w "5.22.0"
+    val errorprone = "org.mockito" d "mockito-errorprone" w "5.22.0"
     val inline = "org.mockito" d "mockito-inline" w "5.2.0"
-    val junit_jupiter = "org.mockito" d "mockito-junit-jupiter" w "5.21.0"
+    val junit_jupiter = "org.mockito" d "mockito-junit-jupiter" w "5.22.0"
     object Kotlin {
       val mockito_kotlin = "org.mockito.kotlin" d "mockito-kotlin" w "6.2.3"
     }
@@ -2090,7 +2090,7 @@ object Org {
       val spring_cloud_starter_netflix_turbine_stream = "org.springframework.cloud" d "spring-cloud-starter-netflix-turbine-stream" w "2.2.10.RELEASE"
       val spring_cloud_starter_netflix_zuul = "org.springframework.cloud" d "spring-cloud-starter-netflix-zuul" w "2.2.10.RELEASE"
       val spring_cloud_starter_oauth2 = "org.springframework.cloud" d "spring-cloud-starter-oauth2" w "2.2.5.RELEASE"
-      val spring_cloud_starter_open_service_broker = "org.springframework.cloud" d "spring-cloud-starter-open-service-broker" w "4.5.1"
+      val spring_cloud_starter_open_service_broker = "org.springframework.cloud" d "spring-cloud-starter-open-service-broker" w "5.0.0"
       val spring_cloud_starter_openfeign = "org.springframework.cloud" d "spring-cloud-starter-openfeign" w "5.0.1"
       val spring_cloud_starter_security = "org.springframework.cloud" d "spring-cloud-starter-security" w "2.2.5.RELEASE"
       val spring_cloud_starter_sleuth = "org.springframework.cloud" d "spring-cloud-starter-sleuth" w "3.1.11"
