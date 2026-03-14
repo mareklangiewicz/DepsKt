@@ -805,7 +805,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.5"
       val r8 = "com.android.tools" d "r8" w "9.0.32"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.1.0" w "9.2.0-alpha03"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.1.0" w "9.2.0-alpha04"
       }
     }
   }
@@ -890,7 +890,7 @@ object Com {
         val play_services_auth = "com.google.android.gms" d "play-services-auth" w "21.5.1"
         val play_services_auth_api_phone = "com.google.android.gms" d "play-services-auth-api-phone" w "18.3.0"
         val play_services_auth_blockstore = "com.google.android.gms" d "play-services-auth-blockstore" w "16.4.0"
-        val play_services_awareness = "com.google.android.gms" d "play-services-awareness" w "19.1.0"
+        val play_services_awareness = "com.google.android.gms" d "play-services-awareness" w "20.0.0"
         val play_services_base = "com.google.android.gms" d "play-services-base" w "18.10.0"
         val play_services_basement = "com.google.android.gms" d "play-services-basement" w "18.10.0"
         val play_services_cast = "com.google.android.gms" d "play-services-cast" w "22.3.0"
@@ -1295,9 +1295,9 @@ object Com {
       val sqljs_driver = "com.squareup.sqldelight" d "sqljs-driver" w "1.5.5"
     }
     object Wire {
-      val gradle_plugin = "com.squareup.wire" d "wire-gradle-plugin" w "5.5.1" w "6.0.0-alpha03"
-      val grpc_client = "com.squareup.wire" d "wire-grpc-client" w "5.5.1" w "6.0.0-alpha03"
-      val runtime = "com.squareup.wire" d "wire-runtime" w "5.5.1" w "6.0.0-alpha03"
+      val gradle_plugin = "com.squareup.wire" d "wire-gradle-plugin" w "6.0.0"
+      val grpc_client = "com.squareup.wire" d "wire-grpc-client" w "6.0.0"
+      val runtime = "com.squareup.wire" d "wire-runtime" w "6.0.0"
     }
   }
 }
@@ -1375,17 +1375,17 @@ object Io {
     }
   }
   object Insert_koin {
-    val koin_android = "io.insert-koin" d "koin-android" w "4.1.1" w "4.2.0-RC1"
-    val koin_android_compat = "io.insert-koin" d "koin-android-compat" w "4.1.1" w "4.2.0-RC1"
-    val koin_androidx_compose = "io.insert-koin" d "koin-androidx-compose" w "4.1.1" w "4.2.0-RC1"
-    val koin_androidx_navigation = "io.insert-koin" d "koin-androidx-navigation" w "4.1.1" w "4.2.0-RC1"
-    val koin_androidx_workmanager = "io.insert-koin" d "koin-androidx-workmanager" w "4.1.1" w "4.2.0-RC1"
-    val koin_core = "io.insert-koin" d "koin-core" w "4.1.1" w "4.2.0-RC1"
-    val koin_ktor = "io.insert-koin" d "koin-ktor" w "4.1.1" w "4.2.0-RC1"
-    val koin_logger_slf4j = "io.insert-koin" d "koin-logger-slf4j" w "4.1.1" w "4.2.0-RC1"
-    val koin_test = "io.insert-koin" d "koin-test" w "4.1.1" w "4.2.0-RC1"
-    val koin_test_junit4 = "io.insert-koin" d "koin-test-junit4" w "4.1.1" w "4.2.0-RC1"
-    val koin_test_junit5 = "io.insert-koin" d "koin-test-junit5" w "4.1.1" w "4.2.0-RC1"
+    val koin_android = "io.insert-koin" d "koin-android" w "4.1.1" w "4.2.0-RC2"
+    val koin_android_compat = "io.insert-koin" d "koin-android-compat" w "4.1.1" w "4.2.0-RC2"
+    val koin_androidx_compose = "io.insert-koin" d "koin-androidx-compose" w "4.1.1" w "4.2.0-RC2"
+    val koin_androidx_navigation = "io.insert-koin" d "koin-androidx-navigation" w "4.1.1" w "4.2.0-RC2"
+    val koin_androidx_workmanager = "io.insert-koin" d "koin-androidx-workmanager" w "4.1.1" w "4.2.0-RC2"
+    val koin_core = "io.insert-koin" d "koin-core" w "4.1.1" w "4.2.0-RC2"
+    val koin_ktor = "io.insert-koin" d "koin-ktor" w "4.1.1" w "4.2.0-RC2"
+    val koin_logger_slf4j = "io.insert-koin" d "koin-logger-slf4j" w "4.1.1" w "4.2.0-RC2"
+    val koin_test = "io.insert-koin" d "koin-test" w "4.1.1" w "4.2.0-RC2"
+    val koin_test_junit4 = "io.insert-koin" d "koin-test-junit4" w "4.1.1" w "4.2.0-RC2"
+    val koin_test_junit5 = "io.insert-koin" d "koin-test-junit5" w "4.1.1" w "4.2.0-RC2"
   }
   object Kotest {
     val assertions_arrow = "io.kotest" d "kotest-assertions-arrow" w "6.1.6"
@@ -2105,7 +2105,7 @@ object Org {
       val spring_cloud_stream_binder_rabbit = "org.springframework.cloud" d "spring-cloud-stream-binder-rabbit" w "5.0.1"
     }
     object Data {
-      val spring_data_rest_hal_explorer = "org.springframework.data" d "spring-data-rest-hal-explorer" w "5.0.3" w "5.1.0-M1"
+      val spring_data_rest_hal_explorer = "org.springframework.data" d "spring-data-rest-hal-explorer" w "5.0.4" w "5.1.0-M2"
     }
     object Geode {
       val spring_geode_bom = "org.springframework.geode" d "spring-geode-bom" w "1.7.5"
