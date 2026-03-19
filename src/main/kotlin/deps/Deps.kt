@@ -1040,7 +1040,7 @@ object Com {
     }
     object Maps {
       object Android {
-        val maps_compose = "com.google.maps.android" d "maps-compose" w "8.2.1"
+        val maps_compose = "com.google.maps.android" d "maps-compose" w "8.2.2"
         val maps_ktx = "com.google.maps.android" d "maps-ktx" w "6.0.1"
         val maps_rx = "com.google.maps.android" d "maps-rx" w "1.0.1"
         val maps_utils = "com.google.maps.android" d "android-maps-utils" w "4.1.1"
@@ -1375,17 +1375,17 @@ object Io {
     }
   }
   object Insert_koin {
-    val koin_android = "io.insert-koin" d "koin-android" w "4.1.1" w "4.2.0-RC2"
-    val koin_android_compat = "io.insert-koin" d "koin-android-compat" w "4.1.1" w "4.2.0-RC2"
-    val koin_androidx_compose = "io.insert-koin" d "koin-androidx-compose" w "4.1.1" w "4.2.0-RC2"
-    val koin_androidx_navigation = "io.insert-koin" d "koin-androidx-navigation" w "4.1.1" w "4.2.0-RC2"
-    val koin_androidx_workmanager = "io.insert-koin" d "koin-androidx-workmanager" w "4.1.1" w "4.2.0-RC2"
-    val koin_core = "io.insert-koin" d "koin-core" w "4.1.1" w "4.2.0-RC2"
-    val koin_ktor = "io.insert-koin" d "koin-ktor" w "4.1.1" w "4.2.0-RC2"
-    val koin_logger_slf4j = "io.insert-koin" d "koin-logger-slf4j" w "4.1.1" w "4.2.0-RC2"
-    val koin_test = "io.insert-koin" d "koin-test" w "4.1.1" w "4.2.0-RC2"
-    val koin_test_junit4 = "io.insert-koin" d "koin-test-junit4" w "4.1.1" w "4.2.0-RC2"
-    val koin_test_junit5 = "io.insert-koin" d "koin-test-junit5" w "4.1.1" w "4.2.0-RC2"
+    val koin_android = "io.insert-koin" d "koin-android" w "4.2.0"
+    val koin_android_compat = "io.insert-koin" d "koin-android-compat" w "4.2.0"
+    val koin_androidx_compose = "io.insert-koin" d "koin-androidx-compose" w "4.2.0"
+    val koin_androidx_navigation = "io.insert-koin" d "koin-androidx-navigation" w "4.2.0"
+    val koin_androidx_workmanager = "io.insert-koin" d "koin-androidx-workmanager" w "4.2.0"
+    val koin_core = "io.insert-koin" d "koin-core" w "4.2.0"
+    val koin_ktor = "io.insert-koin" d "koin-ktor" w "4.2.0"
+    val koin_logger_slf4j = "io.insert-koin" d "koin-logger-slf4j" w "4.2.0"
+    val koin_test = "io.insert-koin" d "koin-test" w "4.2.0"
+    val koin_test_junit4 = "io.insert-koin" d "koin-test-junit4" w "4.2.0"
+    val koin_test_junit5 = "io.insert-koin" d "koin-test-junit5" w "4.2.0"
   }
   object Kotest {
     val assertions_arrow = "io.kotest" d "kotest-assertions-arrow" w "6.1.7"
@@ -1738,7 +1738,7 @@ object Org {
         val core_js = "org.jetbrains.compose.html" d "html-core-js" w "1.10.2" w "1.11.0-alpha02" w "1.11.0-alpha04"
         val core_jvm = "org.jetbrains.compose.html" d "html-core-jvm" w "1.10.2" w "1.11.0-alpha02" w "1.11.0-alpha04"
         val svg = "org.jetbrains.compose.html" d "html-svg" w "1.10.2" w "1.11.0-alpha02" w "1.11.0-alpha04"
-        val svg_js = "org.jetbrains.compose.html" d "html-svg-js" w "1.10.2" w "1.11.0-alpha02" w "1.11.0-alpha04"
+        val svg_js = "org.jetbrains.compose.html" d "html-svg-js" w "1.10.2" w "1.11.0-alpha04"
         val test_utils = "org.jetbrains.compose.html" d "html-test-utils" w "1.10.2" w "1.11.0-alpha02" w "1.11.0-alpha04"
         val test_utils_js = "org.jetbrains.compose.html" d "html-test-utils-js" w "1.10.2" w "1.11.0-alpha02" w "1.11.0-alpha04"
       }
@@ -2112,23 +2112,23 @@ object Org {
       val spring_geode_starter = "org.springframework.geode" d "spring-geode-starter" w "1.7.5"
     }
     object Integration {
-      val spring_integration_amqp = "org.springframework.integration" d "spring-integration-amqp" w "7.0.3" w "7.1.0-M2"
+      val spring_integration_amqp = "org.springframework.integration" d "spring-integration-amqp" w "7.0.4" w "7.1.0-M3"
       val spring_integration_gemfire = "org.springframework.integration" d "spring-integration-gemfire" w "5.5.20"
-      val spring_integration_jdbc = "org.springframework.integration" d "spring-integration-jdbc" w "7.0.3" w "7.1.0-M2"
-      val spring_integration_jms = "org.springframework.integration" d "spring-integration-jms" w "7.0.3" w "7.1.0-M2"
-      val spring_integration_jpa = "org.springframework.integration" d "spring-integration-jpa" w "7.0.3" w "7.1.0-M2"
-      val spring_integration_kafka = "org.springframework.integration" d "spring-integration-kafka" w "7.0.3" w "7.1.0-M2"
-      val spring_integration_mail = "org.springframework.integration" d "spring-integration-mail" w "7.0.3" w "7.1.0-M2"
-      val spring_integration_mongodb = "org.springframework.integration" d "spring-integration-mongodb" w "7.0.3" w "7.1.0-M2"
-      val spring_integration_r2dbc = "org.springframework.integration" d "spring-integration-r2dbc" w "7.0.3" w "7.1.0-M2"
-      val spring_integration_redis = "org.springframework.integration" d "spring-integration-redis" w "7.0.3" w "7.1.0-M2"
-      val spring_integration_rsocket = "org.springframework.integration" d "spring-integration-rsocket" w "7.0.3" w "7.1.0-M2"
+      val spring_integration_jdbc = "org.springframework.integration" d "spring-integration-jdbc" w "7.0.4" w "7.1.0-M3"
+      val spring_integration_jms = "org.springframework.integration" d "spring-integration-jms" w "7.0.4" w "7.1.0-M3"
+      val spring_integration_jpa = "org.springframework.integration" d "spring-integration-jpa" w "7.0.4" w "7.1.0-M3"
+      val spring_integration_kafka = "org.springframework.integration" d "spring-integration-kafka" w "7.0.4" w "7.1.0-M3"
+      val spring_integration_mail = "org.springframework.integration" d "spring-integration-mail" w "7.0.4" w "7.1.0-M3"
+      val spring_integration_mongodb = "org.springframework.integration" d "spring-integration-mongodb" w "7.0.4" w "7.1.0-M3"
+      val spring_integration_r2dbc = "org.springframework.integration" d "spring-integration-r2dbc" w "7.0.4" w "7.1.0-M3"
+      val spring_integration_redis = "org.springframework.integration" d "spring-integration-redis" w "7.0.4" w "7.1.0-M3"
+      val spring_integration_rsocket = "org.springframework.integration" d "spring-integration-rsocket" w "7.0.4" w "7.1.0-M3"
       val spring_integration_security = "org.springframework.integration" d "spring-integration-security" w "6.2.11"
-      val spring_integration_stomp = "org.springframework.integration" d "spring-integration-stomp" w "7.0.3" w "7.1.0-M2"
-      val spring_integration_test = "org.springframework.integration" d "spring-integration-test" w "7.0.3" w "7.1.0-M2"
-      val spring_integration_webflux = "org.springframework.integration" d "spring-integration-webflux" w "7.0.3" w "7.1.0-M2"
-      val spring_integration_websocket = "org.springframework.integration" d "spring-integration-websocket" w "7.0.3" w "7.1.0-M2"
-      val spring_integration_ws = "org.springframework.integration" d "spring-integration-ws" w "7.0.3" w "7.1.0-M2"
+      val spring_integration_stomp = "org.springframework.integration" d "spring-integration-stomp" w "7.0.4" w "7.1.0-M3"
+      val spring_integration_test = "org.springframework.integration" d "spring-integration-test" w "7.0.4" w "7.1.0-M3"
+      val spring_integration_webflux = "org.springframework.integration" d "spring-integration-webflux" w "7.0.4" w "7.1.0-M3"
+      val spring_integration_websocket = "org.springframework.integration" d "spring-integration-websocket" w "7.0.4" w "7.1.0-M3"
+      val spring_integration_ws = "org.springframework.integration" d "spring-integration-ws" w "7.0.4" w "7.1.0-M3"
     }
     object Kafka {
       val spring_kafka = "org.springframework.kafka" d "spring-kafka" w "4.0.4" w "4.1.0-M2"
