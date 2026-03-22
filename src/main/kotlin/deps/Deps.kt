@@ -1715,7 +1715,7 @@ object Org {
         val resources_js = "org.jetbrains.compose.components" d "components-resources-js" w "1.10.3" w "1.11.0-alpha02" w "1.11.0-alpha04"
         val resources_wasmjs = "org.jetbrains.compose.components" d "components-resources-wasmJs" w "1.10.3" w "1.11.0-alpha02" w "1.11.0-alpha04"
         val splitpane = "org.jetbrains.compose.components" d "components-splitpane" w "1.10.3" w "1.11.0-alpha02" w "1.11.0-alpha04"
-        val ui_tooling_preview = "org.jetbrains.compose.components" d "components-ui-tooling-preview" w "1.10.3" w "1.11.0-alpha02" w "1.11.0-alpha04"
+        val ui_tooling_preview = "org.jetbrains.compose.components" d "components-ui-tooling-preview" w "1.10.3" w "1.11.0-alpha04"
         val ui_tooling_preview_js = "org.jetbrains.compose.components" d "components-ui-tooling-preview-js" w "1.10.3" w "1.11.0-alpha02" w "1.11.0-alpha04"
         val ui_tooling_preview_wasmjs = "org.jetbrains.compose.components" d "components-ui-tooling-preview-wasmJs" w "1.10.3" w "1.11.0-alpha02" w "1.11.0-alpha04"
       }
@@ -1791,7 +1791,7 @@ object Org {
         val text_js = "org.jetbrains.compose.ui" d "ui-text-js" w "1.10.3" w "1.11.0-alpha02" w "1.11.0-alpha04"
         val text_wasm_js = "org.jetbrains.compose.ui" d "ui-text-wasm-js" w "1.10.3" w "1.11.0-alpha02" w "1.11.0-alpha04"
         val tooling = "org.jetbrains.compose.ui" d "ui-tooling" w "1.10.3" w "1.11.0-alpha02" w "1.11.0-alpha04"
-        val tooling_preview = "org.jetbrains.compose.ui" d "ui-tooling-preview" w "1.10.3" w "1.11.0-alpha04"
+        val tooling_preview = "org.jetbrains.compose.ui" d "ui-tooling-preview" w "1.10.3" w "1.11.0-alpha02" w "1.11.0-alpha04"
         val ui = "org.jetbrains.compose.ui" d "ui" w "1.10.3" w "1.11.0-alpha02" w "1.11.0-alpha04"
         val unit = "org.jetbrains.compose.ui" d "ui-unit" w "1.10.3" w "1.11.0-alpha02" w "1.11.0-alpha04"
         val unit_js = "org.jetbrains.compose.ui" d "ui-unit-js" w "1.10.3" w "1.11.0-alpha02" w "1.11.0-alpha04"
