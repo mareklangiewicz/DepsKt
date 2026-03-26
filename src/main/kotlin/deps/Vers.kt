@@ -93,14 +93,14 @@ object Vers {
    * - [plugins gradle org](https://plugins.gradle.org/plugin/com.gradle.plugin-publish)
    * - [plugins gradle org docs](https://plugins.gradle.org/docs/publish-plugin)
    */
-  val GradlePublishPlug = Ver("2.0.0")
+  val GradlePublishPlug = Ver("2.1.1")
 
   /**
    * Gradle Develocity Plugin (enables integration with Gradle Develocity and scans.gradle.com)
    * - [gradle org docs](https://docs.gradle.com/develocity/gradle-plugin/)
    * - [gradle portal](https://plugins.gradle.org/plugin/com.gradle.develocity)
    */
-  val GradleDevelocityPlug = Ver("4.3.2")
+  val GradleDevelocityPlug = Ver("4.4.0")
 
 
   /**
@@ -120,7 +120,7 @@ object Vers {
    * - [github](https://github.com/Kotlin/dokka)
    * - [github releases](https://github.com/Kotlin/dokka/releases)
    */
-  val DokkaPlug = Ver("2.2.0-Beta")
+  val DokkaPlug = Ver("2.2.0")
 
 
   /**
@@ -134,7 +134,7 @@ object Vers {
    * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
    * [github](https://github.com/Kotlin/kotlin-jupyter)
    */
-  val KotlinJupyterPlug = Ver("0.18.0-841")
+  val KotlinJupyterPlug = Ver("0.19.0-880-1")
 
   /**
    * Gradle Shadow Gradle Plugin
@@ -142,7 +142,7 @@ object Vers {
    * - [github john rengelman shadow](https://github.com/johnrengelman/shadow)
    * - [docs](https://github.com/johnrengelman/shadow)
    */
-  val GradleShadowPlug = Ver("9.3.1")
+  val GradleShadowPlug = Ver("9.4.0")
 
   /**
    * Osacky Doctor Gradle Plugin
@@ -168,7 +168,7 @@ object Vers {
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    * - [plugins gradle sourcefun](https://plugins.gradle.org/plugin/pl.mareklangiewicz.sourcefun)
    */
-  val SourceFunPlug = Ver("0.4.41")
+  val SourceFunPlug = Ver("0.4.42")
 
   const val JvmDefaultVer = "23"
 
@@ -180,7 +180,7 @@ object Vers {
    * - [gradle versions rel candidate](https://services.gradle.org/versions/release-candidate)
    * - [gradle versions current](https://services.gradle.org/versions/current)
    */
-  val Gradle9 = Ver("9.3.1")
+  val Gradle9 = Ver("9.4.1")
   val Gradle8 = Ver("8.14.3")
   val Gradle7 = Ver("7.6.4")
 
