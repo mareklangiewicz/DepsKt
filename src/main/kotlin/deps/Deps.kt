@@ -1201,11 +1201,11 @@ object Com {
   }
   object Rickclephas {
     object Kmp {
-      val nativecoroutines_annotations = "com.rickclephas.kmp" d "kmp-nativecoroutines-annotations" w "1.0.2"
-      val nativecoroutines_compiler = "com.rickclephas.kmp" d "kmp-nativecoroutines-compiler" w "1.0.2"
-      val nativecoroutines_compiler_embeddable = "com.rickclephas.kmp" d "kmp-nativecoroutines-compiler-embeddable" w "1.0.2"
-      val nativecoroutines_core = "com.rickclephas.kmp" d "kmp-nativecoroutines-core" w "1.0.2"
-      val nativecoroutines_gradle_plugin = "com.rickclephas.kmp" d "kmp-nativecoroutines-gradle-plugin" w "1.0.2"
+      val nativecoroutines_annotations = "com.rickclephas.kmp" d "kmp-nativecoroutines-annotations" w "1.0.2" w "1.0.2-kotlin-2.4.0-Beta1"
+      val nativecoroutines_compiler = "com.rickclephas.kmp" d "kmp-nativecoroutines-compiler" w "1.0.2" w "1.0.2-kotlin-2.4.0-Beta1"
+      val nativecoroutines_compiler_embeddable = "com.rickclephas.kmp" d "kmp-nativecoroutines-compiler-embeddable" w "1.0.2" w "1.0.2-kotlin-2.4.0-Beta1"
+      val nativecoroutines_core = "com.rickclephas.kmp" d "kmp-nativecoroutines-core" w "1.0.2" w "1.0.2-kotlin-2.4.0-Beta1"
+      val nativecoroutines_gradle_plugin = "com.rickclephas.kmp" d "kmp-nativecoroutines-gradle-plugin" w "1.0.2" w "1.0.2-kotlin-2.4.0-Beta1"
     }
   }
   object Russhwolf {
@@ -1778,7 +1778,7 @@ object Org {
       object Ui {
         val geometry = "org.jetbrains.compose.ui" d "ui-geometry" w "1.10.3" w "1.11.0-alpha02" w "1.11.0-beta01"
         val geometry_js = "org.jetbrains.compose.ui" d "ui-geometry-js" w "1.10.3" w "1.11.0-alpha02" w "1.11.0-beta01"
-        val geometry_wasm_js = "org.jetbrains.compose.ui" d "ui-geometry-wasm-js" w "1.10.3" w "1.11.0-alpha02" w "1.11.0-beta01"
+        val geometry_wasm_js = "org.jetbrains.compose.ui" d "ui-geometry-wasm-js" w "1.10.3" w "1.11.0-beta01"
         val graphics = "org.jetbrains.compose.ui" d "ui-graphics" w "1.10.3" w "1.11.0-alpha02" w "1.11.0-beta01"
         val graphics_js = "org.jetbrains.compose.ui" d "ui-graphics-js" w "1.10.3" w "1.11.0-alpha02" w "1.11.0-beta01"
         val graphics_wasm_js = "org.jetbrains.compose.ui" d "ui-graphics-wasm-js" w "1.10.3" w "1.11.0-alpha02" w "1.11.0-beta01"
@@ -1794,7 +1794,7 @@ object Org {
         val tooling_preview = "org.jetbrains.compose.ui" d "ui-tooling-preview" w "1.10.3" w "1.11.0-alpha02" w "1.11.0-beta01"
         val ui = "org.jetbrains.compose.ui" d "ui" w "1.10.3" w "1.11.0-alpha02" w "1.11.0-beta01"
         val unit = "org.jetbrains.compose.ui" d "ui-unit" w "1.10.3" w "1.11.0-alpha02" w "1.11.0-beta01"
-        val unit_js = "org.jetbrains.compose.ui" d "ui-unit-js" w "1.10.3" w "1.11.0-beta01"
+        val unit_js = "org.jetbrains.compose.ui" d "ui-unit-js" w "1.10.3" w "1.11.0-alpha02" w "1.11.0-beta01"
         val unit_wasm_js = "org.jetbrains.compose.ui" d "ui-unit-wasm-js" w "1.10.3" w "1.11.0-alpha02" w "1.11.0-beta01"
         val wasm_js = "org.jetbrains.compose.ui" d "ui-wasm-js" w "1.10.3" w "1.11.0-alpha02" w "1.11.0-beta01"
       }
