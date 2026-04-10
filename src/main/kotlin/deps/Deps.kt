@@ -228,12 +228,12 @@ object AndroidX {
     val ktx = "androidx.activity" d "activity-ktx" w "1.3.0-beta01" w "1.13.0"
   }
   object Annotation {
-    val annotation = "androidx.annotation" d "annotation" w "1.3.0-alpha01" w "1.9.1" w "1.10.0-rc01"
-    val experimental = "androidx.annotation" d "annotation-experimental" w "1.2.0-alpha01" w "1.5.1" w "1.6.0-rc01"
+    val annotation = "androidx.annotation" d "annotation" w "1.3.0-alpha01" w "1.10.0"
+    val experimental = "androidx.annotation" d "annotation-experimental" w "1.2.0-alpha01" w "1.6.0"
   }
   object AppCompat {
-    val appcompat = "androidx.appcompat" d "appcompat" w "1.7.1"
-    val resources = "androidx.appcompat" d "appcompat-resources" w "1.7.1"
+    val appcompat = "androidx.appcompat" d "appcompat" w "1.7.1" w "1.8.0-alpha01"
+    val resources = "androidx.appcompat" d "appcompat-resources" w "1.7.1" w "1.8.0-alpha01"
   }
   object AppSearch {
     val appsearch = "androidx.appsearch" d "appsearch" w "1.1.0" w "1.2.0-alpha01"
@@ -297,51 +297,51 @@ object AndroidX {
   object Compose {
     val bom = "androidx.compose" d "compose-bom" w "2026.03.01"
     object Animation {
-      val animation = "androidx.compose.animation" d "animation" w "1.0.0-beta06" w "1.10.6" w "1.11.0-beta02"
-      val core = "androidx.compose.animation" d "animation-core" w "1.0.0-beta06" w "1.10.6" w "1.11.0-beta02"
-      val graphics = "androidx.compose.animation" d "animation-graphics" w "1.10.6" w "1.11.0-beta02"
+      val animation = "androidx.compose.animation" d "animation" w "1.0.0-beta06" w "1.10.6" w "1.11.0-rc01"
+      val core = "androidx.compose.animation" d "animation-core" w "1.0.0-beta06" w "1.10.6" w "1.11.0-rc01"
+      val graphics = "androidx.compose.animation" d "animation-graphics" w "1.10.6" w "1.11.0-rc01"
     }
     object Compiler {
       val compiler = "androidx.compose.compiler" d "compiler" w "1.0.0-beta06" w "1.5.15"
     }
     object Foundation {
-      val foundation = "androidx.compose.foundation" d "foundation" w "1.0.0-beta06" w "1.10.6" w "1.11.0-beta02"
-      val layout = "androidx.compose.foundation" d "foundation-layout" w "1.0.0-beta06" w "1.10.6" w "1.11.0-beta02"
+      val foundation = "androidx.compose.foundation" d "foundation" w "1.0.0-beta06" w "1.10.6" w "1.11.0-rc01"
+      val layout = "androidx.compose.foundation" d "foundation-layout" w "1.0.0-beta06" w "1.10.6" w "1.11.0-rc01"
     }
     object Material {
       val icons_core = "androidx.compose.material" d "material-icons-core" w "1.0.0-beta06" w "1.7.8"
       val icons_extended = "androidx.compose.material" d "material-icons-extended" w "1.0.0-beta06" w "1.7.8"
-      val material = "androidx.compose.material" d "material" w "1.0.0-beta06" w "1.10.6" w "1.11.0-beta02"
-      val ripple = "androidx.compose.material" d "material-ripple" w "1.0.0-beta06" w "1.10.6" w "1.11.0-beta02"
+      val material = "androidx.compose.material" d "material" w "1.0.0-beta06" w "1.10.6" w "1.11.0-rc01"
+      val ripple = "androidx.compose.material" d "material-ripple" w "1.0.0-beta06" w "1.10.6" w "1.11.0-rc01"
     }
     object Material3 {
-      val material3 = "androidx.compose.material3" d "material3" w "1.4.0" w "1.5.0-alpha16"
-      val window_size_class = "androidx.compose.material3" d "material3-window-size-class" w "1.4.0" w "1.5.0-alpha16"
+      val material3 = "androidx.compose.material3" d "material3" w "1.4.0" w "1.5.0-alpha17"
+      val window_size_class = "androidx.compose.material3" d "material3-window-size-class" w "1.4.0" w "1.5.0-alpha17"
     }
     object Runtime {
       val dispatch = "androidx.compose.runtime" d "runtime-dispatch" w "1.0.0-alpha12"
-      val livedata = "androidx.compose.runtime" d "runtime-livedata" w "1.10.6" w "1.11.0-beta02"
-      val runtime = "androidx.compose.runtime" d "runtime" w "1.0.0-beta06" w "1.10.6" w "1.11.0-beta02"
-      val rxjava2 = "androidx.compose.runtime" d "runtime-rxjava2" w "1.10.6" w "1.11.0-beta02"
-      val rxjava3 = "androidx.compose.runtime" d "runtime-rxjava3" w "1.10.6" w "1.11.0-beta02"
-      val saveable = "androidx.compose.runtime" d "runtime-saveable" w "1.0.0-beta06" w "1.10.6" w "1.11.0-beta02"
-      val tracing = "androidx.compose.runtime" d "runtime-tracing" w "1.10.6" w "1.11.0-beta02"
+      val livedata = "androidx.compose.runtime" d "runtime-livedata" w "1.10.6" w "1.11.0-rc01"
+      val runtime = "androidx.compose.runtime" d "runtime" w "1.0.0-beta06" w "1.10.6" w "1.11.0-rc01"
+      val rxjava2 = "androidx.compose.runtime" d "runtime-rxjava2" w "1.10.6" w "1.11.0-rc01"
+      val rxjava3 = "androidx.compose.runtime" d "runtime-rxjava3" w "1.10.6" w "1.11.0-rc01"
+      val saveable = "androidx.compose.runtime" d "runtime-saveable" w "1.0.0-beta06" w "1.10.6" w "1.11.0-rc01"
+      val tracing = "androidx.compose.runtime" d "runtime-tracing" w "1.10.6" w "1.11.0-rc01"
     }
     object Ui {
-      val geometry = "androidx.compose.ui" d "ui-geometry" w "1.0.0-beta06" w "1.10.6" w "1.11.0-beta02"
-      val graphics = "androidx.compose.ui" d "ui-graphics" w "1.0.0-beta06" w "1.10.6" w "1.11.0-beta02"
-      val test = "androidx.compose.ui" d "ui-test" w "1.0.0-beta06" w "1.10.6" w "1.11.0-beta02"
-      val test_junit4 = "androidx.compose.ui" d "ui-test-junit4" w "1.0.0-beta06" w "1.10.6" w "1.11.0-beta02"
-      val test_manifest = "androidx.compose.ui" d "ui-test-manifest" w "1.10.6" w "1.11.0-beta02"
-      val text = "androidx.compose.ui" d "ui-text" w "1.0.0-beta06" w "1.10.6" w "1.11.0-beta02"
-      val text_google_fonts = "androidx.compose.ui" d "ui-text-google-fonts" w "1.10.6" w "1.11.0-beta02"
-      val tooling = "androidx.compose.ui" d "ui-tooling" w "1.10.6" w "1.11.0-beta02"
-      val tooling_data = "androidx.compose.ui" d "ui-tooling-data" w "1.10.6" w "1.11.0-beta02"
-      val tooling_preview = "androidx.compose.ui" d "ui-tooling-preview" w "1.10.6" w "1.11.0-beta02"
-      val ui = "androidx.compose.ui" d "ui" w "1.0.0-beta06" w "1.10.6" w "1.11.0-beta02"
-      val unit = "androidx.compose.ui" d "ui-unit" w "1.0.0-beta06" w "1.10.6" w "1.11.0-beta02"
-      val util = "androidx.compose.ui" d "ui-util" w "1.0.0-beta06" w "1.10.6" w "1.11.0-beta02"
-      val viewbinding = "androidx.compose.ui" d "ui-viewbinding" w "1.10.6" w "1.11.0-beta02"
+      val geometry = "androidx.compose.ui" d "ui-geometry" w "1.0.0-beta06" w "1.10.6" w "1.11.0-rc01"
+      val graphics = "androidx.compose.ui" d "ui-graphics" w "1.0.0-beta06" w "1.10.6" w "1.11.0-rc01"
+      val test = "androidx.compose.ui" d "ui-test" w "1.0.0-beta06" w "1.10.6" w "1.11.0-rc01"
+      val test_junit4 = "androidx.compose.ui" d "ui-test-junit4" w "1.0.0-beta06" w "1.10.6" w "1.11.0-rc01"
+      val test_manifest = "androidx.compose.ui" d "ui-test-manifest" w "1.10.6" w "1.11.0-rc01"
+      val text = "androidx.compose.ui" d "ui-text" w "1.0.0-beta06" w "1.10.6" w "1.11.0-rc01"
+      val text_google_fonts = "androidx.compose.ui" d "ui-text-google-fonts" w "1.10.6" w "1.11.0-rc01"
+      val tooling = "androidx.compose.ui" d "ui-tooling" w "1.10.6" w "1.11.0-rc01"
+      val tooling_data = "androidx.compose.ui" d "ui-tooling-data" w "1.10.6" w "1.11.0-rc01"
+      val tooling_preview = "androidx.compose.ui" d "ui-tooling-preview" w "1.10.6" w "1.11.0-rc01"
+      val ui = "androidx.compose.ui" d "ui" w "1.0.0-beta06" w "1.10.6" w "1.11.0-rc01"
+      val unit = "androidx.compose.ui" d "ui-unit" w "1.0.0-beta06" w "1.10.6" w "1.11.0-rc01"
+      val util = "androidx.compose.ui" d "ui-util" w "1.0.0-beta06" w "1.10.6" w "1.11.0-rc01"
+      val viewbinding = "androidx.compose.ui" d "ui-viewbinding" w "1.10.6" w "1.11.0-rc01"
     }
   }
   object Concurrent {
@@ -361,16 +361,16 @@ object AndroidX {
   object Core {
     val animation = "androidx.core" d "core-animation" w "1.0.0"
     val animation_testing = "androidx.core" d "core-animation-testing" w "1.0.0"
-    val core = "androidx.core" d "core" w "1.18.0"
+    val core = "androidx.core" d "core" w "1.18.0" w "1.19.0-alpha01"
     val google_shortcuts = "androidx.core" d "core-google-shortcuts" w "1.1.0" w "1.2.0-alpha01"
-    val ktx = "androidx.core" d "core-ktx" w "1.18.0"
+    val ktx = "androidx.core" d "core-ktx" w "1.18.0" w "1.19.0-alpha01"
     val performance = "androidx.core" d "core-performance" w "1.0.0"
     val remoteviews = "androidx.core" d "core-remoteviews" w "1.1.0"
     val role = "androidx.core" d "core-role" w "1.1.0"
     val splashscreen = "androidx.core" d "core-splashscreen" w "1.2.0"
     object Uwb {
-      val rxjava3 = "androidx.core.uwb" d "uwb-rxjava3" w "1.0.0-beta01"
-      val uwb = "androidx.core.uwb" d "uwb" w "1.0.0-beta01"
+      val rxjava3 = "androidx.core.uwb" d "uwb-rxjava3" w "1.0.0-rc01"
+      val uwb = "androidx.core.uwb" d "uwb" w "1.0.0-rc01"
     }
   }
   object CursorAdapter {
@@ -428,7 +428,7 @@ object AndroidX {
     val testing = "androidx.fragment" d "fragment-testing" w "1.8.9"
   }
   object Games {
-    val activity = "androidx.games" d "games-activity" w "4.4.0"
+    val activity = "androidx.games" d "games-activity" w "4.4.1"
     val controller = "androidx.games" d "games-controller" w "2.0.2" w "2.3.0-alpha01"
     val frame_pacing = "androidx.games" d "games-frame-pacing" w "2.1.3" w "2.3.0-alpha01"
     val performance_tuner = "androidx.games" d "games-performance-tuner" w "2.0.0" w "2.3.0-alpha01"
@@ -467,7 +467,7 @@ object AndroidX {
     val interpolator = "androidx.interpolator" d "interpolator" w "1.0.0"
   }
   object JavaScriptengine {
-    val javascriptengine = "androidx.javascriptengine" d "javascriptengine" w "1.0.0" w "1.1.0-alpha02"
+    val javascriptengine = "androidx.javascriptengine" d "javascriptengine" w "1.0.0" w "1.1.0-beta01"
   }
   object Leanback {
     val grid = "androidx.leanback" d "leanback-grid" w "1.0.0"
@@ -503,7 +503,7 @@ object AndroidX {
     val localbroadcastmanager = "androidx.localbroadcastmanager" d "localbroadcastmanager" w "1.1.0"
   }
   object Media {
-    val media = "androidx.media" d "media" w "1.7.1"
+    val media = "androidx.media" d "media" w "1.7.1" w "1.8.0-alpha01"
   }
   object Media2 {
     val common = "androidx.media2" d "media2-common" w "1.3.0"
@@ -561,16 +561,16 @@ object AndroidX {
     val ui_ktx = "androidx.navigation" d "navigation-ui-ktx" w "2.9.7" w "2.10.0-alpha02"
   }
   object Paging {
-    val common = "androidx.paging" d "paging-common" w "3.1.0-alpha01" w "3.4.2" w "3.5.0-alpha01"
-    val common_ktx = "androidx.paging" d "paging-common-ktx" w "3.4.2" w "3.5.0-alpha01"
-    val compose = "androidx.paging" d "paging-compose" w "1.0.0-alpha10" w "3.4.2" w "3.5.0-alpha01"
-    val guava = "androidx.paging" d "paging-guava" w "3.4.2" w "3.5.0-alpha01"
-    val runtime = "androidx.paging" d "paging-runtime" w "3.4.2" w "3.5.0-alpha01"
-    val runtime_ktx = "androidx.paging" d "paging-runtime-ktx" w "3.4.2" w "3.5.0-alpha01"
-    val rxjava2 = "androidx.paging" d "paging-rxjava2" w "3.4.2" w "3.5.0-alpha01"
-    val rxjava2_ktx = "androidx.paging" d "paging-rxjava2-ktx" w "3.4.2" w "3.5.0-alpha01"
-    val rxjava3 = "androidx.paging" d "paging-rxjava3" w "3.4.2" w "3.5.0-alpha01"
-    val testing = "androidx.paging" d "paging-testing" w "3.4.2" w "3.5.0-alpha01"
+    val common = "androidx.paging" d "paging-common" w "3.1.0-alpha01" w "3.4.2" w "3.5.0-beta01"
+    val common_ktx = "androidx.paging" d "paging-common-ktx" w "3.4.2" w "3.5.0-beta01"
+    val compose = "androidx.paging" d "paging-compose" w "1.0.0-alpha10" w "3.4.2" w "3.5.0-beta01"
+    val guava = "androidx.paging" d "paging-guava" w "3.4.2" w "3.5.0-beta01"
+    val runtime = "androidx.paging" d "paging-runtime" w "3.4.2" w "3.5.0-beta01"
+    val runtime_ktx = "androidx.paging" d "paging-runtime-ktx" w "3.4.2" w "3.5.0-beta01"
+    val rxjava2 = "androidx.paging" d "paging-rxjava2" w "3.4.2" w "3.5.0-beta01"
+    val rxjava2_ktx = "androidx.paging" d "paging-rxjava2-ktx" w "3.4.2" w "3.5.0-beta01"
+    val rxjava3 = "androidx.paging" d "paging-rxjava3" w "3.4.2" w "3.5.0-beta01"
+    val testing = "androidx.paging" d "paging-testing" w "3.4.2" w "3.5.0-beta01"
   }
   object Palette {
     val ktx = "androidx.palette" d "palette-ktx" w "1.0.0"
@@ -635,9 +635,9 @@ object AndroidX {
     val slidingpanelayout = "androidx.slidingpanelayout" d "slidingpanelayout" w "1.2.0"
   }
   object Sqlite {
-    val framework = "androidx.sqlite" d "sqlite-framework" w "2.6.2" w "2.7.0-alpha02"
-    val ktx = "androidx.sqlite" d "sqlite-ktx" w "2.6.2" w "2.7.0-alpha02"
-    val sqlite = "androidx.sqlite" d "sqlite" w "2.6.2" w "2.7.0-alpha02"
+    val framework = "androidx.sqlite" d "sqlite-framework" w "2.6.2" w "2.7.0-alpha03"
+    val ktx = "androidx.sqlite" d "sqlite-ktx" w "2.6.2" w "2.7.0-alpha03"
+    val sqlite = "androidx.sqlite" d "sqlite" w "2.6.2" w "2.7.0-alpha03"
   }
   object Startup {
     val runtime = "androidx.startup" d "startup-runtime" w "1.2.0"
@@ -683,17 +683,17 @@ object AndroidX {
     val textclassifier = "androidx.textclassifier" d "textclassifier" w "1.0.0-alpha04"
   }
   object Tracing {
-    val ktx = "androidx.tracing" d "tracing-ktx" w "1.1.0-alpha01" w "1.3.0" w "2.0.0-alpha04"
+    val ktx = "androidx.tracing" d "tracing-ktx" w "1.1.0-alpha01" w "1.3.0" w "2.0.0-alpha05"
     val perfetto = "androidx.tracing" d "tracing-perfetto" w "1.0.1"
-    val tracing = "androidx.tracing" d "tracing" w "1.1.0-alpha01" w "1.3.0" w "2.0.0-alpha04"
+    val tracing = "androidx.tracing" d "tracing" w "1.1.0-alpha01" w "1.3.0" w "2.0.0-alpha05"
   }
   object Transition {
     val ktx = "androidx.transition" d "transition-ktx" w "1.7.0"
     val transition = "androidx.transition" d "transition" w "1.7.0"
   }
   object Tv {
-    val foundation = "androidx.tv" d "tv-foundation" w "1.0.0-beta01"
-    val material = "androidx.tv" d "tv-material" w "1.0.1" w "1.1.0-beta01"
+    val foundation = "androidx.tv" d "tv-foundation" w "1.0.0-rc01"
+    val material = "androidx.tv" d "tv-material" w "1.0.1" w "1.1.0-rc01"
   }
   object TvProvider {
     val tvprovider = "androidx.tvprovider" d "tvprovider" w "1.1.0"
@@ -720,9 +720,9 @@ object AndroidX {
     val remote_interactions = "androidx.wear" d "wear-remote-interactions" w "1.2.0"
     val wear = "androidx.wear" d "wear" w "1.4.0"
     object Compose {
-      val foundation = "androidx.wear.compose" d "compose-foundation" w "1.0.0-alpha01" w "1.6.0"
-      val material = "androidx.wear.compose" d "compose-material" w "1.0.0-alpha01" w "1.6.0"
-      val navigation = "androidx.wear.compose" d "compose-navigation" w "1.6.0"
+      val foundation = "androidx.wear.compose" d "compose-foundation" w "1.0.0-alpha01" w "1.6.1" w "1.7.0-alpha01"
+      val material = "androidx.wear.compose" d "compose-material" w "1.0.0-alpha01" w "1.6.1" w "1.7.0-alpha01"
+      val navigation = "androidx.wear.compose" d "compose-navigation" w "1.6.1" w "1.7.0-alpha01"
     }
     object Tiles {
       val material = "androidx.wear.tiles" d "tiles-material" w "1.6.0"
@@ -739,7 +739,7 @@ object AndroidX {
     }
   }
   object WebKit {
-    val webkit = "androidx.webkit" d "webkit" w "1.15.0" w "1.16.0-alpha04"
+    val webkit = "androidx.webkit" d "webkit" w "1.15.0" w "1.16.0-beta01"
   }
   object Window {
     val java = "androidx.window" d "window-java" w "1.5.1" w "1.6.0-alpha01"
@@ -913,7 +913,7 @@ object Com {
         val play_services_mlkit_language_id = "com.google.android.gms" d "play-services-mlkit-language-id" w "17.0.0"
         val play_services_mlkit_text_recognition = "com.google.android.gms" d "play-services-mlkit-text-recognition" w "19.0.1"
         val play_services_nearby = "com.google.android.gms" d "play-services-nearby" w "19.3.0"
-        val play_services_oss_licenses = "com.google.android.gms" d "play-services-oss-licenses" w "17.4.0"
+        val play_services_oss_licenses = "com.google.android.gms" d "play-services-oss-licenses" w "17.5.0"
         val play_services_panorama = "com.google.android.gms" d "play-services-panorama" w "17.1.0"
         val play_services_password_complexity = "com.google.android.gms" d "play-services-password-complexity" w "18.1.0"
         val play_services_pay = "com.google.android.gms" d "play-services-pay" w "16.5.0"
@@ -942,7 +942,7 @@ object Com {
       }
       object Libraries {
         object Places {
-          val places = "com.google.android.libraries.places" d "places" w "5.1.1"
+          val places = "com.google.android.libraries.places" d "places" w "5.2.0"
         }
       }
       object Material {
@@ -962,7 +962,7 @@ object Com {
       }
     }
     object AndroidBrowserHelper {
-      val androidbrowserhelper = "com.google.androidbrowserhelper" d "androidbrowserhelper" w "2.6.2" w "2.7.0-alpha03"
+      val androidbrowserhelper = "com.google.androidbrowserhelper" d "androidbrowserhelper" w "2.7.0"
     }
     object Ar {
       val core = "com.google.ar" d "core" w "1.53.0"
@@ -1762,7 +1762,7 @@ object Org {
       object Material3 {
         val js = "org.jetbrains.compose.material3" d "material3-js" w "1.9.0" w "1.11.0-alpha02" w "1.11.0-alpha05"
         val material3 = "org.jetbrains.compose.material3" d "material3" w "1.9.0" w "1.11.0-alpha02" w "1.11.0-alpha05"
-        val wasm_js = "org.jetbrains.compose.material3" d "material3-wasm-js" w "1.9.0" w "1.11.0-alpha02" w "1.11.0-alpha05"
+        val wasm_js = "org.jetbrains.compose.material3" d "material3-wasm-js" w "1.9.0" w "1.11.0-alpha05"
         val window_size_class = "org.jetbrains.compose.material3" d "material3-window-size-class" w "1.9.0" w "1.11.0-alpha02" w "1.11.0-alpha05"
         val window_size_class_js = "org.jetbrains.compose.material3" d "material3-window-size-class-js" w "1.9.0" w "1.11.0-alpha02" w "1.11.0-alpha05"
         val window_size_class_wasm_js = "org.jetbrains.compose.material3" d "material3-window-size-class-wasm-js" w "1.9.0" w "1.11.0-alpha02" w "1.11.0-alpha05"
@@ -1920,23 +1920,23 @@ object Org {
       val serialization_protobuf_jvm = "org.jetbrains.kotlinx" d "kotlinx-serialization-protobuf-jvm" w "1.10.0"
     }
     object Kotlin_Wrappers {
-      val bom = "org.jetbrains.kotlin-wrappers" d "kotlin-wrappers-bom" w "2026.4.3"
+      val bom = "org.jetbrains.kotlin-wrappers" d "kotlin-wrappers-bom" w "2026.4.4"
       val kotlin_actions_toolkit = "org.jetbrains.kotlin-wrappers" d "kotlin-actions-toolkit" w "2025.3.26"
-      val kotlin_browser = "org.jetbrains.kotlin-wrappers" d "kotlin-browser" w "2026.4.3"
+      val kotlin_browser = "org.jetbrains.kotlin-wrappers" d "kotlin-browser" w "2026.4.4"
       val kotlin_cesium = "org.jetbrains.kotlin-wrappers" d "kotlin-cesium" w "1.115.0-pre.711"
-      val kotlin_css = "org.jetbrains.kotlin-wrappers" d "kotlin-css" w "2026.4.3"
-      val kotlin_csstype = "org.jetbrains.kotlin-wrappers" d "kotlin-csstype" w "2026.4.3-3.2.3"
+      val kotlin_css = "org.jetbrains.kotlin-wrappers" d "kotlin-css" w "2026.4.4"
+      val kotlin_csstype = "org.jetbrains.kotlin-wrappers" d "kotlin-csstype" w "2026.4.4-3.2.3"
       val kotlin_emotion = "org.jetbrains.kotlin-wrappers" d "kotlin-emotion" w "2025.3.26"
       val kotlin_history = "org.jetbrains.kotlin-wrappers" d "kotlin-history" w "5.3.0-pre.506-compat"
-      val kotlin_js = "org.jetbrains.kotlin-wrappers" d "kotlin-js" w "2026.4.3"
+      val kotlin_js = "org.jetbrains.kotlin-wrappers" d "kotlin-js" w "2026.4.4"
       val kotlin_mui = "org.jetbrains.kotlin-wrappers" d "kotlin-mui" w "5.14.12-pre.638"
       val kotlin_mui_icons = "org.jetbrains.kotlin-wrappers" d "kotlin-mui-icons" w "5.14.12-pre.638"
-      val kotlin_node = "org.jetbrains.kotlin-wrappers" d "kotlin-node" w "2026.4.3-24.11.0"
+      val kotlin_node = "org.jetbrains.kotlin-wrappers" d "kotlin-node" w "2026.4.4-24.11.0"
       val kotlin_popper = "org.jetbrains.kotlin-wrappers" d "kotlin-popper" w "2.11.8-pre.792"
-      val kotlin_react = "org.jetbrains.kotlin-wrappers" d "kotlin-react" w "2026.4.3-19.2.4"
+      val kotlin_react = "org.jetbrains.kotlin-wrappers" d "kotlin-react" w "2026.4.4-19.2.5"
       val kotlin_react_beautiful_dnd = "org.jetbrains.kotlin-wrappers" d "kotlin-react-beautiful-dnd" w "2026.2.24-13.1.1"
       val kotlin_react_core = "org.jetbrains.kotlin-wrappers" d "kotlin-react-core" w "2026.2.20-19.2.4"
-      val kotlin_react_dom = "org.jetbrains.kotlin-wrappers" d "kotlin-react-dom" w "2026.4.3-19.2.4"
+      val kotlin_react_dom = "org.jetbrains.kotlin-wrappers" d "kotlin-react-dom" w "2026.4.4-19.2.5"
       val kotlin_react_dom_legacy = "org.jetbrains.kotlin-wrappers" d "kotlin-react-dom-legacy" w "2026.2.18-19.2.4"
       val kotlin_react_dom_test_utils = "org.jetbrains.kotlin-wrappers" d "kotlin-react-dom-test-utils" w "2026.3.10-19.2.4"
       val kotlin_react_legacy = "org.jetbrains.kotlin-wrappers" d "kotlin-react-legacy" w "2026.2.18-19.2.4"
@@ -1944,22 +1944,22 @@ object Org {
       val kotlin_react_redux = "org.jetbrains.kotlin-wrappers" d "kotlin-react-redux" w "7.2.6-pre.785"
       val kotlin_react_router = "org.jetbrains.kotlin-wrappers" d "kotlin-react-router" w "2025.12.9-6.28.2"
       val kotlin_react_router_dom = "org.jetbrains.kotlin-wrappers" d "kotlin-react-router-dom" w "2025.1.6-6.28.0"
-      val kotlin_react_select = "org.jetbrains.kotlin-wrappers" d "kotlin-react-select" w "2026.4.3-5.10.2"
-      val kotlin_react_use = "org.jetbrains.kotlin-wrappers" d "kotlin-react-use" w "2026.4.3"
+      val kotlin_react_select = "org.jetbrains.kotlin-wrappers" d "kotlin-react-select" w "2026.4.4-5.10.2"
+      val kotlin_react_use = "org.jetbrains.kotlin-wrappers" d "kotlin-react-use" w "2026.4.4"
       val kotlin_redux = "org.jetbrains.kotlin-wrappers" d "kotlin-redux" w "4.1.2-pre.785"
       val kotlin_remix_run_router = "org.jetbrains.kotlin-wrappers" d "kotlin-remix-run-router" w "2025.1.6-1.21.0"
       val kotlin_ring_ui = "org.jetbrains.kotlin-wrappers" d "kotlin-ring-ui" w "4.1.5-pre.784"
       val kotlin_styled = "org.jetbrains.kotlin-wrappers" d "kotlin-styled" w "5.3.11-pre.717"
       val kotlin_styled_next = "org.jetbrains.kotlin-wrappers" d "kotlin-styled-next" w "2026.2.18"
-      val kotlin_tanstack_query_core = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-query-core" w "2026.4.3-5.90.20"
-      val kotlin_tanstack_react_query = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-react-query" w "2026.4.3-5.90.21"
-      val kotlin_tanstack_react_query_devtools = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-react-query-devtools" w "2026.4.3-5.91.3"
-      val kotlin_tanstack_react_table = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-react-table" w "2026.4.3-8.21.3"
-      val kotlin_tanstack_react_virtual = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-react-virtual" w "2026.4.3-3.13.23"
-      val kotlin_tanstack_table_core = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-table-core" w "2026.4.3-8.21.3"
-      val kotlin_tanstack_virtual_core = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-virtual-core" w "2026.4.3-3.13.23"
-      val kotlin_typescript = "org.jetbrains.kotlin-wrappers" d "kotlin-typescript" w "2026.4.3-6.0.2"
-      val kotlin_web = "org.jetbrains.kotlin-wrappers" d "kotlin-web" w "2026.4.3"
+      val kotlin_tanstack_query_core = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-query-core" w "2026.4.4-5.90.20"
+      val kotlin_tanstack_react_query = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-react-query" w "2026.4.4-5.90.21"
+      val kotlin_tanstack_react_query_devtools = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-react-query-devtools" w "2026.4.4-5.91.3"
+      val kotlin_tanstack_react_table = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-react-table" w "2026.4.4-8.21.3"
+      val kotlin_tanstack_react_virtual = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-react-virtual" w "2026.4.4-3.13.23"
+      val kotlin_tanstack_table_core = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-table-core" w "2026.4.4-8.21.3"
+      val kotlin_tanstack_virtual_core = "org.jetbrains.kotlin-wrappers" d "kotlin-tanstack-virtual-core" w "2026.4.4-3.13.23"
+      val kotlin_typescript = "org.jetbrains.kotlin-wrappers" d "kotlin-typescript" w "2026.4.4-6.0.2"
+      val kotlin_web = "org.jetbrains.kotlin-wrappers" d "kotlin-web" w "2026.4.4"
     }
   }
   object Kodein {
