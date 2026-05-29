@@ -805,7 +805,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.5"
       val r8 = "com.android.tools" d "r8" w "9.1.31"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.2.1" w "9.3.0-alpha07"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.2.1" w "9.3.0-alpha08"
       }
     }
   }
@@ -1004,7 +1004,7 @@ object Com {
       val appindexing = "com.google.firebase" d "firebase-appindexing" w "20.0.0"
       val auth = "com.google.firebase" d "firebase-auth" w "24.1.0"
       val auth_ktx = "com.google.firebase" d "firebase-auth-ktx" w "23.2.1"
-      val bom = "com.google.firebase" d "firebase-bom" w "34.13.0"
+      val bom = "com.google.firebase" d "firebase-bom" w "34.14.0"
       val config = "com.google.firebase" d "firebase-config" w "23.1.0"
       val config_ktx = "com.google.firebase" d "firebase-config-ktx" w "22.1.2"
       val crashlytics = "com.google.firebase" d "firebase-crashlytics" w "20.0.6"
