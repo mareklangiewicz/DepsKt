@@ -805,7 +805,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.5"
       val r8 = "com.android.tools" d "r8" w "9.1.31"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.2.1" w "9.3.0-alpha08"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.2.1" w "9.3.0-alpha09"
       }
     }
   }
@@ -1510,9 +1510,9 @@ object Io {
     val websockets = "io.ktor" d "ktor-websockets" w "3.5.0"
   }
   object MockK {
-    val android = "io.mockk" d "mockk-android" w "1.14.9"
+    val android = "io.mockk" d "mockk-android" w "1.14.11"
     val common = "io.mockk" d "mockk-common" w "1.12.5"
-    val mockk = "io.mockk" d "mockk" w "1.14.9"
+    val mockk = "io.mockk" d "mockk" w "1.14.11"
   }
   object Pivotal {
     object Spring {
@@ -1845,11 +1845,11 @@ object Org {
       val test_wasm_js = "org.jetbrains.kotlin" d "kotlin-test-wasm-js" w "2.3.21" w "2.4.0-RC2"
     }
     object KotlinX {
-      val atomicfu = "org.jetbrains.kotlinx" d "atomicfu" w "0.32.1"
-      val atomicfu_gradle_plugin = "org.jetbrains.kotlinx" d "atomicfu-gradle-plugin" w "0.32.1"
-      val atomicfu_js = "org.jetbrains.kotlinx" d "atomicfu-js" w "0.32.1"
-      val atomicfu_jvm = "org.jetbrains.kotlinx" d "atomicfu-jvm" w "0.32.1"
-      val atomicfu_wasm_js = "org.jetbrains.kotlinx" d "atomicfu-wasm-js" w "0.32.1"
+      val atomicfu = "org.jetbrains.kotlinx" d "atomicfu" w "0.33.0"
+      val atomicfu_gradle_plugin = "org.jetbrains.kotlinx" d "atomicfu-gradle-plugin" w "0.33.0"
+      val atomicfu_js = "org.jetbrains.kotlinx" d "atomicfu-js" w "0.33.0"
+      val atomicfu_jvm = "org.jetbrains.kotlinx" d "atomicfu-jvm" w "0.33.0"
+      val atomicfu_wasm_js = "org.jetbrains.kotlinx" d "atomicfu-wasm-js" w "0.33.0"
       val browser_wasm_js = "org.jetbrains.kotlinx" d "kotlinx-browser-wasm-js" w "0.5.0"
       val cli = "org.jetbrains.kotlinx" d "kotlinx-cli" w "0.3.6"
       val collections_immutable = "org.jetbrains.kotlinx" d "kotlinx-collections-immutable" w "0.4.0" w "0.5.0-beta01"
