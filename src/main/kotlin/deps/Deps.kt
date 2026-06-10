@@ -1004,7 +1004,7 @@ object Com {
       val appindexing = "com.google.firebase" d "firebase-appindexing" w "20.0.0"
       val auth = "com.google.firebase" d "firebase-auth" w "24.1.0"
       val auth_ktx = "com.google.firebase" d "firebase-auth-ktx" w "23.2.1"
-      val bom = "com.google.firebase" d "firebase-bom" w "34.14.0"
+      val bom = "com.google.firebase" d "firebase-bom" w "34.14.1"
       val config = "com.google.firebase" d "firebase-config" w "23.1.0"
       val config_ktx = "com.google.firebase" d "firebase-config-ktx" w "22.1.2"
       val crashlytics = "com.google.firebase" d "firebase-crashlytics" w "20.0.6"
@@ -1245,20 +1245,20 @@ object Com {
       val moshi = "com.squareup.moshi" d "moshi" w "1.15.2"
     }
     object Okhttp3 {
-      val logging_interceptor = "com.squareup.okhttp3" d "logging-interceptor" w "5.3.2"
-      val mockwebserver = "com.squareup.okhttp3" d "mockwebserver" w "5.3.2"
-      val mockwebserver3 = "com.squareup.okhttp3" d "mockwebserver3" w "5.3.2"
-      val mockwebserver3_junit4 = "com.squareup.okhttp3" d "mockwebserver3-junit4" w "5.3.2"
-      val mockwebserver3_junit5 = "com.squareup.okhttp3" d "mockwebserver3-junit5" w "5.3.2"
-      val okhttp = "com.squareup.okhttp3" d "okhttp" w "5.3.2"
-      val okhttp_android = "com.squareup.okhttp3" d "okhttp-android" w "5.3.2"
-      val okhttp_bom = "com.squareup.okhttp3" d "okhttp-bom" w "5.3.2"
-      val okhttp_brotli = "com.squareup.okhttp3" d "okhttp-brotli" w "5.3.2"
-      val okhttp_coroutines = "com.squareup.okhttp3" d "okhttp-coroutines" w "5.3.2"
-      val okhttp_dnsoverhttps = "com.squareup.okhttp3" d "okhttp-dnsoverhttps" w "5.3.2"
-      val okhttp_sse = "com.squareup.okhttp3" d "okhttp-sse" w "5.3.2"
-      val okhttp_tls = "com.squareup.okhttp3" d "okhttp-tls" w "5.3.2"
-      val okhttp_urlconnection = "com.squareup.okhttp3" d "okhttp-urlconnection" w "5.3.2"
+      val logging_interceptor = "com.squareup.okhttp3" d "logging-interceptor" w "5.4.0"
+      val mockwebserver = "com.squareup.okhttp3" d "mockwebserver" w "5.4.0"
+      val mockwebserver3 = "com.squareup.okhttp3" d "mockwebserver3" w "5.4.0"
+      val mockwebserver3_junit4 = "com.squareup.okhttp3" d "mockwebserver3-junit4" w "5.4.0"
+      val mockwebserver3_junit5 = "com.squareup.okhttp3" d "mockwebserver3-junit5" w "5.4.0"
+      val okhttp = "com.squareup.okhttp3" d "okhttp" w "5.4.0"
+      val okhttp_android = "com.squareup.okhttp3" d "okhttp-android" w "5.4.0"
+      val okhttp_bom = "com.squareup.okhttp3" d "okhttp-bom" w "5.4.0"
+      val okhttp_brotli = "com.squareup.okhttp3" d "okhttp-brotli" w "5.4.0"
+      val okhttp_coroutines = "com.squareup.okhttp3" d "okhttp-coroutines" w "5.4.0"
+      val okhttp_dnsoverhttps = "com.squareup.okhttp3" d "okhttp-dnsoverhttps" w "5.4.0"
+      val okhttp_sse = "com.squareup.okhttp3" d "okhttp-sse" w "5.4.0"
+      val okhttp_tls = "com.squareup.okhttp3" d "okhttp-tls" w "5.4.0"
+      val okhttp_urlconnection = "com.squareup.okhttp3" d "okhttp-urlconnection" w "5.4.0"
     }
     object Okio {
       val okio = "com.squareup.okio" d "okio" w "3.17.0"
@@ -1524,9 +1524,9 @@ object Io {
     }
   }
   object Projectreactor {
-    val reactor_test = "io.projectreactor" d "reactor-test" w "3.8.5"
+    val reactor_test = "io.projectreactor" d "reactor-test" w "3.8.6"
     object Kotlin {
-      val reactor_kotlin_extensions = "io.projectreactor.kotlin" d "reactor-kotlin-extensions" w "1.3.0"
+      val reactor_kotlin_extensions = "io.projectreactor.kotlin" d "reactor-kotlin-extensions" w "1.3.1"
     }
   }
   object RSocket {
@@ -1852,8 +1852,8 @@ object Org {
       val atomicfu_wasm_js = "org.jetbrains.kotlinx" d "atomicfu-wasm-js" w "0.33.0"
       val browser_wasm_js = "org.jetbrains.kotlinx" d "kotlinx-browser-wasm-js" w "0.5.0"
       val cli = "org.jetbrains.kotlinx" d "kotlinx-cli" w "0.3.6"
-      val collections_immutable = "org.jetbrains.kotlinx" d "kotlinx-collections-immutable" w "0.4.0" w "0.5.0-beta01"
-      val collections_immutable_jvm = "org.jetbrains.kotlinx" d "kotlinx-collections-immutable-jvm" w "0.4.0" w "0.5.0-beta01"
+      val collections_immutable = "org.jetbrains.kotlinx" d "kotlinx-collections-immutable" w "0.5.0"
+      val collections_immutable_jvm = "org.jetbrains.kotlinx" d "kotlinx-collections-immutable-jvm" w "0.5.0"
       val coroutines_android = "org.jetbrains.kotlinx" d "kotlinx-coroutines-android" w "1.11.0"
       val coroutines_bom = "org.jetbrains.kotlinx" d "kotlinx-coroutines-bom" w "1.11.0"
       val coroutines_core = "org.jetbrains.kotlinx" d "kotlinx-coroutines-core" w "1.11.0"
@@ -2007,7 +2007,7 @@ object Org {
   }
   object SpringFramework {
     object Amqp {
-      val spring_rabbit_test = "org.springframework.amqp" d "spring-rabbit-test" w "4.0.3" w "4.1.0-RC1"
+      val spring_rabbit_test = "org.springframework.amqp" d "spring-rabbit-test" w "4.1.0"
     }
     object Batch {
       val spring_batch_test = "org.springframework.batch" d "spring-batch-test" w "6.0.3"
@@ -2105,7 +2105,7 @@ object Org {
       val spring_cloud_stream_binder_rabbit = "org.springframework.cloud" d "spring-cloud-stream-binder-rabbit" w "5.0.1"
     }
     object Data {
-      val spring_data_rest_hal_explorer = "org.springframework.data" d "spring-data-rest-hal-explorer" w "5.0.5" w "5.1.0-RC1"
+      val spring_data_rest_hal_explorer = "org.springframework.data" d "spring-data-rest-hal-explorer" w "5.1.0"
     }
     object Geode {
       val spring_geode_bom = "org.springframework.geode" d "spring-geode-bom" w "1.7.5"
@@ -2131,20 +2131,20 @@ object Org {
       val spring_integration_ws = "org.springframework.integration" d "spring-integration-ws" w "7.0.4" w "7.1.0-RC1"
     }
     object Kafka {
-      val spring_kafka = "org.springframework.kafka" d "spring-kafka" w "4.0.5" w "4.1.0-RC1"
-      val spring_kafka_test = "org.springframework.kafka" d "spring-kafka-test" w "4.0.5" w "4.1.0-RC1"
+      val spring_kafka = "org.springframework.kafka" d "spring-kafka" w "4.1.0"
+      val spring_kafka_test = "org.springframework.kafka" d "spring-kafka-test" w "4.1.0"
     }
     object Restdocs {
-      val spring_restdocs_webtestclient = "org.springframework.restdocs" d "spring-restdocs-webtestclient" w "4.0.0"
+      val spring_restdocs_webtestclient = "org.springframework.restdocs" d "spring-restdocs-webtestclient" w "4.0.1"
     }
     object Security {
-      val spring_security_messaging = "org.springframework.security" d "spring-security-messaging" w "7.0.5" w "7.1.0-RC1"
-      val spring_security_rsocket = "org.springframework.security" d "spring-security-rsocket" w "7.0.5" w "7.1.0-RC1"
-      val spring_security_test = "org.springframework.security" d "spring-security-test" w "7.0.5" w "7.1.0-RC1"
+      val spring_security_messaging = "org.springframework.security" d "spring-security-messaging" w "7.1.0"
+      val spring_security_rsocket = "org.springframework.security" d "spring-security-rsocket" w "7.1.0"
+      val spring_security_test = "org.springframework.security" d "spring-security-test" w "7.1.0"
     }
     object Session {
-      val spring_session_data_redis = "org.springframework.session" d "spring-session-data-redis" w "4.0.3" w "4.1.0-RC1"
-      val spring_session_jdbc = "org.springframework.session" d "spring-session-jdbc" w "4.0.3" w "4.1.0-RC1"
+      val spring_session_data_redis = "org.springframework.session" d "spring-session-data-redis" w "4.1.0"
+      val spring_session_jdbc = "org.springframework.session" d "spring-session-jdbc" w "4.1.0"
     }
   }
 }
