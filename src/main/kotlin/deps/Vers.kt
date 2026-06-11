@@ -135,7 +135,7 @@ object Vers {
    * [gradle portal](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jupyter.api)
    * [github](https://github.com/Kotlin/kotlin-jupyter)
    */
-  val KotlinJupyterPlug = Ver("0.19.0-950")
+  val KotlinJupyterPlug = Ver("0.19.0-951")
 
   /**
    * Gradle Shadow Gradle Plugin
@@ -160,7 +160,7 @@ object Vers {
    * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val DepsPlug = Ver(0, 4, 16) // also sync it in ../../../../build.gradle.kts
+  val DepsPlug = Ver(0, 4, 17) // also sync it in ../../../../build.gradle.kts
   // TODO use sourcefun to make sure it's always synced with myLibDetails(version)
 
   /**
@@ -169,7 +169,7 @@ object Vers {
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    * - [plugins gradle sourcefun](https://plugins.gradle.org/plugin/pl.mareklangiewicz.sourcefun)
    */
-  val SourceFunPlug = Ver("0.4.45")
+  val SourceFunPlug = Ver("0.4.46")
 
   const val JvmDefaultVer = "23"
 
