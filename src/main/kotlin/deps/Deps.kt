@@ -683,9 +683,9 @@ object AndroidX {
     val textclassifier = "androidx.textclassifier" d "textclassifier" w "1.0.0-alpha04"
   }
   object Tracing {
-    val ktx = "androidx.tracing" d "tracing-ktx" w "1.3.0" w "2.0.0-alpha08"
+    val ktx = "androidx.tracing" d "tracing-ktx" w "1.3.0" w "2.0.0-alpha09"
     val perfetto = "androidx.tracing" d "tracing-perfetto" w "1.0.1"
-    val tracing = "androidx.tracing" d "tracing" w "1.3.0" w "2.0.0-alpha08"
+    val tracing = "androidx.tracing" d "tracing" w "1.3.0" w "2.0.0-alpha09"
   }
   object Transition {
     val ktx = "androidx.transition" d "transition-ktx" w "1.7.0"
@@ -1295,9 +1295,9 @@ object Com {
       val sqljs_driver = "com.squareup.sqldelight" d "sqljs-driver" w "1.5.5"
     }
     object Wire {
-      val gradle_plugin = "com.squareup.wire" d "wire-gradle-plugin" w "6.4.0" w "7.0.0-alpha03"
-      val grpc_client = "com.squareup.wire" d "wire-grpc-client" w "6.4.0" w "7.0.0-alpha03"
-      val runtime = "com.squareup.wire" d "wire-runtime" w "6.4.0" w "7.0.0-alpha03"
+      val gradle_plugin = "com.squareup.wire" d "wire-gradle-plugin" w "6.4.1" w "7.0.0-alpha03"
+      val grpc_client = "com.squareup.wire" d "wire-grpc-client" w "6.4.1" w "7.0.0-alpha03"
+      val runtime = "com.squareup.wire" d "wire-runtime" w "6.4.1" w "7.0.0-alpha03"
     }
   }
 }
@@ -1669,7 +1669,7 @@ object Org {
   object JetBrains {
     object AndroidX {
       object Lifecycle {
-        val common = "org.jetbrains.androidx.lifecycle" d "lifecycle-common" w "2.10.0" w "2.11.0-beta02" w "2.11.10-alpha01+dev4136"
+        val common = "org.jetbrains.androidx.lifecycle" d "lifecycle-common" w "2.9.6+dev3210" w "2.9.6" w "2.10.0" w "2.11.0-beta02"
         val common_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-common-js" w "2.10.0" w "2.11.0-beta02" w "2.11.10-alpha01+dev4136"
         val common_wasm_js = "org.jetbrains.androidx.lifecycle" d "lifecycle-common-wasm-js" w "2.10.0" w "2.11.0-beta02" w "2.11.10-alpha01+dev4136"
         val runtime = "org.jetbrains.androidx.lifecycle" d "lifecycle-runtime" w "2.10.0" w "2.11.0-beta02" w "2.11.10-alpha01+dev4136"
