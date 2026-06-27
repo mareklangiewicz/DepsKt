@@ -1139,7 +1139,7 @@ object Com {
   object Louiscad {
     object Splitties {
       val activities = "com.louiscad.splitties" d "splitties-activities" w "3.0.0"
-      val alertdialog = "com.louiscad.splitties" d "splitties-alertdialog" w "3.0.0"
+      val alertdialog = "com.louiscad.splitties" d "splitties-alertdialog"
       val alertdialog_appcompat = "com.louiscad.splitties" d "splitties-alertdialog-appcompat" w "3.0.0"
       val alertdialog_appcompat_coroutines = "com.louiscad.splitties" d "splitties-alertdialog-appcompat-coroutines" w "3.0.0"
       val alertdialog_material = "com.louiscad.splitties" d "splitties-alertdialog-material" w "3.0.0"
@@ -1885,10 +1885,10 @@ object Org {
       val html = "org.jetbrains.kotlinx" d "kotlinx-html" w "0.12.0"
       val html_js = "org.jetbrains.kotlinx" d "kotlinx-html-js" w "0.12.0"
       val html_jvm = "org.jetbrains.kotlinx" d "kotlinx-html-jvm" w "0.12.0"
-      val io_core = "org.jetbrains.kotlinx" d "kotlinx-io-core" w "0.9.0"
-      val io_core_js = "org.jetbrains.kotlinx" d "kotlinx-io-core-js" w "0.9.0"
-      val io_core_jvm = "org.jetbrains.kotlinx" d "kotlinx-io-core-jvm" w "0.9.0"
-      val io_core_wasm_js = "org.jetbrains.kotlinx" d "kotlinx-io-core-wasm-js" w "0.9.0"
+      val io_core = "org.jetbrains.kotlinx" d "kotlinx-io-core" w "0.9.1"
+      val io_core_js = "org.jetbrains.kotlinx" d "kotlinx-io-core-js" w "0.9.1"
+      val io_core_jvm = "org.jetbrains.kotlinx" d "kotlinx-io-core-jvm" w "0.9.1"
+      val io_core_wasm_js = "org.jetbrains.kotlinx" d "kotlinx-io-core-wasm-js" w "0.9.1"
       val io_jvm = "org.jetbrains.kotlinx" d "kotlinx-io-jvm" w "0.1.16"
       val kotlin_deeplearning_api = "org.jetbrains.kotlinx" d "kotlin-deeplearning-api" w "0.5.2" w "0.6.0-alpha-1"
       val kotlin_deeplearning_onnx = "org.jetbrains.kotlinx" d "kotlin-deeplearning-onnx" w "0.5.2" w "0.6.0-alpha-1"
