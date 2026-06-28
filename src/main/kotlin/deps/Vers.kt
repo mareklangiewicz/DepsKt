@@ -87,7 +87,7 @@ object Vers {
    * - [github](https://github.com/vanniktech/gradle-maven-publish-plugin)
    * - [github releases](https://github.com/vanniktech/gradle-maven-publish-plugin/releases)
    */
-  val VannikPublishPlug = Ver("0.36.0")
+  val VannikPublishPlug = Ver("0.37.0")
 
   /**
    * Gradle Publish Plugin (gradle plugin for publishing gradle plugins)
@@ -101,7 +101,7 @@ object Vers {
    * - [gradle org docs](https://docs.gradle.com/develocity/gradle-plugin/)
    * - [gradle portal](https://plugins.gradle.org/plugin/com.gradle.develocity)
    */
-  val GradleDevelocityPlug = Ver("4.4.2")
+  val GradleDevelocityPlug = Ver("4.4.3")
 
 
   /**
@@ -143,7 +143,7 @@ object Vers {
    * - [github john rengelman shadow](https://github.com/johnrengelman/shadow)
    * - [docs](https://github.com/johnrengelman/shadow)
    */
-  val GradleShadowPlug = Ver("9.4.2")
+  val GradleShadowPlug = Ver("9.4.3")
 
   /**
    * Osacky Doctor Gradle Plugin
@@ -169,7 +169,7 @@ object Vers {
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    * - [plugins gradle sourcefun](https://plugins.gradle.org/plugin/pl.mareklangiewicz.sourcefun)
    */
-  val SourceFunPlug = Ver("0.4.46")
+  val SourceFunPlug = Ver("0.4.47")
 
   const val JvmDefaultVer = "23"
 
