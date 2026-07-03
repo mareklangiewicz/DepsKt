@@ -805,7 +805,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.5"
       val r8 = "com.android.tools" d "r8" w "9.1.31"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.2.1" w "9.3.0-rc01" w "9.4.0-alpha02"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.2.1" w "9.3.0-rc01" w "9.4.0-alpha03"
       }
     }
   }
@@ -1368,10 +1368,10 @@ object Io {
       }
     }
     object TypeSafeGitHub {
-      val action_binding_generator = "io.github.typesafegithub" d "action-binding-generator" w "3.7.0"
-      val action_updates_checker = "io.github.typesafegithub" d "action-updates-checker" w "3.7.0"
-      val github_workflows_kt = "io.github.typesafegithub" d "github-workflows-kt" w "3.7.0"
-      val shared_internal = "io.github.typesafegithub" d "shared-internal" w "3.7.0"
+      val action_binding_generator = "io.github.typesafegithub" d "action-binding-generator" w "4.0.0"
+      val action_updates_checker = "io.github.typesafegithub" d "action-updates-checker" w "4.0.0"
+      val github_workflows_kt = "io.github.typesafegithub" d "github-workflows-kt" w "4.0.0"
+      val shared_internal = "io.github.typesafegithub" d "shared-internal" w "4.0.0"
     }
   }
   object Insert_koin {
@@ -1852,8 +1852,8 @@ object Org {
       val atomicfu_wasm_js = "org.jetbrains.kotlinx" d "atomicfu-wasm-js" w "0.33.0"
       val browser_wasm_js = "org.jetbrains.kotlinx" d "kotlinx-browser-wasm-js" w "0.5.0"
       val cli = "org.jetbrains.kotlinx" d "kotlinx-cli" w "0.3.6"
-      val collections_immutable = "org.jetbrains.kotlinx" d "kotlinx-collections-immutable" w "0.5.0"
-      val collections_immutable_jvm = "org.jetbrains.kotlinx" d "kotlinx-collections-immutable-jvm" w "0.5.0"
+      val collections_immutable = "org.jetbrains.kotlinx" d "kotlinx-collections-immutable" w "0.5.1"
+      val collections_immutable_jvm = "org.jetbrains.kotlinx" d "kotlinx-collections-immutable-jvm" w "0.5.1"
       val coroutines_android = "org.jetbrains.kotlinx" d "kotlinx-coroutines-android" w "1.11.0"
       val coroutines_bom = "org.jetbrains.kotlinx" d "kotlinx-coroutines-bom" w "1.11.0"
       val coroutines_core = "org.jetbrains.kotlinx" d "kotlinx-coroutines-core" w "1.11.0"
