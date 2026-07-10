@@ -805,7 +805,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.5"
       val r8 = "com.android.tools" d "r8" w "9.1.31"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.2.1" w "9.3.0-rc02" w "9.4.0-alpha03"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.2.1" w "9.3.0-rc02" w "9.4.0-alpha04"
       }
     }
   }
@@ -884,7 +884,7 @@ object Com {
         val flexbox = "com.google.android.flexbox" d "flexbox" w "3.0.0"
       }
       object Gms {
-        val oss_licenses_plugin = "com.google.android.gms" d "oss-licenses-plugin" w "0.12.0"
+        val oss_licenses_plugin = "com.google.android.gms" d "oss-licenses-plugin" w "0.13.0"
         val play_services_analytics = "com.google.android.gms" d "play-services-analytics" w "18.1.1"
         val play_services_appset = "com.google.android.gms" d "play-services-appset" w "16.1.0"
         val play_services_auth = "com.google.android.gms" d "play-services-auth" w "21.6.0"
@@ -1002,21 +1002,21 @@ object Com {
       val analytics_ktx = "com.google.firebase" d "firebase-analytics-ktx" w "22.5.0"
       val appdistribution_gradle = "com.google.firebase" d "firebase-appdistribution-gradle" w "5.3.0"
       val appindexing = "com.google.firebase" d "firebase-appindexing" w "20.0.0"
-      val auth = "com.google.firebase" d "firebase-auth" w "24.1.0"
+      val auth = "com.google.firebase" d "firebase-auth" w "24.2.0"
       val auth_ktx = "com.google.firebase" d "firebase-auth-ktx" w "23.2.1"
-      val bom = "com.google.firebase" d "firebase-bom" w "34.15.0"
+      val bom = "com.google.firebase" d "firebase-bom" w "34.16.0"
       val config = "com.google.firebase" d "firebase-config" w "23.1.0"
       val config_ktx = "com.google.firebase" d "firebase-config-ktx" w "22.1.2"
-      val crashlytics = "com.google.firebase" d "firebase-crashlytics" w "20.0.6"
+      val crashlytics = "com.google.firebase" d "firebase-crashlytics" w "20.1.0"
       val crashlytics_gradle = "com.google.firebase" d "firebase-crashlytics-gradle" w "3.0.7"
       val crashlytics_ktx = "com.google.firebase" d "firebase-crashlytics-ktx" w "19.4.4"
-      val crashlytics_ndk = "com.google.firebase" d "firebase-crashlytics-ndk" w "20.0.6"
+      val crashlytics_ndk = "com.google.firebase" d "firebase-crashlytics-ndk" w "20.1.0"
       val database = "com.google.firebase" d "firebase-database" w "22.0.1"
       val database_ktx = "com.google.firebase" d "firebase-database-ktx" w "21.0.0"
       val dynamic_links = "com.google.firebase" d "firebase-dynamic-links" w "22.1.0"
       val dynamic_links_ktx = "com.google.firebase" d "firebase-dynamic-links-ktx" w "22.1.0"
       val dynamic_module_support = "com.google.firebase" d "firebase-dynamic-module-support" w "16.0.0-beta04"
-      val firestore = "com.google.firebase" d "firebase-firestore" w "26.4.0"
+      val firestore = "com.google.firebase" d "firebase-firestore" w "26.4.1"
       val firestore_ktx = "com.google.firebase" d "firebase-firestore-ktx" w "25.1.4"
       val functions = "com.google.firebase" d "firebase-functions" w "22.1.1"
       val functions_ktx = "com.google.firebase" d "firebase-functions-ktx" w "21.2.1"
@@ -1024,12 +1024,12 @@ object Com {
       val inappmessaging_display = "com.google.firebase" d "firebase-inappmessaging-display" w "22.0.3"
       val inappmessaging_display_ktx = "com.google.firebase" d "firebase-inappmessaging-display-ktx" w "21.0.2"
       val inappmessaging_ktx = "com.google.firebase" d "firebase-inappmessaging-ktx" w "21.0.2"
-      val messaging = "com.google.firebase" d "firebase-messaging" w "25.1.0"
-      val messaging_directboot = "com.google.firebase" d "firebase-messaging-directboot" w "25.1.0"
+      val messaging = "com.google.firebase" d "firebase-messaging" w "25.1.1"
+      val messaging_directboot = "com.google.firebase" d "firebase-messaging-directboot" w "25.1.1"
       val messaging_ktx = "com.google.firebase" d "firebase-messaging-ktx" w "24.1.2"
       val ml_modeldownloader = "com.google.firebase" d "firebase-ml-modeldownloader" w "26.0.2"
       val ml_modeldownloader_ktx = "com.google.firebase" d "firebase-ml-modeldownloader-ktx" w "25.0.1"
-      val perf = "com.google.firebase" d "firebase-perf" w "22.0.5"
+      val perf = "com.google.firebase" d "firebase-perf" w "22.0.6"
       val perf_ktx = "com.google.firebase" d "firebase-perf-ktx" w "21.0.5"
       val perf_plugin = "com.google.firebase" d "perf-plugin" w "2.0.2"
       val storage = "com.google.firebase" d "firebase-storage" w "22.0.1"
@@ -1303,13 +1303,13 @@ object Com {
 }
 object Io {
   object Arrow_kt {
-    val arrow_core = "io.arrow-kt" d "arrow-core" w "2.2.3"
-    val arrow_fx_coroutines = "io.arrow-kt" d "arrow-fx-coroutines" w "2.2.3"
-    val arrow_fx_stm = "io.arrow-kt" d "arrow-fx-stm" w "2.2.3"
-    val arrow_optics = "io.arrow-kt" d "arrow-optics" w "2.2.3"
-    val arrow_optics_ksp_plugin = "io.arrow-kt" d "arrow-optics-ksp-plugin" w "2.2.3"
-    val arrow_optics_reflect = "io.arrow-kt" d "arrow-optics-reflect" w "2.2.3"
-    val arrow_stack = "io.arrow-kt" d "arrow-stack" w "2.2.3"
+    val arrow_core = "io.arrow-kt" d "arrow-core" w "2.2.3" w "2.3.0-alpha.1"
+    val arrow_fx_coroutines = "io.arrow-kt" d "arrow-fx-coroutines" w "2.2.3" w "2.3.0-alpha.1"
+    val arrow_fx_stm = "io.arrow-kt" d "arrow-fx-stm" w "2.2.3" w "2.3.0-alpha.1"
+    val arrow_optics = "io.arrow-kt" d "arrow-optics" w "2.2.3" w "2.3.0-alpha.1"
+    val arrow_optics_ksp_plugin = "io.arrow-kt" d "arrow-optics-ksp-plugin" w "2.2.3" w "2.3.0-alpha.1"
+    val arrow_optics_reflect = "io.arrow-kt" d "arrow-optics-reflect" w "2.2.3" w "2.3.0-alpha.1"
+    val arrow_stack = "io.arrow-kt" d "arrow-stack" w "2.2.3" w "2.3.0-alpha.1"
     object Analysis {
       object Kotlin {
         val io_arrow_kt_analysis_kotlin_gradle_plugin = "io.arrow-kt.analysis.kotlin" d "io.arrow-kt.analysis.kotlin.gradle.plugin" w "2.0.2" w "2.0.3-alpha.2"
