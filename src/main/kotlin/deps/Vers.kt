@@ -160,7 +160,7 @@ object Vers {
    * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val DepsPlug = Ver(0, 4, 21) // also sync it in ../../../../build.gradle.kts
+  val DepsPlug = Ver(0, 4, 22) // also sync it in ../../../../build.gradle.kts
   // TODO use sourcefun to make sure it's always synced with myLibDetails(version)
 
   /**
@@ -192,8 +192,8 @@ object Vers {
    * - [build numbers](https://source.android.com/setup/start/build-numbers)
    */
   val AndroSdkPreview: String? = null
-  const val AndroSdkCompile: Int = 36
-  const val AndroSdkTarget = 36
+  const val AndroSdkCompile: Int = 37
+  const val AndroSdkTarget = 37
   const val AndroSdkMin = 30
 
   /**
