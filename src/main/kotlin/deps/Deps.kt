@@ -1040,11 +1040,11 @@ object Com {
     }
     object Maps {
       object Android {
-        val maps_compose = "com.google.maps.android" d "maps-compose" w "8.3.0"
-        val maps_ktx = "com.google.maps.android" d "maps-ktx" w "6.0.1"
+        val maps_compose = "com.google.maps.android" d "maps-compose" w "8.3.1"
+        val maps_ktx = "com.google.maps.android" d "maps-ktx" w "6.1.0"
         val maps_rx = "com.google.maps.android" d "maps-rx" w "1.0.1"
         val maps_utils = "com.google.maps.android" d "android-maps-utils" w "4.5.2" w "5.0.0-rc02"
-        val maps_utils_ktx = "com.google.maps.android" d "maps-utils-ktx" w "6.0.1"
+        val maps_utils_ktx = "com.google.maps.android" d "maps-utils-ktx" w "6.1.0"
       }
     }
     object MlKit {
@@ -2150,10 +2150,10 @@ object Org {
 }
 object Pl {
   object MarekLangiewicz {
-    val abcdk = "pl.mareklangiewicz" d "abcdk" w "0.0.38"
-    val abcdk_js = "pl.mareklangiewicz" d "abcdk-js" w "0.0.38"
-    val abcdk_jvm = "pl.mareklangiewicz" d "abcdk-jvm" w "0.0.38"
-    val abcdk_linuxx64 = "pl.mareklangiewicz" d "abcdk-linuxx64" w "0.0.38"
+    val abcdk = "pl.mareklangiewicz" d "abcdk" w "0.0.40"
+    val abcdk_js = "pl.mareklangiewicz" d "abcdk-js" w "0.0.40"
+    val abcdk_jvm = "pl.mareklangiewicz" d "abcdk-jvm" w "0.0.40"
+    val abcdk_linuxx64 = "pl.mareklangiewicz" d "abcdk-linuxx64" w "0.0.40"
     val kground = "pl.mareklangiewicz" d "kground" w "0.1.29"
     val kground_io = "pl.mareklangiewicz" d "kground-io" w "0.1.29"
     val kground_io_js = "pl.mareklangiewicz" d "kground-io-js" w "0.1.29"
