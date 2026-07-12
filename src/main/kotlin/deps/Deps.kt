@@ -1303,13 +1303,13 @@ object Com {
 }
 object Io {
   object Arrow_kt {
-    val arrow_core = "io.arrow-kt" d "arrow-core" w "2.2.3" w "2.3.0-alpha.1"
-    val arrow_fx_coroutines = "io.arrow-kt" d "arrow-fx-coroutines" w "2.2.3" w "2.3.0-alpha.1"
-    val arrow_fx_stm = "io.arrow-kt" d "arrow-fx-stm" w "2.2.3" w "2.3.0-alpha.1"
-    val arrow_optics = "io.arrow-kt" d "arrow-optics" w "2.2.3" w "2.3.0-alpha.1"
-    val arrow_optics_ksp_plugin = "io.arrow-kt" d "arrow-optics-ksp-plugin" w "2.2.3" w "2.3.0-alpha.1"
-    val arrow_optics_reflect = "io.arrow-kt" d "arrow-optics-reflect" w "2.2.3" w "2.3.0-alpha.1"
-    val arrow_stack = "io.arrow-kt" d "arrow-stack" w "2.2.3" w "2.3.0-alpha.1"
+    val arrow_core = "io.arrow-kt" d "arrow-core" w "2.2.3" w "2.3.0-alpha.2"
+    val arrow_fx_coroutines = "io.arrow-kt" d "arrow-fx-coroutines" w "2.2.3" w "2.3.0-alpha.2"
+    val arrow_fx_stm = "io.arrow-kt" d "arrow-fx-stm" w "2.2.3" w "2.3.0-alpha.2"
+    val arrow_optics = "io.arrow-kt" d "arrow-optics" w "2.2.3" w "2.3.0-alpha.2"
+    val arrow_optics_ksp_plugin = "io.arrow-kt" d "arrow-optics-ksp-plugin" w "2.2.3" w "2.3.0-alpha.2"
+    val arrow_optics_reflect = "io.arrow-kt" d "arrow-optics-reflect" w "2.2.3" w "2.3.0-alpha.2"
+    val arrow_stack = "io.arrow-kt" d "arrow-stack" w "2.2.3" w "2.3.0-alpha.2"
     object Analysis {
       object Kotlin {
         val io_arrow_kt_analysis_kotlin_gradle_plugin = "io.arrow-kt.analysis.kotlin" d "io.arrow-kt.analysis.kotlin.gradle.plugin" w "2.0.2" w "2.0.3-alpha.2"
@@ -1651,18 +1651,18 @@ object Org {
     val testing_webdriver = "org.http4k" d "http4k-testing-webdriver" w "6.55.0.0"
   }
   object JUnit {
-    val bom = "org.junit" d "junit-bom" w "6.1.1"
+    val bom = "org.junit" d "junit-bom" w "6.1.2"
     object Jupiter {
-      val junit_jupiter = "org.junit.jupiter" d "junit-jupiter" w "6.1.1"
-      val junit_jupiter_api = "org.junit.jupiter" d "junit-jupiter-api" w "6.1.1"
-      val junit_jupiter_engine = "org.junit.jupiter" d "junit-jupiter-engine" w "6.1.1"
-      val junit_jupiter_migrationsupport = "org.junit.jupiter" d "junit-jupiter-migrationsupport" w "6.1.1"
-      val junit_jupiter_params = "org.junit.jupiter" d "junit-jupiter-params" w "6.1.1"
+      val junit_jupiter = "org.junit.jupiter" d "junit-jupiter" w "6.1.2"
+      val junit_jupiter_api = "org.junit.jupiter" d "junit-jupiter-api" w "6.1.2"
+      val junit_jupiter_engine = "org.junit.jupiter" d "junit-jupiter-engine" w "6.1.2"
+      val junit_jupiter_migrationsupport = "org.junit.jupiter" d "junit-jupiter-migrationsupport" w "6.1.2"
+      val junit_jupiter_params = "org.junit.jupiter" d "junit-jupiter-params" w "6.1.2"
     }
     object Platform {
-      val junit_platform_commons = "org.junit.platform" d "junit-platform-commons" w "6.1.1"
-      val junit_platform_engine = "org.junit.platform" d "junit-platform-engine" w "6.1.1"
-      val junit_platform_launcher = "org.junit.platform" d "junit-platform-launcher" w "6.1.1"
+      val junit_platform_commons = "org.junit.platform" d "junit-platform-commons" w "6.1.2"
+      val junit_platform_engine = "org.junit.platform" d "junit-platform-engine" w "6.1.2"
+      val junit_platform_launcher = "org.junit.platform" d "junit-platform-launcher" w "6.1.2"
       val junit_platform_runner = "org.junit.platform" d "junit-platform-runner" w "1.14.4"
     }
   }
