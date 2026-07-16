@@ -228,7 +228,7 @@ object AndroidX {
     val ktx = "androidx.activity" d "activity-ktx" w "1.13.0"
   }
   object Annotation {
-    val annotation = "androidx.annotation" d "annotation" w "1.10.0"
+    val annotation = "androidx.annotation" d "annotation" w "1.10.0" w "1.11.0-alpha01"
     val experimental = "androidx.annotation" d "annotation-experimental" w "1.6.0"
   }
   object AppCompat {
@@ -315,8 +315,8 @@ object AndroidX {
       val ripple = "androidx.compose.material" d "material-ripple" w "1.11.4" w "1.12.0-beta02"
     }
     object Material3 {
-      val material3 = "androidx.compose.material3" d "material3" w "1.4.0" w "1.5.0-alpha23"
-      val window_size_class = "androidx.compose.material3" d "material3-window-size-class" w "1.4.0" w "1.5.0-alpha23"
+      val material3 = "androidx.compose.material3" d "material3" w "1.4.0" w "1.5.0-alpha24"
+      val window_size_class = "androidx.compose.material3" d "material3-window-size-class" w "1.4.0" w "1.5.0-alpha24"
     }
     object Runtime {
       val dispatch = "androidx.compose.runtime" d "runtime-dispatch" w "1.0.0-alpha12"
@@ -497,7 +497,7 @@ object AndroidX {
     val viewmodel_savedstate = "androidx.lifecycle" d "lifecycle-viewmodel-savedstate" w "2.11.0"
   }
   object Loader {
-    val loader = "androidx.loader" d "loader" w "1.1.0" w "1.2.0-alpha01"
+    val loader = "androidx.loader" d "loader" w "1.1.0" w "1.2.0-rc01"
   }
   object LocalBroadcastManager {
     val localbroadcastmanager = "androidx.localbroadcastmanager" d "localbroadcastmanager" w "1.1.0"
@@ -683,9 +683,9 @@ object AndroidX {
     val textclassifier = "androidx.textclassifier" d "textclassifier" w "1.0.0-alpha04"
   }
   object Tracing {
-    val ktx = "androidx.tracing" d "tracing-ktx" w "1.3.0" w "2.0.0-alpha09"
+    val ktx = "androidx.tracing" d "tracing-ktx" w "1.3.0" w "2.0.0-beta01"
     val perfetto = "androidx.tracing" d "tracing-perfetto" w "1.0.1"
-    val tracing = "androidx.tracing" d "tracing" w "1.3.0" w "2.0.0-alpha09"
+    val tracing = "androidx.tracing" d "tracing" w "1.3.0" w "2.0.0-beta01"
   }
   object Transition {
     val ktx = "androidx.transition" d "transition-ktx" w "1.7.0"
@@ -716,13 +716,13 @@ object AndroidX {
     val input = "androidx.wear" d "wear-input" w "1.2.0"
     val input_testing = "androidx.wear" d "wear-input-testing" w "1.2.0"
     val ongoing = "androidx.wear" d "wear-ongoing" w "1.1.0"
-    val phone_interactions = "androidx.wear" d "wear-phone-interactions" w "1.1.0"
+    val phone_interactions = "androidx.wear" d "wear-phone-interactions" w "1.1.1"
     val remote_interactions = "androidx.wear" d "wear-remote-interactions" w "1.2.0" w "1.3.0-alpha01"
     val wear = "androidx.wear" d "wear" w "1.4.0"
     object Compose {
-      val foundation = "androidx.wear.compose" d "compose-foundation" w "1.6.2" w "1.7.0-alpha05"
-      val material = "androidx.wear.compose" d "compose-material" w "1.6.2" w "1.7.0-alpha05"
-      val navigation = "androidx.wear.compose" d "compose-navigation" w "1.6.2" w "1.7.0-alpha05"
+      val foundation = "androidx.wear.compose" d "compose-foundation" w "1.6.2" w "1.7.0-alpha06"
+      val material = "androidx.wear.compose" d "compose-material" w "1.6.2" w "1.7.0-alpha06"
+      val navigation = "androidx.wear.compose" d "compose-navigation" w "1.6.2" w "1.7.0-alpha06"
     }
     object Tiles {
       val material = "androidx.wear.tiles" d "tiles-material" w "1.6.1"
@@ -739,7 +739,7 @@ object AndroidX {
     }
   }
   object WebKit {
-    val webkit = "androidx.webkit" d "webkit" w "1.16.0" w "1.17.0-alpha03"
+    val webkit = "androidx.webkit" d "webkit" w "1.16.0" w "1.17.0-alpha04"
   }
   object Window {
     val java = "androidx.window" d "window-java" w "1.5.1" w "1.6.0-alpha05"
@@ -749,13 +749,13 @@ object AndroidX {
     val window = "androidx.window" d "window" w "1.5.1" w "1.6.0-alpha05"
   }
   object Work {
-    val gcm = "androidx.work" d "work-gcm" w "2.11.2"
-    val multiprocess = "androidx.work" d "work-multiprocess" w "2.11.2"
-    val runtime = "androidx.work" d "work-runtime" w "2.11.2"
-    val runtime_ktx = "androidx.work" d "work-runtime-ktx" w "2.11.2"
-    val rxjava2 = "androidx.work" d "work-rxjava2" w "2.11.2"
-    val rxjava3 = "androidx.work" d "work-rxjava3" w "2.11.2"
-    val testing = "androidx.work" d "work-testing" w "2.11.2"
+    val gcm = "androidx.work" d "work-gcm" w "2.11.2" w "2.12.0-alpha01"
+    val multiprocess = "androidx.work" d "work-multiprocess" w "2.11.2" w "2.12.0-alpha01"
+    val runtime = "androidx.work" d "work-runtime" w "2.11.2" w "2.12.0-alpha01"
+    val runtime_ktx = "androidx.work" d "work-runtime-ktx" w "2.11.2" w "2.12.0-alpha01"
+    val rxjava2 = "androidx.work" d "work-rxjava2" w "2.11.2" w "2.12.0-alpha01"
+    val rxjava3 = "androidx.work" d "work-rxjava3" w "2.11.2" w "2.12.0-alpha01"
+    val testing = "androidx.work" d "work-testing" w "2.11.2" w "2.12.0-alpha01"
   }
 }
 object App {
@@ -1041,10 +1041,10 @@ object Com {
     object Maps {
       object Android {
         val maps_compose = "com.google.maps.android" d "maps-compose" w "8.3.1"
-        val maps_ktx = "com.google.maps.android" d "maps-ktx" w "6.1.0"
+        val maps_ktx = "com.google.maps.android" d "maps-ktx" w "6.2.0"
         val maps_rx = "com.google.maps.android" d "maps-rx" w "1.0.1"
-        val maps_utils = "com.google.maps.android" d "android-maps-utils" w "4.5.2" w "5.0.0-rc03"
-        val maps_utils_ktx = "com.google.maps.android" d "maps-utils-ktx" w "6.1.0"
+        val maps_utils = "com.google.maps.android" d "android-maps-utils" w "5.0.0"
+        val maps_utils_ktx = "com.google.maps.android" d "maps-utils-ktx" w "6.2.0"
       }
     }
     object MlKit {
@@ -1201,11 +1201,11 @@ object Com {
   }
   object Rickclephas {
     object Kmp {
-      val nativecoroutines_annotations = "com.rickclephas.kmp" d "kmp-nativecoroutines-annotations" w "1.0.4" w "1.0.4-kotlin-2.4.10-RC"
-      val nativecoroutines_compiler = "com.rickclephas.kmp" d "kmp-nativecoroutines-compiler" w "1.0.4" w "1.0.4-kotlin-2.4.10-RC"
-      val nativecoroutines_compiler_embeddable = "com.rickclephas.kmp" d "kmp-nativecoroutines-compiler-embeddable" w "1.0.4" w "1.0.4-kotlin-2.4.10-RC"
-      val nativecoroutines_core = "com.rickclephas.kmp" d "kmp-nativecoroutines-core" w "1.0.4" w "1.0.4-kotlin-2.4.10-RC"
-      val nativecoroutines_gradle_plugin = "com.rickclephas.kmp" d "kmp-nativecoroutines-gradle-plugin" w "1.0.4" w "1.0.4-kotlin-2.4.10-RC"
+      val nativecoroutines_annotations = "com.rickclephas.kmp" d "kmp-nativecoroutines-annotations" w "1.0.5"
+      val nativecoroutines_compiler = "com.rickclephas.kmp" d "kmp-nativecoroutines-compiler" w "1.0.5"
+      val nativecoroutines_compiler_embeddable = "com.rickclephas.kmp" d "kmp-nativecoroutines-compiler-embeddable" w "1.0.5"
+      val nativecoroutines_core = "com.rickclephas.kmp" d "kmp-nativecoroutines-core" w "1.0.5"
+      val nativecoroutines_gradle_plugin = "com.rickclephas.kmp" d "kmp-nativecoroutines-gradle-plugin" w "1.0.5"
     }
   }
   object Russhwolf {
@@ -1295,9 +1295,9 @@ object Com {
       val sqljs_driver = "com.squareup.sqldelight" d "sqljs-driver" w "1.5.5"
     }
     object Wire {
-      val gradle_plugin = "com.squareup.wire" d "wire-gradle-plugin" w "6.4.5" w "7.0.0-alpha04"
-      val grpc_client = "com.squareup.wire" d "wire-grpc-client" w "6.4.5" w "7.0.0-alpha04"
-      val runtime = "com.squareup.wire" d "wire-runtime" w "6.4.5" w "7.0.0-alpha04"
+      val gradle_plugin = "com.squareup.wire" d "wire-gradle-plugin" w "6.4.5" w "7.0.0-alpha05"
+      val grpc_client = "com.squareup.wire" d "wire-grpc-client" w "6.4.5" w "7.0.0-alpha05"
+      val runtime = "com.squareup.wire" d "wire-runtime" w "6.4.5" w "7.0.0-alpha05"
     }
   }
 }
@@ -1986,7 +1986,7 @@ object Org {
     }
   }
   object Robolectric {
-    val robolectric = "org.robolectric" d "robolectric" w "4.16.1"
+    val robolectric = "org.robolectric" d "robolectric" w "4.16.1" w "4.17-beta-1"
   }
   object Slf4j {
     val api = "org.slf4j" d "slf4j-api" w "2.0.18" w "2.1.0-alpha1"
