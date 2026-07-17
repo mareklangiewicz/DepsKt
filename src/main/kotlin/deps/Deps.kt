@@ -805,7 +805,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.5"
       val r8 = "com.android.tools" d "r8" w "9.1.31"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.3.0" w "9.4.0-alpha04"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.3.0" w "9.4.0-alpha05"
       }
     }
   }
@@ -1040,7 +1040,7 @@ object Com {
     }
     object Maps {
       object Android {
-        val maps_compose = "com.google.maps.android" d "maps-compose" w "8.3.1"
+        val maps_compose = "com.google.maps.android" d "maps-compose" w "8.4.0"
         val maps_ktx = "com.google.maps.android" d "maps-ktx" w "6.2.0"
         val maps_rx = "com.google.maps.android" d "maps-rx" w "1.0.1"
         val maps_utils = "com.google.maps.android" d "android-maps-utils" w "5.0.0"
@@ -1303,13 +1303,13 @@ object Com {
 }
 object Io {
   object Arrow_kt {
-    val arrow_core = "io.arrow-kt" d "arrow-core" w "2.2.3" w "2.3.0-alpha.2"
-    val arrow_fx_coroutines = "io.arrow-kt" d "arrow-fx-coroutines" w "2.2.3" w "2.3.0-alpha.2"
-    val arrow_fx_stm = "io.arrow-kt" d "arrow-fx-stm" w "2.2.3" w "2.3.0-alpha.2"
-    val arrow_optics = "io.arrow-kt" d "arrow-optics" w "2.2.3" w "2.3.0-alpha.2"
-    val arrow_optics_ksp_plugin = "io.arrow-kt" d "arrow-optics-ksp-plugin" w "2.2.3" w "2.3.0-alpha.2"
-    val arrow_optics_reflect = "io.arrow-kt" d "arrow-optics-reflect" w "2.2.3" w "2.3.0-alpha.2"
-    val arrow_stack = "io.arrow-kt" d "arrow-stack" w "2.2.3" w "2.3.0-alpha.2"
+    val arrow_core = "io.arrow-kt" d "arrow-core" w "2.2.3" w "2.3.0-alpha.3"
+    val arrow_fx_coroutines = "io.arrow-kt" d "arrow-fx-coroutines" w "2.2.3" w "2.3.0-alpha.3"
+    val arrow_fx_stm = "io.arrow-kt" d "arrow-fx-stm" w "2.2.3" w "2.3.0-alpha.3"
+    val arrow_optics = "io.arrow-kt" d "arrow-optics" w "2.2.3" w "2.3.0-alpha.3"
+    val arrow_optics_ksp_plugin = "io.arrow-kt" d "arrow-optics-ksp-plugin" w "2.2.3" w "2.3.0-alpha.3"
+    val arrow_optics_reflect = "io.arrow-kt" d "arrow-optics-reflect" w "2.2.3" w "2.3.0-alpha.3"
+    val arrow_stack = "io.arrow-kt" d "arrow-stack" w "2.2.3" w "2.3.0-alpha.3"
     object Analysis {
       object Kotlin {
         val io_arrow_kt_analysis_kotlin_gradle_plugin = "io.arrow-kt.analysis.kotlin" d "io.arrow-kt.analysis.kotlin.gradle.plugin" w "2.0.2" w "2.0.3-alpha.2"
