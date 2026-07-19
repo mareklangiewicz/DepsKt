@@ -1986,7 +1986,7 @@ object Org {
     }
   }
   object Robolectric {
-    val robolectric = "org.robolectric" d "robolectric" w "4.16.1" w "4.17-beta-1"
+    val robolectric = "org.robolectric" d "robolectric" w "4.16.1" w "4.17-beta-2"
   }
   object Slf4j {
     val api = "org.slf4j" d "slf4j-api" w "2.0.18" w "2.1.0-alpha1"
