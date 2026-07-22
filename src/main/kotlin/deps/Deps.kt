@@ -1261,7 +1261,7 @@ object Com {
       val okhttp_urlconnection = "com.squareup.okhttp3" d "okhttp-urlconnection" w "5.4.0"
     }
     object Okio {
-      val okio = "com.squareup.okio" d "okio" w "3.17.0"
+      val okio = "com.squareup.okio" d "okio" w "3.18.0"
     }
     object Picasso {
       val picasso = "com.squareup.picasso" d "picasso" w "2.71828"
@@ -1295,21 +1295,21 @@ object Com {
       val sqljs_driver = "com.squareup.sqldelight" d "sqljs-driver" w "1.5.5"
     }
     object Wire {
-      val gradle_plugin = "com.squareup.wire" d "wire-gradle-plugin" w "6.4.5" w "7.0.0-alpha05"
-      val grpc_client = "com.squareup.wire" d "wire-grpc-client" w "6.4.5" w "7.0.0-alpha05"
-      val runtime = "com.squareup.wire" d "wire-runtime" w "6.4.5" w "7.0.0-alpha05"
+      val gradle_plugin = "com.squareup.wire" d "wire-gradle-plugin" w "6.4.5" w "7.0.0-alpha06"
+      val grpc_client = "com.squareup.wire" d "wire-grpc-client" w "6.4.5" w "7.0.0-alpha06"
+      val runtime = "com.squareup.wire" d "wire-runtime" w "6.4.5" w "7.0.0-alpha06"
     }
   }
 }
 object Io {
   object Arrow_kt {
-    val arrow_core = "io.arrow-kt" d "arrow-core" w "2.2.3" w "2.3.0-alpha.3"
-    val arrow_fx_coroutines = "io.arrow-kt" d "arrow-fx-coroutines" w "2.2.3" w "2.3.0-alpha.3"
-    val arrow_fx_stm = "io.arrow-kt" d "arrow-fx-stm" w "2.2.3" w "2.3.0-alpha.3"
-    val arrow_optics = "io.arrow-kt" d "arrow-optics" w "2.2.3" w "2.3.0-alpha.3"
-    val arrow_optics_ksp_plugin = "io.arrow-kt" d "arrow-optics-ksp-plugin" w "2.2.3" w "2.3.0-alpha.3"
-    val arrow_optics_reflect = "io.arrow-kt" d "arrow-optics-reflect" w "2.2.3" w "2.3.0-alpha.3"
-    val arrow_stack = "io.arrow-kt" d "arrow-stack" w "2.2.3" w "2.3.0-alpha.3"
+    val arrow_core = "io.arrow-kt" d "arrow-core" w "2.2.3" w "2.3.0-alpha.4"
+    val arrow_fx_coroutines = "io.arrow-kt" d "arrow-fx-coroutines" w "2.2.3" w "2.3.0-alpha.4"
+    val arrow_fx_stm = "io.arrow-kt" d "arrow-fx-stm" w "2.2.3" w "2.3.0-alpha.4"
+    val arrow_optics = "io.arrow-kt" d "arrow-optics" w "2.2.3" w "2.3.0-alpha.4"
+    val arrow_optics_ksp_plugin = "io.arrow-kt" d "arrow-optics-ksp-plugin" w "2.2.3" w "2.3.0-alpha.4"
+    val arrow_optics_reflect = "io.arrow-kt" d "arrow-optics-reflect" w "2.2.3" w "2.3.0-alpha.4"
+    val arrow_stack = "io.arrow-kt" d "arrow-stack" w "2.2.3" w "2.3.0-alpha.4"
     object Analysis {
       object Kotlin {
         val io_arrow_kt_analysis_kotlin_gradle_plugin = "io.arrow-kt.analysis.kotlin" d "io.arrow-kt.analysis.kotlin.gradle.plugin" w "2.0.2" w "2.0.3-alpha.2"
@@ -1404,8 +1404,8 @@ object Io {
     val plugins_pitest = "io.kotest" d "kotest-plugins-pitest" w "4.4.3"
     val property = "io.kotest" d "kotest-property" w "6.2.3"
     val property_arrow = "io.kotest" d "kotest-property-arrow" w "6.2.3"
-    val runner_junit4 = "io.kotest" d "kotest-runner-junit4" w "6.2.2"
-    val runner_junit5 = "io.kotest" d "kotest-runner-junit5" w "6.2.2"
+    val runner_junit4 = "io.kotest" d "kotest-runner-junit4" w "6.2.3"
+    val runner_junit5 = "io.kotest" d "kotest-runner-junit5" w "6.2.3"
     object Extensions {
       val kotest_extensions_allure = "io.kotest.extensions" d "kotest-extensions-allure" w "1.4.0"
       val kotest_extensions_embedded_kafka = "io.kotest.extensions" d "kotest-extensions-embedded-kafka" w "2.0.0"
@@ -1964,15 +1964,15 @@ object Org {
   }
   object Kodein {
     object Di {
-      val kodein_di_conf_js = "org.kodein.di" d "kodein-di-conf-js" w "7.32.0"
-      val kodein_di_conf_jvm = "org.kodein.di" d "kodein-di-conf-jvm" w "7.32.0"
-      val kodein_di_framework_android_core = "org.kodein.di" d "kodein-di-framework-android-core" w "7.32.0"
-      val kodein_di_framework_android_support = "org.kodein.di" d "kodein-di-framework-android-support" w "7.32.0"
-      val kodein_di_framework_android_x = "org.kodein.di" d "kodein-di-framework-android-x" w "7.32.0"
-      val kodein_di_framework_ktor_server_jvm = "org.kodein.di" d "kodein-di-framework-ktor-server-jvm" w "7.32.0"
-      val kodein_di_framework_tornadofx_jvm = "org.kodein.di" d "kodein-di-framework-tornadofx-jvm" w "7.32.0"
-      val kodein_di_js = "org.kodein.di" d "kodein-di-js" w "7.32.0"
-      val kodein_di_jxinject_jvm = "org.kodein.di" d "kodein-di-jxinject-jvm" w "7.32.0"
+      val kodein_di_conf_js = "org.kodein.di" d "kodein-di-conf-js" w "7.33.0"
+      val kodein_di_conf_jvm = "org.kodein.di" d "kodein-di-conf-jvm" w "7.33.0"
+      val kodein_di_framework_android_core = "org.kodein.di" d "kodein-di-framework-android-core" w "7.33.0"
+      val kodein_di_framework_android_support = "org.kodein.di" d "kodein-di-framework-android-support" w "7.33.0"
+      val kodein_di_framework_android_x = "org.kodein.di" d "kodein-di-framework-android-x" w "7.33.0"
+      val kodein_di_framework_ktor_server_jvm = "org.kodein.di" d "kodein-di-framework-ktor-server-jvm" w "7.33.0"
+      val kodein_di_framework_tornadofx_jvm = "org.kodein.di" d "kodein-di-framework-tornadofx-jvm" w "7.33.0"
+      val kodein_di_js = "org.kodein.di" d "kodein-di-js" w "7.33.0"
+      val kodein_di_jxinject_jvm = "org.kodein.di" d "kodein-di-jxinject-jvm" w "7.33.0"
     }
   }
   object Mockito {
