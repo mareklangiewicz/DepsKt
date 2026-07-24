@@ -805,7 +805,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.5"
       val r8 = "com.android.tools" d "r8" w "9.1.31"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.3.0" w "9.4.0-alpha05"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.3.1" w "9.4.0-alpha06"
       }
     }
   }
