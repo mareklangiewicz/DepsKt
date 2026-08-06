@@ -1800,9 +1800,9 @@ object Org {
       }
     }
     object Exposed {
-      val core = "org.jetbrains.exposed" d "exposed-core" w "1.3.1"
-      val dao = "org.jetbrains.exposed" d "exposed-dao" w "1.3.1"
-      val jdbc = "org.jetbrains.exposed" d "exposed-jdbc" w "1.3.1"
+      val core = "org.jetbrains.exposed" d "exposed-core" w "1.4.0"
+      val dao = "org.jetbrains.exposed" d "exposed-dao" w "1.4.0"
+      val jdbc = "org.jetbrains.exposed" d "exposed-jdbc" w "1.4.0"
     }
     object Kotlin {
       val allopen = "org.jetbrains.kotlin" d "kotlin-allopen" w "2.4.10" w "2.4.20-Beta2"
