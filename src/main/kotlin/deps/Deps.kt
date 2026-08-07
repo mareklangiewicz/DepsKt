@@ -803,9 +803,9 @@ object Com {
     }
     object Tools {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.5"
-      val r8 = "com.android.tools" d "r8" w "9.1.31"
+      val r8 = "com.android.tools" d "r8" w "9.2.23" w "9.5.0-dev"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.3.1" w "9.4.0-alpha07"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.3.1" w "9.4.0-alpha08"
       }
     }
   }
@@ -912,7 +912,7 @@ object Com {
         val play_services_mlkit_image_labeling_custom = "com.google.android.gms" d "play-services-mlkit-image-labeling-custom" w "16.0.0-beta5"
         val play_services_mlkit_language_id = "com.google.android.gms" d "play-services-mlkit-language-id" w "17.0.0"
         val play_services_mlkit_text_recognition = "com.google.android.gms" d "play-services-mlkit-text-recognition" w "19.0.1"
-        val play_services_nearby = "com.google.android.gms" d "play-services-nearby" w "19.3.0"
+        val play_services_nearby = "com.google.android.gms" d "play-services-nearby" w "19.4.0"
         val play_services_oss_licenses = "com.google.android.gms" d "play-services-oss-licenses" w "17.5.1"
         val play_services_panorama = "com.google.android.gms" d "play-services-panorama" w "17.1.0"
         val play_services_password_complexity = "com.google.android.gms" d "play-services-password-complexity" w "18.1.0"
