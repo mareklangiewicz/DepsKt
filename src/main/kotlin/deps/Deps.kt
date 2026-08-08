@@ -513,27 +513,27 @@ object AndroidX {
     val widget = "androidx.media2" d "media2-widget" w "1.3.0"
   }
   object Media3 {
-    val cast = "androidx.media3" d "media3-cast" w "1.10.1" w "1.11.0-rc01"
-    val common = "androidx.media3" d "media3-common" w "1.10.1" w "1.11.0-rc01"
-    val database = "androidx.media3" d "media3-database" w "1.10.1" w "1.11.0-rc01"
-    val datasource = "androidx.media3" d "media3-datasource" w "1.10.1" w "1.11.0-rc01"
-    val datasource_cronet = "androidx.media3" d "media3-datasource-cronet" w "1.10.1" w "1.11.0-rc01"
-    val datasource_okhttp = "androidx.media3" d "media3-datasource-okhttp" w "1.10.1" w "1.11.0-rc01"
-    val datasource_rtmp = "androidx.media3" d "media3-datasource-rtmp" w "1.10.1" w "1.11.0-rc01"
-    val decoder = "androidx.media3" d "media3-decoder" w "1.10.1" w "1.11.0-rc01"
-    val exoplayer = "androidx.media3" d "media3-exoplayer" w "1.10.1" w "1.11.0-rc01"
-    val exoplayer_dash = "androidx.media3" d "media3-exoplayer-dash" w "1.10.1" w "1.11.0-rc01"
-    val exoplayer_hls = "androidx.media3" d "media3-exoplayer-hls" w "1.10.1" w "1.11.0-rc01"
-    val exoplayer_ima = "androidx.media3" d "media3-exoplayer-ima" w "1.10.1" w "1.11.0-rc01"
-    val exoplayer_rtsp = "androidx.media3" d "media3-exoplayer-rtsp" w "1.10.1" w "1.11.0-rc01"
-    val exoplayer_workmanager = "androidx.media3" d "media3-exoplayer-workmanager" w "1.10.1" w "1.11.0-rc01"
-    val extractor = "androidx.media3" d "media3-extractor" w "1.10.1" w "1.11.0-rc01"
-    val session = "androidx.media3" d "media3-session" w "1.10.1" w "1.11.0-rc01"
-    val test_utils = "androidx.media3" d "media3-test-utils" w "1.10.1" w "1.11.0-rc01"
-    val test_utils_robolectric = "androidx.media3" d "media3-test-utils-robolectric" w "1.10.1" w "1.11.0-rc01"
-    val transformer = "androidx.media3" d "media3-transformer" w "1.10.1" w "1.11.0-rc01"
-    val ui = "androidx.media3" d "media3-ui" w "1.10.1" w "1.11.0-rc01"
-    val ui_leanback = "androidx.media3" d "media3-ui-leanback" w "1.10.1" w "1.11.0-rc01"
+    val cast = "androidx.media3" d "media3-cast" w "1.11.0"
+    val common = "androidx.media3" d "media3-common" w "1.11.0"
+    val database = "androidx.media3" d "media3-database" w "1.11.0"
+    val datasource = "androidx.media3" d "media3-datasource" w "1.11.0"
+    val datasource_cronet = "androidx.media3" d "media3-datasource-cronet" w "1.11.0"
+    val datasource_okhttp = "androidx.media3" d "media3-datasource-okhttp" w "1.11.0"
+    val datasource_rtmp = "androidx.media3" d "media3-datasource-rtmp" w "1.11.0"
+    val decoder = "androidx.media3" d "media3-decoder" w "1.11.0"
+    val exoplayer = "androidx.media3" d "media3-exoplayer" w "1.11.0"
+    val exoplayer_dash = "androidx.media3" d "media3-exoplayer-dash" w "1.11.0"
+    val exoplayer_hls = "androidx.media3" d "media3-exoplayer-hls" w "1.11.0"
+    val exoplayer_ima = "androidx.media3" d "media3-exoplayer-ima" w "1.11.0"
+    val exoplayer_rtsp = "androidx.media3" d "media3-exoplayer-rtsp" w "1.11.0"
+    val exoplayer_workmanager = "androidx.media3" d "media3-exoplayer-workmanager" w "1.11.0"
+    val extractor = "androidx.media3" d "media3-extractor" w "1.11.0"
+    val session = "androidx.media3" d "media3-session" w "1.11.0"
+    val test_utils = "androidx.media3" d "media3-test-utils" w "1.11.0"
+    val test_utils_robolectric = "androidx.media3" d "media3-test-utils-robolectric" w "1.11.0"
+    val transformer = "androidx.media3" d "media3-transformer" w "1.11.0"
+    val ui = "androidx.media3" d "media3-ui" w "1.11.0"
+    val ui_leanback = "androidx.media3" d "media3-ui-leanback" w "1.11.0"
   }
   object MediaRouter {
     val mediarouter = "androidx.mediarouter" d "mediarouter" w "1.8.1" w "1.9.0-alpha01"
@@ -803,7 +803,7 @@ object Com {
     }
     object Tools {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.5"
-      val r8 = "com.android.tools" d "r8" w "9.2.23" w "9.5.0-dev"
+      val r8 = "com.android.tools" d "r8" w "9.2.23" w "9.5.1-dev"
       object Build {
         val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.3.1" w "9.4.0-alpha08"
       }
@@ -1041,10 +1041,10 @@ object Com {
     object Maps {
       object Android {
         val maps_compose = "com.google.maps.android" d "maps-compose" w "8.4.0"
-        val maps_ktx = "com.google.maps.android" d "maps-ktx" w "6.2.0"
+        val maps_ktx = "com.google.maps.android" d "maps-ktx" w "6.3.0"
         val maps_rx = "com.google.maps.android" d "maps-rx" w "1.0.1"
-        val maps_utils = "com.google.maps.android" d "android-maps-utils" w "5.0.0"
-        val maps_utils_ktx = "com.google.maps.android" d "maps-utils-ktx" w "6.2.0"
+        val maps_utils = "com.google.maps.android" d "android-maps-utils" w "5.1.0"
+        val maps_utils_ktx = "com.google.maps.android" d "maps-utils-ktx" w "6.3.0"
       }
     }
     object MlKit {
@@ -1651,18 +1651,18 @@ object Org {
     val testing_webdriver = "org.http4k" d "http4k-testing-webdriver" w "6.57.1.0"
   }
   object JUnit {
-    val bom = "org.junit" d "junit-bom" w "6.1.2"
+    val bom = "org.junit" d "junit-bom" w "6.1.3"
     object Jupiter {
-      val junit_jupiter = "org.junit.jupiter" d "junit-jupiter" w "6.1.2"
-      val junit_jupiter_api = "org.junit.jupiter" d "junit-jupiter-api" w "6.1.2"
-      val junit_jupiter_engine = "org.junit.jupiter" d "junit-jupiter-engine" w "6.1.2"
-      val junit_jupiter_migrationsupport = "org.junit.jupiter" d "junit-jupiter-migrationsupport" w "6.1.2"
-      val junit_jupiter_params = "org.junit.jupiter" d "junit-jupiter-params" w "6.1.2"
+      val junit_jupiter = "org.junit.jupiter" d "junit-jupiter" w "6.1.3"
+      val junit_jupiter_api = "org.junit.jupiter" d "junit-jupiter-api" w "6.1.3"
+      val junit_jupiter_engine = "org.junit.jupiter" d "junit-jupiter-engine" w "6.1.3"
+      val junit_jupiter_migrationsupport = "org.junit.jupiter" d "junit-jupiter-migrationsupport" w "6.1.3"
+      val junit_jupiter_params = "org.junit.jupiter" d "junit-jupiter-params" w "6.1.3"
     }
     object Platform {
-      val junit_platform_commons = "org.junit.platform" d "junit-platform-commons" w "6.1.2"
-      val junit_platform_engine = "org.junit.platform" d "junit-platform-engine" w "6.1.2"
-      val junit_platform_launcher = "org.junit.platform" d "junit-platform-launcher" w "6.1.2"
+      val junit_platform_commons = "org.junit.platform" d "junit-platform-commons" w "6.1.3"
+      val junit_platform_engine = "org.junit.platform" d "junit-platform-engine" w "6.1.3"
+      val junit_platform_launcher = "org.junit.platform" d "junit-platform-launcher" w "6.1.3"
       val junit_platform_runner = "org.junit.platform" d "junit-platform-runner" w "1.14.4"
     }
   }
