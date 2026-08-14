@@ -962,7 +962,7 @@ object Com {
       }
     }
     object AndroidBrowserHelper {
-      val androidbrowserhelper = "com.google.androidbrowserhelper" d "androidbrowserhelper" w "2.7.2"
+      val androidbrowserhelper = "com.google.androidbrowserhelper" d "androidbrowserhelper" w "2.7.3"
     }
     object Ar {
       val core = "com.google.ar" d "core" w "1.54.0"
