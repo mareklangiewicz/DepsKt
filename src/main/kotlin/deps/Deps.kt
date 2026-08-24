@@ -805,7 +805,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.5"
       val r8 = "com.android.tools" d "r8" w "9.4.14" w "9.5.5-dev"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.3.1" w "9.4.0-rc01" w "9.5.0-alpha02"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.3.2" w "9.4.0-rc01" w "9.5.0-alpha02"
       }
     }
   }
@@ -1986,7 +1986,7 @@ object Org {
     }
   }
   object Robolectric {
-    val robolectric = "org.robolectric" d "robolectric" w "4.16.1" w "4.17-beta-3"
+    val robolectric = "org.robolectric" d "robolectric" w "4.16.1" w "4.17-beta-4"
   }
   object Slf4j {
     val api = "org.slf4j" d "slf4j-api" w "2.0.18" w "2.1.0-alpha1"
