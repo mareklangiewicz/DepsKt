@@ -965,7 +965,7 @@ object Com {
       val androidbrowserhelper = "com.google.androidbrowserhelper" d "androidbrowserhelper" w "2.7.3"
     }
     object Ar {
-      val core = "com.google.ar" d "core" w "1.54.0"
+      val core = "com.google.ar" d "core" w "1.56.0"
       object Sceneform {
         val animation = "com.google.ar.sceneform" d "animation" w "1.17.1"
         val assets = "com.google.ar.sceneform" d "assets" w "1.17.1"
@@ -1691,7 +1691,7 @@ object Org {
     }
     object Compose {
       val full = "org.jetbrains.compose" d "compose-full" w "1.12.0" w "1.13.0-alpha01+snapshot.integration-copy-compose-605f107436e-to-jb-main"
-      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.12.0" w "1.13.0-alpha01+snapshot.integration-copy-compose-605f107436e-to-jb-main"
+      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.9.3+dev3210" w "1.9.3" w "1.12.0"
       val preview_rpc = "org.jetbrains.compose" d "preview-rpc" w "1.12.0" w "1.13.0-alpha01+snapshot.integration-copy-compose-605f107436e-to-jb-main"
       val preview_runtime_desktop = "org.jetbrains.compose" d "compose-preview-runtime-desktop" w "0.5.0-build228"
       object Animation {
