@@ -803,7 +803,7 @@ object Com {
     }
     object Tools {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.5"
-      val r8 = "com.android.tools" d "r8" w "9.4.17" w "9.5.7-dev"
+      val r8 = "com.android.tools" d "r8" w "9.4.17" w "9.5.10-dev"
       object Build {
         val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.4.0" w "9.5.0-alpha03"
       }
@@ -1041,10 +1041,10 @@ object Com {
     object Maps {
       object Android {
         val maps_compose = "com.google.maps.android" d "maps-compose" w "8.5.0" w "9.0.0-rc01"
-        val maps_ktx = "com.google.maps.android" d "maps-ktx" w "6.4.0"
+        val maps_ktx = "com.google.maps.android" d "maps-ktx" w "6.4.1"
         val maps_rx = "com.google.maps.android" d "maps-rx" w "1.0.1"
-        val maps_utils = "com.google.maps.android" d "android-maps-utils" w "5.2.0" w "6.0.0-rc01"
-        val maps_utils_ktx = "com.google.maps.android" d "maps-utils-ktx" w "6.4.0"
+        val maps_utils = "com.google.maps.android" d "android-maps-utils" w "5.2.0" w "6.0.0-rc03"
+        val maps_utils_ktx = "com.google.maps.android" d "maps-utils-ktx" w "6.4.1"
       }
     }
     object MlKit {
@@ -1695,7 +1695,7 @@ object Org {
       val preview_rpc = "org.jetbrains.compose" d "preview-rpc" w "1.12.0" w "1.13.0-alpha01+snapshot.integration-copy-compose-db00a253244-to-jb-main"
       val preview_runtime_desktop = "org.jetbrains.compose" d "compose-preview-runtime-desktop" w "0.5.0-build228"
       object Animation {
-        val animation = "org.jetbrains.compose.animation" d "animation" w "1.12.0" w "1.13.0-alpha01+snapshot.integration-copy-compose-db00a253244-to-jb-main"
+        val animation = "org.jetbrains.compose.animation" d "animation" w "1.9.3+dev3210" w "1.9.3" w "1.12.0"
         val core = "org.jetbrains.compose.animation" d "animation-core" w "1.12.0" w "1.13.0-alpha01+snapshot.integration-copy-compose-db00a253244-to-jb-main"
         val core_js = "org.jetbrains.compose.animation" d "animation-core-js" w "1.12.0" w "1.13.0-alpha01+snapshot.integration-copy-compose-db00a253244-to-jb-main"
         val core_wasm_js = "org.jetbrains.compose.animation" d "animation-core-wasm-js" w "1.12.0" w "1.13.0-alpha01+snapshot.integration-copy-compose-db00a253244-to-jb-main"
