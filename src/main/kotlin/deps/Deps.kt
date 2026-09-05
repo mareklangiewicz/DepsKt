@@ -1040,7 +1040,7 @@ object Com {
     }
     object Maps {
       object Android {
-        val maps_compose = "com.google.maps.android" d "maps-compose" w "8.6.0" w "9.0.0-rc01"
+        val maps_compose = "com.google.maps.android" d "maps-compose" w "8.6.0" w "9.0.0-rc02"
         val maps_ktx = "com.google.maps.android" d "maps-ktx" w "6.4.1"
         val maps_rx = "com.google.maps.android" d "maps-rx" w "1.0.1"
         val maps_utils = "com.google.maps.android" d "android-maps-utils" w "5.2.0" w "6.0.0-rc03"
@@ -1261,7 +1261,7 @@ object Com {
       val okhttp_urlconnection = "com.squareup.okhttp3" d "okhttp-urlconnection" w "5.5.0"
     }
     object Okio {
-      val okio = "com.squareup.okio" d "okio" w "3.18.1"
+      val okio = "com.squareup.okio" d "okio" w "3.18.2"
     }
     object Picasso {
       val picasso = "com.squareup.picasso" d "picasso" w "2.71828"
@@ -1721,7 +1721,7 @@ object Org {
       }
       object Desktop {
         val desktop = "org.jetbrains.compose.desktop" d "desktop" w "1.12.0" w "1.13.0-alpha01+snapshot.integration-copy-compose-db00a253244-to-jb-main"
-        val jvm = "org.jetbrains.compose.desktop" d "desktop-jvm" w "1.9.3+dev3210" w "1.9.3" w "1.12.0"
+        val jvm = "org.jetbrains.compose.desktop" d "desktop-jvm" w "1.12.0" w "1.13.0-alpha01+snapshot.integration-copy-compose-db00a253244-to-jb-main"
       }
       object Foundation {
         val foundation = "org.jetbrains.compose.foundation" d "foundation" w "1.12.0" w "1.13.0-alpha01+snapshot.integration-copy-compose-db00a253244-to-jb-main"
@@ -1901,23 +1901,23 @@ object Org {
       val multik_native = "org.jetbrains.kotlinx" d "multik-native" w "0.1.1"
       val nodejs = "org.jetbrains.kotlinx" d "kotlinx-nodejs"
       val reflect_lite = "org.jetbrains.kotlinx" d "kotlinx.reflect.lite" w "1.1.0" w "1.2.0-RC"
-      val serialization_bom = "org.jetbrains.kotlinx" d "kotlinx-serialization-bom" w "1.11.0"
-      val serialization_cbor = "org.jetbrains.kotlinx" d "kotlinx-serialization-cbor" w "1.11.0"
-      val serialization_core = "org.jetbrains.kotlinx" d "kotlinx-serialization-core" w "1.11.0"
-      val serialization_core_js = "org.jetbrains.kotlinx" d "kotlinx-serialization-core-js" w "1.11.0"
-      val serialization_core_jvm = "org.jetbrains.kotlinx" d "kotlinx-serialization-core-jvm" w "1.11.0"
-      val serialization_core_wasm_js = "org.jetbrains.kotlinx" d "kotlinx-serialization-core-wasm-js" w "1.11.0"
-      val serialization_core_wasm_wasi = "org.jetbrains.kotlinx" d "kotlinx-serialization-core-wasm-wasi" w "1.11.0"
-      val serialization_hocon = "org.jetbrains.kotlinx" d "kotlinx-serialization-hocon" w "1.11.0"
-      val serialization_json = "org.jetbrains.kotlinx" d "kotlinx-serialization-json" w "1.11.0"
-      val serialization_json_js = "org.jetbrains.kotlinx" d "kotlinx-serialization-json-js" w "1.11.0"
-      val serialization_json_jvm = "org.jetbrains.kotlinx" d "kotlinx-serialization-json-jvm" w "1.11.0"
-      val serialization_json_okio = "org.jetbrains.kotlinx" d "kotlinx-serialization-json-okio" w "1.11.0"
-      val serialization_json_wasm_js = "org.jetbrains.kotlinx" d "kotlinx-serialization-json-wasm-js" w "1.11.0"
-      val serialization_properties = "org.jetbrains.kotlinx" d "kotlinx-serialization-properties" w "1.11.0"
-      val serialization_protobuf = "org.jetbrains.kotlinx" d "kotlinx-serialization-protobuf" w "1.11.0"
-      val serialization_protobuf_js = "org.jetbrains.kotlinx" d "kotlinx-serialization-protobuf-js" w "1.11.0"
-      val serialization_protobuf_jvm = "org.jetbrains.kotlinx" d "kotlinx-serialization-protobuf-jvm" w "1.11.0"
+      val serialization_bom = "org.jetbrains.kotlinx" d "kotlinx-serialization-bom" w "1.11.0" w "1.12.0-RC"
+      val serialization_cbor = "org.jetbrains.kotlinx" d "kotlinx-serialization-cbor" w "1.11.0" w "1.12.0-RC"
+      val serialization_core = "org.jetbrains.kotlinx" d "kotlinx-serialization-core" w "1.11.0" w "1.12.0-RC"
+      val serialization_core_js = "org.jetbrains.kotlinx" d "kotlinx-serialization-core-js" w "1.11.0" w "1.12.0-RC"
+      val serialization_core_jvm = "org.jetbrains.kotlinx" d "kotlinx-serialization-core-jvm" w "1.11.0" w "1.12.0-RC"
+      val serialization_core_wasm_js = "org.jetbrains.kotlinx" d "kotlinx-serialization-core-wasm-js" w "1.11.0" w "1.12.0-RC"
+      val serialization_core_wasm_wasi = "org.jetbrains.kotlinx" d "kotlinx-serialization-core-wasm-wasi" w "1.11.0" w "1.12.0-RC"
+      val serialization_hocon = "org.jetbrains.kotlinx" d "kotlinx-serialization-hocon" w "1.11.0" w "1.12.0-RC"
+      val serialization_json = "org.jetbrains.kotlinx" d "kotlinx-serialization-json" w "1.11.0" w "1.12.0-RC"
+      val serialization_json_js = "org.jetbrains.kotlinx" d "kotlinx-serialization-json-js" w "1.11.0" w "1.12.0-RC"
+      val serialization_json_jvm = "org.jetbrains.kotlinx" d "kotlinx-serialization-json-jvm" w "1.11.0" w "1.12.0-RC"
+      val serialization_json_okio = "org.jetbrains.kotlinx" d "kotlinx-serialization-json-okio" w "1.11.0" w "1.12.0-RC"
+      val serialization_json_wasm_js = "org.jetbrains.kotlinx" d "kotlinx-serialization-json-wasm-js" w "1.11.0" w "1.12.0-RC"
+      val serialization_properties = "org.jetbrains.kotlinx" d "kotlinx-serialization-properties" w "1.11.0" w "1.12.0-RC"
+      val serialization_protobuf = "org.jetbrains.kotlinx" d "kotlinx-serialization-protobuf" w "1.11.0" w "1.12.0-RC"
+      val serialization_protobuf_js = "org.jetbrains.kotlinx" d "kotlinx-serialization-protobuf-js" w "1.11.0" w "1.12.0-RC"
+      val serialization_protobuf_jvm = "org.jetbrains.kotlinx" d "kotlinx-serialization-protobuf-jvm" w "1.11.0" w "1.12.0-RC"
     }
     object Kotlin_Wrappers {
       val bom = "org.jetbrains.kotlin-wrappers" d "kotlin-wrappers-bom" w "2026.9.0"
@@ -1989,8 +1989,8 @@ object Org {
     val robolectric = "org.robolectric" d "robolectric" w "4.16.1" w "4.17-beta-4"
   }
   object Slf4j {
-    val api = "org.slf4j" d "slf4j-api" w "2.0.18" w "2.1.0-alpha1"
-    val simple = "org.slf4j" d "slf4j-simple" w "2.0.18" w "2.1.0-alpha1"
+    val api = "org.slf4j" d "slf4j-api" w "2.0.19" w "2.1.0-alpha1"
+    val simple = "org.slf4j" d "slf4j-simple" w "2.0.19" w "2.1.0-alpha1"
   }
   object SpekFramework {
     object Spek2 {
