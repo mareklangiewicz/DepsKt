@@ -513,27 +513,27 @@ object AndroidX {
     val widget = "androidx.media2" d "media2-widget" w "1.3.0"
   }
   object Media3 {
-    val cast = "androidx.media3" d "media3-cast" w "1.11.0"
-    val common = "androidx.media3" d "media3-common" w "1.11.0"
-    val database = "androidx.media3" d "media3-database" w "1.11.0"
-    val datasource = "androidx.media3" d "media3-datasource" w "1.11.0"
-    val datasource_cronet = "androidx.media3" d "media3-datasource-cronet" w "1.11.0"
-    val datasource_okhttp = "androidx.media3" d "media3-datasource-okhttp" w "1.11.0"
-    val datasource_rtmp = "androidx.media3" d "media3-datasource-rtmp" w "1.11.0"
-    val decoder = "androidx.media3" d "media3-decoder" w "1.11.0"
-    val exoplayer = "androidx.media3" d "media3-exoplayer" w "1.11.0"
-    val exoplayer_dash = "androidx.media3" d "media3-exoplayer-dash" w "1.11.0"
-    val exoplayer_hls = "androidx.media3" d "media3-exoplayer-hls" w "1.11.0"
-    val exoplayer_ima = "androidx.media3" d "media3-exoplayer-ima" w "1.11.0"
-    val exoplayer_rtsp = "androidx.media3" d "media3-exoplayer-rtsp" w "1.11.0"
-    val exoplayer_workmanager = "androidx.media3" d "media3-exoplayer-workmanager" w "1.11.0"
-    val extractor = "androidx.media3" d "media3-extractor" w "1.11.0"
-    val session = "androidx.media3" d "media3-session" w "1.11.0"
-    val test_utils = "androidx.media3" d "media3-test-utils" w "1.11.0"
-    val test_utils_robolectric = "androidx.media3" d "media3-test-utils-robolectric" w "1.11.0"
-    val transformer = "androidx.media3" d "media3-transformer" w "1.11.0"
-    val ui = "androidx.media3" d "media3-ui" w "1.11.0"
-    val ui_leanback = "androidx.media3" d "media3-ui-leanback" w "1.11.0"
+    val cast = "androidx.media3" d "media3-cast" w "1.11.1"
+    val common = "androidx.media3" d "media3-common" w "1.11.1"
+    val database = "androidx.media3" d "media3-database" w "1.11.1"
+    val datasource = "androidx.media3" d "media3-datasource" w "1.11.1"
+    val datasource_cronet = "androidx.media3" d "media3-datasource-cronet" w "1.11.1"
+    val datasource_okhttp = "androidx.media3" d "media3-datasource-okhttp" w "1.11.1"
+    val datasource_rtmp = "androidx.media3" d "media3-datasource-rtmp" w "1.11.1"
+    val decoder = "androidx.media3" d "media3-decoder" w "1.11.1"
+    val exoplayer = "androidx.media3" d "media3-exoplayer" w "1.11.1"
+    val exoplayer_dash = "androidx.media3" d "media3-exoplayer-dash" w "1.11.1"
+    val exoplayer_hls = "androidx.media3" d "media3-exoplayer-hls" w "1.11.1"
+    val exoplayer_ima = "androidx.media3" d "media3-exoplayer-ima" w "1.11.1"
+    val exoplayer_rtsp = "androidx.media3" d "media3-exoplayer-rtsp" w "1.11.1"
+    val exoplayer_workmanager = "androidx.media3" d "media3-exoplayer-workmanager" w "1.11.1"
+    val extractor = "androidx.media3" d "media3-extractor" w "1.11.1"
+    val session = "androidx.media3" d "media3-session" w "1.11.1"
+    val test_utils = "androidx.media3" d "media3-test-utils" w "1.11.1"
+    val test_utils_robolectric = "androidx.media3" d "media3-test-utils-robolectric" w "1.11.1"
+    val transformer = "androidx.media3" d "media3-transformer" w "1.11.1"
+    val ui = "androidx.media3" d "media3-ui" w "1.11.1"
+    val ui_leanback = "androidx.media3" d "media3-ui-leanback" w "1.11.1"
   }
   object MediaRouter {
     val mediarouter = "androidx.mediarouter" d "mediarouter" w "1.8.1" w "1.9.0-alpha02"
@@ -805,7 +805,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.5"
       val r8 = "com.android.tools" d "r8" w "9.4.17" w "9.5.11-dev"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.4.0" w "9.5.0-alpha04"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.4.0" w "9.5.0-alpha05"
       }
     }
   }
@@ -1295,9 +1295,9 @@ object Com {
       val sqljs_driver = "com.squareup.sqldelight" d "sqljs-driver" w "1.5.5"
     }
     object Wire {
-      val gradle_plugin = "com.squareup.wire" d "wire-gradle-plugin" w "6.4.7" w "7.0.0-RC01"
-      val grpc_client = "com.squareup.wire" d "wire-grpc-client" w "6.4.7" w "7.0.0-RC01"
-      val runtime = "com.squareup.wire" d "wire-runtime" w "6.4.7" w "7.0.0-RC01"
+      val gradle_plugin = "com.squareup.wire" d "wire-gradle-plugin" w "7.0.1"
+      val grpc_client = "com.squareup.wire" d "wire-grpc-client" w "7.0.1"
+      val runtime = "com.squareup.wire" d "wire-runtime" w "7.0.1"
     }
   }
 }
@@ -1388,24 +1388,24 @@ object Io {
     val koin_test_junit5 = "io.insert-koin" d "koin-test-junit5" w "4.2.2"
   }
   object Kotest {
-    val assertions_arrow = "io.kotest" d "kotest-assertions-arrow" w "6.2.4"
-    val assertions_compiler = "io.kotest" d "kotest-assertions-compiler" w "6.2.4"
-    val assertions_core = "io.kotest" d "kotest-assertions-core" w "6.2.4"
-    val assertions_json = "io.kotest" d "kotest-assertions-json" w "6.2.4"
+    val assertions_arrow = "io.kotest" d "kotest-assertions-arrow" w "6.2.5"
+    val assertions_compiler = "io.kotest" d "kotest-assertions-compiler" w "6.2.5"
+    val assertions_core = "io.kotest" d "kotest-assertions-core" w "6.2.5"
+    val assertions_json = "io.kotest" d "kotest-assertions-json" w "6.2.5"
     val assertions_jsoup = "io.kotest" d "kotest-assertions-jsoup" w "4.4.3"
     val assertions_klock = "io.kotest" d "kotest-assertions-klock" w "4.4.3"
-    val assertions_konform = "io.kotest" d "kotest-assertions-konform" w "6.2.4"
+    val assertions_konform = "io.kotest" d "kotest-assertions-konform" w "6.2.5"
     val assertions_kotlinx_time = "io.kotest" d "kotest-assertions-kotlinx-time" w "4.4.3"
-    val assertions_ktor = "io.kotest" d "kotest-assertions-ktor" w "6.2.4"
+    val assertions_ktor = "io.kotest" d "kotest-assertions-ktor" w "6.2.5"
     val assertions_sql = "io.kotest" d "kotest-assertions-sql" w "5.9.1"
     val core = "io.kotest" d "kotest-core" w "4.1.3" w "4.2.0.RC2"
     val framework_api = "io.kotest" d "kotest-framework-api" w "5.9.1" w "6.0.0.M1"
     val framework_datatest = "io.kotest" d "kotest-framework-datatest" w "5.9.1"
     val plugins_pitest = "io.kotest" d "kotest-plugins-pitest" w "4.4.3"
-    val property = "io.kotest" d "kotest-property" w "6.2.4"
-    val property_arrow = "io.kotest" d "kotest-property-arrow" w "6.2.4"
-    val runner_junit4 = "io.kotest" d "kotest-runner-junit4" w "6.2.4"
-    val runner_junit5 = "io.kotest" d "kotest-runner-junit5" w "6.2.4"
+    val property = "io.kotest" d "kotest-property" w "6.2.5"
+    val property_arrow = "io.kotest" d "kotest-property-arrow" w "6.2.5"
+    val runner_junit4 = "io.kotest" d "kotest-runner-junit4" w "6.2.5"
+    val runner_junit5 = "io.kotest" d "kotest-runner-junit5" w "6.2.5"
     object Extensions {
       val kotest_extensions_allure = "io.kotest.extensions" d "kotest-extensions-allure" w "1.4.0"
       val kotest_extensions_embedded_kafka = "io.kotest.extensions" d "kotest-extensions-embedded-kafka" w "2.0.0"
@@ -1986,7 +1986,7 @@ object Org {
     }
   }
   object Robolectric {
-    val robolectric = "org.robolectric" d "robolectric" w "4.16.1" w "4.17-beta-4"
+    val robolectric = "org.robolectric" d "robolectric" w "4.17"
   }
   object Slf4j {
     val api = "org.slf4j" d "slf4j-api" w "2.0.19" w "2.1.0-alpha1"
