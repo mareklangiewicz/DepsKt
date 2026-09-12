@@ -803,7 +803,7 @@ object Com {
     }
     object Tools {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.5"
-      val r8 = "com.android.tools" d "r8" w "9.4.17" w "9.5.11-dev"
+      val r8 = "com.android.tools" d "r8" w "9.4.17" w "9.5.16-dev"
       object Build {
         val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.4.0" w "9.5.0-alpha05"
       }
@@ -1790,7 +1790,7 @@ object Org {
         val text = "org.jetbrains.compose.ui" d "ui-text" w "1.12.0" w "1.13.0-alpha01"
         val text_js = "org.jetbrains.compose.ui" d "ui-text-js" w "1.12.0" w "1.13.0-alpha01"
         val text_wasm_js = "org.jetbrains.compose.ui" d "ui-text-wasm-js" w "1.12.0" w "1.13.0-alpha01"
-        val tooling = "org.jetbrains.compose.ui" d "ui-tooling" w "1.12.0" w "1.13.0-alpha01"
+        val tooling = "org.jetbrains.compose.ui" d "ui-tooling" w "1.9.3+dev3210" w "1.9.3" w "1.12.0" w "1.13.0-alpha01"
         val tooling_preview = "org.jetbrains.compose.ui" d "ui-tooling-preview" w "1.12.0" w "1.13.0-alpha01"
         val ui = "org.jetbrains.compose.ui" d "ui" w "1.12.0" w "1.13.0-alpha01"
         val unit = "org.jetbrains.compose.ui" d "ui-unit" w "1.12.0" w "1.13.0-alpha01"
