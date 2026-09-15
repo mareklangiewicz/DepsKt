@@ -567,3 +567,12 @@ Two things that cost time and will again:
 
 `gate.sh`'s `compile` step is now `:probe-logic:compileKotlin`, which pulls templatefun through the
 substitution — so the composite binding is itself the first thing the gate checks.
+
+**One known divergence, deliberately left in.** `id("my-probes")` had to go inside
+`kgroundx-experiments`'s `[[Basic MPP Lib Build Imports and Plugs]]` region: plugin classes reach a
+build script's compile classpath only through its `plugins { }` block, and that block is inside the
+region. So that one file's copy of the region no longer matches the other eleven or the canonical
+`.kts.tmpl`. `tryInjectMyTemplatesToProject` will therefore offer to overwrite it — the prompt is
+interactive, so nothing is lost silently, but **say no**, or the probes stop compiling. The
+divergence disappears when the probes retire; it is the price of keeping them, and it is the one
+cost of decision 3 that was not visible when the decision was made.
