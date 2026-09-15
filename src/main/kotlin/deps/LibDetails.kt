@@ -106,7 +106,7 @@ data class LibAndroSettings(
 ) {
   val publishAllVariants get() = publishVariant == AllVariants
   val publishNoVariants get() = publishVariant == NoVariants
-  val publishOneVariant get() = !publishNoVariants && !publishNoVariants
+  val publishOneVariant get() = !publishNoVariants && !publishAllVariants
   val AllVariants get() = "*"
   val NoVariants get() = ""
 }
