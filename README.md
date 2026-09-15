@@ -38,9 +38,9 @@ It's a gradle "convention plugin": https://docs.gradle.org/current/samples/sampl
 
 - It's a statically checked Kotlin code, so you should have full IDE support
 - If you don't want to use it all, you can still just bookmark one file
-  - [github:Deps.kt](https://github.com/mareklangiewicz/DepsKt/blob/master/src/main/kotlin/deps/Deps.kt) to quickly check
+  - [github:Deps.kt](https://github.com/mareklangiewicz/DepsKt/blob/master/deps/src/main/kotlin/deps/Deps.kt) to quickly check
     current versions of popular
     libraries
 - There is also another file with a few additional versions that are updated manually:
-  - [github:Vers.kt](https://github.com/mareklangiewicz/DepsKt/blob/master/src/main/kotlin/deps/Vers.kt)
+  - [github:Vers.kt](https://github.com/mareklangiewicz/DepsKt/blob/master/deps/src/main/kotlin/deps/Vers.kt)
 
