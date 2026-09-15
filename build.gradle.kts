@@ -5,7 +5,9 @@
 // (that would be circular), and it deliberately does NOT apply the deps plugin either -- it has
 // no sources. The settings plugin (published, pinned in settings.gradle.kts) is all it needs.
 
-import pl.mareklangiewicz.defaults.*
-import pl.mareklangiewicz.utils.*
-
-defaultGroupAndVerAndDescription(gradle.extLib)
+// It deliberately does NOT call defaultGroupAndVerAndDescription either. That would give this
+// root project.group = pl.mareklangiewicz.deps and project.name = DepsKt -- the exact coordinate
+// :deps publishes. Gradle's composite-build substitution matches included-build projects by those
+// coordinates, so a consumer's includeBuild("../DepsKt") would bind to THIS project, which has no
+// sources and no variants, and fail with "No variants exist". Measured, from KGround. An
+// aggregator that publishes nothing must not claim a published coordinate; :deps sets its own.

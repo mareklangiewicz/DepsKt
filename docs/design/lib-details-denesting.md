@@ -450,3 +450,120 @@ lib with `publishVariant = "*"` therefore reports both `publishAllVariants` and 
 so `defaultAndroLib` runs both publish paths. Nothing has burned because no KGround module sets
 `"*"`. Asserted as a probe in the prototype and fixed in its copy; **still present in DepsKt**. One
 character, independent of everything above.
+
+
+## DepsKt as a multi-project build (2026-09-15)
+
+Phase 1 moved KGround's `template-logic` into this repo as `templatefun`, a subproject of a root
+that was *itself* the published library. That is why it had to depend on `project(":")`. With
+SourceFun due to move in the same way, the shape was wrong before it had a third occupant, so the
+root is now an empty aggregator and everything real is a sibling:
+
+```
+DepsKt/            root: aggregates, publishes nothing, has no group
+  deps/            the published DepsKt artifact (was ./src + ./build.gradle.kts)
+  templatefun/     the reusable build templates, plugin id pl.mareklangiewicz.templatefun
+```
+
+The `lib(..)` definition moved to `settings.gradle.kts` as `gradle.extLib`, which is what every
+consumer repo already does — DepsKt was the odd one out only because it had nowhere else to put it.
+
+### The trap: a composite build matches on project coordinates, not publication coordinates
+
+This is the part worth reading before doing the same thing to another repo, and both halves of it
+were found by running the build, not by reading it.
+
+`defaultPublishing` derived `artifactId` from `project.name`. Under `deps/` that would have
+published `pl.mareklangiewicz.deps:deps`, and **nothing would have errored**: every consumer's
+`includeBuild("../DepsKt")` substitutes by `group:name`, so `depsInclude = true` would simply have
+stopped substituting and silently resolved the published jar instead. `defaultPublishing` therefore
+took an `artifactId` parameter (defaulting to `project.name`, so existing copies of the region are
+unaffected) and `:deps` pins it to `DepsKt`.
+
+That fixed the publication and broke the composite, in the opposite direction:
+
+```
+> No matching variant of project ':DepsKt' was found ... - No variants exist.
+```
+
+Gradle bound `pl.mareklangiewicz.deps:DepsKt` to the **root** project — which had that group (from
+`defaultGroupAndVerAndDescription`) and that name (`rootProject.name`), and no sources. So:
+
+- The root does NOT call `defaultGroupAndVerAndDescription`. An aggregator that publishes nothing
+  must not claim a coordinate something else publishes.
+- `:deps` and `:templatefun` each set their own group and version. For `:templatefun` this is not
+  optional decoration: with only publication coordinates and no `project.group`, substitution did
+  not find it at all (`Could not resolve pl.mareklangiewicz.deps:templatefun`). Publication
+  coordinates are a fallback; `group:name` is what is actually matched.
+
+Generalised: **in a composite build, a project's identity is `project.group:project.name`.** Keep
+those equal to what the project publishes, and reach for an `artifactId` override only where the
+directory layout has to differ from the coordinate — then check both sides, because fixing one can
+break the other without a word.
+
+Verified by generating the POMs rather than by reading the build scripts:
+`pl.mareklangiewicz.deps:DepsKt:0.4.27` with both plugin markers pointing at it, unchanged;
+`pl.mareklangiewicz.deps:templatefun:0.4.27` behind the marker for the new plugin id, itself
+depending on `DepsKt`. Control: dropping the `artifactId` pin does produce `<artifactId>deps`.
+
+### `Project.projectPath` returned `rootDir`
+
+Found while moving the maintenance tasks. It now returns `projectDir`, which is what the name says;
+`rootProjectPath` goes through `rootProject` so its meaning is unchanged. Harmless while this repo
+had exactly one project, wrong the moment it did not.
+
+
+## Phase 2: the KGround cutover, and the three decisions it was blocked on
+
+### Decision 1 — plugin id: `pl.mareklangiewicz.templatefun`
+
+`templatefun` compiled and nothing else: no id, no publishing. It reaches a build script the same
+way KGround's local `my-convention` did — a precompiled script plugin
+(`templatefun/src/main/kotlin/pl.mareklangiewicz.templatefun.gradle.kts`) whose only job is to put
+templatefun and the `Lib` model on that script's compile classpath. It configures nothing on apply,
+deliberately: these repos are moving *away* from conventions applied behind a script's back, and
+the templates are ordinary functions a script calls when it wants them.
+
+So each KGround build script changed by exactly two lines:
+
+```kotlin
+import pl.mareklangiewicz.templatefun.*     // was ...templatelogic.*
+plugins { id("pl.mareklangiewicz.templatefun") }   // was id("my-convention")
+```
+
+25 build scripts, 5 settings files. The package rename made every missed site a compile error,
+which was the point of renaming.
+
+### Decision 2 — cutover order: composite first, publish after
+
+All five `settings.gradle.kts` files flipped `depsInclude` from a hardcoded `false` to
+`depsDir.exists()`, so KGround and the four templates build against the local DepsKt. Nothing is
+published until the templates are green; then `publishPlugins`, then pin a version.
+
+**The four templates had `depsDir = File(rootDir, "../DepsKt")`, one level too shallow** — they sit
+one directory deeper than the root, and the `<~~` adjuster region in each of them says as much
+(`~~>"../../DepsKt"<~~`). Nobody had noticed, because with `depsInclude` hardcoded `false` the wrong
+path was never evaluated: a dead switch hides a broken value. Fixed to `../../DepsKt`.
+
+### Decision 3 — the probes: kept, in a minimal `probe-logic`
+
+Deleting `template-logic` removed the only module the probes could live in: they assert what a
+`.gradle.kts` compiled WITHOUT `-Xcontext-parameters` can reach in a module compiled WITH it, so
+they have to be on a build script's classpath, which means an included build. templatefun cannot be
+that place — it is published API, and these are branch-local evidence about an experiment.
+
+`KGround/probe-logic/` is the smallest module that can host them: `ProbeFuns.kt`, a build script,
+an empty `my-probes` precompiled plugin, and nothing else. **19/19 probes pass** against templatefun
+via the composite.
+
+Two things that cost time and will again:
+
+- `includeBuild` alone does NOT put an included build's classes on a build script's classpath. It
+  makes its plugins and coordinates *resolvable*. Something must still apply a plugin from it or
+  depend on it — hence the otherwise-empty `my-probes`.
+- `probe-logic` depends on templatefun only for `AndroSdkCompileMinor`, which `probeSdkFull`
+  asserts against. Inlining the number would have removed the dependency and the probe's meaning
+  with it: it would keep passing after the templates moved on.
+
+`gate.sh`'s `compile` step is now `:probe-logic:compileKotlin`, which pulls templatefun through the
+substitution — so the composite binding is itself the first thing the gate checks.

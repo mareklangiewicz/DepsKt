@@ -1,3 +1,4 @@
+import pl.mareklangiewicz.defaults.*
 import pl.mareklangiewicz.utils.*
 import com.vanniktech.maven.publish.*
 
@@ -46,6 +47,11 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach 
 // plugin. The id is pl.mareklangiewicz.templatefun, from the precompiled script plugin file name
 // (src/main/kotlin/pl.mareklangiewicz.templatefun.gradle.kts) -- kotlin-dsl registers it.
 val myLib = gradle.extLib
+
+// Set here, not inherited: the root project deliberately has no group. Besides the plugin marker,
+// this is what makes composite-build substitution find this project by pl.mareklangiewicz.deps:
+// templatefun -- publication coordinates alone did not (measured: probe-logic could not resolve it).
+defaultGroupAndVerAndDescription(myLib)
 
 gradlePlugin {
   website = myLib.info.githubUrl

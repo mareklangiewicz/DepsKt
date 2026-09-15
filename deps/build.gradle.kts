@@ -41,6 +41,11 @@ tasks.defaultTestsOptions()
 // local does not shadow the lib(..) factory it is built with.
 val myLib = gradle.extLib
 
+// Set here, not inherited from the root: the root deliberately has no group (see build.gradle.kts).
+// The gradlePlugin marker publications read project.group/version, so this is what puts
+// pl.mareklangiewicz.deps on them.
+defaultGroupAndVerAndDescription(myLib)
+
 kotlin {
   jvmToolchain(23)
 }
