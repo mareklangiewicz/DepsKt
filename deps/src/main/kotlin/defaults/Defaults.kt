@@ -4,7 +4,6 @@ package pl.mareklangiewicz.defaults
 
 import org.gradle.api.*
 import pl.mareklangiewicz.deps.*
-import pl.mareklangiewicz.utils.rootExtLib
 
 fun v(major: Int = 0, minor: Int = 0, patch: Int = 1, patchLength: Int = 2, suffix: String = "") =
   "$major.$minor.${patch.toString().padStart(patchLength, '0')}$suffix"
@@ -20,16 +19,16 @@ fun Project.defaultGroupAndVer(dep: String) {
   version = v
 }
 
-fun Project.defaultGroupAndVerAndDescription(lib: Lib = rootExtLib) {
+fun Project.defaultGroupAndVerAndDescription(lib: Lib) {
   group = lib.info.group
   version = lib.info.version.str
   description = lib.info.description
 }
 
 /**
- * Shim for callers still holding a nested [LibDetails]. It has NO default for [lib] on purpose:
- * two fully-defaulted overloads of the same entry point are ambiguous, and the default belongs to
- * the sibling form, because that is the one build scripts should call.
+ * Shim for callers still holding a nested [LibDetails]. Neither overload has a default any more:
+ * the sibling form's `lib: Lib = rootExtLib` is gone in 0.4.29 (it was dead at every call site, and
+ * it reached for ambient ext state), which also retires the ambiguity these two used to risk.
  * See `docs/design/lib-details-denesting.md`, trap 2. Deleted in step 4.
  */
 @Deprecated("Pass a Lib instead.", ReplaceWith("defaultGroupAndVerAndDescription(lib.toLib())"))

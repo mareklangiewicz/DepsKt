@@ -115,6 +115,8 @@ data class LibAndroSettings(
   val sdkCompilePreview: String? = null,
   /** Should be ignored when [sdkCompilePreview] is not null */
   val sdkCompile: Int = Vers.AndroSdkCompile,
+  /** Minor API level for [sdkCompile]. Added in 0.4.29 to keep the adapters lossless. */
+  val sdkCompileMinor: Int = Vers.AndroSdkCompileMinor,
   /** Should override [sdkTarget] when not null */
   val sdkTargetPreview: String? = null,
   /** Should be ignored when [sdkTargetPreview] is not null */

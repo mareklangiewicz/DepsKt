@@ -16,18 +16,16 @@ import pl.mareklangiewicz.defaults.*
 // region [[Andro Common Build Template]]
 
 /**
- * Minor Android API level to compile against, paired with [LibAndroSettings.sdkCompile].
- *
- * TEMPORARY and deliberately loud: this is a VERSION, so it belongs in DepsKt's `Vers` next to
- * `AndroSdkCompile`, with a matching `LibAndroSettings.sdkCompileMinor` field. It sits here only
- * because KGround consumes DepsKt *published* (`settings.gradle.kts` has `depsInclude = false`),
- * so a DepsKt change cannot reach these templates without cutting a release.
- *
- * Why it is needed at all: `Vers.ComposeAndro` tracks `verLast`, currently compose-android
- * 1.13.0-alpha03, which refuses to be consumed by anything compiling against less than API 37.1.
- * Templates are examples for new projects, so they track the newest: 37.2.
+ * Kept as a deprecated alias so a consumer still pinned to an older DepsKt keeps compiling.
+ * The value itself moved into DepsKt's `Vers` (where a version belongs) and onto
+ * [pl.mareklangiewicz.deps.LibAndro.sdkCompileMinor], so it is now per-lib and overridable
+ * instead of a single const every template shared. Delete once every consumer is on 0.4.29+.
  */
-const val AndroSdkCompileMinor = 2
+@Deprecated(
+  "Use andro.sdkCompileMinor (or Vers.AndroSdkCompileMinor).",
+  ReplaceWith("Vers.AndroSdkCompileMinor", "pl.mareklangiewicz.deps.Vers"),
+)
+const val AndroSdkCompileMinor = Vers.AndroSdkCompileMinor
 
 /**
  * MIGRATED to the sibling model: android settings arrive as a SCOPE, so the
@@ -232,7 +230,7 @@ fun LibraryExtension.defaultAndroLib(
 ) {
   andro.sdkCompilePreview?.let { compileSdkPreview = it } ?: run {
     compileSdk = andro.sdkCompile
-    compileSdkMinor = AndroSdkCompileMinor
+    compileSdkMinor = andro.sdkCompileMinor
   }
   defaultCompileOptions(jvmVer = null) // actually it does nothing now. jvm ver is normally configured via jvmToolchain
   defaultDefaultConfig()
@@ -325,7 +323,7 @@ fun ApplicationExtension.defaultAndroApp(
 ) {
   andro.sdkCompilePreview?.let { compileSdkPreview = it } ?: run {
     compileSdk = andro.sdkCompile
-    compileSdkMinor = AndroSdkCompileMinor
+    compileSdkMinor = andro.sdkCompileMinor
   }
   defaultDefaultConfig()
   defaultBuildTypes()

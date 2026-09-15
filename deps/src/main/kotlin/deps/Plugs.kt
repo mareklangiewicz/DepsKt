@@ -178,6 +178,16 @@ object Plugs {
   val DepsSettings = DepsSettingsNoVer.withVer(vers.DepsPlug)
 
   /**
+   * DepsKt templatefun Gradle Plugin - reusable build templates
+   * - [github](https://github.com/mareklangiewicz/DepsKt)
+   * - [plugins gradle templatefun](https://plugins.gradle.org/plugin/pl.mareklangiewicz.templatefun)
+   *
+   * Published from the same build as [Deps] and [DepsSettings], so it shares [vers.DepsPlug].
+   */
+  val TemplateFunNoVer = DepP("pl.mareklangiewicz.templatefun")
+  val TemplateFun = TemplateFunNoVer.withVer(vers.DepsPlug)
+
+  /**
    * SourceFun Gradle Plugin
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    * - [github](https://github.com/mareklangiewicz/DepsKt)

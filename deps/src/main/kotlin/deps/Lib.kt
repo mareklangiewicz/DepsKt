@@ -93,6 +93,8 @@ data class LibAndro(
   val sdkCompilePreview: String? = null,
   /** Should be ignored when [sdkCompilePreview] is not null */
   val sdkCompile: Int = Vers.AndroSdkCompile,
+  /** Minor API level for [sdkCompile]. Was templatefun's `AndroSdkCompileMinor` const. */
+  val sdkCompileMinor: Int = Vers.AndroSdkCompileMinor,
   /** Should override [sdkTarget] when not null */
   val sdkTargetPreview: String? = null,
   /** Should be ignored when [sdkTargetPreview] is not null */
@@ -227,9 +229,9 @@ fun myLibInfo(
  *    the equivalence tests compare against.
  *
  * They are total and lossless in both directions: the sibling types carry exactly the fields the
- * nested ones do, no more. (Notably `sdkCompileMinor`, which the prototype added to its andro
- * settings, is deliberately NOT here — adding it would make `toNested` lossy and weaken these tests.
- * It belongs in a later, additive step.)
+ * nested ones do, no more. (`sdkCompileMinor` was deliberately absent until 0.4.29, because
+ * adding it to only one side would have made `toNested` lossy; it is now on BOTH, so the adapters
+ * stay total and the equivalence tests keep their meaning.)
  */
 
 fun LibDetails.toLib(): Lib = Lib(
@@ -293,6 +295,7 @@ fun LibComposeSettings.toSibling() = LibCompose(
 fun LibAndroSettings.toSibling() = LibAndro(
   sdkCompilePreview = sdkCompilePreview,
   sdkCompile = sdkCompile,
+  sdkCompileMinor = sdkCompileMinor,
   sdkTargetPreview = sdkTargetPreview,
   sdkTarget = sdkTarget,
   sdkMin = sdkMin,
@@ -375,6 +378,7 @@ fun LibCompose.toNested() = LibComposeSettings(
 fun LibAndro.toNested() = LibAndroSettings(
   sdkCompilePreview = sdkCompilePreview,
   sdkCompile = sdkCompile,
+  sdkCompileMinor = sdkCompileMinor,
   sdkTargetPreview = sdkTargetPreview,
   sdkTarget = sdkTarget,
   sdkMin = sdkMin,

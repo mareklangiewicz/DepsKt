@@ -245,7 +245,7 @@ fun KotlinMultiplatformExtension.androDefault() {
     minSdk { version = release(andro.sdkMin) }
     compileSdk {
       version = andro.sdkCompilePreview?.let { preview(it) }
-        ?: release(andro.sdkCompile) { minorApiLevel = AndroSdkCompileMinor }
+        ?: release(andro.sdkCompile) { minorApiLevel = andro.sdkCompileMinor }
     }
     namespace = info.namespace
     withHostTest {

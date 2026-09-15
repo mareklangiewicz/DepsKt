@@ -93,6 +93,9 @@ class LibDenestingTest {
           details.copy(settings = settings.copy(compose = null)),
           details.copy(settings = settings.copy(andro = LibAndroSettings(publishVariant = "debug"))),
           details.copy(settings = settings.copy(andro = LibAndroSettings(sdkCompilePreview = "Bakla"))),
+          // Non-default on purpose: with both sides defaulting, this round trip would pass even
+          // if an adapter dropped sdkCompileMinor entirely.
+          details.copy(settings = settings.copy(andro = LibAndroSettings(sdkCompileMinor = 7))),
         )
       }
     }
@@ -107,6 +110,7 @@ class LibDenestingTest {
         lib(info, flags, withCompose = false),
         lib(info, flags, withAndro = true),
         lib(info, flags, withCompose = false, withAndro = true, andro = LibAndro(publishVariant = "*")),
+        lib(info, flags, withAndro = true, andro = LibAndro(sdkCompileMinor = 7)),
       )
     }
     for (l in libs) assertEquals(l, l.toNested().toLib(), "sibling round trip lost data")

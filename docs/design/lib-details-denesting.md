@@ -238,10 +238,19 @@ They are also shorter exactly where they will be typed most: `context(info: LibI
 LibFlags, repos: LibRepos)`. Consumers therefore migrate ONCE, not once to a suffix and once away
 from it.
 
-**Deliberately deferred.** The prototype's `sdkCompileMinor` field is NOT here. Adding it would make
-`Lib.toNested()` lossy and weaken the equivalence tests below, which are the only thing holding the
-migration up in this repo. It is additive and belongs in its own step, together with a
-`Vers.AndroSdkCompileMinor` const (the prototype's `AndroSdkCompileMinorTMP = 2`).
+**Deferred then DONE in 0.4.29.** The prototype's `sdkCompileMinor` field was left out of step 1,
+because adding it to one side only would make `Lib.toNested()` lossy and weaken the equivalence
+tests below, which are the only thing holding the migration up in this repo. It landed as its own
+additive step: `Vers.AndroSdkCompileMinor = 2` (where a version belongs), plus a `sdkCompileMinor`
+field on BOTH `LibAndro` and the nested `LibAndroSettings`, mapped in both adapters — so they stay
+total and the equivalence tests keep their meaning. templatefun's `AndroSdkCompileMinor` const is
+now a deprecated alias for the `Vers` one; the templates read `andro.sdkCompileMinor`, so the minor
+level is per-lib and overridable instead of one const every template shared.
+
+The round-trip fixtures gained a **non-default** `sdkCompileMinor = 7` case on each side. Without
+it both sides would have defaulted to 2 and the round trip would have passed even with the field
+dropped from an adapter entirely. Validated by deleting one mapping direction: 2 tests fail, and
+pass again when restored.
 
 **Derivations take a plain parameter.** `defaultLibCompose(flags)` / `defaultLibRepos(flags)` rather
 than `context(flags: LibFlags)`, because DepsKt compiles without `-Xcontext-parameters` and step 1
@@ -420,12 +429,14 @@ a measured **zero** deprecation warnings from our own sources.
 3. DepsKt's own `LibDenestingTest` likewise: its round-trip and derivation-equivalence tests are
    defined against the nested model. When it goes, they go, and what replaces them is a smaller
    suite about `Lib` alone.
-4. `defaultGroupAndVerAndDescription(lib: Lib = rootExtLib)` loses its default. Nothing assigns
-   `rootProject.extLib` inside DepsKt any more (the lib lives in `gradle.extLib`, and the two are
-   different `ExtensionAware` objects), but unmigrated repos still set it from their own root build
-   template — so the default goes when they do, not before. Direction of travel: data moves off
-   exts and onto context parameters; the one ext on `gradle` is a compromise until Gradle supports
-   them properly.
+4. DONE in 0.4.29: `defaultGroupAndVerAndDescription` lost its `lib: Lib = rootExtLib` default.
+   The default was dead, not load-bearing — a grep over all 17 local consumer repos found ZERO
+   no-arg call sites; even the unmigrated ones pass explicitly, from their own local root build
+   template (`defaultGroupAndVerAndDescription(rootExtLibDetails)` or `(it)`). `rootExtLib` and
+   the deprecated `rootExtLibDetails` stay as storage, since that template still writes them; only
+   the parameter default that reached for ambient state is gone. Direction of travel: data moves
+   off exts and onto context parameters; the one ext on `gradle` is a compromise until Gradle
+   supports them properly.
 
 
 ## Sequencing

@@ -89,12 +89,14 @@ class LibExtStorageTest {
     assertEquals(viaSibling.description, viaNested.description)
   }
 
-  /** With no argument at all it must resolve to the sibling overload and read root ext. */
+  /** [rootExtLib] is still the storage the unmigrated repos read from; only the parameter
+   * default that used to reach for it is gone. */
   @Test
-  fun defaultGroupAndVerAndDescriptionDefaultsToRootExtLib() {
+  fun rootExtLibReadsAndWritesTheRootProjectExt() {
     val p = project()
     p.rootExtLib = someLib
-    p.defaultGroupAndVerAndDescription()
+    assertEquals(someLib, p.rootExtLib)
+    p.defaultGroupAndVerAndDescription(p.rootExtLib)
     assertEquals(someLib.info.version.str, p.version.toString())
     assertEquals("some description", p.description)
   }

@@ -160,7 +160,7 @@ object Vers {
    * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val DepsPlug = Ver(0, 4, 28) // also sync it in ../../../../../settings.gradle.kts
+  val DepsPlug = Ver(0, 4, 29) // also sync it in ../../../../../settings.gradle.kts
   // TODO use sourcefun to make sure it's always synced with myLibDetails(version)
 
   /**
@@ -193,6 +193,13 @@ object Vers {
    */
   val AndroSdkPreview: String? = null
   const val AndroSdkCompile: Int = 37
+
+  /**
+   * Minor API level for [AndroSdkCompile]. Needed because [ComposeAndro] tracks `verLast`
+   * (compose-android 1.13.0-alpha03), which refuses to be consumed by anything compiling against
+   * less than API 37.1. Templates are examples for new projects, so they track the newest: 37.2.
+   */
+  const val AndroSdkCompileMinor: Int = 2
   const val AndroSdkTarget = 37
   const val AndroSdkMin = 30
 
