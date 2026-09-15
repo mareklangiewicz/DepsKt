@@ -323,6 +323,31 @@ Validated the same way as step 1: replacing the `extLibDetails` view with a para
 failed exactly the three tests that assert it is a view. Suite green at **21 tests**.
 
 
+## Where steps 3 and 4 actually live (found while doing step 2)
+
+Step 3 was written as "move the internals to sibling context parameters, deleting `ignoreCompose`,
+`ignoreAndroTarget`, `ignoreAndroConfig` and the `withXxx` reads". **None of those exist in DepsKt.**
+A search across `src/` and `build.gradle.kts` finds no `ignoreXxx` at all, and the only `withCompose`
+/ `withAndro` are the two derived properties on `LibSettings` itself. Every helper the prototype
+rewrote — `addRepos` reaching through `settings.repos`, `androDefault` doing `settings.andro!!`, the
+entry points opening `context(details, details.settings)` — lives in KGround's `template-logic`, not
+here.
+
+So the remaining work splits, and neither half is blocked on design any more:
+
+- **Step 3 is consumer-side**, and the prototype has already done it once. It is a port from
+  `LibDetailsTMP`/`LibTMP` to `Lib`/`LibInfo`/`LibFlags`/… on KGround's branch, against a DepsKt
+  that now ships the real types. Its one boundary rule stays: build scripts are compiled flagless,
+  so context parameters may appear only INSIDE `template-logic`.
+- **Step 4 is blocked on consumers**, by definition — the nested types and both adapters go once
+  nothing references them.
+
+**The thing that unblocks both is a publish.** DepsKt's own `build.gradle.kts` and every consumer
+compile against a published version, so `Lib` does not exist for them until one ships. The
+remaining DepsKt-side work — the `[[Kotlin Module Build Template]]` region — is downstream of that
+publish, not of more design.
+
+
 ## Sequencing
 
 DepsKt is published and consumed (KGround is on 0.4.25), so this is a breaking change to a
@@ -338,7 +363,7 @@ Suggested order, now that the shape is known:
    The `build.gradle.kts` template region is the remainder, and it is blocked on a publish.
 3. Move the internals to sibling context parameters, deleting `ignoreCompose`,
    `ignoreAndroTarget`, `ignoreAndroConfig` and the `withXxx` reads as each one lands. Keep
-   `ignoreAndroPublish`.
+   `ignoreAndroPublish`. **This happens in KGround, not here** — see the section above.
 4. Drop the nested types and both adapters once no consumer references them.
 
 ## Unrelated live bug found on the way
