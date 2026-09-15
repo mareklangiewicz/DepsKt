@@ -1,7 +1,24 @@
-@file:Suppress("PackageDirectoryMismatch", "unused", "PropertyName")
+@file:Suppress("PackageDirectoryMismatch", "unused", "PropertyName", "DEPRECATION")
 
 package pl.mareklangiewicz.deps
 
+/*
+ * THE NESTED MODEL — deprecated in 0.4.27, to be removed once no consumer references it.
+ *
+ * Replaced by the sibling model in Lib.kt: Lib / LibInfo / LibFlags / LibCompose / LibAndro /
+ * LibRepos, built with lib(..) and myLibInfo(..). See docs/design/lib-details-denesting.md for
+ * why, and `LibDetails.toLib()` / `Lib.toNested()` for the migration seam — the adapters are NOT
+ * deprecated, because they are how you get from here to there.
+ *
+ * Nothing breaks yet: these still work, and the warnings only appear once a build bumps to a
+ * DepsKt that carries them.
+ */
+
+@Deprecated(
+  "The nested model is replaced by siblings: LibInfo (identity) + LibFlags (platform/testing) " +
+    "carried in a Lib bundle. Build one with lib(info = myLibInfo(..), flags = LibFlags(..)), or " +
+    "adapt an existing value with .toLib(). See docs/design/lib-details-denesting.md.",
+)
 data class LibDetails(
   val name: String,
   val group: String,
@@ -25,6 +42,11 @@ data class LibDetails(
   fun withVer(version: Ver) = copy(version = version)
 }
 
+@Deprecated(
+  "Replaced by LibFlags, which carries the platform/testing flags only. What is gone is the " +
+    "nesting: compose/andro/repos are siblings in the Lib bundle now, so presence is stated as " +
+    "presence (withCompose/withAndro) instead of as null.",
+)
 data class LibSettings(
   val withJvm: Boolean = true,
   val withJvmVer: String? = Vers.JvmDefaultVer.takeIf { withJvm },
@@ -62,6 +84,7 @@ data class LibSettings(
 }
 
 /** In [LibSettings.compose] the defaults are adjusted depending on platforms. */
+@Deprecated("Replaced by LibCompose (same fields, no longer nested).", ReplaceWith("LibCompose"))
 data class LibComposeSettings(
   val withComposeUi: Boolean = true,
   val withComposeFoundation: Boolean = true,
@@ -86,6 +109,7 @@ data class LibComposeSettings(
   val withComposeTestHtmlUtils: Boolean = false,
 )
 
+@Deprecated("Replaced by LibAndro (same fields, no longer nested).", ReplaceWith("LibAndro"))
 data class LibAndroSettings(
   /** Should override [sdkCompile] when not null */
   val sdkCompilePreview: String? = null,
@@ -111,6 +135,7 @@ data class LibAndroSettings(
   val NoVariants get() = ""
 }
 
+@Deprecated("Replaced by LibRepos (same fields, no longer nested).", ReplaceWith("LibRepos"))
 data class LibReposSettings(
   /**
    * It's a huge footgun! If REALLY needed, then do it manually with strict repository content filter.
@@ -129,6 +154,10 @@ data class LibReposSettings(
   val withJitpack: Boolean = false,
 )
 
+@Deprecated(
+  "Replaced by myLibInfo(..) for the identity half, wrapped with lib(..): " +
+    "lib(info = myLibInfo(name = ..), flags = LibFlags(..), withCompose = .., withAndro = ..).",
+)
 fun myLibDetails(
   name: String,
   group: String = "pl.mareklangiewicz",

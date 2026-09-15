@@ -1,6 +1,7 @@
 # De-nesting LibDetails / LibSettings
 
-Status: **steps 1 and 2 landed in DepsKt** (branch `lib-denesting`); steps 3-4 not started.
+Status: **steps 1-3 done** (DepsKt on master + published; KGround ported). Step 4 is blocked — see
+"Step 4 is gated on consumers" below. The nested model is **deprecated as of 0.4.27**.
 Originally **proven in a prototype**: Identified 2026-09-14 while using
 context parameters in KGround's `template-logic` (branch `build-logic-context-params`), then
 prototyped there in full as `LibDetailsTMP` / `LibSettingsTMP` / `LibComposeSettingsTMP` /
@@ -383,6 +384,44 @@ val myLib = lib(info = myLibInfo(name = "DepsKt", ...), flags = LibFlags(withJs 
 (Named `myLib`, not `lib`, so the local does not shadow the `lib(..)` factory that builds it.)
 
 
+## Step 4 is gated on consumers, not on effort (2026-09-15)
+
+Step 4 says "drop the nested types and both adapters once no consumer references them". Measured,
+that precondition is nowhere near met: **13 of Marek's other repos plus KGround** reference
+`myLibDetails` / `LibSettings(` / `extLibDetails`, and every one of them is pinned to DepsKt
+0.4.25. DepsKt is also published publicly, so the nested model is not private API.
+
+So 0.4.27 does the reversible half instead: **the nested model is `@Deprecated` at WARNING level**,
+with `ReplaceWith` where the replacement is exact (`LibComposeSettings` → `LibCompose`,
+`LibAndroSettings` → `LibAndro`, `LibReposSettings` → `LibRepos`, `extLibDetails` → `extLib`,
+`rootExtLibDetails`, `findExtLibDetails`, and the nested `defaultGroupAndVerAndDescription` shim).
+
+`LibDetails` and `LibSettings` get a message but **no `ReplaceWith`**: they do not map onto one
+sibling type, so a quick-fix would be a lie. The message names the real move instead —
+`lib(info = myLibInfo(..), flags = LibFlags(..))`, or `.toLib()` on a value you already hold.
+
+**The adapters are deliberately NOT deprecated.** `toLib` / `toNested` / `toFlags` / `toSibling`
+are how a consumer gets from the old model to the new one; warning on them would fight the
+migration they exist to enable.
+
+Nothing breaks: warnings appear only when a build deliberately bumps to 0.4.27. Verified by
+compiling a throwaway file with no `@file:Suppress` and reading the warnings back — the texts do
+arrive, with the guidance attached. Inside DepsKt the nested model is still named by the adapters
+and by the tests that use it as a control, so those files carry `@file:Suppress("DEPRECATION")`:
+a measured **zero** deprecation warnings from our own sources.
+
+### What step 4 still needs
+
+1. The 13 repos migrated off `myLibDetails` (the `ReplaceWith` quick-fixes make most of it
+   mechanical; `LibDetails`/`LibSettings` are the hand-written part).
+2. KGround's probes stop using the nested model as their control — `probeCopyDance`,
+   `probeAdapterFidelity` and `probePublishVariantAgreement` compare against it BY DESIGN, so
+   retiring them means deciding the evidence has served its purpose.
+3. DepsKt's own `LibDenestingTest` likewise: its round-trip and derivation-equivalence tests are
+   defined against the nested model. When it goes, they go, and what replaces them is a smaller
+   suite about `Lib` alone.
+
+
 ## Sequencing
 
 DepsKt is published and consumed (KGround is on 0.4.25), so this is a breaking change to a
@@ -399,7 +438,9 @@ Suggested order, now that the shape is known:
 3. Move the internals to sibling context parameters, deleting `ignoreCompose`,
    `ignoreAndroTarget`, `ignoreAndroConfig` and the `withXxx` reads as each one lands. Keep
    `ignoreAndroPublish`. **This happens in KGround, not here** — see the section above.
-4. Drop the nested types and both adapters once no consumer references them.
+4. Drop the nested types and both adapters once no consumer references them. **Deprecated in
+   0.4.27; removal is gated on 14 repos and on retiring the probes that use the nested model as
+   their control.** See "Step 4 is gated on consumers" above.
 
 ## Unrelated live bug found on the way
 

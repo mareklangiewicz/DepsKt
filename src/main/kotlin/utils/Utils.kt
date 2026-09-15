@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package pl.mareklangiewicz.utils
 
 import kotlin.properties.*
@@ -119,6 +121,8 @@ var ExtensionAware.extLib: Lib
  * and on the way out, so a set-then-get returns an EQUAL (not identical) value; that round trip is
  * lossless and asserted by `LibDenestingTest`. Deleted in step 4, together with the adapters.
  */
+@Deprecated("Use extLib, which is the stored value; this is only a converting view over it.",
+  ReplaceWith("extLib"))
 var ExtensionAware.extLibDetails: LibDetails
   get() = extLib.toNested()
   set(value) {
@@ -131,6 +135,7 @@ var Project.rootExtLib
     rootProject.extLib = value
   }
 
+@Deprecated("Use rootExtLib.", ReplaceWith("rootExtLib"))
 var Project.rootExtLibDetails
   get() = rootProject.extLibDetails
   set(value) {
@@ -145,6 +150,7 @@ fun Project.findExtLib(): Lib =
   }
 
 /** Nested view of [findExtLib]. Deleted in step 4. */
+@Deprecated("Use findExtLib().", ReplaceWith("findExtLib()"))
 fun Project.findExtLibDetails(): LibDetails = findExtLib().toNested()
 
 // https://publicobject.com/2021/03/11/includebuild/

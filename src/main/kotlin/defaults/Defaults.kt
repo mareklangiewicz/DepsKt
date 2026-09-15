@@ -1,4 +1,4 @@
-@file:Suppress("unused", "PackageDirectoryMismatch")
+@file:Suppress("unused", "PackageDirectoryMismatch", "DEPRECATION")
 
 package pl.mareklangiewicz.defaults
 
@@ -32,5 +32,6 @@ fun Project.defaultGroupAndVerAndDescription(lib: Lib = rootExtLib) {
  * the sibling form, because that is the one build scripts should call.
  * See `docs/design/lib-details-denesting.md`, trap 2. Deleted in step 4.
  */
+@Deprecated("Pass a Lib instead.", ReplaceWith("defaultGroupAndVerAndDescription(lib.toLib())"))
 fun Project.defaultGroupAndVerAndDescription(lib: LibDetails) = defaultGroupAndVerAndDescription(lib.toLib())
 

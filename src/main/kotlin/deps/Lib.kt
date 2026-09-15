@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "unused")
+@file:Suppress("PackageDirectoryMismatch", "unused", "DEPRECATION")
 
 package pl.mareklangiewicz.deps
 

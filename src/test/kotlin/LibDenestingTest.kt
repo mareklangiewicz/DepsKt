@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION") // the nested model is the CONTROL these tests compare against
+
 import kotlin.test.*
 import pl.mareklangiewicz.deps.*
 
