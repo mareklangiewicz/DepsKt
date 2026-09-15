@@ -44,3 +44,8 @@ develocity {
 }
 
 // endregion [[My Settings Stuff]]
+
+// templatefun: reusable build templates (moved here from KGround/template-logic).
+// Separate subproject so its AGP/Compose/KMP classpath stays off the root DepsKt artifact,
+// which both deps plugins -- including the settings one -- ship from.
+include(":templatefun")
