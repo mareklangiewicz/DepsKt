@@ -101,10 +101,34 @@ val Settings.rootProjectPath get() = rootProject.projectDir.toOkioPath()
 val Project.buildPath: Path get() = layout.buildDirectory.get().asFile.toOkioPath()
 
 // Kinda hack to attach some lib details to some global project or sth
-var ExtensionAware.extLibDetails: LibDetails
-  get() = ext<LibDetails>()["LibDetails"]
+
+/**
+ * The lib for this build. This is THE stored value — there is exactly one entry, holding a [Lib];
+ * [extLibDetails] below is a view over it, not a second copy.
+ *
+ * Step 2 of `docs/design/lib-details-denesting.md`.
+ */
+var ExtensionAware.extLib: Lib
+  get() = ext<Lib>()["Lib"]
   set(value) {
-    ext<LibDetails>()["LibDetails"] = value
+    ext<Lib>()["Lib"] = value
+  }
+
+/**
+ * Nested view of [extLib], for build scripts that still hold a [LibDetails]. Converts on the way in
+ * and on the way out, so a set-then-get returns an EQUAL (not identical) value; that round trip is
+ * lossless and asserted by `LibDenestingTest`. Deleted in step 4, together with the adapters.
+ */
+var ExtensionAware.extLibDetails: LibDetails
+  get() = extLib.toNested()
+  set(value) {
+    extLib = value.toLib()
+  }
+
+var Project.rootExtLib
+  get() = rootProject.extLib
+  set(value) {
+    rootProject.extLib = value
   }
 
 var Project.rootExtLibDetails
@@ -115,10 +139,13 @@ var Project.rootExtLibDetails
 
 class LibDetailsNotFoundException(msg: String? = null) : RuntimeException(msg)
 
-fun Project.findExtLibDetails(): LibDetails =
-  try { extLibDetails } catch (e: UnknownPropertyException) {
-    parent?.findExtLibDetails() ?: throw LibDetailsNotFoundException("LibDetails ext not found in project hierarchy.")
+fun Project.findExtLib(): Lib =
+  try { extLib } catch (e: UnknownPropertyException) {
+    parent?.findExtLib() ?: throw LibDetailsNotFoundException("Lib ext not found in project hierarchy.")
   }
+
+/** Nested view of [findExtLib]. Deleted in step 4. */
+fun Project.findExtLibDetails(): LibDetails = findExtLib().toNested()
 
 // https://publicobject.com/2021/03/11/includebuild/
 fun Settings.includeAndSubstituteBuild(rootProject: Any, substituteModule: String, withProject: String) {

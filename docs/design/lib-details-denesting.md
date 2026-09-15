@@ -1,6 +1,6 @@
 # De-nesting LibDetails / LibSettings
 
-Status: **step 1 landed in DepsKt** (branch `lib-denesting`, `src/main/kotlin/deps/Lib.kt`); steps 2-4 not started.
+Status: **steps 1 and 2 landed in DepsKt** (branch `lib-denesting`); steps 3-4 not started.
 Originally **proven in a prototype**: Identified 2026-09-14 while using
 context parameters in KGround's `template-logic` (branch `build-logic-context-params`), then
 prototyped there in full as `LibDetailsTMP` / `LibSettingsTMP` / `LibComposeSettingsTMP` /
@@ -272,6 +272,57 @@ Nothing consumes the new shape yet. `gradle.extLibDetails` still holds a nested 
 there is no `extLib`; wiring the bundle into ext storage and the entry points is step 2.
 
 
+## Step 2 as landed (2026-09-15)
+
+Entry points and ext storage, same branch. Two files: `utils/Utils.kt` and `defaults/Defaults.kt`.
+
+### One stored value, two views
+
+The obvious move would have been a second ext entry holding a `Lib` next to the `LibDetails` one.
+That is two representations of one fact, and they drift. Instead `extLib` IS the stored entry (key
+`"Lib"`, holding a [Lib]) and `extLibDetails` converts on the way in and out:
+
+```kotlin
+var ExtensionAware.extLib: Lib          // the stored value
+var ExtensionAware.extLibDetails: LibDetails
+  get() = extLib.toNested()
+  set(value) { extLib = value.toLib() }
+```
+
+A set-then-get therefore returns an EQUAL, not identical, value — which is only safe because the
+round trip is lossless, and that is exactly what step 1's tests assert. The two halves hold each
+other up. Same shape for `rootExtLib` / `findExtLib`, with the nested spellings kept as views.
+
+### Trap 2 confirmed in practice
+
+`defaultGroupAndVerAndDescription` now has the sibling overload WITH the default
+(`lib: Lib = rootExtLib`) and the nested shim WITHOUT one. A no-argument call resolves to the
+sibling overload and reads root ext; both overloads reach the same project state (asserted).
+
+### The constraint that decides what step 2 could NOT touch
+
+`build.gradle.kts` still carries the `[[Kotlin Module Build Template]]` region — `addRepos`,
+`defaultPOM`, `defaultPublishing`, `defaultBuildTemplateForRootProject` — and that region is both
+compiled as part of this build and synced into consumer build scripts.
+
+**DepsKt's own build script compiles against PUBLISHED DepsKt** (`settings.gradle.kts` has
+`depsInclude = false`, and the build logs `DepsSettingsPlugin 0.4.24`), so it cannot name `Lib`
+until a version carrying `Lib` is published. The template region therefore migrates AFTER a publish,
+not before — and `addRepos` is where trap 1 will bite, because its parameter cannot be called
+`repos` (that name is a top-level DepsKt object it dereferences as `repos.kotlinx`); `libRepos` is
+the spelling to use.
+
+### Tests
+
+`src/test/kotlin/LibExtStorageTest.kt`, 9 tests, driving real Gradle projects via `ProjectBuilder`
+(no daemon, no template build). They cover storage round trips through BOTH accessors, the
+"only one stored value" claim, hierarchy walking in `findExtLib`, the not-found failure, and the
+shim agreeing with the sibling entry point.
+
+Validated the same way as step 1: replacing the `extLibDetails` view with a parallel ext entry
+failed exactly the three tests that assert it is a view. Suite green at **21 tests**.
+
+
 ## Sequencing
 
 DepsKt is published and consumed (KGround is on 0.4.25), so this is a breaking change to a
@@ -282,8 +333,9 @@ Suggested order, now that the shape is known:
 
 1. ~~De-nest the data and add the bundle + factory + the two derivation functions. Keep the nested
    types and an adapter, so nothing breaks yet.~~ **DONE** — see "Step 1 as landed" above.
-2. Add sibling entry points with nested shims (no default on the shim). Consumers can move one
-   build script at a time.
+2. ~~Add sibling entry points with nested shims (no default on the shim). Consumers can move one
+   build script at a time.~~ **DONE for the library entry points** — see "Step 2 as landed" above.
+   The `build.gradle.kts` template region is the remainder, and it is blocked on a publish.
 3. Move the internals to sibling context parameters, deleting `ignoreCompose`,
    `ignoreAndroTarget`, `ignoreAndroConfig` and the `withXxx` reads as each one lands. Keep
    `ignoreAndroPublish`.
