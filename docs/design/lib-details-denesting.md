@@ -497,6 +497,10 @@ stopped substituting and silently resolved the published jar instead. `defaultPu
 took an `artifactId` parameter (defaulting to `project.name`, so existing copies of the region are
 unaffected) and `:deps` pins it to `DepsKt`.
 
+Only the copy in `deps/build.gradle.kts` grew that parameter — **templatefun's `defaultPublishing`
+still hardcodes `artifactId = name`**, so any repo whose directory name differs from its published
+artifactId cannot use it yet.
+
 That fixed the publication and broke the composite, in the opposite direction:
 
 ```
