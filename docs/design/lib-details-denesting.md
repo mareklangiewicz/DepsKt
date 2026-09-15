@@ -348,6 +348,41 @@ remaining DepsKt-side work — the `[[Kotlin Module Build Template]]` region —
 publish, not of more design.
 
 
+## The template region, migrated (2026-09-15, after publishing 0.4.26)
+
+With 0.4.26 on the portal, `settings.gradle.kts` pins `0.4.26` and the
+`[[Kotlin Module Build Template]]` region in `build.gradle.kts` moved to the sibling model —
+`defaultBuildTemplateForRootProject`, `addRepos`, `defaultPOM`, `defaultPublishing`, and DepsKt's
+own call site. No shims were added: the region is copied wholesale into each consumer build script,
+so every copy is self-contained and there is no cross-version caller to shim for.
+
+Verified by the plugin announcing itself — `DepsSettingsPlugin 0.4.26 apply in project DepsKt` —
+so the build really resolved the new artifact rather than a cached 0.4.25.
+
+**Trap 1 hit twice, and the second one was NOT on the list.** `addRepos`'s parameter cannot be
+`repos` (predicted; it is `libRepos`). But `defaultPOM` collided too, and differently: writing
+`with(lib.info)` made `name` and `description` resolve to `LibInfo`'s fields instead of `MavenPom`'s
+properties, giving "Unresolved reference ... receiver type mismatch". It stays fully qualified.
+
+Generalise the trap, because the note had it too narrow: **the sibling types put five new names into
+scope, and any receiver that already has those names will silently capture them.** `name`,
+`description`, `version`, `group` and `repos` are all common Gradle receiver members. Prefer explicit
+`lib.info.x` inside a Gradle receiver block; reach for `with(..)` only where the receiver has no
+overlapping members.
+
+### The build-script win, at DepsKt's own call site
+
+```kotlin
+// before: presence expressed as null, two levels
+val details = myLibDetails(name = "DepsKt", ..., settings = LibSettings(withJs = false, compose = null))
+
+// after: presence stated as presence
+val myLib = lib(info = myLibInfo(name = "DepsKt", ...), flags = LibFlags(withJs = false), withCompose = false)
+```
+
+(Named `myLib`, not `lib`, so the local does not shadow the `lib(..)` factory that builds it.)
+
+
 ## Sequencing
 
 DepsKt is published and consumed (KGround is on 0.4.25), so this is a breaking change to a

@@ -37,28 +37,29 @@ tasks.defaultKotlinCompileOptions()
 
 tasks.defaultTestsOptions()
 
-val details = myLibDetails(
-  name = "DepsKt",
-  group = "pl.mareklangiewicz.deps", // important non default ...deps group (as accepted on gradle portal)
-  description = "Updated dependencies for typical java/kotlin/android projects (with IDE support).",
-  githubUrl = "https://github.com/mareklangiewicz/DepsKt",
-  version = Ver(0, 4, 26), // also sync it in ./src/main/kotlin/deps/Vers.kt
-  // TODO use some SourceFun task to make sure it's synced with Vers.DepsPlug
-  // (we println it when applying plugin so have to be synced not to confuse users)
-  // https://plugins.gradle.org/search?term=pl.mareklangiewicz
-  settings = LibSettings(
-    withJs = false,
-    compose = null,
+// Note: named myLib, not lib, so it does not shadow the lib(..) factory it is built with.
+val myLib = lib(
+  info = myLibInfo(
+    name = "DepsKt",
+    group = "pl.mareklangiewicz.deps", // important non default ...deps group (as accepted on gradle portal)
+    description = "Updated dependencies for typical java/kotlin/android projects (with IDE support).",
+    githubUrl = "https://github.com/mareklangiewicz/DepsKt",
+    version = Ver(0, 4, 26), // also sync it in ./src/main/kotlin/deps/Vers.kt
+    // TODO use some SourceFun task to make sure it's synced with Vers.DepsPlug
+    // (we println it when applying plugin so have to be synced not to confuse users)
+    // https://plugins.gradle.org/search?term=pl.mareklangiewicz
   ),
+  flags = LibFlags(withJs = false),
+  withCompose = false, // was: settings = LibSettings(compose = null) - presence, stated as presence
 )
 
-defaultBuildTemplateForRootProject(details)
+defaultBuildTemplateForRootProject(myLib)
 
 kotlin {
   jvmToolchain(23)
 }
 
-defaultPublishing(details)
+defaultPublishing(myLib)
 
 gradlePlugin {
   website.set("https://github.com/mareklangiewicz/DepsKt")
@@ -156,9 +157,9 @@ val updateSomeRegexes by tasks.registering {
 
 // region [[Root Build Template]]
 
-fun Project.defaultBuildTemplateForRootProject(details: LibDetails? = null) {
-  details?.let {
-    rootExtLibDetails = it
+fun Project.defaultBuildTemplateForRootProject(lib: Lib? = null) {
+  lib?.let {
+    rootExtLib = it
     defaultGroupAndVerAndDescription(it)
   }
 }
@@ -191,7 +192,11 @@ fun Project.setMyWeirdSubstitutions(
   }
 }
 
-fun RepositoryHandler.addRepos(settings: LibReposSettings) = with(settings) {
+/**
+ * Note the parameter name: it cannot be `repos`, because `repos` is a top-level DepsKt object this
+ * body dereferences as `repos.kotlinx`. See docs/design/lib-details-denesting.md, trap 1.
+ */
+fun RepositoryHandler.addRepos(libRepos: LibRepos) = with(libRepos) {
   @Suppress("DEPRECATION")
   if (withMavenLocal) mavenLocal()
   if (withMavenCentral) mavenCentral()
@@ -234,34 +239,37 @@ fun TaskCollection<Task>.defaultTestsOptions(
 }
 
 // Provide artifacts information requited by Maven Central
-fun MavenPom.defaultPOM(lib: LibDetails) {
-  name put lib.name
-  description put lib.description
-  url put lib.githubUrl
+// Note: stays fully qualified (lib.info.x). A `with(lib.info)` here makes `name` and `description`
+// resolve to LibInfo's fields instead of MavenPom's properties - same receiver-collision family as
+// the addRepos naming trap above.
+fun MavenPom.defaultPOM(lib: Lib) {
+  name put lib.info.name
+  description put lib.info.description
+  url put lib.info.githubUrl
 
   licenses {
     license {
-      name put lib.licenceName
-      url put lib.licenceUrl
+      name put lib.info.licenceName
+      url put lib.info.licenceUrl
     }
   }
   developers {
     developer {
-      id put lib.authorId
-      name put lib.authorName
-      email put lib.authorEmail
+      id put lib.info.authorId
+      name put lib.info.authorName
+      email put lib.info.authorEmail
     }
   }
-  scm { url put lib.githubUrl }
+  scm { url put lib.info.githubUrl }
 }
 
-fun Project.defaultPublishing(lib: LibDetails) = extensions.configure<MavenPublishBaseExtension> {
+fun Project.defaultPublishing(lib: Lib) = extensions.configure<MavenPublishBaseExtension> {
   propertiesTryOverride("signingInMemoryKey", "signingInMemoryKeyPassword", "mavenCentralPassword")
-  if (lib.settings.withCentralPublish) publishToMavenCentral(automaticRelease = false)
+  if (lib.flags.withCentralPublish) publishToMavenCentral(automaticRelease = false)
   signAllPublications()
   signAllPublicationsFixSignatoryIfFound()
-  // Note: artifactId is not lib.name but current project.name (module name)
-  coordinates(groupId = lib.group, artifactId = name, version = lib.version.str)
+  // Note: artifactId is not lib.info.name but current project.name (module name)
+  coordinates(groupId = lib.info.group, artifactId = name, version = lib.info.version.str)
   pom { defaultPOM(lib) }
 }
 
