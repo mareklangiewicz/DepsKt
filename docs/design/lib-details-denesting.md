@@ -1,6 +1,7 @@
 # De-nesting LibDetails / LibSettings
 
-Status: **proven in a prototype; DepsKt itself not started.** Identified 2026-09-14 while using
+Status: **step 1 landed in DepsKt** (branch `lib-denesting`, `src/main/kotlin/deps/Lib.kt`); steps 2-4 not started.
+Originally **proven in a prototype**: Identified 2026-09-14 while using
 context parameters in KGround's `template-logic` (branch `build-logic-context-params`), then
 prototyped there in full as `LibDetailsTMP` / `LibSettingsTMP` / `LibComposeSettingsTMP` /
 `LibAndroSettingsTMP` / `LibReposSettingsTMP` + a `LibTMP` bundle (2026-09-15).
@@ -214,6 +215,63 @@ internals. It now has **zero** production callers; it survives only in probes, w
 model is the control being compared against. When DepsKt de-nests for real, the control disappears
 and both adapters go with it.
 
+## Step 1 as landed (2026-09-15)
+
+`src/main/kotlin/deps/Lib.kt`, branch `lib-denesting`. Data shape only: no entry point moved, no
+context parameter used, nothing in the nested model changed. `LibDetails` and friends are untouched
+and still the only thing consumers see.
+
+**Names.** The siblings could not reuse `LibDetails`/`LibSettings`/… while those still exist, so
+they got distinct short names, chosen to survive step 4 without a second rename:
+
+| nested (unchanged) | sibling |
+| --- | --- |
+| `LibDetails` minus `settings` | `LibInfo` |
+| `LibSettings` minus `compose`/`andro`/`repos` | `LibFlags` |
+| `LibComposeSettings` | `LibCompose` |
+| `LibAndroSettings` | `LibAndro` |
+| `LibReposSettings` | `LibRepos` |
+| — | `Lib` (the bundle) |
+
+They are also shorter exactly where they will be typed most: `context(info: LibInfo, flags:
+LibFlags, repos: LibRepos)`. Consumers therefore migrate ONCE, not once to a suffix and once away
+from it.
+
+**Deliberately deferred.** The prototype's `sdkCompileMinor` field is NOT here. Adding it would make
+`Lib.toNested()` lossy and weaken the equivalence tests below, which are the only thing holding the
+migration up in this repo. It is additive and belongs in its own step, together with a
+`Vers.AndroSdkCompileMinor` const (the prototype's `AndroSdkCompileMinorTMP = 2`).
+
+**Derivations take a plain parameter.** `defaultLibCompose(flags)` / `defaultLibRepos(flags)` rather
+than `context(flags: LibFlags)`, because DepsKt compiles without `-Xcontext-parameters` and step 1
+must not require it. They become context parameters in step 3, which is a signature change inside
+the library only.
+
+### What plays the role of KGround's 19 probes
+
+DepsKt has its own JVM test source set, so the claims are plain JUnit5 tests
+(`src/test/kotlin/LibDenestingTest.kt`, 10 tests) instead of Gradle probes — they run in seconds and
+need no template build:
+
+- both derivations reproduce the nested constructor defaults across the 8 combinations of
+  `withJvm` × `withJs` × `withTestJUnit4`, plus both values of `withKotlinxHtml` for repos;
+- the derivations demonstrably VARY with their inputs (without this the equality above proves
+  nothing — see `derivationsDependOnTheirInputs`);
+- round trips are lossless BOTH ways, over compose-absent, andro-present and preview-SDK variants;
+- `lib()` reproduces the nested defaults for a default lib, and encodes presence via
+  `withCompose`/`withAndro` with an explicitly supplied sibling winning over the switch;
+- the `publishVariant` truth table, asserted against both models.
+
+**The harness was validated, not just run.** A planted defect in `defaultLibCompose` failed 2 tests,
+and a planted dropped field in `LibAndro.toNested()` failed both round-trip tests; both markers were
+reverted and the suite is green.
+
+### Still true after step 1
+
+Nothing consumes the new shape yet. `gradle.extLibDetails` still holds a nested `LibDetails`, and
+there is no `extLib`; wiring the bundle into ext storage and the entry points is step 2.
+
+
 ## Sequencing
 
 DepsKt is published and consumed (KGround is on 0.4.25), so this is a breaking change to a
@@ -222,8 +280,8 @@ new shape is proven — not to be entangled with build-logic experiments in a co
 
 Suggested order, now that the shape is known:
 
-1. De-nest the data and add the bundle + factory + the two derivation functions. Keep the nested
-   types and an adapter, so nothing breaks yet.
+1. ~~De-nest the data and add the bundle + factory + the two derivation functions. Keep the nested
+   types and an adapter, so nothing breaks yet.~~ **DONE** — see "Step 1 as landed" above.
 2. Add sibling entry points with nested shims (no default on the shim). Consumers can move one
    build script at a time.
 3. Move the internals to sibling context parameters, deleting `ignoreCompose`,
