@@ -1690,7 +1690,7 @@ object Org {
       }
     }
     object Compose {
-      val full = "org.jetbrains.compose" d "compose-full" w "1.12.0" w "1.13.0-alpha01"
+      val full = "org.jetbrains.compose" d "compose-full" w "1.9.3+dev3210" w "1.9.3" w "1.12.0" w "1.13.0-alpha01"
       val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.12.0" w "1.13.0-alpha01"
       val preview_rpc = "org.jetbrains.compose" d "preview-rpc" w "1.12.0" w "1.13.0-alpha01"
       val preview_runtime_desktop = "org.jetbrains.compose" d "compose-preview-runtime-desktop" w "0.5.0-build228"
@@ -1790,7 +1790,7 @@ object Org {
         val text = "org.jetbrains.compose.ui" d "ui-text" w "1.12.0" w "1.13.0-alpha01"
         val text_js = "org.jetbrains.compose.ui" d "ui-text-js" w "1.12.0" w "1.13.0-alpha01"
         val text_wasm_js = "org.jetbrains.compose.ui" d "ui-text-wasm-js" w "1.12.0" w "1.13.0-alpha01"
-        val tooling = "org.jetbrains.compose.ui" d "ui-tooling" w "1.9.3+dev3210" w "1.9.3" w "1.12.0" w "1.13.0-alpha01"
+        val tooling = "org.jetbrains.compose.ui" d "ui-tooling" w "1.12.0" w "1.13.0-alpha01"
         val tooling_preview = "org.jetbrains.compose.ui" d "ui-tooling-preview" w "1.12.0" w "1.13.0-alpha01"
         val ui = "org.jetbrains.compose.ui" d "ui" w "1.12.0" w "1.13.0-alpha01"
         val unit = "org.jetbrains.compose.ui" d "ui-unit" w "1.12.0" w "1.13.0-alpha01"
