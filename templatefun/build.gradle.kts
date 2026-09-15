@@ -1,3 +1,6 @@
+import pl.mareklangiewicz.utils.*
+import com.vanniktech.maven.publish.*
+
 // templatefun: the reusable build templates, moved here from KGround's `template-logic` so other
 // repos can depend on them instead of copying the same regions into every build script.
 //
@@ -8,6 +11,7 @@
 
 plugins {
   `kotlin-dsl`
+  plugAll(plugs.GradlePublish, plugs.VannikPublish)
 }
 
 repositories {
@@ -35,5 +39,44 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach 
   compilerOptions {
     freeCompilerArgs.add("-Xcontext-parameters")
     freeCompilerArgs.add("-Xexplicit-context-arguments")
+  }
+}
+
+// Published so repos other than KGround can stop copying build-script regions and just apply the
+// plugin. The id is pl.mareklangiewicz.templatefun, from the precompiled script plugin file name
+// (src/main/kotlin/pl.mareklangiewicz.templatefun.gradle.kts) -- kotlin-dsl registers it.
+val myLib = gradle.extLib
+
+gradlePlugin {
+  website = myLib.info.githubUrl
+  vcsUrl = myLib.info.githubUrl
+  plugins.configureEach {
+    displayName = "DepsKt templatefun plugin"
+    description = "Reusable gradle build templates for typical kotlin/android/compose projects."
+    tags = listOf("template", "convention", "build-logic")
+  }
+}
+
+// Publishing is spelled out here instead of calling the [[Kotlin Module Build Template]] region's
+// defaultPublishing: that region is a per-script COPY, not published DepsKt API, and it lives in
+// deps/build.gradle.kts. Sharing it would mean this build script depending on that one.
+// artifactId is the project name (templatefun); group is shared -> pl.mareklangiewicz.deps:templatefun.
+mavenPublishing {
+  propertiesTryOverride("signingInMemoryKey", "signingInMemoryKeyPassword", "mavenCentralPassword")
+  if (myLib.flags.withCentralPublish) publishToMavenCentral(automaticRelease = false)
+  signAllPublications()
+  signAllPublicationsFixSignatoryIfFound()
+  coordinates(groupId = myLib.info.group, artifactId = name, version = myLib.info.version.str)
+  pom {
+    name = myLib.info.name + " templatefun"
+    description = "Reusable gradle build templates for typical kotlin/android/compose projects."
+    url = myLib.info.githubUrl
+    licenses { license { name = myLib.info.licenceName; url = myLib.info.licenceUrl } }
+    developers {
+      developer {
+        id = myLib.info.authorId; name = myLib.info.authorName; email = myLib.info.authorEmail
+      }
+    }
+    scm { url = myLib.info.githubUrl }
   }
 }
