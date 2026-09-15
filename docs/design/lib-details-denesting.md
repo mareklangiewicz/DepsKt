@@ -420,6 +420,12 @@ a measured **zero** deprecation warnings from our own sources.
 3. DepsKt's own `LibDenestingTest` likewise: its round-trip and derivation-equivalence tests are
    defined against the nested model. When it goes, they go, and what replaces them is a smaller
    suite about `Lib` alone.
+4. `defaultGroupAndVerAndDescription(lib: Lib = rootExtLib)` loses its default. Nothing assigns
+   `rootProject.extLib` inside DepsKt any more (the lib lives in `gradle.extLib`, and the two are
+   different `ExtensionAware` objects), but unmigrated repos still set it from their own root build
+   template — so the default goes when they do, not before. Direction of travel: data moves off
+   exts and onto context parameters; the one ext on `gradle` is a compromise until Gradle supports
+   them properly.
 
 
 ## Sequencing
