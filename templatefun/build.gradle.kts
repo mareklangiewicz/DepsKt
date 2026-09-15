@@ -1,8 +1,8 @@
 // templatefun: the reusable build templates, moved here from KGround's `template-logic` so other
 // repos can depend on them instead of copying the same regions into every build script.
 //
-// It is a SEPARATE subproject, not part of the root DepsKt jar, on purpose. Both of DepsKt's plugin
-// ids (pl.mareklangiewicz.deps and pl.mareklangiewicz.deps.settings) ship from the root artifact,
+// It is a SEPARATE subproject, not part of the DepsKt jar, on purpose. Both of DepsKt's plugin
+// ids (pl.mareklangiewicz.deps and pl.mareklangiewicz.deps.settings) ship from the :deps artifact,
 // and the settings one is applied in settings.gradle.kts -- evaluated before anything else in every
 // consuming build. The AGP / Compose / KMP dependencies below must not land on that classpath.
 
@@ -22,10 +22,10 @@ dependencies {
   implementation("com.android.tools.build:gradle:9.3.0-rc02")
   implementation("org.jetbrains.compose:compose-gradle-plugin:1.12.0-beta01")
   implementation("com.vanniktech:gradle-maven-publish-plugin:0.37.0")
-  // The sibling Lib model lives in the root project of THIS repo now, so depend on it directly
+  // The sibling Lib model lives in the :deps sibling of THIS repo now, so depend on it directly
   // instead of on a published version. One less pin to drift: template-logic's own pin was stale
   // at 0.4.26 while the repo was on 0.4.27.
-  implementation(project(":"))
+  implementation(project(":deps"))
 }
 
 // Only these sources get the flag. Consuming build scripts are always compiled WITHOUT it, which is

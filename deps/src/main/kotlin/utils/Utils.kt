@@ -96,7 +96,7 @@ fun Project.extSetFromLazyFile(prop: String, suffix: String = "_LAZY_FILE") {
   extString[prop] = readFileUtf8(file)
 }
 
-val Project.projectPath get() = rootDir.toOkioPath()
+val Project.projectPath get() = projectDir.toOkioPath()
 val Project.rootProjectPath get() = rootProject.projectPath
 val Settings.rootProjectPath get() = rootProject.projectDir.toOkioPath()
 

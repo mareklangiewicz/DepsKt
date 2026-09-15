@@ -1,3 +1,6 @@
+import pl.mareklangiewicz.deps.*
+import pl.mareklangiewicz.utils.extLib
+
 rootProject.name = "DepsKt"
 
 
@@ -45,7 +48,28 @@ develocity {
 
 // endregion [[My Settings Stuff]]
 
-// templatefun: reusable build templates (moved here from KGround/template-logic).
-// Separate subproject so its AGP/Compose/KMP classpath stays off the root DepsKt artifact,
-// which both deps plugins -- including the settings one -- ship from.
+gradle.extLib = lib(
+  info = myLibInfo(
+    name = "DepsKt",
+    group = "pl.mareklangiewicz.deps", // important non default ...deps group (as accepted on gradle portal)
+    description = "Updated dependencies for typical java/kotlin/android projects (with IDE support).",
+    githubUrl = "https://github.com/mareklangiewicz/DepsKt",
+    version = Ver(0, 4, 27), // also sync it in ./deps/src/main/kotlin/deps/Vers.kt
+    // TODO use some SourceFun task to make sure it's synced with Vers.DepsPlug
+    // (we println it when applying plugin so have to be synced not to confuse users)
+    // https://plugins.gradle.org/search?term=pl.mareklangiewicz
+  ),
+  flags = LibFlags(withJs = false),
+  withCompose = false, // was: settings = LibSettings(compose = null) - presence, stated as presence
+)
+
+// Two siblings under an empty root, not a library root with a satellite. See
+// docs/design/lib-details-denesting.md, "DepsKt as a multi-project build".
+//
+// :deps is the published DepsKt artifact (artifactId stays DepsKt - see deps/build.gradle.kts).
+// :templatefun is the reusable build templates, moved here from KGround/template-logic. It is kept
+// out of the :deps artifact on purpose: both deps plugin ids -- including the settings one, applied
+// before anything else in every consuming build -- ship from :deps, and templatefun's AGP / Compose
+// / KMP classpath must not land there.
+include(":deps")
 include(":templatefun")

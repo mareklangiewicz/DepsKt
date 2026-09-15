@@ -1,0 +1,259 @@
+@file:Suppress("UnstableApiUsage", "unused")
+
+import pl.mareklangiewicz.defaults.*
+import pl.mareklangiewicz.deps.*
+import com.vanniktech.maven.publish.*
+import okio.Path.Companion.toOkioPath
+import pl.mareklangiewicz.kgroundx.maintenance.*
+import pl.mareklangiewicz.io.*
+import pl.mareklangiewicz.utils.*
+import pl.mareklangiewicz.ure.*
+import pl.mareklangiewicz.ure.UReplacement.Companion.Group
+import pl.mareklangiewicz.ure.UReplacement.Companion.Literal
+import pl.mareklangiewicz.annotations.*
+import pl.mareklangiewicz.sourcefun.*
+import org.jetbrains.kotlin.gradle.dsl.*
+
+plugins {
+  // plugAll(plugs.KotlinJvm, plugs.GradlePublish, plugs.VannikPublish, plugs.SourceFun)
+  plugAll(plugs.KotlinJvm, plugs.GradlePublish, plugs.VannikPublish)
+  id("pl.mareklangiewicz.sourcefun") version "0.4.49" // https://plugins.gradle.org/search?term=mareklangiewicz
+}
+
+repositories {
+  google()
+  mavenCentral()
+  gradlePluginPortal()
+}
+
+dependencies {
+  api(Com.SquareUp.Okio.okio) // FIXME_later: remove and use new SourceFun? (DepsKt utils should not depend on okio)
+  testImplementation(kotlin("test"))
+  testImplementation(Org.JUnit.Jupiter.junit_jupiter_engine)
+  testRuntimeOnly(Org.JUnit.Platform.junit_platform_launcher)
+}
+
+tasks.defaultKotlinCompileOptions()
+
+tasks.defaultTestsOptions()
+
+// The lib is defined once, in settings.gradle.kts, and read here. Named myLib, not lib, so the
+// local does not shadow the lib(..) factory it is built with.
+val myLib = gradle.extLib
+
+kotlin {
+  jvmToolchain(23)
+}
+
+// artifactId is pinned, NOT derived from the project name. This project lives in ./deps now, so the
+// default (project.name) would silently republish DepsKt as pl.mareklangiewicz.deps:deps -- which
+// would also stop `includeBuild("../DepsKt")` substituting in every consumer, with no error.
+defaultPublishing(myLib, artifactId = "DepsKt")
+
+gradlePlugin {
+  website.set("https://github.com/mareklangiewicz/DepsKt")
+  vcsUrl.set("https://github.com/mareklangiewicz/DepsKt")
+  plugins {
+    create("depsPlugin") {
+      id = "pl.mareklangiewicz.deps"
+      implementationClass = "pl.mareklangiewicz.deps.DepsPlugin"
+      displayName = "DepsKt plugin"
+      description = "Updated dependencies for typical java/kotlin/android projects (with IDE support)."
+      tags.set(listOf("bom", "dependencies"))
+    }
+    create("depsSettingsPlugin") {
+      id = "pl.mareklangiewicz.deps.settings"
+      implementationClass = "pl.mareklangiewicz.deps.DepsSettingsPlugin"
+      displayName = "DepsKt settings plugin"
+      description =
+        "Updated dependencies for typical java/kotlin/android projects (with IDE support) (settings plugin)."
+      tags.set(listOf("bom", "dependencies"))
+    }
+  }
+}
+
+
+val pathToSrcKotlin = projectPath / "src/main/kotlin"
+val urlToRefreshDeps = "https://raw.githubusercontent.com/mareklangiewicz/refreshDeps"
+val urlToObjectsFile = "$urlToRefreshDeps/main/plugins/dependencies/src/test/resources/objects-for-deps.txt"
+
+val downloadGeneratedDeps by tasks.registering(DownloadFileTask::class) {
+  group = "maintenance"
+  inputUrl.set(urlToObjectsFile)
+  outputFile.set(layout.buildDirectory.file("objects-for-deps.txt"))
+}
+
+
+@OptIn(DelicateApi::class)
+sourceFun {
+  grp = "maintenance"
+  val updateGeneratedDeps by reg {
+    doNotTrackState("Injecting to Deps.kt file which belong to other (compilation) task(s).")
+    setSource(downloadGeneratedDeps)
+    setOutput(pathToSrcKotlin / "deps")
+    setTaskAction { srcTree, outDir ->
+      val inPath = srcTree.files.single().toOkioPath()
+      val outPath = outDir.file("Deps.kt").asFile.toOkioPath()
+      runWithUCtxForTask { outPath.injectSpecialRegionContentFromFile("Deps Generated", inPath) }
+    }
+  }
+}
+
+// Note: Leaving here older version to document and experiment with different approaches more
+// (this one uses temp file in home dir not managed by gradle - see downloadAndInjectfileToSpecialRegion)
+val updateGeneratedDepsAlternative by tasks.registering {
+  group = "maintenance"
+  doLastWithUCtxForTask {
+    downloadAndInjectFileToSpecialRegion(
+      inFileUrl = urlToObjectsFile,
+      outFilePath = pathToSrcKotlin / "deps/Deps.kt",
+      outFileRegionLabel = "Deps Generated",
+    )
+  }
+}
+
+@OptIn(ExperimentalApi::class)
+val updateSomeRegexes by tasks.registering {
+
+  group = "maintenance"
+
+  val ureNewVersionPart = ure {
+    0..MAX of ch('0') // have to ignore leading zeros because these confuse parser later (potentially octal)
+    1 of ure {
+      1..4 of chDigit
+    }.withName("VersionPart")
+    0..MAX of chWordOrDash
+  }
+  val theNewThing = "Regex(\"\"\"${ureNewVersionPart.compile()}\"\"\")"
+  val ureWithTheOldThing = ure {
+    +ureText("fun String.toVersionPartIntCode(): Int = ").withName("beforeTheThing")
+    +ure("theOldThing") {
+      +ureText("Regex")
+      +ureWhatevaInLine()
+    }
+    +ureText(".matchEntire(this)").withName("afterTheThing")
+  }
+
+  doLastWithUCtxForTask {
+    val path = pathToSrcKotlin / "utils/Utils.kt"
+    path.processSingleFile(path) {
+      it.replaceSingle(ureWithTheOldThing, Group("beforeTheThing") + Literal(theNewThing) + Group("afterTheThing"))
+    }
+  }
+}
+
+
+
+// region [[Kotlin Module Build Template]]
+
+// Kind of experimental/temporary.. not sure how it will evolve yet,
+// but currently I need these kind of substitutions/locals often enough
+// especially when updating kground <-> kommandline (trans deps issues)
+fun Project.setMyWeirdSubstitutions(
+  vararg rules: Pair<String, String>,
+  myProjectsGroup: String = "pl.mareklangiewicz",
+  tryToUseLocalProjects: Boolean = true,
+) {
+  val foundLocalProjects: Map<String, Project?> =
+    if (tryToUseLocalProjects) rules.associate { it.first to findProject(":${it.first}") }
+    else emptyMap()
+  configurations.all {
+    resolutionStrategy.dependencySubstitution {
+      for ((projName, projVer) in rules)
+        substitute(module("$myProjectsGroup:$projName"))
+          .using(
+            // Note: there are different fun in gradle: Project.project; DependencySubstitution.project
+            if (foundLocalProjects[projName] != null) project(":$projName")
+            else module("$myProjectsGroup:$projName:$projVer")
+          )
+    }
+  }
+}
+
+/**
+ * Note the parameter name: it cannot be `repos`, because `repos` is a top-level DepsKt object this
+ * body dereferences as `repos.kotlinx`. See docs/design/lib-details-denesting.md, trap 1.
+ */
+fun RepositoryHandler.addRepos(libRepos: LibRepos) = with(libRepos) {
+  @Suppress("DEPRECATION")
+  if (withMavenLocal) mavenLocal()
+  if (withMavenCentral) mavenCentral()
+  if (withGradle) gradlePluginPortal()
+  if (withGoogle) google()
+  if (withKotlinx) maven(repos.kotlinx)
+  if (withKotlinxHtml) maven(repos.kotlinxHtml)
+  if (withComposeJbDev) maven(repos.composeJbDev)
+  if (withKtorEap) maven(repos.ktorEap)
+  if (withJitpack) maven(repos.jitpack)
+}
+
+// TODO_maybe: doc says it could be now also applied globally instead for each task (and it works for andro too)
+//   But it's only for jvm+andro, so probably this is better:
+//   https://kotlinlang.org/docs/gradle-compiler-options.html#for-all-kotlin-compilation-tasks
+fun TaskCollection<Task>.defaultKotlinCompileOptions(
+  apiVer: KotlinVersion = KotlinVersion.KOTLIN_2_1,
+  jvmTargetVer: String? = null, // it's better to use jvmToolchain (normally done in fun allDefault)
+  renderInternalDiagnosticNames: Boolean = false,
+) = withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+  compilerOptions {
+    apiVersion.set(apiVer)
+    jvmTargetVer?.let { jvmTarget = JvmTarget.fromTarget(it) }
+    if (renderInternalDiagnosticNames) freeCompilerArgs.add("-Xrender-internal-diagnostic-names")
+    // useful, for example, to suppress some errors when accessing internal code from some library, like:
+    // @file:Suppress("INVISIBLE_MEMBER", "INVISIBLE_REFERENCE", "EXPOSED_PARAMETER_TYPE", "EXPOSED_PROPERTY_TYPE", "CANNOT_OVERRIDE_INVISIBLE_MEMBER")
+  }
+}
+
+fun TaskCollection<Task>.defaultTestsOptions(
+  printStandardStreams: Boolean = true,
+  printStackTraces: Boolean = true,
+  onJvmUseJUnitPlatform: Boolean = true,
+) = withType<AbstractTestTask>().configureEach {
+  testLogging {
+    showStandardStreams = printStandardStreams
+    showStackTraces = printStackTraces
+  }
+  if (onJvmUseJUnitPlatform) (this as? Test)?.useJUnitPlatform()
+}
+
+// Provide artifacts information requited by Maven Central
+// Note: stays fully qualified (lib.info.x). A `with(lib.info)` here makes `name` and `description`
+// resolve to LibInfo's fields instead of MavenPom's properties - same receiver-collision family as
+// the addRepos naming trap above.
+fun MavenPom.defaultPOM(lib: Lib) {
+  name put lib.info.name
+  description put lib.info.description
+  url put lib.info.githubUrl
+
+  licenses {
+    license {
+      name put lib.info.licenceName
+      url put lib.info.licenceUrl
+    }
+  }
+  developers {
+    developer {
+      id put lib.info.authorId
+      name put lib.info.authorName
+      email put lib.info.authorEmail
+    }
+  }
+  scm { url put lib.info.githubUrl }
+}
+
+/**
+ * Note: [artifactId] defaults to the project name (the module name), NOT to `lib.info.name`.
+ * Pass it explicitly wherever the directory layout and the published coordinate must differ --
+ * for example a project that moved into a subdirectory and has to keep publishing its old name.
+ */
+fun Project.defaultPublishing(lib: Lib, artifactId: String = name) =
+  extensions.configure<MavenPublishBaseExtension> {
+    propertiesTryOverride("signingInMemoryKey", "signingInMemoryKeyPassword", "mavenCentralPassword")
+    if (lib.flags.withCentralPublish) publishToMavenCentral(automaticRelease = false)
+    signAllPublications()
+    signAllPublicationsFixSignatoryIfFound()
+    coordinates(groupId = lib.info.group, artifactId = artifactId, version = lib.info.version.str)
+    pom { defaultPOM(lib) }
+  }
+
+// endregion [[Kotlin Module Build Template]]
