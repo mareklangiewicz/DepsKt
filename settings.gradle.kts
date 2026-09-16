@@ -36,7 +36,7 @@ pluginManagement {
 plugins {
   // Self-hosting on the PUBLISHED settings plugin, so this can only ever name a version that is
   // already on the portal. It lags the version below between a bump and a publish.
-  id("pl.mareklangiewicz.deps.settings") version "0.4.54" // https://plugins.gradle.org/search?term=mareklangiewicz
+  id("pl.mareklangiewicz.deps.settings") version "0.4.55" // https://plugins.gradle.org/search?term=mareklangiewicz
   id("com.gradle.develocity") version "4.5.1" // https://docs.gradle.com/develocity/gradle-plugin/
 }
 
@@ -56,7 +56,7 @@ gradle.extLib = lib(
     group = "pl.mareklangiewicz.deps", // important non default ...deps group (as accepted on gradle portal)
     description = "Updated dependencies for typical java/kotlin/android projects (with IDE support).",
     githubUrl = "https://github.com/mareklangiewicz/DepsKt",
-    version = Ver(0, 4, 55), // also sync it in ./deps/src/main/kotlin/deps/Vers.kt
+    version = Ver(0, 4, 56), // also sync it in ./deps/src/main/kotlin/deps/Vers.kt
     // TODO use some SourceFun task to make sure it's synced with Vers.DepsPlug
     // (we println it when applying plugin so have to be synced not to confuse users)
     // https://plugins.gradle.org/search?term=pl.mareklangiewicz

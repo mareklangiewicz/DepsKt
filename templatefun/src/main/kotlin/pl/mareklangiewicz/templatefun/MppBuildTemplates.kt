@@ -281,10 +281,27 @@ fun KotlinMultiplatformExtension.allDefaultSourceSetsForCompose(
   // the one that had to be renamed -- exactly the collision the DepsKt migration will hit with
   // `repos`. The settings win the bare name because `with` spells their flags out below.
   val composeExt = project.extensions.getByName("compose") as ComposeExtension
+
+  // Manual dependsOn edges below suppress KGP's automatic application of the default hierarchy
+  // template, so it has to be applied explicitly -- template-raw's template already does this.
+  applyDefaultHierarchyTemplate()
+
   sourceSets {
-    commonMain {
+    // Compose UI does NOT belong in commonMain: commonMain reaches every target by construction, so
+    // js inherited ui/foundation/material and with them skiko, which it cannot bundle without an
+    // executable binary (checkComposeUiTestConfigurationForJs). Split it the way template-raw does:
+    //
+    //   commonMain -> composeMain (runtime only) -> composeUiMain (ui, foundation, material, ...)
+    //
+    // and hang each platform off the right level: jvm/android take composeUiMain, js takes only
+    // composeMain plus compose-html, linuxX64 takes neither (no Compose UI for it upstream yet).
+    val composeMain = create("composeMain") {
+      dependsOn(commonMain.get())
+      dependencies { implementation(ComposeJb.runtime) }
+    }
+    val composeUiMain = create("composeUiMain") {
+      dependsOn(composeMain)
       dependencies {
-        implementation(ComposeJb.runtime)
         if (withComposeUi) {
           implementation(ComposeJb.ui)
         }
@@ -297,8 +314,13 @@ fun KotlinMultiplatformExtension.allDefaultSourceSetsForCompose(
         if (withComposeMaterial3) implementation(ComposeJb.material3)
       }
     }
+    // androidMain does not exist yet: the android target is created by androDefault(), which
+    // defaultBuildTemplateForFullMppLib runs AFTER this function. configureEach also sees source
+    // sets added later, so the edge lands whenever (and only if) the target appears.
+    configureEach { if (name == "androidMain") dependsOn(composeUiMain) }
     if (flags.withJvm) {
       jvmMain {
+        dependsOn(composeUiMain)
         dependencies {
           if (withComposeUi) {
             implementation(ComposeJb.uiTooling)
@@ -323,6 +345,8 @@ fun KotlinMultiplatformExtension.allDefaultSourceSetsForCompose(
     }
     if (flags.withJs) {
       jsMain {
+        // composeMain, NOT composeUiMain: compose-html only, so skiko never reaches js.
+        dependsOn(composeMain)
         dependencies {
           if (withComposeHtmlCore) implementation(ComposeJb.htmlCore)
           if (withComposeHtmlSvg) implementation(ComposeJb.htmlSvg)
