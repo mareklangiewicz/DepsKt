@@ -160,8 +160,9 @@ tasks.register("updateSomeRegexes") {
 
 
 
-// The [[Kotlin Module Build Template]] region used to be copied in here (setMyWeirdSubstitutions,
-// addRepos, defaultKotlinCompileOptions, defaultTestsOptions, defaultPOM, defaultPublishing).
+// The [[Kotlin Module Build Template]] region used to be copied in here (addRepos,
+// defaultKotlinCompileOptions, defaultTestsOptions, defaultPOM, defaultPublishing).
 // It is gone: this script applies the published pl.mareklangiewicz.templatefun instead, which is
-// what every other repo now does. DepsKt consuming its own published templatefun is not circular --
-// templatefun 0.4.29 depends on published DepsKt 0.4.29, a finished artifact, not on this build.
+// what every other repo now does. DepsKt consuming its own published templatefun is not circular:
+// the whole chain is the PREVIOUS release, a finished artifact, not this build. Currently:
+// deps.settings 0.4.30 -> DepsKt 0.4.30 -> (Vers.DepsPlug) templatefun 0.4.30 -> DepsKt 0.4.30.
