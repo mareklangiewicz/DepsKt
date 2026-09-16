@@ -10,6 +10,23 @@ import com.vanniktech.maven.publish.*
 // and the settings one is applied in settings.gradle.kts -- evaluated before anything else in every
 // consuming build. The AGP / Compose / KMP dependencies below must not land on that classpath.
 
+// `kotlin-dsl` pins THIS project to the Kotlin EMBEDDED in Gradle (2.4.0 for Gradle 9.7.1), while
+// :deps and :sourcefun compile at Vers.Kotlin (2.4.20). Two consequences, both accepted for now:
+//
+// 1. templatefun's sources are compiled by a different Kotlin than its two siblings. Silent skew.
+// 2. Gradle prints "Unsupported Kotlin plugin version ... kotlin-dsl relies on features of Kotlin
+//    2.4.0 ... requested version 2.4.20" while configuring this project. EXPECTED, not a new
+//    breakage. It began when :sourcefun made two subprojects declare a versioned Kotlin plugin,
+//    which raised "the Kotlin Gradle plugin was loaded multiple times ... may break the build"; the
+//    remedy Gradle itself prescribes -- declaring it once in the root with `apply false`, see
+//    ../build.gradle.kts -- is what puts 2.4.20 into this project's resolution scope.
+//
+// The two warnings are mutually exclusive while kotlin-dsl is here: MEASURED, including the
+// `pluginManagement { plugins { .. } }` variant, which simply brings the first one back. There is
+// no suppression property for either (searched the 9.7.1 distribution jars).
+//
+// Getting rid of kotlin-dsl removes both AND the skew. That is a real, scoped piece of work with a
+// verified recipe: docs/design/templatefun-off-kotlin-dsl.md.
 plugins {
   `kotlin-dsl`
   plugAll(plugs.GradlePublish, plugs.VannikPublish)
