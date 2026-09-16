@@ -15,7 +15,6 @@ import pl.mareklangiewicz.defaults.*
 
 // region [[Raw Lib Build Template]]
 
-@OptIn(ExperimentalComposeLibrary::class)
 fun Project.defaultBuildTemplateForRawMppLib(
   lib: Lib = gradle.extLib,
 ): Unit = context(lib.info, lib.flags) {
@@ -58,7 +57,7 @@ fun Project.defaultBuildTemplateForRawMppLib(
       val composeMain = create("composeMain") {
         dependsOn(commonMain.get())
         dependencies {
-          if (lib.compose != null) implementation(compose.dependencies.runtime)
+          if (lib.compose != null) implementation(ComposeJb.runtime)
         }
       }
 
@@ -77,16 +76,16 @@ fun Project.defaultBuildTemplateForRawMppLib(
         dependencies {
           val settpose = lib.compose ?: return@dependencies
           if (settpose.withComposeUi) {
-            implementation(compose.dependencies.ui)
-            implementation(compose.dependencies.components.resources)
+            implementation(ComposeJb.ui)
+            implementation(ComposeJb.componentsResources)
           }
-          if (settpose.withComposeFoundation) implementation(compose.dependencies.foundation)
+          if (settpose.withComposeFoundation) implementation(ComposeJb.foundation)
           if (settpose.withComposeFullAnimation) {
-            implementation(compose.dependencies.animation)
-            implementation(compose.dependencies.animationGraphics)
+            implementation(ComposeJb.animation)
+            implementation(ComposeJb.animationGraphics)
           }
-          if (settpose.withComposeMaterial2) implementation(compose.dependencies.material)
-          if (settpose.withComposeMaterial3) implementation(compose.dependencies.material3)
+          if (settpose.withComposeMaterial2) implementation(ComposeJb.material)
+          if (settpose.withComposeMaterial3) implementation(ComposeJb.material3)
         }
       }
 
@@ -96,7 +95,7 @@ fun Project.defaultBuildTemplateForRawMppLib(
         dependsOn(composeTest)
         dependencies {
           val settpose = lib.compose ?: return@dependencies
-          if (settpose.withComposeTestUi) implementation(compose.dependencies.uiTest)
+          if (settpose.withComposeTestUi) implementation(ComposeJb.uiTest)
         }
       }
 
@@ -106,17 +105,17 @@ fun Project.defaultBuildTemplateForRawMppLib(
           dependencies {
             val settpose = lib.compose ?: return@dependencies
             if (settpose.withComposeUi) {
-              implementation(compose.dependencies.uiTooling)
-              implementation(compose.dependencies.uiUtil)
-              implementation(compose.dependencies.preview)
+              implementation(ComposeJb.uiTooling)
+              implementation(ComposeJb.uiUtil)
+              implementation(ComposeJb.preview)
             }
-            if (settpose.withComposeMaterialIconsExtended) implementation(compose.dependencies.materialIconsExtended)
+            if (settpose.withComposeMaterialIconsExtended) implementation(ComposeJb.materialIconsExtended)
             if (settpose.withComposeDesktop) {
-              implementation(compose.dependencies.desktop.common)
+              implementation(ComposeJb.desktopCommon)
               implementation(compose.dependencies.desktop.currentOs)
             }
             if (settpose.withComposeDesktopComponents) {
-              implementation(compose.dependencies.desktop.components.splitPane)
+              implementation(ComposeJb.componentsSplitPane)
             }
           }
         }
@@ -136,7 +135,7 @@ fun Project.defaultBuildTemplateForRawMppLib(
             if (flags.withTestMockitoKotlin) implementation(Org.Mockito.Kotlin.mockito_kotlin)
 
             val settpose = lib.compose ?: return@dependencies
-            if (settpose.withComposeTestUiJUnit4) implementation(compose.dependencies.desktop.uiTestJUnit4)
+            if (settpose.withComposeTestUiJUnit4) implementation(ComposeJb.uiTestJUnit4)
           }
         }
       }
@@ -145,15 +144,15 @@ fun Project.defaultBuildTemplateForRawMppLib(
           dependsOn(composeMain)
           dependencies {
             val settpose = lib.compose ?: return@dependencies
-            if (settpose.withComposeHtmlCore) implementation(compose.dependencies.html.core)
-            if (settpose.withComposeHtmlSvg) implementation(compose.dependencies.html.svg)
+            if (settpose.withComposeHtmlCore) implementation(ComposeJb.htmlCore)
+            if (settpose.withComposeHtmlSvg) implementation(ComposeJb.htmlSvg)
           }
         }
         jsTest {
           dependsOn(composeTest)
           dependencies {
             val settpose = lib.compose ?: return@dependencies
-            if (settpose.withComposeTestHtmlUtils) implementation(compose.dependencies.html.testUtils)
+            if (settpose.withComposeTestHtmlUtils) implementation(ComposeJb.htmlTestUtils)
           }
         }
       }

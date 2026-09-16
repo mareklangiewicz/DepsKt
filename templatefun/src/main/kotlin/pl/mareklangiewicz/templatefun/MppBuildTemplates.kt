@@ -245,7 +245,6 @@ fun Project.defaultBuildTemplateForBasicMppApp(
 // region [[Compose MPP Module Build Template]]
 
 /** Only for very standard compose mpp libs. In most cases, it's better to not use this function. */
-@OptIn(ExperimentalComposeLibrary::class)
 fun Project.defaultBuildTemplateForComposeMppLib(
   lib: Lib = gradle.extLib,
   ignoreAndroConfig: Boolean = false, // so user have to explicitly say THAT he wants to ignore it.
@@ -274,7 +273,6 @@ fun Project.defaultBuildTemplateForComposeMppLib(
  * Normal fun KotlinMultiplatformExtension.allDefault ignores compose stuff,
  * because it's also used for libs without compose plugin.
  * This one does the rest, so it has to be called additionally for compose libs, after .allDefault */
-@OptIn(ExperimentalComposeLibrary::class)
 context(flags: LibFlags, compose: LibCompose)
 fun KotlinMultiplatformExtension.allDefaultSourceSetsForCompose(
 ) = with(compose) {
@@ -286,53 +284,53 @@ fun KotlinMultiplatformExtension.allDefaultSourceSetsForCompose(
   sourceSets {
     commonMain {
       dependencies {
-        implementation(composeExt.dependencies.runtime)
+        implementation(ComposeJb.runtime)
         if (withComposeUi) {
-          implementation(composeExt.dependencies.ui)
+          implementation(ComposeJb.ui)
         }
-        if (withComposeFoundation) implementation(composeExt.dependencies.foundation)
+        if (withComposeFoundation) implementation(ComposeJb.foundation)
         if (withComposeFullAnimation) {
-          implementation(composeExt.dependencies.animation)
-          implementation(composeExt.dependencies.animationGraphics)
+          implementation(ComposeJb.animation)
+          implementation(ComposeJb.animationGraphics)
         }
-        if (withComposeMaterial2) implementation(composeExt.dependencies.material)
-        if (withComposeMaterial3) implementation(composeExt.dependencies.material3)
+        if (withComposeMaterial2) implementation(ComposeJb.material)
+        if (withComposeMaterial3) implementation(ComposeJb.material3)
       }
     }
     if (flags.withJvm) {
       jvmMain {
         dependencies {
           if (withComposeUi) {
-            implementation(composeExt.dependencies.uiTooling)
-            implementation(composeExt.dependencies.preview)
+            implementation(ComposeJb.uiTooling)
+            implementation(ComposeJb.preview)
           }
-          if (withComposeMaterialIconsExtended) implementation(composeExt.dependencies.materialIconsExtended)
+          if (withComposeMaterialIconsExtended) implementation(ComposeJb.materialIconsExtended)
           if (withComposeDesktop) {
-            implementation(composeExt.dependencies.desktop.common)
+            implementation(ComposeJb.desktopCommon)
             implementation(composeExt.dependencies.desktop.currentOs)
           }
           if (withComposeDesktopComponents) {
-            implementation(composeExt.dependencies.desktop.components.splitPane)
+            implementation(ComposeJb.componentsSplitPane)
           }
         }
       }
       jvmTest {
         dependencies {
           @Suppress("DEPRECATION")
-          if (withComposeTestUiJUnit4) implementation(composeExt.dependencies.desktop.uiTestJUnit4)
+          if (withComposeTestUiJUnit4) implementation(ComposeJb.uiTestJUnit4)
         }
       }
     }
     if (flags.withJs) {
       jsMain {
         dependencies {
-          if (withComposeHtmlCore) implementation(composeExt.dependencies.html.core)
-          if (withComposeHtmlSvg) implementation(composeExt.dependencies.html.svg)
+          if (withComposeHtmlCore) implementation(ComposeJb.htmlCore)
+          if (withComposeHtmlSvg) implementation(ComposeJb.htmlSvg)
         }
       }
       jsTest {
         dependencies {
-          if (withComposeTestHtmlUtils) implementation(composeExt.dependencies.html.testUtils)
+          if (withComposeTestHtmlUtils) implementation(ComposeJb.htmlTestUtils)
         }
       }
     }
