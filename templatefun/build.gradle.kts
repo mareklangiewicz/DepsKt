@@ -25,29 +25,12 @@ import com.vanniktech.maven.publish.*
 // @SupportsKotlinAssignmentOverloading (those last 4).
 plugins {
   plugAll(plugs.KotlinJvmNoVer, plugs.GradlePublish, plugs.VannikPublish) // version comes from the root
-  // These two cannot say `vers.Kotlin`: a `plugins {}` block cannot see it. The literals are
-  // asserted against it below instead, so they cannot drift silently.
-  //
-  // TODO after publishing 0.4.53: `plugs.KotlinSamWithReceiver` / `plugs.KotlinAssignment` now exist
-  // (deps/src/main/kotlin/deps/Plugs.kt), both `.withVer(vers.Kotlin)`, which removes the literals
-  // AND the check below -- the version stops being repeated at all. This script reads `plugs` from
-  // the PUBLISHED deps.settings plugin, though, so the entries are invisible here until they ship.
-  // Verified against 0.4.52, not assumed: `Unresolved reference 'KotlinSamWithReceiver'`. Once
-  // published, replace the two lines below (and delete the check) with:
-  //
-  //   plugAll(plugs.KotlinSamWithReceiver, plugs.KotlinAssignment)
-  id("org.jetbrains.kotlin.plugin.sam.with.receiver") version "2.4.20"
-  id("org.jetbrains.kotlin.plugin.assignment") version "2.4.20"
-}
-
-// The gate for the two literals above. A `plugins {}` block is resolved before this script body
-// runs, so this cannot pick the version -- but it CAN refuse to build when the two disagree, which
-// is the whole risk of hardcoding them. Bumping vers.Kotlin without bumping them fails here, loudly.
-val kotlinPluginVer = "2.4.20"
-check(kotlinPluginVer == vers.Kotlin.str) {
-  "The sam-with-receiver/assignment plugin versions in plugins {} say $kotlinPluginVer, " +
-    "but vers.Kotlin is ${vers.Kotlin.str}. templatefun would be compiled by a different Kotlin " +
-    "than :deps and :sourcefun -- the exact skew that dropping kotlin-dsl removed. Update both."
+  // Both carry vers.Kotlin, like KotlinJvm does. They need no root `apply false`: that exists to
+  // stop the KOTLIN GRADLE PLUGIN being loaded by two subprojects, and these two are applied only
+  // here. So the Kotlin version is stated in exactly one place, Vers.kt -- these used to be two
+  // "2.4.20" literals (a `plugins {}` block cannot read vers.Kotlin) guarded by a check that failed
+  // the build when they drifted. The check is gone with the literals it guarded.
+  plugAll(plugs.KotlinSamWithReceiver, plugs.KotlinAssignment)
 }
 
 repositories {

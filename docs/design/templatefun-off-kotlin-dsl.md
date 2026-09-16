@@ -141,17 +141,26 @@ All five open items from the original handoff, on `templatefun/build.gradle.kts`
    build with an explanation instead of silently reintroducing the skew. Validated as a control:
    setting the literal to `2.4.19` makes configuration FAIL with that message.
 
-   **Update, same day:** `Plugs.KotlinSamWithReceiver` and `Plugs.KotlinAssignment` now exist, both
-   `.withVer(vers.Kotlin)`. They do not need the root `apply false` treatment that `KotlinJvm` needs
-   — that exists to stop the Kotlin Gradle plugin being loaded by two subprojects, and these two are
-   applied only here — so `plugAll(plugs.KotlinSamWithReceiver, plugs.KotlinAssignment)` in this one
-   `plugins {}` block removes both literals AND the `check`, leaving the version stated nowhere but
-   `vers.Kotlin`.
+   **Superseded the same day — there are no literals any more.** `Plugs.KotlinSamWithReceiver` and
+   `Plugs.KotlinAssignment` were added, both `.withVer(vers.Kotlin)`, and `templatefun/build.gradle.kts`
+   now says:
 
-   Not usable yet, for the same reason as every other bootstrap in these notes: this script reads
-   `plugs` from the PUBLISHED `deps.settings`, so the entries are invisible until they ship. Verified
-   against 0.4.52 rather than assumed — `Unresolved reference 'KotlinSamWithReceiver'`. The exact
-   replacement is in a TODO above the two literals; until then the `check` keeps them safe.
+   ```kotlin
+   plugAll(plugs.KotlinSamWithReceiver, plugs.KotlinAssignment)
+   ```
+
+   So the Kotlin version is stated in exactly one place, `Vers.kt`, and the `check` is gone with the
+   literals it guarded. These two need NO root `apply false`: that exists to stop the Kotlin Gradle
+   plugin being loaded by two subprojects, and these are applied only here.
+
+   It took a publish to get there, as every bootstrap in these notes does — this script reads `plugs`
+   from the PUBLISHED `deps.settings`, so the entries were invisible until they shipped. Verified
+   against 0.4.52 rather than assumed (`Unresolved reference 'KotlinSamWithReceiver'`), then landed
+   on 0.4.53.
+
+   A green build is itself the proof that both plugins are still applied: without sam-with-receiver
+   these sources do not compile (that is this whole note), and `samWithReceiver { }` / `assignment { }`
+   would not resolve. `buildEnvironment` confirms both at **2.4.20**, i.e. `vers.Kotlin`.
 
 **Still not done:** the 17 deprecation warnings in `MppBuildTemplates.kt` / `RawLibBuildTemplates.kt`
 (JetBrains retiring the `compose.*` DSL accessors) are untouched and unrelated — they were there
