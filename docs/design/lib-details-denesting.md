@@ -969,12 +969,16 @@ The override at `:deps` was a SECOND `coordinates(..)` call placed after `defaul
 correct only because the last call wins. That is the silent-on-reorder shape this note keeps finding.
 As an argument it cannot be undone by moving lines around.
 
-### Not yet at the `:deps` call site — the predicted bootstrap
+### The `:deps` call site, after the bootstrap
 
-`deps/build.gradle.kts` applies the PUBLISHED templatefun, so it still pins via the trailing
-`coordinates(..)`, with a comment naming the replacement to paste in once **0.4.52** is on the
-portal. Verified, not assumed: writing the four-argument form there fails with
-`expected '(LibInfo, LibFlags, Project, String) -> Unit', actual 'KFunction3<...>'`.
+`deps/build.gradle.kts` applies the PUBLISHED templatefun, so it could not use the parameter until it
+shipped. That was verified, not assumed: against 0.4.51 the four-argument form fails with
+`expected '(LibInfo, LibFlags, Project, String) -> Unit', actual 'KFunction3<...>'`. **0.4.52 was
+published on 2026-09-16 and that call site now passes `"DepsKt"` as an argument**, so the trailing
+`mavenPublishing { coordinates(..) }` is gone and the fact is stated once, where it is used.
+
+Validated as a control rather than trusted: passing `"ControlProbe"` there puts
+`<artifactId>ControlProbe</artifactId>` in the generated POM, and `"DepsKt"` puts `DepsKt` back.
 
 Note the arity, since it is easy to lose an hour to: build scripts are compiled without
 `-Xcontext-parameters` and reach this through the flattened coercion, and **a function reference
