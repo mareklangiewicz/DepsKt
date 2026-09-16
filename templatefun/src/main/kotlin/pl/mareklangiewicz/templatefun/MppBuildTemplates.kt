@@ -316,6 +316,13 @@ fun KotlinMultiplatformExtension.allDefaultSourceSetsForCompose(
   // template, so it has to be applied explicitly -- template-raw's template already does this.
   applyDefaultHierarchyTemplate()
 
+  // Compose UI on js needs the Skiko runtime bundled by webpack, and compose's own
+  // checkComposeUiTestConfigurationForJs fails the build when it is not: "no executable binary is
+  // declared, so the Skiko runtime required by Compose UI cannot be loaded" (CMP-4906). So the flag
+  // carries its own consequence rather than leaving the caller to discover this -- declaring UI on
+  // js and declaring the binary that makes UI on js work are one decision, not two.
+  if (flags.withJs && withComposeUiOnJs) js { binaries.executable() }
+
   sourceSets {
     // Compose UI does NOT belong in commonMain: commonMain reaches every target by construction, so
     // js inherited ui/foundation/material and with them skiko, which it cannot bundle without an
@@ -417,8 +424,7 @@ fun KotlinMultiplatformExtension.allDefaultSourceSetsForCompose(
         }
       }
       jsTest {
-        // composeTest, NOT composeUiTest: compose UI test deps must not reach js -- mirroring
-        // jsMain above, including when Compose UI is deliberately on js.
+        // Mirrors jsMain: compose UI test deps stay off js unless Compose UI is deliberately there.
         dependsOn(if (withComposeUiOnJs) composeUiTest else composeTest)
         dependencies {
           if (withComposeTestHtmlUtils) implementation(ComposeJb.htmlTestUtils)
