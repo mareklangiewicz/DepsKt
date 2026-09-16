@@ -100,6 +100,40 @@ fun Project.defaultBuildTemplateForBasicJvmApp(
   extensions.configure<JavaApplication> {
     mainClass.set(lib.info.run { "$appMainPackage.$appMainClass" })
   }
+  dropRelocatedComposeRuntimeStubs()
+}
+
+/**
+ * TODO_later: delete this whole fun when the compose runtime relocation settles upstream.
+ *
+ * AndroidX Compose Runtime 1.9.0 (2025-08-13) announced:
+ * "androidx.compose.runtime:runtime will now support additional platforms. Support for desktop, iOS
+ * and native targets has been upstreamed from JetBrains' Compose Multiplatform project, and will be
+ * released through Google Maven moving forward. No other Compose artifacts are affected."
+ * [androidx release notes](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.9.0)
+ *
+ * As of Compose Multiplatform 1.12.0 the JetBrains side of that move is still published, but EMPTY:
+ * `org.jetbrains.compose.runtime:runtime` and `:runtime-saveable` carry 0 class files, while the
+ * androidx artifacts of the very same basename carry 742 and 22. Both families end up on
+ * runtimeClasspath, and the `application` plugin's distribution tasks flatten everything into one
+ * `lib/` dir -- where `runtime-saveable-desktop-1.12.0.jar` collides with itself and `distTar` fails
+ * with "is a duplicate but no duplicate handling strategy has been set".
+ *
+ * Dropping the two empty stubs by name is deliberate, and better than a `duplicatesStrategy`:
+ * - a duplicates policy resolves by COPY ORDERING, and would silently absorb the next collision too,
+ *   including one where both jars actually have classes;
+ * - these excludes become plain no-ops once upstream stops publishing the stubs, so this rots safely.
+ *
+ * Note "No other Compose artifacts are affected" is measurably still true: foundation, ui and
+ * animation keep their classes under `org.jetbrains.compose`. Expect to revisit when they follow.
+ * No upstream ticket tracks this particular collision (searched 2026-09-16); the androidx release
+ * note above is the authoritative statement of the move.
+ */
+private fun Project.dropRelocatedComposeRuntimeStubs() {
+  configurations.named("runtimeClasspath") {
+    exclude(group = "org.jetbrains.compose.runtime", module = "runtime")
+    exclude(group = "org.jetbrains.compose.runtime", module = "runtime-saveable")
+  }
 }
 
 
