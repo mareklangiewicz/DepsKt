@@ -12,11 +12,13 @@ import pl.mareklangiewicz.ure.UReplacement.Companion.Group
 import pl.mareklangiewicz.ure.UReplacement.Companion.Literal
 import pl.mareklangiewicz.annotations.*
 import pl.mareklangiewicz.sourcefun.*
+import pl.mareklangiewicz.templatefun.*
 import org.jetbrains.kotlin.gradle.dsl.*
 
 plugins {
   // plugAll(plugs.KotlinJvm, plugs.GradlePublish, plugs.VannikPublish, plugs.SourceFun)
   plugAll(plugs.KotlinJvm, plugs.GradlePublish, plugs.VannikPublish)
+  plug(plugs.TemplateFun) // the PUBLISHED one -- see the note above defaultPublishing below
   id("pl.mareklangiewicz.sourcefun") version "0.4.49" // https://plugins.gradle.org/search?term=mareklangiewicz
 }
 
@@ -50,10 +52,18 @@ kotlin {
   jvmToolchain(23)
 }
 
-// artifactId is pinned, NOT derived from the project name. This project lives in ./deps now, so the
-// default (project.name) would silently republish DepsKt as pl.mareklangiewicz.deps:deps -- which
-// would also stop `includeBuild("../DepsKt")` substituting in every consumer, with no error.
-defaultPublishing(myLib, artifactId = "DepsKt")
+// artifactId is no longer pinned here: this project is NAMED DepsKt (settings.gradle.kts), so
+// templatefun's `coordinates(artifactId = name)` already produces the right coordinate. That is why
+// this script can use the published defaultPublishing at all -- templatefun's copy has no
+// artifactId parameter, and the alternative was to add one and burn a version on it.
+//
+// templatefun's defaultPublishing is `context(info: LibInfo, flags: LibFlags) fun Project...`, and
+// build scripts are compiled WITHOUT -Xcontext-parameters (Gradle pins the script language version),
+// so it is reached through the flattened coercion: context parameters first, then the extension
+// receiver. This call IS the claim KGround's probes 7/14/15 assert -- exercised by a real build now,
+// rather than by branch-local evidence.
+val tfDefaultPublishing: (LibInfo, LibFlags, Project) -> Unit = Project::defaultPublishing
+tfDefaultPublishing(myLib.info, myLib.flags, project)
 
 gradlePlugin {
   website.set("https://github.com/mareklangiewicz/DepsKt")
@@ -149,116 +159,8 @@ val updateSomeRegexes by tasks.registering {
 
 
 
-// region [[Kotlin Module Build Template]]
-
-// Kind of experimental/temporary.. not sure how it will evolve yet,
-// but currently I need these kind of substitutions/locals often enough
-// especially when updating kground <-> kommandline (trans deps issues)
-fun Project.setMyWeirdSubstitutions(
-  vararg rules: Pair<String, String>,
-  myProjectsGroup: String = "pl.mareklangiewicz",
-  tryToUseLocalProjects: Boolean = true,
-) {
-  val foundLocalProjects: Map<String, Project?> =
-    if (tryToUseLocalProjects) rules.associate { it.first to findProject(":${it.first}") }
-    else emptyMap()
-  configurations.all {
-    resolutionStrategy.dependencySubstitution {
-      for ((projName, projVer) in rules)
-        substitute(module("$myProjectsGroup:$projName"))
-          .using(
-            // Note: there are different fun in gradle: Project.project; DependencySubstitution.project
-            if (foundLocalProjects[projName] != null) project(":$projName")
-            else module("$myProjectsGroup:$projName:$projVer")
-          )
-    }
-  }
-}
-
-/**
- * Note the parameter name: it cannot be `repos`, because `repos` is a top-level DepsKt object this
- * body dereferences as `repos.kotlinx`. See docs/design/lib-details-denesting.md, trap 1.
- */
-fun RepositoryHandler.addRepos(libRepos: LibRepos) = with(libRepos) {
-  @Suppress("DEPRECATION")
-  if (withMavenLocal) mavenLocal()
-  if (withMavenCentral) mavenCentral()
-  if (withGradle) gradlePluginPortal()
-  if (withGoogle) google()
-  if (withKotlinx) maven(repos.kotlinx)
-  if (withKotlinxHtml) maven(repos.kotlinxHtml)
-  if (withComposeJbDev) maven(repos.composeJbDev)
-  if (withKtorEap) maven(repos.ktorEap)
-  if (withJitpack) maven(repos.jitpack)
-}
-
-// TODO_maybe: doc says it could be now also applied globally instead for each task (and it works for andro too)
-//   But it's only for jvm+andro, so probably this is better:
-//   https://kotlinlang.org/docs/gradle-compiler-options.html#for-all-kotlin-compilation-tasks
-fun TaskCollection<Task>.defaultKotlinCompileOptions(
-  apiVer: KotlinVersion = KotlinVersion.KOTLIN_2_1,
-  jvmTargetVer: String? = null, // it's better to use jvmToolchain (normally done in fun allDefault)
-  renderInternalDiagnosticNames: Boolean = false,
-) = withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
-  compilerOptions {
-    apiVersion.set(apiVer)
-    jvmTargetVer?.let { jvmTarget = JvmTarget.fromTarget(it) }
-    if (renderInternalDiagnosticNames) freeCompilerArgs.add("-Xrender-internal-diagnostic-names")
-    // useful, for example, to suppress some errors when accessing internal code from some library, like:
-    // @file:Suppress("INVISIBLE_MEMBER", "INVISIBLE_REFERENCE", "EXPOSED_PARAMETER_TYPE", "EXPOSED_PROPERTY_TYPE", "CANNOT_OVERRIDE_INVISIBLE_MEMBER")
-  }
-}
-
-fun TaskCollection<Task>.defaultTestsOptions(
-  printStandardStreams: Boolean = true,
-  printStackTraces: Boolean = true,
-  onJvmUseJUnitPlatform: Boolean = true,
-) = withType<AbstractTestTask>().configureEach {
-  testLogging {
-    showStandardStreams = printStandardStreams
-    showStackTraces = printStackTraces
-  }
-  if (onJvmUseJUnitPlatform) (this as? Test)?.useJUnitPlatform()
-}
-
-// Provide artifacts information requited by Maven Central
-// Note: stays fully qualified (lib.info.x). A `with(lib.info)` here makes `name` and `description`
-// resolve to LibInfo's fields instead of MavenPom's properties - same receiver-collision family as
-// the addRepos naming trap above.
-fun MavenPom.defaultPOM(lib: Lib) {
-  name put lib.info.name
-  description put lib.info.description
-  url put lib.info.githubUrl
-
-  licenses {
-    license {
-      name put lib.info.licenceName
-      url put lib.info.licenceUrl
-    }
-  }
-  developers {
-    developer {
-      id put lib.info.authorId
-      name put lib.info.authorName
-      email put lib.info.authorEmail
-    }
-  }
-  scm { url put lib.info.githubUrl }
-}
-
-/**
- * Note: [artifactId] defaults to the project name (the module name), NOT to `lib.info.name`.
- * Pass it explicitly wherever the directory layout and the published coordinate must differ --
- * for example a project that moved into a subdirectory and has to keep publishing its old name.
- */
-fun Project.defaultPublishing(lib: Lib, artifactId: String = name) =
-  extensions.configure<MavenPublishBaseExtension> {
-    propertiesTryOverride("signingInMemoryKey", "signingInMemoryKeyPassword", "mavenCentralPassword")
-    if (lib.flags.withCentralPublish) publishToMavenCentral(automaticRelease = false)
-    signAllPublications()
-    signAllPublicationsFixSignatoryIfFound()
-    coordinates(groupId = lib.info.group, artifactId = artifactId, version = lib.info.version.str)
-    pom { defaultPOM(lib) }
-  }
-
-// endregion [[Kotlin Module Build Template]]
+// The [[Kotlin Module Build Template]] region used to be copied in here (setMyWeirdSubstitutions,
+// addRepos, defaultKotlinCompileOptions, defaultTestsOptions, defaultPOM, defaultPublishing).
+// It is gone: this script applies the published pl.mareklangiewicz.templatefun instead, which is
+// what every other repo now does. DepsKt consuming its own published templatefun is not circular --
+// templatefun 0.4.29 depends on published DepsKt 0.4.29, a finished artifact, not on this build.

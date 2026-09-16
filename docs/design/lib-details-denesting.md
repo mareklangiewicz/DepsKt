@@ -597,3 +597,85 @@ region. So that one file's copy of the region no longer matches the other eleven
 interactive, so nothing is lost silently, but **say no**, or the probes stop compiling. The
 divergence disappears when the probes retire; it is the price of keeping them, and it is the one
 cost of decision 3 that was not visible when the decision was made.
+
+
+## DepsKt applies its own templatefun, and :deps becomes :DepsKt (2026-09-16)
+
+Reverses the "declined for now" on applying templatefun to this repo. The reason it was declined —
+templatefun's `defaultPublishing` hardcodes `artifactId = name` while `:deps` needed it pinned to
+`DepsKt` — turned out to be a problem with the NAME, not with templatefun.
+
+### The structural fact that shaped the whole thing
+
+**A sibling subproject cannot supply a plugin to another subproject's build script.** Build-script
+plugins resolve through `pluginManagement` — buildSrc, included builds, repositories — and
+`include(":templatefun")` only makes it a project of this build. So "DepsKt applies its own
+templatefun" has exactly one meaning: it applies the PUBLISHED one, like any other consumer.
+
+That is not circular, and the root build script's old comment saying it was has been corrected:
+published templatefun 0.4.29 depends on published DepsKt 0.4.29, a finished artifact, not on this
+build. The circularity only ever applied to the local project.
+
+### The fix: name the project what it publishes
+
+```kotlin
+include(":deps")
+project(":deps").name = "DepsKt"
+```
+
+`deps/build.gradle.kts` therefore drops `defaultPublishing(myLib, artifactId = "DepsKt")` for
+templatefun's parameterless one, and the 113-line `[[Kotlin Module Build Template]]` region
+(lines 152-264) is deleted outright.
+
+This is what the "composite build matches on project coordinates" section above already prescribed:
+*a project's identity is `project.group:project.name`*. Naming the project after its DIRECTORY and
+then pinning `artifactId` in `defaultPublishing` stated the same fact twice, in two places that can
+drift — and the drift is silent, because a substitution that stops matching just resolves the
+published jar instead of erroring.
+
+The alternative was to add an `artifactId` parameter to templatefun's copy and publish 0.4.30 to
+get it. Rejected: it parameterizes around a name we chose rather than fixing it, and it burns a
+version.
+
+**The cost, stated so nobody rediscovers it:** the project PATH follows the name. This project is
+`:DepsKt` while its directory stays `deps/`, and `templatefun/build.gradle.kts` depends on
+`project(":DepsKt")`. Under a consumer's composite the path reads `:DepsKt:DepsKt`.
+
+**It also raises the stakes on the root having no group.** Two projects in this build are now named
+`DepsKt`; the only thing keeping their identities apart is that the root has no group. Giving the
+root one would make them collide exactly, and silently.
+
+### Verified
+
+- `./gradlew build` and `:DepsKt:test` green on `--rerun-tasks`.
+- All five publications' coordinates byte-identical to shipped 0.4.29:
+  `pl.mareklangiewicz.deps:DepsKt`, `:templatefun`, and the three plugin markers. Both deps markers
+  still resolve to `pl.mareklangiewicz.deps:DepsKt:0.4.29`.
+- **The substitution control was validated, not assumed.** A green build proves nothing about which
+  DepsKt it used, so `dependencyInsight` was read from KGround with `depsInclude` on:
+  `pl.mareklangiewicz.deps:DepsKt:0.4.29 -> project ':DepsKt:DepsKt'`. KGround's
+  `settings.gradle.kts` was restored afterwards; that flip is not committed.
+- The wrong-artifactId failure mode was MEASURED before fixing it, not reasoned about: with
+  templatefun's `defaultPublishing` and the project still named `deps`, the POM really did say
+  `pl.mareklangiewicz.deps:deps:0.4.29`.
+
+### What this does to KGround's probes
+
+`deps/build.gradle.kts` now reaches templatefun's
+`context(info: LibInfo, flags: LibFlags) fun Project.defaultPublishing()` through the flattened
+coercion, from a script compiled without `-Xcontext-parameters`:
+
+```kotlin
+val tfDefaultPublishing: (LibInfo, LibFlags, Project) -> Unit = Project::defaultPublishing
+tfDefaultPublishing(myLib.info, myLib.flags, project)
+```
+
+That is the claim probes 7/14/15 assert, and probes 1-3 establish the preconditions for — now
+exercised by a production build on every run instead of by branch-local evidence in an experiment
+that has shipped. Those ten "category A" probes can retire. Separately, `probeAdapterFidelity`,
+`probeCopyDance`, `probeDerivedDefaults` and `probePublishVariantAgreement` are already covered —
+more strictly — by `LibDenestingTest`, so they are duplicates rather than evidence.
+
+**Do not lose `probe-logic`'s templatefun dependency when retiring them.** `gate.sh`'s compile step
+is `:probe-logic:compileKotlin`, and that dependency is what makes the step exercise the composite
+substitution at all.

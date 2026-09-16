@@ -72,4 +72,16 @@ gradle.extLib = lib(
 // before anything else in every consuming build -- ship from :deps, and templatefun's AGP / Compose
 // / KMP classpath must not land there.
 include(":deps")
+// The project is NAMED what it publishes, instead of publishing under an artifactId override.
+// In a composite build a project's identity is project.group:project.name, so a consumer's
+// includeBuild("../DepsKt") matches pl.mareklangiewicz.deps:DepsKt -- and this is the project that
+// has to answer to it. Naming it "deps" (after the directory) and pinning artifactId = "DepsKt" in
+// defaultPublishing said the same thing twice, in two places that could drift; worse, the drift is
+// silent, because a substitution that stops matching just resolves the published jar instead.
+//
+// Cost, stated so nobody has to rediscover it: the project PATH follows the name, so this project
+// is :DepsKt while its directory stays deps/, and templatefun depends on project(":DepsKt").
+// Verified from KGround with the composite on:
+//   pl.mareklangiewicz.deps:DepsKt:0.4.29 -> project ':DepsKt:DepsKt'
+project(":deps").name = "DepsKt"
 include(":templatefun")

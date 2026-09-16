@@ -30,7 +30,7 @@ dependencies {
   // The sibling Lib model lives in the :deps sibling of THIS repo now, so depend on it directly
   // instead of on a published version. One less pin to drift: template-logic's own pin was stale
   // at 0.4.26 while the repo was on 0.4.27.
-  implementation(project(":deps"))
+  implementation(project(":DepsKt")) // path follows the name, not the deps/ directory
 }
 
 // Only these sources get the flag. Consuming build scripts are always compiled WITHOUT it, which is
