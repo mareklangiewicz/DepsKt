@@ -10,26 +10,35 @@ import com.vanniktech.maven.publish.*
 // and the settings one is applied in settings.gradle.kts -- evaluated before anything else in every
 // consuming build. The AGP / Compose / KMP dependencies below must not land on that classpath.
 
-// `kotlin-dsl` pins THIS project to the Kotlin EMBEDDED in Gradle (2.4.0 for Gradle 9.7.1), while
-// :deps and :sourcefun compile at Vers.Kotlin (2.4.20). Two consequences, both accepted for now:
+// Kotlin comes from the root (`plug(plugs.KotlinJvm) apply false`), exactly like :deps and
+// :sourcefun, so all three siblings are built by ONE compiler at vers.Kotlin. This project used to
+// apply `kotlin-dsl` instead, which pins whatever applies it to the Kotlin EMBEDDED in Gradle
+// (2.4.0 for Gradle 9.7.1) -- silent skew against its two siblings, plus a warning on every
+// configure. See docs/design/templatefun-off-kotlin-dsl.md for the measurements.
 //
-// 1. templatefun's sources are compiled by a different Kotlin than its two siblings. Silent skew.
-// 2. Gradle prints "Unsupported Kotlin plugin version ... kotlin-dsl relies on features of Kotlin
-//    2.4.0 ... requested version 2.4.20" while configuring this project. EXPECTED, not a new
-//    breakage. It began when :sourcefun made two subprojects declare a versioned Kotlin plugin,
-//    which raised "the Kotlin Gradle plugin was loaded multiple times ... may break the build"; the
-//    remedy Gradle itself prescribes -- declaring it once in the root with `apply false`, see
-//    ../build.gradle.kts -- is what puts 2.4.20 into this project's resolution scope.
-//
-// The two warnings are mutually exclusive while kotlin-dsl is here: MEASURED, including the
-// `pluginManagement { plugins { .. } }` variant, which simply brings the first one back. There is
-// no suppression property for either (searched the 9.7.1 distribution jars).
-//
-// Getting rid of kotlin-dsl removes both AND the skew. That is a real, scoped piece of work with a
-// verified recipe: docs/design/templatefun-off-kotlin-dsl.md.
+// What `kotlin-dsl` was actually providing here was NOT a dependency (diffing the compile classpath
+// with and without it differs by one jar, kotlin-reflect). It was two Kotlin COMPILER plugins,
+// applied below. Without them the Gradle DSL does not typecheck: `Action<T>` is annotated
+// @HasImplicitReceiver and only sam-with-receiver turns those lambdas into lambdas WITH receiver
+// (removing kotlin-dsl gives 62 errors; sam-with-receiver alone takes it to 4), and
+// `property = value` on a Gradle `Property<T>` comes from the assignment plugin via
+// @SupportsKotlinAssignmentOverloading (those last 4).
 plugins {
-  `kotlin-dsl`
-  plugAll(plugs.GradlePublish, plugs.VannikPublish)
+  plugAll(plugs.KotlinJvmNoVer, plugs.GradlePublish, plugs.VannikPublish) // version comes from the root
+  // These two cannot say `vers.Kotlin`: a `plugins {}` block cannot see it. The literals are
+  // asserted against it below instead, so they cannot drift silently.
+  id("org.jetbrains.kotlin.plugin.sam.with.receiver") version "2.4.20"
+  id("org.jetbrains.kotlin.plugin.assignment") version "2.4.20"
+}
+
+// The gate for the two literals above. A `plugins {}` block is resolved before this script body
+// runs, so this cannot pick the version -- but it CAN refuse to build when the two disagree, which
+// is the whole risk of hardcoding them. Bumping vers.Kotlin without bumping them fails here, loudly.
+val kotlinPluginVer = "2.4.20"
+check(kotlinPluginVer == vers.Kotlin.str) {
+  "The sam-with-receiver/assignment plugin versions in plugins {} say $kotlinPluginVer, " +
+    "but vers.Kotlin is ${vers.Kotlin.str}. templatefun would be compiled by a different Kotlin " +
+    "than :deps and :sourcefun -- the exact skew that dropping kotlin-dsl removed. Update both."
 }
 
 repositories {
@@ -48,6 +57,9 @@ dependencies {
   // instead of on a published version. One less pin to drift: template-logic's own pin was stale
   // at 0.4.26 while the repo was on 0.4.27.
   implementation(project(":deps"))
+  // `kotlin-dsl` used to add this implicitly. The Gradle API itself is always on the classpath;
+  // this is the kotlin-dsl EXTENSIONS (org.gradle.kotlin.dsl.*), which these templates import.
+  implementation(gradleKotlinDsl())
 }
 
 // Match :deps (jvmToolchain(23)). Without this, the toolchain is whatever JDK ran the publish, and
@@ -60,6 +72,10 @@ kotlin {
   jvmToolchain(23)
 }
 
+// What `kotlin-dsl` was really providing -- see the note above plugins {}.
+samWithReceiver { annotation("org.gradle.api.HasImplicitReceiver") }
+assignment { annotation("org.gradle.api.SupportsKotlinAssignmentOverloading") }
+
 // Only these sources get the flag. Consuming build scripts are always compiled WITHOUT it, which is
 // why every entry point takes `lib: Lib` as an ordinary parameter and opens the context scopes
 // itself -- see the probes in KGround's kgroundx-experiments.
@@ -71,8 +87,9 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach 
 }
 
 // Published so repos other than KGround can stop copying build-script regions and just apply the
-// plugin. The id is pl.mareklangiewicz.templatefun, from the precompiled script plugin file name
-// (src/main/kotlin/pl.mareklangiewicz.templatefun.gradle.kts) -- kotlin-dsl registers it.
+// plugin. The id is pl.mareklangiewicz.templatefun, registered explicitly in gradlePlugin {} below:
+// `kotlin-dsl` used to derive it from a precompiled script plugin's FILE NAME, and that script is
+// gone with it.
 val myLib = gradle.extLib
 
 // Set here, not inherited: the root project deliberately has no group. Besides the plugin marker,
@@ -83,10 +100,14 @@ defaultGroupAndVerAndDescription(myLib)
 gradlePlugin {
   website = myLib.info.githubUrl
   vcsUrl = myLib.info.githubUrl
-  plugins.configureEach {
-    displayName = "DepsKt templatefun plugin"
-    description = "Reusable gradle build templates for typical kotlin/android/compose projects."
-    tags = listOf("template", "convention", "build-logic")
+  plugins {
+    create("templateFunPlugin") {
+      id = "pl.mareklangiewicz.templatefun"
+      implementationClass = "pl.mareklangiewicz.templatefun.TemplateFunPlugin"
+      displayName = "DepsKt templatefun plugin"
+      description = "Reusable gradle build templates for typical kotlin/android/compose projects."
+      tags = listOf("template", "convention", "build-logic")
+    }
   }
 }
 

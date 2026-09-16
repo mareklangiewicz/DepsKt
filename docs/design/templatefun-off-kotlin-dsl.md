@@ -1,10 +1,9 @@
 # Getting `:templatefun` off `kotlin-dsl`
 
-Status: **not done, deliberately deferred.** The build currently keeps `kotlin-dsl` and accepts one
-warning (see the comment above `plugins {}` in `templatefun/build.gradle.kts`). This note is the
-handoff for doing it properly.
-
-**The recipe below was verified to compile.** It is not a sketch.
+Status: **DONE (2026-09-16).** `:templatefun` no longer applies `kotlin-dsl`. Both warnings are
+gone and all three siblings are compiled by one Kotlin at `vers.Kotlin`. What follows is kept as the
+record of WHY, because the cause is not what the error list looks like; the verification actually
+performed is at the end.
 
 ## Why bother
 
@@ -89,8 +88,7 @@ assignment { annotation("org.gradle.api.SupportsKotlinAssignmentOverloading") }
 ```
 
 Those two hardcoded `"2.4.20"` literals want to be `vers.Kotlin`, which a `plugins {}` block cannot
-see. Decide this deliberately — either pin them with a test asserting they equal `Vers.Kotlin`, or
-declare both in the root the same way Kotlin JVM is declared.
+see. Resolved by a configuration-time `check` in the script body — see item 5 below.
 
 Plus: delete `templatefun/src/main/kotlin/pl.mareklangiewicz.templatefun.gradle.kts`, add a
 `TemplateFunPlugin : Plugin<Project>` whose `apply` is the same one line
@@ -116,24 +114,41 @@ claim is now carried by real production build scripts instead: `deps/build.gradl
 `sample-lib/build.gradle.kts` calls `defaultBuildTemplateForBasicMppLib()`. Both are ordinary,
 flagless `.gradle.kts` files. Say so in the commit rather than dropping it silently.
 
-## How far it got, and what is left
+## What was verified
 
-Verified: `:templatefun:compileKotlin` is **BUILD SUCCESSFUL** with the recipe above, and neither
-warning appears. That is all that was verified.
+All five open items from the original handoff, on `templatefun/build.gradle.kts` as it stands:
 
-Still to do:
+1. **Both warnings gone.** Neither "Unsupported Kotlin plugin version" nor "loaded multiple times"
+   appears while configuring the whole build. The root keeps `plug(plugs.KotlinJvm) apply false`
+   and templatefun now takes `plugs.KotlinJvmNoVer` from it, exactly like its two siblings.
+2. **`./gradlew build` at the root is green** (3m31s), including `:sourcefun:test`, and
+   `git status` is clean afterwards.
+3. **The end-to-end check that matters.** `sourcefun/sample-sourcefun` builds green, and its log
+   shows `> Task :DepsKt:templatefun:compileKotlin` — the composite really did substitute the
+   LOCAL project, so it is the locally built, kotlin-dsl-free plugin with the explicitly registered
+   id that applied. (`Successfully used context parameters in project: sample-lib` alone proves
+   nothing here: the published plugin prints the same line.)
+4. **`publishToMavenLocal` coordinates are unchanged.** Marker
+   `pl.mareklangiewicz.templatefun:pl.mareklangiewicz.templatefun.gradle.plugin` still points at
+   `pl.mareklangiewicz.deps:templatefun`, and `org.gradle.jvm.version` is still **23**. Diffing the
+   locally built `.module` against the one published on the portal gives exactly ONE difference:
+   `api`/`runtime` now declare `org.jetbrains.kotlin:kotlin-stdlib:2.4.20`. That is the Kotlin JVM
+   plugin doing what it does for a normal project — `kotlin-dsl` used to supply Gradle's embedded
+   stdlib instead, which is never published. Both siblings already declare it, so this is
+   convergence, not drift.
+5. **The two version literals: decided.** They stay literal — a `plugins {}` block cannot read
+   `vers.Kotlin` — but the script body immediately `check`s them against it, so drift fails the
+   build with an explanation instead of silently reintroducing the skew. Validated as a control:
+   setting the literal to `2.4.19` makes configuration FAIL with that message.
 
-1. Root `build.gradle.kts` keeps `plug(plugs.KotlinJvm) apply false` — confirm the multiple-load
-   warning stays gone once templatefun is a plain Kotlin JVM project too.
-2. `./gradlew build` at the root, and `:sourcefun:test` (48 tests).
-3. The end-to-end check that matters: `sourcefun/sample-sourcefun` applies `plug(plugs.TemplateFun)`
-   and resolves it through `includeBuild("../..")`, so building that sample is what actually
-   exercises the **locally built** templatefun plugin. A root build alone does not — `:deps` and
-   `:sourcefun` apply the PUBLISHED templatefun.
-4. `publishToMavenLocal`, then confirm the marker `pl.mareklangiewicz.templatefun.gradle.plugin` and
-   the artifact `pl.mareklangiewicz.deps:templatefun` are unchanged, and `org.gradle.jvm.version` is
-   still **23**.
-5. Decide the two version literals (above).
+   The alternative, declaring both in the root via new `Plugs` entries the way `KotlinJvm` is
+   declared, is NOT available in one step: build scripts get `plugs` from the **published**
+   `deps.settings` plugin, so new entries only become usable after a publish. Worth doing on some
+   later release if the literals ever become annoying; the `check` makes them safe meanwhile.
+
+**Still not done:** the 17 deprecation warnings in `MppBuildTemplates.kt` / `RawLibBuildTemplates.kt`
+(JetBrains retiring the `compose.*` DSL accessors) are untouched and unrelated — they were there
+before this change and are a separate migration.
 
 ## Related
 
