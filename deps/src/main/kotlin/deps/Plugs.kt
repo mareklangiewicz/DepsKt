@@ -27,6 +27,32 @@ object Plugs {
   val KotlinJsNoVer = DepP("org.jetbrains.kotlin.js")
   val KotlinJs = KotlinJsNoVer.withVer(vers.Kotlin)
 
+  /**
+   * Kotlin `sam-with-receiver` compiler plugin: makes a parameter annotated `@HasImplicitReceiver`
+   * arrive as a lambda WITH receiver. Gradle annotates `Action<T>` with it, so this is what makes
+   * `configureEach { }`, `pom { }`, `testLogging { }` typecheck at all in Gradle-DSL-shaped code.
+   *
+   * Together with [KotlinAssignment] it is what `kotlin-dsl` really contributes to a build-logic
+   * project -- NOT a dependency. See DepsKt `docs/design/templatefun-off-kotlin-dsl.md`, where
+   * removing `kotlin-dsl` gave 62 errors, this plugin alone took it to 4, and both took it to green.
+   *
+   * Versioned with Kotlin itself.
+   * - [kotlinlang docs](https://kotlinlang.org/docs/sam-with-receiver-plugin.html)
+   */
+  val KotlinSamWithReceiverNoVer = DepP("org.jetbrains.kotlin.plugin.sam.with.receiver")
+  val KotlinSamWithReceiver = KotlinSamWithReceiverNoVer.withVer(vers.Kotlin)
+
+  /**
+   * Kotlin `assignment` compiler plugin: enables `property = value` for a type annotated
+   * `@SupportsKotlinAssignmentOverloading`, which is how Gradle's `Property<T>` is assignable.
+   * The other half of what `kotlin-dsl` provides -- see [KotlinSamWithReceiver].
+   *
+   * Versioned with Kotlin itself.
+   * - [kotlinlang docs](https://kotlinlang.org/docs/assignment-plugin.html)
+   */
+  val KotlinAssignmentNoVer = DepP("org.jetbrains.kotlin.plugin.assignment")
+  val KotlinAssignment = KotlinAssignmentNoVer.withVer(vers.Kotlin)
+
   @Deprecated("https://developer.android.com/build/migrate-to-built-in-kotlin", ReplaceWith(""))
   val KotlinAndroNoVer = DepP("org.jetbrains.kotlin.android")
   @Deprecated("https://developer.android.com/build/migrate-to-built-in-kotlin", ReplaceWith(""))

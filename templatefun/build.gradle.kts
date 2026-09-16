@@ -27,6 +27,15 @@ plugins {
   plugAll(plugs.KotlinJvmNoVer, plugs.GradlePublish, plugs.VannikPublish) // version comes from the root
   // These two cannot say `vers.Kotlin`: a `plugins {}` block cannot see it. The literals are
   // asserted against it below instead, so they cannot drift silently.
+  //
+  // TODO after publishing 0.4.53: `plugs.KotlinSamWithReceiver` / `plugs.KotlinAssignment` now exist
+  // (deps/src/main/kotlin/deps/Plugs.kt), both `.withVer(vers.Kotlin)`, which removes the literals
+  // AND the check below -- the version stops being repeated at all. This script reads `plugs` from
+  // the PUBLISHED deps.settings plugin, though, so the entries are invisible here until they ship.
+  // Verified against 0.4.52, not assumed: `Unresolved reference 'KotlinSamWithReceiver'`. Once
+  // published, replace the two lines below (and delete the check) with:
+  //
+  //   plugAll(plugs.KotlinSamWithReceiver, plugs.KotlinAssignment)
   id("org.jetbrains.kotlin.plugin.sam.with.receiver") version "2.4.20"
   id("org.jetbrains.kotlin.plugin.assignment") version "2.4.20"
 }

@@ -141,10 +141,17 @@ All five open items from the original handoff, on `templatefun/build.gradle.kts`
    build with an explanation instead of silently reintroducing the skew. Validated as a control:
    setting the literal to `2.4.19` makes configuration FAIL with that message.
 
-   The alternative, declaring both in the root via new `Plugs` entries the way `KotlinJvm` is
-   declared, is NOT available in one step: build scripts get `plugs` from the **published**
-   `deps.settings` plugin, so new entries only become usable after a publish. Worth doing on some
-   later release if the literals ever become annoying; the `check` makes them safe meanwhile.
+   **Update, same day:** `Plugs.KotlinSamWithReceiver` and `Plugs.KotlinAssignment` now exist, both
+   `.withVer(vers.Kotlin)`. They do not need the root `apply false` treatment that `KotlinJvm` needs
+   — that exists to stop the Kotlin Gradle plugin being loaded by two subprojects, and these two are
+   applied only here — so `plugAll(plugs.KotlinSamWithReceiver, plugs.KotlinAssignment)` in this one
+   `plugins {}` block removes both literals AND the `check`, leaving the version stated nowhere but
+   `vers.Kotlin`.
+
+   Not usable yet, for the same reason as every other bootstrap in these notes: this script reads
+   `plugs` from the PUBLISHED `deps.settings`, so the entries are invisible until they ship. Verified
+   against 0.4.52 rather than assumed — `Unresolved reference 'KotlinSamWithReceiver'`. The exact
+   replacement is in a TODO above the two literals; until then the `check` keeps them safe.
 
 **Still not done:** the 17 deprecation warnings in `MppBuildTemplates.kt` / `RawLibBuildTemplates.kt`
 (JetBrains retiring the `compose.*` DSL accessors) are untouched and unrelated — they were there
