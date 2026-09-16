@@ -37,7 +37,17 @@ data class LibInfo(
   val licenceUrl: String,
   val version: Ver,
   val namespace: String = "$group.$name".lowercase(), // currently used in andro libs and apps
-  val appId: String = "$namespace.app", // currently used in andro apps
+  /**
+   * Generic identity slot: the one reverse-DNS name this thing is known by. Used as an android
+   * `applicationId`, and equally as a bundle id, a plugin id, a desktop app id -- it is not
+   * app-only, which is why it is [id] and not `appId`.
+   *
+   * Defaults to [namespace], WITHOUT the old `".app"` suffix: that suffix was a convention, not a
+   * rule, and repos that had already published without it (kokpit667) had to override the field to
+   * say so. The default now matches what is actually published; append `".app"` explicitly if an
+   * app really wants a separate id from its library namespace.
+   */
+  val id: String = namespace,
   val appMainPackage: String = namespace,
   val appMainClass: String = "App_jvmKt", // for compose jvm
   val appMainFun: String = "main", // for native
@@ -247,7 +257,7 @@ fun LibDetails.toLib(): Lib = Lib(
     licenceUrl = licenceUrl,
     version = version,
     namespace = namespace,
-    appId = appId,
+    id = appId,
     appMainPackage = appMainPackage,
     appMainClass = appMainClass,
     appMainFun = appMainFun,
@@ -333,7 +343,7 @@ fun Lib.toNested(): LibDetails = LibDetails(
   licenceUrl = info.licenceUrl,
   version = info.version,
   namespace = info.namespace,
-  appId = info.appId,
+  appId = info.id,
   appMainPackage = info.appMainPackage,
   appMainClass = info.appMainClass,
   appMainFun = info.appMainFun,

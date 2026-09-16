@@ -332,7 +332,7 @@ fun ApplicationExtension.defaultAndroApp(
 
 context(info: LibInfo, andro: LibAndro)
 fun ApplicationExtension.defaultDefaultConfig() = defaultConfig {
-  applicationId = info.appId
+  applicationId = info.id
   namespace = info.namespace
   andro.sdkTargetPreview?.let { targetSdkPreview = it } ?: run { targetSdk = andro.sdkTarget }
   minSdk = andro.sdkMin

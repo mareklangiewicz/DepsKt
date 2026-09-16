@@ -52,11 +52,6 @@ kotlin {
   jvmToolchain(23)
 }
 
-// artifactId is no longer pinned here: this project is NAMED DepsKt (settings.gradle.kts), so
-// templatefun's `coordinates(artifactId = name)` already produces the right coordinate. That is why
-// this script can use the published defaultPublishing at all -- templatefun's copy has no
-// artifactId parameter, and the alternative was to add one and burn a version on it.
-//
 // templatefun's defaultPublishing is `context(info: LibInfo, flags: LibFlags) fun Project...`, and
 // build scripts are compiled WITHOUT -Xcontext-parameters (Gradle pins the script language version),
 // so it is reached through the flattened coercion: context parameters first, then the extension
@@ -64,6 +59,12 @@ kotlin {
 // rather than by branch-local evidence.
 val tfDefaultPublishing: (LibInfo, LibFlags, Project) -> Unit = Project::defaultPublishing
 tfDefaultPublishing(myLib.info, myLib.flags, project)
+
+// artifactId is pinned, NOT derived from the project name: this project lives in ./deps, and
+// defaultPublishing defaults artifactId to project.name. Pinning it here -- rather than renaming
+// the project to "DepsKt" -- keeps the path, the directory and the name agreeing with each other.
+// This must come AFTER defaultPublishing: both call coordinates(..) and the last call wins.
+mavenPublishing { coordinates(myLib.info.group, "DepsKt", myLib.info.version.str) }
 
 gradlePlugin {
   website.set("https://github.com/mareklangiewicz/DepsKt")

@@ -15,30 +15,6 @@ import pl.mareklangiewicz.defaults.*
 
 // region [[Kotlin Module Build Template]]
 
-// Kind of experimental/temporary.. not sure how it will evolve yet,
-// but currently I need these kind of substitutions/locals often enough
-// especially when updating kground <-> kommandline (trans deps issues)
-fun Project.setMyWeirdSubstitutions(
-  vararg rules: Pair<String, String>,
-  myProjectsGroup: String = "pl.mareklangiewicz",
-  tryToUseLocalProjects: Boolean = true,
-) {
-  val foundLocalProjects: Map<String, Project?> =
-    if (tryToUseLocalProjects) rules.associate { it.first to findProject(":${it.first}") }
-    else emptyMap()
-  configurations.all {
-    resolutionStrategy.dependencySubstitution {
-      for ((projName, projVer) in rules)
-        substitute(module("$myProjectsGroup:$projName"))
-          .using(
-            // Note: there are different fun in gradle: Project.project; DependencySubstitution.project
-            if (foundLocalProjects[projName] != null) project(":$projName")
-            else module("$myProjectsGroup:$projName:$projVer")
-          )
-    }
-  }
-}
-
 /**
  * MIGRATED to the sibling model. Was `context(settings: LibSettings)` + `with(settings.repos)` —
  * the design note's own example of "helpers reach through the tree". As a sibling there is nothing

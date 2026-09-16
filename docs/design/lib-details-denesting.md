@@ -682,3 +682,63 @@ more strictly — by `LibDenestingTest`, so they are duplicates rather than evid
 **Do not lose `probe-logic`'s templatefun dependency when retiring them.** `gate.sh`'s compile step
 is `:probe-logic:compileKotlin`, and that dependency is what makes the step exercise the composite
 substitution at all.
+
+## Simplification: the composite bonus stops shaping core code; `appId` becomes `id` (2026-09-16)
+
+Two changes, one motivation. `includeBuild("../DepsKt")` is a convenience that has never actually
+been switched on (`depsInclude` is literally `false` in all 20 consumer repos), and the previous
+session let it dictate a project's NAME. Marek's call: the bonus keeps working as an escape hatch,
+but it stops paying for itself in core code.
+
+### The project is `:deps` again; artifactId is pinned
+
+Reverted from the previous section's "name the project what it publishes". The rename bought
+exactly one thing — composite substitution matching `pl.mareklangiewicz.deps:DepsKt` — and charged
+for it with a project whose path (`:DepsKt`) and directory (`deps/`) disagree, two projects named
+`DepsKt` in one build kept apart only by the root having no group, and a `templatefun` dependency
+on `project(":DepsKt")`.
+
+So `deps/build.gradle.kts` pins the coordinate again, AFTER calling templatefun's
+`defaultPublishing` (both call `coordinates(..)`; the last call wins):
+
+```kotlin
+mavenPublishing { coordinates(myLib.info.group, "DepsKt", myLib.info.version.str) }
+```
+
+Note what this deliberately does NOT do: it does not add an `artifactId` parameter to templatefun's
+`defaultPublishing`. That would have needed a published 0.4.30 before `deps/build.gradle.kts`
+(which applies the PUBLISHED templatefun) could use it — a bootstrap step bought for one call site.
+
+**Consequence, stated so nobody re-derives it:** with the project named `deps` again, a consumer's
+`includeBuild("../DepsKt")` no longer substitutes the DepsKt artifact — only `templatefun`, whose
+project name does match. Gradle degrades to the published jar silently, as it always does when a
+substitution stops matching. That is accepted, not overlooked.
+
+### Two dead helpers deleted
+
+`Settings.includeAndSubstituteBuild` (DepsKt `utils/Utils.kt`) and `Project.setMyWeirdSubstitutions`
+(templatefun) both existed to wire local composites. Neither had a single call site anywhere in
+DepsKt or KGround — checked before deleting, not assumed.
+
+### `LibInfo.appId` -> `LibInfo.id`, defaulting to `namespace`
+
+One generic identity slot instead of an app-only one: an android `applicationId`, a bundle id, a
+plugin id are the same kind of thing, and the field should not be named as if only apps have one.
+The nested `LibDetails.appId` is untouched — it is deleted in step 4 anyway — and the adapters map
+`id <-> appId`, so both directions stay total.
+
+The DEFAULT changes with the name: `namespace`, not `"$namespace.app"`. Evidence that the suffix
+was a convention rather than a rule: kokpit667 already overrides it with the comment "without
+typical `.app` suffix because I published it like that already". A repo that does want a separate
+app id still writes one; it is one string.
+
+`LibDenestingTest.factoryMatchesTheNestedDefaultsForADefaultLibExceptId` asserts this divergence
+head-on — the old value, the new value, and then full equality after normalising that one field —
+so it is a stated behaviour change, not a loosened test.
+
+### Verified
+
+- `./gradlew build` green, 25 tests.
+- All five publication coordinates regenerated from scratch (POMs deleted first) and still
+  byte-identical to shipped 0.4.29: `pl.mareklangiewicz.deps:DepsKt`, `:templatefun`, the three
+  plugin markers.

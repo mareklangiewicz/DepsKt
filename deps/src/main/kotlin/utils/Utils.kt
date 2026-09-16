@@ -153,17 +153,6 @@ fun Project.findExtLib(): Lib =
 @Deprecated("Use findExtLib().", ReplaceWith("findExtLib()"))
 fun Project.findExtLibDetails(): LibDetails = findExtLib().toNested()
 
-// https://publicobject.com/2021/03/11/includebuild/
-fun Settings.includeAndSubstituteBuild(rootProject: Any, substituteModule: String, withProject: String) {
-  includeBuild(rootProject) {
-    it.dependencySubstitution {
-      it.substitute(it.module(substituteModule))
-        .using(it.project(withProject))
-    }
-  }
-}
-
-
 fun DependencyHandler.addAll(configuration: String, vararg deps: Dep?) {
   for (dep in deps) if (dep != null) add(configuration, dep)
 }

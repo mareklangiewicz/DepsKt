@@ -69,7 +69,7 @@ class LibAdjustmentTest {
   }
 
   /**
-   * `namespace` and `appId` are CONSTRUCTOR DEFAULTS derived from group and name, and constructor
+   * `namespace` and `id` are CONSTRUCTOR DEFAULTS derived from group and name, and constructor
    * defaults run at construction only — `copy(name = ..)` does not recompute them. So a renamed lib
    * keeps the namespace it was built with, in both models. Worth a test rather than a comment:
    * the alternative behaviour would silently move an android library's package.

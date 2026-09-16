@@ -66,22 +66,19 @@ gradle.extLib = lib(
 // Two siblings under an empty root, not a library root with a satellite. See
 // docs/design/lib-details-denesting.md, "DepsKt as a multi-project build".
 //
-// :deps is the published DepsKt artifact (artifactId stays DepsKt - see deps/build.gradle.kts).
+// :deps is the published DepsKt artifact (artifactId is pinned in deps/build.gradle.kts).
 // :templatefun is the reusable build templates, moved here from KGround/template-logic. It is kept
 // out of the :deps artifact on purpose: both deps plugin ids -- including the settings one, applied
 // before anything else in every consuming build -- ship from :deps, and templatefun's AGP / Compose
 // / KMP classpath must not land there.
-include(":deps")
-// The project is NAMED what it publishes, instead of publishing under an artifactId override.
-// In a composite build a project's identity is project.group:project.name, so a consumer's
-// includeBuild("../DepsKt") matches pl.mareklangiewicz.deps:DepsKt -- and this is the project that
-// has to answer to it. Naming it "deps" (after the directory) and pinning artifactId = "DepsKt" in
-// defaultPublishing said the same thing twice, in two places that could drift; worse, the drift is
-// silent, because a substitution that stops matching just resolves the published jar instead.
 //
-// Cost, stated so nobody has to rediscover it: the project PATH follows the name, so this project
-// is :DepsKt while its directory stays deps/, and templatefun depends on project(":DepsKt").
-// Verified from KGround with the composite on:
-//   pl.mareklangiewicz.deps:DepsKt:0.4.29 -> project ':DepsKt:DepsKt'
-project(":deps").name = "DepsKt"
+// The project is named after its DIRECTORY, and publishes under an artifactId override. It was
+// briefly renamed to "DepsKt" so that a consumer's includeBuild("../DepsKt") -- which substitutes
+// by project.group:project.name -- would bind to it. That is dropped on purpose: the local
+// composite is a convenience nobody keeps switched on (depsInclude is `false` in every repo), and
+// it is not worth a project whose path and directory disagree, two projects named DepsKt in one
+// build, and a root that must never be given a group. The escape hatch still exists; with the name
+// back to "deps" it simply no longer substitutes the deps artifact (templatefun still matches),
+// and Gradle degrades to the published jar silently, as it always did when a rule stopped matching.
+include(":deps")
 include(":templatefun")

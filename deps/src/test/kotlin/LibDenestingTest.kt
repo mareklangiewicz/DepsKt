@@ -127,8 +127,15 @@ class LibDenestingTest {
     assertEquals(explicit, lib(info, withAndro = false, andro = explicit).andro)
   }
 
+  /**
+   * The ONE deliberate divergence from the nested defaults, asserted rather than commented:
+   * [LibInfo.id] defaults to [LibInfo.namespace], while the nested `appId` defaulted to
+   * `"$namespace.app"`. The suffix was a convention some repos already published without, so the
+   * generic id slot does not bake it in. The adapters stay total -- `toLib`/`toNested` carry
+   * whatever value is there -- it is only the DEFAULTS that differ.
+   */
   @Test
-  fun factoryMatchesTheNestedDefaultsForADefaultLib() {
+  fun factoryMatchesTheNestedDefaultsForADefaultLibExceptId() {
     val fromFactory = lib(info, LibFlags())
     val fromNested = LibDetails(
       name = info.name, group = info.group, description = info.description,
@@ -136,7 +143,10 @@ class LibDenestingTest {
       githubUrl = info.githubUrl, licenceName = info.licenceName, licenceUrl = info.licenceUrl,
       version = info.version, settings = LibSettings(),
     )
-    assertEquals(fromNested.toLib(), fromFactory)
+    assertEquals(fromFactory.info.namespace, fromFactory.info.id, "id defaults to namespace, bare")
+    assertEquals(fromFactory.info.namespace + ".app", fromNested.appId, "nested appId kept the suffix")
+    // everything else must still agree, so normalise the one field and compare in full
+    assertEquals(fromNested.toLib().let { it.copy(info = it.info.copy(id = fromFactory.info.id)) }, fromFactory)
   }
 
   /** The live bug fixed in `d4e1d1d`; asserted here so it cannot come back in either model. */
