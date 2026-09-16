@@ -423,9 +423,11 @@ a measured **zero** deprecation warnings from our own sources.
 
 1. The 13 repos migrated off `myLibDetails` (the `ReplaceWith` quick-fixes make most of it
    mechanical; `LibDetails`/`LibSettings` are the hand-written part).
-2. KGround's probes stop using the nested model as their control — `probeCopyDance`,
-   `probeAdapterFidelity` and `probePublishVariantAgreement` compare against it BY DESIGN, so
-   retiring them means deciding the evidence has served its purpose.
+2. DONE 2026-09-16: the probes are retired and `probe-logic/` is deleted. The evidence had served
+   its purpose — the experiment shipped in 0.4.29 — and the three that used the nested model as a
+   control (`probeCopyDance`, `probeAdapterFidelity`, `probePublishVariantAgreement`) were
+   duplicates of stricter tests here rather than evidence. So this precondition is closed, and
+   step 4 is now gated on items 1 and 3 alone.
 3. DepsKt's own `LibDenestingTest` likewise: its round-trip and derivation-equivalence tests are
    defined against the nested model. When it goes, they go, and what replaces them is a smaller
    suite about `Lib` alone.
@@ -456,8 +458,9 @@ Suggested order, now that the shape is known:
    `ignoreAndroTarget`, `ignoreAndroConfig` and the `withXxx` reads as each one lands. Keep
    `ignoreAndroPublish`. **This happens in KGround, not here** — see the section above.
 4. Drop the nested types and both adapters once no consumer references them. **Deprecated in
-   0.4.27; removal is gated on 14 repos and on retiring the probes that use the nested model as
-   their control.** See "Step 4 is gated on consumers" above.
+   0.4.27; the probes that used the nested model as their control are retired (2026-09-16), so
+   removal is now gated on the remaining repos and on this repo's own control tests.** See
+   "Step 4 is gated on consumers" above.
 
 ## Unrelated live bug found on the way
 
