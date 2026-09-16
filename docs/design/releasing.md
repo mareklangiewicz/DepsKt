@@ -52,9 +52,10 @@ Nothing in the repo is waiting on it.
 `publishAndReleaseToMavenCentral`, with `KL_SIGNINGINMEMORYKEY*` / `KL_MAVENCENTRAL*` repository
 secrets. It is real, and it does nothing, for two independent reasons:
 
-- **Nothing tags.** `git tag -l "v*"` is empty; the newest tags in this repo are `0.2.x`, plus a
-  literal `X.X.XX` tag someone once created from the README's placeholder. The workflow has never
-  run.
+- **Nothing tags.** `git tag -l "v*"` is empty and the newest tags in this repo are `0.2.x`, from
+  2023. The workflow has never run. (There was also a literal `X.X.XX` tag, created from the
+  README's placeholder; deleted 2026-09-16, locally and on the remote. It pointed at a commit
+  reachable from `master`, so nothing went with it.)
 - **Central publishing is switched off in the model.** `LibFlags.withCentralPublish` defaults to
   `false` and nothing in this build sets it, so every `mavenPublishing` block here — the exported
   `defaultPublishing`, plus `:sourcefun`'s and `:templatefun`'s own copies — skips
