@@ -33,6 +33,16 @@ dependencies {
   implementation(project(":deps"))
 }
 
+// Match :deps (jvmToolchain(23)). Without this, the toolchain is whatever JDK ran the publish, and
+// the published Gradle module metadata says so: templatefun 0.4.28-0.4.30 all shipped
+// org.gradle.jvm.version = 25 because they were published from a JDK 25 machine, which made them
+// unresolvable for any consumer on an older JVM. Marek's CI runs Java 23, so it could not apply the
+// plugin at all. A published plugin's minimum JVM must be a decision, not a property of the
+// publisher's laptop.
+kotlin {
+  jvmToolchain(23)
+}
+
 // Only these sources get the flag. Consuming build scripts are always compiled WITHOUT it, which is
 // why every entry point takes `lib: Lib` as an ordinary parameter and opens the context scopes
 // itself -- see the probes in KGround's kgroundx-experiments.
