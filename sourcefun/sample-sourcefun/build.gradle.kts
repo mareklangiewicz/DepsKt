@@ -60,6 +60,29 @@ tasks.register<SourceUreTask>("fakeReportStuff2UreArrayToXXX") {
 }
 
 
+// All four awesome tasks touch the SAME directory: the two processExtensions* WRITE `extensions/`
+// and all four READ it. Gradle 9 rejects that as an undeclared implicit dependency the moment two of
+// them are requested in one invocation -- "uses this output of task X without declaring an explicit
+// or implicit dependency" -- and the two processExtensions* even accuse each other, since each is
+// both a producer and a consumer of that directory. Nothing noticed for a long time simply because
+// no test ever asked for two at once; every task works fine on its own.
+//
+// `mustRunAfter`, not `dependsOn`: these tasks are independent and none of them should DRAG another
+// into the graph. This only fixes the ORDER for when they do end up in one graph together, which is
+// exactly what the validation is asking for.
+//
+// Wired through configureEach so it does not matter when each task is registered -- the `def(..)`
+// ones are created in the plugin's afterEvaluate, later than this script body runs.
+val awesomeProducers = listOf("processExtensions1ByReg", "processExtensions2WithDefDeprecated")
+val awesomeReporters = listOf("fakeReportStuff1JustPrintLn", "fakeReportStuff2UreArrayToXXX")
+tasks.configureEach {
+  when (name) {
+    awesomeProducers[1] -> mustRunAfter(awesomeProducers[0])
+    in awesomeReporters -> mustRunAfter(awesomeProducers)
+  }
+}
+
+
 @OptIn(DelicateApi::class, NotPortableApi::class)
 fun transformSpecialExtensionsContent(content: String): String {
   val regionByteLabel = "Byte Special Extensions"

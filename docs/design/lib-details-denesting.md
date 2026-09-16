@@ -882,10 +882,27 @@ resolves to the DepsKt root, so leaving it on the old model would have meant a b
 functions its own composite no longer ships. It now sets `gradle.extLib` in its settings, applies the
 templatefun plugin, and calls `defaultBuildTemplateForBasicMppLib()` with no arguments at all.
 
-Known, pre-existing and not fixed here: asking for `processExtensions1ByReg` and
-`fakeReportStuff1JustPrintLn` in the *same* invocation fails validation — both name the `extensions`
-directory, one as output and one as input, with no declared dependency between them. Each is green on
-its own, and `./gradlew build` is green.
+Pre-existing, found during the move, **fixed 2026-09-16**: asking for `processExtensions1ByReg` and
+`fakeReportStuff1JustPrintLn` in the *same* invocation failed validation — both name the `extensions`
+directory, one as output and one as input, with no declared dependency between them. Each was green on
+its own, and `./gradlew build` was green, which is why nothing noticed: no test ever asked for two at
+once.
+
+It is worse than the pair suggests. All four awesome tasks name that directory, and the two
+`processExtensions*` are each BOTH a producer and a consumer of it, so they accuse **each other** —
+requesting all four fails on that pair before the reporters are even reached.
+
+The sample now declares `mustRunAfter`, not `dependsOn`: the tasks are genuinely independent and none
+should drag another into the graph; only the ORDER needs fixing for when they do share one. It is
+wired through `tasks.configureEach` because the `def(..)` tasks are registered in the plugin's
+`afterEvaluate`, after the script body runs. `SourceFunTests` now requests all four in one invocation
+and asserts both that each succeeded and that the producers ran before the reporters (48 → 55 tests).
+Validated as a control: removing the `mustRunAfter` block makes that new test fail with the
+validation message.
+
+Still open, and deliberately untouched: `fakeReportStuff*` declare `out = reportsPath` while printing
+"will NOT create any files". Their declared output is a fiction, which is a plugin-design question,
+not an ordering one.
 
 ### Two things the move exposed, both fixed
 

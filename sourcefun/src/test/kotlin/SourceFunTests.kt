@@ -236,6 +236,41 @@ private fun onSampleSourceFunProject() {
           }
         }
       }
+
+      // The tasks above are each requested ALONE, which is why nothing noticed for a long time that
+      // asking for two at once fails: all four touch the same extensions/ dir, the two
+      // processExtensions* write it, and Gradle 9 rejects the undeclared implicit dependency
+      // ("uses this output of task X without declaring an explicit or implicit dependency").
+      // The sample declares mustRunAfter for exactly this; this is the test that would catch its
+      // removal. Validated as a control: dropping that block makes this fail with that message.
+      "On all four awesome tasks requested at once" o {
+        runner.withArguments(
+          "processExtensions1ByReg",
+          "processExtensions2WithDefDeprecated",
+          "fakeReportStuff1JustPrintLn",
+          "fakeReportStuff2UreArrayToXXX",
+        )
+        val result = runner.build()
+
+        "all four tasks ran" o {
+          for (taskName in listOf(
+            "processExtensions1ByReg",
+            "processExtensions2WithDefDeprecated",
+            "fakeReportStuff1JustPrintLn",
+            "fakeReportStuff2UreArrayToXXX",
+          )) "task $taskName did not fail" o {
+            result.task(":$taskName").chkNN { "No :$taskName in result" }.outcome chkEq SUCCESS
+          }
+        }
+
+        "producers ran before consumers" o {
+          val order = result.tasks.map { it.path }
+          val lastProducer = order.indexOfLast { it.startsWith(":processExtensions") }
+          val firstReporter = order.indexOfFirst { it.startsWith(":fakeReportStuff") }
+          chk(lastProducer >= 0 && firstReporter >= 0)
+          chk(lastProducer < firstReporter)
+        }
+      }
     }
   }
 }
