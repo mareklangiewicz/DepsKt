@@ -93,10 +93,17 @@ kotlin {
 }
 
 // Publishing is spelled out here rather than calling templatefun's defaultPublishing, for the same
-// reason :deps pins its artifactId: templatefun's defaultPublishing hardcodes artifactId = project.name,
-// and this project's name is "sourcefun" (it follows its DIRECTORY) while the published artifact has
-// always been pl.mareklangiewicz.deps:SourceFun. Nothing would error if that drifted -- it would just
-// publish a new, empty-history coordinate. So the artifactId is pinned, explicitly.
+// reason :deps pins its artifactId: this project's name is "sourcefun" (it follows its DIRECTORY)
+// while the published artifact has always been pl.mareklangiewicz.deps:SourceFun. Nothing would
+// error if that drifted -- it would just publish a new, empty-history coordinate. So the artifactId
+// is pinned, explicitly.
+//
+// The artifactId alone is no longer a reason to hand-roll this: defaultPublishing takes it as a
+// parameter from 0.4.52. The POM still is -- this module needs its own `name` and `description`,
+// while defaultPOM puts the per-REPO info.name/description on every module. That is the same
+// repo/module split, one level up, and the note on defaultPublishing sketches where it would go
+// (a small per-module value, rather than patching one field at a time). Worth revisiting if a
+// third module ever wants a module-specific POM; until then this copy is the cheaper answer.
 //
 // The POM identity is SourceFun's own (name/description), but url and scm now point at DepsKt: this
 // is where the sources live.

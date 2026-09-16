@@ -501,9 +501,10 @@ stopped substituting and silently resolved the published jar instead. `defaultPu
 took an `artifactId` parameter (defaulting to `project.name`, so existing copies of the region are
 unaffected) and `:deps` pins it to `DepsKt`.
 
-Only the copy in `deps/build.gradle.kts` grew that parameter — **templatefun's `defaultPublishing`
-still hardcodes `artifactId = name`**, so any repo whose directory name differs from its published
-artifactId cannot use it yet.
+Only the copy in `deps/build.gradle.kts` grew that parameter — templatefun's `defaultPublishing`
+hardcoded `artifactId = name`, so any repo whose directory name differs from its published
+artifactId could not use it. (No longer true: see "defaultPublishing takes an artifactId" at the
+end of this note.)
 
 That fixed the publication and broke the composite, in the opposite direction:
 
@@ -852,7 +853,8 @@ Note this is now two of the three siblings needing an artifactId that is not the
 templatefun's exported `defaultPublishing` still hardcodes `artifactId = name`. Both `:deps` and
 `:sourcefun` work around it locally (`:deps` by re-calling `coordinates(..)` after
 `defaultPublishing`, `:sourcefun` by spelling the whole `mavenPublishing` block out). Giving
-templatefun's `defaultPublishing` an `artifactId` parameter is the obvious follow-up.
+templatefun's `defaultPublishing` an `artifactId` parameter is the obvious follow-up. **Done — see
+the last section.**
 
 ### Version: 0.4.31 -> 0.4.51
 
@@ -927,3 +929,72 @@ Neither could fail a test, because every assertion looked at the generated *func
 at the bytes. Both are fixed, and there is now an assertion on the property itself — regenerate over
 already-generated content and nothing may change — verified to go red against the old code before
 being trusted. The check that matters in practice: `git status` is clean after a full test run.
+
+## `defaultPublishing` takes an `artifactId` (2026-09-16)
+
+```kotlin
+context(info: LibInfo, flags: LibFlags)
+fun Project.defaultPublishing(artifactId: String = name) = ...
+```
+
+This was **declined twice before**, and the reason it is right now is that the reason it was declined
+expired. "The project is `:deps` again" rejected it as "a bootstrap step bought for one call site":
+`deps/build.gradle.kts` applies the PUBLISHED templatefun, so the parameter cannot be used there
+until it has been published. Then `:sourcefun` moved in and hit the same trap, making it two of three
+siblings — and `:sourcefun` paid more for it, duplicating the entire `mavenPublishing` block rather
+than one line. One call site does not justify a bootstrap step; two do.
+
+### Why the default stays `project.name`, and is not `info.name` or `info.id`
+
+Worth writing down, because both look plausible and both are wrong in the same way.
+
+`LibInfo` is a per-REPO value — one `gradle.extLib` for the whole build — while an artifactId is a
+per-MODULE coordinate. `info.name` is the repo name, and KGround's ~12 publishable modules
+(`kground`, `kground-io`, `kgroundx`, `kommand-line`, …) all share one `LibInfo`, so defaulting to it
+would make all twelve publish the SAME artifactId — and, exactly as everywhere else in this note,
+nothing would error. `defaultPOM` already puts `info.name` in every one of those modules' POM
+`<name>`, which is fine and is the contrast worth noticing: the POM name may repeat across modules,
+the artifactId may not.
+
+`info.id` is further off: it defaults to `namespace` (`"$group.$name".lowercase()`), a reverse-DNS
+identity slot for an android `applicationId` / bundle id / plugin id. As an artifactId it would
+publish `pl.mareklangiewicz.deps:pl.mareklangiewicz.deps.depskt`.
+
+`project.name` is the only per-module value in scope. The parameter exists because a directory name
+and a published artifactId can legitimately disagree — which is the whole subject of this note.
+
+### What it replaces
+
+The override at `:deps` was a SECOND `coordinates(..)` call placed after `defaultPublishing`,
+correct only because the last call wins. That is the silent-on-reorder shape this note keeps finding.
+As an argument it cannot be undone by moving lines around.
+
+### Not yet at the `:deps` call site — the predicted bootstrap
+
+`deps/build.gradle.kts` applies the PUBLISHED templatefun, so it still pins via the trailing
+`coordinates(..)`, with a comment naming the replacement to paste in once **0.4.52** is on the
+portal. Verified, not assumed: writing the four-argument form there fails with
+`expected '(LibInfo, LibFlags, Project, String) -> Unit', actual 'KFunction3<...>'`.
+
+Note the arity, since it is easy to lose an hour to: build scripts are compiled without
+`-Xcontext-parameters` and reach this through the flattened coercion, and **a function reference
+cannot use default arguments** — so that call site names all four parameters even though ordinary
+callers get the default. Callers inside templatefun (`JvmBuildTemplates`, `MppBuildTemplates`,
+`RawLibBuildTemplates`, `AndroBuildTemplates`) are unchanged.
+
+### `:sourcefun` still hand-rolls, deliberately
+
+The artifactId alone no longer justifies it, but the POM does: this module wants its own `name` and
+`description`, while `defaultPOM` writes the per-repo ones. That is the same repo/module split one
+level up, and patching it field by field is how `defaultPublishing` got here in the first place. The
+sketched answer — a small per-module value, `LibModule(artifactId, name, description)`, as the
+counterpart to the per-repo `LibInfo` — is recorded in `defaultPublishing`'s KDoc and at the
+`:sourcefun` call site. Not worth a new type for one caller; revisit when a third module asks.
+
+### Verified
+
+Root `./gradlew build` green and `sample-sourcefun` green (it resolves templatefun from the
+composite, so it compiles against the NEW signature). `publishToMavenLocal` for all three siblings
+still produces `pl.mareklangiewicz.deps:DepsKt`, `:SourceFun` and `:templatefun` at 0.4.51, and
+diffing templatefun's `.module` against the published one shows no new difference beyond the
+`kotlin-stdlib` line that dropping `kotlin-dsl` already introduced.

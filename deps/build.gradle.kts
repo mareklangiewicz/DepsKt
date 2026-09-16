@@ -69,6 +69,17 @@ tfDefaultPublishing(myLib.info, myLib.flags, project)
 // defaultPublishing defaults artifactId to project.name. Pinning it here -- rather than renaming
 // the project to "DepsKt" -- keeps the path, the directory and the name agreeing with each other.
 // This must come AFTER defaultPublishing: both call coordinates(..) and the last call wins.
+//
+// TODO after the next publish: defaultPublishing now TAKES `artifactId` (see its KDoc), which
+// removes this ordering hazard -- but this script applies the PUBLISHED templatefun, and the
+// parameter only exists from 0.4.52. Once that is on the portal, delete the line below and say it
+// as an argument instead:
+//
+//   val tfDefaultPublishing: (LibInfo, LibFlags, Project, String) -> Unit = Project::defaultPublishing
+//   tfDefaultPublishing(myLib.info, myLib.flags, project, "DepsKt")
+//
+// Note the arity: a function reference cannot use default arguments, so the flattened type has to
+// name all four parameters even though artifactId has a default for ordinary callers.
 mavenPublishing { coordinates(myLib.info.group, "DepsKt", myLib.info.version.str) }
 
 gradlePlugin {

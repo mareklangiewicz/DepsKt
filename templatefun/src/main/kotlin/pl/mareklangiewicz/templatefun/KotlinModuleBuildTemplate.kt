@@ -112,17 +112,37 @@ fun MavenPom.defaultPOM() {
  * (`details.settings.withCentralPublish`) for a single flag; as siblings that flag arrives as its
  * own context parameter, so this function names exactly the two things it uses and nothing else.
  *
- * Note it is still `context(..)` and not `with(..)`: [LibInfo] has a `name` too, and
- * `coordinates(artifactId = name)` must resolve to the PROJECT name. See [probeNameIsProjectName].
+ * Note it is still `context(..)` and not `with(..)`: [LibInfo] has a `name` too, and the
+ * [artifactId] default must resolve to the PROJECT name. See [probeNameIsProjectName].
+ *
+ * ### Why [artifactId] defaults to the project name, and not to anything in [LibInfo]
+ *
+ * [LibInfo] is a per-REPO value -- one `gradle.extLib` for the whole build -- while an artifactId is
+ * a per-MODULE coordinate. `info.name` is the repo name (KGround's ~12 publishable modules all share
+ * it; [defaultPOM] deliberately puts it in the POM `<name>` of every one of them), so defaulting to
+ * it would make those twelve modules publish the SAME artifactId, silently overwriting each other.
+ * `info.id` is worse: it is a reverse-DNS identity slot (android applicationId / bundle id / plugin
+ * id), so it would publish `group:pl.mareklangiewicz.deps.depskt`.
+ *
+ * `project.name` is the only per-module value in scope, so it is the default. [artifactId] exists
+ * because a directory name and a published artifactId can legitimately disagree: `:deps` lives in
+ * `./deps` but has always published as `DepsKt`, and `:sourcefun` as `SourceFun`. Before this
+ * parameter existed the only way to say so was a SECOND `coordinates(..)` call after this function,
+ * relying on last-call-wins -- silent the moment anything reordered it.
+ *
+ * TODO_someday: the same repo/module split affects the POM, not just the artifactId. `:sourcefun`
+ * hand-rolls this whole block because it needs a module-specific POM `name` and `description` too.
+ * If a third module ever wants that, the honest fix is to stop patching fields one at a time and
+ * introduce a small per-module value -- something like `LibModule(artifactId, name, description)` --
+ * as the missing counterpart to the per-repo [LibInfo]. Not worth a new type for one caller yet.
  */
 context(info: LibInfo, flags: LibFlags)
-fun Project.defaultPublishing() = extensions.configure<MavenPublishBaseExtension> {
+fun Project.defaultPublishing(artifactId: String = name) = extensions.configure<MavenPublishBaseExtension> {
   propertiesTryOverride("signingInMemoryKey", "signingInMemoryKeyPassword", "mavenCentralPassword")
   if (flags.withCentralPublish) publishToMavenCentral(automaticRelease = false)
   signAllPublications()
   signAllPublicationsFixSignatoryIfFound()
-  // Note: artifactId is not details.name but current project.name (module name)
-  coordinates(groupId = info.group, artifactId = name, version = info.version.str)
+  coordinates(groupId = info.group, artifactId = artifactId, version = info.version.str)
   pom { defaultPOM() }
 }
 
