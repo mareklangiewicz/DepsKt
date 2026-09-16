@@ -114,9 +114,24 @@ private fun onSingleHelloWorldProject() {
   }
 }
 
-private val theSourceFunProjectPath = System.getenv("GITHUB_WORKSPACE")?.toPath()
-  ?: (System.getenv("HOME").chkNN { "No HOME env var available."}.toPath() / "code/kotlin/SourceFun")
-private val sampleSourceFunProjectPath = theSourceFunProjectPath / "sample-sourcefun"
+/**
+ * Injected by the build script (see sourcefun/build.gradle.kts), NOT guessed from the environment.
+ *
+ * This used to be `$GITHUB_WORKSPACE` or else `$HOME/code/kotlin/SourceFun`. When SourceFun moved
+ * into DepsKt both branches silently pointed at the WRONG tree: the $HOME one at the old repo --
+ * so these tests kept passing while exercising, cleaning and rewriting files in a checkout that is
+ * no longer the one being built -- and $GITHUB_WORKSPACE at the DepsKt root, where there is no
+ * sample-sourcefun at all. A test fixture must be handed its location by whatever built it.
+ */
+private val sampleSourceFunProjectPath: Path =
+  System.getProperty("sourcefun.sampleProjectPath")
+    .chkNN { "No sourcefun.sampleProjectPath system property. The build script must inject it." }
+    .toPath()
+    .also {
+      // Deliberately a check that CAN fail: it is the reason the move was invisible for a while.
+      SYSTEM.exists(it / "settings.gradle.kts")
+        .chkTrue { "Injected sample path is not a gradle build: $it" }
+    }
 
 private fun onSampleSourceFunProject() {
   "On sample-sourcefun project" o {

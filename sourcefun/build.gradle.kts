@@ -65,6 +65,16 @@ tasks.defaultKotlinCompileOptions()
 
 tasks.defaultTestsOptions()
 
+// Hand the tests the sample project's location instead of letting them guess it from $HOME or
+// $GITHUB_WORKSPACE. Both guesses survived the move from the standalone SourceFun repo while
+// pointing at the wrong tree -- see the kdoc on sampleSourceFunProjectPath in SourceFunTests.kt.
+tasks.withType<Test>().configureEach {
+  val samplePath = layout.projectDirectory.dir("sample-sourcefun").asFile
+  systemProperty("sourcefun.sampleProjectPath", samplePath.absolutePath)
+  // The tests run gradle in there and rewrite its sources, so it is an input in every sense.
+  inputs.dir(samplePath).withPropertyName("sampleSourceFunProject")
+}
+
 // The lib is defined once, in settings.gradle.kts, and read here -- same as :deps and :templatefun.
 // Named myLib, not lib, so the local does not shadow the lib(..) factory it is built with.
 val myLib = gradle.extLib
