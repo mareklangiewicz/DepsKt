@@ -304,6 +304,7 @@ fun KotlinMultiplatformExtension.allDefaultSourceSetsForCompose(
       dependencies {
         if (withComposeUi) {
           implementation(ComposeJb.ui)
+          implementation(ComposeJb.componentsResources)
         }
         if (withComposeFoundation) implementation(ComposeJb.foundation)
         if (withComposeFullAnimation) {
@@ -312,6 +313,19 @@ fun KotlinMultiplatformExtension.allDefaultSourceSetsForCompose(
         }
         if (withComposeMaterial2) implementation(ComposeJb.material)
         if (withComposeMaterial3) implementation(ComposeJb.material3)
+      }
+    }
+    // The test side mirrors the main side, so compose UI test deps stay off js exactly the way
+    // compose UI itself does: jvmTest takes composeUiTest, jsTest only composeTest.
+    val composeTest = create("composeTest") {
+      // NOT dependsOn(composeMain): template-raw found that edge unnecessary and warning-generating.
+      dependsOn(commonTest.get())
+    }
+    val composeUiTest = create("composeUiTest") {
+      // Likewise NOT dependsOn(composeUiMain) -- see template-raw's note on the same pair.
+      dependsOn(composeTest)
+      dependencies {
+        if (withComposeTestUi) implementation(ComposeJb.uiTest)
       }
     }
     // androidMain does not exist yet: the android target is created by androDefault(), which
@@ -337,6 +351,7 @@ fun KotlinMultiplatformExtension.allDefaultSourceSetsForCompose(
         }
       }
       jvmTest {
+        dependsOn(composeUiTest)
         dependencies {
           @Suppress("DEPRECATION")
           if (withComposeTestUiJUnit4) implementation(ComposeJb.uiTestJUnit4)
@@ -353,6 +368,8 @@ fun KotlinMultiplatformExtension.allDefaultSourceSetsForCompose(
         }
       }
       jsTest {
+        // composeTest, NOT composeUiTest: compose UI test deps must not reach js.
+        dependsOn(composeTest)
         dependencies {
           if (withComposeTestHtmlUtils) implementation(ComposeJb.htmlTestUtils)
         }
