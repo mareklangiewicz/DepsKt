@@ -200,6 +200,8 @@ private fun onSampleSourceFunProject() {
                 "Generated functions are correct again" o {
                   testGeneratedFunctions(file)
                 }
+
+                uspekIdempotentInjection(file)
               }
             }
           }
@@ -300,9 +302,55 @@ fun FileSystem.deleteTreeWithDoubleChk(
   deleteRecursively(rootPath, mustExist)
 }
 
-// TODO_later: maybe some flavor of it should be in kground
-// TODO NOW ?? better version that not leaks line-breaks in kground-io? (and above fun too)
+/**
+ * The file this whole suite rewrites is TRACKED, so the suite must leave it byte-identical.
+ *
+ * Two separate leaks used to break that, and neither could fail a test, because every assertion here
+ * looks at the generated FUNCTIONS and none looked at the bytes:
+ *  - [injectChangedRegion] re-added the separators its own captures already carried, so the file
+ *    grew two line breaks per call, roughly ten per suite run, accumulating across runs;
+ *  - the sample's `transformSpecialExtensionsContent` returned `before + generated`, dropping the
+ *    file's final newline every time the task ran.
+ *
+ * So this asserts the property directly: run the transform again over content it already produced,
+ * and nothing at all may change.
+ */
+private fun uspekIdempotentInjection(file: Path) {
+  "On rerunning the transform over its own output" o {
+    val contentBefore = SYSTEM.readUtf8(file)
 
+    "content is unchanged after a full inject + regenerate round trip" o {
+      SYSTEM.injectChangedRegion(file, "Generated Special Extensions", "// DELETED CONTENT")
+      GradleRunner.create()
+        .withProjectPath(sampleSourceFunProjectPath)
+        .withArguments("processExtensions1ByReg")
+        .build()
+      SYSTEM.readUtf8(file) chkEq contentBefore
+    }
+
+    "file still ends with exactly one trailing newline" o {
+      val content = SYSTEM.readUtf8(file)
+      content.endsWith("\n") chkEq true
+      content.endsWith("\n\n") chkEq false
+    }
+  }
+}
+
+// TODO_later: maybe some flavor of it should be in kground
+
+/**
+ * Replaces one region's content, leaving every byte outside the region alone.
+ *
+ * This used to build the result with `listOf(before, "// region L", content, "// endregion L",
+ * after).joinToString("\n")`, which LEAKED TWO LINE BREAKS on every call: `before` already ends
+ * with its own newline and `after` already starts with one, so the join added a second of each.
+ * uspek re-runs the whole tree once per leaf, so a single `./gradlew :sourcefun:test` grew
+ * SpecialExtensions.kt -- a TRACKED file -- by about ten blank lines, and they accumulated run over
+ * run. That is why the old standalone checkout's copy had twenty of them.
+ *
+ * It is now a plain splice: the captures carry their own separators, so none are re-added, and
+ * running it twice on the same content is a no-op. [uspekIdempotentInjection] asserts exactly that.
+ */
 private fun FileSystem.injectChangedRegion(
   path: Path,
   changedRegionLabel: String,
@@ -312,13 +360,8 @@ private fun FileSystem.injectChangedRegion(
   val mr = fileContent.matchEntireOrThrow(ureWithRegion(changedRegionLabel))
   val before by mr
   val after by mr
-  val newContent = listOf(
-    before,
-    "// region $changedRegionLabel",
-    changedRegionContent,
-    "// endregion $changedRegionLabel",
-    after,
-  ).joinToString("\n")
+  val newContent =
+    before + "// region $changedRegionLabel\n" + changedRegionContent + "\n// endregion $changedRegionLabel" + after
   SYSTEM.writeUtf8(path, newContent)
 }
 

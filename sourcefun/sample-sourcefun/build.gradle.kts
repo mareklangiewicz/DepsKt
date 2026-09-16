@@ -92,5 +92,8 @@ fun transformSpecialExtensionsContent(content: String): String {
       prefix = "// region $regionGeneratedLabel\n",
       postfix = "// endregion $regionGeneratedLabel",
     ) { template.replace("Byte", it) }
-  return before + generated
+  // Trailing newline, explicitly: the generated block's postfix is "// endregion ..." with nothing
+  // after it, so without this the task strips the file's final newline on every run -- a real diff
+  // in a tracked file, produced by a task whose whole job is to leave the file idempotent.
+  return before + generated + "\n"
 }

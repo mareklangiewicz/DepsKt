@@ -886,3 +886,27 @@ Known, pre-existing and not fixed here: asking for `processExtensions1ByReg` and
 `fakeReportStuff1JustPrintLn` in the *same* invocation fails validation — both name the `extensions`
 directory, one as output and one as input, with no declared dependency between them. Each is green on
 its own, and `./gradlew build` is green.
+
+### Two things the move exposed, both fixed
+
+**The tests were not testing the migrated tree.** `SourceFunTests` resolved the sample project as
+`$GITHUB_WORKSPACE`, else `$HOME/code/kotlin/SourceFun`. After the move both branches point somewhere
+wrong and neither errors: locally the `$HOME` branch still resolved, so the suite reported 45/45 green
+while cleaning and rewriting files in the OLD standalone checkout; on CI `$GITHUB_WORKSPACE` is the
+DepsKt root, which has no `sample-sourcefun` at all. The guard that existed —
+`deleteTreeWithDoubleChk { "sourcefun" in it }` — is true of both locations, so it could not tell them
+apart. The build script now injects `sourcefun.sampleProjectPath`, the test asserts the injected path
+is a real gradle build, and the sample is declared a task input.
+
+**The suite corrupted a tracked file, a little more each run.** `injectChangedRegion` joined `before`,
+the region lines and `after` with a newline — but `before` already ends with its newline and `after`
+already starts with one, so every call leaked two line breaks. uspek re-runs the tree once per leaf,
+so one `:sourcefun:test` added about ten blank lines to `SpecialExtensions.kt`, and they accumulated
+across runs; the old checkout's copy had twenty. Separately, the sample's
+`transformSpecialExtensionsContent` returned `before + generated`, stripping the file's final newline
+on every task run.
+
+Neither could fail a test, because every assertion looked at the generated *functions* and none looked
+at the bytes. Both are fixed, and there is now an assertion on the property itself — regenerate over
+already-generated content and nothing may change — verified to go red against the old code before
+being trusted. The check that matters in practice: `git status` is clean after a full test run.
