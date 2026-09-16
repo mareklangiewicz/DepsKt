@@ -1,4 +1,3 @@
-@file:Suppress("DEPRECATION")
 
 package pl.mareklangiewicz.utils
 
@@ -104,29 +103,11 @@ val Project.buildPath: Path get() = layout.buildDirectory.get().asFile.toOkioPat
 
 // Kinda hack to attach some lib details to some global project or sth
 
-/**
- * The lib for this build. This is THE stored value — there is exactly one entry, holding a [Lib];
- * [extLibDetails] below is a view over it, not a second copy.
- *
- * Step 2 of `docs/design/lib-details-denesting.md`.
- */
+/** The lib for this build: one stored entry, holding a [Lib]. */
 var ExtensionAware.extLib: Lib
   get() = ext<Lib>()["Lib"]
   set(value) {
     ext<Lib>()["Lib"] = value
-  }
-
-/**
- * Nested view of [extLib], for build scripts that still hold a [LibDetails]. Converts on the way in
- * and on the way out, so a set-then-get returns an EQUAL (not identical) value; that round trip is
- * lossless and asserted by `LibDenestingTest`. Deleted in step 4, together with the adapters.
- */
-@Deprecated("Use extLib, which is the stored value; this is only a converting view over it.",
-  ReplaceWith("extLib"))
-var ExtensionAware.extLibDetails: LibDetails
-  get() = extLib.toNested()
-  set(value) {
-    extLib = value.toLib()
   }
 
 var Project.rootExtLib
@@ -135,23 +116,12 @@ var Project.rootExtLib
     rootProject.extLib = value
   }
 
-@Deprecated("Use rootExtLib.", ReplaceWith("rootExtLib"))
-var Project.rootExtLibDetails
-  get() = rootProject.extLibDetails
-  set(value) {
-    rootProject.extLibDetails = value
-  }
-
-class LibDetailsNotFoundException(msg: String? = null) : RuntimeException(msg)
+class LibNotFoundException(msg: String? = null) : RuntimeException(msg)
 
 fun Project.findExtLib(): Lib =
   try { extLib } catch (e: UnknownPropertyException) {
-    parent?.findExtLib() ?: throw LibDetailsNotFoundException("Lib ext not found in project hierarchy.")
+    parent?.findExtLib() ?: throw LibNotFoundException("Lib ext not found in project hierarchy.")
   }
-
-/** Nested view of [findExtLib]. Deleted in step 4. */
-@Deprecated("Use findExtLib().", ReplaceWith("findExtLib()"))
-fun Project.findExtLibDetails(): LibDetails = findExtLib().toNested()
 
 fun DependencyHandler.addAll(configuration: String, vararg deps: Dep?) {
   for (dep in deps) if (dep != null) add(configuration, dep)

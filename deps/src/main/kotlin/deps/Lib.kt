@@ -1,20 +1,17 @@
-@file:Suppress("PackageDirectoryMismatch", "unused", "DEPRECATION")
+@file:Suppress("PackageDirectoryMismatch", "unused")
 
 package pl.mareklangiewicz.deps
 
-// region [[Lib — the de-nested sibling model]]
+// region [[Lib — the sibling model]]
 
 /**
- * The de-nested replacement for [LibDetails] and friends. See
- * `docs/design/lib-details-denesting.md` for the full design and the evidence behind it.
+ * Everything a build needs to know about the lib it is building, as five SIBLINGS rather than one
+ * tree. See `docs/design/lib-details-denesting.md` for the design and the evidence behind it.
  *
- * This is step 1 of the migration: the DATA shape only. The nested types still exist, the adapters
- * below bridge them, and nothing in this file needs context parameters — so build scripts (which
- * Gradle compiles flagless) can already use it.
- *
- * The change is NOT flattening. The five types stay; they stop being fields of each other, so each
- * can later be supplied independently as its own context parameter, and the nullable ones
- * ([LibCompose], [LibAndro]) can encode presence as *scope* instead of as `null`.
+ * Siblings, not a flattening: each of the five can be supplied independently as its own context
+ * parameter, and the nullable ones ([compose], [andro]) can encode presence as *scope* instead of
+ * as `null`. Nothing here needs context parameters itself, so build scripts — which Gradle compiles
+ * flagless — can use all of it.
  */
 data class Lib(
   val info: LibInfo,
@@ -24,7 +21,7 @@ data class Lib(
   val andro: LibAndro?,
 )
 
-/** Identity and coordinates. Everything that was NOT `settings` in the nested [LibDetails]. */
+/** Identity and coordinates: who this lib is, not how it is built. */
 data class LibInfo(
   val name: String,
   val group: String,
@@ -58,10 +55,9 @@ data class LibInfo(
 }
 
 /**
- * Platform/testing flags only. Note what is GONE compared to [LibSettings]: the `compose`, `andro`
- * and `repos` fields, and with them `withCompose`/`withAndro`. Presence is answered by whether
- * [Lib.compose] / [Lib.andro] is there (and later: by whether a scope is open), not by a property
- * on this object.
+ * Platform/testing flags only — deliberately no `compose`, `andro` or `repos` field, and no
+ * `withCompose`/`withAndro`. Presence is answered by whether [Lib.compose] / [Lib.andro] is there
+ * (and later: by whether a scope is open), never by a property on this object.
  */
 data class LibFlags(
   val withJvm: Boolean = true,
@@ -79,7 +75,7 @@ data class LibFlags(
   val withCentralPublish: Boolean = false,
 )
 
-/** Same fields as [LibComposeSettings]; no longer a field of anything. */
+/** Compose options. A sibling of [Lib], not a field of anything. */
 data class LibCompose(
   val withComposeUi: Boolean = true,
   val withComposeFoundation: Boolean = true,
@@ -97,7 +93,7 @@ data class LibCompose(
   val withComposeTestHtmlUtils: Boolean = false,
 )
 
-/** Same fields as [LibAndroSettings]; no longer a field of anything. */
+/** Android options. A sibling of [Lib], not a field of anything. */
 data class LibAndro(
   /** Should override [sdkCompile] when not null */
   val sdkCompilePreview: String? = null,
@@ -125,7 +121,7 @@ data class LibAndro(
   val NoVariants get() = ""
 }
 
-/** Same fields as [LibReposSettings]; no longer derived from [LibSettings.withKotlinxHtml]. */
+/** Repository options. See [defaultLibRepos] for the one flag they take from [LibFlags]. */
 data class LibRepos(
   /**
    * It's a huge footgun! If REALLY needed, then do it manually with strict repository content filter.
@@ -144,21 +140,19 @@ data class LibRepos(
   val withJitpack: Boolean = false,
 )
 
-// endregion [[Lib — the de-nested sibling model]]
+// endregion [[Lib — the sibling model]]
 
 // region [[Lib — derivations and factory]]
 
 /**
- * THE HARD PART, isolated. In the nested model these ten flags are default values of
- * [LibSettings.compose], so they can read `withJvm` / `withJs` / `withTestJUnit4` / `withTestJUnit5`
- * from the enclosing declaration. Siblings cannot do that — a default argument only sees earlier
- * parameters of the SAME declaration — so the derivation becomes an explicit function.
+ * THE HARD PART, isolated: ten compose options that are derived from [LibFlags].
  *
- * That is a gain, not a workaround: the rule is now named, callable, and overridable at one place,
- * instead of being spelled out in a constructor default that fires only when you omit the argument.
+ * Siblings cannot express this as a constructor default — a default argument only sees earlier
+ * parameters of the SAME declaration — so the derivation is an explicit function. That is a gain,
+ * not a workaround: the rule is named, callable and overridable in one place, instead of being
+ * spelled out in a default that fires only when you omit the argument.
  *
- * Takes [flags] as a plain parameter, not a context parameter, so step 1 needs no compiler flag;
- * it becomes `context(flags: LibFlags)` in step 3.
+ * Takes [flags] as a plain parameter, not a context parameter, so no compiler flag is needed here.
  */
 fun defaultLibCompose(flags: LibFlags): LibCompose = with(flags) {
   LibCompose(
@@ -175,7 +169,7 @@ fun defaultLibCompose(flags: LibFlags): LibCompose = with(flags) {
   )
 }
 
-/** The second cross-object derivation: [LibReposSettings.withKotlinxHtml] tracked [LibSettings.withKotlinxHtml]. */
+/** The second derivation: [LibRepos.withKotlinxHtml] tracks [LibFlags.withKotlinxHtml]. */
 fun defaultLibRepos(flags: LibFlags): LibRepos = LibRepos(
   withKotlinxHtml = flags.withKotlinxHtml,
   withComposeJbDev = false,
@@ -184,8 +178,7 @@ fun defaultLibRepos(flags: LibFlags): LibRepos = LibRepos(
 /**
  * Assembles the sibling set, applying the derivations above for whatever is not given explicitly.
  *
- * [withCompose] / [withAndro] say whether those siblings EXIST at all — the one thing the nested
- * model expressed as `null` and consumers had to re-check with `!!` or `withCompose`.
+ * [withCompose] / [withAndro] say whether those siblings EXIST at all.
  */
 fun lib(
   info: LibInfo,
@@ -203,7 +196,7 @@ fun lib(
   andro = andro ?: LibAndro().takeIf { withAndro },
 )
 
-/** Sibling counterpart of [myLibDetails]: Marek's defaults for everything identity-ish. */
+/** Marek's defaults for everything identity-ish. */
 fun myLibInfo(
   name: String,
   group: String = "pl.mareklangiewicz",
@@ -229,189 +222,3 @@ fun myLibInfo(
 )
 
 // endregion [[Lib — derivations and factory]]
-
-// region [[Lib — adapters to and from the nested model]]
-
-/*
- * Both directions exist only while the two models coexist, and both are deleted in step 4:
- *  - [LibDetails.toLib] lets an existing nested value drive the new shape (what consumers use first);
- *  - [Lib.toNested] lets the new shape feed still-nested internals, and is the measuring instrument
- *    the equivalence tests compare against.
- *
- * They are total and lossless in both directions: the sibling types carry exactly the fields the
- * nested ones do, no more. (`sdkCompileMinor` was deliberately absent until 0.4.29, because
- * adding it to only one side would have made `toNested` lossy; it is now on BOTH, so the adapters
- * stay total and the equivalence tests keep their meaning.)
- */
-
-fun LibDetails.toLib(): Lib = Lib(
-  info = LibInfo(
-    name = name,
-    group = group,
-    description = description,
-    authorId = authorId,
-    authorName = authorName,
-    authorEmail = authorEmail,
-    githubUrl = githubUrl,
-    licenceName = licenceName,
-    licenceUrl = licenceUrl,
-    version = version,
-    namespace = namespace,
-    id = appId,
-    appMainPackage = appMainPackage,
-    appMainClass = appMainClass,
-    appMainFun = appMainFun,
-    appVerCode = appVerCode,
-    appVerName = appVerName,
-  ),
-  flags = settings.toFlags(),
-  repos = settings.repos.toSibling(),
-  compose = settings.compose?.toSibling(),
-  andro = settings.andro?.toSibling(),
-)
-
-fun LibSettings.toFlags() = LibFlags(
-  withJvm = withJvm,
-  withJvmVer = withJvmVer,
-  withJs = withJs,
-  withLinuxX64 = withLinuxX64,
-  withKotlinxHtml = withKotlinxHtml,
-  withTestJUnit5 = withTestJUnit5,
-  withTestJUnit4 = withTestJUnit4,
-  withTestJUnit4OnAndroidDevice = withTestJUnit4OnAndroidDevice,
-  withTestUSpekX = withTestUSpekX,
-  withTestGoogleTruth = withTestGoogleTruth,
-  withTestMockitoKotlin = withTestMockitoKotlin,
-  withCentralPublish = withCentralPublish,
-)
-
-fun LibComposeSettings.toSibling() = LibCompose(
-  withComposeUi = withComposeUi,
-  withComposeFoundation = withComposeFoundation,
-  withComposeMaterial2 = withComposeMaterial2,
-  withComposeMaterial3 = withComposeMaterial3,
-  withComposeMaterialIconsExtended = withComposeMaterialIconsExtended,
-  withComposeFullAnimation = withComposeFullAnimation,
-  withComposeDesktop = withComposeDesktop,
-  withComposeDesktopComponents = withComposeDesktopComponents,
-  withComposeHtmlCore = withComposeHtmlCore,
-  withComposeHtmlSvg = withComposeHtmlSvg,
-  withComposeTestUi = withComposeTestUi,
-  withComposeTestUiJUnit4 = withComposeTestUiJUnit4,
-  withComposeTestUiJUnit5 = withComposeTestUiJUnit5,
-  withComposeTestHtmlUtils = withComposeTestHtmlUtils,
-)
-
-fun LibAndroSettings.toSibling() = LibAndro(
-  sdkCompilePreview = sdkCompilePreview,
-  sdkCompile = sdkCompile,
-  sdkCompileMinor = sdkCompileMinor,
-  sdkTargetPreview = sdkTargetPreview,
-  sdkTarget = sdkTarget,
-  sdkMin = sdkMin,
-  withAppCompat = withAppCompat,
-  withLifecycle = withLifecycle,
-  withActivityCompose = withActivityCompose,
-  withMDC = withMDC,
-  withTestEspresso = withTestEspresso,
-  withTestRunner = withTestRunner,
-  publishVariant = publishVariant,
-)
-
-@Suppress("DEPRECATION")
-fun LibReposSettings.toSibling() = LibRepos(
-  withMavenLocal = withMavenLocal,
-  withMavenCentral = withMavenCentral,
-  withGradle = withGradle,
-  withGoogle = withGoogle,
-  withKotlinx = withKotlinx,
-  withKotlinxHtml = withKotlinxHtml,
-  withComposeJbDev = withComposeJbDev,
-  withKtorEap = withKtorEap,
-  withJitpack = withJitpack,
-)
-
-fun Lib.toNested(): LibDetails = LibDetails(
-  name = info.name,
-  group = info.group,
-  description = info.description,
-  authorId = info.authorId,
-  authorName = info.authorName,
-  authorEmail = info.authorEmail,
-  githubUrl = info.githubUrl,
-  licenceName = info.licenceName,
-  licenceUrl = info.licenceUrl,
-  version = info.version,
-  namespace = info.namespace,
-  appId = info.id,
-  appMainPackage = info.appMainPackage,
-  appMainClass = info.appMainClass,
-  appMainFun = info.appMainFun,
-  appVerCode = info.appVerCode,
-  appVerName = info.appVerName,
-  settings = LibSettings(
-    withJvm = flags.withJvm,
-    withJvmVer = flags.withJvmVer,
-    withJs = flags.withJs,
-    withLinuxX64 = flags.withLinuxX64,
-    withKotlinxHtml = flags.withKotlinxHtml,
-    withTestJUnit5 = flags.withTestJUnit5,
-    withTestJUnit4 = flags.withTestJUnit4,
-    withTestJUnit4OnAndroidDevice = flags.withTestJUnit4OnAndroidDevice,
-    withTestUSpekX = flags.withTestUSpekX,
-    withTestGoogleTruth = flags.withTestGoogleTruth,
-    withTestMockitoKotlin = flags.withTestMockitoKotlin,
-    withCentralPublish = flags.withCentralPublish,
-    compose = compose?.toNested(),
-    andro = andro?.toNested(),
-    repos = repos.toNested(),
-  ),
-)
-
-fun LibCompose.toNested() = LibComposeSettings(
-  withComposeUi = withComposeUi,
-  withComposeFoundation = withComposeFoundation,
-  withComposeMaterial2 = withComposeMaterial2,
-  withComposeMaterial3 = withComposeMaterial3,
-  withComposeMaterialIconsExtended = withComposeMaterialIconsExtended,
-  withComposeFullAnimation = withComposeFullAnimation,
-  withComposeDesktop = withComposeDesktop,
-  withComposeDesktopComponents = withComposeDesktopComponents,
-  withComposeHtmlCore = withComposeHtmlCore,
-  withComposeHtmlSvg = withComposeHtmlSvg,
-  withComposeTestUi = withComposeTestUi,
-  withComposeTestUiJUnit4 = withComposeTestUiJUnit4,
-  withComposeTestUiJUnit5 = withComposeTestUiJUnit5,
-  withComposeTestHtmlUtils = withComposeTestHtmlUtils,
-)
-
-fun LibAndro.toNested() = LibAndroSettings(
-  sdkCompilePreview = sdkCompilePreview,
-  sdkCompile = sdkCompile,
-  sdkCompileMinor = sdkCompileMinor,
-  sdkTargetPreview = sdkTargetPreview,
-  sdkTarget = sdkTarget,
-  sdkMin = sdkMin,
-  withAppCompat = withAppCompat,
-  withLifecycle = withLifecycle,
-  withActivityCompose = withActivityCompose,
-  withMDC = withMDC,
-  withTestEspresso = withTestEspresso,
-  withTestRunner = withTestRunner,
-  publishVariant = publishVariant,
-)
-
-@Suppress("DEPRECATION")
-fun LibRepos.toNested() = LibReposSettings(
-  withMavenLocal = withMavenLocal,
-  withMavenCentral = withMavenCentral,
-  withGradle = withGradle,
-  withGoogle = withGoogle,
-  withKotlinx = withKotlinx,
-  withKotlinxHtml = withKotlinxHtml,
-  withComposeJbDev = withComposeJbDev,
-  withKtorEap = withKtorEap,
-  withJitpack = withJitpack,
-)
-
-// endregion [[Lib — adapters to and from the nested model]]

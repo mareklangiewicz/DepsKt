@@ -17,12 +17,6 @@ object Repos {
 
   val composeJbDev = URI("https://maven.pkg.jetbrains.space/public/p/compose/dev")
 
-  @Deprecated("Use compose compiler provided with kotlin itself.")
-  val composeCompilerJbDev = composeJbDev // this just reminds that jb compose compilers are in the same place
-
-  @Deprecated("Use compose compiler provided with kotlin itself.")
-  val composeCompilerAxDev = URI("https://androidx.dev/storage/compose-compiler/repository/")
-
   val jitpack = URI("https://jitpack.io")
 
   val kotlinx = URI("https://kotlin.bintray.com/kotlinx")

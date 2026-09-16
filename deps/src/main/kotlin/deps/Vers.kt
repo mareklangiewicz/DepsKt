@@ -161,7 +161,7 @@ object Vers {
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
   val DepsPlug = Ver(0, 4, 29) // also sync it in ../../../../../settings.gradle.kts
-  // TODO use sourcefun to make sure it's always synced with myLibDetails(version)
+  // TODO use sourcefun to make sure it's always synced with myLibInfo(version)
 
   /**
    * SourceFun Gradle Plugin
@@ -210,17 +210,5 @@ object Vers {
    * [andro testing docs](https://developer.android.com/training/testing/instrumented-tests#set-testing)
    */
   const val AndroTestRunner = "androidx.test.runner.AndroidJUnitRunner"
-
-  /**
-   * - [releases](https://developer.android.com/tools/releases/build-tools)
-   */
-  @Deprecated("Deprecated with android gradle plugin 3.0.0 or higher")
-  val AndroBuildTools = Ver("36.0.0")
-
-  /**
-   * - [revisions](https://developer.android.com/topic/libraries/support-library/revisions.html)
-   */
-  @Deprecated("Use androidx")
-  val AndroSupportLibrary = Ver("28.0.0")
 
 }

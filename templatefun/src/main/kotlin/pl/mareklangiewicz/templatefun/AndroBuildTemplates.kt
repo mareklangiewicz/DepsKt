@@ -16,18 +16,6 @@ import pl.mareklangiewicz.defaults.*
 // region [[Andro Common Build Template]]
 
 /**
- * Kept as a deprecated alias so a consumer still pinned to an older DepsKt keeps compiling.
- * The value itself moved into DepsKt's `Vers` (where a version belongs) and onto
- * [pl.mareklangiewicz.deps.LibAndro.sdkCompileMinor], so it is now per-lib and overridable
- * instead of a single const every template shared. Delete once every consumer is on 0.4.29+.
- */
-@Deprecated(
-  "Use andro.sdkCompileMinor (or Vers.AndroSdkCompileMinor).",
-  ReplaceWith("Vers.AndroSdkCompileMinor", "pl.mareklangiewicz.deps.Vers"),
-)
-const val AndroSdkCompileMinor = Vers.AndroSdkCompileMinor
-
-/**
  * MIGRATED to the sibling model: android settings arrive as a SCOPE, so the
  * `?: error("No andro settings.")` that opened this function is gone — it cannot be called at all
  * without android.

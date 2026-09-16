@@ -60,7 +60,7 @@ gradle.extLib = lib(
     // https://plugins.gradle.org/search?term=pl.mareklangiewicz
   ),
   flags = LibFlags(withJs = false),
-  withCompose = false, // was: settings = LibSettings(compose = null) - presence, stated as presence
+  withCompose = false, // presence, stated as presence
 )
 
 // Two siblings under an empty root, not a library root with a satellite. See

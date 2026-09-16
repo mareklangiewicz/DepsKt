@@ -1,23 +1,15 @@
-@file:Suppress("DEPRECATION") // the nested model is the CONTROL these tests compare against
-
 import kotlin.test.*
 import pl.mareklangiewicz.deps.*
 
 /**
- * Adjusting a [Lib] must rebuild exactly what the nested copy-dance rebuilt.
+ * What adjusting a [Lib] does, and — more usefully — what it does NOT do.
  *
- * Ported from KGround's probes 16-18, which asserted this against that repo's real
- * `gradle.extLibDetails` from a Gradle task. They were the last of the 19 probes with content worth
- * keeping, and they are model claims, not claims about the script/module seam — so they belong
- * here, where they run in seconds and cannot rot on a branch. See
- * `docs/design/lib-details-denesting.md`.
+ * Ported from KGround's probes 16-18, which asserted the sibling `copy` rebuilt exactly what the
+ * nested copy-dance rebuilt. That control is gone with the nested model, so these now state the
+ * behaviour directly. Both remaining claims are about things that do not recompute: derived
+ * siblings and derived identity fields are computed once, at construction.
  *
- * Deliberately NOT ported: `probeAndroScope`. Its interesting half — that a function needing andro
- * cannot be CALLED without an andro scope — is a compile error, which no test can assert; the note
- * records it as proven by construction. Its runtime half only says `sdkCompileMinor` survives on
- * [LibAndro], which the round-trip tests in [LibDenestingTest] already cover with a non-default
- * value. Porting it would have meant putting `-Xcontext-parameters` on this source set to buy no
- * evidence.
+ * See `docs/design/lib-details-denesting.md`.
  */
 class LibAdjustmentTest {
 
@@ -27,59 +19,49 @@ class LibAdjustmentTest {
     withAndro = true,
   )
 
-  @Test
-  fun adjustingFlagsRebuildsAnIdenticalLibDetails() {
-    val nestedDance = base.toNested().let {
-      it.copy(settings = it.settings.copy(withJs = false, withLinuxX64 = false, withKotlinxHtml = true))
-    }
-    val siblingForm = base
-      .copy(flags = base.flags.copy(withJs = false, withLinuxX64 = false, withKotlinxHtml = true))
-      .toNested()
-    // Data-class equality, so this covers compose/andro/repos too: the siblings nobody touched must
-    // arrive unchanged, or the whole module configuration diverges with them.
-    assertEquals(nestedDance, siblingForm)
-  }
-
-  /** Without this the assertion above would pass even if both sides ignored their arguments. */
-  @Test
-  fun thatComparisonCanTellTwoConfigsApart() {
-    val nestedDance = base.toNested().let {
-      it.copy(settings = it.settings.copy(withJs = false, withLinuxX64 = false, withKotlinxHtml = true))
-    }
-    val different = base.copy(flags = base.flags.copy(withJs = true)).toNested()
-    assertNotEquals(nestedDance, different)
-  }
-
   /**
-   * The identity-adjusting form (KGround's kommand-line / -samples rename it before configuring).
+   * Adjusting flags touches the flags only. The siblings nobody named arrive unchanged — including
+   * [Lib.compose], which [lib] DERIVED from the old flags and which `copy` does not re-derive.
    *
-   * This one guards the published coordinate: `coordinates(artifactId = ..)` reads the lib name, so
-   * both forms must agree, and both must carry the ORIGINAL namespace forward — see below.
+   * That is the sharp edge worth a test: a lib adjusted this way keeps compose options computed
+   * from flags it no longer has. Re-derivation is [lib]'s job, and the second half asserts the two
+   * really differ, so this is a choice rather than an accident nobody would notice.
    */
   @Test
-  fun adjustingIdentityRebuildsAnIdenticalLibDetails() {
-    val renamed = "Kommand Line"
-    val newDesc = "Kotlin DSL for popular CLI commands."
-    val nestedRenamed = base.toNested().copy(name = renamed, description = newDesc)
-    val siblingRenamed = base
-      .copy(info = base.info.copy(name = renamed, description = newDesc))
-      .toNested()
-    assertEquals(nestedRenamed, siblingRenamed)
-    assertEquals(renamed, siblingRenamed.name)
+  fun adjustingFlagsRebuildsNothingElse() {
+    val newFlags = base.flags.copy(withJs = false, withLinuxX64 = false, withKotlinxHtml = true)
+    val adjusted = base.copy(flags = newFlags)
+
+    assertEquals(newFlags, adjusted.flags)
+    assertEquals(base.compose, adjusted.compose, "compose must arrive untouched, not re-derived")
+    assertEquals(base.repos, adjusted.repos)
+    assertEquals(base.andro, adjusted.andro)
+    assertEquals(base.info, adjusted.info)
+
+    // ..and re-deriving really would have produced something else, so the assertions above bite
+    val rebuilt = lib(base.info, newFlags, withAndro = true)
+    assertNotEquals(adjusted.compose, rebuilt.compose, "control: the two differ for these flags")
+    assertNotEquals(adjusted.repos, rebuilt.repos, "control: the two differ for these flags")
   }
 
   /**
    * `namespace` and `id` are CONSTRUCTOR DEFAULTS derived from group and name, and constructor
    * defaults run at construction only — `copy(name = ..)` does not recompute them. So a renamed lib
-   * keeps the namespace it was built with, in both models. Worth a test rather than a comment:
-   * the alternative behaviour would silently move an android library's package.
+   * keeps the namespace it was built with. Worth a test rather than a comment: the alternative
+   * behaviour would silently move an android library's package.
    */
   @Test
-  fun renamingDoesNotRecomputeNamespace() {
+  fun renamingDoesNotRecomputeNamespaceOrId() {
     val original = base.info.namespace
-    assertEquals("pl.mareklangiewicz.somelib", original) // the value really is name-derived...
-    val siblingRenamed = base.copy(info = base.info.copy(name = "Kommand Line")).toNested()
-    assertEquals(original, siblingRenamed.namespace) // ...and renaming still does not move it
-    assertEquals(base.toNested().copy(name = "Kommand Line").namespace, siblingRenamed.namespace)
+    assertEquals("pl.mareklangiewicz.somelib", original) // the value really is name-derived..
+    assertEquals(original, base.info.id)
+
+    val renamed = base.copy(info = base.info.copy(name = "Kommand Line", description = "Kotlin DSL for CLIs."))
+    assertEquals("Kommand Line", renamed.info.name)
+    assertEquals(original, renamed.info.namespace) // ..and renaming still does not move it
+    assertEquals(original, renamed.info.id)
+
+    // building fresh under the new name WOULD move it — that is what makes the assertions above real
+    assertEquals("pl.mareklangiewicz.kommand line", myLibInfo(name = "Kommand Line").namespace)
   }
 }

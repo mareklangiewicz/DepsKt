@@ -117,7 +117,7 @@ fun Project.defaultBuildTemplateForBasicMppLib(
  *
  * Note what did NOT simply vanish. `ignoreAndroPublish` guarded a constraint on the CONTENT of the
  * andro settings (`publishNoVariants`), not on their presence, so it has to live where the content
- * is visible: [defaultBuildTemplateForBasicMppLib], which still holds the whole [LibDetails].
+ * is visible: [defaultBuildTemplateForBasicMppLib], which still holds the whole [Lib].
  * Nothing had to be moved there, because it was ALREADY there — all three `require`s deleted here
  * were verbatim duplicates of checks the entry point performs immediately before calling this
  * function. That duplication is itself a symptom of the nesting: both levels were handed the same

@@ -1,7 +1,8 @@
 # De-nesting LibDetails / LibSettings
 
-Status: **steps 1-3 done** (DepsKt on master + published; KGround ported). Step 4 is blocked — see
-"Step 4 is gated on consumers" below. The nested model is **deprecated as of 0.4.27**.
+Status: **all four steps done**. The nested model was deprecated in 0.4.27 and DELETED in the
+release after 0.4.29 — see "Step 4: the nested model is gone" at the end. The sections below are
+kept as the record of how it got there; where one says step 4 is blocked, read it as history.
 Originally **proven in a prototype**: Identified 2026-09-14 while using
 context parameters in KGround's `template-logic` (branch `build-logic-context-params`), then
 prototyped there in full as `LibDetailsTMP` / `LibSettingsTMP` / `LibComposeSettingsTMP` /
@@ -742,3 +743,72 @@ so it is a stated behaviour change, not a loosened test.
 - All five publication coordinates regenerated from scratch (POMs deleted first) and still
   byte-identical to shipped 0.4.29: `pl.mareklangiewicz.deps:DepsKt`, `:templatefun`, the three
   plugin markers.
+
+
+## Step 4: the nested model is gone (2026-09-16)
+
+Done on Marek's instruction, ahead of the consumer migration that "Step 4 is gated on consumers"
+above says it waits for. That gate was about not breaking repos; it is answered by the release
+boundary instead — every consumer is pinned to a published 0.4.29 or older, and none of them can
+see this until it bumps.
+
+### Deleted
+
+- `deps/deps/LibDetails.kt` entirely: `LibDetails`, `LibSettings`, `LibComposeSettings`,
+  `LibAndroSettings`, `LibReposSettings`, `myLibDetails`.
+- `Lib.kt`'s whole adapter region: `toLib`, `toNested`, `toFlags` and the four `toSibling`s.
+- `Utils.kt`: `extLibDetails`, `rootExtLibDetails`, `findExtLibDetails`. `LibDetailsNotFoundException`
+  is now `LibNotFoundException` — the type it could not find has not been "details" for a while.
+- `Defaults.kt`: the nested `defaultGroupAndVerAndDescription(LibDetails)` shim, and the unrelated
+  long-deprecated `defaultGroupAndVer(dep: String)` (no reference anywhere in Marek's repos).
+- templatefun's `AndroSdkCompileMinor` alias, whose own comment said "delete once every consumer is
+  on 0.4.29+" — it ships in the same artifact as the DepsKt a consumer would be pinned to, so an
+  old consumer keeps its old copy.
+- Two dead constant pairs, checked for references across every local repo first:
+  `Vers.AndroBuildTools` + `Vers.AndroSupportLibrary`, `Repos.composeCompilerJbDev` +
+  `Repos.composeCompilerAxDev`.
+
+Every `@file:Suppress("DEPRECATION")` that existed to quiet the nested model went with it.
+
+### Kept, deliberately
+
+`LibRepos.withMavenLocal` and the three in `GradleEvts` stay deprecated. They are not migration
+debt: they mark a live API as a footgun or as unsupported under configuration cache, which is the
+warning doing its job. Deleting the annotation would remove the warning, not the problem.
+
+### What the tests became
+
+The nested model was the CONTROL for three test classes, so deleting it removes the instrument, not
+just the subject. 25 tests became 18:
+
+- `LibDenestingTest` is now `LibModelTest` (renamed, so a stale reference is an error rather than a
+  file that quietly means something else). Its round-trip tests are gone — there is nothing to round
+  trip through. Its two derivation-equivalence tests are replaced by the derivations' truth table
+  written out by hand: every option `defaultLibCompose` touches, for all 8 flag combinations, plus
+  an assertion that the options it does NOT derive keep `LibCompose`'s own defaults. New:
+  `factoryBuildsItsSiblingsWithTheDerivations`, which pins that `lib(..)` applies the derivations
+  rather than the bare constructor defaults, with a control showing the two differ for those flags.
+- `LibAdjustmentTest` asserted that the sibling `copy` rebuilt what the nested copy-dance rebuilt.
+  It now states the behaviour directly, and the useful half is what does NOT happen:
+  `copy(flags = ..)` leaves `compose` derived from the OLD flags, and `copy(name = ..)` does not
+  recompute `namespace` or `id`. Each has a control proving the alternative really would differ —
+  otherwise "nothing changed" is a claim no assertion can fail.
+- `LibExtStorageTest` loses the view tests (there is one accessor now) and keeps storage, hierarchy
+  walking, the not-found exception and the entry point.
+
+### Verified
+
+- `./gradlew build --rerun-tasks` green; 18 tests, 0 failures.
+- All publication coordinates regenerated from deleted POMs and unchanged:
+  `pl.mareklangiewicz.deps:DepsKt`, `:templatefun`, and the plugin markers.
+- Zero references to the deleted names remain in DepsKt or templatefun, including in KDoc — the
+  migration narrative in `Lib.kt` ("step 1", "the nested types still exist") was rewritten to
+  describe the model as it now is, rather than left pointing at types that are gone.
+
+### Still open
+
+The 13 consumer repos have not been touched. They are pinned to 0.4.25-0.4.29 and will need
+`myLibDetails` / `LibSettings(` / `extLibDetails` rewritten when they bump — now a compile error
+rather than a warning, which is the honest signal. The `ReplaceWith` quick-fixes that would have
+made most of it mechanical are gone with the types, so 0.4.27-0.4.29 is the last version that can
+assist that migration: bump a repo to 0.4.29 first, apply the quick-fixes, then bump again.
