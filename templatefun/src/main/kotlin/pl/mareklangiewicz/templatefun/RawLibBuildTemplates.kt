@@ -157,7 +157,16 @@ fun Project.defaultBuildTemplateForRawMppLib(
         }
       }
       if (flags.withLinuxX64) {
-        linuxX64Main
+        linuxX64Main {
+          // composeMain, NOT composeUiMain: there is no Compose UI for linuxX64 upstream, but the
+          // compose compiler plugin IS applied to every target, and it fails the compilation
+          // outright when the runtime is missing (IncompatibleComposeRuntimeVersionException,
+          // "minimum runtime version 1.0.0"). composeMain carries the runtime alone, so this edge
+          // is what makes withLinuxX64 usable together with compose at all. linuxX64Test needs no
+          // matching edge: implementation deps of linuxX64Main already reach the test compilation
+          // of the same target.
+          dependsOn(composeMain)
+        }
         linuxX64Test
       }
       if (lib.andro != null) {
