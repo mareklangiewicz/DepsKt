@@ -5,6 +5,7 @@ import org.gradle.api.artifacts.*
 import org.gradle.api.plugins.ExtensionAware
 import org.jetbrains.compose.*
 import org.jetbrains.compose.desktop.*
+import org.jetbrains.compose.resources.*
 import org.jetbrains.compose.desktop.application.dsl.*
 import org.jetbrains.kotlin.gradle.dsl.*
 import org.jetbrains.kotlin.gradle.plugin.*
@@ -41,9 +42,11 @@ fun Project.defaultBuildTemplateForFullMppLib(
     }
 
     // The KMP android target names its configurations per source set, so the plain
-    // "implementation"/"testImplementation" of the old com.android.library path are gone.
-    // Still reusing defaultAndroDeps rather than restating the list (trust me future Marek:
-    // I've tried configuring it all the "mpp way" already :) ).
+    // "implementation"/"testImplementation" of the old com.android.library path are gone -- which
+    // means these helpers now declare into MPP source-set configurations. That IS the "mpp way";
+    // the 2023-12-17 note that used to sit here ("it would be more correct to configure everything
+    // mpp way, but it is more important to reuse defaultAndroDeps") posed a tradeoff that no longer
+    // exists, so both halves of it are satisfied at once and the note is retired.
     dependencies {
       // compose is configured the MPP way already, so we simply do NOT open a compose scope here:
       // the compose-android deps live in defaultComposeAndroDeps and are unreachable without one.
@@ -51,6 +54,14 @@ fun Project.defaultBuildTemplateForFullMppLib(
       context(andro) {
         defaultAndroDeps(configuration = "androidMainImplementation")
         defaultAndroTestDeps(configuration = "androidHostTestImplementation")
+        // The device-test compilation needs its own deps: source sets get configurations per source
+        // set, so androidHostTest's do NOT reach it. template-raw restated a hand-written list here;
+        // reusing the same flag-driven helper instead is the whole point of having one template.
+        defaultAndroTestDeps(
+          configuration = "androidDeviceTestImplementation",
+          withJUnit4 = lib.flags.withTestJUnit4OnAndroidDevice,
+          withJUnit5 = false, // JUnit5 is not supported on android device tests.
+        )
       }
     }
   }
@@ -266,6 +277,25 @@ fun Project.defaultBuildTemplateForComposeMppLib(
   extensions.configure<KotlinMultiplatformExtension> {
     context(compose) { allDefaultSourceSetsForCompose() }
   }
+
+  // Both of these came from template-raw's own copy of this template, and both are load-bearing:
+  // without them :<lib>:compileAndroidDeviceTest fails. They are here rather than there because
+  // there is one template now.
+  if (lib.andro != null) {
+    // Upstream bug: CopyResourcesToAndroidAssetsTask is registered for the device-test compilation
+    // without an outputDirectory, so merely CONFIGURING it fails with "Value not set". Nothing in
+    // these templates has compose resources for android device tests anyway.
+    // Note: `./gradlew build` does NOT reach that compilation, so this failure is invisible to the
+    // normal gate -- it takes :<lib>:compileAndroidDeviceTest to see it.
+    tasks.matching { it.name == "copyAndroidDeviceTestComposeResourcesToAndroidAssets" }
+      .configureEach { enabled = false }
+  }
+
+  ((extensions.getByName("compose") as ComposeExtension) as ExtensionAware)
+    .extensions.configure<ResourcesExtension> {
+      // generateResClass = always
+      generateResClass = never
+    }
 }
 
 
@@ -332,6 +362,15 @@ fun KotlinMultiplatformExtension.allDefaultSourceSetsForCompose(
     // defaultBuildTemplateForFullMppLib runs AFTER this function. configureEach also sees source
     // sets added later, so the edge lands whenever (and only if) the target appears.
     configureEach { if (name == "androidMain") dependsOn(composeUiMain) }
+    // Compose UI test deps for android DEVICE tests. These are the androidx artifacts, not the JB
+    // ones: on a device it is androidx compose that is actually running. Same configureEach reason
+    // as androidMain above -- the android target's source sets do not exist yet at this point.
+    configureEach {
+      if (name == "androidDeviceTest") dependencies {
+        if (withComposeTestUi) implementation(AndroidX.Compose.Ui.test)
+        if (withComposeTestUiJUnit4) implementation(AndroidX.Compose.Ui.test_junit4)
+      }
+    }
     if (flags.withLinuxX64) linuxX64Main {
       // composeMain, NOT composeUiMain: there is no Compose UI for linuxX64 upstream, but the compose
       // compiler plugin IS applied to every target, and it fails the compilation outright when the

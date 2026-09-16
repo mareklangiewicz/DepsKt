@@ -66,6 +66,12 @@ fun DependencyHandler.defaultComposeAndroDeps(configuration: String = "implement
 context(flags: LibFlags, andro: LibAndro)
 fun DependencyHandler.defaultAndroTestDeps(
   configuration: String = "testImplementation",
+  // Which JUnit reaches THIS configuration. Host tests take the plain flags; android DEVICE tests
+  // have their own flag (withTestJUnit4OnAndroidDevice) and cannot take JUnit5 at all, so the
+  // caller that knows which compilation it is configuring passes that in. Without this the device
+  // configuration silently misses uspekx-junit4 and its @RunWith(USpekJUnit4Runner) stops resolving.
+  withJUnit4: Boolean = flags.withTestJUnit4,
+  withJUnit5: Boolean = flags.withTestJUnit5,
 ) {
   addAll(
     configuration,
@@ -77,7 +83,7 @@ fun DependencyHandler.defaultAndroTestDeps(
     Org.Mockito.Kotlin.mockito_kotlin.takeIf { flags.withTestMockitoKotlin },
   )
 
-  if (flags.withTestJUnit4) {
+  if (withJUnit4) {
     addAll(
       configuration,
       Kotlin.test_junit.withVer(Vers.Kotlin),
@@ -87,7 +93,7 @@ fun DependencyHandler.defaultAndroTestDeps(
     )
   }
   // android doesn't fully support JUnit5, but adding deps anyway to be able to write JUnit5 dependent code
-  if (flags.withTestJUnit5) {
+  if (withJUnit5) {
     addAll(
       configuration,
       Kotlin.test_junit5.withVer(Vers.Kotlin),
