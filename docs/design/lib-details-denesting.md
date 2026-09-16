@@ -812,3 +812,77 @@ The 13 consumer repos have not been touched. They are pinned to 0.4.25-0.4.29 an
 rather than a warning, which is the honest signal. The `ReplaceWith` quick-fixes that would have
 made most of it mechanical are gone with the types, so 0.4.27-0.4.29 is the last version that can
 assist that migration: bump a repo to 0.4.29 first, apply the quick-fixes, then bump again.
+
+## SourceFun moves in (2026-09-16)
+
+The third sibling landed. The layout is now:
+
+```
+DepsKt/            root: aggregates, publishes nothing, has no group
+  deps/            the published DepsKt artifact (artifactId pinned to DepsKt)
+  templatefun/     the reusable build templates, plugin id pl.mareklangiewicz.templatefun
+  sourcefun/       the SourceFun plugin, plugin id pl.mareklangiewicz.sourcefun
+                     (artifactId pinned to SourceFun; sample-sourcefun/ is a standalone build)
+```
+
+### The bootstrap is not circular, and could not have been avoided anyway
+
+`deps/build.gradle.kts` applies `id("pl.mareklangiewicz.sourcefun")` to generate the
+`Deps Generated` region, and it keeps doing so after the move — against the **published** plugin,
+a finished artifact from a previous release. This is not a workaround: a sibling subproject cannot
+supply a plugin to another subproject's build script at all, because build-script plugins resolve
+through `pluginManagement`. `:deps` already consumed published `templatefun` and published
+`deps.settings` on exactly these terms.
+
+The consequence is a pin that **lags on purpose**. `deps/build.gradle.kts` names the sourcefun
+version as a string literal (`"0.4.49"`), not `plugs.SourceFun`, for the same reason
+`settings.gradle.kts` names the settings plugin as a literal: it must name something already on the
+portal, so it can only be bumped *after* the release it names is out.
+
+### The pinned-artifactId trap, hit a second time
+
+`:deps` had to pin `artifactId = "DepsKt"` because the project lives in `deps/` and
+`defaultPublishing` defaults artifactId to `project.name`. `:sourcefun` is the same shape: the
+directory is `sourcefun/`, the published artifact has always been
+`pl.mareklangiewicz.deps:SourceFun`. Left alone it would have published
+`pl.mareklangiewicz.deps:sourcefun` — a brand-new coordinate with no history, and **nothing would
+have errored**.
+
+Note this is now two of the three siblings needing an artifactId that is not the project name, while
+templatefun's exported `defaultPublishing` still hardcodes `artifactId = name`. Both `:deps` and
+`:sourcefun` work around it locally (`:deps` by re-calling `coordinates(..)` after
+`defaultPublishing`, `:sourcefun` by spelling the whole `mavenPublishing` block out). Giving
+templatefun's `defaultPublishing` an `artifactId` parameter is the obvious follow-up.
+
+### Version: 0.4.31 -> 0.4.51
+
+One `gradle.extLib` version drives all three siblings, and SourceFun was already at **0.4.50** on the
+portal. Publishing it as 0.4.32 would have been a regression in the only ordering consumers can see,
+so the whole repo jumped instead. `deps` and `templatefun` skipping nineteen numbers costs nothing.
+`Vers.SourceFunPlug` is deleted; `plugs.SourceFun` now reads `vers.DepsPlug` like `plugs.TemplateFun`.
+
+### One Kotlin plugin declaration, at the root
+
+With two subprojects declaring `plugs.KotlinJvm` *with a version*, Gradle warns that the Kotlin
+plugin was loaded multiple times in one build ("not supported and may break the build"). The remedy
+Gradle prescribes is to declare it once in the parent: the root now has
+`plugins { plug(plugs.KotlinJvm) apply false }` and the siblings ask for `plugs.KotlinJvmNoVer`.
+`apply false` means declared-and-resolved, not applied — the root still has no sources.
+
+This trades that warning for a quieter one: `kotlin-dsl` (used by `:templatefun`) embeds Kotlin
+2.4.0 and now notices the build requests 2.4.20. That mismatch was always there; the root
+declaration is only what made Gradle say so.
+
+### sample-sourcefun was migrated too
+
+It came along still written against the deleted nested model (`myLibDetails`, `LibSettings`,
+`rootExtLibDetails`, and two copied template regions). It is a **standalone** build — its own
+settings and wrapper, invisible to the root build and to CI — but its `includeBuild("..")` now
+resolves to the DepsKt root, so leaving it on the old model would have meant a build script calling
+functions its own composite no longer ships. It now sets `gradle.extLib` in its settings, applies the
+templatefun plugin, and calls `defaultBuildTemplateForBasicMppLib()` with no arguments at all.
+
+Known, pre-existing and not fixed here: asking for `processExtensions1ByReg` and
+`fakeReportStuff1JustPrintLn` in the *same* invocation fails validation — both name the `extensions`
+directory, one as output and one as input, with no declared dependency between them. Each is green on
+its own, and `./gradlew build` is green.

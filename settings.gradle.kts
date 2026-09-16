@@ -56,7 +56,7 @@ gradle.extLib = lib(
     group = "pl.mareklangiewicz.deps", // important non default ...deps group (as accepted on gradle portal)
     description = "Updated dependencies for typical java/kotlin/android projects (with IDE support).",
     githubUrl = "https://github.com/mareklangiewicz/DepsKt",
-    version = Ver(0, 4, 31), // also sync it in ./deps/src/main/kotlin/deps/Vers.kt
+    version = Ver(0, 4, 51), // also sync it in ./deps/src/main/kotlin/deps/Vers.kt
     // TODO use some SourceFun task to make sure it's synced with Vers.DepsPlug
     // (we println it when applying plugin so have to be synced not to confuse users)
     // https://plugins.gradle.org/search?term=pl.mareklangiewicz
@@ -65,10 +65,13 @@ gradle.extLib = lib(
   withCompose = false, // presence, stated as presence
 )
 
-// Two siblings under an empty root, not a library root with a satellite. See
+// Three siblings under an empty root, not a library root with satellites. See
 // docs/design/lib-details-denesting.md, "DepsKt as a multi-project build".
 //
 // :deps is the published DepsKt artifact (artifactId is pinned in deps/build.gradle.kts).
+// :sourcefun is the SourceFun gradle plugin, moved in from its own repo (artifactId pinned the same
+// way, to SourceFun). :deps applies its PUBLISHED build, which is not circular -- see the note at
+// the top of sourcefun/build.gradle.kts.
 // :templatefun is the reusable build templates, moved here from KGround/template-logic. It is kept
 // out of the :deps artifact on purpose: both deps plugin ids -- including the settings one, applied
 // before anything else in every consuming build -- ship from :deps, and templatefun's AGP / Compose
@@ -84,3 +87,4 @@ gradle.extLib = lib(
 // and Gradle degrades to the published jar silently, as it always did when a rule stopped matching.
 include(":deps")
 include(":templatefun")
+include(":sourcefun")

@@ -17,8 +17,13 @@ import org.jetbrains.kotlin.gradle.dsl.*
 
 plugins {
   // plugAll(plugs.KotlinJvm, plugs.GradlePublish, plugs.VannikPublish, plugs.SourceFun)
-  plugAll(plugs.KotlinJvm, plugs.GradlePublish, plugs.VannikPublish)
+  plugAll(plugs.KotlinJvmNoVer, plugs.GradlePublish, plugs.VannikPublish) // version comes from the root
   plug(plugs.TemplateFun) // the PUBLISHED one -- see the note above defaultPublishing below
+  // The PUBLISHED sourcefun, even though :sourcefun is now a sibling in this very build. A
+  // subproject cannot supply a plugin to another subproject's build script, and this version is
+  // deliberately a LITERAL, not plugs.SourceFun: it must name something already on the portal, so
+  // it lags between a bump and a publish -- exactly like the settings plugin pinned in
+  // ../settings.gradle.kts. Bump it by hand, after the release it names is out.
   id("pl.mareklangiewicz.sourcefun") version "0.4.49" // https://plugins.gradle.org/search?term=mareklangiewicz
 }
 

@@ -160,16 +160,12 @@ object Vers {
    * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val DepsPlug = Ver(0, 4, 31) // also sync it in ../../../../../settings.gradle.kts
+  val DepsPlug = Ver(0, 4, 51) // also sync it in ../../../../../settings.gradle.kts
   // TODO use sourcefun to make sure it's always synced with myLibInfo(version)
 
-  /**
-   * SourceFun Gradle Plugin
-   * - [github](https://github.com/mareklangiewicz/SourceFun)
-   * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
-   * - [plugins gradle sourcefun](https://plugins.gradle.org/plugin/pl.mareklangiewicz.sourcefun)
-   */
-  val SourceFunPlug = Ver("0.4.49")
+  // SourceFunPlug is GONE: SourceFun moved into this repo as the :sourcefun sibling, so the plugin
+  // ships from the same build as :deps and :templatefun and shares [DepsPlug]. The jump 0.4.31 ->
+  // 0.4.51 is deliberate -- SourceFun was already at 0.4.50 on the portal and must not regress.
 
   const val JvmDefaultVer = "23"
 

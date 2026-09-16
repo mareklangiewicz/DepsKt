@@ -190,8 +190,12 @@ object Plugs {
   /**
    * SourceFun Gradle Plugin
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
+   * - [plugins gradle sourcefun](https://plugins.gradle.org/plugin/pl.mareklangiewicz.sourcefun)
    * - [github](https://github.com/mareklangiewicz/DepsKt)
+   *
+   * Published from the same build as [Deps] and [DepsSettings], so it shares [vers.DepsPlug].
+   * Like [Deps] itself, that means it names a version that lags reality between a bump and a publish.
    */
   val SourceFunNoVer = DepP("pl.mareklangiewicz.sourcefun")
-  val SourceFun = SourceFunNoVer.withVer(vers.SourceFunPlug)
+  val SourceFun = SourceFunNoVer.withVer(vers.DepsPlug)
 }
