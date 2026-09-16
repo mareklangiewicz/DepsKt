@@ -93,7 +93,7 @@ val pathToSrcKotlin = projectPath / "src/main/kotlin"
 val urlToRefreshDeps = "https://raw.githubusercontent.com/mareklangiewicz/refreshDeps"
 val urlToObjectsFile = "$urlToRefreshDeps/main/plugins/dependencies/src/test/resources/objects-for-deps.txt"
 
-val downloadGeneratedDeps by tasks.registering(DownloadFileTask::class) {
+val downloadGeneratedDeps = tasks.register<DownloadFileTask>("downloadGeneratedDeps") {
   group = "maintenance"
   inputUrl.set(urlToObjectsFile)
   outputFile.set(layout.buildDirectory.file("objects-for-deps.txt"))
@@ -117,7 +117,7 @@ sourceFun {
 
 // Note: Leaving here older version to document and experiment with different approaches more
 // (this one uses temp file in home dir not managed by gradle - see downloadAndInjectfileToSpecialRegion)
-val updateGeneratedDepsAlternative by tasks.registering {
+tasks.register("updateGeneratedDepsAlternative") {
   group = "maintenance"
   doLastWithUCtxForTask {
     downloadAndInjectFileToSpecialRegion(
@@ -129,7 +129,7 @@ val updateGeneratedDepsAlternative by tasks.registering {
 }
 
 @OptIn(ExperimentalApi::class)
-val updateSomeRegexes by tasks.registering {
+tasks.register("updateSomeRegexes") {
 
   group = "maintenance"
 
