@@ -134,7 +134,24 @@ private val sampleSourceFunProjectPath: Path =
     }
 
 private fun onSampleSourceFunProject() {
-  "On sample-sourcefun project" o {
+  // DISABLED on purpose (`ox`, not `o`). Re-enable by putting the `o` back -- nothing else to undo,
+  // and sourcefun/build.gradle.kts still injects sourcefun.sampleProjectPath, so the fixture wiring
+  // (and its deliberately-can-fail path check) stays honest while this is off.
+  //
+  // Why: these were ~54s of :sourcefun:test's 59s, and that was on a WARM build -- a clean one is
+  // worse, since each of the 11 GradleRunner invocations configures DepsKt again through
+  // sample-sourcefun's `pluginManagement { includeBuild("..") }`. The 55 test cases themselves sum
+  // to ~0.02s: the cost is invocations, not assertions.
+  //
+  // Worth it because day-to-day work here changes deps data and deps-related logic, not the
+  // SourceFun plugin. The cheap coverage stays on: onExampleWithProjectBuilder and
+  // onSingleHelloWorldProject still run (the latter still exercises GradleRunner, just against a
+  // throwaway temp project instead of a nested composite).
+  //
+  // TODO_later: turn back on when touching SourceFun itself. If the cost is still in the way then,
+  // the lever is FEWER invocations, not fewer tests -- see 1299b76, which added 7 tests (48 -> 55)
+  // for zero extra builds by requesting the sample's four awesome tasks together.
+  "On sample-sourcefun project" ox {
 
     // Note: the sample-sourcefun project settings.gradle.kts -> pluginManagement -> includeBuild("..")
     // So it's composite-build that include THIS (SourceFun) project back! (sort of circular "dependency"?)
