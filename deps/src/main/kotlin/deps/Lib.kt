@@ -87,6 +87,19 @@ data class LibCompose(
   val withComposeDesktopComponents: Boolean = false,
   val withComposeHtmlCore: Boolean = false,
   val withComposeHtmlSvg: Boolean = false,
+  /**
+   * Whether the js target gets Compose UI (skiko on a canvas) as well as compose-html.
+   *
+   * Default false, because the usual js shape here is compose-html only: a LIBRARY that pulls
+   * ui/foundation/material into js cannot bundle skiko without an executable binary, which is what
+   * the commonMain -> composeMain -> composeUiMain split exists to prevent.
+   *
+   * UWidgets is the counter-example that earns the flag: it renders Compose UI on a skiko canvas in
+   * the browser on purpose (`ComposeViewport` in its `USkikoBoxDom`), and comparing dom-based and
+   * canvas-based widgets side by side is the whole point of the library. Set it true there, so js
+   * hangs off composeUiMain instead of composeMain.
+   */
+  val withComposeUiOnJs: Boolean = false,
   val withComposeTestUi: Boolean = false,
   val withComposeTestUiJUnit4: Boolean = false,
   val withComposeTestUiJUnit5: Boolean = false,

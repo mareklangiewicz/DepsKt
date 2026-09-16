@@ -408,16 +408,18 @@ fun KotlinMultiplatformExtension.allDefaultSourceSetsForCompose(
     }
     if (flags.withJs) {
       jsMain {
-        // composeMain, NOT composeUiMain: compose-html only, so skiko never reaches js.
-        dependsOn(composeMain)
+        // composeMain, NOT composeUiMain: compose-html only, so skiko never reaches js -- unless
+        // the lib says it wants Compose UI on a canvas there, which UWidgets does on purpose.
+        dependsOn(if (withComposeUiOnJs) composeUiMain else composeMain)
         dependencies {
           if (withComposeHtmlCore) implementation(ComposeJb.htmlCore)
           if (withComposeHtmlSvg) implementation(ComposeJb.htmlSvg)
         }
       }
       jsTest {
-        // composeTest, NOT composeUiTest: compose UI test deps must not reach js.
-        dependsOn(composeTest)
+        // composeTest, NOT composeUiTest: compose UI test deps must not reach js -- mirroring
+        // jsMain above, including when Compose UI is deliberately on js.
+        dependsOn(if (withComposeUiOnJs) composeUiTest else composeTest)
         dependencies {
           if (withComposeTestHtmlUtils) implementation(ComposeJb.htmlTestUtils)
         }
