@@ -31,7 +31,7 @@ a version that is ALREADY published:
 2. Commit, push, let CI go green.
 3. `publishPlugins`.
 4. Only then bump the deliberately-lagging plugin-id literals: `settings.gradle.kts`,
-   `deps/build.gradle.kts`, and both of `sourcefun/sample-sourcefun`'s scripts.
+   `deps/build.gradle.kts`, and both of `samplefun`'s scripts.
 
 Step 4 is also when anything waiting on the new version gets switched on. This repo bootstraps
 itself — build scripts here apply the PUBLISHED `deps.settings` and `templatefun` — so a new

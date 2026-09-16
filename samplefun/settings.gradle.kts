@@ -1,7 +1,7 @@
 import pl.mareklangiewicz.deps.*
 import pl.mareklangiewicz.utils.extLib
 
-rootProject.name = "sample-sourcefun"
+rootProject.name = "samplefun"
 
 // Note: Not using special region: 'My Settings Stuff', because pluginManagement has to differ: includeBuild("..")
 
@@ -12,12 +12,12 @@ pluginManagement {
     mavenCentral()
   }
 
-  // ".." is the DepsKt root now that SourceFun lives in DepsKt/sourcefun. So this composite supplies
-  // BOTH the sourcefun plugin under test and the deps/deps.settings/templatefun plugins, all from
-  // source -- which is exactly what this sample is for.
+  // ".." is the DepsKt root, since samplefun sits directly under it, as a sibling of sourcefun.
+  // So this composite supplies BOTH the sourcefun plugin under test and the
+  // deps/deps.settings/templatefun plugins, all from source -- which is exactly what this is for.
   // Needed also as a workaround for TestKit issue with classloader
   // (see comments in sourcefun/src/test/kotlin/SourceFunTests.kt)
-  includeBuild("../..")
+  includeBuild("..")
 }
 
 plugins {
@@ -27,12 +27,16 @@ plugins {
 }
 
 // This standalone build defines its own Lib, exactly like every consumer repo does. It is NOT the
-// DepsKt one: the sample publishes nothing and is not a DepsKt artifact.
+// DepsKt one: samplefun publishes nothing and is not a DepsKt artifact.
+//
+// A playground, deliberately outside the root build: samples, TestKit/GradleRunner experiments and
+// anything else that is allowed to be SLOW, so it stays opt-in instead of taxing every `./gradlew
+// build`. sourcefun's own tests against it are disabled by default -- see SourceFunTests.kt.
 gradle.extLib = lib(
   info = myLibInfo(
-    name = "Sample-SourceFun",
-    description = "Sample-SourceFun",
-    githubUrl = "https://github.com/mareklangiewicz/DepsKt/tree/master/sourcefun/sample-sourcefun",
+    name = "SampleFun",
+    description = "DepsKt playground: samples and slow, opt-in gradle TestKit experiments.",
+    githubUrl = "https://github.com/mareklangiewicz/DepsKt/tree/master/samplefun",
     version = Ver(0, 1, 9),
   ),
   flags = LibFlags(withJs = false, withLinuxX64 = false, withCentralPublish = false),

@@ -34,7 +34,7 @@ class SourceFunTests {
   fun sourceFunTests() = uspekTestFactory {
     onExampleWithProjectBuilder()
     onSingleHelloWorldProject()
-    onSampleSourceFunProject()
+    onSampleFunProject()
   }
 }
 
@@ -121,26 +121,26 @@ private fun onSingleHelloWorldProject() {
  * into DepsKt both branches silently pointed at the WRONG tree: the $HOME one at the old repo --
  * so these tests kept passing while exercising, cleaning and rewriting files in a checkout that is
  * no longer the one being built -- and $GITHUB_WORKSPACE at the DepsKt root, where there is no
- * sample-sourcefun at all. A test fixture must be handed its location by whatever built it.
+ * samplefun at all. A test fixture must be handed its location by whatever built it.
  */
-private val sampleSourceFunProjectPath: Path =
-  System.getProperty("sourcefun.sampleProjectPath")
-    .chkNN { "No sourcefun.sampleProjectPath system property. The build script must inject it." }
+private val sampleFunProjectPath: Path =
+  System.getProperty("sourcefun.samplefunProjectPath")
+    .chkNN { "No sourcefun.samplefunProjectPath system property. The build script must inject it." }
     .toPath()
     .also {
       // Deliberately a check that CAN fail: it is the reason the move was invisible for a while.
       SYSTEM.exists(it / "settings.gradle.kts")
-        .chkTrue { "Injected sample path is not a gradle build: $it" }
+        .chkTrue { "Injected samplefun path is not a gradle build: $it" }
     }
 
-private fun onSampleSourceFunProject() {
+private fun onSampleFunProject() {
   // DISABLED on purpose (`ox`, not `o`). Re-enable by putting the `o` back -- nothing else to undo,
-  // and sourcefun/build.gradle.kts still injects sourcefun.sampleProjectPath, so the fixture wiring
+  // and sourcefun/build.gradle.kts still injects sourcefun.samplefunProjectPath, so the fixture wiring
   // (and its deliberately-can-fail path check) stays honest while this is off.
   //
   // Why: these were ~54s of :sourcefun:test's 59s, and that was on a WARM build -- a clean one is
   // worse, since each of the 11 GradleRunner invocations configures DepsKt again through
-  // sample-sourcefun's `pluginManagement { includeBuild("..") }`. The 55 test cases themselves sum
+  // samplefun's `pluginManagement { includeBuild("..") }`. The 55 test cases themselves sum
   // to ~0.02s: the cost is invocations, not assertions.
   //
   // Worth it because day-to-day work here changes deps data and deps-related logic, not the
@@ -151,12 +151,12 @@ private fun onSampleSourceFunProject() {
   // TODO_later: turn back on when touching SourceFun itself. If the cost is still in the way then,
   // the lever is FEWER invocations, not fewer tests -- see 1299b76, which added 7 tests (48 -> 55)
   // for zero extra builds by requesting the sample's four awesome tasks together.
-  "On sample-sourcefun project" ox {
+  "On samplefun project" ox {
 
-    // Note: the sample-sourcefun project settings.gradle.kts -> pluginManagement -> includeBuild("..")
+    // Note: the samplefun project settings.gradle.kts -> pluginManagement -> includeBuild("..")
     // So it's composite-build that include THIS (SourceFun) project back! (sort of circular "dependency"?)
     // But I guess GradleRunner/GradleTestKit separates managed builds enough, so it's working fine.
-    val runner = GradleRunner.create().withProjectPath(sampleSourceFunProjectPath)
+    val runner = GradleRunner.create().withProjectPath(sampleFunProjectPath)
     //.withPluginClasspath()
 
     /*
@@ -168,10 +168,10 @@ private fun onSampleSourceFunProject() {
     > Could not create task ':processExtensions1ByReg'.
     > loader constraint violation: when resolving method 'void pl.mareklangiewicz.sourcefun.TasksKt.setSrc(pl.mareklangiewicz.sourcefun.SourceFunTask, okio.Path)' the class loader org.gradle.internal.classloader.VisitableURLClassLoader @7dce4f5e of the current class, Build_gradle$1$processExtensions1ByReg$2, and the class loader org.gradle.internal.classloader.VisitableURLClassLoader$InstrumentingVisitableURLClassLoader @4078a234 for the method's defining class, pl/mareklangiewicz/sourcefun/TasksKt, have different Class objects for the type okio/Path used in the signature (Build_gradle$1$processExtensions1ByReg$2 is in unnamed module of loader org.gradle.internal.classloader.VisitableURLClassLoader @7dce4f5e, parent loader org.gradle.internal.classloader.CachingClassLoader @783b0e4b; pl.mareklangiewicz.sourcefun.TasksKt is in unnamed module of loader org.gradle.internal.classloader.VisitableURLClassLoader$InstrumentingVisitableURLClassLoader @4078a234, parent loader org.gradle.internal.classloader.CachingClassLoader @5c7ab031)
 
-    So my workaround is not do it and use composite-build inside tested sample-sourcefun project, to include SourceFun code from there
-    (This workaround is pretty nice anyway when opening sample-sourcefun in IDE, because it allows me to test/work on both sides manually)
+    So my workaround is not do it and use composite-build inside tested samplefun project, to include SourceFun code from there
+    (This workaround is pretty nice anyway when opening samplefun in IDE, because it allows me to test/work on both sides manually)
 
-    UPDATE: Another workaround might be to use plug.GradleShadow (newest DepsKt) in SourceFun or in sample-sourcefun?
+    UPDATE: Another workaround might be to use plug.GradleShadow (newest DepsKt) in SourceFun or in samplefun?
     TODO_someday: try to do it, but don't commit to it without understanding the issue better.
     */
 
@@ -191,8 +191,8 @@ private fun onSampleSourceFunProject() {
     }
 
     "On clean gradle cache and build dir programmatically" o {
-      SYSTEM.deleteTreeWithDoubleChk(sampleSourceFunProjectPath / ".gradle", mustExist = false) { "sourcefun" in it }
-      SYSTEM.deleteTreeWithDoubleChk(sampleSourceFunProjectPath / "build", mustExist = false) { "sourcefun" in it }
+      SYSTEM.deleteTreeWithDoubleChk(sampleFunProjectPath / ".gradle", mustExist = false) { "sourcefun" in it }
+      SYSTEM.deleteTreeWithDoubleChk(sampleFunProjectPath / "build", mustExist = false) { "sourcefun" in it }
 
       "On task processExtensions1ByReg" o {
         runner.withArguments("processExtensions1ByReg")
@@ -201,7 +201,7 @@ private fun onSampleSourceFunProject() {
           runner.build() // .build() throws when gradle finishes with error/fail
 
           "On SpecialExtensions content afterwards" o {
-            val file = sampleSourceFunProjectPath / "sample-lib/src/jvmMain/kotlin/extensions/SpecialExtensions.kt"
+            val file = sampleFunProjectPath / "sample-lib/src/jvmMain/kotlin/extensions/SpecialExtensions.kt"
 
             testGeneratedFunctions(file)
 
@@ -240,7 +240,7 @@ private fun onSampleSourceFunProject() {
         val result = runner.build()
 
         "On generated reports" o {
-          val reportsPaths = SYSTEM.list(sampleSourceFunProjectPath / "build/awesome-reports")
+          val reportsPaths = SYSTEM.list(sampleFunProjectPath / "build/awesome-reports")
           val reportsNames = reportsPaths.map { it.name }
 
           "generated two files" o { reportsNames chkEq listOf("GenericExtensions.kt", "SpecialExtensions.kt") }
@@ -374,7 +374,7 @@ private fun uspekIdempotentInjection(file: Path) {
     "content is unchanged after a full inject + regenerate round trip" o {
       SYSTEM.injectChangedRegion(file, "Generated Special Extensions", "// DELETED CONTENT")
       GradleRunner.create()
-        .withProjectPath(sampleSourceFunProjectPath)
+        .withProjectPath(sampleFunProjectPath)
         .withArguments("processExtensions1ByReg")
         .build()
       SYSTEM.readUtf8(file) chkEq contentBefore
