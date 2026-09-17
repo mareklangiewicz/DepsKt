@@ -215,14 +215,33 @@ fun Project.defaultBuildTemplateForAndroLib(
     context(andro) {
       defaultAndroDeps(configuration = "androidMainImplementation")
       defaultAndroTestDeps(configuration = "androidHostTestImplementation")
-      defaultAndroTestDeps(configuration = "androidDeviceTestImplementation")
+      // The device configuration states its JUnit explicitly, exactly as this function's kdoc asks
+      // and as defaultBuildTemplateForFullMppLib already did. Riding on the plain flags here is
+      // what the kdoc warns about: JUnit5 cannot run on a device at all, and JUnit4 has its own
+      // flag, without which @RunWith(USpekJUnit4Runner) does not resolve.
+      defaultAndroTestDeps(
+        configuration = "androidDeviceTestImplementation",
+        withJUnit4 = lib.flags.withTestJUnit4OnAndroidDevice,
+        withJUnit5 = false,
+      )
     }
     // compose-android deps only when compose EXISTS (scope opens) — no boolean, no !!
     lib.compose?.let { compose ->
       context(compose) { defaultComposeAndroDeps(configuration = "androidMainImplementation") }
       context(compose) { defaultComposeAndroTestDeps(configuration = "androidHostTestImplementation") }
+      // Device tests were missing these entirely, so a compose UI test on a device could not
+      // resolve setContent. Only visible once a lib actually HAS device-test sources.
+      context(compose) { defaultComposeAndroTestDeps(configuration = "androidDeviceTestImplementation") }
     }
   }
+  // Same upstream bug, same fix as in [defaultBuildTemplateForComposeMppLib]: the compose plugin
+  // registers CopyResourcesToAndroidAssetsTask for the device-test compilation without an
+  // outputDirectory, so merely CONFIGURING it fails with "Value not set". An android lib reaches
+  // that compilation without going through the compose MPP chain, so the workaround has to exist
+  // here too -- otherwise :<lib>:compileAndroidDeviceTest cannot even configure, which is what
+  // kept template-andro's device tests from ever compiling.
+  tasks.matching { it.name == "copyAndroidDeviceTestComposeResourcesToAndroidAssets" }
+    .configureEach { enabled = false }
   configurations.checkVerSync(warnOnly = true)
   tasks.defaultKotlinCompileOptions(
     jvmTargetVer = null, // jvmVer is set jvmToolchain in fun allDefault
