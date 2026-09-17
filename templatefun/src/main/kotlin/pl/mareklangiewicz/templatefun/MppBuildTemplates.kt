@@ -26,6 +26,15 @@ fun Project.defaultBuildTemplateForFullMppLib(
     // KMP library comes from 'com.android.kotlin.multiplatform.library' instead.
     apply(plugin = plugs.AndroKmpNoVer.group) // group is actually id for plugins
   }
+  // Compose is REQUIRED here, deliberately. Asking for the FULL template is asking for compose, so
+  // degrading to a compose-less build would hide a settings mistake rather than report it. A lib
+  // without compose is [defaultBuildTemplateForBasicMppLib]'s job -- KGround's template-basic is
+  // the worked example. Stated here, at the entry point the caller actually named, because the
+  // same failure raised from the compose chain does not say which template to use instead.
+  requireNotNull(lib.compose) {
+    "defaultBuildTemplateForFullMppLib needs compose settings. For a lib without compose use " +
+      "defaultBuildTemplateForBasicMppLib instead (see KGround's template-basic)."
+  }
   defaultBuildTemplateForComposeMppLib(
     lib = lib,
     ignoreAndroConfig = true, // andro configured below
