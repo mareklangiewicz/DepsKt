@@ -23,8 +23,7 @@ fun Project.defaultBuildTemplateForFullMppLib(
 ): Unit = context(lib.info, lib.flags) {
   if (lib.andro != null) {
     // Since AGP 9 'com.android.library' cannot be combined with KMP; the android target of a
-    // KMP library comes from 'com.android.kotlin.multiplatform.library' instead, exactly as
-    // template-raw already does.
+    // KMP library comes from 'com.android.kotlin.multiplatform.library' instead.
     apply(plugin = plugs.AndroKmpNoVer.group) // group is actually id for plugins
   }
   defaultBuildTemplateForComposeMppLib(
@@ -313,7 +312,7 @@ fun KotlinMultiplatformExtension.allDefaultSourceSetsForCompose(
   val composeExt = project.extensions.getByName("compose") as ComposeExtension
 
   // Manual dependsOn edges below suppress KGP's automatic application of the default hierarchy
-  // template, so it has to be applied explicitly -- template-raw's template already does this.
+  // template, so it has to be applied explicitly.
   applyDefaultHierarchyTemplate()
 
   // Compose UI on js needs the Skiko runtime bundled by webpack, and compose's own
@@ -326,7 +325,7 @@ fun KotlinMultiplatformExtension.allDefaultSourceSetsForCompose(
   sourceSets {
     // Compose UI does NOT belong in commonMain: commonMain reaches every target by construction, so
     // js inherited ui/foundation/material and with them skiko, which it cannot bundle without an
-    // executable binary (checkComposeUiTestConfigurationForJs). Split it the way template-raw does:
+    // executable binary (checkComposeUiTestConfigurationForJs). Hence the split:
     //
     //   commonMain -> composeMain (runtime only) -> composeUiMain (ui, foundation, material, ...)
     //
@@ -359,7 +358,7 @@ fun KotlinMultiplatformExtension.allDefaultSourceSetsForCompose(
       dependsOn(commonTest.get())
     }
     val composeUiTest = create("composeUiTest") {
-      // Likewise NOT dependsOn(composeUiMain) -- see template-raw's note on the same pair.
+      // Likewise NOT dependsOn(composeUiMain), for the same reason as the pair just above.
       dependsOn(composeTest)
       dependencies {
         if (withComposeTestUi) implementation(ComposeJb.uiTest)

@@ -13,9 +13,15 @@ import pl.mareklangiewicz.deps.*
  */
 class LibAdjustmentTest {
 
-  /** Andro present and compose present, so the untouched siblings have something to lose. */
+  /**
+   * Andro present and compose present, so the untouched siblings have something to lose.
+   *
+   * `withJs = true` is stated rather than defaulted: the control below flips it to false and needs
+   * that to be a real change. It used to ride on LibFlags' default, which is now false.
+   */
   private val base: Lib = lib(
     info = myLibInfo(name = "SomeLib", description = "desc", version = Ver(1, 2, 3)),
+    flags = LibFlags(withJs = true),
     withAndro = true,
   )
 

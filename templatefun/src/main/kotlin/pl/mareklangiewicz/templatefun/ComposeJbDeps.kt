@@ -9,7 +9,8 @@ import pl.mareklangiewicz.deps.*
  *
  * These used to be read off the compose gradle plugin's `compose.dependencies.*` accessors, which
  * JetBrains deprecated ("Specify dependency directly") — 46 warnings across [MppBuildTemplates] and
- * [RawLibBuildTemplates]. Specifying them directly is exactly what DepsKt is for: every one of these
+ * the raw lib template (since folded away). Specifying them directly is exactly what DepsKt is for:
+ * every one of these
  * coordinates is already in `Deps.kt`, refreshed daily by `updateGeneratedDeps`, and
  * [AndroBuildTemplates] has always done it this way for the androidx side.
  *

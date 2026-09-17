@@ -166,6 +166,29 @@ fun Project.defaultPublishingOfAndroApp(componentName: String = "release") =
 
 // region [[Andro Lib Build Template]]
 
+/**
+ * MIGRATED. Was the design note's literal example of a helper reaching through the tree
+ * (`settings.andro!!`). As a scope the `!!` is gone, and so is the `if (settings.withAndro)` guard
+ * its caller needed: `lib.andro?.let { context(it) { androDefault() } }` is one expression that
+ * both tests presence and supplies the value.
+ */
+context(info: LibInfo, andro: LibAndro)
+fun KotlinMultiplatformExtension.androDefault() {
+  extensions.configure<KotlinMultiplatformAndroidLibraryTarget> {
+    minSdk { version = release(andro.sdkMin) }
+    compileSdk {
+      version = andro.sdkCompilePreview?.let { preview(it) }
+        ?: release(andro.sdkCompile) { minorApiLevel = andro.sdkCompileMinor }
+    }
+    namespace = info.namespace
+    withHostTest {
+    }
+    withDeviceTest {
+      instrumentationRunner = andro.withTestRunner
+    }
+  }
+}
+
 fun Project.defaultBuildTemplateForAndroLib(
   lib: Lib = gradle.extLib,
   addAndroMainDependencies: KotlinDependencyHandler.() -> Unit = {},
@@ -176,8 +199,8 @@ fun Project.defaultBuildTemplateForAndroLib(
   val andro = lib.andro ?: error("No andro settings.")
   repositories { context(lib.repos) { addRepos() } }
   // Since AGP 9 the 'com.android.library' plugin cannot be combined with KMP, so an android
-  // library is a KMP module with the 'com.android.kotlin.multiplatform.library' target --
-  // exactly what template-raw already does. LibraryExtension is not applied at all any more.
+  // library is a KMP module with the 'com.android.kotlin.multiplatform.library' target.
+  // LibraryExtension is not applied at all any more.
   extensions.configure<KotlinMultiplatformExtension> {
     context(andro) { androDefault() } // details is already in scope, so only the andro half is added
     jvmToolchain(lib.flags.withJvmVer?.toInt() ?: 17) // works for jvm and android

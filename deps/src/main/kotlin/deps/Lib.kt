@@ -62,7 +62,14 @@ data class LibInfo(
 data class LibFlags(
   val withJvm: Boolean = true,
   val withJvmVer: String? = Vers.JvmDefaultVer.takeIf { withJvm },
-  val withJs: Boolean = true,
+  /**
+   * Off by default, like every other target but jvm. A js target is a real cost -- it pulls the
+   * compose-html deps below, a kotlin-js-store/yarn.lock to keep current, and the slowest
+   * compilation in a typical build -- so it should be asked for, not arrived at by not saying
+   * anything. template-andro was carrying withJs = true purely by omission while having no js
+   * source set at all.
+   */
+  val withJs: Boolean = false,
   val withLinuxX64: Boolean = false,
   val withKotlinxHtml: Boolean = false,
   val withTestJUnit5: Boolean = withJvm,
