@@ -36,7 +36,7 @@ pluginManagement {
 plugins {
   // Self-hosting on the PUBLISHED settings plugin, so this can only ever name a version that is
   // already on the portal. It lags the version below between a bump and a publish.
-  id("pl.mareklangiewicz.deps.settings") version "0.4.57" // https://plugins.gradle.org/search?term=mareklangiewicz
+  id("pl.mareklangiewicz.deps.settings") version "0.4.62" // https://plugins.gradle.org/search?term=mareklangiewicz
   id("com.gradle.develocity") version "4.5.1" // https://docs.gradle.com/develocity/gradle-plugin/
 }
 

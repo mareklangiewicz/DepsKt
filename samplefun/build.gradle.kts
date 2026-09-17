@@ -12,7 +12,7 @@ import pl.mareklangiewicz.utils.*
 
 plugins {
   plug(plugs.KotlinMulti) apply false
-  id("pl.mareklangiewicz.sourcefun") version "0.4.57" // I includeBuild("..") in settings so version does not matter
+  id("pl.mareklangiewicz.sourcefun") version "0.4.62" // I includeBuild("..") in settings so version does not matter
 }
 
 // endregion [Custom Basic Root Build Imports and Plugs]
