@@ -52,6 +52,21 @@ dependencies {
   // `kotlin-dsl` used to add this implicitly. The Gradle API itself is always on the classpath;
   // this is the kotlin-dsl EXTENSIONS (org.gradle.kotlin.dsl.*), which these templates import.
   implementation(gradleKotlinDsl())
+
+  // Dependabot alerts on this repo are all AGP transitives landing on THIS project's runtime
+  // classpath (:deps and :sourcefun resolve clean). AGP 9.4.0 already carries the bouncycastle bump
+  // that closed the critical GOST one; these constraints cover the rest, which AGP still ships at
+  // vulnerable versions. Constraints -- not `force` -- so a later AGP that fixes these upstream
+  // simply wins on its own, and they publish in templatefun's module metadata for consumers too.
+  // Drop each line once AGP ships at or above it.
+  constraints {
+    implementation("org.bouncycastle:bcprov-jdk18on:1.84") { because("LDAP injection; GHSA alert #27") }
+    implementation("org.bouncycastle:bcpkix-jdk18on:1.84") { because("risky crypto algorithm; alert #26") }
+    implementation("org.bouncycastle:bcutil-jdk18on:1.84") { because("kept in lockstep with bcprov/bcpkix") }
+    implementation("org.bitbucket.b_c:jose4j:0.9.6") { because("DoS via compressed JWE content; alert #32") }
+    implementation("org.jdom:jdom2:2.0.6.1") { because("XXE injection, via jetifier-processor; alert #31") }
+    implementation("org.apache.commons:commons-lang3:3.18.0") { because("uncontrolled recursion; alert #30") }
+  }
 }
 
 // Match :deps (jvmToolchain(23)). Without this, the toolchain is whatever JDK ran the publish, and
