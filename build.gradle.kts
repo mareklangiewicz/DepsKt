@@ -20,6 +20,23 @@
 // several times in one build ("which is not supported and may break the build"); this is the
 // remedy Gradle's own message prescribes. `apply false` means declared-and-resolved, not applied --
 // this project still has no sources and builds nothing.
+// The Kotlin plugin above drags kotlin-compiler-runner -> kotlinx-coroutines-core-jvm 1.8.0 onto
+// THIS buildscript's classpath, and this classloader is the PARENT of every subproject's. Gradle
+// delegates parent-first, so 1.8.0 won at runtime no matter what :deps resolved for itself (it
+// resolved 1.11.0 and never got to use it). kommand-line/kgroundx-maintenance are compiled against
+// the newer coroutines, so every `maintenance` task died with NoSuchMethodError on
+// CoroutineDispatcher.limitedParallelism$default(.., String, ..) -- the 1.8.0 class has only the
+// single-int overload. Proven with a probe task reading CoroutineDispatcher's actual codeSource.
+buildscript {
+  dependencies {
+    constraints {
+      classpath("org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.11.0") {
+        because("kommand-line 0.1.32+ needs limitedParallelism(Int, String?); KGP ships 1.8.0")
+      }
+    }
+  }
+}
+
 plugins {
   plug(plugs.KotlinJvm) apply false
 }
