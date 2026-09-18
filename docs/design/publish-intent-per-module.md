@@ -1,6 +1,6 @@
 # Publish intent is a per-MODULE value
 
-Status: **step 2 implemented in DepsKt, not yet released**. Triggered by a real incident in USpek on
+Status: **SHIPPED — steps 2, 3 and 4 all done**. Triggered by a real incident in USpek on
 2026-09-18 — a FAILED RELEASE, not a hypothetical — measured there with a control on the
 pre-migration commit. USpek is mitigated at the consumer (`14e8247`) and released as 0.0.46; this
 note is the durable fix behind it.
@@ -10,9 +10,13 @@ gone, all ten `defaultBuildTemplateFor*` entry points take `publish: LibPublish?
 `hasPlugin` inference is replaced by `defaultPublishingOrNot`, which errors on either mismatch.
 Exercised for real by `samplefun`, which substitutes the local build through `includeBuild("..")`.
 
-What is NOT done: no release, so every consumer repo — including DepsKt's OWN build scripts, which
-compile against the published 0.4.62 — still sees the old model. See "Staging" and the migration
-hazard below; the consumer migration is step 3 and cannot start before a release.
+Released as **DepsKt 0.4.63** (Gradle Plugin Portal) and migrated onto in all four repos that
+tracked it: KGround (`f92ec8a6`, `eeaced07`), USpek (`33b3926`), UPue (`9d3f7f7`) and DepsKt's own
+build scripts (`1feb661`). Per-repo publication task sets were diffed byte-identical against
+baselines taken before the migration, and both new error paths were proven to fire.
+
+What is NOT done: consumer repos outside those four are still pinned below 0.4.62 and will meet
+the breaking change when they migrate. That is by design — see the migration hazard below.
 
 The design section was rewritten after review caught the first draft re-introducing the nesting
 this repo had just spent a release cycle removing. That correction is kept below rather than
