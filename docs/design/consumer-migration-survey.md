@@ -23,7 +23,7 @@ when they migrate, and how hard do they meet it?* See
 
 So a repo's tier is set by (1) first, then (3).
 
-## Tier A — hard break: names a removed API (13 repos)
+## Tier A — hard break: names a removed API (12 repos)
 
 These fail to compile the moment the settings pin moves past 0.4.62. Each needs its
 `withCentralPublish` / `publishVariant` call sites rewritten to pass `LibPublish` at the
@@ -33,7 +33,6 @@ module. Sorted by last commit, most recent first — that is the order worth mig
 |---|---|---|---|
 | `AbcdK` | 0.4.29 | 2026-09-17 | `withCentralPublish` |
 | `TupleK` | 0.4.29 | 2026-09-17 | `withCentralPublish` |
-| `UWidgets` | 0.4.62 | 2026-09-17 | `withCentralPublish` |
 | `SourceFun` | 0.4.25 | 2026-09-16 | `withCentralPublish` |
 | `CoEdges` | 0.4.25 | 2026-07-11 | `withCentralPublish` |
 | `AreaKim` | 0.4.25 | 2026-07-10 | `withCentralPublish`, `publishVariant` |
@@ -55,11 +54,12 @@ publish-without-plugin one. Worth expecting rather than debugging.
 `SourceFun` here is the standalone repo; DepsKt has since absorbed it as `:sourcefun`, so the
 standalone one may be superseded rather than migrated — check before spending effort on it.
 
-## Tier B — no compile break, but will error at configuration (1 repo)
+## Tier B — no compile break, but will error at configuration (2 repos)
 
 | Repo | Pin | Last commit | Why |
 |---|---|---|---|
 | `KotVim` | 0.4.62 | 2026-09-18 | applies `plugs.VannikPublish`, names no removed API |
+| `UWidgets` | 0.4.62 | 2026-09-17 | applies `plugs.VannikPublish`, names no removed API |
 
 The nearest repo to the change and the cheapest migration: it compiles fine, then fails at
 configuration with the plugin-without-publish message until one `LibPublish` is passed.
@@ -88,3 +88,29 @@ error paths themselves ARE measured, in `samplefun` and `:kgroundx` (see the des
 is unmeasured is which line of which repo trips them.
 
 Last-commit dates are local `HEAD`, not the remote's.
+
+## Corrections, from actually migrating four of these
+
+`UWidgets` was listed in Tier A on a `withCentralPublish` hit that turned out to be **inside a
+comment** — the surviving prose of the flag's own removal, not a call site. It is Tier B, and it
+is migrated. That is the same trap the handoff records for bulk `sed` on build scripts: this
+survey's grep did not distinguish code from comment, so treat every Tier A row as "names the
+string", not "calls the function", until someone opens the file.
+
+The tiers also proved to be the *smaller* half of the work. What actually decided effort was how
+far behind a repo's build scripts were, which this survey never measured:
+
+- `CoEdges`, `AreaKim` and `MyStolenPlaygrounds` were on the pre-de-nesting
+  `LibDetails`/`LibSettings` model with hundreds of lines of vendored template regions, so
+  migrating meant the templatefun move as well — two or three steps, not one.
+- `AreaKim` and `MyStolenPlaygrounds` did not build **at all** before being touched, for AGP 9
+  reasons in vendored code that predate 0.4.63 entirely. "Pinned below 0.4.62" said nothing about
+  that.
+- Two modules could not be migrated at all: since AGP 9, `com.android.application` cannot be
+  combined with KMP, and the plugin AGP names as the replacement is a *library* plugin with no
+  application counterpart. `AreaKim`'s demo app gave up its android target; `MyStolenPlaygrounds`'
+  `playgrounds-app` could not, because it *is* the android app, and is left unmigrated.
+
+So the remaining Tier A rows should be read as a lower bound on effort. The cheap case this survey
+imagined — bump the pin, pass a `LibPublish` — was real only for `UWidgets`, the one repo already
+on templatefun.
