@@ -33,6 +33,13 @@ a version that is ALREADY published:
 4. Only then bump the deliberately-lagging plugin-id literals: `settings.gradle.kts`,
    `deps/build.gradle.kts`, and both of `samplefun`'s scripts.
 
+0.4.63 has an unusually large step 4: `LibPublish` replaces `LibFlags.withCentralPublish` and
+`LibAndro.publishVariant`, and `defaultPublishing` changed signature, so this repo's OWN scripts
+(`deps/build.gradle.kts` including its `tfDefaultPublishing` arity probe, `templatefun/build.gradle.kts`,
+`sourcefun/build.gradle.kts`) must migrate in the same step that bumps their pins — they do not
+compile against both models. `samplefun` is already migrated and does not wait, because it
+substitutes the local build with `includeBuild("..")`.
+
 Step 4 is also when anything waiting on the new version gets switched on. This repo bootstraps
 itself — build scripts here apply the PUBLISHED `deps.settings` and `templatefun` — so a new
 `Plugs` entry, or a new parameter on an exported function, is invisible to this repo's own build
@@ -56,11 +63,13 @@ secrets. It is real, and it does nothing, for two independent reasons:
   2023. The workflow has never run. (There was also a literal `X.X.XX` tag, created from the
   README's placeholder; deleted 2026-09-16, locally and on the remote. It pointed at a commit
   reachable from `master`, so nothing went with it.)
-- **Central publishing is switched off in the model.** `LibFlags.withCentralPublish` defaults to
-  `false` and nothing in this build sets it, so every `mavenPublishing` block here — the exported
-  `defaultPublishing`, plus `:sourcefun`'s and `:templatefun`'s own copies — skips
-  `publishToMavenCentral(..)`. The publication target is not configured, so tagging alone would not
-  produce a Central release.
+- **Central publishing is switched off in the model.** Since 0.4.63 that is `LibPublish.toCentral`,
+  which defaults to `false`, and a module that passes no `LibPublish` at all is not published in any
+  sense — see `publish-intent-per-module.md`. Before 0.4.63 it was `LibFlags.withCentralPublish`,
+  also defaulting to `false`. Either way nothing in this build turns it on, so every
+  `mavenPublishing` block here — the exported `defaultPublishing`, plus `:sourcefun`'s and
+  `:templatefun`'s own copies — skips `publishToMavenCentral(..)`. The publication target is not
+  configured, so tagging alone would not produce a Central release.
 
 Measured, not inferred: `pl.mareklangiewicz.deps:templatefun:0.4.53` and
 `pl.mareklangiewicz.deps:DepsKt:0.4.53` both 404 on `repo1.maven.org`, while the same coordinate
@@ -71,10 +80,14 @@ repository and NOT from Maven Central. A consumer that only declares `mavenCentr
 `pl.mareklangiewicz.deps:DepsKt` — it needs `gradlePluginPortal()`. That is the current bargain, and
 it is fine while these are consumed as gradle plugins.
 
-If Central publishing is ever wanted, the tag workflow is not the first step — flipping
-`withCentralPublish` is, and then the signing keys have to be real.
+If Central publishing is ever wanted, the tag workflow is not the first step — passing
+`LibPublish(toCentral = true)` to each module that should ship is, and then the signing keys have to
+be real. Note the unit changed with 0.4.63: there is no longer a repo-wide switch to flip, because a
+repo-wide switch is precisely what leaked six sample apps into a USpek release.
 
 ## Related
 
 - `lib-details-denesting.md` — the sibling layout, publication coordinates, and the artifactId story.
+- `publish-intent-per-module.md` — why publish intent left `LibFlags` in 0.4.63, and the consumer
+  migration that a release unblocks.
 - `templatefun-off-kotlin-dsl.md` — the other bootstrap that a publish unblocked.
