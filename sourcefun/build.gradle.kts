@@ -96,40 +96,31 @@ kotlin {
   jvmToolchain(23)
 }
 
-// Publishing is spelled out here rather than calling templatefun's defaultPublishing, for the same
-// reason :deps pins its artifactId: this project's name is "sourcefun" (it follows its DIRECTORY)
-// while the published artifact has always been pl.mareklangiewicz.deps:SourceFun. Nothing would
-// error if that drifted -- it would just publish a new, empty-history coordinate. So the artifactId
-// is pinned, explicitly.
+// Publishing is NO LONGER spelled out here. It used to be, for two reasons, and 0.4.63 removed
+// both: the artifactId (this project's name follows its DIRECTORY, "sourcefun", while the published
+// artifact has always been pl.mareklangiewicz.deps:SourceFun) became a defaultPublishing parameter
+// in 0.4.52, and the module-specific POM name/description -- the last reason to keep the copy --
+// became LibPublish.pomName/pomDescription. See docs/design/publish-intent-per-module.md.
 //
-// The artifactId alone is no longer a reason to hand-roll this: defaultPublishing takes it as a
-// parameter from 0.4.52. The POM still is -- this module needs its own `name` and `description`,
-// while defaultPOM puts the per-REPO info.name/description on every module. That is the same
-// repo/module split, one level up, and the note on defaultPublishing sketches where it would go
-// (a small per-module value, rather than patching one field at a time). Worth revisiting if a
-// third module ever wants a module-specific POM; until then this copy is the cheaper answer.
+// url and scm come from defaultPOM as info.githubUrl, which is DepsKt: this is where the sources
+// live now. That matches what the hand-rolled block already said.
 //
-// The POM identity is SourceFun's own (name/description), but url and scm now point at DepsKt: this
-// is where the sources live.
-mavenPublishing {
-  propertiesTryOverride("signingInMemoryKey", "signingInMemoryKeyPassword", "mavenCentralPassword")
-  if (myLib.flags.withCentralPublish) publishToMavenCentral(automaticRelease = false)
-  signAllPublications()
-  signAllPublicationsFixSignatoryIfFound()
-  coordinates(groupId = myLib.info.group, artifactId = "SourceFun", version = myLib.info.version.str)
-  pom {
-    name = "SourceFun"
-    description = "Maintain typical java/kotlin/android projects sources with fun."
-    url = myLib.info.githubUrl
-    licenses { license { name = myLib.info.licenceName; url = myLib.info.licenceUrl } }
-    developers {
-      developer {
-        id = myLib.info.authorId; name = myLib.info.authorName; email = myLib.info.authorEmail
-      }
-    }
-    scm { url = myLib.info.githubUrl }
-  }
-}
+// Flattened coercion, same as in deps/build.gradle.kts: defaultPublishing is
+// `context(info: LibInfo, publish: LibPublish) fun Project.defaultPublishing()` and build scripts
+// are compiled WITHOUT -Xcontext-parameters, so the context parameters come first and the extension
+// receiver last. A function reference cannot use default arguments, hence the explicit LibPublish.
+val tfDefaultPublishing: (LibInfo, LibPublish, Project) -> Unit = Project::defaultPublishing
+tfDefaultPublishing(
+  myLib.info,
+  LibPublish(
+    artifactId = "SourceFun",
+    pomName = "SourceFun",
+    pomDescription = "Maintain typical java/kotlin/android projects sources with fun.",
+    // toCentral stays false: these artifacts ship to the Gradle Plugin Portal only. See
+    // docs/design/releasing.md, "The Maven Central path, and why it is inert".
+  ),
+  project,
+)
 
 gradlePlugin {
   website = myLib.info.githubUrl

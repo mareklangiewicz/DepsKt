@@ -24,7 +24,7 @@ plugins {
   // deliberately a LITERAL, not plugs.SourceFun: it must name something already on the portal, so
   // it lags between a bump and a publish -- exactly like the settings plugin pinned in
   // ../settings.gradle.kts. Bump it by hand, after the release it names is out.
-  id("pl.mareklangiewicz.sourcefun") version "0.4.62" // https://plugins.gradle.org/search?term=mareklangiewicz
+  id("pl.mareklangiewicz.sourcefun") version "0.4.63" // https://plugins.gradle.org/search?term=mareklangiewicz
 }
 
 repositories {
@@ -57,25 +57,36 @@ kotlin {
   jvmToolchain(23)
 }
 
-// templatefun's defaultPublishing is `context(info: LibInfo, flags: LibFlags) fun Project...`, and
-// build scripts are compiled WITHOUT -Xcontext-parameters (Gradle pins the script language version),
-// so it is reached through the flattened coercion: context parameters first, then the extension
-// receiver. This call IS the claim KGround's probes 7/14/15 assert -- exercised by a real build now,
-// rather than by branch-local evidence.
+// templatefun's defaultPublishing is `context(info: LibInfo, publish: LibPublish) fun Project...`,
+// and build scripts are compiled WITHOUT -Xcontext-parameters (Gradle pins the script language
+// version), so it is reached through the flattened coercion: context parameters first, then the
+// extension receiver. This call IS the claim KGround's probes 7/14/15 assert -- exercised by a real
+// build now, rather than by branch-local evidence.
 //
-// artifactId is an ARGUMENT, not derived from the project name: this project lives in ./deps, and
-// defaultPublishing defaults artifactId to project.name. Saying "DepsKt" here -- rather than
-// renaming the project -- keeps the path, the directory and the name agreeing with each other.
+// The second context parameter was LibFlags until 0.4.63, read only for withCentralPublish. It is
+// LibPublish now, which is not reachable from gradle.extLib at all: publish intent is per-MODULE and
+// arrives here, at the module. See docs/design/publish-intent-per-module.md.
+//
+// artifactId is a FIELD of that value, not derived from the project name: this project lives in
+// ./deps, and defaultPublishing defaults artifactId to project.name. Saying "DepsKt" here -- rather
+// than renaming the project -- keeps the path, the directory and the name agreeing with each other.
 //
 // It used to be a SECOND `mavenPublishing { coordinates(..) }` call placed AFTER this one, correct
 // only because both call coordinates(..) and the last call wins. Silent the moment anything
-// reordered the two. templatefun's defaultPublishing takes the parameter from 0.4.52, so the fact
+// reordered the two. templatefun's defaultPublishing took the parameter from 0.4.52, so the fact
 // is now stated once, where it is used.
 //
 // Note the arity: a function reference cannot use default arguments, so the flattened type names
-// all four parameters even though artifactId has a default for ordinary callers.
-val tfDefaultPublishing: (LibInfo, LibFlags, Project, String) -> Unit = Project::defaultPublishing
-tfDefaultPublishing(myLib.info, myLib.flags, project, "DepsKt")
+// all three parameters even though LibPublish's fields have defaults for ordinary callers.
+val tfDefaultPublishing: (LibInfo, LibPublish, Project) -> Unit = Project::defaultPublishing
+tfDefaultPublishing(
+  myLib.info,
+  LibPublish(
+    artifactId = "DepsKt",
+    // toCentral stays false: Gradle Plugin Portal only. See docs/design/releasing.md.
+  ),
+  project,
+)
 
 gradlePlugin {
   website.set("https://github.com/mareklangiewicz/DepsKt")

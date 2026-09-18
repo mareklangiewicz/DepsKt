@@ -1,4 +1,5 @@
 import pl.mareklangiewicz.defaults.*
+import pl.mareklangiewicz.deps.*
 import pl.mareklangiewicz.utils.*
 import com.vanniktech.maven.publish.*
 
@@ -122,15 +123,25 @@ gradlePlugin {
 // defaultPublishing: that region is a per-script COPY, not published DepsKt API, and it lives in
 // deps/build.gradle.kts. Sharing it would mean this build script depending on that one.
 // artifactId is the project name (templatefun); group is shared -> pl.mareklangiewicz.deps:templatefun.
+// The publish intent, stated as a value even though this script cannot call defaultPublishing.
+// Before 0.4.63 the line below read `myLib.flags.withCentralPublish` -- a per-REPO flag reached
+// through the object every module clones, which is exactly what leaked six sample apps into a
+// USpek release. It is per-MODULE now. See docs/design/publish-intent-per-module.md.
+val myPublish = LibPublish(
+  pomName = myLib.info.name + " templatefun",
+  pomDescription = "Reusable gradle build templates for typical kotlin/android/compose projects.",
+  // toCentral stays false: Gradle Plugin Portal only. See docs/design/releasing.md.
+)
+
 mavenPublishing {
   propertiesTryOverride("signingInMemoryKey", "signingInMemoryKeyPassword", "mavenCentralPassword")
-  if (myLib.flags.withCentralPublish) publishToMavenCentral(automaticRelease = false)
+  if (myPublish.toCentral) publishToMavenCentral(automaticRelease = false)
   signAllPublications()
   signAllPublicationsFixSignatoryIfFound()
   coordinates(groupId = myLib.info.group, artifactId = name, version = myLib.info.version.str)
   pom {
-    name = myLib.info.name + " templatefun"
-    description = "Reusable gradle build templates for typical kotlin/android/compose projects."
+    name = myPublish.pomName
+    description = myPublish.pomDescription
     url = myLib.info.githubUrl
     licenses { license { name = myLib.info.licenceName; url = myLib.info.licenceUrl } }
     developers {
