@@ -1,9 +1,18 @@
 # Publish intent is a per-MODULE value
 
-Status: **proposed, not built**. Triggered by a real incident in USpek on 2026-09-18 — a FAILED
-RELEASE, not a hypothetical — measured there with a control on the pre-migration commit. Nothing in
-DepsKt has changed yet. USpek is mitigated at the consumer (`14e8247`) and released as 0.0.46, but
-that is six edited build files, not the fix.
+Status: **step 2 implemented in DepsKt, not yet released**. Triggered by a real incident in USpek on
+2026-09-18 — a FAILED RELEASE, not a hypothetical — measured there with a control on the
+pre-migration commit. USpek is mitigated at the consumer (`14e8247`) and released as 0.0.46; this
+note is the durable fix behind it.
+
+What is done: `LibPublish` exists, `LibFlags.withCentralPublish` and `LibAndro.publishVariant` are
+gone, all ten `defaultBuildTemplateFor*` entry points take `publish: LibPublish? = null`, and the
+`hasPlugin` inference is replaced by `defaultPublishingOrNot`, which errors on either mismatch.
+Exercised for real by `samplefun`, which substitutes the local build through `includeBuild("..")`.
+
+What is NOT done: no release, so every consumer repo — including DepsKt's OWN build scripts, which
+compile against the published 0.4.62 — still sees the old model. See "Staging" and the migration
+hazard below; the consumer migration is step 3 and cannot start before a release.
 
 The design section was rewritten after review caught the first draft re-introducing the nesting
 this repo had just spent a release cycle removing. That correction is kept below rather than

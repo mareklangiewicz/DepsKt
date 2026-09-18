@@ -79,7 +79,6 @@ data class LibFlags(
   val withTestUSpekX: Boolean = true,
   val withTestGoogleTruth: Boolean = false,
   val withTestMockitoKotlin: Boolean = false,
-  val withCentralPublish: Boolean = false,
 )
 
 /** Compose options. A sibling of [Lib], not a field of anything. */
@@ -132,13 +131,54 @@ data class LibAndro(
   val withMDC: Boolean = false,
   val withTestEspresso: Boolean = true,
   val withTestRunner: String? = Vers.AndroTestRunner,
-  val publishVariant: String = "", // for now only single variant or all variants can be published.
+)
+
+/**
+ * How ONE module is published. Deliberately **not** a field of [Lib] and not reachable from
+ * `gradle.extLib` — see `docs/design/publish-intent-per-module.md`.
+ *
+ * [Lib] is a per-REPO value: one `gradle.extLib` for the whole build. Publishing is per-MODULE, and
+ * a repo publishes some of its modules and not the rest. Anything reachable from [Lib] is inherited
+ * the moment a module writes `gradle.extLib.copy(flags = flags.copy(withJs = false))` — the normal,
+ * correct idiom for platform flags. That is exactly how USpek's six SAMPLE apps acquired signed
+ * publications and Maven Central tasks nobody asked for: `withCentralPublish` used to live on
+ * [LibFlags], the one object modules routinely clone.
+ *
+ * So this type is passed as an argument to a `defaultBuildTemplateFor*` entry point, and **absence
+ * means the module is not published at all**. A module that publishes says so, at the module.
+ *
+ * It is also flat on purpose. An earlier draft wrapped it in a `LibModule(.., publish: LibPublish?)`,
+ * which would have made flipping one boolean cost
+ * `module.copy(publish = module.publish!!.copy(toCentral = true))` — symptom 1 of
+ * `docs/design/lib-details-denesting.md`, reintroduced. One level, one `copy`, no `!!`.
+ *
+ * @param artifactId published artifactId; null means the project name. `:deps` publishes as
+ *   `DepsKt` and `:sourcefun` as `SourceFun`, so a directory name and a coordinate can disagree.
+ * @param pomName POM `<name>`; null means [LibInfo.name], which is the REPO name and right for most
+ *   modules.
+ * @param pomDescription POM `<description>`; null means [LibInfo.description].
+ * @param toCentral whether this module goes to Maven Central. **The irreversible one** — a released
+ *   coordinate is public forever. False still produces publications, for `publishToMavenLocal`,
+ *   cross-repo handoff and CI fixtures; it just never uploads.
+ * @param androVariant which android variant produces the published component; null means the module
+ *   has no android component to publish, and `"*"` means all variants. Absorbed from
+ *   `LibAndro.publishVariant`, whose default `""` meant "none".
+ */
+data class LibPublish(
+  val artifactId: String? = null,
+  val pomName: String? = null,
+  val pomDescription: String? = null,
+  val toCentral: Boolean = false,
+  val androVariant: String? = null,
 ) {
-  val publishAllVariants get() = publishVariant == AllVariants
-  val publishNoVariants get() = publishVariant == NoVariants
-  val publishOneVariant get() = !publishNoVariants && !publishAllVariants
-  val AllVariants get() = "*"
-  val NoVariants get() = ""
+  val androAllVariants get() = androVariant == AllVariants
+
+  /** A single named variant, as opposed to none ([androVariant] null) or [AllVariants]. */
+  val androOneVariant get() = androVariant != null && !androAllVariants
+
+  companion object {
+    const val AllVariants = "*"
+  }
 }
 
 /** Repository options. See [defaultLibRepos] for the one flag they take from [LibFlags]. */

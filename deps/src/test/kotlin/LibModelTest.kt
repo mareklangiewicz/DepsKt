@@ -109,20 +109,60 @@ class LibModelTest {
     assertEquals(i.namespace, i.id)
   }
 
-  /** The live bug fixed in `d4e1d1d`; asserted here so it cannot come back. */
+  /**
+   * The USpek incident, as a test. `LibFlags` is the object a module clones for PLATFORM reasons,
+   * so publish intent must not be reachable from it -- six sample apps inherited
+   * `withCentralPublish = true` through exactly this `copy` and were one green build away from
+   * permanent Maven Central coordinates.
+   *
+   * This asserts the ABSENCE of a property, which a compiler check would normally cover; it is here
+   * because the next person to want a repo-wide publishing switch will reach for [LibFlags] first.
+   */
   @Test
-  fun publishVariantTruthTable() {
+  fun publishIntentIsNotReachableFromLibFlags() {
+    val flagNames = LibFlags::class.members.map { it.name }
+    assertFalse("withCentralPublish" in flagNames, "publish intent must not live on LibFlags")
+    val androNames = LibAndro::class.members.map { it.name }
+    assertFalse("publishVariant" in androNames, "publish intent must not live on LibAndro")
+    // And the thing it guards: cloning platform flags must not clone anything publish-shaped.
+    val base = lib(info)
+    val adjusted = base.copy(flags = base.flags.copy(withJs = false))
+    assertEquals(base.flags.copy(withJs = false), adjusted.flags)
+  }
+
+  /** Absence means "not published" -- the default a sample app gets by saying nothing. */
+  @Test
+  fun libPublishDefaultsToNothingIrreversible() {
+    val p = LibPublish()
+    assertFalse(p.toCentral, "toCentral must default to false -- it is the irreversible one")
+    assertEquals(null, p.artifactId, "artifactId null means project.name")
+    assertEquals(null, p.androVariant)
+    assertFalse(p.androAllVariants)
+    assertFalse(p.androOneVariant)
+  }
+
+  /** Replaces `publishVariantTruthTable`; same three cases, now keyed on [LibPublish]. */
+  @Test
+  fun androVariantTruthTable() {
     for ((variant, expected) in listOf(
-      "" to Triple(false, true, false), // all, no, one
-      "*" to Triple(true, false, false),
-      "debug" to Triple(false, false, true),
+      null to Pair(false, false), // all, one
+      "*" to Pair(true, false),
+      "debug" to Pair(false, true),
     )) {
-      val (all, no, one) = expected
-      val andro = LibAndro(publishVariant = variant)
-      assertEquals(all, andro.publishAllVariants, "publishAllVariants for '$variant'")
-      assertEquals(no, andro.publishNoVariants, "publishNoVariants for '$variant'")
-      assertEquals(one, andro.publishOneVariant, "publishOneVariant for '$variant'")
+      val (all, one) = expected
+      val p = LibPublish(androVariant = variant)
+      assertEquals(all, p.androAllVariants, "androAllVariants for '$variant'")
+      assertEquals(one, p.androOneVariant, "androOneVariant for '$variant'")
     }
+  }
+
+  /** Flat, so one `copy` reaches any field -- no `publish!!.copy(..)` through a wrapper. */
+  @Test
+  fun adjustingPublishIsOneStatement() {
+    val p = LibPublish(artifactId = "DepsKt")
+    val adjusted = p.copy(toCentral = true)
+    assertEquals("DepsKt", adjusted.artifactId)
+    assertTrue(adjusted.toCentral)
   }
 
   /** Symptom 1 from the note: one statement instead of two, root named once. */

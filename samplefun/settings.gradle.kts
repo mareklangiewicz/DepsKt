@@ -27,7 +27,13 @@ plugins {
 }
 
 // This standalone build defines its own Lib, exactly like every consumer repo does. It is NOT the
-// DepsKt one: samplefun publishes nothing and is not a DepsKt artifact.
+// DepsKt one: samplefun is not a DepsKt artifact and never goes to Maven Central.
+//
+// `withCentralPublish = false` is gone from the flags because the flag itself is gone -- publish
+// intent is per-MODULE now and is passed to the template, not inherited through LibFlags. See
+// ../docs/design/publish-intent-per-module.md. :sample-lib opts in with LibPublish() (local
+// publications only, toCentral = false), which makes this build the one place that actually RUNS
+// the new publishing path against the local DepsKt via includeBuild("..").
 //
 // A playground, deliberately outside the root build: samples, TestKit/GradleRunner experiments and
 // anything else that is allowed to be SLOW, so it stays opt-in instead of taxing every `./gradlew
@@ -39,7 +45,7 @@ gradle.extLib = lib(
     githubUrl = "https://github.com/mareklangiewicz/DepsKt/tree/master/samplefun",
     version = Ver(0, 1, 9),
   ),
-  flags = LibFlags(withJs = false, withLinuxX64 = false, withCentralPublish = false),
+  flags = LibFlags(withJs = false, withLinuxX64 = false),
   withCompose = false,
 )
 

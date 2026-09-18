@@ -10,6 +10,7 @@ import pl.mareklangiewicz.defaults.*
 
 fun Project.defaultBuildTemplateForFullMppApp(
   lib: Lib = gradle.extLib,
+  publish: LibPublish? = null,
   addCommonMainDependencies: KotlinDependencyHandler.() -> Unit = {},
 ) {
   // Required for the same reason as in [defaultBuildTemplateForFullMppLib] -- see its comment.
@@ -19,6 +20,7 @@ fun Project.defaultBuildTemplateForFullMppApp(
   }
   defaultBuildTemplateForComposeMppApp(
     lib = lib,
+    publish = publish,
     ignoreAndroConfig = true,
     addCommonMainDependencies = addCommonMainDependencies,
   )

@@ -19,6 +19,7 @@ import pl.mareklangiewicz.defaults.*
  */
 fun Project.defaultBuildTemplateForBasicJvmLib(
   lib: Lib = gradle.extLib,
+  publish: LibPublish? = null,
   ignoreCompose: Boolean = false, // so user have to explicitly say THAT he wants to ignore compose settings here.
   ignoreAndroTarget: Boolean = false, // so user have to explicitly say THAT he wants to ignore android target.
   addJvmDependencies: DependencyHandlerScope.() -> Unit = {},
@@ -36,8 +37,7 @@ fun Project.defaultBuildTemplateForBasicJvmLib(
   configurations.checkVerSync(warnOnly = true)
   tasks.defaultKotlinCompileOptions(jvmTargetVer = null) // jvmVer is set in fun jvmDefault using jvmToolchain
   tasks.defaultTestsOptions(onJvmUseJUnitPlatform = lib.flags.withTestJUnit5)
-  if (plugins.hasPlugin("com.vanniktech.maven.publish")) defaultPublishing()
-  else println("JVM Module ${name}: publishing (and signing) disabled")
+  defaultPublishingOrNot(publish, "JVM Module")
 }
 
 
@@ -92,11 +92,12 @@ fun KotlinJvmProjectExtension.jvmOnlyDefault(
 
 fun Project.defaultBuildTemplateForBasicJvmApp(
   lib: Lib = gradle.extLib,
+  publish: LibPublish? = null,
   ignoreCompose: Boolean = false, // so user have to explicitly say THAT he wants to ignore compose settings here.
   ignoreAndroTarget: Boolean = false, // so user have to explicitly say THAT he wants to ignore android target.
   addJvmDependencies: DependencyHandlerScope.() -> Unit = {},
 ): Unit = context(lib.info, lib.flags) {
-  defaultBuildTemplateForBasicJvmLib(lib, ignoreCompose, ignoreAndroTarget, addJvmDependencies)
+  defaultBuildTemplateForBasicJvmLib(lib, publish, ignoreCompose, ignoreAndroTarget, addJvmDependencies)
   extensions.configure<JavaApplication> {
     mainClass.set(lib.info.run { "$appMainPackage.$appMainClass" })
   }

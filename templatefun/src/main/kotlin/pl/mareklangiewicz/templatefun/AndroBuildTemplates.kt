@@ -191,6 +191,7 @@ fun KotlinMultiplatformExtension.androDefault() {
 
 fun Project.defaultBuildTemplateForAndroLib(
   lib: Lib = gradle.extLib,
+  publish: LibPublish? = null,
   addAndroMainDependencies: KotlinDependencyHandler.() -> Unit = {},
 ): Unit = context(lib.info, lib.flags) {
   // THE boundary. One check turns "details that may or may not have android" into an andro scope;
@@ -247,8 +248,7 @@ fun Project.defaultBuildTemplateForAndroLib(
     jvmTargetVer = null, // jvmVer is set jvmToolchain in fun allDefault
   )
   defaultGroupAndVerAndDescription(lib)
-  if (plugins.hasPlugin("com.vanniktech.maven.publish")) defaultPublishing()
-  else println("Andro Lib Module ${name}: publishing (and signing) disabled")
+  defaultPublishingOrNot(publish, "Andro Lib Module")
 }
 
 /**
@@ -261,8 +261,8 @@ fun Project.defaultBuildTemplateForAndroLib(
  */
 context(info: LibInfo, andro: LibAndro)
 fun LibraryExtension.defaultAndroLib(
+  publish: LibPublish? = null,
   configureComposeAndro: Boolean = false,
-  ignoreAndroPublish: Boolean = false, // so user have to explicitly say IF he wants to ignore it.
 ) {
   andro.sdkCompilePreview?.let { compileSdkPreview = it } ?: run {
     compileSdk = andro.sdkCompile
@@ -273,8 +273,10 @@ fun LibraryExtension.defaultAndroLib(
   defaultBuildTypes()
   if (configureComposeAndro) defaultComposeStuff()
   defaultPackagingOptions()
-  if (!ignoreAndroPublish && andro.publishAllVariants) defaultAndroLibPublishAllVariants()
-  if (!ignoreAndroPublish && andro.publishOneVariant) defaultAndroLibPublishVariant(andro.publishVariant)
+  // Was two reads of LibAndro.publishVariant behind an ignoreAndroPublish flag. The variant is a
+  // PUBLISHING decision, so it lives on LibPublish now, and "not published" is simply a null.
+  if (publish?.androAllVariants == true) defaultAndroLibPublishAllVariants()
+  if (publish?.androOneVariant == true) defaultAndroLibPublishVariant(publish.androVariant!!)
 }
 
 /** Dead code alongside [defaultAndroLib]; migrated for consistency, unexercised. */
@@ -320,12 +322,13 @@ fun LibraryExtension.defaultAndroLibPublishAllVariants(
 
 fun Project.defaultBuildTemplateForAndroApp(
   lib: Lib = gradle.extLib,
+  publish: LibPublish? = null,
   addAndroDependencies: DependencyHandler.() -> Unit = {},
 ): Unit = context(lib.info, lib.flags) {
   // Same single boundary as the lib entry point above.
   val andro = lib.andro ?: error("No andro settings.")
-  require(!andro.publishAllVariants) { "Only single app variant can be published" }
-  val variant = andro.publishVariant.takeIf { andro.publishOneVariant }
+  require(publish?.androAllVariants != true) { "Only single app variant can be published" }
+  val variant = publish?.androVariant?.takeIf { publish.androOneVariant }
   repositories { context(lib.repos) { addRepos() } }
   extensions.configure<ApplicationExtension> {
     context(andro) { defaultAndroApp(configureComposeAndro = lib.compose != null) }
@@ -348,6 +351,7 @@ fun Project.defaultBuildTemplateForAndroApp(
     jvmTargetVer = null, // jvmVer is set jvmToolchain in fun allDefault
   )
   defaultGroupAndVerAndDescription(lib)
+  defaultPublishingOrNot(publish, "Andro App Module")
   variant?.let { defaultPublishingOfAndroApp(it) }
 }
 

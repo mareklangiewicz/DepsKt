@@ -19,6 +19,7 @@ import pl.mareklangiewicz.defaults.*
 
 fun Project.defaultBuildTemplateForFullMppLib(
   lib: Lib = gradle.extLib,
+  publish: LibPublish? = null,
   addCommonMainDependencies: KotlinDependencyHandler.() -> Unit = {},
 ): Unit = context(lib.info, lib.flags) {
   if (lib.andro != null) {
@@ -37,6 +38,7 @@ fun Project.defaultBuildTemplateForFullMppLib(
   }
   defaultBuildTemplateForComposeMppLib(
     lib = lib,
+    publish = publish,
     ignoreAndroConfig = true, // andro configured below
     ignoreAndroPublish = true, // andro publishing configured below (or ignored again, but below in defaultAndroLib)
     addCommonMainDependencies = addCommonMainDependencies,
@@ -87,6 +89,7 @@ fun Project.defaultBuildTemplateForFullMppLib(
  */
 fun Project.defaultBuildTemplateForBasicMppLib(
   lib: Lib = gradle.extLib,
+  publish: LibPublish? = null,
   ignoreCompose: Boolean = false, // so user have to explicitly say THAT he wants to ignore compose settings here.
   ignoreAndroConfig: Boolean = false, // so user have to explicitly say THAT he wants to ignore it.
   ignoreAndroPublish: Boolean = false, // so user have to explicitly say THAT he wants to ignore it.
@@ -97,7 +100,7 @@ fun Project.defaultBuildTemplateForBasicMppLib(
   require(ignoreCompose || lib.compose == null) { "defaultBuildTemplateForBasicMppLib can not configure compose stuff" }
   lib.andro?.let {
     require(ignoreAndroConfig) { "defaultBuildTemplateForBasicMppLib can not configure android stuff (besides just adding target)" }
-    require(ignoreAndroPublish || it.publishNoVariants) { "defaultBuildTemplateForBasicMppLib can not publish android stuff YET" }
+    require(ignoreAndroPublish || publish?.androVariant == null) { "defaultBuildTemplateForBasicMppLib can not publish android stuff YET" }
   }
   repositories { context(lib.repos) { addRepos() } }
   defaultGroupAndVerAndDescription(lib)
@@ -110,8 +113,7 @@ fun Project.defaultBuildTemplateForBasicMppLib(
   configurations.checkVerSync(warnOnly = true)
   tasks.defaultKotlinCompileOptions(jvmTargetVer = null) // jvmVer is set in fun allDefault using jvmToolchain
   tasks.defaultTestsOptions(onJvmUseJUnitPlatform = lib.flags.withTestJUnit5)
-  if (plugins.hasPlugin("com.vanniktech.maven.publish")) defaultPublishing()
-  else println("MPP Module ${name}: publishing (and signing) disabled")
+  defaultPublishingOrNot(publish, "MPP Module")
 }
 
 
@@ -125,7 +127,7 @@ fun Project.defaultBuildTemplateForBasicMppLib(
  * require(ignoreCompose || compose == null) { "allDefault can not configure compose stuff" }
  * andro?.let {
  *   require(ignoreAndroConfig) { "allDefault can not configure android stuff (besides just adding target)" }
- *   require(ignoreAndroPublish || it.publishNoVariants) { "allDefault can not publish android stuff YET" }
+ *   require(ignoreAndroPublish || it.publishNoVariants) { "allDefault can not publish android stuff YET" } // (pre-LibPublish)
  * }
  * ```
  *
@@ -135,7 +137,7 @@ fun Project.defaultBuildTemplateForBasicMppLib(
  * out by not opening those scopes rather than by passing a boolean.
  *
  * Note what did NOT simply vanish. `ignoreAndroPublish` guarded a constraint on the CONTENT of the
- * andro settings (`publishNoVariants`), not on their presence, so it has to live where the content
+ * andro settings (the old `publishNoVariants`), not on their presence, so it has to live where the content
  * is visible: [defaultBuildTemplateForBasicMppLib], which still holds the whole [Lib].
  * Nothing had to be moved there, because it was ALREADY there — all three `require`s deleted here
  * were verbatim duplicates of checks the entry point performs immediately before calling this
@@ -228,12 +230,14 @@ fun KotlinMultiplatformExtension.jsDefault(
 
 fun Project.defaultBuildTemplateForBasicMppApp(
   lib: Lib = gradle.extLib,
+  publish: LibPublish? = null,
   ignoreCompose: Boolean = false, // so user have to explicitly say THAT he wants to ignore compose settings here.
   ignoreAndroConfig: Boolean = false, // so user have to explicitly say THAT he wants to ignore it.
   addCommonMainDependencies: KotlinDependencyHandler.() -> Unit = {},
 ): Unit = context(lib.info, lib.flags) {
   defaultBuildTemplateForBasicMppLib(
     lib = lib,
+    publish = publish,
     ignoreCompose = ignoreCompose,
     ignoreAndroConfig = ignoreAndroConfig,
     ignoreAndroPublish = true,
@@ -266,6 +270,7 @@ fun Project.defaultBuildTemplateForBasicMppApp(
 /** Only for very standard compose mpp libs. In most cases, it's better to not use this function. */
 fun Project.defaultBuildTemplateForComposeMppLib(
   lib: Lib = gradle.extLib,
+  publish: LibPublish? = null,
   ignoreAndroConfig: Boolean = false, // so user have to explicitly say THAT he wants to ignore it.
   ignoreAndroPublish: Boolean = false, // so user have to explicitly say THAT he wants to ignore it.
   addCommonMainDependencies: KotlinDependencyHandler.() -> Unit = {},
@@ -277,6 +282,7 @@ fun Project.defaultBuildTemplateForComposeMppLib(
     logger.warn("Compose UI Tests with JUnit5 are not supported yet! Configuring JUnit5 anyway.")
   defaultBuildTemplateForBasicMppLib(
     lib = lib,
+    publish = publish,
     ignoreCompose = true,
     ignoreAndroConfig = ignoreAndroConfig,
     ignoreAndroPublish = ignoreAndroPublish,
@@ -449,6 +455,7 @@ fun KotlinMultiplatformExtension.allDefaultSourceSetsForCompose(
 /** Only for very standard compose mpp apps. In most cases it's better to not use this function. */
 fun Project.defaultBuildTemplateForComposeMppApp(
   lib: Lib = gradle.extLib,
+  publish: LibPublish? = null,
   ignoreAndroConfig: Boolean = false, // so user have to explicitly say THAT he wants to ignore it.
   addCommonMainDependencies: KotlinDependencyHandler.() -> Unit = {},
 ): Unit = context(lib.info, lib.flags) {
@@ -456,6 +463,7 @@ fun Project.defaultBuildTemplateForComposeMppApp(
   val desktop = (composeExt as ExtensionAware).extensions.getByName("desktop") as DesktopExtension
   defaultBuildTemplateForComposeMppLib(
     lib = lib,
+    publish = publish,
     ignoreAndroConfig = ignoreAndroConfig,
     ignoreAndroPublish = true,
     addCommonMainDependencies = addCommonMainDependencies,

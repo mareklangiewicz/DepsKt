@@ -86,9 +86,9 @@ fun TaskCollection<Task>.defaultTestsOptions(
 
 // Provide artifacts information required by Maven Central
 context(info: LibInfo)
-fun MavenPom.defaultPOM() {
-  name put info.name
-  description put info.description
+fun MavenPom.defaultPOM(pomName: String? = null, pomDescription: String? = null) {
+  name put (pomName ?: info.name)
+  description put (pomDescription ?: info.description)
   url put info.githubUrl
 
   licenses {
@@ -108,42 +108,79 @@ fun MavenPom.defaultPOM() {
 }
 
 /**
- * MIGRATED to the sibling model. The nested version reached through ONE field
- * (`details.settings.withCentralPublish`) for a single flag; as siblings that flag arrives as its
- * own context parameter, so this function names exactly the two things it uses and nothing else.
+ * Configures publishing for ONE module. Reached only through a [LibPublish] scope, which is the
+ * whole point: a module that is not published never opens the scope, so this cannot run for it.
  *
- * Note it is still `context(..)` and not `with(..)`: [LibInfo] has a `name` too, and the
- * [artifactId] default must resolve to the PROJECT name. See [probeNameIsProjectName].
+ * ### Why [LibPublish] and not a flag on [LibFlags]
  *
- * ### Why [artifactId] defaults to the project name, and not to anything in [LibInfo]
+ * It used to be `context(info: LibInfo, flags: LibFlags)`, reading `flags.withCentralPublish`, and
+ * it was called from every `defaultBuildTemplateFor*Lib` behind
+ * `if (plugins.hasPlugin("com.vanniktech.maven.publish"))`. Both halves of that were wrong:
+ *
+ * - [LibFlags] is the object a module clones for PLATFORM reasons
+ *   (`gradle.extLib.copy(flags = flags.copy(withJs = false))`), so cloning platform flags cloned
+ *   publish intent. USpek's six sample apps inherited `withCentralPublish = true` this way and were
+ *   one green build away from six permanent Maven Central coordinates.
+ * - `hasPlugin` infers intent from the `plugins {}` block, which in these repos is region-marked
+ *   boilerplate. Intent was being read from the most copy-pasted line in the file.
+ *
+ * Now the caller passes a [LibPublish] or does not. See `docs/design/publish-intent-per-module.md`.
+ *
+ * ### Why [LibPublish.artifactId] defaults to the project name
  *
  * [LibInfo] is a per-REPO value -- one `gradle.extLib` for the whole build -- while an artifactId is
- * a per-MODULE coordinate. `info.name` is the repo name (KGround's ~12 publishable modules all share
+ * a per-MODULE coordinate. `info.name` is the repo name (KGround's publishable modules all share
  * it; [defaultPOM] deliberately puts it in the POM `<name>` of every one of them), so defaulting to
- * it would make those twelve modules publish the SAME artifactId, silently overwriting each other.
+ * it would make those modules publish the SAME artifactId, silently overwriting each other.
  * `info.id` is worse: it is a reverse-DNS identity slot (android applicationId / bundle id / plugin
  * id), so it would publish `group:pl.mareklangiewicz.deps.depskt`.
  *
- * `project.name` is the only per-module value in scope, so it is the default. [artifactId] exists
+ * `project.name` is the only per-module value in scope, so it is the default. The override exists
  * because a directory name and a published artifactId can legitimately disagree: `:deps` lives in
- * `./deps` but has always published as `DepsKt`, and `:sourcefun` as `SourceFun`. Before this
- * parameter existed the only way to say so was a SECOND `coordinates(..)` call after this function,
- * relying on last-call-wins -- silent the moment anything reordered it.
+ * `./deps` but has always published as `DepsKt`, and `:sourcefun` as `SourceFun`.
  *
- * TODO_someday: the same repo/module split affects the POM, not just the artifactId. `:sourcefun`
- * hand-rolls this whole block because it needs a module-specific POM `name` and `description` too.
- * If a third module ever wants that, the honest fix is to stop patching fields one at a time and
- * introduce a small per-module value -- something like `LibModule(artifactId, name, description)` --
- * as the missing counterpart to the per-repo [LibInfo]. Not worth a new type for one caller yet.
+ * [LibPublish.pomName] and [LibPublish.pomDescription] are the other half of that split, and they
+ * retire `:sourcefun`'s hand-rolled copy of this whole function.
  */
-context(info: LibInfo, flags: LibFlags)
-fun Project.defaultPublishing(artifactId: String = name) = extensions.configure<MavenPublishBaseExtension> {
+context(info: LibInfo, publish: LibPublish)
+fun Project.defaultPublishing() = extensions.configure<MavenPublishBaseExtension> {
   propertiesTryOverride("signingInMemoryKey", "signingInMemoryKeyPassword", "mavenCentralPassword")
-  if (flags.withCentralPublish) publishToMavenCentral(automaticRelease = false)
+  if (publish.toCentral) publishToMavenCentral(automaticRelease = false)
   signAllPublications()
   signAllPublicationsFixSignatoryIfFound()
-  coordinates(groupId = info.group, artifactId = artifactId, version = info.version.str)
-  pom { defaultPOM() }
+  coordinates(
+    groupId = info.group,
+    artifactId = publish.artifactId ?: name,
+    version = info.version.str,
+  )
+  pom { defaultPOM(publish.pomName, publish.pomDescription) }
+}
+
+/**
+ * The one place that decides whether a module publishes, shared by every `defaultBuildTemplateFor*`
+ * entry point.
+ *
+ * Both mismatches are errors, and deliberately so. The migration to [LibPublish] makes every
+ * publishable module opt in explicitly; a module that forgets would otherwise go quiet and ship
+ * NOTHING on the next release, which is the failure mode this whole redesign exists to prevent.
+ * So: the vanniktech plugin no longer GRANTS a publication, it is REQUIRED BY one.
+ */
+context(info: LibInfo)
+fun Project.defaultPublishingOrNot(publish: LibPublish?, moduleKind: String) {
+  val hasPlugin = plugins.hasPlugin("com.vanniktech.maven.publish")
+  when {
+    publish != null && !hasPlugin -> error(
+      "$moduleKind $name: publish = LibPublish(..) was given, but the " +
+        "com.vanniktech.maven.publish plugin is not applied. Add plugs.VannikPublish to plugins {}."
+    )
+    publish == null && hasPlugin -> error(
+      "$moduleKind $name: the com.vanniktech.maven.publish plugin is applied, but no " +
+        "publish = LibPublish(..) was given, so nothing would be published. Pass one, or drop " +
+        "plugs.VannikPublish from plugins {}."
+    )
+    publish != null -> context(publish) { defaultPublishing() }
+    else -> logger.info("$moduleKind $name: not published.")
+  }
 }
 
 // endregion [[Kotlin Module Build Template]]
