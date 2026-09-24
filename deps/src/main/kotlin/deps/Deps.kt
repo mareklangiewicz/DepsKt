@@ -223,12 +223,12 @@ private infix fun Dep.w(verStr: String) = copy(vers = vers + Ver(verStr))
 
 object AndroidX {
   object Activity {
-    val activity = "androidx.activity" d "activity" w "1.13.0" w "1.14.0-alpha02"
-    val compose = "androidx.activity" d "activity-compose" w "1.13.0" w "1.14.0-alpha02"
-    val ktx = "androidx.activity" d "activity-ktx" w "1.13.0" w "1.14.0-alpha02"
+    val activity = "androidx.activity" d "activity" w "1.13.0" w "1.14.0-alpha03"
+    val compose = "androidx.activity" d "activity-compose" w "1.13.0" w "1.14.0-alpha03"
+    val ktx = "androidx.activity" d "activity-ktx" w "1.13.0" w "1.14.0-alpha03"
   }
   object Annotation {
-    val annotation = "androidx.annotation" d "annotation" w "1.10.0" w "1.11.0-rc01"
+    val annotation = "androidx.annotation" d "annotation" w "1.11.0"
     val experimental = "androidx.annotation" d "annotation-experimental" w "1.6.0"
   }
   object AppCompat {
@@ -291,8 +291,8 @@ object AndroidX {
     val cardview = "androidx.cardview" d "cardview" w "1.0.0"
   }
   object Collection {
-    val collection = "androidx.collection" d "collection" w "1.6.0" w "1.7.0-alpha01"
-    val ktx = "androidx.collection" d "collection-ktx" w "1.6.0" w "1.7.0-alpha01"
+    val collection = "androidx.collection" d "collection" w "1.6.0" w "1.7.0-rc01"
+    val ktx = "androidx.collection" d "collection-ktx" w "1.6.0" w "1.7.0-rc01"
   }
   object Compose {
     val bom = "androidx.compose" d "compose-bom" w "2026.09.00"
@@ -315,8 +315,8 @@ object AndroidX {
       val ripple = "androidx.compose.material" d "material-ripple" w "1.12.1" w "1.13.0-alpha03"
     }
     object Material3 {
-      val material3 = "androidx.compose.material3" d "material3" w "1.4.0" w "1.5.0-alpha28"
-      val window_size_class = "androidx.compose.material3" d "material3-window-size-class" w "1.4.0" w "1.5.0-alpha28"
+      val material3 = "androidx.compose.material3" d "material3" w "1.4.0" w "1.5.0-alpha29"
+      val window_size_class = "androidx.compose.material3" d "material3-window-size-class" w "1.4.0" w "1.5.0-alpha29"
     }
     object Runtime {
       val dispatch = "androidx.compose.runtime" d "runtime-dispatch" w "1.0.0-alpha12"
@@ -361,9 +361,9 @@ object AndroidX {
   object Core {
     val animation = "androidx.core" d "core-animation" w "1.0.0"
     val animation_testing = "androidx.core" d "core-animation-testing" w "1.0.0"
-    val core = "androidx.core" d "core" w "1.19.0"
+    val core = "androidx.core" d "core" w "1.19.1"
     val google_shortcuts = "androidx.core" d "core-google-shortcuts" w "1.1.0" w "1.2.0-alpha01"
-    val ktx = "androidx.core" d "core-ktx" w "1.19.0"
+    val ktx = "androidx.core" d "core-ktx" w "1.19.1"
     val performance = "androidx.core" d "core-performance" w "1.0.0"
     val remoteviews = "androidx.core" d "core-remoteviews" w "1.1.0"
     val role = "androidx.core" d "core-role" w "1.1.0"
@@ -410,10 +410,10 @@ object AndroidX {
     val emoji = "androidx.emoji" d "emoji" w "1.2.0"
   }
   object Emoji2 {
-    val bundled = "androidx.emoji2" d "emoji2-bundled" w "1.6.0" w "1.7.0-rc01"
-    val emoji2 = "androidx.emoji2" d "emoji2" w "1.6.0" w "1.7.0-rc01"
-    val views = "androidx.emoji2" d "emoji2-views" w "1.6.0" w "1.7.0-rc01"
-    val views_helper = "androidx.emoji2" d "emoji2-views-helper" w "1.6.0" w "1.7.0-rc01"
+    val bundled = "androidx.emoji2" d "emoji2-bundled" w "1.7.0"
+    val emoji2 = "androidx.emoji2" d "emoji2" w "1.7.0"
+    val views = "androidx.emoji2" d "emoji2-views" w "1.7.0"
+    val views_helper = "androidx.emoji2" d "emoji2-views-helper" w "1.7.0"
   }
   object Enterprise {
     val feedback = "androidx.enterprise" d "enterprise-feedback" w "1.1.0"
@@ -423,9 +423,9 @@ object AndroidX {
     val exifinterface = "androidx.exifinterface" d "exifinterface" w "1.4.2"
   }
   object Fragment {
-    val fragment = "androidx.fragment" d "fragment" w "1.9.0"
-    val ktx = "androidx.fragment" d "fragment-ktx" w "1.9.0"
-    val testing = "androidx.fragment" d "fragment-testing" w "1.9.0"
+    val fragment = "androidx.fragment" d "fragment" w "1.9.1"
+    val ktx = "androidx.fragment" d "fragment-ktx" w "1.9.1"
+    val testing = "androidx.fragment" d "fragment-testing" w "1.9.1"
   }
   object Games {
     val activity = "androidx.games" d "games-activity" w "4.4.2"
@@ -446,13 +446,13 @@ object AndroidX {
     val gridlayout = "androidx.gridlayout" d "gridlayout" w "1.1.0"
   }
   object Health {
-    val services_client = "androidx.health" d "health-services-client" w "1.0.0" w "1.1.0-rc02"
+    val services_client = "androidx.health" d "health-services-client" w "1.1.0"
     object Connect {
       val client = "androidx.health.connect" d "connect-client" w "1.1.0" w "1.2.0-alpha06"
     }
   }
   object Heifwriter {
-    val heifwriter = "androidx.heifwriter" d "heifwriter" w "1.1.0" w "1.2.0-alpha02"
+    val heifwriter = "androidx.heifwriter" d "heifwriter" w "1.1.0" w "1.2.0-beta01"
   }
   object Hilt {
     val compiler = "androidx.hilt" d "hilt-compiler" w "1.4.0"
@@ -467,7 +467,7 @@ object AndroidX {
     val interpolator = "androidx.interpolator" d "interpolator" w "1.0.0"
   }
   object JavaScriptengine {
-    val javascriptengine = "androidx.javascriptengine" d "javascriptengine" w "1.1.0"
+    val javascriptengine = "androidx.javascriptengine" d "javascriptengine" w "1.1.1"
   }
   object Leanback {
     val grid = "androidx.leanback" d "leanback-grid" w "1.0.0" w "1.1.0-alpha02"
@@ -477,24 +477,24 @@ object AndroidX {
     val tab = "androidx.leanback" d "leanback-tab" w "1.1.0"
   }
   object Lifecycle {
-    val common = "androidx.lifecycle" d "lifecycle-common" w "2.11.0" w "2.12.0-alpha03"
-    val common_java8 = "androidx.lifecycle" d "lifecycle-common-java8" w "2.11.0" w "2.12.0-alpha03"
-    val compiler = "androidx.lifecycle" d "lifecycle-compiler" w "2.11.0" w "2.12.0-alpha03"
+    val common = "androidx.lifecycle" d "lifecycle-common" w "2.11.0" w "2.12.0-alpha04"
+    val common_java8 = "androidx.lifecycle" d "lifecycle-common-java8" w "2.11.0" w "2.12.0-alpha04"
+    val compiler = "androidx.lifecycle" d "lifecycle-compiler" w "2.11.0" w "2.12.0-alpha04"
     val extensions = "androidx.lifecycle" d "lifecycle-extensions" w "2.2.0"
-    val livedata = "androidx.lifecycle" d "lifecycle-livedata" w "2.11.0" w "2.12.0-alpha03"
-    val livedata_ktx = "androidx.lifecycle" d "lifecycle-livedata-ktx" w "2.11.0" w "2.12.0-alpha03"
-    val process = "androidx.lifecycle" d "lifecycle-process" w "2.11.0" w "2.12.0-alpha03"
-    val reactivestreams = "androidx.lifecycle" d "lifecycle-reactivestreams" w "2.11.0" w "2.12.0-alpha03"
-    val reactivestreams_ktx = "androidx.lifecycle" d "lifecycle-reactivestreams-ktx" w "2.11.0" w "2.12.0-alpha03"
-    val runtime = "androidx.lifecycle" d "lifecycle-runtime" w "2.11.0" w "2.12.0-alpha03"
-    val runtime_compose = "androidx.lifecycle" d "lifecycle-runtime-compose" w "2.11.0" w "2.12.0-alpha03"
-    val runtime_ktx = "androidx.lifecycle" d "lifecycle-runtime-ktx" w "2.11.0" w "2.12.0-alpha03"
-    val runtime_testing = "androidx.lifecycle" d "lifecycle-runtime-testing" w "2.11.0" w "2.12.0-alpha03"
-    val service = "androidx.lifecycle" d "lifecycle-service" w "2.11.0" w "2.12.0-alpha03"
-    val viewmodel = "androidx.lifecycle" d "lifecycle-viewmodel" w "2.11.0" w "2.12.0-alpha03"
-    val viewmodel_compose = "androidx.lifecycle" d "lifecycle-viewmodel-compose" w "2.11.0" w "2.12.0-alpha03"
-    val viewmodel_ktx = "androidx.lifecycle" d "lifecycle-viewmodel-ktx" w "2.11.0" w "2.12.0-alpha03"
-    val viewmodel_savedstate = "androidx.lifecycle" d "lifecycle-viewmodel-savedstate" w "2.11.0" w "2.12.0-alpha03"
+    val livedata = "androidx.lifecycle" d "lifecycle-livedata" w "2.11.0" w "2.12.0-alpha04"
+    val livedata_ktx = "androidx.lifecycle" d "lifecycle-livedata-ktx" w "2.11.0" w "2.12.0-alpha04"
+    val process = "androidx.lifecycle" d "lifecycle-process" w "2.11.0" w "2.12.0-alpha04"
+    val reactivestreams = "androidx.lifecycle" d "lifecycle-reactivestreams" w "2.11.0" w "2.12.0-alpha04"
+    val reactivestreams_ktx = "androidx.lifecycle" d "lifecycle-reactivestreams-ktx" w "2.11.0" w "2.12.0-alpha04"
+    val runtime = "androidx.lifecycle" d "lifecycle-runtime" w "2.11.0" w "2.12.0-alpha04"
+    val runtime_compose = "androidx.lifecycle" d "lifecycle-runtime-compose" w "2.11.0" w "2.12.0-alpha04"
+    val runtime_ktx = "androidx.lifecycle" d "lifecycle-runtime-ktx" w "2.11.0" w "2.12.0-alpha04"
+    val runtime_testing = "androidx.lifecycle" d "lifecycle-runtime-testing" w "2.11.0" w "2.12.0-alpha04"
+    val service = "androidx.lifecycle" d "lifecycle-service" w "2.11.0" w "2.12.0-alpha04"
+    val viewmodel = "androidx.lifecycle" d "lifecycle-viewmodel" w "2.11.0" w "2.12.0-alpha04"
+    val viewmodel_compose = "androidx.lifecycle" d "lifecycle-viewmodel-compose" w "2.11.0" w "2.12.0-alpha04"
+    val viewmodel_ktx = "androidx.lifecycle" d "lifecycle-viewmodel-ktx" w "2.11.0" w "2.12.0-alpha04"
+    val viewmodel_savedstate = "androidx.lifecycle" d "lifecycle-viewmodel-savedstate" w "2.11.0" w "2.12.0-alpha04"
   }
   object Loader {
     val loader = "androidx.loader" d "loader" w "1.2.0"
@@ -536,7 +536,7 @@ object AndroidX {
     val ui_leanback = "androidx.media3" d "media3-ui-leanback" w "1.11.1"
   }
   object MediaRouter {
-    val mediarouter = "androidx.mediarouter" d "mediarouter" w "1.8.1" w "1.9.0-alpha02"
+    val mediarouter = "androidx.mediarouter" d "mediarouter" w "1.8.1" w "1.9.0-beta01"
   }
   object Metrics {
     val performance = "androidx.metrics" d "metrics-performance" w "1.0.0"
@@ -546,19 +546,19 @@ object AndroidX {
     val multidex = "androidx.multidex" d "multidex" w "2.0.1"
   }
   object Navigation {
-    val common = "androidx.navigation" d "navigation-common" w "2.10.1"
-    val common_ktx = "androidx.navigation" d "navigation-common-ktx" w "2.10.1"
-    val compose = "androidx.navigation" d "navigation-compose" w "2.10.1"
-    val dynamic_features_fragment = "androidx.navigation" d "navigation-dynamic-features-fragment" w "2.10.1"
-    val fragment = "androidx.navigation" d "navigation-fragment" w "2.10.1"
-    val fragment_ktx = "androidx.navigation" d "navigation-fragment-ktx" w "2.10.1"
-    val runtime = "androidx.navigation" d "navigation-runtime" w "2.10.1"
-    val runtime_ktx = "androidx.navigation" d "navigation-runtime-ktx" w "2.10.1"
-    val safe_args_generator = "androidx.navigation" d "navigation-safe-args-generator" w "2.10.1"
-    val safe_args_gradle_plugin = "androidx.navigation" d "navigation-safe-args-gradle-plugin" w "2.10.1"
-    val testing = "androidx.navigation" d "navigation-testing" w "2.10.1"
-    val ui = "androidx.navigation" d "navigation-ui" w "2.10.1"
-    val ui_ktx = "androidx.navigation" d "navigation-ui-ktx" w "2.10.1"
+    val common = "androidx.navigation" d "navigation-common" w "2.10.2"
+    val common_ktx = "androidx.navigation" d "navigation-common-ktx" w "2.10.2"
+    val compose = "androidx.navigation" d "navigation-compose" w "2.10.2"
+    val dynamic_features_fragment = "androidx.navigation" d "navigation-dynamic-features-fragment" w "2.10.2"
+    val fragment = "androidx.navigation" d "navigation-fragment" w "2.10.2"
+    val fragment_ktx = "androidx.navigation" d "navigation-fragment-ktx" w "2.10.2"
+    val runtime = "androidx.navigation" d "navigation-runtime" w "2.10.2"
+    val runtime_ktx = "androidx.navigation" d "navigation-runtime-ktx" w "2.10.2"
+    val safe_args_generator = "androidx.navigation" d "navigation-safe-args-generator" w "2.10.2"
+    val safe_args_gradle_plugin = "androidx.navigation" d "navigation-safe-args-gradle-plugin" w "2.10.2"
+    val testing = "androidx.navigation" d "navigation-testing" w "2.10.2"
+    val ui = "androidx.navigation" d "navigation-ui" w "2.10.2"
+    val ui_ktx = "androidx.navigation" d "navigation-ui-ktx" w "2.10.2"
   }
   object Paging {
     val common = "androidx.paging" d "paging-common" w "3.5.1"
@@ -612,8 +612,8 @@ object AndroidX {
     val testing = "androidx.room" d "room-testing" w "2.8.5"
   }
   object Savedstate {
-    val ktx = "androidx.savedstate" d "savedstate-ktx" w "1.5.0" w "1.6.0-alpha03"
-    val savedstate = "androidx.savedstate" d "savedstate" w "1.5.0" w "1.6.0-alpha03"
+    val ktx = "androidx.savedstate" d "savedstate-ktx" w "1.5.0" w "1.6.0-alpha04"
+    val savedstate = "androidx.savedstate" d "savedstate" w "1.5.0" w "1.6.0-alpha04"
   }
   object Security {
     val app_authenticator = "androidx.security" d "security-app-authenticator" w "1.0.0"
@@ -683,13 +683,13 @@ object AndroidX {
     val textclassifier = "androidx.textclassifier" d "textclassifier" w "1.0.0-alpha04"
   }
   object Tracing {
-    val ktx = "androidx.tracing" d "tracing-ktx" w "2.0.2"
+    val ktx = "androidx.tracing" d "tracing-ktx" w "2.0.3"
     val perfetto = "androidx.tracing" d "tracing-perfetto" w "1.0.1"
-    val tracing = "androidx.tracing" d "tracing" w "2.0.2"
+    val tracing = "androidx.tracing" d "tracing" w "2.0.3"
   }
   object Transition {
-    val ktx = "androidx.transition" d "transition-ktx" w "1.7.1"
-    val transition = "androidx.transition" d "transition" w "1.7.1"
+    val ktx = "androidx.transition" d "transition-ktx" w "1.7.2"
+    val transition = "androidx.transition" d "transition" w "1.7.2"
   }
   object Tv {
     val foundation = "androidx.tv" d "tv-foundation" w "1.0.0"
@@ -717,12 +717,12 @@ object AndroidX {
     val input_testing = "androidx.wear" d "wear-input-testing" w "1.2.0"
     val ongoing = "androidx.wear" d "wear-ongoing" w "1.1.0"
     val phone_interactions = "androidx.wear" d "wear-phone-interactions" w "1.1.1"
-    val remote_interactions = "androidx.wear" d "wear-remote-interactions" w "1.2.0" w "1.3.0-alpha01"
+    val remote_interactions = "androidx.wear" d "wear-remote-interactions" w "1.2.0" w "1.3.0-beta01"
     val wear = "androidx.wear" d "wear" w "1.4.0"
     object Compose {
-      val foundation = "androidx.wear.compose" d "compose-foundation" w "1.6.2" w "1.7.0-rc01"
-      val material = "androidx.wear.compose" d "compose-material" w "1.6.2" w "1.7.0-rc01"
-      val navigation = "androidx.wear.compose" d "compose-navigation" w "1.6.2" w "1.7.0-rc01"
+      val foundation = "androidx.wear.compose" d "compose-foundation" w "1.7.0"
+      val material = "androidx.wear.compose" d "compose-material" w "1.7.0"
+      val navigation = "androidx.wear.compose" d "compose-navigation" w "1.7.0"
     }
     object Tiles {
       val material = "androidx.wear.tiles" d "tiles-material" w "1.6.2"
@@ -739,7 +739,7 @@ object AndroidX {
     }
   }
   object WebKit {
-    val webkit = "androidx.webkit" d "webkit" w "1.17.0" w "1.18.0-alpha01"
+    val webkit = "androidx.webkit" d "webkit" w "1.17.1" w "1.18.0-alpha02"
   }
   object Window {
     val java = "androidx.window" d "window-java" w "1.5.1" w "1.6.0-alpha05"
@@ -749,13 +749,13 @@ object AndroidX {
     val window = "androidx.window" d "window" w "1.5.1" w "1.6.0-alpha05"
   }
   object Work {
-    val gcm = "androidx.work" d "work-gcm" w "2.11.2" w "2.12.0-rc01"
-    val multiprocess = "androidx.work" d "work-multiprocess" w "2.11.2" w "2.12.0-rc01"
-    val runtime = "androidx.work" d "work-runtime" w "2.11.2" w "2.12.0-rc01"
-    val runtime_ktx = "androidx.work" d "work-runtime-ktx" w "2.11.2" w "2.12.0-rc01"
-    val rxjava2 = "androidx.work" d "work-rxjava2" w "2.11.2" w "2.12.0-rc01"
-    val rxjava3 = "androidx.work" d "work-rxjava3" w "2.11.2" w "2.12.0-rc01"
-    val testing = "androidx.work" d "work-testing" w "2.11.2" w "2.12.0-rc01"
+    val gcm = "androidx.work" d "work-gcm" w "2.12.0"
+    val multiprocess = "androidx.work" d "work-multiprocess" w "2.12.0"
+    val runtime = "androidx.work" d "work-runtime" w "2.12.0"
+    val runtime_ktx = "androidx.work" d "work-runtime-ktx" w "2.12.0"
+    val rxjava2 = "androidx.work" d "work-rxjava2" w "2.12.0"
+    val rxjava3 = "androidx.work" d "work-rxjava3" w "2.12.0"
+    val testing = "androidx.work" d "work-testing" w "2.12.0"
   }
 }
 object App {
@@ -1976,13 +1976,13 @@ object Org {
     }
   }
   object Mockito {
-    val android = "org.mockito" d "mockito-android" w "5.23.0"
-    val core = "org.mockito" d "mockito-core" w "5.23.0"
-    val errorprone = "org.mockito" d "mockito-errorprone" w "5.23.0"
+    val android = "org.mockito" d "mockito-android" w "5.24.0"
+    val core = "org.mockito" d "mockito-core" w "5.24.0"
+    val errorprone = "org.mockito" d "mockito-errorprone" w "5.24.0"
     val inline = "org.mockito" d "mockito-inline" w "5.2.0"
-    val junit_jupiter = "org.mockito" d "mockito-junit-jupiter" w "5.23.0"
+    val junit_jupiter = "org.mockito" d "mockito-junit-jupiter" w "5.24.0"
     object Kotlin {
-      val mockito_kotlin = "org.mockito.kotlin" d "mockito-kotlin" w "6.3.0"
+      val mockito_kotlin = "org.mockito.kotlin" d "mockito-kotlin" w "6.4.0"
     }
   }
   object Robolectric {
@@ -2007,82 +2007,82 @@ object Org {
   }
   object SpringFramework {
     object Amqp {
-      val spring_rabbit_test = "org.springframework.amqp" d "spring-rabbit-test" w "4.1.1" w "4.2.0-M1"
+      val spring_rabbit_test = "org.springframework.amqp" d "spring-rabbit-test" w "4.1.1" w "4.2.0-M2"
     }
     object Batch {
-      val spring_batch_test = "org.springframework.batch" d "spring-batch-test" w "6.0.5" w "6.1.0-M1"
+      val spring_batch_test = "org.springframework.batch" d "spring-batch-test" w "6.0.5" w "6.1.0-M2"
     }
     object Boot {
-      val spring_boot_configuration_processor = "org.springframework.boot" d "spring-boot-configuration-processor" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_dependencies = "org.springframework.boot" d "spring-boot-dependencies" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_devtools = "org.springframework.boot" d "spring-boot-devtools" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_activemq = "org.springframework.boot" d "spring-boot-starter-activemq" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_actuator = "org.springframework.boot" d "spring-boot-starter-actuator" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_amqp = "org.springframework.boot" d "spring-boot-starter-amqp" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_artemis = "org.springframework.boot" d "spring-boot-starter-artemis" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_batch = "org.springframework.boot" d "spring-boot-starter-batch" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_cache = "org.springframework.boot" d "spring-boot-starter-cache" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_data_cassandra = "org.springframework.boot" d "spring-boot-starter-data-cassandra" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_data_cassandra_reactive = "org.springframework.boot" d "spring-boot-starter-data-cassandra-reactive" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_data_couchbase = "org.springframework.boot" d "spring-boot-starter-data-couchbase" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_data_couchbase_reactive = "org.springframework.boot" d "spring-boot-starter-data-couchbase-reactive" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_data_elasticsearch = "org.springframework.boot" d "spring-boot-starter-data-elasticsearch" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_data_jdbc = "org.springframework.boot" d "spring-boot-starter-data-jdbc" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_data_jpa = "org.springframework.boot" d "spring-boot-starter-data-jpa" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_data_ldap = "org.springframework.boot" d "spring-boot-starter-data-ldap" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_data_mongodb = "org.springframework.boot" d "spring-boot-starter-data-mongodb" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_data_mongodb_reactive = "org.springframework.boot" d "spring-boot-starter-data-mongodb-reactive" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_data_neo4j = "org.springframework.boot" d "spring-boot-starter-data-neo4j" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_data_r2dbc = "org.springframework.boot" d "spring-boot-starter-data-r2dbc" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_data_redis = "org.springframework.boot" d "spring-boot-starter-data-redis" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_data_redis_reactive = "org.springframework.boot" d "spring-boot-starter-data-redis-reactive" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_data_rest = "org.springframework.boot" d "spring-boot-starter-data-rest" w "4.1.1" w "4.2.0-M1"
+      val spring_boot_configuration_processor = "org.springframework.boot" d "spring-boot-configuration-processor" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_dependencies = "org.springframework.boot" d "spring-boot-dependencies" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_devtools = "org.springframework.boot" d "spring-boot-devtools" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_activemq = "org.springframework.boot" d "spring-boot-starter-activemq" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_actuator = "org.springframework.boot" d "spring-boot-starter-actuator" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_amqp = "org.springframework.boot" d "spring-boot-starter-amqp" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_artemis = "org.springframework.boot" d "spring-boot-starter-artemis" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_batch = "org.springframework.boot" d "spring-boot-starter-batch" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_cache = "org.springframework.boot" d "spring-boot-starter-cache" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_data_cassandra = "org.springframework.boot" d "spring-boot-starter-data-cassandra" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_data_cassandra_reactive = "org.springframework.boot" d "spring-boot-starter-data-cassandra-reactive" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_data_couchbase = "org.springframework.boot" d "spring-boot-starter-data-couchbase" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_data_couchbase_reactive = "org.springframework.boot" d "spring-boot-starter-data-couchbase-reactive" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_data_elasticsearch = "org.springframework.boot" d "spring-boot-starter-data-elasticsearch" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_data_jdbc = "org.springframework.boot" d "spring-boot-starter-data-jdbc" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_data_jpa = "org.springframework.boot" d "spring-boot-starter-data-jpa" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_data_ldap = "org.springframework.boot" d "spring-boot-starter-data-ldap" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_data_mongodb = "org.springframework.boot" d "spring-boot-starter-data-mongodb" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_data_mongodb_reactive = "org.springframework.boot" d "spring-boot-starter-data-mongodb-reactive" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_data_neo4j = "org.springframework.boot" d "spring-boot-starter-data-neo4j" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_data_r2dbc = "org.springframework.boot" d "spring-boot-starter-data-r2dbc" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_data_redis = "org.springframework.boot" d "spring-boot-starter-data-redis" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_data_redis_reactive = "org.springframework.boot" d "spring-boot-starter-data-redis-reactive" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_data_rest = "org.springframework.boot" d "spring-boot-starter-data-rest" w "4.1.1" w "4.2.0-M2"
       val spring_boot_starter_data_solr = "org.springframework.boot" d "spring-boot-starter-data-solr" w "2.4.13"
-      val spring_boot_starter_freemarker = "org.springframework.boot" d "spring-boot-starter-freemarker" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_groovy_templates = "org.springframework.boot" d "spring-boot-starter-groovy-templates" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_hateoas = "org.springframework.boot" d "spring-boot-starter-hateoas" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_integration = "org.springframework.boot" d "spring-boot-starter-integration" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_jdbc = "org.springframework.boot" d "spring-boot-starter-jdbc" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_jersey = "org.springframework.boot" d "spring-boot-starter-jersey" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_jooq = "org.springframework.boot" d "spring-boot-starter-jooq" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_mail = "org.springframework.boot" d "spring-boot-starter-mail" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_mustache = "org.springframework.boot" d "spring-boot-starter-mustache" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_oauth2_client = "org.springframework.boot" d "spring-boot-starter-oauth2-client" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_oauth2_resource_server = "org.springframework.boot" d "spring-boot-starter-oauth2-resource-server" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_quartz = "org.springframework.boot" d "spring-boot-starter-quartz" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_rsocket = "org.springframework.boot" d "spring-boot-starter-rsocket" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_security = "org.springframework.boot" d "spring-boot-starter-security" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_test = "org.springframework.boot" d "spring-boot-starter-test" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_thymeleaf = "org.springframework.boot" d "spring-boot-starter-thymeleaf" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_validation = "org.springframework.boot" d "spring-boot-starter-validation" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_web = "org.springframework.boot" d "spring-boot-starter-web" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_web_services = "org.springframework.boot" d "spring-boot-starter-web-services" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_webflux = "org.springframework.boot" d "spring-boot-starter-webflux" w "4.1.1" w "4.2.0-M1"
-      val spring_boot_starter_websocket = "org.springframework.boot" d "spring-boot-starter-websocket" w "4.1.1" w "4.2.0-M1"
+      val spring_boot_starter_freemarker = "org.springframework.boot" d "spring-boot-starter-freemarker" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_groovy_templates = "org.springframework.boot" d "spring-boot-starter-groovy-templates" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_hateoas = "org.springframework.boot" d "spring-boot-starter-hateoas" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_integration = "org.springframework.boot" d "spring-boot-starter-integration" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_jdbc = "org.springframework.boot" d "spring-boot-starter-jdbc" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_jersey = "org.springframework.boot" d "spring-boot-starter-jersey" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_jooq = "org.springframework.boot" d "spring-boot-starter-jooq" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_mail = "org.springframework.boot" d "spring-boot-starter-mail" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_mustache = "org.springframework.boot" d "spring-boot-starter-mustache" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_oauth2_client = "org.springframework.boot" d "spring-boot-starter-oauth2-client" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_oauth2_resource_server = "org.springframework.boot" d "spring-boot-starter-oauth2-resource-server" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_quartz = "org.springframework.boot" d "spring-boot-starter-quartz" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_rsocket = "org.springframework.boot" d "spring-boot-starter-rsocket" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_security = "org.springframework.boot" d "spring-boot-starter-security" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_test = "org.springframework.boot" d "spring-boot-starter-test" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_thymeleaf = "org.springframework.boot" d "spring-boot-starter-thymeleaf" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_validation = "org.springframework.boot" d "spring-boot-starter-validation" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_web = "org.springframework.boot" d "spring-boot-starter-web" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_web_services = "org.springframework.boot" d "spring-boot-starter-web-services" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_webflux = "org.springframework.boot" d "spring-boot-starter-webflux" w "4.1.1" w "4.2.0-M2"
+      val spring_boot_starter_websocket = "org.springframework.boot" d "spring-boot-starter-websocket" w "4.1.1" w "4.2.0-M2"
     }
     object Cloud {
-      val spring_cloud_bus = "org.springframework.cloud" d "spring-cloud-bus" w "5.0.3"
+      val spring_cloud_bus = "org.springframework.cloud" d "spring-cloud-bus" w "5.0.3" w "5.1.0-M1"
       val spring_cloud_cloudfoundry_discovery = "org.springframework.cloud" d "spring-cloud-cloudfoundry-discovery" w "3.1.4"
-      val spring_cloud_config_server = "org.springframework.cloud" d "spring-cloud-config-server" w "5.0.5"
-      val spring_cloud_dependencies = "org.springframework.cloud" d "spring-cloud-dependencies" w "2025.1.3"
-      val spring_cloud_function_web = "org.springframework.cloud" d "spring-cloud-function-web" w "5.0.4"
+      val spring_cloud_config_server = "org.springframework.cloud" d "spring-cloud-config-server" w "5.0.5" w "5.1.0-M1"
+      val spring_cloud_dependencies = "org.springframework.cloud" d "spring-cloud-dependencies" w "2025.1.3" w "2026.0.0-M1"
+      val spring_cloud_function_web = "org.springframework.cloud" d "spring-cloud-function-web" w "5.0.4" w "5.1.0-M1"
       val spring_cloud_gcp_starter = "org.springframework.cloud" d "spring-cloud-gcp-starter" w "1.2.8.RELEASE"
       val spring_cloud_gcp_starter_pubsub = "org.springframework.cloud" d "spring-cloud-gcp-starter-pubsub" w "1.2.8.RELEASE"
       val spring_cloud_gcp_starter_storage = "org.springframework.cloud" d "spring-cloud-gcp-starter-storage" w "1.2.8.RELEASE"
-      val spring_cloud_starter = "org.springframework.cloud" d "spring-cloud-starter" w "5.0.3"
+      val spring_cloud_starter = "org.springframework.cloud" d "spring-cloud-starter" w "5.0.3" w "5.1.0-M1"
       val spring_cloud_starter_aws = "org.springframework.cloud" d "spring-cloud-starter-aws" w "2.2.6.RELEASE"
       val spring_cloud_starter_aws_jdbc = "org.springframework.cloud" d "spring-cloud-starter-aws-jdbc" w "2.2.6.RELEASE"
       val spring_cloud_starter_aws_messaging = "org.springframework.cloud" d "spring-cloud-starter-aws-messaging" w "2.2.6.RELEASE"
-      val spring_cloud_starter_circuitbreaker_reactor_resilience4j = "org.springframework.cloud" d "spring-cloud-starter-circuitbreaker-reactor-resilience4j" w "5.0.3"
-      val spring_cloud_starter_config = "org.springframework.cloud" d "spring-cloud-starter-config" w "5.0.5"
-      val spring_cloud_starter_consul_config = "org.springframework.cloud" d "spring-cloud-starter-consul-config" w "5.0.3"
-      val spring_cloud_starter_consul_discovery = "org.springframework.cloud" d "spring-cloud-starter-consul-discovery" w "5.0.3"
+      val spring_cloud_starter_circuitbreaker_reactor_resilience4j = "org.springframework.cloud" d "spring-cloud-starter-circuitbreaker-reactor-resilience4j" w "5.0.3" w "5.1.0-M1"
+      val spring_cloud_starter_config = "org.springframework.cloud" d "spring-cloud-starter-config" w "5.0.5" w "5.1.0-M1"
+      val spring_cloud_starter_consul_config = "org.springframework.cloud" d "spring-cloud-starter-consul-config" w "5.0.3" w "5.1.0-M1"
+      val spring_cloud_starter_consul_discovery = "org.springframework.cloud" d "spring-cloud-starter-consul-discovery" w "5.0.3" w "5.1.0-M1"
       val spring_cloud_starter_contract_stub_runner = "org.springframework.cloud" d "spring-cloud-starter-contract-stub-runner" w "5.0.3"
       val spring_cloud_starter_contract_verifier = "org.springframework.cloud" d "spring-cloud-starter-contract-verifier" w "5.0.3"
       val spring_cloud_starter_gateway = "org.springframework.cloud" d "spring-cloud-starter-gateway" w "4.3.5"
-      val spring_cloud_starter_loadbalancer = "org.springframework.cloud" d "spring-cloud-starter-loadbalancer" w "5.0.3"
-      val spring_cloud_starter_netflix_eureka_client = "org.springframework.cloud" d "spring-cloud-starter-netflix-eureka-client" w "5.0.2"
-      val spring_cloud_starter_netflix_eureka_server = "org.springframework.cloud" d "spring-cloud-starter-netflix-eureka-server" w "5.0.2"
+      val spring_cloud_starter_loadbalancer = "org.springframework.cloud" d "spring-cloud-starter-loadbalancer" w "5.0.3" w "5.1.0-M1"
+      val spring_cloud_starter_netflix_eureka_client = "org.springframework.cloud" d "spring-cloud-starter-netflix-eureka-client" w "5.0.2" w "5.1.0-M1"
+      val spring_cloud_starter_netflix_eureka_server = "org.springframework.cloud" d "spring-cloud-starter-netflix-eureka-server" w "5.0.2" w "5.1.0-M1"
       val spring_cloud_starter_netflix_hystrix = "org.springframework.cloud" d "spring-cloud-starter-netflix-hystrix" w "2.2.10.RELEASE"
       val spring_cloud_starter_netflix_hystrix_dashboard = "org.springframework.cloud" d "spring-cloud-starter-netflix-hystrix-dashboard" w "2.2.10.RELEASE"
       val spring_cloud_starter_netflix_ribbon = "org.springframework.cloud" d "spring-cloud-starter-netflix-ribbon" w "2.2.10.RELEASE"
@@ -2091,60 +2091,60 @@ object Org {
       val spring_cloud_starter_netflix_zuul = "org.springframework.cloud" d "spring-cloud-starter-netflix-zuul" w "2.2.10.RELEASE"
       val spring_cloud_starter_oauth2 = "org.springframework.cloud" d "spring-cloud-starter-oauth2" w "2.2.5.RELEASE"
       val spring_cloud_starter_open_service_broker = "org.springframework.cloud" d "spring-cloud-starter-open-service-broker" w "5.1.1"
-      val spring_cloud_starter_openfeign = "org.springframework.cloud" d "spring-cloud-starter-openfeign" w "5.0.3"
+      val spring_cloud_starter_openfeign = "org.springframework.cloud" d "spring-cloud-starter-openfeign" w "5.0.3" w "5.1.0-M1"
       val spring_cloud_starter_security = "org.springframework.cloud" d "spring-cloud-starter-security" w "2.2.5.RELEASE"
       val spring_cloud_starter_sleuth = "org.springframework.cloud" d "spring-cloud-starter-sleuth" w "3.1.11"
-      val spring_cloud_starter_task = "org.springframework.cloud" d "spring-cloud-starter-task" w "5.0.2"
-      val spring_cloud_starter_vault_config = "org.springframework.cloud" d "spring-cloud-starter-vault-config" w "5.0.2"
+      val spring_cloud_starter_task = "org.springframework.cloud" d "spring-cloud-starter-task" w "5.0.2" w "5.1.0-M1"
+      val spring_cloud_starter_vault_config = "org.springframework.cloud" d "spring-cloud-starter-vault-config" w "5.0.2" w "5.1.0-M1"
       val spring_cloud_starter_zipkin = "org.springframework.cloud" d "spring-cloud-starter-zipkin" w "2.2.8.RELEASE"
-      val spring_cloud_starter_zookeeper_config = "org.springframework.cloud" d "spring-cloud-starter-zookeeper-config" w "5.0.2"
-      val spring_cloud_starter_zookeeper_discovery = "org.springframework.cloud" d "spring-cloud-starter-zookeeper-discovery" w "5.0.2"
-      val spring_cloud_stream = "org.springframework.cloud" d "spring-cloud-stream" w "5.0.3"
-      val spring_cloud_stream_binder_kafka = "org.springframework.cloud" d "spring-cloud-stream-binder-kafka" w "5.0.3"
-      val spring_cloud_stream_binder_kafka_streams = "org.springframework.cloud" d "spring-cloud-stream-binder-kafka-streams" w "5.0.3"
-      val spring_cloud_stream_binder_rabbit = "org.springframework.cloud" d "spring-cloud-stream-binder-rabbit" w "5.0.3"
+      val spring_cloud_starter_zookeeper_config = "org.springframework.cloud" d "spring-cloud-starter-zookeeper-config" w "5.0.2" w "5.1.0-M1"
+      val spring_cloud_starter_zookeeper_discovery = "org.springframework.cloud" d "spring-cloud-starter-zookeeper-discovery" w "5.0.2" w "5.1.0-M1"
+      val spring_cloud_stream = "org.springframework.cloud" d "spring-cloud-stream" w "5.0.3" w "5.1.0-M1"
+      val spring_cloud_stream_binder_kafka = "org.springframework.cloud" d "spring-cloud-stream-binder-kafka" w "5.0.3" w "5.1.0-M1"
+      val spring_cloud_stream_binder_kafka_streams = "org.springframework.cloud" d "spring-cloud-stream-binder-kafka-streams" w "5.0.3" w "5.1.0-M1"
+      val spring_cloud_stream_binder_rabbit = "org.springframework.cloud" d "spring-cloud-stream-binder-rabbit" w "5.0.3" w "5.1.0-M1"
     }
     object Data {
-      val spring_data_rest_hal_explorer = "org.springframework.data" d "spring-data-rest-hal-explorer" w "5.1.1" w "5.2.0-M1"
+      val spring_data_rest_hal_explorer = "org.springframework.data" d "spring-data-rest-hal-explorer" w "5.1.1" w "5.2.0-M2"
     }
     object Geode {
       val spring_geode_bom = "org.springframework.geode" d "spring-geode-bom" w "1.7.5"
       val spring_geode_starter = "org.springframework.geode" d "spring-geode-starter" w "1.7.5"
     }
     object Integration {
-      val spring_integration_amqp = "org.springframework.integration" d "spring-integration-amqp" w "7.1.1" w "7.2.0-M1"
+      val spring_integration_amqp = "org.springframework.integration" d "spring-integration-amqp" w "7.1.1" w "7.2.0-M2"
       val spring_integration_gemfire = "org.springframework.integration" d "spring-integration-gemfire" w "5.5.20"
-      val spring_integration_jdbc = "org.springframework.integration" d "spring-integration-jdbc" w "7.1.1" w "7.2.0-M1"
-      val spring_integration_jms = "org.springframework.integration" d "spring-integration-jms" w "7.1.1" w "7.2.0-M1"
-      val spring_integration_jpa = "org.springframework.integration" d "spring-integration-jpa" w "7.1.1" w "7.2.0-M1"
-      val spring_integration_kafka = "org.springframework.integration" d "spring-integration-kafka" w "7.1.1" w "7.2.0-M1"
-      val spring_integration_mail = "org.springframework.integration" d "spring-integration-mail" w "7.1.1" w "7.2.0-M1"
-      val spring_integration_mongodb = "org.springframework.integration" d "spring-integration-mongodb" w "7.1.1" w "7.2.0-M1"
-      val spring_integration_r2dbc = "org.springframework.integration" d "spring-integration-r2dbc" w "7.1.1" w "7.2.0-M1"
-      val spring_integration_redis = "org.springframework.integration" d "spring-integration-redis" w "7.1.1" w "7.2.0-M1"
-      val spring_integration_rsocket = "org.springframework.integration" d "spring-integration-rsocket" w "7.1.1" w "7.2.0-M1"
+      val spring_integration_jdbc = "org.springframework.integration" d "spring-integration-jdbc" w "7.1.1" w "7.2.0-M2"
+      val spring_integration_jms = "org.springframework.integration" d "spring-integration-jms" w "7.1.1" w "7.2.0-M2"
+      val spring_integration_jpa = "org.springframework.integration" d "spring-integration-jpa" w "7.1.1" w "7.2.0-M2"
+      val spring_integration_kafka = "org.springframework.integration" d "spring-integration-kafka" w "7.1.1" w "7.2.0-M2"
+      val spring_integration_mail = "org.springframework.integration" d "spring-integration-mail" w "7.1.1" w "7.2.0-M2"
+      val spring_integration_mongodb = "org.springframework.integration" d "spring-integration-mongodb" w "7.1.1" w "7.2.0-M2"
+      val spring_integration_r2dbc = "org.springframework.integration" d "spring-integration-r2dbc" w "7.1.1" w "7.2.0-M2"
+      val spring_integration_redis = "org.springframework.integration" d "spring-integration-redis" w "7.1.1" w "7.2.0-M2"
+      val spring_integration_rsocket = "org.springframework.integration" d "spring-integration-rsocket" w "7.1.1" w "7.2.0-M2"
       val spring_integration_security = "org.springframework.integration" d "spring-integration-security" w "6.2.11"
-      val spring_integration_stomp = "org.springframework.integration" d "spring-integration-stomp" w "7.1.1" w "7.2.0-M1"
-      val spring_integration_test = "org.springframework.integration" d "spring-integration-test" w "7.1.1" w "7.2.0-M1"
-      val spring_integration_webflux = "org.springframework.integration" d "spring-integration-webflux" w "7.1.1" w "7.2.0-M1"
-      val spring_integration_websocket = "org.springframework.integration" d "spring-integration-websocket" w "7.1.1" w "7.2.0-M1"
-      val spring_integration_ws = "org.springframework.integration" d "spring-integration-ws" w "7.1.1" w "7.2.0-M1"
+      val spring_integration_stomp = "org.springframework.integration" d "spring-integration-stomp" w "7.1.1" w "7.2.0-M2"
+      val spring_integration_test = "org.springframework.integration" d "spring-integration-test" w "7.1.1" w "7.2.0-M2"
+      val spring_integration_webflux = "org.springframework.integration" d "spring-integration-webflux" w "7.1.1" w "7.2.0-M2"
+      val spring_integration_websocket = "org.springframework.integration" d "spring-integration-websocket" w "7.1.1" w "7.2.0-M2"
+      val spring_integration_ws = "org.springframework.integration" d "spring-integration-ws" w "7.1.1" w "7.2.0-M2"
     }
     object Kafka {
-      val spring_kafka = "org.springframework.kafka" d "spring-kafka" w "4.1.1" w "4.2.0-M1"
-      val spring_kafka_test = "org.springframework.kafka" d "spring-kafka-test" w "4.1.1" w "4.2.0-M1"
+      val spring_kafka = "org.springframework.kafka" d "spring-kafka" w "4.1.1" w "4.2.0-M2"
+      val spring_kafka_test = "org.springframework.kafka" d "spring-kafka-test" w "4.1.1" w "4.2.0-M2"
     }
     object Restdocs {
       val spring_restdocs_webtestclient = "org.springframework.restdocs" d "spring-restdocs-webtestclient" w "4.0.1"
     }
     object Security {
-      val spring_security_messaging = "org.springframework.security" d "spring-security-messaging" w "7.1.1" w "7.2.0-M1"
-      val spring_security_rsocket = "org.springframework.security" d "spring-security-rsocket" w "7.1.1" w "7.2.0-M1"
-      val spring_security_test = "org.springframework.security" d "spring-security-test" w "7.1.1" w "7.2.0-M1"
+      val spring_security_messaging = "org.springframework.security" d "spring-security-messaging" w "7.1.1" w "7.2.0-M2"
+      val spring_security_rsocket = "org.springframework.security" d "spring-security-rsocket" w "7.1.1" w "7.2.0-M2"
+      val spring_security_test = "org.springframework.security" d "spring-security-test" w "7.1.1" w "7.2.0-M2"
     }
     object Session {
-      val spring_session_data_redis = "org.springframework.session" d "spring-session-data-redis" w "4.1.1"
-      val spring_session_jdbc = "org.springframework.session" d "spring-session-jdbc" w "4.1.1"
+      val spring_session_data_redis = "org.springframework.session" d "spring-session-data-redis" w "4.1.1" w "4.2.0-M1"
+      val spring_session_jdbc = "org.springframework.session" d "spring-session-jdbc" w "4.1.1" w "4.2.0-M1"
     }
   }
 }
