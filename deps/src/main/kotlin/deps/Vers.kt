@@ -37,7 +37,8 @@ private fun Dependency.checkWith(expectedVer: Ver, warnOnly: Boolean) {
 object Vers {
 
   /** [releases github](https://github.com/JetBrains/kotlin/releases) */
-  val Kotlin24 = Org.JetBrains.Kotlin.stdlib.verLast
+  val Kotlin25 = Org.JetBrains.Kotlin.stdlib.verLast
+  val Kotlin24 = Ver("2.4.20")
   val Kotlin23 = Ver("2.3.21")
   val Kotlin22 = Ver("2.2.21")
   val Kotlin21 = Ver("2.1.21")
@@ -101,7 +102,7 @@ object Vers {
    * - [gradle org docs](https://docs.gradle.com/develocity/gradle-plugin/)
    * - [gradle portal](https://plugins.gradle.org/plugin/com.gradle.develocity)
    */
-  val GradleDevelocityPlug = Ver("4.5.1")
+  val GradleDevelocityPlug = Ver("4.6.0")
 
 
   /**
@@ -160,7 +161,7 @@ object Vers {
    * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val DepsPlug = Ver(0, 4, 63) // also sync it in ../../../../../settings.gradle.kts
+  val DepsPlug = Ver(0, 4, 64) // also sync it in ../../../../../settings.gradle.kts
   // TODO use sourcefun to make sure it's always synced with myLibInfo(version)
 
   // SourceFunPlug is GONE: SourceFun moved into this repo as the :sourcefun sibling, so the plugin
