@@ -30,8 +30,11 @@ a version that is ALREADY published:
    They point at each other in comments; there is no single source of truth yet.
 2. Commit, push, let CI go green.
 3. `publishPlugins`.
-4. Only then bump the deliberately-lagging plugin-id literals: `settings.gradle.kts`,
-   `deps/build.gradle.kts`, and both of `samplefun`'s scripts.
+4. Only then bump the deliberately-lagging `deps.settings` literals: `settings.gradle.kts` and
+   `samplefun/settings.gradle.kts`. Those are the only two left: the settings plugin is what
+   brings `plugs` into scope, so it cannot name itself through `plugs`. Every other self-applied
+   plugin goes through `plugs.TemplateFun` / `plugs.SourceFun`, which carry the version the
+   published settings plugin shipped as -- so they follow this bump with nothing to edit.
 
 0.4.63 has an unusually large step 4: `LibPublish` replaces `LibFlags.withCentralPublish` and
 `LibAndro.publishVariant`, and `defaultPublishing` changed signature, so this repo's OWN scripts
