@@ -44,7 +44,7 @@ object Vers {
   val Kotlin21 = Ver("2.1.21")
   val Kotlin20 = Ver("2.0.21")
   val Kotlin19 = Ver("1.9.25")
-  val Kotlin = Kotlin24
+  val Kotlin = Kotlin25
 
 
 
