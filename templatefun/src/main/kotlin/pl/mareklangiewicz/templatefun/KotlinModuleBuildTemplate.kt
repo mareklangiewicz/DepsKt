@@ -160,10 +160,16 @@ fun Project.defaultPublishing() = extensions.configure<MavenPublishBaseExtension
  * The one place that decides whether a module publishes, shared by every `defaultBuildTemplateFor*`
  * entry point.
  *
- * Both mismatches are errors, and deliberately so. The migration to [LibPublish] makes every
- * publishable module opt in explicitly; a module that forgets would otherwise go quiet and ship
- * NOTHING on the next release, which is the failure mode this whole redesign exists to prevent.
- * So: the vanniktech plugin no longer GRANTS a publication, it is REQUIRED BY one.
+ * [publish] is the ONLY statement of intent. The vanniktech plugin is plumbing: it is REQUIRED BY a
+ * [LibPublish] (an error without it), but applying it alone grants nothing -- such a module is simply
+ * not published. That lets shared plugins {} regions carry the plugin unconditionally, so one
+ * region fits a module that publishes and one that does not.
+ *
+ * Until 0.4.65 the plugin without a [LibPublish] was ALSO an error: a tripwire for the 0.4.63
+ * migration, catching a module that used to publish via the plugin and forgot to opt in. Dropped
+ * because it forced per-module text into synced regions, and because the dangerous half of that
+ * migration already fails loudly on its own: `LibFlags.withCentralPublish` no longer exists, so a
+ * repo that published to Central does not compile until it passes LibPublish(toCentral = true).
  */
 context(info: LibInfo)
 fun Project.defaultPublishingOrNot(publish: LibPublish?, moduleKind: String) {
@@ -172,11 +178,6 @@ fun Project.defaultPublishingOrNot(publish: LibPublish?, moduleKind: String) {
     publish != null && !hasPlugin -> error(
       "$moduleKind $name: publish = LibPublish(..) was given, but the " +
         "com.vanniktech.maven.publish plugin is not applied. Add plugs.VannikPublish to plugins {}."
-    )
-    publish == null && hasPlugin -> error(
-      "$moduleKind $name: the com.vanniktech.maven.publish plugin is applied, but no " +
-        "publish = LibPublish(..) was given, so nothing would be published. Pass one, or drop " +
-        "plugs.VannikPublish from plugins {}."
     )
     publish != null -> context(publish) { defaultPublishing() }
     else -> logger.info("$moduleKind $name: not published.")

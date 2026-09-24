@@ -146,6 +146,10 @@ data class LibAndro(
  *
  * So this type is passed as an argument to a `defaultBuildTemplateFor*` entry point, and **absence
  * means the module is not published at all**. A module that publishes says so, at the module.
+ * Presence alone means LOCAL: publications exist and `publishToMavenLocal` works. [toCentral] is the
+ * only switch that uploads anywhere. There is deliberately no `toLocal`: it would make
+ * `LibPublish(toLocal = false)` a second spelling of `null`, and Central needs the very
+ * publications that make local work, so `toCentral` without local is not a real state.
  *
  * It is also flat on purpose. An earlier draft wrapped it in a `LibModule(.., publish: LibPublish?)`,
  * which would have made flipping one boolean cost

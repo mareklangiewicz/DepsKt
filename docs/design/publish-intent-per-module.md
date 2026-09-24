@@ -7,7 +7,8 @@ note is the durable fix behind it.
 
 What is done: `LibPublish` exists, `LibFlags.withCentralPublish` and `LibAndro.publishVariant` are
 gone, all ten `defaultBuildTemplateFor*` entry points take `publish: LibPublish? = null`, and the
-`hasPlugin` inference is replaced by `defaultPublishingOrNot`, which errors on either mismatch.
+`hasPlugin` inference is replaced by `defaultPublishingOrNot`, which errors on either mismatch
+(relaxed to ONE direction in 0.4.65 — see "The tripwire is retired" below).
 Exercised for real by `samplefun`, which substitutes the local build through `includeBuild("..")`.
 
 Released as **DepsKt 0.4.63** (Gradle Plugin Portal) and migrated onto in all four repos that
@@ -217,6 +218,22 @@ a publication, it is *required by* one.
 
 Scope: four repos on 0.4.62 (DepsKt, KGround, USpek, UPue), plus ~20 carrying older pins that will
 meet this whenever they migrate.
+
+### The tripwire is retired (0.4.65)
+
+The plugin-without-`LibPublish` error is gone; `LibPublish` without the plugin still fails. A module
+that applies `plugs.VannikPublish` and passes no `LibPublish` is now simply not published.
+
+Why: the tripwire made the plugins {} line carry per-module intent again, and plugins {} lives in
+SYNCED regions. `[[Andro App Build Imports and Plugs]]` is shared by `:template-andro-app`, which
+publishes (`androVariant = "debug"`), and `:template-full-andro-app`, which does not — no single
+copy of the region satisfied both, so the 2026-09-22 template sync broke `template-andro` (the
+region is copied from template-full). With the plugin inert, the region carries it unconditionally.
+
+What the tripwire guarded is mostly guarded elsewhere: a repo that really published to Central had
+`withCentralPublish = true`, which no longer exists, so it does not compile until it is migrated.
+What is left unguarded is a repo that published only LOCALLY, bumps DepsKt, and forgets
+`LibPublish` — it would quietly lose local publications. Accepted: nothing irreversible happens.
 
 ## Open questions
 
