@@ -21,9 +21,12 @@ pluginManagement {
   // to live above it and be kept in sync. Unset means off. To enable for one run:
   //   ENABLE_LOCAL_DEPSKT_IN_DIR=/home/marek/code/kotlin/DepsKt ./gradlew build
   val enableLocalDepsKtInDir = System.getenv("ENABLE_LOCAL_DEPSKT_IN_DIR")?.let { File(it).normalize() }
-  if (enableLocalDepsKtInDir != null) {
+  // The env var reaches nested builds too, so DepsKt's own copy of this region sees it: skip self.
+  // Pass a String: this scope's includeBuild takes only String, and a File silently resolves to the
+  // outer Settings.includeBuild, a plain composite that never offers DepsKt's PLUGINS.
+  if (enableLocalDepsKtInDir != null && enableLocalDepsKtInDir != rootDir.normalize()) {
     logger.warn("Including local build $enableLocalDepsKtInDir")
-    includeBuild(enableLocalDepsKtInDir)
+    includeBuild(enableLocalDepsKtInDir.path)
   }
 }
 
