@@ -24,7 +24,7 @@ plugins {
   // deliberately a LITERAL, not plugs.SourceFun: it must name something already on the portal, so
   // it lags between a bump and a publish -- exactly like the settings plugin pinned in
   // ../settings.gradle.kts. Bump it by hand, after the release it names is out.
-  id("pl.mareklangiewicz.sourcefun") version "0.4.63" // https://plugins.gradle.org/search?term=mareklangiewicz
+  id("pl.mareklangiewicz.sourcefun") version "0.4.64" // https://plugins.gradle.org/search?term=mareklangiewicz
 }
 
 repositories {
