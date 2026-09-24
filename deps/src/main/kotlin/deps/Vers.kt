@@ -122,7 +122,7 @@ object Vers {
    * - [github](https://github.com/Kotlin/dokka)
    * - [github releases](https://github.com/Kotlin/dokka/releases)
    */
-  val DokkaPlug = Ver("2.2.0")
+  val DokkaPlug = Ver("2.3.0-Beta")
 
 
   /**
