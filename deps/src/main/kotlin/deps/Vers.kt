@@ -161,7 +161,7 @@ object Vers {
    * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val DepsPlug = Ver(0, 4, 67) // also sync it in ../../../../../settings.gradle.kts
+  val DepsPlug = Ver(0, 4, 68) // also sync it in ../../../../../settings.gradle.kts
   // TODO use sourcefun to make sure it's always synced with myLibInfo(version)
 
   // SourceFunPlug is GONE: SourceFun moved into this repo as the :sourcefun sibling, so the plugin
