@@ -803,7 +803,7 @@ object Com {
     }
     object Tools {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.5"
-      val r8 = "com.android.tools" d "r8" w "9.4.24" w "9.5.17-dev"
+      val r8 = "com.android.tools" d "r8" w "9.4.24" w "9.5.19-dev"
       object Build {
         val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.4.1" w "9.5.0-alpha07"
       }
@@ -1770,7 +1770,7 @@ object Org {
       object Runtime {
         val js = "org.jetbrains.compose.runtime" d "runtime-js" w "1.12.1" w "1.13.0-alpha01" w "1.13.0-alpha02.test"
         val runtime = "org.jetbrains.compose.runtime" d "runtime" w "1.12.1" w "1.13.0-alpha01" w "1.13.0-alpha02.test"
-        val saveable = "org.jetbrains.compose.runtime" d "runtime-saveable" w "1.12.1" w "1.13.0-alpha01" w "1.13.0-alpha02.test"
+        val saveable = "org.jetbrains.compose.runtime" d "runtime-saveable" w "1.9.3+dev3210" w "1.9.3" w "1.12.1" w "1.13.0-alpha01"
         val saveable_js = "org.jetbrains.compose.runtime" d "runtime-saveable-js" w "1.12.1" w "1.13.0-alpha01" w "1.13.0-alpha02.test"
         val saveable_wasm_js = "org.jetbrains.compose.runtime" d "runtime-saveable-wasm-js" w "1.12.1" w "1.13.0-alpha01" w "1.13.0-alpha02.test"
         val wasm_js = "org.jetbrains.compose.runtime" d "runtime-wasm-js" w "1.12.1" w "1.13.0-alpha01" w "1.13.0-alpha02.test"
