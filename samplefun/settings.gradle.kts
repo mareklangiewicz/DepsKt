@@ -23,7 +23,7 @@ pluginManagement {
 plugins {
   // Version is irrelevant while includeBuild above substitutes it; kept at the latest published one
   // so the sample still resolves if the composite is ever switched off.
-  id("pl.mareklangiewicz.deps.settings") version "0.4.66" // https://plugins.gradle.org/search?term=mareklangiewicz
+  id("pl.mareklangiewicz.deps.settings") version "0.4.67" // https://plugins.gradle.org/search?term=mareklangiewicz
 }
 
 // This standalone build defines its own Lib, exactly like every consumer repo does. It is NOT the
