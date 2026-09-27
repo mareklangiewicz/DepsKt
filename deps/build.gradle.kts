@@ -140,10 +140,14 @@ sourceFun {
 // (this one uses temp file in home dir not managed by gradle - see downloadAndInjectfileToSpecialRegion)
 tasks.register("updateGeneratedDepsAlternative") {
   group = "maintenance"
+  // Locals, not the script's vals: a doLast lambda that reads a script val captures the whole script,
+  // which the configuration cache cannot serialize.
+  val inUrl = urlToObjectsFile
+  val outPath = pathToSrcKotlin / "deps/Deps.kt"
   doLastWithUCtxForTask {
     downloadAndInjectFileToSpecialRegion(
-      inFileUrl = urlToObjectsFile,
-      outFilePath = pathToSrcKotlin / "deps/Deps.kt",
+      inFileUrl = inUrl,
+      outFilePath = outPath,
       outFileRegionLabel = "Deps Generated",
     )
   }
@@ -171,8 +175,8 @@ tasks.register("updateSomeRegexes") {
     +ureText(".matchEntire(this)").withName("afterTheThing")
   }
 
+  val path = pathToSrcKotlin / "utils/Utils.kt" // a local, see updateGeneratedDepsAlternative
   doLastWithUCtxForTask {
-    val path = pathToSrcKotlin / "utils/Utils.kt"
     path.processSingleFile(path) {
       it.replaceSingle(ureWithTheOldThing, Group("beforeTheThing") + Literal(theNewThing) + Group("afterTheThing"))
     }
