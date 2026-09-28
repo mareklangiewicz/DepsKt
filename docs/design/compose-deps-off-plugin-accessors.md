@@ -37,8 +37,11 @@ per-artifact, not by appending its own version.
 
 ## The shape: one seam, `ComposeJb`
 
-`ComposeJbDeps.kt` holds an internal `ComposeJb` object with one property per artifact, so the 45
-call sites changed from `compose.dependencies.runtime` to `ComposeJb.runtime` and nothing else moved.
+A `ComposeJb` object holds one property per artifact, so the 45 call sites changed from
+`compose.dependencies.runtime` to `ComposeJb.runtime` and nothing else moved. (It started as an
+internal object in templatefun's `ComposeJbDeps.kt`; in 0.4.72 it became PUBLIC, in the manual
+`[[Deps Selected]]` region of `Deps.kt`, so consumers get the same beta-not-alpha shortcuts
+instead of restating the rule, and so one artifact can be pinned there authoritatively.)
 The version policy lives in exactly one line:
 
 ```kotlin
@@ -59,8 +62,8 @@ consumer onto an alpha.
   has no single coordinate to state. JetBrains deprecated the pass-throughs and kept this.
 - **`uiUtil` is spelled out by hand.** `org.jetbrains.compose.ui:ui-util` is published (1.12.0
   resolves on Maven Central) but absent from the generated `Deps.kt`. That region is downloaded
-  wholesale from an upstream dataset and overwritten by `updateGeneratedDeps`, and `[[Deps Selected]]`
-  — the manual region — holds only typealiases. Its version follows `ui` so the two cannot drift.
+  wholesale from an upstream dataset and overwritten by `updateGeneratedDeps`, so it lives in
+  `ComposeJb` (the manual region). Its version follows `ui` so the two cannot drift.
 
 Removing the accessors also made three `@OptIn(ExperimentalComposeLibrary::class)` annotations
 unnecessary; they were only there for the experimental accessors. 46 warnings -> 0.

@@ -134,6 +134,43 @@ typealias Langiewicz = Pl.MarekLangiewicz
  */
 typealias Compose = Org.JetBrains.Compose
 
+/**
+ * Compose Multiplatform artifacts at the versions DepsKt recommends: newest BETA-or-better, per
+ * artifact. Alphas break too often, so they are never picked here automatically.
+ *
+ * Per artifact, not one shared version: CMP does not release in lockstep (e.g. material3 has its
+ * own version line). This is also THE place to override one artifact on purpose (known bug, a
+ * needed alpha fix): replace its `.jb` with `.withVer(...)` and say why.
+ * Need something else? Skip the shortcut: `Org.JetBrains.Compose.Material3.material3.withVer(...)`.
+ */
+object ComposeJb {
+  private val Dep.jb: Dep get() = withVer(verLastBeta)
+
+  val runtime get() = Org.JetBrains.Compose.Runtime.runtime.jb
+  val ui get() = Org.JetBrains.Compose.Ui.ui.jb
+  /** Not in the generated catalog (upstream data lacks it), but published. Follows [ui]. */
+  val uiUtil get() = Dep("org.jetbrains.compose.ui", "ui-util", Org.JetBrains.Compose.Ui.ui.verLastBeta)
+  val uiTest get() = Org.JetBrains.Compose.Ui.test.jb
+  val uiTestJUnit4 get() = Org.JetBrains.Compose.Ui.test_junit4.jb
+  val uiTooling get() = Org.JetBrains.Compose.Ui.tooling.jb
+  val preview get() = Org.JetBrains.Compose.Ui.tooling_preview.jb
+  /** Multiplatform `@Preview` (org.jetbrains.compose.ui.tooling.preview), usable in commonMain. */
+  val componentsPreview get() = Org.JetBrains.Compose.Components.ui_tooling_preview.jb
+  val foundation get() = Org.JetBrains.Compose.Foundation.foundation.jb
+  val animation get() = Org.JetBrains.Compose.Animation.animation.jb
+  val animationGraphics get() = Org.JetBrains.Compose.Animation.graphics.jb
+  val material get() = Org.JetBrains.Compose.Material.material.jb
+  val material3 get() = Org.JetBrains.Compose.Material3.material3.jb
+  /** Frozen upstream at 1.7.3; the catalog has only that version, so no special case needed. */
+  val materialIconsExtended get() = Org.JetBrains.Compose.Material.icons_extended.jb
+  val componentsResources get() = Org.JetBrains.Compose.Components.resources.jb
+  val componentsSplitPane get() = Org.JetBrains.Compose.Components.splitpane.jb
+  val desktopCommon get() = Org.JetBrains.Compose.Desktop.desktop.jb
+  val htmlCore get() = Org.JetBrains.Compose.Html.core.jb
+  val htmlSvg get() = Org.JetBrains.Compose.Html.svg.jb
+  val htmlTestUtils get() = Org.JetBrains.Compose.Html.test_utils.jb
+}
+
 
 /**
  * - [releases](https://developer.android.com/jetpack/androidx/releases/compose)
