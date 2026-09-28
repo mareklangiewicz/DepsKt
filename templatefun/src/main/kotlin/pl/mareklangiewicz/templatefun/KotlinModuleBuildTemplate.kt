@@ -43,7 +43,7 @@ fun RepositoryHandler.addRepos() = with(reposSettings) {
 //   But it's only for jvm+andro, so probably this is better:
 //   https://kotlinlang.org/docs/gradle-compiler-options.html#for-all-kotlin-compilation-tasks
 fun TaskCollection<Task>.defaultKotlinCompileOptions(
-  apiVer: KotlinVersion = KotlinVersion.KOTLIN_2_1,
+  apiVer: KotlinVersion = KotlinVersion.KOTLIN_2_3,
   jvmTargetVer: String? = null, // it's better to use jvmToolchain (normally done in fun allDefault)
   renderInternalDiagnosticNames: Boolean = false,
 ) = withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {

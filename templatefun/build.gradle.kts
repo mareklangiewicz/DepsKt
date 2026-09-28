@@ -42,10 +42,13 @@ repositories {
 }
 
 dependencies {
-  implementation("org.jetbrains.kotlin.multiplatform:org.jetbrains.kotlin.multiplatform.gradle.plugin:2.4.20-Beta1")
-  implementation("com.android.tools.build:gradle:9.4.0")
-  implementation("org.jetbrains.compose:compose-gradle-plugin:1.12.0-beta01")
-  implementation("com.vanniktech:gradle-maven-publish-plugin:0.37.0")
+  // The plugins the templates configure, at the versions Vers.kt picks for every consumer (read from
+  // the PUBLISHED settings plugin, like `plugs` above), not hand-kept literals: these were stale at
+  // KGP 2.4.20-Beta1 / AGP 9.4.0 / Compose 1.12.0-beta01 while Vers.kt had moved on.
+  implementation("org.jetbrains.kotlin.multiplatform:org.jetbrains.kotlin.multiplatform.gradle.plugin:${vers.Kotlin.str}")
+  implementation("com.android.tools.build:gradle:${vers.AndroPlug.str}")
+  implementation("org.jetbrains.compose:compose-gradle-plugin:${vers.ComposeJb.str}")
+  implementation("com.vanniktech:gradle-maven-publish-plugin:${vers.VannikPublishPlug.str}")
   // The sibling Lib model lives in the :deps sibling of THIS repo now, so depend on it directly
   // instead of on a published version. One less pin to drift: template-logic's own pin was stale
   // at 0.4.26 while the repo was on 0.4.27.
@@ -61,12 +64,12 @@ dependencies {
   // simply wins on its own, and they publish in templatefun's module metadata for consumers too.
   // Drop each line once AGP ships at or above it.
   constraints {
-    implementation("org.bouncycastle:bcprov-jdk18on:1.84") { because("LDAP injection; GHSA alert #27") }
-    implementation("org.bouncycastle:bcpkix-jdk18on:1.84") { because("risky crypto algorithm; alert #26") }
-    implementation("org.bouncycastle:bcutil-jdk18on:1.84") { because("kept in lockstep with bcprov/bcpkix") }
-    implementation("org.bitbucket.b_c:jose4j:0.9.6") { because("DoS via compressed JWE content; alert #32") }
+    implementation("org.bouncycastle:bcprov-jdk18on:1.86") { because("LDAP injection; GHSA alert #27") }
+    implementation("org.bouncycastle:bcpkix-jdk18on:1.86") { because("risky crypto algorithm; alert #26") }
+    implementation("org.bouncycastle:bcutil-jdk18on:1.86") { because("kept in lockstep with bcprov/bcpkix") }
+    implementation("org.bitbucket.b_c:jose4j:0.9.7") { because("DoS via compressed JWE content; alert #32") }
     implementation("org.jdom:jdom2:2.0.6.1") { because("XXE injection, via jetifier-processor; alert #31") }
-    implementation("org.apache.commons:commons-lang3:3.18.0") { because("uncontrolled recursion; alert #30") }
+    implementation("org.apache.commons:commons-lang3:3.20.0") { because("uncontrolled recursion; alert #30") }
   }
 }
 

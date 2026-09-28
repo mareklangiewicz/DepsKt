@@ -53,6 +53,15 @@ object Plugs {
   val KotlinAssignmentNoVer = DepP("org.jetbrains.kotlin.plugin.assignment")
   val KotlinAssignment = KotlinAssignmentNoVer.withVer(vers.Kotlin)
 
+  /**
+   * Kotlin `kotlinx.serialization` compiler plugin (generates serializers for `@Serializable`).
+   * Carries [vers.Kotlin] like every Kotlin compiler plugin: it must match the compiler exactly.
+   *
+   * - [kotlinlang docs](https://kotlinlang.org/docs/serialization.html)
+   */
+  val KotlinSerializationNoVer = DepP("org.jetbrains.kotlin.plugin.serialization")
+  val KotlinSerialization = KotlinSerializationNoVer.withVer(vers.Kotlin)
+
   @Deprecated("https://developer.android.com/build/migrate-to-built-in-kotlin", ReplaceWith(""))
   val KotlinAndroNoVer = DepP("org.jetbrains.kotlin.android")
   @Deprecated("https://developer.android.com/build/migrate-to-built-in-kotlin", ReplaceWith(""))
