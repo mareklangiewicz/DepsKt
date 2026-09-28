@@ -178,7 +178,7 @@ object Vers {
    * - [gradle versions rel candidate](https://services.gradle.org/versions/release-candidate)
    * - [gradle versions current](https://services.gradle.org/versions/current)
    */
-  val Gradle9 = Ver("9.7.1")
+  val Gradle9 = Ver("9.8.0")
   val Gradle8 = Ver("8.14.3")
 
   val Gradle = Gradle9
