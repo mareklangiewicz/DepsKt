@@ -840,7 +840,7 @@ object Com {
     }
     object Tools {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.5"
-      val r8 = "com.android.tools" d "r8" w "9.4.27" w "9.5.20-dev"
+      val r8 = "com.android.tools" d "r8" w "9.4.28" w "9.5.20-dev"
       object Build {
         val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.4.1" w "9.5.0-alpha07"
       }
@@ -979,7 +979,7 @@ object Com {
       }
       object Libraries {
         object Places {
-          val places = "com.google.android.libraries.places" d "places" w "5.3.0"
+          val places = "com.google.android.libraries.places" d "places" w "6.0.2"
         }
       }
       object Material {
@@ -1080,7 +1080,7 @@ object Com {
         val maps_compose = "com.google.maps.android" d "maps-compose" w "8.6.0" w "9.0.0-rc03"
         val maps_ktx = "com.google.maps.android" d "maps-ktx" w "6.4.1"
         val maps_rx = "com.google.maps.android" d "maps-rx" w "1.0.1"
-        val maps_utils = "com.google.maps.android" d "android-maps-utils" w "5.2.0" w "6.0.0-rc04"
+        val maps_utils = "com.google.maps.android" d "android-maps-utils" w "6.0.0"
         val maps_utils_ktx = "com.google.maps.android" d "maps-utils-ktx" w "6.4.1"
       }
     }
