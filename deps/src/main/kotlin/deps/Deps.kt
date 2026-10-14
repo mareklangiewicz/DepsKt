@@ -840,7 +840,7 @@ object Com {
     }
     object Tools {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.5"
-      val r8 = "com.android.tools" d "r8" w "9.5.23" w "9.6.0-alpha02"
+      val r8 = "com.android.tools" d "r8" w "9.5.26" w "9.6.0-alpha02"
       object Build {
         val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.4.1" w "9.5.0-alpha09"
       }
@@ -1758,7 +1758,7 @@ object Org {
       }
       object Desktop {
         val desktop = "org.jetbrains.compose.desktop" d "desktop" w "1.12.1" w "1.13.0-alpha02" w "1.13.0-alpha02.test"
-        val jvm = "org.jetbrains.compose.desktop" d "desktop-jvm" w "1.12.1" w "1.13.0-alpha02" w "1.13.0-alpha02.test"
+        val jvm = "org.jetbrains.compose.desktop" d "desktop-jvm" w "1.9.3+dev3210" w "1.9.3" w "1.12.1" w "1.13.0-alpha02"
       }
       object Foundation {
         val foundation = "org.jetbrains.compose.foundation" d "foundation" w "1.12.1" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-alpha02.test"
