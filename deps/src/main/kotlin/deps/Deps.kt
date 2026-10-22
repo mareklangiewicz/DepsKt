@@ -308,13 +308,13 @@ object AndroidX {
     val browser = "androidx.browser" d "browser" w "1.10.0"
   }
   object Camera {
-    val camera2 = "androidx.camera" d "camera-camera2" w "1.6.2" w "1.7.0-alpha03"
-    val core = "androidx.camera" d "camera-core" w "1.6.2" w "1.7.0-alpha03"
-    val extensions = "androidx.camera" d "camera-extensions" w "1.6.2" w "1.7.0-alpha03"
-    val lifecycle = "androidx.camera" d "camera-lifecycle" w "1.6.2" w "1.7.0-alpha03"
-    val mlkit_vision = "androidx.camera" d "camera-mlkit-vision" w "1.6.2" w "1.7.0-alpha03"
-    val video = "androidx.camera" d "camera-video" w "1.6.2" w "1.7.0-alpha03"
-    val view = "androidx.camera" d "camera-view" w "1.6.2" w "1.7.0-alpha03"
+    val camera2 = "androidx.camera" d "camera-camera2" w "1.6.2" w "1.7.0-rc01"
+    val core = "androidx.camera" d "camera-core" w "1.6.2" w "1.7.0-rc01"
+    val extensions = "androidx.camera" d "camera-extensions" w "1.6.2" w "1.7.0-rc01"
+    val lifecycle = "androidx.camera" d "camera-lifecycle" w "1.6.2" w "1.7.0-rc01"
+    val mlkit_vision = "androidx.camera" d "camera-mlkit-vision" w "1.6.2" w "1.7.0-rc01"
+    val video = "androidx.camera" d "camera-video" w "1.6.2" w "1.7.0-rc01"
+    val view = "androidx.camera" d "camera-view" w "1.6.2" w "1.7.0-rc01"
   }
   object Car {
     object App {
@@ -334,51 +334,51 @@ object AndroidX {
   object Compose {
     val bom = "androidx.compose" d "compose-bom" w "2026.09.00"
     object Animation {
-      val animation = "androidx.compose.animation" d "animation" w "1.12.1" w "1.13.0-beta01"
-      val core = "androidx.compose.animation" d "animation-core" w "1.12.1" w "1.13.0-beta01"
-      val graphics = "androidx.compose.animation" d "animation-graphics" w "1.12.1" w "1.13.0-beta01"
+      val animation = "androidx.compose.animation" d "animation" w "1.12.1" w "1.13.0-beta02"
+      val core = "androidx.compose.animation" d "animation-core" w "1.12.1" w "1.13.0-beta02"
+      val graphics = "androidx.compose.animation" d "animation-graphics" w "1.12.1" w "1.13.0-beta02"
     }
     object Compiler {
       val compiler = "androidx.compose.compiler" d "compiler" w "1.5.15"
     }
     object Foundation {
-      val foundation = "androidx.compose.foundation" d "foundation" w "1.12.1" w "1.13.0-beta01"
-      val layout = "androidx.compose.foundation" d "foundation-layout" w "1.12.1" w "1.13.0-beta01"
+      val foundation = "androidx.compose.foundation" d "foundation" w "1.12.1" w "1.13.0-beta02"
+      val layout = "androidx.compose.foundation" d "foundation-layout" w "1.12.1" w "1.13.0-beta02"
     }
     object Material {
       val icons_core = "androidx.compose.material" d "material-icons-core" w "1.7.8"
       val icons_extended = "androidx.compose.material" d "material-icons-extended" w "1.7.8"
-      val material = "androidx.compose.material" d "material" w "1.12.1" w "1.13.0-beta01"
-      val ripple = "androidx.compose.material" d "material-ripple" w "1.12.1" w "1.13.0-beta01"
+      val material = "androidx.compose.material" d "material" w "1.12.1" w "1.13.0-beta02"
+      val ripple = "androidx.compose.material" d "material-ripple" w "1.12.1" w "1.13.0-beta02"
     }
     object Material3 {
-      val material3 = "androidx.compose.material3" d "material3" w "1.4.0" w "1.5.0-beta01"
-      val window_size_class = "androidx.compose.material3" d "material3-window-size-class" w "1.4.0" w "1.5.0-beta01"
+      val material3 = "androidx.compose.material3" d "material3" w "1.4.0" w "1.5.0-beta02"
+      val window_size_class = "androidx.compose.material3" d "material3-window-size-class" w "1.4.0" w "1.5.0-beta02"
     }
     object Runtime {
       val dispatch = "androidx.compose.runtime" d "runtime-dispatch" w "1.0.0-alpha12"
-      val livedata = "androidx.compose.runtime" d "runtime-livedata" w "1.12.1" w "1.13.0-beta01"
-      val runtime = "androidx.compose.runtime" d "runtime" w "1.12.1" w "1.13.0-beta01"
-      val rxjava2 = "androidx.compose.runtime" d "runtime-rxjava2" w "1.12.1" w "1.13.0-beta01"
-      val rxjava3 = "androidx.compose.runtime" d "runtime-rxjava3" w "1.12.1" w "1.13.0-beta01"
-      val saveable = "androidx.compose.runtime" d "runtime-saveable" w "1.12.1" w "1.13.0-beta01"
-      val tracing = "androidx.compose.runtime" d "runtime-tracing" w "1.12.1" w "1.13.0-beta01"
+      val livedata = "androidx.compose.runtime" d "runtime-livedata" w "1.12.1" w "1.13.0-beta02"
+      val runtime = "androidx.compose.runtime" d "runtime" w "1.12.1" w "1.13.0-beta02"
+      val rxjava2 = "androidx.compose.runtime" d "runtime-rxjava2" w "1.12.1" w "1.13.0-beta02"
+      val rxjava3 = "androidx.compose.runtime" d "runtime-rxjava3" w "1.12.1" w "1.13.0-beta02"
+      val saveable = "androidx.compose.runtime" d "runtime-saveable" w "1.12.1" w "1.13.0-beta02"
+      val tracing = "androidx.compose.runtime" d "runtime-tracing" w "1.12.1" w "1.13.0-beta02"
     }
     object Ui {
-      val geometry = "androidx.compose.ui" d "ui-geometry" w "1.12.1" w "1.13.0-beta01"
-      val graphics = "androidx.compose.ui" d "ui-graphics" w "1.12.1" w "1.13.0-beta01"
-      val test = "androidx.compose.ui" d "ui-test" w "1.12.1" w "1.13.0-beta01"
-      val test_junit4 = "androidx.compose.ui" d "ui-test-junit4" w "1.12.1" w "1.13.0-beta01"
-      val test_manifest = "androidx.compose.ui" d "ui-test-manifest" w "1.12.1" w "1.13.0-beta01"
-      val text = "androidx.compose.ui" d "ui-text" w "1.12.1" w "1.13.0-beta01"
-      val text_google_fonts = "androidx.compose.ui" d "ui-text-google-fonts" w "1.12.1" w "1.13.0-beta01"
-      val tooling = "androidx.compose.ui" d "ui-tooling" w "1.12.1" w "1.13.0-beta01"
-      val tooling_data = "androidx.compose.ui" d "ui-tooling-data" w "1.12.1" w "1.13.0-beta01"
-      val tooling_preview = "androidx.compose.ui" d "ui-tooling-preview" w "1.12.1" w "1.13.0-beta01"
-      val ui = "androidx.compose.ui" d "ui" w "1.12.1" w "1.13.0-beta01"
-      val unit = "androidx.compose.ui" d "ui-unit" w "1.12.1" w "1.13.0-beta01"
-      val util = "androidx.compose.ui" d "ui-util" w "1.12.1" w "1.13.0-beta01"
-      val viewbinding = "androidx.compose.ui" d "ui-viewbinding" w "1.12.1" w "1.13.0-beta01"
+      val geometry = "androidx.compose.ui" d "ui-geometry" w "1.12.1" w "1.13.0-beta02"
+      val graphics = "androidx.compose.ui" d "ui-graphics" w "1.12.1" w "1.13.0-beta02"
+      val test = "androidx.compose.ui" d "ui-test" w "1.12.1" w "1.13.0-beta02"
+      val test_junit4 = "androidx.compose.ui" d "ui-test-junit4" w "1.12.1" w "1.13.0-beta02"
+      val test_manifest = "androidx.compose.ui" d "ui-test-manifest" w "1.12.1" w "1.13.0-beta02"
+      val text = "androidx.compose.ui" d "ui-text" w "1.12.1" w "1.13.0-beta02"
+      val text_google_fonts = "androidx.compose.ui" d "ui-text-google-fonts" w "1.12.1" w "1.13.0-beta02"
+      val tooling = "androidx.compose.ui" d "ui-tooling" w "1.12.1" w "1.13.0-beta02"
+      val tooling_data = "androidx.compose.ui" d "ui-tooling-data" w "1.12.1" w "1.13.0-beta02"
+      val tooling_preview = "androidx.compose.ui" d "ui-tooling-preview" w "1.12.1" w "1.13.0-beta02"
+      val ui = "androidx.compose.ui" d "ui" w "1.12.1" w "1.13.0-beta02"
+      val unit = "androidx.compose.ui" d "ui-unit" w "1.12.1" w "1.13.0-beta02"
+      val util = "androidx.compose.ui" d "ui-util" w "1.12.1" w "1.13.0-beta02"
+      val viewbinding = "androidx.compose.ui" d "ui-viewbinding" w "1.12.1" w "1.13.0-beta02"
     }
   }
   object Concurrent {
@@ -418,15 +418,15 @@ object AndroidX {
     val poolingcontainer = "androidx.customview" d "customview-poolingcontainer" w "1.1.0"
   }
   object DataStore {
-    val core = "androidx.datastore" d "datastore-core" w "1.2.1" w "1.3.0-rc01"
-    val core_okio = "androidx.datastore" d "datastore-core-okio" w "1.2.1" w "1.3.0-rc01"
-    val datastore = "androidx.datastore" d "datastore" w "1.2.1" w "1.3.0-rc01"
-    val preferences = "androidx.datastore" d "datastore-preferences" w "1.2.1" w "1.3.0-rc01"
-    val preferences_core = "androidx.datastore" d "datastore-preferences-core" w "1.2.1" w "1.3.0-rc01"
-    val preferences_rxjava2 = "androidx.datastore" d "datastore-preferences-rxJava2" w "1.2.1" w "1.3.0-rc01"
-    val preferences_rxjava3 = "androidx.datastore" d "datastore-preferences-rxJava3" w "1.2.1" w "1.3.0-rc01"
-    val rxjava2 = "androidx.datastore" d "datastore-rxJava2" w "1.2.1" w "1.3.0-rc01"
-    val rxjava3 = "androidx.datastore" d "datastore-rxJava3" w "1.2.1" w "1.3.0-rc01"
+    val core = "androidx.datastore" d "datastore-core" w "1.3.0"
+    val core_okio = "androidx.datastore" d "datastore-core-okio" w "1.3.0"
+    val datastore = "androidx.datastore" d "datastore" w "1.3.0"
+    val preferences = "androidx.datastore" d "datastore-preferences" w "1.3.0"
+    val preferences_core = "androidx.datastore" d "datastore-preferences-core" w "1.3.0"
+    val preferences_rxjava2 = "androidx.datastore" d "datastore-preferences-rxJava2" w "1.3.0"
+    val preferences_rxjava3 = "androidx.datastore" d "datastore-preferences-rxJava3" w "1.3.0"
+    val rxjava2 = "androidx.datastore" d "datastore-rxJava2" w "1.3.0"
+    val rxjava3 = "androidx.datastore" d "datastore-rxJava3" w "1.3.0"
   }
   object DocumentFile {
     val documentfile = "androidx.documentfile" d "documentfile" w "1.1.0"
@@ -457,7 +457,7 @@ object AndroidX {
     val feedback_testing = "androidx.enterprise" d "enterprise-feedback-testing" w "1.1.0"
   }
   object Exifinterface {
-    val exifinterface = "androidx.exifinterface" d "exifinterface" w "1.4.2"
+    val exifinterface = "androidx.exifinterface" d "exifinterface" w "1.4.2" w "1.5.0-alpha01"
   }
   object Fragment {
     val fragment = "androidx.fragment" d "fragment" w "1.9.1"
@@ -514,24 +514,24 @@ object AndroidX {
     val tab = "androidx.leanback" d "leanback-tab" w "1.1.0"
   }
   object Lifecycle {
-    val common = "androidx.lifecycle" d "lifecycle-common" w "2.11.0" w "2.12.0-alpha04"
-    val common_java8 = "androidx.lifecycle" d "lifecycle-common-java8" w "2.11.0" w "2.12.0-alpha04"
-    val compiler = "androidx.lifecycle" d "lifecycle-compiler" w "2.11.0" w "2.12.0-alpha04"
+    val common = "androidx.lifecycle" d "lifecycle-common" w "2.11.0" w "2.12.0-alpha05"
+    val common_java8 = "androidx.lifecycle" d "lifecycle-common-java8" w "2.11.0" w "2.12.0-alpha05"
+    val compiler = "androidx.lifecycle" d "lifecycle-compiler" w "2.11.0" w "2.12.0-alpha05"
     val extensions = "androidx.lifecycle" d "lifecycle-extensions" w "2.2.0"
-    val livedata = "androidx.lifecycle" d "lifecycle-livedata" w "2.11.0" w "2.12.0-alpha04"
-    val livedata_ktx = "androidx.lifecycle" d "lifecycle-livedata-ktx" w "2.11.0" w "2.12.0-alpha04"
-    val process = "androidx.lifecycle" d "lifecycle-process" w "2.11.0" w "2.12.0-alpha04"
-    val reactivestreams = "androidx.lifecycle" d "lifecycle-reactivestreams" w "2.11.0" w "2.12.0-alpha04"
-    val reactivestreams_ktx = "androidx.lifecycle" d "lifecycle-reactivestreams-ktx" w "2.11.0" w "2.12.0-alpha04"
-    val runtime = "androidx.lifecycle" d "lifecycle-runtime" w "2.11.0" w "2.12.0-alpha04"
-    val runtime_compose = "androidx.lifecycle" d "lifecycle-runtime-compose" w "2.11.0" w "2.12.0-alpha04"
-    val runtime_ktx = "androidx.lifecycle" d "lifecycle-runtime-ktx" w "2.11.0" w "2.12.0-alpha04"
-    val runtime_testing = "androidx.lifecycle" d "lifecycle-runtime-testing" w "2.11.0" w "2.12.0-alpha04"
-    val service = "androidx.lifecycle" d "lifecycle-service" w "2.11.0" w "2.12.0-alpha04"
-    val viewmodel = "androidx.lifecycle" d "lifecycle-viewmodel" w "2.11.0" w "2.12.0-alpha04"
-    val viewmodel_compose = "androidx.lifecycle" d "lifecycle-viewmodel-compose" w "2.11.0" w "2.12.0-alpha04"
-    val viewmodel_ktx = "androidx.lifecycle" d "lifecycle-viewmodel-ktx" w "2.11.0" w "2.12.0-alpha04"
-    val viewmodel_savedstate = "androidx.lifecycle" d "lifecycle-viewmodel-savedstate" w "2.11.0" w "2.12.0-alpha04"
+    val livedata = "androidx.lifecycle" d "lifecycle-livedata" w "2.11.0" w "2.12.0-alpha05"
+    val livedata_ktx = "androidx.lifecycle" d "lifecycle-livedata-ktx" w "2.11.0" w "2.12.0-alpha05"
+    val process = "androidx.lifecycle" d "lifecycle-process" w "2.11.0" w "2.12.0-alpha05"
+    val reactivestreams = "androidx.lifecycle" d "lifecycle-reactivestreams" w "2.11.0" w "2.12.0-alpha05"
+    val reactivestreams_ktx = "androidx.lifecycle" d "lifecycle-reactivestreams-ktx" w "2.11.0" w "2.12.0-alpha05"
+    val runtime = "androidx.lifecycle" d "lifecycle-runtime" w "2.11.0" w "2.12.0-alpha05"
+    val runtime_compose = "androidx.lifecycle" d "lifecycle-runtime-compose" w "2.11.0" w "2.12.0-alpha05"
+    val runtime_ktx = "androidx.lifecycle" d "lifecycle-runtime-ktx" w "2.11.0" w "2.12.0-alpha05"
+    val runtime_testing = "androidx.lifecycle" d "lifecycle-runtime-testing" w "2.11.0" w "2.12.0-alpha05"
+    val service = "androidx.lifecycle" d "lifecycle-service" w "2.11.0" w "2.12.0-alpha05"
+    val viewmodel = "androidx.lifecycle" d "lifecycle-viewmodel" w "2.11.0" w "2.12.0-alpha05"
+    val viewmodel_compose = "androidx.lifecycle" d "lifecycle-viewmodel-compose" w "2.11.0" w "2.12.0-alpha05"
+    val viewmodel_ktx = "androidx.lifecycle" d "lifecycle-viewmodel-ktx" w "2.11.0" w "2.12.0-alpha05"
+    val viewmodel_savedstate = "androidx.lifecycle" d "lifecycle-viewmodel-savedstate" w "2.11.0" w "2.12.0-alpha05"
   }
   object Loader {
     val loader = "androidx.loader" d "loader" w "1.2.0"
@@ -550,30 +550,30 @@ object AndroidX {
     val widget = "androidx.media2" d "media2-widget" w "1.3.0"
   }
   object Media3 {
-    val cast = "androidx.media3" d "media3-cast" w "1.11.1"
-    val common = "androidx.media3" d "media3-common" w "1.11.1"
-    val database = "androidx.media3" d "media3-database" w "1.11.1"
-    val datasource = "androidx.media3" d "media3-datasource" w "1.11.1"
-    val datasource_cronet = "androidx.media3" d "media3-datasource-cronet" w "1.11.1"
-    val datasource_okhttp = "androidx.media3" d "media3-datasource-okhttp" w "1.11.1"
-    val datasource_rtmp = "androidx.media3" d "media3-datasource-rtmp" w "1.11.1"
-    val decoder = "androidx.media3" d "media3-decoder" w "1.11.1"
-    val exoplayer = "androidx.media3" d "media3-exoplayer" w "1.11.1"
-    val exoplayer_dash = "androidx.media3" d "media3-exoplayer-dash" w "1.11.1"
-    val exoplayer_hls = "androidx.media3" d "media3-exoplayer-hls" w "1.11.1"
-    val exoplayer_ima = "androidx.media3" d "media3-exoplayer-ima" w "1.11.1"
-    val exoplayer_rtsp = "androidx.media3" d "media3-exoplayer-rtsp" w "1.11.1"
-    val exoplayer_workmanager = "androidx.media3" d "media3-exoplayer-workmanager" w "1.11.1"
-    val extractor = "androidx.media3" d "media3-extractor" w "1.11.1"
-    val session = "androidx.media3" d "media3-session" w "1.11.1"
-    val test_utils = "androidx.media3" d "media3-test-utils" w "1.11.1"
-    val test_utils_robolectric = "androidx.media3" d "media3-test-utils-robolectric" w "1.11.1"
-    val transformer = "androidx.media3" d "media3-transformer" w "1.11.1"
-    val ui = "androidx.media3" d "media3-ui" w "1.11.1"
-    val ui_leanback = "androidx.media3" d "media3-ui-leanback" w "1.11.1"
+    val cast = "androidx.media3" d "media3-cast" w "1.11.1" w "1.12.0-alpha01"
+    val common = "androidx.media3" d "media3-common" w "1.11.1" w "1.12.0-alpha01"
+    val database = "androidx.media3" d "media3-database" w "1.11.1" w "1.12.0-alpha01"
+    val datasource = "androidx.media3" d "media3-datasource" w "1.11.1" w "1.12.0-alpha01"
+    val datasource_cronet = "androidx.media3" d "media3-datasource-cronet" w "1.11.1" w "1.12.0-alpha01"
+    val datasource_okhttp = "androidx.media3" d "media3-datasource-okhttp" w "1.11.1" w "1.12.0-alpha01"
+    val datasource_rtmp = "androidx.media3" d "media3-datasource-rtmp" w "1.11.1" w "1.12.0-alpha01"
+    val decoder = "androidx.media3" d "media3-decoder" w "1.11.1" w "1.12.0-alpha01"
+    val exoplayer = "androidx.media3" d "media3-exoplayer" w "1.11.1" w "1.12.0-alpha01"
+    val exoplayer_dash = "androidx.media3" d "media3-exoplayer-dash" w "1.11.1" w "1.12.0-alpha01"
+    val exoplayer_hls = "androidx.media3" d "media3-exoplayer-hls" w "1.11.1" w "1.12.0-alpha01"
+    val exoplayer_ima = "androidx.media3" d "media3-exoplayer-ima" w "1.11.1" w "1.12.0-alpha01"
+    val exoplayer_rtsp = "androidx.media3" d "media3-exoplayer-rtsp" w "1.11.1" w "1.12.0-alpha01"
+    val exoplayer_workmanager = "androidx.media3" d "media3-exoplayer-workmanager" w "1.11.1" w "1.12.0-alpha01"
+    val extractor = "androidx.media3" d "media3-extractor" w "1.11.1" w "1.12.0-alpha01"
+    val session = "androidx.media3" d "media3-session" w "1.11.1" w "1.12.0-alpha01"
+    val test_utils = "androidx.media3" d "media3-test-utils" w "1.11.1" w "1.12.0-alpha01"
+    val test_utils_robolectric = "androidx.media3" d "media3-test-utils-robolectric" w "1.11.1" w "1.12.0-alpha01"
+    val transformer = "androidx.media3" d "media3-transformer" w "1.11.1" w "1.12.0-alpha01"
+    val ui = "androidx.media3" d "media3-ui" w "1.11.1" w "1.12.0-alpha01"
+    val ui_leanback = "androidx.media3" d "media3-ui-leanback" w "1.11.1" w "1.12.0-alpha01"
   }
   object MediaRouter {
-    val mediarouter = "androidx.mediarouter" d "mediarouter" w "1.8.1" w "1.9.0-beta01"
+    val mediarouter = "androidx.mediarouter" d "mediarouter" w "1.8.1" w "1.9.0-rc01"
   }
   object Metrics {
     val performance = "androidx.metrics" d "metrics-performance" w "1.0.0"
@@ -610,8 +610,8 @@ object AndroidX {
     val testing = "androidx.paging" d "paging-testing" w "3.5.3"
   }
   object Palette {
-    val ktx = "androidx.palette" d "palette-ktx" w "1.0.0" w "1.1.0-rc01"
-    val palette = "androidx.palette" d "palette" w "1.0.0" w "1.1.0-rc01"
+    val ktx = "androidx.palette" d "palette-ktx" w "1.1.0"
+    val palette = "androidx.palette" d "palette" w "1.1.0"
   }
   object PercentLayout {
     val percentlayout = "androidx.percentlayout" d "percentlayout" w "1.0.0"
@@ -649,8 +649,8 @@ object AndroidX {
     val testing = "androidx.room" d "room-testing" w "2.8.5"
   }
   object Savedstate {
-    val ktx = "androidx.savedstate" d "savedstate-ktx" w "1.5.0" w "1.6.0-alpha04"
-    val savedstate = "androidx.savedstate" d "savedstate" w "1.5.0" w "1.6.0-alpha04"
+    val ktx = "androidx.savedstate" d "savedstate-ktx" w "1.5.0" w "1.6.0-alpha05"
+    val savedstate = "androidx.savedstate" d "savedstate" w "1.5.0" w "1.6.0-alpha05"
   }
   object Security {
     val app_authenticator = "androidx.security" d "security-app-authenticator" w "1.0.0"
@@ -672,9 +672,9 @@ object AndroidX {
     val slidingpanelayout = "androidx.slidingpanelayout" d "slidingpanelayout" w "1.2.0"
   }
   object Sqlite {
-    val framework = "androidx.sqlite" d "sqlite-framework" w "2.7.1" w "2.8.0-alpha01"
-    val ktx = "androidx.sqlite" d "sqlite-ktx" w "2.7.1" w "2.8.0-alpha01"
-    val sqlite = "androidx.sqlite" d "sqlite" w "2.7.1" w "2.8.0-alpha01"
+    val framework = "androidx.sqlite" d "sqlite-framework" w "2.7.1" w "2.8.0-alpha03"
+    val ktx = "androidx.sqlite" d "sqlite-ktx" w "2.7.1" w "2.8.0-alpha03"
+    val sqlite = "androidx.sqlite" d "sqlite" w "2.7.1" w "2.8.0-alpha03"
   }
   object Startup {
     val runtime = "androidx.startup" d "startup-runtime" w "1.2.0"
@@ -720,9 +720,9 @@ object AndroidX {
     val textclassifier = "androidx.textclassifier" d "textclassifier" w "1.0.0-alpha04"
   }
   object Tracing {
-    val ktx = "androidx.tracing" d "tracing-ktx" w "2.0.4"
+    val ktx = "androidx.tracing" d "tracing-ktx" w "2.0.5"
     val perfetto = "androidx.tracing" d "tracing-perfetto" w "1.0.1"
-    val tracing = "androidx.tracing" d "tracing" w "2.0.4"
+    val tracing = "androidx.tracing" d "tracing" w "2.0.5"
   }
   object Transition {
     val ktx = "androidx.transition" d "transition-ktx" w "1.7.2"
@@ -757,9 +757,9 @@ object AndroidX {
     val remote_interactions = "androidx.wear" d "wear-remote-interactions" w "1.2.0" w "1.3.0-beta01"
     val wear = "androidx.wear" d "wear" w "1.4.0"
     object Compose {
-      val foundation = "androidx.wear.compose" d "compose-foundation" w "1.7.1" w "1.8.0-alpha01"
-      val material = "androidx.wear.compose" d "compose-material" w "1.7.1" w "1.8.0-alpha01"
-      val navigation = "androidx.wear.compose" d "compose-navigation" w "1.7.1" w "1.8.0-alpha01"
+      val foundation = "androidx.wear.compose" d "compose-foundation" w "1.7.1" w "1.8.0-alpha02"
+      val material = "androidx.wear.compose" d "compose-material" w "1.7.1" w "1.8.0-alpha02"
+      val navigation = "androidx.wear.compose" d "compose-navigation" w "1.7.1" w "1.8.0-alpha02"
     }
     object Tiles {
       val material = "androidx.wear.tiles" d "tiles-material" w "1.6.2"
@@ -776,7 +776,7 @@ object AndroidX {
     }
   }
   object WebKit {
-    val webkit = "androidx.webkit" d "webkit" w "1.17.1" w "1.18.0-rc01"
+    val webkit = "androidx.webkit" d "webkit" w "1.18.0"
   }
   object Window {
     val java = "androidx.window" d "window-java" w "1.5.1" w "1.6.0-alpha05"
@@ -842,7 +842,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.5"
       val r8 = "com.android.tools" d "r8" w "9.5.28" w "9.6.0-alpha06"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.4.1" w "9.5.0-alpha10"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.4.1" w "9.5.0-rc01"
       }
     }
   }
@@ -1041,19 +1041,19 @@ object Com {
       val appindexing = "com.google.firebase" d "firebase-appindexing" w "20.0.0"
       val auth = "com.google.firebase" d "firebase-auth" w "25.0.0"
       val auth_ktx = "com.google.firebase" d "firebase-auth-ktx" w "23.2.1"
-      val bom = "com.google.firebase" d "firebase-bom" w "35.0.2"
-      val config = "com.google.firebase" d "firebase-config" w "24.0.0"
+      val bom = "com.google.firebase" d "firebase-bom" w "35.1.0"
+      val config = "com.google.firebase" d "firebase-config" w "24.0.1"
       val config_ktx = "com.google.firebase" d "firebase-config-ktx" w "22.1.2"
-      val crashlytics = "com.google.firebase" d "firebase-crashlytics" w "21.0.0"
+      val crashlytics = "com.google.firebase" d "firebase-crashlytics" w "21.0.1"
       val crashlytics_gradle = "com.google.firebase" d "firebase-crashlytics-gradle" w "3.0.8"
       val crashlytics_ktx = "com.google.firebase" d "firebase-crashlytics-ktx" w "19.4.4"
-      val crashlytics_ndk = "com.google.firebase" d "firebase-crashlytics-ndk" w "21.0.0"
+      val crashlytics_ndk = "com.google.firebase" d "firebase-crashlytics-ndk" w "21.0.1"
       val database = "com.google.firebase" d "firebase-database" w "23.0.0"
       val database_ktx = "com.google.firebase" d "firebase-database-ktx" w "21.0.0"
       val dynamic_links = "com.google.firebase" d "firebase-dynamic-links" w "22.1.0"
       val dynamic_links_ktx = "com.google.firebase" d "firebase-dynamic-links-ktx" w "22.1.0"
       val dynamic_module_support = "com.google.firebase" d "firebase-dynamic-module-support" w "16.0.0-beta05"
-      val firestore = "com.google.firebase" d "firebase-firestore" w "27.0.1"
+      val firestore = "com.google.firebase" d "firebase-firestore" w "27.1.0"
       val firestore_ktx = "com.google.firebase" d "firebase-firestore-ktx" w "25.1.4"
       val functions = "com.google.firebase" d "firebase-functions" w "23.0.0"
       val functions_ktx = "com.google.firebase" d "firebase-functions-ktx" w "21.2.1"
@@ -1061,8 +1061,8 @@ object Com {
       val inappmessaging_display = "com.google.firebase" d "firebase-inappmessaging-display" w "23.0.0"
       val inappmessaging_display_ktx = "com.google.firebase" d "firebase-inappmessaging-display-ktx" w "21.0.2"
       val inappmessaging_ktx = "com.google.firebase" d "firebase-inappmessaging-ktx" w "21.0.2"
-      val messaging = "com.google.firebase" d "firebase-messaging" w "26.0.0"
-      val messaging_directboot = "com.google.firebase" d "firebase-messaging-directboot" w "26.0.0"
+      val messaging = "com.google.firebase" d "firebase-messaging" w "26.0.1"
+      val messaging_directboot = "com.google.firebase" d "firebase-messaging-directboot" w "26.0.1"
       val messaging_ktx = "com.google.firebase" d "firebase-messaging-ktx" w "24.1.2"
       val ml_modeldownloader = "com.google.firebase" d "firebase-ml-modeldownloader" w "26.1.1"
       val ml_modeldownloader_ktx = "com.google.firebase" d "firebase-ml-modeldownloader-ktx" w "25.0.1"
@@ -1080,7 +1080,7 @@ object Com {
         val maps_compose = "com.google.maps.android" d "maps-compose" w "9.0.1"
         val maps_ktx = "com.google.maps.android" d "maps-ktx" w "6.4.1"
         val maps_rx = "com.google.maps.android" d "maps-rx" w "1.0.1"
-        val maps_utils = "com.google.maps.android" d "android-maps-utils" w "6.0.0"
+        val maps_utils = "com.google.maps.android" d "android-maps-utils" w "6.1.0"
         val maps_utils_ktx = "com.google.maps.android" d "maps-utils-ktx" w "6.4.1"
       }
     }
@@ -1282,20 +1282,20 @@ object Com {
       val moshi = "com.squareup.moshi" d "moshi" w "1.15.2"
     }
     object Okhttp3 {
-      val logging_interceptor = "com.squareup.okhttp3" d "logging-interceptor" w "5.5.0"
-      val mockwebserver = "com.squareup.okhttp3" d "mockwebserver" w "5.5.0"
-      val mockwebserver3 = "com.squareup.okhttp3" d "mockwebserver3" w "5.5.0"
-      val mockwebserver3_junit4 = "com.squareup.okhttp3" d "mockwebserver3-junit4" w "5.5.0"
-      val mockwebserver3_junit5 = "com.squareup.okhttp3" d "mockwebserver3-junit5" w "5.5.0"
-      val okhttp = "com.squareup.okhttp3" d "okhttp" w "5.5.0"
-      val okhttp_android = "com.squareup.okhttp3" d "okhttp-android" w "5.5.0"
-      val okhttp_bom = "com.squareup.okhttp3" d "okhttp-bom" w "5.5.0"
-      val okhttp_brotli = "com.squareup.okhttp3" d "okhttp-brotli" w "5.5.0"
-      val okhttp_coroutines = "com.squareup.okhttp3" d "okhttp-coroutines" w "5.5.0"
-      val okhttp_dnsoverhttps = "com.squareup.okhttp3" d "okhttp-dnsoverhttps" w "5.5.0"
-      val okhttp_sse = "com.squareup.okhttp3" d "okhttp-sse" w "5.5.0"
-      val okhttp_tls = "com.squareup.okhttp3" d "okhttp-tls" w "5.5.0"
-      val okhttp_urlconnection = "com.squareup.okhttp3" d "okhttp-urlconnection" w "5.5.0"
+      val logging_interceptor = "com.squareup.okhttp3" d "logging-interceptor" w "5.5.1"
+      val mockwebserver = "com.squareup.okhttp3" d "mockwebserver" w "5.5.1"
+      val mockwebserver3 = "com.squareup.okhttp3" d "mockwebserver3" w "5.5.1"
+      val mockwebserver3_junit4 = "com.squareup.okhttp3" d "mockwebserver3-junit4" w "5.5.1"
+      val mockwebserver3_junit5 = "com.squareup.okhttp3" d "mockwebserver3-junit5" w "5.5.1"
+      val okhttp = "com.squareup.okhttp3" d "okhttp" w "5.5.1"
+      val okhttp_android = "com.squareup.okhttp3" d "okhttp-android" w "5.5.1"
+      val okhttp_bom = "com.squareup.okhttp3" d "okhttp-bom" w "5.5.1"
+      val okhttp_brotli = "com.squareup.okhttp3" d "okhttp-brotli" w "5.5.1"
+      val okhttp_coroutines = "com.squareup.okhttp3" d "okhttp-coroutines" w "5.5.1"
+      val okhttp_dnsoverhttps = "com.squareup.okhttp3" d "okhttp-dnsoverhttps" w "5.5.1"
+      val okhttp_sse = "com.squareup.okhttp3" d "okhttp-sse" w "5.5.1"
+      val okhttp_tls = "com.squareup.okhttp3" d "okhttp-tls" w "5.5.1"
+      val okhttp_urlconnection = "com.squareup.okhttp3" d "okhttp-urlconnection" w "5.5.1"
     }
     object Okio {
       val okio = "com.squareup.okio" d "okio" w "3.18.2"
@@ -1561,9 +1561,9 @@ object Io {
     }
   }
   object Projectreactor {
-    val reactor_test = "io.projectreactor" d "reactor-test" w "3.8.7"
+    val reactor_test = "io.projectreactor" d "reactor-test" w "3.8.8" w "3.9.0-RC1"
     object Kotlin {
-      val reactor_kotlin_extensions = "io.projectreactor.kotlin" d "reactor-kotlin-extensions" w "1.3.2"
+      val reactor_kotlin_extensions = "io.projectreactor.kotlin" d "reactor-kotlin-extensions" w "1.3.3"
     }
   }
   object RSocket {
@@ -1727,57 +1727,57 @@ object Org {
       }
     }
     object Compose {
-      val full = "org.jetbrains.compose" d "compose-full" w "1.12.2" w "1.13.0-alpha02" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-      val preview_rpc = "org.jetbrains.compose" d "preview-rpc" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
+      val full = "org.jetbrains.compose" d "compose-full" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
+      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+      val preview_rpc = "org.jetbrains.compose" d "preview-rpc" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
       val preview_runtime_desktop = "org.jetbrains.compose" d "compose-preview-runtime-desktop" w "0.5.0-build228"
       object Animation {
-        val animation = "org.jetbrains.compose.animation" d "animation" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val core = "org.jetbrains.compose.animation" d "animation-core" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val core_js = "org.jetbrains.compose.animation" d "animation-core-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val core_wasm_js = "org.jetbrains.compose.animation" d "animation-core-wasm-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val graphics = "org.jetbrains.compose.animation" d "animation-graphics" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val graphics_js = "org.jetbrains.compose.animation" d "animation-graphics-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val graphics_wasm_js = "org.jetbrains.compose.animation" d "animation-graphics-wasm-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val js = "org.jetbrains.compose.animation" d "animation-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val wasm_js = "org.jetbrains.compose.animation" d "animation-wasm-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
+        val animation = "org.jetbrains.compose.animation" d "animation" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val core = "org.jetbrains.compose.animation" d "animation-core" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val core_js = "org.jetbrains.compose.animation" d "animation-core-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val core_wasm_js = "org.jetbrains.compose.animation" d "animation-core-wasm-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val graphics = "org.jetbrains.compose.animation" d "animation-graphics" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val graphics_js = "org.jetbrains.compose.animation" d "animation-graphics-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val graphics_wasm_js = "org.jetbrains.compose.animation" d "animation-graphics-wasm-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val js = "org.jetbrains.compose.animation" d "animation-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val wasm_js = "org.jetbrains.compose.animation" d "animation-wasm-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
       }
       object Compiler {
         val compiler = "org.jetbrains.compose.compiler" d "compiler" w "1.5.14" w "1.5.15"
         val hosted = "org.jetbrains.compose.compiler" d "compiler-hosted" w "1.5.14" w "1.5.15"
       }
       object Components {
-        val animatedimage = "org.jetbrains.compose.components" d "components-animatedimage" w "1.12.2" w "1.13.0-alpha02" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val resources = "org.jetbrains.compose.components" d "components-resources" w "1.12.2" w "1.13.0-alpha02" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val resources_js = "org.jetbrains.compose.components" d "components-resources-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val resources_wasmjs = "org.jetbrains.compose.components" d "components-resources-wasmJs" w "1.12.2" w "1.13.0-alpha02" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val splitpane = "org.jetbrains.compose.components" d "components-splitpane" w "1.12.2" w "1.13.0-alpha02" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val ui_tooling_preview = "org.jetbrains.compose.components" d "components-ui-tooling-preview" w "1.12.2" w "1.13.0-alpha02" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val ui_tooling_preview_js = "org.jetbrains.compose.components" d "components-ui-tooling-preview-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val ui_tooling_preview_wasmjs = "org.jetbrains.compose.components" d "components-ui-tooling-preview-wasmJs" w "1.12.2" w "1.13.0-alpha02" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
+        val animatedimage = "org.jetbrains.compose.components" d "components-animatedimage" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
+        val resources = "org.jetbrains.compose.components" d "components-resources" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
+        val resources_js = "org.jetbrains.compose.components" d "components-resources-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
+        val resources_wasmjs = "org.jetbrains.compose.components" d "components-resources-wasmJs" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
+        val splitpane = "org.jetbrains.compose.components" d "components-splitpane" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
+        val ui_tooling_preview = "org.jetbrains.compose.components" d "components-ui-tooling-preview" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
+        val ui_tooling_preview_js = "org.jetbrains.compose.components" d "components-ui-tooling-preview-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
+        val ui_tooling_preview_wasmjs = "org.jetbrains.compose.components" d "components-ui-tooling-preview-wasmJs" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
       }
       object Desktop {
-        val desktop = "org.jetbrains.compose.desktop" d "desktop" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val jvm = "org.jetbrains.compose.desktop" d "desktop-jvm" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
+        val desktop = "org.jetbrains.compose.desktop" d "desktop" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val jvm = "org.jetbrains.compose.desktop" d "desktop-jvm" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
       }
       object Foundation {
-        val foundation = "org.jetbrains.compose.foundation" d "foundation" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val js = "org.jetbrains.compose.foundation" d "foundation-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val layout = "org.jetbrains.compose.foundation" d "foundation-layout" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val layout_js = "org.jetbrains.compose.foundation" d "foundation-layout-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val layout_wasm_js = "org.jetbrains.compose.foundation" d "foundation-layout-wasm-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val wasm_js = "org.jetbrains.compose.foundation" d "foundation-wasm-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
+        val foundation = "org.jetbrains.compose.foundation" d "foundation" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val js = "org.jetbrains.compose.foundation" d "foundation-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val layout = "org.jetbrains.compose.foundation" d "foundation-layout" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val layout_js = "org.jetbrains.compose.foundation" d "foundation-layout-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val layout_wasm_js = "org.jetbrains.compose.foundation" d "foundation-layout-wasm-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val wasm_js = "org.jetbrains.compose.foundation" d "foundation-wasm-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
       }
       object Html {
-        val benchmark_core = "org.jetbrains.compose.html" d "html-benchmark-core" w "1.12.2" w "1.13.0-alpha02" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val benchmark_core_js = "org.jetbrains.compose.html" d "html-benchmark-core-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val core = "org.jetbrains.compose.html" d "html-core" w "1.12.2" w "1.13.0-alpha02" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val core_js = "org.jetbrains.compose.html" d "html-core-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val core_jvm = "org.jetbrains.compose.html" d "html-core-jvm" w "1.12.2" w "1.13.0-alpha02" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val svg = "org.jetbrains.compose.html" d "html-svg" w "1.12.2" w "1.13.0-alpha02" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val svg_js = "org.jetbrains.compose.html" d "html-svg-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val test_utils = "org.jetbrains.compose.html" d "html-test-utils" w "1.12.2" w "1.13.0-alpha02" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val test_utils_js = "org.jetbrains.compose.html" d "html-test-utils-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
+        val benchmark_core = "org.jetbrains.compose.html" d "html-benchmark-core" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
+        val benchmark_core_js = "org.jetbrains.compose.html" d "html-benchmark-core-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
+        val core = "org.jetbrains.compose.html" d "html-core" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
+        val core_js = "org.jetbrains.compose.html" d "html-core-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
+        val core_jvm = "org.jetbrains.compose.html" d "html-core-jvm" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
+        val svg = "org.jetbrains.compose.html" d "html-svg" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
+        val svg_js = "org.jetbrains.compose.html" d "html-svg-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
+        val test_utils = "org.jetbrains.compose.html" d "html-test-utils" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
+        val test_utils_js = "org.jetbrains.compose.html" d "html-test-utils-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
       }
       object Material {
         val icons_core = "org.jetbrains.compose.material" d "material-icons-core" w "1.7.3"
@@ -1786,54 +1786,54 @@ object Org {
         val icons_extended = "org.jetbrains.compose.material" d "material-icons-extended" w "1.7.3"
         val icons_extended_js = "org.jetbrains.compose.material" d "material-icons-extended-js" w "1.7.3"
         val icons_extended_wasm_js = "org.jetbrains.compose.material" d "material-icons-extended-wasm-js" w "1.7.3"
-        val js = "org.jetbrains.compose.material" d "material-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val material = "org.jetbrains.compose.material" d "material" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val navigation = "org.jetbrains.compose.material" d "material-navigation" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val navigation_js = "org.jetbrains.compose.material" d "material-navigation-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val navigation_wasm_js = "org.jetbrains.compose.material" d "material-navigation-wasm-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val ripple = "org.jetbrains.compose.material" d "material-ripple" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val ripple_js = "org.jetbrains.compose.material" d "material-ripple-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val ripple_wasm_js = "org.jetbrains.compose.material" d "material-ripple-wasm-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val wasm_js = "org.jetbrains.compose.material" d "material-wasm-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
+        val js = "org.jetbrains.compose.material" d "material-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val material = "org.jetbrains.compose.material" d "material" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val navigation = "org.jetbrains.compose.material" d "material-navigation" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val navigation_js = "org.jetbrains.compose.material" d "material-navigation-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val navigation_wasm_js = "org.jetbrains.compose.material" d "material-navigation-wasm-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val ripple = "org.jetbrains.compose.material" d "material-ripple" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val ripple_js = "org.jetbrains.compose.material" d "material-ripple-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val ripple_wasm_js = "org.jetbrains.compose.material" d "material-ripple-wasm-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val wasm_js = "org.jetbrains.compose.material" d "material-wasm-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
       }
       object Material3 {
-        val js = "org.jetbrains.compose.material3" d "material3-js" w "1.9.0" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val material3 = "org.jetbrains.compose.material3" d "material3" w "1.9.0" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val wasm_js = "org.jetbrains.compose.material3" d "material3-wasm-js" w "1.9.0" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val window_size_class = "org.jetbrains.compose.material3" d "material3-window-size-class" w "1.9.0" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val window_size_class_js = "org.jetbrains.compose.material3" d "material3-window-size-class-js" w "1.9.0" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val window_size_class_wasm_js = "org.jetbrains.compose.material3" d "material3-window-size-class-wasm-js" w "1.9.0" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
+        val js = "org.jetbrains.compose.material3" d "material3-js" w "1.9.0" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val material3 = "org.jetbrains.compose.material3" d "material3" w "1.9.0" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val wasm_js = "org.jetbrains.compose.material3" d "material3-wasm-js" w "1.9.0" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val window_size_class = "org.jetbrains.compose.material3" d "material3-window-size-class" w "1.9.0" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val window_size_class_js = "org.jetbrains.compose.material3" d "material3-window-size-class-js" w "1.9.0" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val window_size_class_wasm_js = "org.jetbrains.compose.material3" d "material3-window-size-class-wasm-js" w "1.9.0" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
       }
       object Runtime {
-        val js = "org.jetbrains.compose.runtime" d "runtime-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val runtime = "org.jetbrains.compose.runtime" d "runtime" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val saveable = "org.jetbrains.compose.runtime" d "runtime-saveable" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val saveable_js = "org.jetbrains.compose.runtime" d "runtime-saveable-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val saveable_wasm_js = "org.jetbrains.compose.runtime" d "runtime-saveable-wasm-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val wasm_js = "org.jetbrains.compose.runtime" d "runtime-wasm-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
+        val js = "org.jetbrains.compose.runtime" d "runtime-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val runtime = "org.jetbrains.compose.runtime" d "runtime" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val saveable = "org.jetbrains.compose.runtime" d "runtime-saveable" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val saveable_js = "org.jetbrains.compose.runtime" d "runtime-saveable-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val saveable_wasm_js = "org.jetbrains.compose.runtime" d "runtime-saveable-wasm-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val wasm_js = "org.jetbrains.compose.runtime" d "runtime-wasm-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
       }
       object Ui {
-        val geometry = "org.jetbrains.compose.ui" d "ui-geometry" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val geometry_js = "org.jetbrains.compose.ui" d "ui-geometry-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val geometry_wasm_js = "org.jetbrains.compose.ui" d "ui-geometry-wasm-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val graphics = "org.jetbrains.compose.ui" d "ui-graphics" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val graphics_js = "org.jetbrains.compose.ui" d "ui-graphics-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val graphics_wasm_js = "org.jetbrains.compose.ui" d "ui-graphics-wasm-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val js = "org.jetbrains.compose.ui" d "ui-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val test = "org.jetbrains.compose.ui" d "ui-test" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val test_js = "org.jetbrains.compose.ui" d "ui-test-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val test_junit4 = "org.jetbrains.compose.ui" d "ui-test-junit4" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val test_wasm_js = "org.jetbrains.compose.ui" d "ui-test-wasm-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val text = "org.jetbrains.compose.ui" d "ui-text" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val text_js = "org.jetbrains.compose.ui" d "ui-text-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val text_wasm_js = "org.jetbrains.compose.ui" d "ui-text-wasm-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val tooling = "org.jetbrains.compose.ui" d "ui-tooling" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val tooling_preview = "org.jetbrains.compose.ui" d "ui-tooling-preview" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val ui = "org.jetbrains.compose.ui" d "ui" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val unit = "org.jetbrains.compose.ui" d "ui-unit" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val unit_js = "org.jetbrains.compose.ui" d "ui-unit-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val unit_wasm_js = "org.jetbrains.compose.ui" d "ui-unit-wasm-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
-        val wasm_js = "org.jetbrains.compose.ui" d "ui-wasm-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
+        val geometry = "org.jetbrains.compose.ui" d "ui-geometry" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val geometry_js = "org.jetbrains.compose.ui" d "ui-geometry-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val geometry_wasm_js = "org.jetbrains.compose.ui" d "ui-geometry-wasm-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val graphics = "org.jetbrains.compose.ui" d "ui-graphics" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val graphics_js = "org.jetbrains.compose.ui" d "ui-graphics-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val graphics_wasm_js = "org.jetbrains.compose.ui" d "ui-graphics-wasm-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val js = "org.jetbrains.compose.ui" d "ui-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val test = "org.jetbrains.compose.ui" d "ui-test" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val test_js = "org.jetbrains.compose.ui" d "ui-test-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val test_junit4 = "org.jetbrains.compose.ui" d "ui-test-junit4" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val test_wasm_js = "org.jetbrains.compose.ui" d "ui-test-wasm-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val text = "org.jetbrains.compose.ui" d "ui-text" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val text_js = "org.jetbrains.compose.ui" d "ui-text-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val text_wasm_js = "org.jetbrains.compose.ui" d "ui-text-wasm-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val tooling = "org.jetbrains.compose.ui" d "ui-tooling" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val tooling_preview = "org.jetbrains.compose.ui" d "ui-tooling-preview" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val ui = "org.jetbrains.compose.ui" d "ui" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val unit = "org.jetbrains.compose.ui" d "ui-unit" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val unit_js = "org.jetbrains.compose.ui" d "ui-unit-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val unit_wasm_js = "org.jetbrains.compose.ui" d "ui-unit-wasm-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val wasm_js = "org.jetbrains.compose.ui" d "ui-wasm-js" w "1.12.2" w "1.13.0-alpha02" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
       }
     }
     object Exposed {
@@ -2044,7 +2044,7 @@ object Org {
   }
   object SpringFramework {
     object Amqp {
-      val spring_rabbit_test = "org.springframework.amqp" d "spring-rabbit-test" w "4.1.1" w "4.2.0-M2"
+      val spring_rabbit_test = "org.springframework.amqp" d "spring-rabbit-test" w "4.1.2" w "4.2.0-RC1"
     }
     object Batch {
       val spring_batch_test = "org.springframework.batch" d "spring-batch-test" w "6.0.5" w "6.1.0-M2"
@@ -2142,7 +2142,7 @@ object Org {
       val spring_cloud_stream_binder_rabbit = "org.springframework.cloud" d "spring-cloud-stream-binder-rabbit" w "5.0.3" w "5.1.0-M1"
     }
     object Data {
-      val spring_data_rest_hal_explorer = "org.springframework.data" d "spring-data-rest-hal-explorer" w "5.1.1" w "5.2.0-M2"
+      val spring_data_rest_hal_explorer = "org.springframework.data" d "spring-data-rest-hal-explorer" w "5.1.2" w "5.2.0-RC1"
     }
     object Geode {
       val spring_geode_bom = "org.springframework.geode" d "spring-geode-bom" w "1.7.5"
@@ -2168,20 +2168,20 @@ object Org {
       val spring_integration_ws = "org.springframework.integration" d "spring-integration-ws" w "7.1.1" w "7.2.0-M2"
     }
     object Kafka {
-      val spring_kafka = "org.springframework.kafka" d "spring-kafka" w "4.1.1" w "4.2.0-M2"
-      val spring_kafka_test = "org.springframework.kafka" d "spring-kafka-test" w "4.1.1" w "4.2.0-M2"
+      val spring_kafka = "org.springframework.kafka" d "spring-kafka" w "4.1.2" w "4.2.0-RC1"
+      val spring_kafka_test = "org.springframework.kafka" d "spring-kafka-test" w "4.1.2" w "4.2.0-RC1"
     }
     object Restdocs {
-      val spring_restdocs_webtestclient = "org.springframework.restdocs" d "spring-restdocs-webtestclient" w "4.0.1"
+      val spring_restdocs_webtestclient = "org.springframework.restdocs" d "spring-restdocs-webtestclient" w "4.0.2" w "4.1.0-RC1"
     }
     object Security {
-      val spring_security_messaging = "org.springframework.security" d "spring-security-messaging" w "7.1.1" w "7.2.0-M2"
-      val spring_security_rsocket = "org.springframework.security" d "spring-security-rsocket" w "7.1.1" w "7.2.0-M2"
-      val spring_security_test = "org.springframework.security" d "spring-security-test" w "7.1.1" w "7.2.0-M2"
+      val spring_security_messaging = "org.springframework.security" d "spring-security-messaging" w "7.1.2" w "7.2.0-RC1"
+      val spring_security_rsocket = "org.springframework.security" d "spring-security-rsocket" w "7.1.2" w "7.2.0-RC1"
+      val spring_security_test = "org.springframework.security" d "spring-security-test" w "7.1.2" w "7.2.0-RC1"
     }
     object Session {
-      val spring_session_data_redis = "org.springframework.session" d "spring-session-data-redis" w "4.1.1" w "4.2.0-M1"
-      val spring_session_jdbc = "org.springframework.session" d "spring-session-jdbc" w "4.1.1" w "4.2.0-M1"
+      val spring_session_data_redis = "org.springframework.session" d "spring-session-data-redis" w "4.1.1" w "4.2.0-RC1"
+      val spring_session_jdbc = "org.springframework.session" d "spring-session-jdbc" w "4.1.1" w "4.2.0-RC1"
     }
   }
 }
