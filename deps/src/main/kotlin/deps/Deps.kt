@@ -1332,9 +1332,9 @@ object Com {
       val sqljs_driver = "com.squareup.sqldelight" d "sqljs-driver" w "1.5.5"
     }
     object Wire {
-      val gradle_plugin = "com.squareup.wire" d "wire-gradle-plugin" w "7.1.0"
-      val grpc_client = "com.squareup.wire" d "wire-grpc-client" w "7.1.0"
-      val runtime = "com.squareup.wire" d "wire-runtime" w "7.1.0"
+      val gradle_plugin = "com.squareup.wire" d "wire-gradle-plugin" w "7.1.2"
+      val grpc_client = "com.squareup.wire" d "wire-grpc-client" w "7.1.2"
+      val runtime = "com.squareup.wire" d "wire-runtime" w "7.1.2"
     }
   }
 }
@@ -1727,7 +1727,7 @@ object Org {
       }
     }
     object Compose {
-      val full = "org.jetbrains.compose" d "compose-full" w "1.9.3+dev3210" w "1.9.3" w "1.12.2" w "1.13.0-beta01"
+      val full = "org.jetbrains.compose" d "compose-full" w "1.12.2" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-hash-race-condition-teamcity"
       val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.12.2" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
       val preview_rpc = "org.jetbrains.compose" d "preview-rpc" w "1.12.2" w "1.13.0-beta01" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
       val preview_runtime_desktop = "org.jetbrains.compose" d "compose-preview-runtime-desktop" w "0.5.0-build228"
