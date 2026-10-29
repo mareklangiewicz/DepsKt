@@ -842,7 +842,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.5"
       val r8 = "com.android.tools" d "r8" w "9.5.28" w "9.6.0-alpha08"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.4.1" w "9.5.0-rc02" w "9.6.0-alpha01"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.5.0" w "9.6.0-alpha02"
       }
     }
   }
@@ -950,7 +950,7 @@ object Com {
         val play_services_mlkit_language_id = "com.google.android.gms" d "play-services-mlkit-language-id" w "17.0.0"
         val play_services_mlkit_text_recognition = "com.google.android.gms" d "play-services-mlkit-text-recognition" w "19.0.2"
         val play_services_nearby = "com.google.android.gms" d "play-services-nearby" w "19.5.1"
-        val play_services_oss_licenses = "com.google.android.gms" d "play-services-oss-licenses" w "17.5.2"
+        val play_services_oss_licenses = "com.google.android.gms" d "play-services-oss-licenses" w "17.5.3"
         val play_services_panorama = "com.google.android.gms" d "play-services-panorama" w "17.1.0"
         val play_services_password_complexity = "com.google.android.gms" d "play-services-password-complexity" w "18.1.0"
         val play_services_pay = "com.google.android.gms" d "play-services-pay" w "16.5.0"
