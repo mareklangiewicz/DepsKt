@@ -1547,9 +1547,9 @@ object Io {
     val websockets = "io.ktor" d "ktor-websockets" w "3.6.1"
   }
   object MockK {
-    val android = "io.mockk" d "mockk-android" w "1.14.11"
+    val android = "io.mockk" d "mockk-android" w "1.14.12"
     val common = "io.mockk" d "mockk-common" w "1.12.5"
-    val mockk = "io.mockk" d "mockk" w "1.14.11"
+    val mockk = "io.mockk" d "mockk" w "1.14.12"
   }
   object Pivotal {
     object Spring {
