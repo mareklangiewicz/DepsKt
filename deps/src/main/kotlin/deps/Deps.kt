@@ -840,7 +840,7 @@ object Com {
     }
     object Tools {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.5"
-      val r8 = "com.android.tools" d "r8" w "9.5.29" w "9.6.0-alpha14"
+      val r8 = "com.android.tools" d "r8" w "9.5.32" w "9.6.0-alpha14"
       object Build {
         val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.5.1" w "9.6.0-alpha03"
       }
@@ -1733,7 +1733,7 @@ object Org {
       val preview_runtime_desktop = "org.jetbrains.compose" d "compose-preview-runtime-desktop" w "0.5.0-build228"
       object Animation {
         val animation = "org.jetbrains.compose.animation" d "animation" w "1.9.3+dev3210" w "1.9.3" w "1.12.2" w "1.13.0-beta02"
-        val core = "org.jetbrains.compose.animation" d "animation-core" w "1.12.2" w "1.13.0-beta02" w "1.13.0-rc01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
+        val core = "org.jetbrains.compose.animation" d "animation-core" w "1.12.2" w "1.13.0-beta02"
         val core_js = "org.jetbrains.compose.animation" d "animation-core-js" w "1.12.2" w "1.13.0-beta02" w "1.13.0-rc01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
         val core_wasm_js = "org.jetbrains.compose.animation" d "animation-core-wasm-js" w "1.12.2" w "1.13.0-beta02" w "1.13.0-rc01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
         val graphics = "org.jetbrains.compose.animation" d "animation-graphics" w "1.12.2" w "1.13.0-beta02" w "1.13.0-rc01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
