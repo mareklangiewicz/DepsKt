@@ -879,8 +879,8 @@ object Com {
     }
     object ChuckerTeam {
       object Chucker {
-        val library = "com.github.chuckerteam.chucker" d "library" w "4.3.1"
-        val library_no_op = "com.github.chuckerteam.chucker" d "library-no-op" w "4.3.1"
+        val library = "com.github.chuckerteam.chucker" d "library" w "4.4.0"
+        val library_no_op = "com.github.chuckerteam.chucker" d "library-no-op" w "4.4.0"
       }
     }
   }
@@ -1733,7 +1733,7 @@ object Org {
       val preview_runtime_desktop = "org.jetbrains.compose" d "compose-preview-runtime-desktop" w "0.5.0-build228"
       object Animation {
         val animation = "org.jetbrains.compose.animation" d "animation" w "1.9.3+dev3210" w "1.9.3" w "1.12.2" w "1.13.0-beta02"
-        val core = "org.jetbrains.compose.animation" d "animation-core" w "1.12.2" w "1.13.0-beta02"
+        val core = "org.jetbrains.compose.animation" d "animation-core" w "1.12.2" w "1.13.0-beta02" w "1.13.0-rc01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
         val core_js = "org.jetbrains.compose.animation" d "animation-core-js" w "1.12.2" w "1.13.0-beta02" w "1.13.0-rc01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
         val core_wasm_js = "org.jetbrains.compose.animation" d "animation-core-wasm-js" w "1.12.2" w "1.13.0-beta02" w "1.13.0-rc01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
         val graphics = "org.jetbrains.compose.animation" d "animation-graphics" w "1.12.2" w "1.13.0-beta02" w "1.13.0-rc01+snapshot.release-1-13" w "1.13.10-alpha01+snapshot.v-mazunin-webpack-compilation-error-gradle-plugin-tests"
@@ -1922,10 +1922,10 @@ object Org {
       val html = "org.jetbrains.kotlinx" d "kotlinx-html" w "0.12.0"
       val html_js = "org.jetbrains.kotlinx" d "kotlinx-html-js" w "0.12.0"
       val html_jvm = "org.jetbrains.kotlinx" d "kotlinx-html-jvm" w "0.12.0"
-      val io_core = "org.jetbrains.kotlinx" d "kotlinx-io-core" w "0.9.2"
-      val io_core_js = "org.jetbrains.kotlinx" d "kotlinx-io-core-js" w "0.9.2"
-      val io_core_jvm = "org.jetbrains.kotlinx" d "kotlinx-io-core-jvm" w "0.9.2"
-      val io_core_wasm_js = "org.jetbrains.kotlinx" d "kotlinx-io-core-wasm-js" w "0.9.2"
+      val io_core = "org.jetbrains.kotlinx" d "kotlinx-io-core" w "0.9.3"
+      val io_core_js = "org.jetbrains.kotlinx" d "kotlinx-io-core-js" w "0.9.3"
+      val io_core_jvm = "org.jetbrains.kotlinx" d "kotlinx-io-core-jvm" w "0.9.3"
+      val io_core_wasm_js = "org.jetbrains.kotlinx" d "kotlinx-io-core-wasm-js" w "0.9.3"
       val io_jvm = "org.jetbrains.kotlinx" d "kotlinx-io-jvm" w "0.1.16"
       val kotlin_deeplearning_api = "org.jetbrains.kotlinx" d "kotlin-deeplearning-api" w "0.5.2" w "0.6.0-alpha-1"
       val kotlin_deeplearning_onnx = "org.jetbrains.kotlinx" d "kotlin-deeplearning-onnx" w "0.5.2" w "0.6.0-alpha-1"
@@ -2023,7 +2023,7 @@ object Org {
     }
   }
   object Robolectric {
-    val robolectric = "org.robolectric" d "robolectric" w "4.17" w "4.18-beta-1"
+    val robolectric = "org.robolectric" d "robolectric" w "4.18"
   }
   object Slf4j {
     val api = "org.slf4j" d "slf4j-api" w "2.0.20" w "2.1.0-alpha1"
