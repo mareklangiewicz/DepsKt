@@ -157,6 +157,14 @@ fun Project.defaultPublishing() = extensions.configure<MavenPublishBaseExtension
 }
 
 /**
+ * Entry point for Gradle Kotlin DSL scripts, which cannot enable context-parameter compiler flags.
+ * Gradle 9.9 no longer accepts the flattened contextual function reference used by older scripts.
+ */
+fun Project.defaultPublishing(info: LibInfo, publish: LibPublish): Unit = context(info, publish) {
+  defaultPublishing()
+}
+
+/**
  * The one place that decides whether a module publishes, shared by every `defaultBuildTemplateFor*`
  * entry point.
  *
