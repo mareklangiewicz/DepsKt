@@ -56,11 +56,9 @@ kotlin {
   jvmToolchain(23)
 }
 
-// templatefun's defaultPublishing is `context(info: LibInfo, publish: LibPublish) fun Project...`,
-// and build scripts are compiled WITHOUT -Xcontext-parameters (Gradle pins the script language
-// version), so it is reached through the flattened coercion: context parameters first, then the
-// extension receiver. This call IS the claim KGround's probes 7/14/15 assert -- exercised by a real
-// build now, rather than by branch-local evidence.
+// Use templatefun's ordinary publishing entry point (0.4.73+). Gradle 9.9's Kotlin DSL rejects
+// the flattened contextual function reference accepted by earlier versions; build scripts
+// cannot enable -Xcontext-parameters themselves.
 //
 // The second context parameter was LibFlags until 0.4.63, read only for withCentralPublish. It is
 // LibPublish now, which is not reachable from gradle.extLib at all: publish intent is per-MODULE and
@@ -75,16 +73,12 @@ kotlin {
 // reordered the two. templatefun's defaultPublishing took the parameter from 0.4.52, so the fact
 // is now stated once, where it is used.
 //
-// Note the arity: a function reference cannot use default arguments, so the flattened type names
-// all three parameters even though LibPublish's fields have defaults for ordinary callers.
-val tfDefaultPublishing: (LibInfo, LibPublish, Project) -> Unit = Project::defaultPublishing
-tfDefaultPublishing(
+defaultPublishing(
   myLib.info,
   LibPublish(
     artifactId = "DepsKt",
     // toCentral stays false: Gradle Plugin Portal only. See docs/design/releasing.md.
   ),
-  project,
 )
 
 gradlePlugin {

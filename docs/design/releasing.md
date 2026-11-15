@@ -49,6 +49,12 @@ itself — build scripts here apply the PUBLISHED `deps.settings` and `templatef
 scripts until it ships. Both of those happened on 2026-09-16 (0.4.52 and 0.4.53); see
 `lib-details-denesting.md` and `templatefun-off-kotlin-dsl.md`.
 
+0.4.73 is required before upgrading this repo to Gradle 9.9. Gradle 9.9's embedded Kotlin
+compiler rejects the flattened `Project::defaultPublishing` contextual reference in flagless
+build scripts. 0.4.73 adds `defaultPublishing(info, publish)` as an ordinary entry point. Publish
+it on Gradle 9.8 first, then bump the settings pins and migrate the calls in `deps/build.gradle.kts`
+and `sourcefun/build.gradle.kts` before upgrading both wrappers.
+
 ## Why local, and not CI
 
 Local publishing is faster and convenient enough. Configuring GitHub to release the gradle plugins

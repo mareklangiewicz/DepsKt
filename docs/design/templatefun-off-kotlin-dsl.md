@@ -114,6 +114,11 @@ claim is now carried by real production build scripts instead: `deps/build.gradl
 `sample-lib/build.gradle.kts` calls `defaultBuildTemplateForBasicMppLib()`. Both are ordinary,
 flagless `.gradle.kts` files. Say so in the commit rather than dropping it silently.
 
+Update for Gradle 9.9 / templatefun 0.4.73: the flattened contextual reference is now rejected by
+Gradle's embedded Kotlin compiler. The production build scripts use the ordinary
+`defaultPublishing(info, publish)` entry point instead; that entry point opens the context scopes
+inside compiled templatefun code. The sample still exercises the ordinary build-template entry point.
+
 ## What was verified
 
 All five open items from the original handoff, on `templatefun/build.gradle.kts` as it stands:

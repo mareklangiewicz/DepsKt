@@ -105,12 +105,9 @@ kotlin {
 // url and scm come from defaultPOM as info.githubUrl, which is DepsKt: this is where the sources
 // live now. That matches what the hand-rolled block already said.
 //
-// Flattened coercion, same as in deps/build.gradle.kts: defaultPublishing is
-// `context(info: LibInfo, publish: LibPublish) fun Project.defaultPublishing()` and build scripts
-// are compiled WITHOUT -Xcontext-parameters, so the context parameters come first and the extension
-// receiver last. A function reference cannot use default arguments, hence the explicit LibPublish.
-val tfDefaultPublishing: (LibInfo, LibPublish, Project) -> Unit = Project::defaultPublishing
-tfDefaultPublishing(
+// Use the ordinary publishing entry point from templatefun 0.4.73+, as in deps/build.gradle.kts.
+// Gradle 9.9's Kotlin DSL rejects the former flattened contextual function reference.
+defaultPublishing(
   myLib.info,
   LibPublish(
     artifactId = "SourceFun",
@@ -119,7 +116,6 @@ tfDefaultPublishing(
     // toCentral stays false: these artifacts ship to the Gradle Plugin Portal only. See
     // docs/design/releasing.md, "The Maven Central path, and why it is inert".
   ),
-  project,
 )
 
 gradlePlugin {
