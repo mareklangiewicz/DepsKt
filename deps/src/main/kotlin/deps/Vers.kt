@@ -102,7 +102,7 @@ object Vers {
    * - [gradle org docs](https://docs.gradle.com/develocity/gradle-plugin/)
    * - [gradle portal](https://plugins.gradle.org/plugin/com.gradle.develocity)
    */
-  val GradleDevelocityPlug = Ver("4.6.0")
+  val GradleDevelocityPlug = Ver("4.6.1")
 
 
   /**
@@ -122,7 +122,7 @@ object Vers {
    * - [github](https://github.com/Kotlin/dokka)
    * - [github releases](https://github.com/Kotlin/dokka/releases)
    */
-  val DokkaPlug = Ver("2.3.0-Beta")
+  val DokkaPlug = Ver("2.3.0")
 
 
   /**
@@ -161,7 +161,7 @@ object Vers {
    * - [plugins gradle deps settings](https://plugins.gradle.org/plugin/pl.mareklangiewicz.deps.settings)
    * - [plugins gradle search mareklangiewicz](https://plugins.gradle.org/search?term=pl.mareklangiewicz)
    */
-  val DepsPlug = Ver(0, 4, 72) // also sync it in ../../../../../settings.gradle.kts
+  val DepsPlug = Ver(0, 4, 73) // also sync it in ../../../../../settings.gradle.kts
   // TODO use sourcefun to make sure it's always synced with myLibInfo(version)
 
   // SourceFunPlug is GONE: SourceFun moved into this repo as the :sourcefun sibling, so the plugin
@@ -178,7 +178,7 @@ object Vers {
    * - [gradle versions rel candidate](https://services.gradle.org/versions/release-candidate)
    * - [gradle versions current](https://services.gradle.org/versions/current)
    */
-  val Gradle9 = Ver("9.8.0")
+  val Gradle9 = Ver("9.9.1")
   val Gradle8 = Ver("8.14.3")
 
   val Gradle = Gradle9
