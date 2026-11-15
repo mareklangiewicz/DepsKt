@@ -38,7 +38,7 @@ object Vers {
 
   /** [releases github](https://github.com/JetBrains/kotlin/releases) */
   val Kotlin25 = Org.JetBrains.Kotlin.stdlib.verLast
-  val Kotlin24 = Ver("2.4.20")
+  val Kotlin24 = Ver("2.4.21")
   val Kotlin23 = Ver("2.3.21")
   val Kotlin22 = Ver("2.2.21")
   val Kotlin21 = Ver("2.1.21")
