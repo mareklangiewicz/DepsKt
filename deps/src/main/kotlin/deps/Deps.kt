@@ -840,7 +840,7 @@ object Com {
     }
     object Tools {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.5"
-      val r8 = "com.android.tools" d "r8" w "9.5.33" w "9.6.0-alpha14"
+      val r8 = "com.android.tools" d "r8" w "9.5.33" w "9.6.0-alpha15"
       object Build {
         val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.5.1" w "9.6.0-alpha04"
       }
@@ -863,9 +863,9 @@ object Com {
   object GitHub {
     object Ajalt {
       object Clikt {
-        val clikt = "com.github.ajalt.clikt" d "clikt" w "5.2.0"
-        val core = "com.github.ajalt.clikt" d "clikt-core" w "5.2.0"
-        val markdown = "com.github.ajalt.clikt" d "clikt-markdown" w "5.2.0"
+        val clikt = "com.github.ajalt.clikt" d "clikt" w "5.2.1"
+        val core = "com.github.ajalt.clikt" d "clikt-core" w "5.2.1"
+        val markdown = "com.github.ajalt.clikt" d "clikt-markdown" w "5.2.1"
       }
       object Mordant {
         val coroutines = "com.github.ajalt.mordant" d "mordant-coroutines" w "3.1.1"
@@ -1332,9 +1332,9 @@ object Com {
       val sqljs_driver = "com.squareup.sqldelight" d "sqljs-driver" w "1.5.5"
     }
     object Wire {
-      val gradle_plugin = "com.squareup.wire" d "wire-gradle-plugin" w "7.2.1"
-      val grpc_client = "com.squareup.wire" d "wire-grpc-client" w "7.2.1"
-      val runtime = "com.squareup.wire" d "wire-runtime" w "7.2.1"
+      val gradle_plugin = "com.squareup.wire" d "wire-gradle-plugin" w "7.2.2"
+      val grpc_client = "com.squareup.wire" d "wire-grpc-client" w "7.2.2"
+      val runtime = "com.squareup.wire" d "wire-runtime" w "7.2.2"
     }
   }
 }
@@ -1727,57 +1727,57 @@ object Org {
       }
     }
     object Compose {
-      val full = "org.jetbrains.compose" d "compose-full" w "1.12.2" w "1.13.0-beta02"
-      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.12.2" w "1.13.0-beta02"
-      val preview_rpc = "org.jetbrains.compose" d "preview-rpc" w "1.12.2" w "1.13.0-beta02"
+      val full = "org.jetbrains.compose" d "compose-full" w "1.12.2" w "1.13.0-rc01"
+      val gradle_plugin = "org.jetbrains.compose" d "compose-gradle-plugin" w "1.12.2" w "1.13.0-rc01"
+      val preview_rpc = "org.jetbrains.compose" d "preview-rpc" w "1.12.2" w "1.13.0-rc01"
       val preview_runtime_desktop = "org.jetbrains.compose" d "compose-preview-runtime-desktop"
       object Animation {
-        val animation = "org.jetbrains.compose.animation" d "animation" w "1.12.2" w "1.13.0-beta02"
-        val core = "org.jetbrains.compose.animation" d "animation-core" w "1.12.2" w "1.13.0-beta02"
-        val core_js = "org.jetbrains.compose.animation" d "animation-core-js" w "1.12.2" w "1.13.0-beta02"
-        val core_wasm_js = "org.jetbrains.compose.animation" d "animation-core-wasm-js" w "1.12.2" w "1.13.0-beta02"
-        val graphics = "org.jetbrains.compose.animation" d "animation-graphics" w "1.12.2" w "1.13.0-beta02"
-        val graphics_js = "org.jetbrains.compose.animation" d "animation-graphics-js" w "1.12.2" w "1.13.0-beta02"
-        val graphics_wasm_js = "org.jetbrains.compose.animation" d "animation-graphics-wasm-js" w "1.12.2" w "1.13.0-beta02"
-        val js = "org.jetbrains.compose.animation" d "animation-js" w "1.12.2" w "1.13.0-beta02"
-        val wasm_js = "org.jetbrains.compose.animation" d "animation-wasm-js" w "1.12.2" w "1.13.0-beta02"
+        val animation = "org.jetbrains.compose.animation" d "animation" w "1.12.2" w "1.13.0-rc01"
+        val core = "org.jetbrains.compose.animation" d "animation-core" w "1.12.2" w "1.13.0-rc01"
+        val core_js = "org.jetbrains.compose.animation" d "animation-core-js" w "1.12.2" w "1.13.0-rc01"
+        val core_wasm_js = "org.jetbrains.compose.animation" d "animation-core-wasm-js" w "1.12.2" w "1.13.0-rc01"
+        val graphics = "org.jetbrains.compose.animation" d "animation-graphics" w "1.12.2" w "1.13.0-rc01"
+        val graphics_js = "org.jetbrains.compose.animation" d "animation-graphics-js" w "1.12.2" w "1.13.0-rc01"
+        val graphics_wasm_js = "org.jetbrains.compose.animation" d "animation-graphics-wasm-js" w "1.12.2" w "1.13.0-rc01"
+        val js = "org.jetbrains.compose.animation" d "animation-js" w "1.12.2" w "1.13.0-rc01"
+        val wasm_js = "org.jetbrains.compose.animation" d "animation-wasm-js" w "1.12.2" w "1.13.0-rc01"
       }
       object Compiler {
         val compiler = "org.jetbrains.compose.compiler" d "compiler" w "1.5.14"
         val hosted = "org.jetbrains.compose.compiler" d "compiler-hosted" w "1.5.14"
       }
       object Components {
-        val animatedimage = "org.jetbrains.compose.components" d "components-animatedimage" w "1.12.2" w "1.13.0-beta02"
-        val resources = "org.jetbrains.compose.components" d "components-resources" w "1.12.2" w "1.13.0-beta02"
-        val resources_js = "org.jetbrains.compose.components" d "components-resources-js" w "1.12.2" w "1.13.0-beta02"
-        val resources_wasmjs = "org.jetbrains.compose.components" d "components-resources-wasmJs" w "1.12.2" w "1.13.0-beta02"
-        val splitpane = "org.jetbrains.compose.components" d "components-splitpane" w "1.12.2" w "1.13.0-beta02"
-        val ui_tooling_preview = "org.jetbrains.compose.components" d "components-ui-tooling-preview" w "1.12.2" w "1.13.0-beta02"
-        val ui_tooling_preview_js = "org.jetbrains.compose.components" d "components-ui-tooling-preview-js" w "1.12.2" w "1.13.0-beta02"
-        val ui_tooling_preview_wasmjs = "org.jetbrains.compose.components" d "components-ui-tooling-preview-wasmJs" w "1.12.2" w "1.13.0-beta02"
+        val animatedimage = "org.jetbrains.compose.components" d "components-animatedimage" w "1.12.2" w "1.13.0-rc01"
+        val resources = "org.jetbrains.compose.components" d "components-resources" w "1.12.2" w "1.13.0-rc01"
+        val resources_js = "org.jetbrains.compose.components" d "components-resources-js" w "1.12.2" w "1.13.0-rc01"
+        val resources_wasmjs = "org.jetbrains.compose.components" d "components-resources-wasmJs" w "1.12.2" w "1.13.0-rc01"
+        val splitpane = "org.jetbrains.compose.components" d "components-splitpane" w "1.12.2" w "1.13.0-rc01"
+        val ui_tooling_preview = "org.jetbrains.compose.components" d "components-ui-tooling-preview" w "1.12.2" w "1.13.0-rc01"
+        val ui_tooling_preview_js = "org.jetbrains.compose.components" d "components-ui-tooling-preview-js" w "1.12.2" w "1.13.0-rc01"
+        val ui_tooling_preview_wasmjs = "org.jetbrains.compose.components" d "components-ui-tooling-preview-wasmJs" w "1.12.2" w "1.13.0-rc01"
       }
       object Desktop {
-        val desktop = "org.jetbrains.compose.desktop" d "desktop" w "1.12.2" w "1.13.0-beta02"
-        val jvm = "org.jetbrains.compose.desktop" d "desktop-jvm" w "1.12.2" w "1.13.0-beta02"
+        val desktop = "org.jetbrains.compose.desktop" d "desktop" w "1.12.2" w "1.13.0-rc01"
+        val jvm = "org.jetbrains.compose.desktop" d "desktop-jvm" w "1.12.2" w "1.13.0-rc01"
       }
       object Foundation {
-        val foundation = "org.jetbrains.compose.foundation" d "foundation" w "1.12.2" w "1.13.0-beta02"
-        val js = "org.jetbrains.compose.foundation" d "foundation-js" w "1.12.2" w "1.13.0-beta02"
-        val layout = "org.jetbrains.compose.foundation" d "foundation-layout" w "1.12.2" w "1.13.0-beta02"
-        val layout_js = "org.jetbrains.compose.foundation" d "foundation-layout-js" w "1.12.2" w "1.13.0-beta02"
-        val layout_wasm_js = "org.jetbrains.compose.foundation" d "foundation-layout-wasm-js" w "1.12.2" w "1.13.0-beta02"
-        val wasm_js = "org.jetbrains.compose.foundation" d "foundation-wasm-js" w "1.12.2" w "1.13.0-beta02"
+        val foundation = "org.jetbrains.compose.foundation" d "foundation" w "1.12.2" w "1.13.0-rc01"
+        val js = "org.jetbrains.compose.foundation" d "foundation-js" w "1.12.2" w "1.13.0-rc01"
+        val layout = "org.jetbrains.compose.foundation" d "foundation-layout" w "1.12.2" w "1.13.0-rc01"
+        val layout_js = "org.jetbrains.compose.foundation" d "foundation-layout-js" w "1.12.2" w "1.13.0-rc01"
+        val layout_wasm_js = "org.jetbrains.compose.foundation" d "foundation-layout-wasm-js" w "1.12.2" w "1.13.0-rc01"
+        val wasm_js = "org.jetbrains.compose.foundation" d "foundation-wasm-js" w "1.12.2" w "1.13.0-rc01"
       }
       object Html {
-        val benchmark_core = "org.jetbrains.compose.html" d "html-benchmark-core" w "1.12.2" w "1.13.0-beta02"
-        val benchmark_core_js = "org.jetbrains.compose.html" d "html-benchmark-core-js" w "1.12.2" w "1.13.0-beta02"
-        val core = "org.jetbrains.compose.html" d "html-core" w "1.12.2" w "1.13.0-beta02"
-        val core_js = "org.jetbrains.compose.html" d "html-core-js" w "1.12.2" w "1.13.0-beta02"
-        val core_jvm = "org.jetbrains.compose.html" d "html-core-jvm" w "1.12.2" w "1.13.0-beta02"
-        val svg = "org.jetbrains.compose.html" d "html-svg" w "1.12.2" w "1.13.0-beta02"
-        val svg_js = "org.jetbrains.compose.html" d "html-svg-js" w "1.12.2" w "1.13.0-beta02"
-        val test_utils = "org.jetbrains.compose.html" d "html-test-utils" w "1.12.2" w "1.13.0-beta02"
-        val test_utils_js = "org.jetbrains.compose.html" d "html-test-utils-js" w "1.12.2" w "1.13.0-beta02"
+        val benchmark_core = "org.jetbrains.compose.html" d "html-benchmark-core" w "1.12.2" w "1.13.0-rc01"
+        val benchmark_core_js = "org.jetbrains.compose.html" d "html-benchmark-core-js" w "1.12.2" w "1.13.0-rc01"
+        val core = "org.jetbrains.compose.html" d "html-core" w "1.12.2" w "1.13.0-rc01"
+        val core_js = "org.jetbrains.compose.html" d "html-core-js" w "1.12.2" w "1.13.0-rc01"
+        val core_jvm = "org.jetbrains.compose.html" d "html-core-jvm" w "1.12.2" w "1.13.0-rc01"
+        val svg = "org.jetbrains.compose.html" d "html-svg" w "1.12.2" w "1.13.0-rc01"
+        val svg_js = "org.jetbrains.compose.html" d "html-svg-js" w "1.12.2" w "1.13.0-rc01"
+        val test_utils = "org.jetbrains.compose.html" d "html-test-utils" w "1.12.2" w "1.13.0-rc01"
+        val test_utils_js = "org.jetbrains.compose.html" d "html-test-utils-js" w "1.12.2" w "1.13.0-rc01"
       }
       object Material {
         val icons_core = "org.jetbrains.compose.material" d "material-icons-core" w "1.7.3"
@@ -1786,54 +1786,54 @@ object Org {
         val icons_extended = "org.jetbrains.compose.material" d "material-icons-extended" w "1.7.3"
         val icons_extended_js = "org.jetbrains.compose.material" d "material-icons-extended-js" w "1.7.3"
         val icons_extended_wasm_js = "org.jetbrains.compose.material" d "material-icons-extended-wasm-js" w "1.7.3"
-        val js = "org.jetbrains.compose.material" d "material-js" w "1.12.2" w "1.13.0-beta02"
-        val material = "org.jetbrains.compose.material" d "material" w "1.12.2" w "1.13.0-beta02"
-        val navigation = "org.jetbrains.compose.material" d "material-navigation" w "1.12.2" w "1.13.0-beta02"
-        val navigation_js = "org.jetbrains.compose.material" d "material-navigation-js" w "1.12.2" w "1.13.0-beta02"
-        val navigation_wasm_js = "org.jetbrains.compose.material" d "material-navigation-wasm-js" w "1.12.2" w "1.13.0-beta02"
-        val ripple = "org.jetbrains.compose.material" d "material-ripple" w "1.12.2" w "1.13.0-beta02"
-        val ripple_js = "org.jetbrains.compose.material" d "material-ripple-js" w "1.12.2" w "1.13.0-beta02"
-        val ripple_wasm_js = "org.jetbrains.compose.material" d "material-ripple-wasm-js" w "1.12.2" w "1.13.0-beta02"
-        val wasm_js = "org.jetbrains.compose.material" d "material-wasm-js" w "1.12.2" w "1.13.0-beta02"
+        val js = "org.jetbrains.compose.material" d "material-js" w "1.12.2" w "1.13.0-rc01"
+        val material = "org.jetbrains.compose.material" d "material" w "1.12.2" w "1.13.0-rc01"
+        val navigation = "org.jetbrains.compose.material" d "material-navigation" w "1.12.2" w "1.13.0-rc01"
+        val navigation_js = "org.jetbrains.compose.material" d "material-navigation-js" w "1.12.2" w "1.13.0-rc01"
+        val navigation_wasm_js = "org.jetbrains.compose.material" d "material-navigation-wasm-js" w "1.12.2" w "1.13.0-rc01"
+        val ripple = "org.jetbrains.compose.material" d "material-ripple" w "1.12.2" w "1.13.0-rc01"
+        val ripple_js = "org.jetbrains.compose.material" d "material-ripple-js" w "1.12.2" w "1.13.0-rc01"
+        val ripple_wasm_js = "org.jetbrains.compose.material" d "material-ripple-wasm-js" w "1.12.2" w "1.13.0-rc01"
+        val wasm_js = "org.jetbrains.compose.material" d "material-wasm-js" w "1.12.2" w "1.13.0-rc01"
       }
       object Material3 {
-        val js = "org.jetbrains.compose.material3" d "material3-js" w "1.9.0" w "1.13.0-beta02"
-        val material3 = "org.jetbrains.compose.material3" d "material3" w "1.9.0" w "1.13.0-beta02"
-        val wasm_js = "org.jetbrains.compose.material3" d "material3-wasm-js" w "1.9.0" w "1.13.0-beta02"
-        val window_size_class = "org.jetbrains.compose.material3" d "material3-window-size-class" w "1.9.0" w "1.13.0-beta02"
-        val window_size_class_js = "org.jetbrains.compose.material3" d "material3-window-size-class-js" w "1.9.0" w "1.13.0-beta02"
-        val window_size_class_wasm_js = "org.jetbrains.compose.material3" d "material3-window-size-class-wasm-js" w "1.9.0" w "1.13.0-beta02"
+        val js = "org.jetbrains.compose.material3" d "material3-js" w "1.9.0" w "1.13.0-rc01"
+        val material3 = "org.jetbrains.compose.material3" d "material3" w "1.9.0" w "1.13.0-rc01"
+        val wasm_js = "org.jetbrains.compose.material3" d "material3-wasm-js" w "1.9.0" w "1.13.0-rc01"
+        val window_size_class = "org.jetbrains.compose.material3" d "material3-window-size-class" w "1.9.0" w "1.13.0-rc01"
+        val window_size_class_js = "org.jetbrains.compose.material3" d "material3-window-size-class-js" w "1.9.0" w "1.13.0-rc01"
+        val window_size_class_wasm_js = "org.jetbrains.compose.material3" d "material3-window-size-class-wasm-js" w "1.9.0" w "1.13.0-rc01"
       }
       object Runtime {
-        val js = "org.jetbrains.compose.runtime" d "runtime-js" w "1.12.2" w "1.13.0-beta02"
-        val runtime = "org.jetbrains.compose.runtime" d "runtime" w "1.12.2" w "1.13.0-beta02"
-        val saveable = "org.jetbrains.compose.runtime" d "runtime-saveable" w "1.12.2" w "1.13.0-beta02"
-        val saveable_js = "org.jetbrains.compose.runtime" d "runtime-saveable-js" w "1.12.2" w "1.13.0-beta02"
-        val saveable_wasm_js = "org.jetbrains.compose.runtime" d "runtime-saveable-wasm-js" w "1.12.2" w "1.13.0-beta02"
-        val wasm_js = "org.jetbrains.compose.runtime" d "runtime-wasm-js" w "1.12.2" w "1.13.0-beta02"
+        val js = "org.jetbrains.compose.runtime" d "runtime-js" w "1.12.2" w "1.13.0-rc01"
+        val runtime = "org.jetbrains.compose.runtime" d "runtime" w "1.12.2" w "1.13.0-rc01"
+        val saveable = "org.jetbrains.compose.runtime" d "runtime-saveable" w "1.12.2" w "1.13.0-rc01"
+        val saveable_js = "org.jetbrains.compose.runtime" d "runtime-saveable-js" w "1.12.2" w "1.13.0-rc01"
+        val saveable_wasm_js = "org.jetbrains.compose.runtime" d "runtime-saveable-wasm-js" w "1.12.2" w "1.13.0-rc01"
+        val wasm_js = "org.jetbrains.compose.runtime" d "runtime-wasm-js" w "1.12.2" w "1.13.0-rc01"
       }
       object Ui {
-        val geometry = "org.jetbrains.compose.ui" d "ui-geometry" w "1.12.2" w "1.13.0-beta02"
-        val geometry_js = "org.jetbrains.compose.ui" d "ui-geometry-js" w "1.12.2" w "1.13.0-beta02"
-        val geometry_wasm_js = "org.jetbrains.compose.ui" d "ui-geometry-wasm-js" w "1.12.2" w "1.13.0-beta02"
-        val graphics = "org.jetbrains.compose.ui" d "ui-graphics" w "1.12.2" w "1.13.0-beta02"
-        val graphics_js = "org.jetbrains.compose.ui" d "ui-graphics-js" w "1.12.2" w "1.13.0-beta02"
-        val graphics_wasm_js = "org.jetbrains.compose.ui" d "ui-graphics-wasm-js" w "1.12.2" w "1.13.0-beta02"
-        val js = "org.jetbrains.compose.ui" d "ui-js" w "1.12.2" w "1.13.0-beta02"
-        val test = "org.jetbrains.compose.ui" d "ui-test" w "1.12.2" w "1.13.0-beta02"
-        val test_js = "org.jetbrains.compose.ui" d "ui-test-js" w "1.12.2" w "1.13.0-beta02"
-        val test_junit4 = "org.jetbrains.compose.ui" d "ui-test-junit4" w "1.12.2" w "1.13.0-beta02"
-        val test_wasm_js = "org.jetbrains.compose.ui" d "ui-test-wasm-js" w "1.12.2" w "1.13.0-beta02"
-        val text = "org.jetbrains.compose.ui" d "ui-text" w "1.12.2" w "1.13.0-beta02"
-        val text_js = "org.jetbrains.compose.ui" d "ui-text-js" w "1.12.2" w "1.13.0-beta02"
-        val text_wasm_js = "org.jetbrains.compose.ui" d "ui-text-wasm-js" w "1.12.2" w "1.13.0-beta02"
-        val tooling = "org.jetbrains.compose.ui" d "ui-tooling" w "1.12.2" w "1.13.0-beta02"
-        val tooling_preview = "org.jetbrains.compose.ui" d "ui-tooling-preview" w "1.12.2" w "1.13.0-beta02"
-        val ui = "org.jetbrains.compose.ui" d "ui" w "1.12.2" w "1.13.0-beta02"
-        val unit = "org.jetbrains.compose.ui" d "ui-unit" w "1.12.2" w "1.13.0-beta02"
-        val unit_js = "org.jetbrains.compose.ui" d "ui-unit-js" w "1.12.2" w "1.13.0-beta02"
-        val unit_wasm_js = "org.jetbrains.compose.ui" d "ui-unit-wasm-js" w "1.12.2" w "1.13.0-beta02"
-        val wasm_js = "org.jetbrains.compose.ui" d "ui-wasm-js" w "1.12.2" w "1.13.0-beta02"
+        val geometry = "org.jetbrains.compose.ui" d "ui-geometry" w "1.12.2" w "1.13.0-rc01"
+        val geometry_js = "org.jetbrains.compose.ui" d "ui-geometry-js" w "1.12.2" w "1.13.0-rc01"
+        val geometry_wasm_js = "org.jetbrains.compose.ui" d "ui-geometry-wasm-js" w "1.12.2" w "1.13.0-rc01"
+        val graphics = "org.jetbrains.compose.ui" d "ui-graphics" w "1.12.2" w "1.13.0-rc01"
+        val graphics_js = "org.jetbrains.compose.ui" d "ui-graphics-js" w "1.12.2" w "1.13.0-rc01"
+        val graphics_wasm_js = "org.jetbrains.compose.ui" d "ui-graphics-wasm-js" w "1.12.2" w "1.13.0-rc01"
+        val js = "org.jetbrains.compose.ui" d "ui-js" w "1.12.2" w "1.13.0-rc01"
+        val test = "org.jetbrains.compose.ui" d "ui-test" w "1.12.2" w "1.13.0-rc01"
+        val test_js = "org.jetbrains.compose.ui" d "ui-test-js" w "1.12.2" w "1.13.0-rc01"
+        val test_junit4 = "org.jetbrains.compose.ui" d "ui-test-junit4" w "1.12.2" w "1.13.0-rc01"
+        val test_wasm_js = "org.jetbrains.compose.ui" d "ui-test-wasm-js" w "1.12.2" w "1.13.0-rc01"
+        val text = "org.jetbrains.compose.ui" d "ui-text" w "1.12.2" w "1.13.0-rc01"
+        val text_js = "org.jetbrains.compose.ui" d "ui-text-js" w "1.12.2" w "1.13.0-rc01"
+        val text_wasm_js = "org.jetbrains.compose.ui" d "ui-text-wasm-js" w "1.12.2" w "1.13.0-rc01"
+        val tooling = "org.jetbrains.compose.ui" d "ui-tooling" w "1.12.2" w "1.13.0-rc01"
+        val tooling_preview = "org.jetbrains.compose.ui" d "ui-tooling-preview" w "1.12.2" w "1.13.0-rc01"
+        val ui = "org.jetbrains.compose.ui" d "ui" w "1.12.2" w "1.13.0-rc01"
+        val unit = "org.jetbrains.compose.ui" d "ui-unit" w "1.12.2" w "1.13.0-rc01"
+        val unit_js = "org.jetbrains.compose.ui" d "ui-unit-js" w "1.12.2" w "1.13.0-rc01"
+        val unit_wasm_js = "org.jetbrains.compose.ui" d "ui-unit-wasm-js" w "1.12.2" w "1.13.0-rc01"
+        val wasm_js = "org.jetbrains.compose.ui" d "ui-wasm-js" w "1.12.2" w "1.13.0-rc01"
       }
     }
     object Exposed {
@@ -2023,7 +2023,7 @@ object Org {
     }
   }
   object Robolectric {
-    val robolectric = "org.robolectric" d "robolectric" w "4.18"
+    val robolectric = "org.robolectric" d "robolectric" w "4.18.1"
   }
   object Slf4j {
     val api = "org.slf4j" d "slf4j-api" w "2.0.20" w "2.1.0-alpha1"
