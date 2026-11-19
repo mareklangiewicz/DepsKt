@@ -294,27 +294,27 @@ object AndroidX {
     val autofill = "androidx.autofill" d "autofill" w "1.3.0"
   }
   object Benchmark {
-    val common = "androidx.benchmark" d "benchmark-common" w "1.5.0" w "1.6.0-alpha01"
-    val gradle_plugin = "androidx.benchmark" d "benchmark-gradle-plugin" w "1.5.0" w "1.6.0-alpha01"
-    val junit4 = "androidx.benchmark" d "benchmark-junit4" w "1.5.0" w "1.6.0-alpha01"
-    val macro = "androidx.benchmark" d "benchmark-macro" w "1.5.0" w "1.6.0-alpha01"
-    val macro_junit4 = "androidx.benchmark" d "benchmark-macro-junit4" w "1.5.0" w "1.6.0-alpha01"
+    val common = "androidx.benchmark" d "benchmark-common" w "1.5.0" w "1.6.0-alpha02"
+    val gradle_plugin = "androidx.benchmark" d "benchmark-gradle-plugin" w "1.5.0" w "1.6.0-alpha02"
+    val junit4 = "androidx.benchmark" d "benchmark-junit4" w "1.5.0" w "1.6.0-alpha02"
+    val macro = "androidx.benchmark" d "benchmark-macro" w "1.5.0" w "1.6.0-alpha02"
+    val macro_junit4 = "androidx.benchmark" d "benchmark-macro-junit4" w "1.5.0" w "1.6.0-alpha02"
   }
   object Biometric {
-    val biometric = "androidx.biometric" d "biometric" w "1.1.0" w "1.4.0-beta01"
+    val biometric = "androidx.biometric" d "biometric" w "1.1.0" w "1.4.0-rc01"
     val ktx = "androidx.biometric" d "biometric-ktx" w "1.4.0-alpha02"
   }
   object Browser {
     val browser = "androidx.browser" d "browser" w "1.10.0"
   }
   object Camera {
-    val camera2 = "androidx.camera" d "camera-camera2" w "1.6.2" w "1.7.0-rc02"
-    val core = "androidx.camera" d "camera-core" w "1.6.2" w "1.7.0-rc02"
-    val extensions = "androidx.camera" d "camera-extensions" w "1.6.2" w "1.7.0-rc02"
-    val lifecycle = "androidx.camera" d "camera-lifecycle" w "1.6.2" w "1.7.0-rc02"
-    val mlkit_vision = "androidx.camera" d "camera-mlkit-vision" w "1.6.2" w "1.7.0-rc02"
-    val video = "androidx.camera" d "camera-video" w "1.6.2" w "1.7.0-rc02"
-    val view = "androidx.camera" d "camera-view" w "1.6.2" w "1.7.0-rc02"
+    val camera2 = "androidx.camera" d "camera-camera2" w "1.7.0"
+    val core = "androidx.camera" d "camera-core" w "1.7.0"
+    val extensions = "androidx.camera" d "camera-extensions" w "1.7.0"
+    val lifecycle = "androidx.camera" d "camera-lifecycle" w "1.7.0"
+    val mlkit_vision = "androidx.camera" d "camera-mlkit-vision" w "1.7.0"
+    val video = "androidx.camera" d "camera-video" w "1.7.0"
+    val view = "androidx.camera" d "camera-view" w "1.7.0"
   }
   object Car {
     object App {
@@ -382,8 +382,8 @@ object AndroidX {
     }
   }
   object Concurrent {
-    val futures = "androidx.concurrent" d "concurrent-futures" w "1.3.0" w "1.4.0-alpha01"
-    val futures_ktx = "androidx.concurrent" d "concurrent-futures-ktx" w "1.3.0" w "1.4.0-alpha01"
+    val futures = "androidx.concurrent" d "concurrent-futures" w "1.3.0" w "1.4.0-beta01"
+    val futures_ktx = "androidx.concurrent" d "concurrent-futures-ktx" w "1.3.0" w "1.4.0-beta01"
   }
   object ConstraintLayout {
     val compose = "androidx.constraintlayout" d "constraintlayout-compose" w "1.1.2"
@@ -489,7 +489,7 @@ object AndroidX {
     }
   }
   object Heifwriter {
-    val heifwriter = "androidx.heifwriter" d "heifwriter" w "1.1.0" w "1.2.0-rc02"
+    val heifwriter = "androidx.heifwriter" d "heifwriter" w "1.2.0"
   }
   object Hilt {
     val compiler = "androidx.hilt" d "hilt-compiler" w "1.4.0"
@@ -573,7 +573,7 @@ object AndroidX {
     val ui_leanback = "androidx.media3" d "media3-ui-leanback" w "1.11.1" w "1.12.0-beta01"
   }
   object MediaRouter {
-    val mediarouter = "androidx.mediarouter" d "mediarouter" w "1.8.1" w "1.9.0-rc01"
+    val mediarouter = "androidx.mediarouter" d "mediarouter" w "1.9.0"
   }
   object Metrics {
     val performance = "androidx.metrics" d "metrics-performance" w "1.0.0"
@@ -598,16 +598,16 @@ object AndroidX {
     val ui_ktx = "androidx.navigation" d "navigation-ui-ktx" w "2.10.2"
   }
   object Paging {
-    val common = "androidx.paging" d "paging-common" w "3.5.3"
-    val common_ktx = "androidx.paging" d "paging-common-ktx" w "3.5.3"
-    val compose = "androidx.paging" d "paging-compose" w "3.5.3"
-    val guava = "androidx.paging" d "paging-guava" w "3.5.3"
-    val runtime = "androidx.paging" d "paging-runtime" w "3.5.3"
-    val runtime_ktx = "androidx.paging" d "paging-runtime-ktx" w "3.5.3"
-    val rxjava2 = "androidx.paging" d "paging-rxjava2" w "3.5.3"
-    val rxjava2_ktx = "androidx.paging" d "paging-rxjava2-ktx" w "3.5.3"
-    val rxjava3 = "androidx.paging" d "paging-rxjava3" w "3.5.3"
-    val testing = "androidx.paging" d "paging-testing" w "3.5.3"
+    val common = "androidx.paging" d "paging-common" w "3.5.3" w "3.6.0-alpha01"
+    val common_ktx = "androidx.paging" d "paging-common-ktx" w "3.5.3" w "3.6.0-alpha01"
+    val compose = "androidx.paging" d "paging-compose" w "3.5.3" w "3.6.0-alpha01"
+    val guava = "androidx.paging" d "paging-guava" w "3.5.3" w "3.6.0-alpha01"
+    val runtime = "androidx.paging" d "paging-runtime" w "3.5.3" w "3.6.0-alpha01"
+    val runtime_ktx = "androidx.paging" d "paging-runtime-ktx" w "3.5.3" w "3.6.0-alpha01"
+    val rxjava2 = "androidx.paging" d "paging-rxjava2" w "3.5.3" w "3.6.0-alpha01"
+    val rxjava2_ktx = "androidx.paging" d "paging-rxjava2-ktx" w "3.5.3" w "3.6.0-alpha01"
+    val rxjava3 = "androidx.paging" d "paging-rxjava3" w "3.5.3" w "3.6.0-alpha01"
+    val testing = "androidx.paging" d "paging-testing" w "3.5.3" w "3.6.0-alpha01"
   }
   object Palette {
     val ktx = "androidx.palette" d "palette-ktx" w "1.1.0"
@@ -672,9 +672,9 @@ object AndroidX {
     val slidingpanelayout = "androidx.slidingpanelayout" d "slidingpanelayout" w "1.2.0"
   }
   object Sqlite {
-    val framework = "androidx.sqlite" d "sqlite-framework" w "2.7.1" w "2.8.0-alpha03"
-    val ktx = "androidx.sqlite" d "sqlite-ktx" w "2.7.1" w "2.8.0-alpha03"
-    val sqlite = "androidx.sqlite" d "sqlite" w "2.7.1" w "2.8.0-alpha03"
+    val framework = "androidx.sqlite" d "sqlite-framework" w "2.7.1" w "2.8.0-alpha04"
+    val ktx = "androidx.sqlite" d "sqlite-ktx" w "2.7.1" w "2.8.0-alpha04"
+    val sqlite = "androidx.sqlite" d "sqlite" w "2.7.1" w "2.8.0-alpha04"
   }
   object Startup {
     val runtime = "androidx.startup" d "startup-runtime" w "1.2.0"
@@ -720,9 +720,9 @@ object AndroidX {
     val textclassifier = "androidx.textclassifier" d "textclassifier" w "1.0.0-alpha04"
   }
   object Tracing {
-    val ktx = "androidx.tracing" d "tracing-ktx" w "2.0.5"
+    val ktx = "androidx.tracing" d "tracing-ktx" w "2.0.5" w "2.1.0-alpha01"
     val perfetto = "androidx.tracing" d "tracing-perfetto" w "1.0.1"
-    val tracing = "androidx.tracing" d "tracing" w "2.0.5"
+    val tracing = "androidx.tracing" d "tracing" w "2.0.5" w "2.1.0-alpha01"
   }
   object Transition {
     val ktx = "androidx.transition" d "transition-ktx" w "1.7.2"
@@ -832,7 +832,7 @@ object Co {
 object Com {
   object Android {
     object Billingclient {
-      val billing = "com.android.billingclient" d "billing" w "9.1.0"
+      val billing = "com.android.billingclient" d "billing" w "9.2.0"
       val billing_ktx = "com.android.billingclient" d "billing-ktx" w "9.1.0"
     }
     object Installreferrer {
@@ -1561,7 +1561,7 @@ object Io {
     }
   }
   object Projectreactor {
-    val reactor_test = "io.projectreactor" d "reactor-test" w "3.8.8" w "3.9.0-RC1"
+    val reactor_test = "io.projectreactor" d "reactor-test" w "3.9.0"
     object Kotlin {
       val reactor_kotlin_extensions = "io.projectreactor.kotlin" d "reactor-kotlin-extensions" w "1.3.3"
     }
@@ -2172,7 +2172,7 @@ object Org {
       val spring_kafka_test = "org.springframework.kafka" d "spring-kafka-test" w "4.1.2" w "4.2.0-RC1"
     }
     object Restdocs {
-      val spring_restdocs_webtestclient = "org.springframework.restdocs" d "spring-restdocs-webtestclient" w "4.0.2" w "4.1.0-RC1"
+      val spring_restdocs_webtestclient = "org.springframework.restdocs" d "spring-restdocs-webtestclient" w "4.1.0"
     }
     object Security {
       val spring_security_messaging = "org.springframework.security" d "spring-security-messaging" w "7.1.2" w "7.2.0-RC1"
